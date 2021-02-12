@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Consumption.Latest
     /// A budget resource.
     /// Latest API Version: 2019-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:Budget'.")]
     [AzureNextGenResourceType("azure-nextgen:consumption/latest:Budget")]
     public partial class Budget : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.Consumption.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:consumption:Budget"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20190101:Budget"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20190401preview:Budget"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20190501:Budget"},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
     /// Definition of the configuration type.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:DscConfiguration'.")]
     [AzureNextGenResourceType("azure-nextgen:automation/latest:DscConfiguration")]
     public partial class DscConfiguration : Pulumi.CustomResource
     {
@@ -131,6 +132,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:DscConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:DscConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:DscConfiguration"},
                 },

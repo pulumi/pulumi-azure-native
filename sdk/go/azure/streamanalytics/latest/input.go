@@ -13,6 +13,8 @@ import (
 
 // An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 // Latest API Version: 2016-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Input'.
 type Input struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +43,9 @@ func NewInput(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:streamanalytics:Input"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20160301:Input"),
 		},

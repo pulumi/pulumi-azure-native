@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ApiOperation']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiOperation'.""", DeprecationWarning)
+
 
 class ApiOperation(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiOperation'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +55,7 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterContractArgs']]]] template_parameters: Collection of URL template parameters.
         :param pulumi.Input[str] url_template: Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
         """
+        pulumi.log.warn("ApiOperation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiOperation'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,7 +101,7 @@ class ApiOperation(pulumi.CustomResource):
             __props__['url_template'] = url_template
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiOperation"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiOperation, __self__).__init__(
             'azure-nextgen:apimanagement/latest:ApiOperation',

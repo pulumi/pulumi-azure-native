@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
     /// Experiment information.
     /// Latest API Version: 2018-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Experiment'.")]
     [AzureNextGenResourceType("azure-nextgen:batchai/latest:Experiment")]
     public partial class Experiment : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai:Experiment"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Experiment"},
                 },
             };

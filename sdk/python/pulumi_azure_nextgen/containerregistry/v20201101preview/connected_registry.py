@@ -85,6 +85,8 @@ class ConnectedRegistry(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['type'] = None
             __props__['version'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry:ConnectedRegistry")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectedRegistry, __self__).__init__(
             'azure-nextgen:containerregistry/v20201101preview:ConnectedRegistry',
             resource_name,

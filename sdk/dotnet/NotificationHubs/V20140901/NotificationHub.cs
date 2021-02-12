@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs:NotificationHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/latest:NotificationHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:NotificationHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20170401:NotificationHub"},

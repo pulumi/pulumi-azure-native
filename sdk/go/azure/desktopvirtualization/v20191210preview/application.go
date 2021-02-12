@@ -62,6 +62,9 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190123preview:Application"),
 		},
 		{

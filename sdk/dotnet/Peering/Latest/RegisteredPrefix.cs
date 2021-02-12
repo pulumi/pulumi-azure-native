@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
     /// The customer's prefix that is registered by the peering service provider.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredPrefix'.")]
     [AzureNextGenResourceType("azure-nextgen:peering/latest:RegisteredPrefix")]
     public partial class RegisteredPrefix : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:peering:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:RegisteredPrefix"},

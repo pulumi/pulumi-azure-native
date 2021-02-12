@@ -64,6 +64,8 @@ class Artifact(pulumi.CustomResource):
             __props__['resource_scope'] = resource_scope
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:blueprint:Artifact")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Artifact, __self__).__init__(
             'azure-nextgen:blueprint/v20181101preview:Artifact',
             resource_name,

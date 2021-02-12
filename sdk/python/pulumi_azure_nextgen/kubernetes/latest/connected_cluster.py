@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ConnectedCluster']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetes:ConnectedCluster'.""", DeprecationWarning)
+
 
 class ConnectedCluster(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetes:ConnectedCluster'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class ConnectedCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("ConnectedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetes:ConnectedCluster'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -91,7 +96,7 @@ class ConnectedCluster(pulumi.CustomResource):
             __props__['total_core_count'] = None
             __props__['total_node_count'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kubernetes/v20200101preview:ConnectedCluster"), pulumi.Alias(type_="azure-nextgen:kubernetes/v20210301:ConnectedCluster"), pulumi.Alias(type_="azure-nextgen:kubernetes/v20210401preview:ConnectedCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kubernetes:ConnectedCluster"), pulumi.Alias(type_="azure-nextgen:kubernetes/v20200101preview:ConnectedCluster"), pulumi.Alias(type_="azure-nextgen:kubernetes/v20210301:ConnectedCluster"), pulumi.Alias(type_="azure-nextgen:kubernetes/v20210401preview:ConnectedCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectedCluster, __self__).__init__(
             'azure-nextgen:kubernetes/latest:ConnectedCluster',

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
     /// The storage account.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:StorageAccount'.")]
     [AzureNextGenResourceType("azure-nextgen:storage/latest:StorageAccount")]
     public partial class StorageAccount : Pulumi.CustomResource
     {
@@ -233,6 +234,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20150501preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20150615:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20160101:StorageAccount"},

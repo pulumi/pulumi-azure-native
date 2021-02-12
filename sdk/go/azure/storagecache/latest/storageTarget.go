@@ -13,6 +13,8 @@ import (
 
 // Type of the Storage Target.
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:StorageTarget'.
 type StorageTarget struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +60,9 @@ func NewStorageTarget(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TargetType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storagecache:StorageTarget"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20190801preview:StorageTarget"),
 		},

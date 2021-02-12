@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:NamespaceAuthorizationRule"},

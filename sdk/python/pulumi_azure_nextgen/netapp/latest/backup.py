@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Backup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Backup'.""", DeprecationWarning)
+
 
 class Backup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Backup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class Backup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] volume_name: The name of the volume
         """
+        pulumi.log.warn("Backup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Backup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class Backup(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['size'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Backup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Backup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backup, __self__).__init__(
             'azure-nextgen:netapp/latest:Backup',

@@ -110,7 +110,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedidentity/latest:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity/v20181130:UserAssignedIdentity" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedidentity:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity/latest:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity/v20181130:UserAssignedIdentity" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(UserAssignedIdentity.__pulumiType, name, inputs, opts);
     }

@@ -237,7 +237,7 @@ export class Component extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/latest:Component" }, { type: "azure-nextgen:insights/v20150501:Component" }, { type: "azure-nextgen:insights/v20180501preview:Component" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:Component" }, { type: "azure-nextgen:insights/latest:Component" }, { type: "azure-nextgen:insights/v20150501:Component" }, { type: "azure-nextgen:insights/v20180501preview:Component" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Component.__pulumiType, name, inputs, opts);
     }

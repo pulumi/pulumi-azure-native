@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * P2SVpnServerConfiguration Resource.
  * Latest API Version: 2019-07-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnServerConfiguration'.
  */
 export class P2sVpnServerConfiguration extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): P2sVpnServerConfiguration {
+        pulumi.log.warn("P2sVpnServerConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnServerConfiguration'.")
         return new P2sVpnServerConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -92,7 +95,9 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnServerConfiguration'. */
     constructor(name: string, args: P2sVpnServerConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("P2sVpnServerConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnServerConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.p2SVpnServerConfigurationName === undefined) && !(opts && opts.urn)) {
@@ -141,7 +146,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180801:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20181001:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20181101:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20181201:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20190201:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20190401:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20190601:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20190701:P2sVpnServerConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20180801:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20181001:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20181101:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20181201:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20190201:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20190401:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20190601:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20190701:P2sVpnServerConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(P2sVpnServerConfiguration.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Enterprise Channel resource definition
  * Latest API Version: 2018-07-12.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:EnterpriseChannel'.
  */
 export class EnterpriseChannel extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class EnterpriseChannel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EnterpriseChannel {
+        pulumi.log.warn("EnterpriseChannel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:EnterpriseChannel'.")
         return new EnterpriseChannel(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class EnterpriseChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:EnterpriseChannel'. */
     constructor(name: string, args: EnterpriseChannelArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("EnterpriseChannel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:EnterpriseChannel'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -112,7 +117,7 @@ export class EnterpriseChannel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice/v20180712:EnterpriseChannel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice:EnterpriseChannel" }, { type: "azure-nextgen:botservice/v20180712:EnterpriseChannel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EnterpriseChannel.__pulumiType, name, inputs, opts);
     }

@@ -98,7 +98,7 @@ export class ApiPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20170301:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20180101:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20190101:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20191201:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ApiPolicy" }, { type: "azure-nextgen:apimanagement/latest:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20170301:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20180101:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20190101:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20191201:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiPolicy.__pulumiType, name, inputs, opts);
     }

@@ -163,7 +163,7 @@ export class GalleryImage extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices/latest:GalleryImage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices:GalleryImage" }, { type: "azure-nextgen:labservices/latest:GalleryImage" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryImage.__pulumiType, name, inputs, opts);
     }

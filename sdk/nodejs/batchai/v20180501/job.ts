@@ -266,7 +266,7 @@ export class Job extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batchai/latest:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batchai:Job" }, { type: "azure-nextgen:batchai/latest:Job" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Job.__pulumiType, name, inputs, opts);
     }

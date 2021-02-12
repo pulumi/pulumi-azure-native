@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:StorageDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:StorageDomain"},
                 },
             };

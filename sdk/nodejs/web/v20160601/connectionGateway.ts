@@ -97,7 +97,7 @@ export class ConnectionGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:ConnectionGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:ConnectionGateway" }, { type: "azure-nextgen:web/latest:ConnectionGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConnectionGateway.__pulumiType, name, inputs, opts);
     }

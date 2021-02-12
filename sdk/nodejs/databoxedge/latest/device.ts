@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The Data Box Edge/Gateway device.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Device'.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Device extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Device {
+        pulumi.log.warn("Device is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Device'.")
         return new Device(name, undefined as any, { ...opts, id: id });
     }
 
@@ -144,7 +147,9 @@ export class Device extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Device'. */
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Device is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Device'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
@@ -214,7 +219,7 @@ export class Device extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:Device" }, { type: "azure-nextgen:databoxedge/v20190701:Device" }, { type: "azure-nextgen:databoxedge/v20190801:Device" }, { type: "azure-nextgen:databoxedge/v20200501preview:Device" }, { type: "azure-nextgen:databoxedge/v20200901:Device" }, { type: "azure-nextgen:databoxedge/v20200901preview:Device" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Device" }, { type: "azure-nextgen:databoxedge/v20190301:Device" }, { type: "azure-nextgen:databoxedge/v20190701:Device" }, { type: "azure-nextgen:databoxedge/v20190801:Device" }, { type: "azure-nextgen:databoxedge/v20200501preview:Device" }, { type: "azure-nextgen:databoxedge/v20200901:Device" }, { type: "azure-nextgen:databoxedge/v20200901preview:Device" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Device.__pulumiType, name, inputs, opts);
     }

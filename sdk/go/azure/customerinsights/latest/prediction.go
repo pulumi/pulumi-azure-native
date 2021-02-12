@@ -13,6 +13,8 @@ import (
 
 // The prediction resource format.
 // Latest API Version: 2017-04-26.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Prediction'.
 type Prediction struct {
 	pulumi.CustomResourceState
 
@@ -94,6 +96,9 @@ func NewPrediction(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ScoreLabel'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:customerinsights:Prediction"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:Prediction"),
 		},

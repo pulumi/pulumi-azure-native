@@ -157,7 +157,7 @@ export class Lab extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices/latest:Lab" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices:Lab" }, { type: "azure-nextgen:labservices/latest:Lab" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Lab.__pulumiType, name, inputs, opts);
     }

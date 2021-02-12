@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
     /// Contains information about a database Threat Detection policy.
     /// Latest API Version: 2014-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DatabaseThreatDetectionPolicy'.")]
     [AzureNextGenResourceType("azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy")]
     public partial class DatabaseThreatDetectionPolicy : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:DatabaseThreatDetectionPolicy"},

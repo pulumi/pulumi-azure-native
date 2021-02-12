@@ -80,7 +80,7 @@ class Environment(pulumi.CustomResource):
             __props__['resource_group_id'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/latest:Environment"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Environment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:Environment"), pulumi.Alias(type_="azure-nextgen:devtestlab/latest:Environment"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Environment, __self__).__init__(
             'azure-nextgen:devtestlab/v20180915:Environment',

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// A web app, a mobile app backend, or an API app.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebApp'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebApp")]
     public partial class WebApp : Pulumi.CustomResource
     {
@@ -318,6 +319,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebApp"},

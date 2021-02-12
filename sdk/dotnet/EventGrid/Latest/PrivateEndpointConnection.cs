@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
     /// <summary>
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:PrivateEndpointConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:eventgrid/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
@@ -76,6 +77,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:PrivateEndpointConnection"},

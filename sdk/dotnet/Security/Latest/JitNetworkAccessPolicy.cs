@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
     /// <summary>
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:JitNetworkAccessPolicy'.")]
     [AzureNextGenResourceType("azure-nextgen:security/latest:JitNetworkAccessPolicy")]
     public partial class JitNetworkAccessPolicy : Pulumi.CustomResource
     {
@@ -79,6 +80,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200101:JitNetworkAccessPolicy"},
                 },

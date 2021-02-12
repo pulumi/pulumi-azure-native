@@ -40,6 +40,12 @@ func NewAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:automanage:Account"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Account
 	err := ctx.RegisterResource("azure-nextgen:automanage/v20200630preview:Account", name, args, &resource, opts...)
 	if err != nil {

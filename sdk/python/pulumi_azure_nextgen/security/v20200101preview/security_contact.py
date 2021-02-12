@@ -63,7 +63,7 @@ class SecurityContact(pulumi.CustomResource):
             __props__['security_contact_name'] = security_contact_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20170801preview:SecurityContact")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:SecurityContact"), pulumi.Alias(type_="azure-nextgen:security/v20170801preview:SecurityContact")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityContact, __self__).__init__(
             'azure-nextgen:security/v20200101preview:SecurityContact',

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
     /// Linked workspace.
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:LinkedWorkspace'.")]
     [AzureNextGenResourceType("azure-nextgen:machinelearningservices/latest:LinkedWorkspace")]
     public partial class LinkedWorkspace : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:LinkedWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200301:LinkedWorkspace"},
                 },
             };

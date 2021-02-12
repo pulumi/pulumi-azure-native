@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
     /// Backup of a Volume
     /// Latest API Version: 2020-11-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Backup'.")]
     [AzureNextGenResourceType("azure-nextgen:netapp/latest:Backup")]
     public partial class Backup : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Backup"},

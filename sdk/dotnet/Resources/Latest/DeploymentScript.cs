@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
     /// Deployment script object.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentScript'.")]
     [AzureNextGenResourceType("azure-nextgen:resources/latest:DeploymentScript")]
     public partial class DeploymentScript : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001preview:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentScript"},
                 },

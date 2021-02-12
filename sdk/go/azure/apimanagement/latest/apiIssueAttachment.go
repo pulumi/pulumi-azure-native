@@ -13,6 +13,8 @@ import (
 
 // Issue Attachment Contract details.
 // Latest API Version: 2019-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueAttachment'.
 type ApiIssueAttachment struct {
 	pulumi.CustomResourceState
 
@@ -60,6 +62,9 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Title'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement:ApiIssueAttachment"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiIssueAttachment"),
 		},

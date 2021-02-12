@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['WorkspaceCollection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbi:WorkspaceCollection'.""", DeprecationWarning)
+
 
 class WorkspaceCollection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbi:WorkspaceCollection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class WorkspaceCollection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Azure resource group
         :param pulumi.Input[str] workspace_collection_name: Power BI Embedded Workspace Collection name
         """
+        pulumi.log.warn("WorkspaceCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbi:WorkspaceCollection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -64,7 +69,7 @@ class WorkspaceCollection(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:powerbi/v20160129:WorkspaceCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:powerbi:WorkspaceCollection"), pulumi.Alias(type_="azure-nextgen:powerbi/v20160129:WorkspaceCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceCollection, __self__).__init__(
             'azure-nextgen:powerbi/latest:WorkspaceCollection',

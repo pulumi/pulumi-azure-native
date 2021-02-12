@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Vault']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Vault'.""", DeprecationWarning)
+
 
 class Vault(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Vault'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the key vault.
         :param pulumi.Input[str] vault_name: Name of the vault
         """
+        pulumi.log.warn("Vault is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Vault'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class Vault(pulumi.CustomResource):
             __props__['vault_name'] = vault_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault/v20150601:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20161001:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214preview:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20190901:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:Vault")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20150601:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20161001:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214preview:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20190901:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:Vault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Vault, __self__).__init__(
             'azure-nextgen:keyvault/latest:Vault',

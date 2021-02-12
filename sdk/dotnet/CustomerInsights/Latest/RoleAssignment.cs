@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
     /// The Role Assignment resource format.
     /// Latest API Version: 2017-04-26.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RoleAssignment'.")]
     [AzureNextGenResourceType("azure-nextgen:customerinsights/latest:RoleAssignment")]
     public partial class RoleAssignment : Pulumi.CustomResource
     {
@@ -173,6 +174,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:RoleAssignment"},
                 },

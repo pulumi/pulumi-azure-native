@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents user credentials used for publishing activity
  * Latest API Version: 2015-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeploymentSlot'.
  */
 export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SiteInstanceDeploymentSlot {
+        pulumi.log.warn("SiteInstanceDeploymentSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeploymentSlot'.")
         return new SiteInstanceDeploymentSlot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -99,7 +102,9 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeploymentSlot'. */
     constructor(name: string, args: SiteInstanceDeploymentSlotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SiteInstanceDeploymentSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeploymentSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.id === undefined) && !(opts && opts.urn)) {
@@ -158,7 +163,7 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteInstanceDeploymentSlot" }, { type: "azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteInstanceDeploymentSlot.__pulumiType, name, inputs, opts);
     }

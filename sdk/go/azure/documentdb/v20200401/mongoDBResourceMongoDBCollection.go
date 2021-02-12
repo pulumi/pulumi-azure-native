@@ -54,6 +54,9 @@ func NewMongoDBResourceMongoDBCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb:MongoDBResourceMongoDBCollection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection"),
 		},
 		{

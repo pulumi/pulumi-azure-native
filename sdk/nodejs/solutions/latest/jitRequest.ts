@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Information about JIT request definition.
  * Latest API Version: 2019-07-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:JitRequest'.
  */
 export class JitRequest extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class JitRequest extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): JitRequest {
+        pulumi.log.warn("JitRequest is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:JitRequest'.")
         return new JitRequest(name, undefined as any, { ...opts, id: id });
     }
 
@@ -92,7 +95,9 @@ export class JitRequest extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:JitRequest'. */
     constructor(name: string, args: JitRequestArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("JitRequest is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:JitRequest'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.applicationResourceId === undefined) && !(opts && opts.urn)) {
@@ -145,7 +150,7 @@ export class JitRequest extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:solutions/v20190701:JitRequest" }, { type: "azure-nextgen:solutions/v20200821preview:JitRequest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:solutions:JitRequest" }, { type: "azure-nextgen:solutions/v20190701:JitRequest" }, { type: "azure-nextgen:solutions/v20200821preview:JitRequest" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JitRequest.__pulumiType, name, inputs, opts);
     }

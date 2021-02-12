@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
     /// Description of a namespace resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Namespace'.")]
     [AzureNextGenResourceType("azure-nextgen:servicebus/latest:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Namespace"},

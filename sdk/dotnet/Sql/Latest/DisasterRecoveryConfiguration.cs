@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
     /// Represents a disaster recovery configuration.
     /// Latest API Version: 2014-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DisasterRecoveryConfiguration'.")]
     [AzureNextGenResourceType("azure-nextgen:sql/latest:DisasterRecoveryConfiguration")]
     public partial class DisasterRecoveryConfiguration : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:DisasterRecoveryConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration"},
                 },
             };

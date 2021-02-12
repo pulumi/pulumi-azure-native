@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.DevSpaces.Latest
     /// <summary>
     /// Latest API Version: 2019-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devspaces:Controller'.")]
     [AzureNextGenResourceType("azure-nextgen:devspaces/latest:Controller")]
     public partial class Controller : Pulumi.CustomResource
     {
@@ -106,6 +107,7 @@ namespace Pulumi.AzureNextGen.DevSpaces.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devspaces:Controller"},
                     new Pulumi.Alias { Type = "azure-nextgen:devspaces/v20190401:Controller"},
                 },
             };

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a lab.
  * Latest API Version: 2018-10-15.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:Lab'.
  */
 export class Lab extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Lab extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Lab {
+        pulumi.log.warn("Lab is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:Lab'.")
         return new Lab(name, undefined as any, { ...opts, id: id });
     }
 
@@ -104,7 +107,9 @@ export class Lab extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:Lab'. */
     constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Lab is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:Lab'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labAccountName === undefined) && !(opts && opts.urn)) {
@@ -158,7 +163,7 @@ export class Lab extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices/v20181015:Lab" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices:Lab" }, { type: "azure-nextgen:labservices/v20181015:Lab" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Lab.__pulumiType, name, inputs, opts);
     }

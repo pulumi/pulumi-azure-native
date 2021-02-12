@@ -66,6 +66,12 @@ func NewSqlVirtualMachine(ctx *pulumi.Context,
 	if args.SqlVirtualMachineName == nil {
 		return nil, errors.New("invalid value for required argument 'SqlVirtualMachineName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sqlvirtualmachine:SqlVirtualMachine"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlVirtualMachine
 	err := ctx.RegisterResource("azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachine", name, args, &resource, opts...)
 	if err != nil {

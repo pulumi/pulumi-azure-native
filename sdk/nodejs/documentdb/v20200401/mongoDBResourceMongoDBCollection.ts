@@ -107,7 +107,7 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MongoDBResourceMongoDBCollection.__pulumiType, name, inputs, opts);
     }

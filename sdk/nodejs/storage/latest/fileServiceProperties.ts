@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The properties of File services in storage account.
  * Latest API Version: 2019-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileServiceProperties'.
  */
 export class FileServiceProperties extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class FileServiceProperties extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FileServiceProperties {
+        pulumi.log.warn("FileServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileServiceProperties'.")
         return new FileServiceProperties(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class FileServiceProperties extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileServiceProperties'. */
     constructor(name: string, args: FileServicePropertiesArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("FileServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileServiceProperties'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -98,7 +103,7 @@ export class FileServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/v20190401:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190601:FileServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:FileServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190401:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190601:FileServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:FileServiceProperties" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileServiceProperties.__pulumiType, name, inputs, opts);
     }

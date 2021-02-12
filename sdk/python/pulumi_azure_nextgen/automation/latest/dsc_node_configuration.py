@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['DscNodeConfiguration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:DscNodeConfiguration'.""", DeprecationWarning)
+
 
 class DscNodeConfiguration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:DscNodeConfiguration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ContentSourceArgs']] source: Gets or sets the source.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
+        pulumi.log.warn("DscNodeConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:DscNodeConfiguration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,7 +88,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
             __props__['last_modified_time'] = None
             __props__['node_count'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:DscNodeConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20180115:DscNodeConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:DscNodeConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:DscNodeConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:DscNodeConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:DscNodeConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20180115:DscNodeConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:DscNodeConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:DscNodeConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DscNodeConfiguration, __self__).__init__(
             'azure-nextgen:automation/latest:DscNodeConfiguration',

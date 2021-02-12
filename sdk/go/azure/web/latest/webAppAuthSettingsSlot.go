@@ -13,6 +13,8 @@ import (
 
 // Configuration settings for the Azure App Service Authentication / Authorization feature.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettingsSlot'.
 type WebAppAuthSettingsSlot struct {
 	pulumi.CustomResourceState
 
@@ -168,6 +170,9 @@ func NewWebAppAuthSettingsSlot(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:WebAppAuthSettingsSlot"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppAuthSettingsSlot"),
 		},

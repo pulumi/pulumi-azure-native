@@ -13,6 +13,8 @@ import (
 
 // Represents a lab account.
 // Latest API Version: 2018-10-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:LabAccount'.
 type LabAccount struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewLabAccount(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:labservices:LabAccount"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:labservices/v20181015:LabAccount"),
 		},

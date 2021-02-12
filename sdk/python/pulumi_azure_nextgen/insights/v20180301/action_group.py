@@ -100,7 +100,7 @@ class ActionGroup(pulumi.CustomResource):
             __props__['webhook_receivers'] = webhook_receivers
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/latest:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20170401:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20180901:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20190301:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20190601:ActionGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/latest:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20170401:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20180901:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20190301:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20190601:ActionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ActionGroup, __self__).__init__(
             'azure-nextgen:insights/v20180301:ActionGroup',

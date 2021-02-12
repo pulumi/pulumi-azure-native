@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190123preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190924preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20191210preview:ApplicationGroup"},

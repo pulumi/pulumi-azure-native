@@ -337,6 +337,7 @@ namespace Pulumi.AzureNextGen.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppAuthSettings"},

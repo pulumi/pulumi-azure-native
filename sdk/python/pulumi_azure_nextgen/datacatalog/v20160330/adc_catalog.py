@@ -83,7 +83,7 @@ class ADCCatalog(pulumi.CustomResource):
             __props__['users'] = users
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datacatalog/latest:ADCCatalog")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datacatalog:ADCCatalog"), pulumi.Alias(type_="azure-nextgen:datacatalog/latest:ADCCatalog")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ADCCatalog, __self__).__init__(
             'azure-nextgen:datacatalog/v20160330:ADCCatalog',

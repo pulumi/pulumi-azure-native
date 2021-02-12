@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Virtual Network route contract used to pass routing information for a Virtual Network.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServicePlanRouteForVnet'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:AppServicePlanRouteForVnet")]
     public partial class AppServicePlanRouteForVnet : Pulumi.CustomResource
     {
@@ -88,6 +89,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:AppServicePlanRouteForVnet"},

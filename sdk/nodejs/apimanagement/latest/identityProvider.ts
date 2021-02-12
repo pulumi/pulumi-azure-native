@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Identity Provider details.
  * Latest API Version: 2019-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:IdentityProvider'.
  */
 export class IdentityProvider extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class IdentityProvider extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IdentityProvider {
+        pulumi.log.warn("IdentityProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:IdentityProvider'.")
         return new IdentityProvider(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,7 +91,9 @@ export class IdentityProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:IdentityProvider'. */
     constructor(name: string, args: IdentityProviderArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IdentityProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:IdentityProvider'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
@@ -140,7 +145,7 @@ export class IdentityProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20160707:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20161010:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20170301:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20180101:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20180601preview:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20190101:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20191201:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20191201preview:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20200601preview:IdentityProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20160707:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20161010:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20170301:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20180101:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20180601preview:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20190101:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20191201:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20191201preview:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20200601preview:IdentityProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IdentityProvider.__pulumiType, name, inputs, opts);
     }

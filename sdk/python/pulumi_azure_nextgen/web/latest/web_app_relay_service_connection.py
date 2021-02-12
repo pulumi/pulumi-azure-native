@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppRelayServiceConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppRelayServiceConnection'.""", DeprecationWarning)
+
 
 class WebAppRelayServiceConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppRelayServiceConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
+        pulumi.log.warn("WebAppRelayServiceConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppRelayServiceConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -74,7 +79,7 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
             __props__['resource_type'] = resource_type
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppRelayServiceConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppRelayServiceConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppRelayServiceConnection, __self__).__init__(
             'azure-nextgen:web/latest:WebAppRelayServiceConnection',

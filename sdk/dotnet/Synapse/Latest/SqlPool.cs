@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
     /// A SQL Analytics pool
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPool'.")]
     [AzureNextGenResourceType("azure-nextgen:synapse/latest:SqlPool")]
     public partial class SqlPool : Pulumi.CustomResource
     {
@@ -131,6 +132,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:SqlPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20200401preview:SqlPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:SqlPool"},

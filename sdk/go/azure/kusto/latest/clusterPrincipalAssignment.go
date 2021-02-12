@@ -13,6 +13,8 @@ import (
 
 // Class representing a cluster principal assignment.
 // Latest API Version: 2020-09-18.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:ClusterPrincipalAssignment'.
 type ClusterPrincipalAssignment struct {
 	pulumi.CustomResourceState
 
@@ -62,6 +64,9 @@ func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:kusto:ClusterPrincipalAssignment"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment"),
 		},

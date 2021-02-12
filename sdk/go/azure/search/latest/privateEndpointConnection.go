@@ -13,6 +13,8 @@ import (
 
 // Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +43,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SearchServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:search:PrivateEndpointConnection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:search/v20191001preview:PrivateEndpointConnection"),
 		},

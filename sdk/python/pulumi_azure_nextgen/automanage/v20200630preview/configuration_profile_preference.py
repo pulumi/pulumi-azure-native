@@ -65,6 +65,8 @@ class ConfigurationProfilePreference(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automanage:ConfigurationProfilePreference")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationProfilePreference, __self__).__init__(
             'azure-nextgen:automanage/v20200630preview:ConfigurationProfilePreference',
             resource_name,

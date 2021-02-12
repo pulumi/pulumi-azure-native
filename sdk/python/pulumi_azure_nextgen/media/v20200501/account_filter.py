@@ -71,7 +71,7 @@ class AccountFilter(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:AccountFilter"), pulumi.Alias(type_="azure-nextgen:media/v20180701:AccountFilter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:AccountFilter"), pulumi.Alias(type_="azure-nextgen:media/latest:AccountFilter"), pulumi.Alias(type_="azure-nextgen:media/v20180701:AccountFilter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccountFilter, __self__).__init__(
             'azure-nextgen:media/v20200501:AccountFilter',

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// The iSCSI server.
     /// Latest API Version: 2016-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiServer'.")]
     [AzureNextGenResourceType("azure-nextgen:storsimple/latest:IscsiServer")]
     public partial class IscsiServer : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:IscsiServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:IscsiServer"},
                 },
             };

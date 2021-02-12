@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppHostNameBinding"},

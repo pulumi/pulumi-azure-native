@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['ApiIssueAttachment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueAttachment'.""", DeprecationWarning)
+
 
 class ApiIssueAttachment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueAttachment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] title: Filename by which the binary data will be saved.
         """
+        pulumi.log.warn("ApiIssueAttachment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueAttachment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -84,7 +89,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
             __props__['title'] = title
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssueAttachment, __self__).__init__(
             'azure-nextgen:apimanagement/latest:ApiIssueAttachment',

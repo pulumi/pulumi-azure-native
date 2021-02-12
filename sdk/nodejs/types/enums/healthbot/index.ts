@@ -15,3 +15,14 @@ export {
     v20201208,
     v20201208preview,
 };
+
+export const SkuName = {
+    F0: "F0",
+    S1: "S1",
+    C0: "C0",
+} as const;
+
+/**
+ * The name of the HealthBot SKU
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];

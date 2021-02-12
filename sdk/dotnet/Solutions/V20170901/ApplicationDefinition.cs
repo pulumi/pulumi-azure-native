@@ -136,6 +136,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/latest:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20180601:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:ApplicationDefinition"},

@@ -238,6 +238,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:Site"},

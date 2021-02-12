@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['ExportConfiguration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ExportConfiguration'.""", DeprecationWarning)
+
 
 class ExportConfiguration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ExportConfiguration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +53,7 @@ class ExportConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         """
+        pulumi.log.warn("ExportConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ExportConfiguration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,7 +101,7 @@ class ExportConfiguration(pulumi.CustomResource):
             __props__['resource_group'] = None
             __props__['storage_name'] = None
             __props__['subscription_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:ExportConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:ExportConfiguration"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:ExportConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExportConfiguration, __self__).__init__(
             'azure-nextgen:insights/latest:ExportConfiguration',

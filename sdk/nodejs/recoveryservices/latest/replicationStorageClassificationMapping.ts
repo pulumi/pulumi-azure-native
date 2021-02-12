@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Storage mapping object.
  * Latest API Version: 2018-07-10.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping'.
  */
 export class ReplicationStorageClassificationMapping extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReplicationStorageClassificationMapping {
+        pulumi.log.warn("ReplicationStorageClassificationMapping is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping'.")
         return new ReplicationStorageClassificationMapping(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping'. */
     constructor(name: string, args: ReplicationStorageClassificationMappingArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ReplicationStorageClassificationMapping is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
@@ -100,7 +105,7 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationStorageClassificationMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationStorageClassificationMapping" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationStorageClassificationMapping.__pulumiType, name, inputs, opts);
     }

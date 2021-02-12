@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Link']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Link'.""", DeprecationWarning)
+
 
 class Link(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Link'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +58,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input['EntityType'] target_entity_type: Type of target entity.
         :param pulumi.Input[str] target_entity_type_name: Name of the target Entity Type.
         """
+        pulumi.log.warn("Link is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Link'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -104,7 +109,7 @@ class Link(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:Link"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Link")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:Link"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:Link"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Link")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Link, __self__).__init__(
             'azure-nextgen:customerinsights/latest:Link',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['AFDCustomDomain']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDCustomDomain'.""", DeprecationWarning)
+
 
 class AFDCustomDomain(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDCustomDomain'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class AFDCustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[pulumi.InputType['AFDDomainHttpsParametersArgs']] tls_settings: The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
         """
+        pulumi.log.warn("AFDCustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDCustomDomain'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class AFDCustomDomain(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['type'] = None
             __props__['validation_properties'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20200901:AFDCustomDomain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:AFDCustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:AFDCustomDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AFDCustomDomain, __self__).__init__(
             'azure-nextgen:cdn/latest:AFDCustomDomain',

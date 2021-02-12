@@ -81,7 +81,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['vendor'] = vendor
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPremierAddOn")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPremierAddOn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPremierAddOn, __self__).__init__(
             'azure-nextgen:web/v20180201:WebAppPremierAddOn',

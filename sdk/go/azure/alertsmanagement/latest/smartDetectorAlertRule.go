@@ -13,6 +13,8 @@ import (
 
 // The alert rule information
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:alertsmanagement:SmartDetectorAlertRule'.
 type SmartDetectorAlertRule struct {
 	pulumi.CustomResourceState
 
@@ -77,6 +79,9 @@ func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 		args.Location = pulumi.StringPtr("global")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:alertsmanagement:SmartDetectorAlertRule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule"),
 		},

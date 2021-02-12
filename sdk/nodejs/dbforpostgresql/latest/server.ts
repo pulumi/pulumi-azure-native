@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a server.
  * Latest API Version: 2017-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:Server'.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Server extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Server {
+        pulumi.log.warn("Server is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:Server'.")
         return new Server(name, undefined as any, { ...opts, id: id });
     }
 
@@ -128,7 +131,9 @@ export class Server extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:Server'. */
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Server is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:Server'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
@@ -194,7 +199,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/v20171201:Server" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql:Server" }, { type: "azure-nextgen:dbforpostgresql/v20171201:Server" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:Server" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Server.__pulumiType, name, inputs, opts);
     }

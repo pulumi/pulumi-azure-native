@@ -84,7 +84,7 @@ class Namespace(pulumi.CustomResource):
             __props__['metric_id'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/latest:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:Namespace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/latest:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Namespace, __self__).__init__(
             'azure-nextgen:eventhub/v20140901:Namespace',

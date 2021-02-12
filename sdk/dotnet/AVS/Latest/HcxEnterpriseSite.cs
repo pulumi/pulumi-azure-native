@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
     /// An HCX Enterprise Site resource
     /// Latest API Version: 2020-03-20.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:HcxEnterpriseSite'.")]
     [AzureNextGenResourceType("azure-nextgen:avs/latest:HcxEnterpriseSite")]
     public partial class HcxEnterpriseSite : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:avs:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:HcxEnterpriseSite"},
                 },

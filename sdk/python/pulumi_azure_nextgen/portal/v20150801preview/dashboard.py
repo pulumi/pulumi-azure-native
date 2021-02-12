@@ -67,7 +67,7 @@ class Dashboard(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal/v20181001preview:Dashboard"), pulumi.Alias(type_="azure-nextgen:portal/v20190101preview:Dashboard"), pulumi.Alias(type_="azure-nextgen:portal/v20200901preview:Dashboard")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal:Dashboard"), pulumi.Alias(type_="azure-nextgen:portal/v20181001preview:Dashboard"), pulumi.Alias(type_="azure-nextgen:portal/v20190101preview:Dashboard"), pulumi.Alias(type_="azure-nextgen:portal/v20200901preview:Dashboard")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Dashboard, __self__).__init__(
             'azure-nextgen:portal/v20150801preview:Dashboard',

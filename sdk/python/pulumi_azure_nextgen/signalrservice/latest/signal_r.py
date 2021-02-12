@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['SignalR']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:signalrservice:SignalR'.""", DeprecationWarning)
+
 
 class SignalR(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:signalrservice:SignalR'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +57,7 @@ class SignalR(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
         :param pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']] upstream: Upstream settings when the Azure SignalR is in server-less mode.
         """
+        pulumi.log.warn("SignalR is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:signalrservice:SignalR'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -94,7 +99,7 @@ class SignalR(pulumi.CustomResource):
             __props__['server_port'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:signalrservice/v20180301preview:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20181001:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20200501:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20200701preview:SignalR")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:signalrservice:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20180301preview:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20181001:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20200501:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20200701preview:SignalR")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalR, __self__).__init__(
             'azure-nextgen:signalrservice/latest:SignalR',

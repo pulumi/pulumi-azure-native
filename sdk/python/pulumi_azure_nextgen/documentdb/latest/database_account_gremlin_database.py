@@ -11,8 +11,12 @@ from ._inputs import *
 
 __all__ = ['DatabaseAccountGremlinDatabase']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountGremlinDatabase'.""", DeprecationWarning)
+
 
 class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountGremlinDatabase'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GremlinDatabaseResourceArgs']] resource: The standard JSON format of a Gremlin database
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         """
+        pulumi.log.warn("DatabaseAccountGremlinDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountGremlinDatabase'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
             __props__['tags'] = None
             __props__['ts'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountGremlinDatabase, __self__).__init__(
             'azure-nextgen:documentdb/latest:DatabaseAccountGremlinDatabase',

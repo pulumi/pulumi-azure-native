@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['DataConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:DataConnection'.""", DeprecationWarning)
+
 
 class DataConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:DataConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class DataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         """
+        pulumi.log.warn("DataConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:DataConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class DataConnection(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/v20190121:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:DataConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:DataConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataConnection, __self__).__init__(
             'azure-nextgen:kusto/latest:DataConnection',

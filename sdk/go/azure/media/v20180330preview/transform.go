@@ -50,6 +50,9 @@ func NewTransform(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:media:Transform"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/latest:Transform"),
 		},
 		{

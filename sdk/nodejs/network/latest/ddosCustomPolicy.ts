@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A DDoS custom policy in a resource group.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DdosCustomPolicy'.
  */
 export class DdosCustomPolicy extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DdosCustomPolicy {
+        pulumi.log.warn("DdosCustomPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DdosCustomPolicy'.")
         return new DdosCustomPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DdosCustomPolicy'. */
     constructor(name: string, args: DdosCustomPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DdosCustomPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DdosCustomPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.ddosCustomPolicyName === undefined) && !(opts && opts.urn)) {
@@ -119,7 +124,7 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20181101:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20181201:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190201:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190401:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190601:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190701:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190801:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190901:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20191101:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20191201:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200301:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200401:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200501:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200601:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200701:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200801:DdosCustomPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20181101:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20181201:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190201:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190401:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190601:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190701:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190801:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20190901:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20191101:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20191201:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200301:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200401:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200501:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200601:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200701:DdosCustomPolicy" }, { type: "azure-nextgen:network/v20200801:DdosCustomPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DdosCustomPolicy.__pulumiType, name, inputs, opts);
     }

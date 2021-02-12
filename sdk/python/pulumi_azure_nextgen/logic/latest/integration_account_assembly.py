@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['IntegrationAccountAssembly']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAssembly'.""", DeprecationWarning)
+
 
 class IntegrationAccountAssembly(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAssembly'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        pulumi.log.warn("IntegrationAccountAssembly is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAssembly'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountAssembly"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountAssembly"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountAssembly")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationAccountAssembly"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountAssembly"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountAssembly"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountAssembly")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountAssembly, __self__).__init__(
             'azure-nextgen:logic/latest:IntegrationAccountAssembly',

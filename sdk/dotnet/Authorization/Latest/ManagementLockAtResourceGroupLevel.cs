@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
     /// The lock information.
     /// Latest API Version: 2016-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtResourceGroupLevel'.")]
     [AzureNextGenResourceType("azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel")]
     public partial class ManagementLockAtResourceGroupLevel : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization:ManagementLockAtResourceGroupLevel"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150101:ManagementLockAtResourceGroupLevel"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160901:ManagementLockAtResourceGroupLevel"},
                 },

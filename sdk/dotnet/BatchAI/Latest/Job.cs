@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
     /// Information about a Job.
     /// Latest API Version: 2018-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Job'.")]
     [AzureNextGenResourceType("azure-nextgen:batchai/latest:Job")]
     public partial class Job : Pulumi.CustomResource
     {
@@ -227,6 +228,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Job"},
                 },
             };

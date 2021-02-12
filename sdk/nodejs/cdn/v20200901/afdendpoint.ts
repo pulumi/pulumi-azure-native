@@ -124,7 +124,7 @@ export class AFDEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:AFDEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:AFDEndpoint" }, { type: "azure-nextgen:cdn/latest:AFDEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AFDEndpoint.__pulumiType, name, inputs, opts);
     }

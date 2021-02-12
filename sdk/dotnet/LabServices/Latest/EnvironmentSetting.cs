@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
     /// Represents settings of an environment, from which environment instances would be created
     /// Latest API Version: 2018-10-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:EnvironmentSetting'.")]
     [AzureNextGenResourceType("azure-nextgen:labservices/latest:EnvironmentSetting")]
     public partial class EnvironmentSetting : Pulumi.CustomResource
     {
@@ -125,6 +126,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:labservices:EnvironmentSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:EnvironmentSetting"},
                 },
             };

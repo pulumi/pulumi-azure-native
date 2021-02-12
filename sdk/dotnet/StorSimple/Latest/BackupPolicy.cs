@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// The backup policy.
     /// Latest API Version: 2017-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupPolicy'.")]
     [AzureNextGenResourceType("azure-nextgen:storsimple/latest:BackupPolicy")]
     public partial class BackupPolicy : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:BackupPolicy"},
                 },
             };

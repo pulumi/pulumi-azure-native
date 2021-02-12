@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['RemediationAtSubscription']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtSubscription'.""", DeprecationWarning)
+
 
 class RemediationAtSubscription(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtSubscription'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class RemediationAtSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] remediation_name: The name of the remediation.
         :param pulumi.Input[Union[str, 'ResourceDiscoveryMode']] resource_discovery_mode: The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         """
+        pulumi.log.warn("RemediationAtSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtSubscription'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class RemediationAtSubscription(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription"), pulumi.Alias(type_="azure-nextgen:policyinsights/v20190701:RemediationAtSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:policyinsights:RemediationAtSubscription"), pulumi.Alias(type_="azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription"), pulumi.Alias(type_="azure-nextgen:policyinsights/v20190701:RemediationAtSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RemediationAtSubscription, __self__).__init__(
             'azure-nextgen:policyinsights/latest:RemediationAtSubscription',

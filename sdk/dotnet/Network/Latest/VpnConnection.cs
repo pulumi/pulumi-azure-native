@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// VpnConnection Resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VpnConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:VpnConnection")]
     public partial class VpnConnection : Pulumi.CustomResource
     {
@@ -161,6 +162,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:VpnConnection"},

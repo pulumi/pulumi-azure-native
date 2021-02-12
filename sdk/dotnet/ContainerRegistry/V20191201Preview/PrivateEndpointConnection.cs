@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:PrivateEndpointConnection"},
                 },
             };

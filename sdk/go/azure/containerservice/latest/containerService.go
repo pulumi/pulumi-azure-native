@@ -13,6 +13,8 @@ import (
 
 // Container service.
 // Latest API Version: 2017-01-31.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ContainerService'.
 type ContainerService struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +69,9 @@ func NewContainerService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerservice:ContainerService"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20151101preview:ContainerService"),
 		},

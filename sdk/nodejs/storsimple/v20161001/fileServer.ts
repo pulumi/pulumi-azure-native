@@ -115,7 +115,7 @@ export class FileServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:FileServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:FileServer" }, { type: "azure-nextgen:storsimple/latest:FileServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileServer.__pulumiType, name, inputs, opts);
     }

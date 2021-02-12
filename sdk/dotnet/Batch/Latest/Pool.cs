@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
     /// Contains information about a pool.
     /// Latest API Version: 2021-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Pool'.")]
     [AzureNextGenResourceType("azure-nextgen:batch/latest:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
@@ -191,6 +192,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batch:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20181201:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:Pool"},

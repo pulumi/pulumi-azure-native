@@ -42,6 +42,12 @@ func NewScopeAssignment(ctx *pulumi.Context,
 	if args.ScopeAssignmentName == nil {
 		return nil, errors.New("invalid value for required argument 'ScopeAssignmentName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:managednetwork:ScopeAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ScopeAssignment
 	err := ctx.RegisterResource("azure-nextgen:managednetwork/v20190601preview:ScopeAssignment", name, args, &resource, opts...)
 	if err != nil {

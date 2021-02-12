@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.Latest
     /// Describes an identity resource.
     /// Latest API Version: 2018-11-30.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedidentity:UserAssignedIdentity'.")]
     [AzureNextGenResourceType("azure-nextgen:managedidentity/latest:UserAssignedIdentity")]
     public partial class UserAssignedIdentity : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:managedidentity:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedidentity/v20181130:UserAssignedIdentity"},
                 },

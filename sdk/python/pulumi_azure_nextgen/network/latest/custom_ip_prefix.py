@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['CustomIPPrefix']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:CustomIPPrefix'.""", DeprecationWarning)
+
 
 class CustomIPPrefix(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:CustomIPPrefix'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class CustomIPPrefix(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
+        pulumi.log.warn("CustomIPPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:CustomIPPrefix'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -82,7 +87,7 @@ class CustomIPPrefix(pulumi.CustomResource):
             __props__['public_ip_prefixes'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200601:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200701:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200801:CustomIPPrefix")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200601:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200701:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200801:CustomIPPrefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomIPPrefix, __self__).__init__(
             'azure-nextgen:network/latest:CustomIPPrefix',

@@ -85,6 +85,8 @@ export class IotSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:IotSite" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotSite.__pulumiType, name, inputs, opts);
     }
 }

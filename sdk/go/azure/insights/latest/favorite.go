@@ -13,6 +13,8 @@ import (
 
 // Properties that define a favorite that is associated to an Application Insights component.
 // Latest API Version: 2015-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Favorite'.
 type Favorite struct {
 	pulumi.CustomResourceState
 
@@ -57,6 +59,9 @@ func NewFavorite(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:Favorite"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:Favorite"),
 		},

@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:IpAllocation"},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// The StorSimple Manager.
     /// Latest API Version: 2017-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:Manager'.")]
     [AzureNextGenResourceType("azure-nextgen:storsimple/latest:Manager")]
     public partial class Manager : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:Manager"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:Manager"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:Manager"},
                 },

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
     /// Peerings in a VirtualNetwork resource
     /// Latest API Version: 2018-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:vNetPeering'.")]
     [AzureNextGenResourceType("azure-nextgen:databricks/latest:vNetPeering")]
     public partial class VNetPeering : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databricks:vNetPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks/v20180401:vNetPeering"},
                 },
             };

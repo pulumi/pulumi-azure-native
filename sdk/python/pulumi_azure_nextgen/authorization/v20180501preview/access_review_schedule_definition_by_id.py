@@ -112,6 +112,8 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
             __props__['role_definition_id'] = None
             __props__['status'] = None
             __props__['user_principal_name'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:AccessReviewScheduleDefinitionById")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessReviewScheduleDefinitionById, __self__).__init__(
             'azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById',
             resource_name,

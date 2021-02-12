@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Custom IP prefix resource.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:CustomIPPrefix'.
  */
 export class CustomIPPrefix extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomIPPrefix {
+        pulumi.log.warn("CustomIPPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:CustomIPPrefix'.")
         return new CustomIPPrefix(name, undefined as any, { ...opts, id: id });
     }
 
@@ -92,7 +95,9 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:CustomIPPrefix'. */
     constructor(name: string, args: CustomIPPrefixArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CustomIPPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:CustomIPPrefix'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.customIpPrefixName === undefined) && !(opts && opts.urn)) {
@@ -137,7 +142,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200601:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200701:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200801:CustomIPPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200601:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200701:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200801:CustomIPPrefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomIPPrefix.__pulumiType, name, inputs, opts);
     }

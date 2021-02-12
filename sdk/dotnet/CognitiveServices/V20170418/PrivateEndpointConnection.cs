@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/latest:PrivateEndpointConnection"},
                 },
             };

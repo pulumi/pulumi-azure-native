@@ -61,7 +61,7 @@ class RegistrationDefinition(pulumi.CustomResource):
             __props__['scope'] = scope
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:managedservices/latest:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20180601preview:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190601:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190901:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20200201preview:RegistrationDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:managedservices:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/latest:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20180601preview:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190601:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190901:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20200201preview:RegistrationDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegistrationDefinition, __self__).__init__(
             'azure-nextgen:managedservices/v20190401preview:RegistrationDefinition',

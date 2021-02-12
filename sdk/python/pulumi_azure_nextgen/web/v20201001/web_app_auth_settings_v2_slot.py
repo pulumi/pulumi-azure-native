@@ -73,7 +73,7 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAuthSettingsV2Slot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAuthSettingsV2Slot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAuthSettingsV2Slot, __self__).__init__(
             'azure-nextgen:web/v20201001:WebAppAuthSettingsV2Slot',

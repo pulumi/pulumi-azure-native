@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['StreamingPolicy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingPolicy'.""", DeprecationWarning)
+
 
 class StreamingPolicy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingPolicy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class StreamingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] streaming_policy_name: The Streaming Policy name.
         """
+        pulumi.log.warn("StreamingPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingPolicy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -79,7 +84,7 @@ class StreamingPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingPolicy, __self__).__init__(
             'azure-nextgen:media/latest:StreamingPolicy',

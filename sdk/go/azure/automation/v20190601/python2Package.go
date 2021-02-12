@@ -70,6 +70,9 @@ func NewPython2Package(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:automation:Python2Package"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Python2Package"),
 		},
 		{

@@ -1,7 +1,7 @@
 import pulumi
 import pulumi_random
-from pulumi_azure_nextgen.storage import latest as storage
-from pulumi_azure_nextgen.resources import latest as resources
+from pulumi_azure_nextgen import storage
+from pulumi_azure_nextgen import resources
 
 random_string = pulumi_random.RandomString('random',
     length=12,

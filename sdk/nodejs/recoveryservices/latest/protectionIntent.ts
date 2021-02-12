@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Base class for backup ProtectionIntent.
  * Latest API Version: 2017-07-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionIntent'.
  */
 export class ProtectionIntent extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ProtectionIntent extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProtectionIntent {
+        pulumi.log.warn("ProtectionIntent is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionIntent'.")
         return new ProtectionIntent(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class ProtectionIntent extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionIntent'. */
     constructor(name: string, args: ProtectionIntentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ProtectionIntent is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionIntent'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
@@ -108,7 +113,7 @@ export class ProtectionIntent extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20170701:ProtectionIntent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ProtectionIntent" }, { type: "azure-nextgen:recoveryservices/v20170701:ProtectionIntent" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionIntent.__pulumiType, name, inputs, opts);
     }

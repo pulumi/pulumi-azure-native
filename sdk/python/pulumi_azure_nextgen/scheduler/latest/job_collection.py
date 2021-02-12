@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['JobCollection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:JobCollection'.""", DeprecationWarning)
+
 
 class JobCollection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:JobCollection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class JobCollection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags.
         """
+        pulumi.log.warn("JobCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:JobCollection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -67,7 +72,7 @@ class JobCollection(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:scheduler/v20140801preview:JobCollection"), pulumi.Alias(type_="azure-nextgen:scheduler/v20160101:JobCollection"), pulumi.Alias(type_="azure-nextgen:scheduler/v20160301:JobCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:scheduler:JobCollection"), pulumi.Alias(type_="azure-nextgen:scheduler/v20140801preview:JobCollection"), pulumi.Alias(type_="azure-nextgen:scheduler/v20160101:JobCollection"), pulumi.Alias(type_="azure-nextgen:scheduler/v20160301:JobCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobCollection, __self__).__init__(
             'azure-nextgen:scheduler/latest:JobCollection',

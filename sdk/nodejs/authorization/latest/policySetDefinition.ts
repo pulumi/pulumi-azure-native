@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The policy set definition.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicySetDefinition'.
  */
 export class PolicySetDefinition extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PolicySetDefinition {
+        pulumi.log.warn("PolicySetDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicySetDefinition'.")
         return new PolicySetDefinition(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicySetDefinition'. */
     constructor(name: string, args: PolicySetDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PolicySetDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicySetDefinition'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.policyDefinitions === undefined) && !(opts && opts.urn)) {
@@ -117,7 +122,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20170601preview:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20180301:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20180501:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20190101:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20190601:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20190901:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20200301:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20200901:PolicySetDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20170601preview:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20180301:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20180501:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20190101:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20190601:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20190901:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20200301:PolicySetDefinition" }, { type: "azure-nextgen:authorization/v20200901:PolicySetDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicySetDefinition.__pulumiType, name, inputs, opts);
     }

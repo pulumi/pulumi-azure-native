@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * App Service Environment ARM resource.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServiceEnvironment'.
  */
 export class AppServiceEnvironment extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AppServiceEnvironment {
+        pulumi.log.warn("AppServiceEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServiceEnvironment'.")
         return new AppServiceEnvironment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -218,7 +221,9 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServiceEnvironment'. */
     constructor(name: string, args: AppServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AppServiceEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServiceEnvironment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -329,7 +334,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20160901:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20180201:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20190801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200601:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200901:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20201001:AppServiceEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20150801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20160901:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20180201:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20190801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200601:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200901:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20201001:AppServiceEnvironment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServiceEnvironment.__pulumiType, name, inputs, opts);
     }

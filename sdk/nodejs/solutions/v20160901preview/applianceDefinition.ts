@@ -150,6 +150,8 @@ export class ApplianceDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:solutions:ApplianceDefinition" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplianceDefinition.__pulumiType, name, inputs, opts);
     }
 }

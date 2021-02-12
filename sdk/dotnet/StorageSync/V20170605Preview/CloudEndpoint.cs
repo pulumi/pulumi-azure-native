@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/latest:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180402:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:CloudEndpoint"},

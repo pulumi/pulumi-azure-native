@@ -13,6 +13,8 @@ import (
 
 // Integration runtime resource type.
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IntegrationRuntime'.
 type IntegrationRuntime struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse:IntegrationRuntime"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:IntegrationRuntime"),
 		},

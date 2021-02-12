@@ -13,6 +13,8 @@ import (
 
 // Description of a namespace authorization rule.
 // Latest API Version: 2017-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:QueueAuthorizationRule'.
 type QueueAuthorizationRule struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +49,9 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Rights'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:servicebus:QueueAuthorizationRule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20140901:QueueAuthorizationRule"),
 		},

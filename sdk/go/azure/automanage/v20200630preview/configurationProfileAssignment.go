@@ -39,6 +39,12 @@ func NewConfigurationProfileAssignment(ctx *pulumi.Context,
 	if args.VmName == nil {
 		return nil, errors.New("invalid value for required argument 'VmName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:automanage:ConfigurationProfileAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConfigurationProfileAssignment
 	err := ctx.RegisterResource("azure-nextgen:automanage/v20200630preview:ConfigurationProfileAssignment", name, args, &resource, opts...)
 	if err != nil {

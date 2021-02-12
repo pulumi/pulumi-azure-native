@@ -64,7 +64,7 @@ class DpsCertificate(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices/latest:DpsCertificate"), pulumi.Alias(type_="azure-nextgen:devices/v20170821preview:DpsCertificate"), pulumi.Alias(type_="azure-nextgen:devices/v20171115:DpsCertificate"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:DpsCertificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200101:DpsCertificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:DpsCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices:DpsCertificate"), pulumi.Alias(type_="azure-nextgen:devices/latest:DpsCertificate"), pulumi.Alias(type_="azure-nextgen:devices/v20170821preview:DpsCertificate"), pulumi.Alias(type_="azure-nextgen:devices/v20171115:DpsCertificate"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:DpsCertificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200101:DpsCertificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:DpsCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DpsCertificate, __self__).__init__(
             'azure-nextgen:devices/v20200901preview:DpsCertificate',

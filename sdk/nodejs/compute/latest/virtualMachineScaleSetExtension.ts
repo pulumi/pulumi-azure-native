@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Virtual Machine Scale Set Extension.
  * Latest API Version: 2020-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetExtension'.
  */
 export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineScaleSetExtension {
+        pulumi.log.warn("VirtualMachineScaleSetExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetExtension'.")
         return new VirtualMachineScaleSetExtension(name, undefined as any, { ...opts, id: id });
     }
 
@@ -87,7 +90,9 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetExtension'. */
     constructor(name: string, args: VirtualMachineScaleSetExtensionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualMachineScaleSetExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetExtension'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -133,7 +138,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20170330:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20170330:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetExtension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSetExtension.__pulumiType, name, inputs, opts);
     }

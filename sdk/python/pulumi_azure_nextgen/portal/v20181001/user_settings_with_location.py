@@ -59,7 +59,7 @@ class UserSettingsWithLocation(pulumi.CustomResource):
             if user_settings_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_settings_name'")
             __props__['user_settings_name'] = user_settings_name
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal/latest:UserSettingsWithLocation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal:UserSettingsWithLocation"), pulumi.Alias(type_="azure-nextgen:portal/latest:UserSettingsWithLocation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(UserSettingsWithLocation, __self__).__init__(
             'azure-nextgen:portal/v20181001:UserSettingsWithLocation',

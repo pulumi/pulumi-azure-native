@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
     /// The peering service prefix class.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:Prefix'.")]
     [AzureNextGenResourceType("azure-nextgen:peering/latest:Prefix")]
     public partial class Prefix : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:peering:Prefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20190801preview:Prefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20190901preview:Prefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:Prefix"},

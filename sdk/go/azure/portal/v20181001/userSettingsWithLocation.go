@@ -37,6 +37,9 @@ func NewUserSettingsWithLocation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:portal:UserSettingsWithLocation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:portal/latest:UserSettingsWithLocation"),
 		},
 	})

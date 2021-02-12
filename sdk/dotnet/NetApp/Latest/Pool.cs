@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
     /// Capacity pool resource
     /// Latest API Version: 2020-11-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Pool'.")]
     [AzureNextGenResourceType("azure-nextgen:netapp/latest:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190501:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190601:Pool"},

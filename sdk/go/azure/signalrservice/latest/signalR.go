@@ -13,6 +13,8 @@ import (
 
 // A class represent a SignalR service resource.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:signalrservice:SignalR'.
 type SignalR struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +76,9 @@ func NewSignalR(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:signalrservice:SignalR"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:signalrservice/v20180301preview:SignalR"),
 		},

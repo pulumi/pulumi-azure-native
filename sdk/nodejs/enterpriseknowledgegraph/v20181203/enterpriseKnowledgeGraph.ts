@@ -99,7 +99,7 @@ export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph" }, { type: "azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EnterpriseKnowledgeGraph.__pulumiType, name, inputs, opts);
     }

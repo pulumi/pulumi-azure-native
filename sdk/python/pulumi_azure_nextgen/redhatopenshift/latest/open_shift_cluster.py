@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['OpenShiftCluster']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:redhatopenshift:OpenShiftCluster'.""", DeprecationWarning)
+
 
 class OpenShiftCluster(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:redhatopenshift:OpenShiftCluster'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +57,7 @@ class OpenShiftCluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerProfileArgs']]]] worker_profiles: The cluster worker profiles.
         """
+        pulumi.log.warn("OpenShiftCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:redhatopenshift:OpenShiftCluster'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,7 +94,7 @@ class OpenShiftCluster(pulumi.CustomResource):
             __props__['worker_profiles'] = worker_profiles
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:redhatopenshift:OpenShiftCluster"), pulumi.Alias(type_="azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenShiftCluster, __self__).__init__(
             'azure-nextgen:redhatopenshift/latest:OpenShiftCluster',

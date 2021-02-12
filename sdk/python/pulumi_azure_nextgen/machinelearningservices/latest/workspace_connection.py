@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['WorkspaceConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:WorkspaceConnection'.""", DeprecationWarning)
+
 
 class WorkspaceConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:WorkspaceConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class WorkspaceConnection(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ValueFormat']] value_format: format for the workspace connection value
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
+        pulumi.log.warn("WorkspaceConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:WorkspaceConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -77,7 +82,7 @@ class WorkspaceConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices:WorkspaceConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceConnection, __self__).__init__(
             'azure-nextgen:machinelearningservices/latest:WorkspaceConnection',

@@ -114,7 +114,7 @@ export class SyncAgent extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20150501preview:SyncAgent" }, { type: "azure-nextgen:sql/v20200801preview:SyncAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:SyncAgent" }, { type: "azure-nextgen:sql/v20150501preview:SyncAgent" }, { type: "azure-nextgen:sql/v20200801preview:SyncAgent" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SyncAgent.__pulumiType, name, inputs, opts);
     }

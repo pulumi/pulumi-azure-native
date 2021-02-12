@@ -62,6 +62,12 @@ func NewGateway(ctx *pulumi.Context,
 	if args.SourceNetwork == nil {
 		return nil, errors.New("invalid value for required argument 'SourceNetwork'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:servicefabricmesh:Gateway"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Gateway
 	err := ctx.RegisterResource("azure-nextgen:servicefabricmesh/v20180901preview:Gateway", name, args, &resource, opts...)
 	if err != nil {

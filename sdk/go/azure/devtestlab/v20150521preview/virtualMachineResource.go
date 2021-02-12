@@ -83,6 +83,9 @@ func NewVirtualMachineResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab:VirtualMachineResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:VirtualMachineResource"),
 		},
 		{

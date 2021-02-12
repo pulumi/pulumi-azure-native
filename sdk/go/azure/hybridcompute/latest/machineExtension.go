@@ -13,6 +13,8 @@ import (
 
 // Describes a Machine Extension.
 // Latest API Version: 2020-08-02.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:MachineExtension'.
 type MachineExtension struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewMachineExtension(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:hybridcompute:MachineExtension"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20190802preview:MachineExtension"),
 		},

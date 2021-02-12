@@ -96,6 +96,9 @@ func NewIoMAMPolicyByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:intune:IoMAMPolicyByName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:intune/v20150114privatepreview:IoMAMPolicyByName"),
 		},
 	})

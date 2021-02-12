@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['VirtualMachine']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:VirtualMachine'.""", DeprecationWarning)
+
 
 class VirtualMachine(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:VirtualMachine'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +64,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] v_sphere_networks: The list of Virtual VSphere Networks
         :param pulumi.Input[str] virtual_machine_name: virtual machine name
         """
+        pulumi.log.warn("VirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:VirtualMachine'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -115,7 +120,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['type'] = None
             __props__['vm_id'] = None
             __props__['vmwaretools'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachine, __self__).__init__(
             'azure-nextgen:vmwarecloudsimple/latest:VirtualMachine',

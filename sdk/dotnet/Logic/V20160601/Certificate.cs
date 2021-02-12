@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:Certificate"},

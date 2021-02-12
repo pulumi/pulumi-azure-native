@@ -100,7 +100,7 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskAccessAPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

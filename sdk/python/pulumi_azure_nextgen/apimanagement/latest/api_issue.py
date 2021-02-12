@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['ApiIssue']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssue'.""", DeprecationWarning)
+
 
 class ApiIssue(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssue'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class ApiIssue(pulumi.CustomResource):
         :param pulumi.Input[str] title: The issue title.
         :param pulumi.Input[str] user_id: A resource identifier for the user created the issue.
         """
+        pulumi.log.warn("ApiIssue is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssue'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -86,7 +91,7 @@ class ApiIssue(pulumi.CustomResource):
             __props__['user_id'] = user_id
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiIssue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiIssue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssue, __self__).__init__(
             'azure-nextgen:apimanagement/latest:ApiIssue',

@@ -88,7 +88,7 @@ export class TagByProduct extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20170301:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20180101:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20180601preview:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20191201:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20191201preview:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20200601preview:TagByProduct" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:TagByProduct" }, { type: "azure-nextgen:apimanagement/latest:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20170301:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20180101:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20180601preview:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20191201:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20191201preview:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20200601preview:TagByProduct" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagByProduct.__pulumiType, name, inputs, opts);
     }

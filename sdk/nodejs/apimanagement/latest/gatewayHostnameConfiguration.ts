@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Gateway hostname configuration details.
  * Latest API Version: 2019-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayHostnameConfiguration'.
  */
 export class GatewayHostnameConfiguration extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GatewayHostnameConfiguration {
+        pulumi.log.warn("GatewayHostnameConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayHostnameConfiguration'.")
         return new GatewayHostnameConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,7 +66,9 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayHostnameConfiguration'. */
     constructor(name: string, args: GatewayHostnameConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("GatewayHostnameConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayHostnameConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.gatewayId === undefined) && !(opts && opts.urn)) {
@@ -101,7 +106,7 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration" }, { type: "azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration" }, { type: "azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:GatewayHostnameConfiguration" }, { type: "azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration" }, { type: "azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration" }, { type: "azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GatewayHostnameConfiguration.__pulumiType, name, inputs, opts);
     }

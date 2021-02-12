@@ -13,6 +13,8 @@ import (
 
 // Represents an instance of an Analysis Services resource.
 // Latest API Version: 2017-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:analysisservices:ServerDetails'.
 type ServerDetails struct {
 	pulumi.CustomResourceState
 
@@ -75,6 +77,9 @@ func NewServerDetails(ctx *pulumi.Context,
 		args.ServerMonitorMode = pulumi.IntPtr(1)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:analysisservices:ServerDetails"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:analysisservices/v20160516:ServerDetails"),
 		},

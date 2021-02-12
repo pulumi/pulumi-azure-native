@@ -74,7 +74,7 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
             __props__['tags'] = None
             __props__['ts'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountGremlinDatabase, __self__).__init__(
             'azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinDatabase',

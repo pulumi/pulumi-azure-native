@@ -130,6 +130,8 @@ export class KeyValue extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appconfiguration:KeyValue" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(KeyValue.__pulumiType, name, inputs, opts);
     }
 }

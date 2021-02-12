@@ -59,7 +59,7 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/latest:ComponentCurrentBillingFeature")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:ComponentCurrentBillingFeature"), pulumi.Alias(type_="azure-nextgen:insights/latest:ComponentCurrentBillingFeature")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ComponentCurrentBillingFeature, __self__).__init__(
             'azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature',

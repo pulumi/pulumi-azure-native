@@ -53,6 +53,12 @@ func NewCommunicationService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:communication:CommunicationService"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CommunicationService
 	err := ctx.RegisterResource("azure-nextgen:communication/v20200820preview:CommunicationService", name, args, &resource, opts...)
 	if err != nil {

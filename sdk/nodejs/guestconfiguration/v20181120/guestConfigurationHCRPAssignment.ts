@@ -91,7 +91,7 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:guestconfiguration/latest:GuestConfigurationHCRPAssignment" }, { type: "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment" }, { type: "azure-nextgen:guestconfiguration/latest:GuestConfigurationHCRPAssignment" }, { type: "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GuestConfigurationHCRPAssignment.__pulumiType, name, inputs, opts);
     }

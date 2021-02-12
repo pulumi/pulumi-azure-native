@@ -13,6 +13,8 @@ import (
 
 // Security assessment metadata
 // Latest API Version: 2020-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:AssessmentMetadataInSubscription'.
 type AssessmentMetadataInSubscription struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +66,9 @@ func NewAssessmentMetadataInSubscription(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Severity'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:security:AssessmentMetadataInSubscription"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20190101preview:AssessmentMetadataInSubscription"),
 		},

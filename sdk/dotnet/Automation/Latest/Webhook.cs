@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
     /// Definition of the webhook type.
     /// Latest API Version: 2015-10-31.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Webhook'.")]
     [AzureNextGenResourceType("azure-nextgen:automation/latest:Webhook")]
     public partial class Webhook : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Webhook"},
                 },
             };

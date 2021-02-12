@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
     /// Resource information.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Resource'.")]
     [AzureNextGenResourceType("azure-nextgen:resources/latest:Resource")]
     public partial class Resource : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources:Resource"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20151101:Resource"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20160201:Resource"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20160701:Resource"},

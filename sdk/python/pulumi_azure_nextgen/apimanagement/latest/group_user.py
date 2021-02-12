@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['GroupUser']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GroupUser'.""", DeprecationWarning)
+
 
 class GroupUser(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GroupUser'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +38,7 @@ class GroupUser(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] user_id: User identifier. Must be unique in the current API Management service instance.
         """
+        pulumi.log.warn("GroupUser is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GroupUser'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class GroupUser(pulumi.CustomResource):
             __props__['registration_date'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:GroupUser")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:GroupUser")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GroupUser, __self__).__init__(
             'azure-nextgen:apimanagement/latest:GroupUser',

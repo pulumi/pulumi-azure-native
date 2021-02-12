@@ -29,7 +29,7 @@ func TestConvert(t *testing.T) {
 				Path:       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}",
 				APIVersion: "2019-08-01",
 			},
-			"azure-nextgen:documentdb/latest:MongoDBResourceMongoDBDatabase": {
+			"azure-nextgen:documentdb:MongoDBResourceMongoDBDatabase": {
 				Path:       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}",
 				APIVersion: "2020-04-01",
 			},

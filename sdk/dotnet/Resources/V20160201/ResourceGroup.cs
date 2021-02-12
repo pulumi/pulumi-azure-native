@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Resources.V20160201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/latest:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20151101:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20160701:ResourceGroup"},

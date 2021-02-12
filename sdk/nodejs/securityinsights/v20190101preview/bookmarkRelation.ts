@@ -119,6 +119,8 @@ export class BookmarkRelation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:BookmarkRelation" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BookmarkRelation.__pulumiType, name, inputs, opts);
     }
 }

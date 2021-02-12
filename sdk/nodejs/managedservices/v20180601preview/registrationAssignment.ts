@@ -81,7 +81,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedservices/latest:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190901:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20200201preview:RegistrationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedservices:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/latest:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190901:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20200201preview:RegistrationAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegistrationAssignment.__pulumiType, name, inputs, opts);
     }

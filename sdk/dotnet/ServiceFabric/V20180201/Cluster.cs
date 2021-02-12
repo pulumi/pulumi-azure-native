@@ -216,6 +216,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20160901:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:Cluster"},

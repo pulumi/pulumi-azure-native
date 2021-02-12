@@ -130,6 +130,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:DscpConfiguration"},

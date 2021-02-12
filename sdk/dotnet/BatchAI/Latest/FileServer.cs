@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
     /// File Server information.
     /// Latest API Version: 2018-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:FileServer'.")]
     [AzureNextGenResourceType("azure-nextgen:batchai/latest:FileServer")]
     public partial class FileServer : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai:FileServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:FileServer"},
                 },
             };

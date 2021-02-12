@@ -13,6 +13,8 @@ import (
 
 // Represents the serial port of the parent resource.
 // Latest API Version: 2018-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:serialconsole:SerialPort'.
 type SerialPort struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +49,9 @@ func NewSerialPort(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SerialPort'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:serialconsole:SerialPort"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:serialconsole/v20180501:SerialPort"),
 		},

@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Customer subscription.
  * Latest API Version: 2017-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:CustomerSubscription'.
  */
 export class CustomerSubscription extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class CustomerSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomerSubscription {
+        pulumi.log.warn("CustomerSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:CustomerSubscription'.")
         return new CustomerSubscription(name, undefined as any, { ...opts, id: id });
     }
 
@@ -59,7 +62,9 @@ export class CustomerSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:CustomerSubscription'. */
     constructor(name: string, args: CustomerSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CustomerSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:CustomerSubscription'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.customerSubscriptionName === undefined) && !(opts && opts.urn)) {
@@ -91,7 +96,7 @@ export class CustomerSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurestack/v20170601:CustomerSubscription" }, { type: "azure-nextgen:azurestack/v20200601preview:CustomerSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurestack:CustomerSubscription" }, { type: "azure-nextgen:azurestack/v20170601:CustomerSubscription" }, { type: "azure-nextgen:azurestack/v20200601preview:CustomerSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomerSubscription.__pulumiType, name, inputs, opts);
     }

@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Security.V20150601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/latest:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200101:JitNetworkAccessPolicy"},
                 },

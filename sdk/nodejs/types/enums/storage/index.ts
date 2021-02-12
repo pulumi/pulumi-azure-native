@@ -35,3 +35,336 @@ export {
     v20190601,
     v20200801preview,
 };
+
+export const AccessTier = {
+    Hot: "Hot",
+    Cool: "Cool",
+} as const;
+
+/**
+ * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+ */
+export type AccessTier = (typeof AccessTier)[keyof typeof AccessTier];
+
+export const Action = {
+    Allow: "Allow",
+} as const;
+
+/**
+ * The action of virtual network rule.
+ */
+export type Action = (typeof Action)[keyof typeof Action];
+
+export const BlobAccessTier = {
+    /**
+     * Optimized for storing data that is accessed frequently.
+     */
+    Hot: "Hot",
+    /**
+     * Optimized for storing data that is infrequently accessed and stored for at least 30 days.
+     */
+    Cool: "Cool",
+    /**
+     * Optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements, on the order of hours.
+     */
+    Archive: "Archive",
+} as const;
+
+/**
+ * The access tier of a storage blob.
+ */
+export type BlobAccessTier = (typeof BlobAccessTier)[keyof typeof BlobAccessTier];
+
+export const BlobType = {
+    /**
+     * Block blobs store text and binary data. Block blobs are made up of blocks of data that can be managed individually.
+     */
+    Block: "Block",
+    /**
+     * Append blobs are made up of blocks like block blobs, but are optimized for append operations.
+     */
+    Append: "Append",
+} as const;
+
+/**
+ * The type of a storage blob to be created.
+ */
+export type BlobType = (typeof BlobType)[keyof typeof BlobType];
+
+export const Bypass = {
+    None: "None",
+    Logging: "Logging",
+    Metrics: "Metrics",
+    AzureServices: "AzureServices",
+} as const;
+
+/**
+ * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
+ */
+export type Bypass = (typeof Bypass)[keyof typeof Bypass];
+
+export const DefaultAction = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * Specifies the default action of allow or deny when no other rules match.
+ */
+export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
+
+export const DirectoryServiceOptions = {
+    None: "None",
+    AADDS: "AADDS",
+    AD: "AD",
+} as const;
+
+/**
+ * Indicates the directory service used.
+ */
+export type DirectoryServiceOptions = (typeof DirectoryServiceOptions)[keyof typeof DirectoryServiceOptions];
+
+export const EnabledProtocols = {
+    SMB: "SMB",
+    NFS: "NFS",
+} as const;
+
+/**
+ * The authentication protocol that is used for the file share. Can only be specified when creating a share.
+ */
+export type EnabledProtocols = (typeof EnabledProtocols)[keyof typeof EnabledProtocols];
+
+export const HttpProtocol = {
+    Https_http: "https,http",
+    Https: "https",
+} as const;
+
+/**
+ * The protocol permitted for a request made with the account SAS.
+ */
+export type HttpProtocol = (typeof HttpProtocol)[keyof typeof HttpProtocol];
+
+export const IdentityType = {
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+export const InventoryRuleType = {
+    Inventory: "Inventory",
+} as const;
+
+/**
+ * The valid value is Inventory
+ */
+export type InventoryRuleType = (typeof InventoryRuleType)[keyof typeof InventoryRuleType];
+
+export const KeySource = {
+    Microsoft_Storage: "Microsoft.Storage",
+    Microsoft_Keyvault: "Microsoft.Keyvault",
+} as const;
+
+/**
+ * The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
+ */
+export type KeySource = (typeof KeySource)[keyof typeof KeySource];
+
+export const KeyType = {
+    Service: "Service",
+    Account: "Account",
+} as const;
+
+/**
+ * Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
+ */
+export type KeyType = (typeof KeyType)[keyof typeof KeyType];
+
+export const Kind = {
+    Storage: "Storage",
+    StorageV2: "StorageV2",
+    BlobStorage: "BlobStorage",
+    FileStorage: "FileStorage",
+    BlockBlobStorage: "BlockBlobStorage",
+} as const;
+
+/**
+ * Required. Indicates the type of storage account.
+ */
+export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const LargeFileSharesState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+ */
+export type LargeFileSharesState = (typeof LargeFileSharesState)[keyof typeof LargeFileSharesState];
+
+export const MinimumTlsVersion = {
+    TLS1_0: "TLS1_0",
+    TLS1_1: "TLS1_1",
+    TLS1_2: "TLS1_2",
+} as const;
+
+/**
+ * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+ */
+export type MinimumTlsVersion = (typeof MinimumTlsVersion)[keyof typeof MinimumTlsVersion];
+
+export const Name = {
+    AccessTimeTracking: "AccessTimeTracking",
+} as const;
+
+/**
+ * Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+ */
+export type Name = (typeof Name)[keyof typeof Name];
+
+export const Permissions = {
+    R: "r",
+    D: "d",
+    W: "w",
+    L: "l",
+    A: "a",
+    C: "c",
+    U: "u",
+    P: "p",
+} as const;
+
+/**
+ * The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
+ */
+export type Permissions = (typeof Permissions)[keyof typeof Permissions];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicAccess = {
+    Container: "Container",
+    Blob: "Blob",
+    None: "None",
+} as const;
+
+/**
+ * Specifies whether data in the container may be accessed publicly and the level of access.
+ */
+export type PublicAccess = (typeof PublicAccess)[keyof typeof PublicAccess];
+
+export const RootSquashType = {
+    NoRootSquash: "NoRootSquash",
+    RootSquash: "RootSquash",
+    AllSquash: "AllSquash",
+} as const;
+
+/**
+ * The property is for NFS share only. The default is NoRootSquash.
+ */
+export type RootSquashType = (typeof RootSquashType)[keyof typeof RootSquashType];
+
+export const RoutingChoice = {
+    MicrosoftRouting: "MicrosoftRouting",
+    InternetRouting: "InternetRouting",
+} as const;
+
+/**
+ * Routing Choice defines the kind of network routing opted by the user.
+ */
+export type RoutingChoice = (typeof RoutingChoice)[keyof typeof RoutingChoice];
+
+export const RuleType = {
+    Lifecycle: "Lifecycle",
+} as const;
+
+/**
+ * The valid value is Lifecycle
+ */
+export type RuleType = (typeof RuleType)[keyof typeof RuleType];
+
+export const Services = {
+    B: "b",
+    Q: "q",
+    T: "t",
+    F: "f",
+} as const;
+
+/**
+ * The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
+ */
+export type Services = (typeof Services)[keyof typeof Services];
+
+export const ShareAccessTier = {
+    TransactionOptimized: "TransactionOptimized",
+    Hot: "Hot",
+    Cool: "Cool",
+    Premium: "Premium",
+} as const;
+
+/**
+ * Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+ */
+export type ShareAccessTier = (typeof ShareAccessTier)[keyof typeof ShareAccessTier];
+
+export const SignedResource = {
+    B: "b",
+    C: "c",
+    F: "f",
+    S: "s",
+} as const;
+
+/**
+ * The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
+ */
+export type SignedResource = (typeof SignedResource)[keyof typeof SignedResource];
+
+export const SignedResourceTypes = {
+    S: "s",
+    C: "c",
+    O: "o",
+} as const;
+
+/**
+ * The signed resource types that are accessible with the account SAS. Service (s): Access to service-level APIs; Container (c): Access to container-level APIs; Object (o): Access to object-level APIs for blobs, queue messages, table entities, and files.
+ */
+export type SignedResourceTypes = (typeof SignedResourceTypes)[keyof typeof SignedResourceTypes];
+
+export const SkuName = {
+    Standard_LRS: "Standard_LRS",
+    Standard_GRS: "Standard_GRS",
+    Standard_RAGRS: "Standard_RAGRS",
+    Standard_ZRS: "Standard_ZRS",
+    Premium_LRS: "Premium_LRS",
+    Premium_ZRS: "Premium_ZRS",
+    Standard_GZRS: "Standard_GZRS",
+    Standard_RAGZRS: "Standard_RAGZRS",
+} as const;
+
+/**
+ * The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const State = {
+    Provisioning: "provisioning",
+    Deprovisioning: "deprovisioning",
+    Succeeded: "succeeded",
+    Failed: "failed",
+    NetworkSourceDeleted: "networkSourceDeleted",
+} as const;
+
+/**
+ * Gets the state of virtual network rule.
+ */
+export type State = (typeof State)[keyof typeof State];

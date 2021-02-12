@@ -37,6 +37,12 @@ func NewConfigurationProfile(ctx *pulumi.Context,
 	if args.ProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'ProfileName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:changeanalysis:ConfigurationProfile"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConfigurationProfile
 	err := ctx.RegisterResource("azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile", name, args, &resource, opts...)
 	if err != nil {

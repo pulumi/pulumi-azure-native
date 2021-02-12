@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['NetworkProfile']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkProfile'.""", DeprecationWarning)
+
 
 class NetworkProfile(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkProfile'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class NetworkProfile(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("NetworkProfile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkProfile'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class NetworkProfile(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20181001:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20181101:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20181201:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20190201:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20190701:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20190801:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20200701:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NetworkProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20180801:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20181001:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20181101:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20181201:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20190201:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20190701:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20190801:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20200701:NetworkProfile"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NetworkProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkProfile, __self__).__init__(
             'azure-nextgen:network/latest:NetworkProfile',

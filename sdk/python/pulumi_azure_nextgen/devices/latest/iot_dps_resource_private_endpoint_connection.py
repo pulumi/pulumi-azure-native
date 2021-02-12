@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['IotDpsResourcePrivateEndpointConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection'.""", DeprecationWarning)
+
 
 class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the provisioning service.
         :param pulumi.Input[str] resource_name_: The name of the provisioning service.
         """
+        pulumi.log.warn("IotDpsResourcePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -67,7 +72,7 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotDpsResourcePrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection',

@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:Job"},

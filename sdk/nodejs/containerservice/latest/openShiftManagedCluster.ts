@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * OpenShift Managed cluster.
  * Latest API Version: 2019-04-30.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:OpenShiftManagedCluster'.
  */
 export class OpenShiftManagedCluster extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OpenShiftManagedCluster {
+        pulumi.log.warn("OpenShiftManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:OpenShiftManagedCluster'.")
         return new OpenShiftManagedCluster(name, undefined as any, { ...opts, id: id });
     }
 
@@ -104,7 +107,9 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:OpenShiftManagedCluster'. */
     constructor(name: string, args: OpenShiftManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("OpenShiftManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:OpenShiftManagedCluster'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.openShiftVersion === undefined) && !(opts && opts.urn)) {
@@ -157,7 +162,7 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20180930preview:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20190430:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20190930preview:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20191027preview:OpenShiftManagedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20180930preview:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20190430:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20190930preview:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20191027preview:OpenShiftManagedCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OpenShiftManagedCluster.__pulumiType, name, inputs, opts);
     }

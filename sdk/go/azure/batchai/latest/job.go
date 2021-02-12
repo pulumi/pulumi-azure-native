@@ -13,6 +13,8 @@ import (
 
 // Information about a Job.
 // Latest API Version: 2018-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Job'.
 type Job struct {
 	pulumi.CustomResourceState
 
@@ -112,6 +114,9 @@ func NewJob(ctx *pulumi.Context,
 		args.SchedulingPriority = pulumi.StringPtr("normal")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:batchai:Job"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:batchai/v20180501:Job"),
 		},

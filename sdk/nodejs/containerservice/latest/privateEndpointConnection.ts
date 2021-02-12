@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A private endpoint connection
  * Latest API Version: 2020-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:PrivateEndpointConnection'.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnection {
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:PrivateEndpointConnection'.")
         return new PrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:PrivateEndpointConnection'. */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:PrivateEndpointConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.privateEndpointConnectionName === undefined) && !(opts && opts.urn)) {
@@ -101,7 +106,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20200601:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200701:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200901:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20201101:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20201201:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200601:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200701:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20200901:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20201101:PrivateEndpointConnection" }, { type: "azure-nextgen:containerservice/v20201201:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

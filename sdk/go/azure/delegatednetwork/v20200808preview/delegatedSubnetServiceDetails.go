@@ -46,6 +46,12 @@ func NewDelegatedSubnetServiceDetails(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DelegatedSubnetServiceDetails
 	err := ctx.RegisterResource("azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails", name, args, &resource, opts...)
 	if err != nil {

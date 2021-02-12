@@ -78,7 +78,7 @@ class Namespace(pulumi.CustomResource):
             __props__['service_bus_endpoint'] = None
             __props__['type'] = None
             __props__['updated_at'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/latest:Namespace"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:Namespace"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:Namespace"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:Namespace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus:Namespace"), pulumi.Alias(type_="azure-nextgen:servicebus/latest:Namespace"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:Namespace"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:Namespace"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Namespace, __self__).__init__(
             'azure-nextgen:servicebus/v20140901:Namespace',

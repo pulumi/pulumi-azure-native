@@ -12,6 +12,8 @@ import (
 )
 
 // Latest API Version: 2019-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:VMwareCollector'.
 type VMwareCollector struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +40,9 @@ func NewVMwareCollector(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VmWareCollectorName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:migrate:VMwareCollector"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/v20191001:VMwareCollector"),
 		},

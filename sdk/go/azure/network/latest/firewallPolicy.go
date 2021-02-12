@@ -13,6 +13,8 @@ import (
 
 // FirewallPolicy Resource.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicy'.
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
@@ -66,6 +68,9 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:FirewallPolicy"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:FirewallPolicy"),
 		},

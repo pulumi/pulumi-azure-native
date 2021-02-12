@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['SecurityPartnerProvider']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:SecurityPartnerProvider'.""", DeprecationWarning)
+
 
 class SecurityPartnerProvider(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:SecurityPartnerProvider'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The virtualHub to which the Security Partner Provider belongs.
         """
+        pulumi.log.warn("SecurityPartnerProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:SecurityPartnerProvider'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class SecurityPartnerProvider(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200301:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200401:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200501:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200601:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200701:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200801:SecurityPartnerProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200301:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200401:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200501:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200601:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200701:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200801:SecurityPartnerProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityPartnerProvider, __self__).__init__(
             'azure-nextgen:network/latest:SecurityPartnerProvider',

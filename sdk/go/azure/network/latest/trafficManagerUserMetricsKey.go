@@ -12,6 +12,8 @@ import (
 
 // Class representing Traffic Manager User Metrics.
 // Latest API Version: 2018-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:TrafficManagerUserMetricsKey'.
 type TrafficManagerUserMetricsKey struct {
 	pulumi.CustomResourceState
 
@@ -31,6 +33,9 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 	}
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:TrafficManagerUserMetricsKey"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey"),
 		},

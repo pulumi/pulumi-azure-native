@@ -44,6 +44,9 @@ func NewProject(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:migrate:Project"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate/latest:Project"),
 		},
 	})

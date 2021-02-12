@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
     /// Represents a server firewall rule.
     /// Latest API Version: 2017-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:FirewallRule'.")]
     [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/latest:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:FirewallRule"},
                 },

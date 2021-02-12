@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Zone']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Zone'.""", DeprecationWarning)
+
 
 class Zone(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Zone'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] zone_name: The name of the DNS zone (without a terminating dot).
         :param pulumi.Input['ZoneType'] zone_type: The type of this DNS zone (Public or Private).
         """
+        pulumi.log.warn("Zone is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Zone'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class Zone(pulumi.CustomResource):
             __props__['name_servers'] = None
             __props__['number_of_record_sets'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150504preview:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20160401:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20170901:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20171001:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20180301preview:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20180501:Zone")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20150504preview:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20160401:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20170901:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20171001:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20180301preview:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20180501:Zone")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Zone, __self__).__init__(
             'azure-nextgen:network/latest:Zone',

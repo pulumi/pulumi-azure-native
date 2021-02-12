@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Module']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Module'.""", DeprecationWarning)
+
 
 class Module(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Module'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
+        pulumi.log.warn("Module is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Module'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -85,7 +90,7 @@ class Module(pulumi.CustomResource):
             __props__['size_in_bytes'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Module"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Module"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Module")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:Module"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Module"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Module"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Module")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Module, __self__).__init__(
             'azure-nextgen:automation/latest:Module',

@@ -160,6 +160,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Runbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Runbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Runbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20180630:Runbook"},

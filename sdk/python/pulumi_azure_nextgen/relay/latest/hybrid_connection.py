@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['HybridConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnection'.""", DeprecationWarning)
+
 
 class HybridConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class HybridConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
+        pulumi.log.warn("HybridConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class HybridConnection(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['updated_at'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:relay/v20160701:HybridConnection"), pulumi.Alias(type_="azure-nextgen:relay/v20170401:HybridConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:relay:HybridConnection"), pulumi.Alias(type_="azure-nextgen:relay/v20160701:HybridConnection"), pulumi.Alias(type_="azure-nextgen:relay/v20170401:HybridConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HybridConnection, __self__).__init__(
             'azure-nextgen:relay/latest:HybridConnection',

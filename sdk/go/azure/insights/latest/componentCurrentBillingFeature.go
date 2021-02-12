@@ -13,6 +13,8 @@ import (
 
 // An Application Insights component billing features
 // Latest API Version: 2015-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ComponentCurrentBillingFeature'.
 type ComponentCurrentBillingFeature struct {
 	pulumi.CustomResourceState
 
@@ -36,6 +38,9 @@ func NewComponentCurrentBillingFeature(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:ComponentCurrentBillingFeature"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature"),
 		},

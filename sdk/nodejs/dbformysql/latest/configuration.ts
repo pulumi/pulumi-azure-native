@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a Configuration.
  * Latest API Version: 2017-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:Configuration'.
  */
 export class Configuration extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Configuration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Configuration {
+        pulumi.log.warn("Configuration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:Configuration'.")
         return new Configuration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -75,7 +78,9 @@ export class Configuration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:Configuration'. */
     constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Configuration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:Configuration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.configurationName === undefined) && !(opts && opts.urn)) {
@@ -115,7 +120,7 @@ export class Configuration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/v20171201:Configuration" }, { type: "azure-nextgen:dbformysql/v20171201preview:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql:Configuration" }, { type: "azure-nextgen:dbformysql/v20171201:Configuration" }, { type: "azure-nextgen:dbformysql/v20171201preview:Configuration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Configuration.__pulumiType, name, inputs, opts);
     }

@@ -139,7 +139,7 @@ export class BlobServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20180701:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20181101:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20190401:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20190601:BlobServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:BlobServiceProperties" }, { type: "azure-nextgen:storage/latest:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20180701:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20181101:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20190401:BlobServiceProperties" }, { type: "azure-nextgen:storage/v20190601:BlobServiceProperties" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobServiceProperties.__pulumiType, name, inputs, opts);
     }

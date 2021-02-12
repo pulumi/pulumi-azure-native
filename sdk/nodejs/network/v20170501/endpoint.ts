@@ -137,7 +137,7 @@ export class Endpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:Endpoint" }, { type: "azure-nextgen:network/v20151101:Endpoint" }, { type: "azure-nextgen:network/v20170301:Endpoint" }, { type: "azure-nextgen:network/v20180201:Endpoint" }, { type: "azure-nextgen:network/v20180301:Endpoint" }, { type: "azure-nextgen:network/v20180401:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Endpoint" }, { type: "azure-nextgen:network/latest:Endpoint" }, { type: "azure-nextgen:network/v20151101:Endpoint" }, { type: "azure-nextgen:network/v20170301:Endpoint" }, { type: "azure-nextgen:network/v20180201:Endpoint" }, { type: "azure-nextgen:network/v20180301:Endpoint" }, { type: "azure-nextgen:network/v20180401:Endpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Endpoint.__pulumiType, name, inputs, opts);
     }

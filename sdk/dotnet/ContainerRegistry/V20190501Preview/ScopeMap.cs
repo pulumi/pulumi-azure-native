@@ -84,6 +84,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:ScopeMap"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:ScopeMap"},
                 },
             };

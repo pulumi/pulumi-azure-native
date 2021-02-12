@@ -80,7 +80,7 @@ export class SupportPlanType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:addons/latest:SupportPlanType" }, { type: "azure-nextgen:addons/v20180301:SupportPlanType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:addons:SupportPlanType" }, { type: "azure-nextgen:addons/latest:SupportPlanType" }, { type: "azure-nextgen:addons/v20180301:SupportPlanType" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SupportPlanType.__pulumiType, name, inputs, opts);
     }

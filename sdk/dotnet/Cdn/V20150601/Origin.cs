@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:Origin"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:Origin"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20160402:Origin"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:Origin"},

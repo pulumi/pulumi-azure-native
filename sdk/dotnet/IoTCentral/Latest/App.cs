@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.IoTCentral.Latest
     /// The IoT Central application.
     /// Latest API Version: 2018-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:iotcentral:App'.")]
     [AzureNextGenResourceType("azure-nextgen:iotcentral/latest:App")]
     public partial class App : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.IoTCentral.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:iotcentral:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotcentral/v20170701privatepreview:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotcentral/v20180901:App"},
                 },

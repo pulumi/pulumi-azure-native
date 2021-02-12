@@ -13,6 +13,8 @@ import (
 
 // Cache details.
 // Latest API Version: 2019-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Cache'.
 type Cache struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewCache(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement:Cache"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Cache"),
 		},

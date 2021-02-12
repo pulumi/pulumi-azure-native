@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:AnalyticsItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:AnalyticsItem"},
                 },
             };

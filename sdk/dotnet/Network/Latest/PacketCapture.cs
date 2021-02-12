@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Information about packet capture session.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PacketCapture'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:PacketCapture")]
     public partial class PacketCapture : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:PacketCapture"},

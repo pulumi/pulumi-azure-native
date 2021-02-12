@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppSwiftVirtualNetworkConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSwiftVirtualNetworkConnection'.""", DeprecationWarning)
+
 
 class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSwiftVirtualNetworkConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_resource_id: The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
         :param pulumi.Input[bool] swift_supported: A flag that specifies if the scale unit this Web App is on supports Swift integration.
         """
+        pulumi.log.warn("WebAppSwiftVirtualNetworkConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSwiftVirtualNetworkConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -64,7 +69,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
             __props__['swift_supported'] = swift_supported
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSwiftVirtualNetworkConnection, __self__).__init__(
             'azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnection',

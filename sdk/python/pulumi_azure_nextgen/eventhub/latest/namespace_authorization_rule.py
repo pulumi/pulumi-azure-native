@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['NamespaceAuthorizationRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceAuthorizationRule'.""", DeprecationWarning)
+
 
 class NamespaceAuthorizationRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceAuthorizationRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +38,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
         """
+        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceAuthorizationRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -65,7 +70,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__['rights'] = rights
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:NamespaceAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:NamespaceAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azure-nextgen:eventhub/latest:NamespaceAuthorizationRule',

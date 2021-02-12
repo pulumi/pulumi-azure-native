@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
     /// Information about workspace.
     /// Latest API Version: 2018-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:Workspace'.")]
     [AzureNextGenResourceType("azure-nextgen:databricks/latest:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
@@ -137,6 +138,7 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databricks:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks/v20180401:Workspace"},
                 },
             };

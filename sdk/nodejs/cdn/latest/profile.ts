@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Profile'.
  */
 export class Profile extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Profile extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Profile {
+        pulumi.log.warn("Profile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Profile'.")
         return new Profile(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class Profile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Profile'. */
     constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Profile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Profile'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
@@ -121,7 +126,7 @@ export class Profile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20150601:Profile" }, { type: "azure-nextgen:cdn/v20160402:Profile" }, { type: "azure-nextgen:cdn/v20161002:Profile" }, { type: "azure-nextgen:cdn/v20170402:Profile" }, { type: "azure-nextgen:cdn/v20171012:Profile" }, { type: "azure-nextgen:cdn/v20190415:Profile" }, { type: "azure-nextgen:cdn/v20190615:Profile" }, { type: "azure-nextgen:cdn/v20190615preview:Profile" }, { type: "azure-nextgen:cdn/v20191231:Profile" }, { type: "azure-nextgen:cdn/v20200331:Profile" }, { type: "azure-nextgen:cdn/v20200415:Profile" }, { type: "azure-nextgen:cdn/v20200901:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:Profile" }, { type: "azure-nextgen:cdn/v20150601:Profile" }, { type: "azure-nextgen:cdn/v20160402:Profile" }, { type: "azure-nextgen:cdn/v20161002:Profile" }, { type: "azure-nextgen:cdn/v20170402:Profile" }, { type: "azure-nextgen:cdn/v20171012:Profile" }, { type: "azure-nextgen:cdn/v20190415:Profile" }, { type: "azure-nextgen:cdn/v20190615:Profile" }, { type: "azure-nextgen:cdn/v20190615preview:Profile" }, { type: "azure-nextgen:cdn/v20191231:Profile" }, { type: "azure-nextgen:cdn/v20200331:Profile" }, { type: "azure-nextgen:cdn/v20200415:Profile" }, { type: "azure-nextgen:cdn/v20200901:Profile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Profile.__pulumiType, name, inputs, opts);
     }

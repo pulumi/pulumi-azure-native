@@ -117,7 +117,7 @@ export class LabAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices/latest:LabAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices:LabAccount" }, { type: "azure-nextgen:labservices/latest:LabAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LabAccount.__pulumiType, name, inputs, opts);
     }

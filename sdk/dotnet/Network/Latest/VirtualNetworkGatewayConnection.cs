@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// A common class for general resource information.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkGatewayConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:VirtualNetworkGatewayConnection")]
     public partial class VirtualNetworkGatewayConnection : Pulumi.CustomResource
     {
@@ -209,6 +210,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:VirtualNetworkGatewayConnection"},

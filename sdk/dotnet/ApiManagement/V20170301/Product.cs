@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Product"},

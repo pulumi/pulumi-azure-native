@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:SecurityPartnerProvider"},

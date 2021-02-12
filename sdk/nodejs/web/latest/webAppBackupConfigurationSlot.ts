@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of a backup which will be performed.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfigurationSlot'.
  */
 export class WebAppBackupConfigurationSlot extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebAppBackupConfigurationSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppBackupConfigurationSlot {
+        pulumi.log.warn("WebAppBackupConfigurationSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfigurationSlot'.")
         return new WebAppBackupConfigurationSlot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class WebAppBackupConfigurationSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfigurationSlot'. */
     constructor(name: string, args: WebAppBackupConfigurationSlotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppBackupConfigurationSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfigurationSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -124,7 +129,7 @@ export class WebAppBackupConfigurationSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20160801:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20180201:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20181101:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20190801:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20200601:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20200901:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20201001:WebAppBackupConfigurationSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20150801:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20160801:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20180201:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20181101:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20190801:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20200601:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20200901:WebAppBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20201001:WebAppBackupConfigurationSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppBackupConfigurationSlot.__pulumiType, name, inputs, opts);
     }

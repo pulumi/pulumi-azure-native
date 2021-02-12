@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['LoadBalancerBackendAddressPool']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LoadBalancerBackendAddressPool'.""", DeprecationWarning)
+
 
 class LoadBalancerBackendAddressPool(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LoadBalancerBackendAddressPool'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        pulumi.log.warn("LoadBalancerBackendAddressPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LoadBalancerBackendAddressPool'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
             __props__['outbound_rules'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool"), pulumi.Alias(type_="azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancerBackendAddressPool, __self__).__init__(
             'azure-nextgen:network/latest:LoadBalancerBackendAddressPool',

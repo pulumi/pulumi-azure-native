@@ -160,6 +160,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:VirtualNetworkGateway"},

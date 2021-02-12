@@ -166,7 +166,7 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 
 	var outputs map[string]interface{}
 	switch req.Tok {
-	case "azure-nextgen:authorization/latest:getClientConfig":
+	case "azure-nextgen:authorization:getClientConfig":
 		auth, err := k.getAuthConfig()
 		if err != nil {
 			return nil, fmt.Errorf("getting auth config: %w", err)
@@ -181,7 +181,7 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 			"subscriptionId": auth.SubscriptionID,
 			"tenantId":       auth.TenantID,
 		}
-	case "azure-nextgen:authorization/latest:getClientToken":
+	case "azure-nextgen:authorization:getClientToken":
 		auth, err := k.getAuthConfig()
 		if err != nil {
 			return nil, fmt.Errorf("getting auth config: %w", err)

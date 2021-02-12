@@ -13,6 +13,8 @@ import (
 
 // The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 // Latest API Version: 2020-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appconfiguration:ConfigurationStore'.
 type ConfigurationStore struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewConfigurationStore(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:appconfiguration:ConfigurationStore"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"),
 		},

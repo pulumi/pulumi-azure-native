@@ -13,6 +13,8 @@ import (
 
 // Virtual Network resource.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetwork'.
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 
@@ -72,6 +74,9 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 		args.EnableVmProtection = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:VirtualNetwork"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150501preview:VirtualNetwork"),
 		},

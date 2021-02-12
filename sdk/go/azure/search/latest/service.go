@@ -13,6 +13,8 @@ import (
 
 // Describes an Azure Cognitive Search service and its current state.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:Service'.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +80,9 @@ func NewService(ctx *pulumi.Context,
 		args.ReplicaCount = pulumi.IntPtr(1)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:search:Service"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:search/v20150819:Service"),
 		},

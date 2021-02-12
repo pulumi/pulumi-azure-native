@@ -15,3 +15,31 @@ export {
     v20200901,
     v20201001preview,
 };
+
+export const Kind = {
+    ScheduleBased: "ScheduleBased",
+} as const;
+
+/**
+ * Kind of synchronization
+ */
+export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const ShareKind = {
+    CopyBased: "CopyBased",
+    InPlace: "InPlace",
+} as const;
+
+/**
+ * Share kind.
+ */
+export type ShareKind = (typeof ShareKind)[keyof typeof ShareKind];
+
+export const Type = {
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * Identity Type
+ */
+export type Type = (typeof Type)[keyof typeof Type];

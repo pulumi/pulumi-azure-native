@@ -13,6 +13,8 @@ import (
 
 // The remediation definition.
 // Latest API Version: 2019-07-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtResourceGroup'.
 type RemediationAtResourceGroup struct {
 	pulumi.CustomResourceState
 
@@ -52,6 +54,9 @@ func NewRemediationAtResourceGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:policyinsights:RemediationAtResourceGroup"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup"),
 		},

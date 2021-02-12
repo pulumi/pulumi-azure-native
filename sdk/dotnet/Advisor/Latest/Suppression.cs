@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Advisor.Latest
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:advisor:Suppression'.")]
     [AzureNextGenResourceType("azure-nextgen:advisor/latest:Suppression")]
     public partial class Suppression : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.Advisor.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:advisor:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor/v20160712preview:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor/v20170331:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor/v20170419:Suppression"},

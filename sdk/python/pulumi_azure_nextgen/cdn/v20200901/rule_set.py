@@ -62,7 +62,7 @@ class RuleSet(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/latest:RuleSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:RuleSet"), pulumi.Alias(type_="azure-nextgen:cdn/latest:RuleSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RuleSet, __self__).__init__(
             'azure-nextgen:cdn/v20200901:RuleSet',

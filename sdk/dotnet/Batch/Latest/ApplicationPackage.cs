@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
     /// An application package which represents a particular version of an application.
     /// Latest API Version: 2021-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:ApplicationPackage'.")]
     [AzureNextGenResourceType("azure-nextgen:batch/latest:ApplicationPackage")]
     public partial class ApplicationPackage : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batch:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20151201:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170101:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170501:ApplicationPackage"},

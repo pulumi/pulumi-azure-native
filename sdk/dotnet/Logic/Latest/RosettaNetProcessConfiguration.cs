@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
     /// The integration account RosettaNet process configuration.
     /// Latest API Version: 2016-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:RosettaNetProcessConfiguration'.")]
     [AzureNextGenResourceType("azure-nextgen:logic/latest:RosettaNetProcessConfiguration")]
     public partial class RosettaNetProcessConfiguration : Pulumi.CustomResource
     {
@@ -125,6 +126,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic:RosettaNetProcessConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration"},
                 },
             };

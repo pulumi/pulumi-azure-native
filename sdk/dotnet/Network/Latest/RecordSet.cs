@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RecordSet'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:RecordSet")]
     public partial class RecordSet : Pulumi.CustomResource
     {
@@ -131,6 +132,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:RecordSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:RecordSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:RecordSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:RecordSet"},

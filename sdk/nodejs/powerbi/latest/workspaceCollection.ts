@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Latest API Version: 2016-01-29.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbi:WorkspaceCollection'.
  */
 export class WorkspaceCollection extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class WorkspaceCollection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WorkspaceCollection {
+        pulumi.log.warn("WorkspaceCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbi:WorkspaceCollection'.")
         return new WorkspaceCollection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,7 +64,9 @@ export class WorkspaceCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbi:WorkspaceCollection'. */
     constructor(name: string, args: WorkspaceCollectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WorkspaceCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbi:WorkspaceCollection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -93,7 +98,7 @@ export class WorkspaceCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbi/v20160129:WorkspaceCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbi:WorkspaceCollection" }, { type: "azure-nextgen:powerbi/v20160129:WorkspaceCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkspaceCollection.__pulumiType, name, inputs, opts);
     }

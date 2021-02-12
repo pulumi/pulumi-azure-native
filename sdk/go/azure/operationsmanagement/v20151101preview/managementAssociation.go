@@ -47,6 +47,12 @@ func NewManagementAssociation(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:operationsmanagement:ManagementAssociation"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagementAssociation
 	err := ctx.RegisterResource("azure-nextgen:operationsmanagement/v20151101preview:ManagementAssociation", name, args, &resource, opts...)
 	if err != nil {

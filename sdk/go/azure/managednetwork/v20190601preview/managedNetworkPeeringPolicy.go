@@ -41,6 +41,12 @@ func NewManagedNetworkPeeringPolicy(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:managednetwork:ManagedNetworkPeeringPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagedNetworkPeeringPolicy
 	err := ctx.RegisterResource("azure-nextgen:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy", name, args, &resource, opts...)
 	if err != nil {

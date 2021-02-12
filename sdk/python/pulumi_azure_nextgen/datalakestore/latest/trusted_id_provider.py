@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['TrustedIdProvider']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:TrustedIdProvider'.""", DeprecationWarning)
+
 
 class TrustedIdProvider(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:TrustedIdProvider'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +37,7 @@ class TrustedIdProvider(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[str] trusted_id_provider_name: The name of the trusted identity provider. This is used for differentiation of providers in the account.
         """
+        pulumi.log.warn("TrustedIdProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:TrustedIdProvider'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -64,7 +69,7 @@ class TrustedIdProvider(pulumi.CustomResource):
             __props__['trusted_id_provider_name'] = trusted_id_provider_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakestore/v20161101:TrustedIdProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakestore:TrustedIdProvider"), pulumi.Alias(type_="azure-nextgen:datalakestore/v20161101:TrustedIdProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TrustedIdProvider, __self__).__init__(
             'azure-nextgen:datalakestore/latest:TrustedIdProvider',

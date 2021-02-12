@@ -95,7 +95,7 @@ export class Task extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datamigration/latest:Task" }, { type: "azure-nextgen:datamigration/v20171115preview:Task" }, { type: "azure-nextgen:datamigration/v20180315preview:Task" }, { type: "azure-nextgen:datamigration/v20180331preview:Task" }, { type: "azure-nextgen:datamigration/v20180419:Task" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datamigration:Task" }, { type: "azure-nextgen:datamigration/latest:Task" }, { type: "azure-nextgen:datamigration/v20171115preview:Task" }, { type: "azure-nextgen:datamigration/v20180315preview:Task" }, { type: "azure-nextgen:datamigration/v20180331preview:Task" }, { type: "azure-nextgen:datamigration/v20180419:Task" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Task.__pulumiType, name, inputs, opts);
     }

@@ -145,7 +145,7 @@ export class NotificationHub extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:notificationhubs/latest:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20140901:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20170401:NotificationHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:notificationhubs:NotificationHub" }, { type: "azure-nextgen:notificationhubs/latest:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20140901:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20170401:NotificationHub" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotificationHub.__pulumiType, name, inputs, opts);
     }

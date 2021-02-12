@@ -13,6 +13,8 @@ import (
 
 // Site REST Resource.
 // Latest API Version: 2020-07-07.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:HyperVSite'.
 type HyperVSite struct {
 	pulumi.CustomResourceState
 
@@ -43,6 +45,9 @@ func NewHyperVSite(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SiteName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:offazure:HyperVSite"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:offazure/v20200101:HyperVSite"),
 		},

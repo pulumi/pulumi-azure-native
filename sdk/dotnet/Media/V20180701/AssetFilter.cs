@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:AssetFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:AssetFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:AssetFilter"},
                 },

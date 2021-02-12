@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['EnterpriseChannel']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:EnterpriseChannel'.""", DeprecationWarning)
+
 
 class EnterpriseChannel(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:EnterpriseChannel'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class EnterpriseChannel(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets the SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
+        pulumi.log.warn("EnterpriseChannel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:EnterpriseChannel'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class EnterpriseChannel(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:botservice/v20180712:EnterpriseChannel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:botservice:EnterpriseChannel"), pulumi.Alias(type_="azure-nextgen:botservice/v20180712:EnterpriseChannel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EnterpriseChannel, __self__).__init__(
             'azure-nextgen:botservice/latest:EnterpriseChannel',

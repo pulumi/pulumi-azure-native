@@ -128,7 +128,7 @@ export class NatRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:NatRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:NatRule" }, { type: "azure-nextgen:network/latest:NatRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NatRule.__pulumiType, name, inputs, opts);
     }

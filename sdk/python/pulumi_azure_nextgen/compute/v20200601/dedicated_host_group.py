@@ -73,7 +73,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
             __props__['instance_view'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:DedicatedHostGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/latest:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:DedicatedHostGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedHostGroup, __self__).__init__(
             'azure-nextgen:compute/v20200601:DedicatedHostGroup',

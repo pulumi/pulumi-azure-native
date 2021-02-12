@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
     /// The notification registration definition.
     /// Latest API Version: 2020-11-20.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:NotificationRegistration'.")]
     [AzureNextGenResourceType("azure-nextgen:providerhub/latest:NotificationRegistration")]
     public partial class NotificationRegistration : Pulumi.CustomResource
     {
@@ -56,6 +57,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub:NotificationRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:NotificationRegistration"},
                 },
             };

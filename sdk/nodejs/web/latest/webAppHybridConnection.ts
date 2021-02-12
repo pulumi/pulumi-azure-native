@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Hybrid Connection contract. This is used to configure a Hybrid Connection.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHybridConnection'.
  */
 export class WebAppHybridConnection extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppHybridConnection {
+        pulumi.log.warn("WebAppHybridConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHybridConnection'.")
         return new WebAppHybridConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -93,7 +96,9 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHybridConnection'. */
     constructor(name: string, args: WebAppHybridConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppHybridConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHybridConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -143,7 +148,7 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160801:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20181101:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20200901:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20201001:WebAppHybridConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20160801:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20181101:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20200901:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20201001:WebAppHybridConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppHybridConnection.__pulumiType, name, inputs, opts);
     }

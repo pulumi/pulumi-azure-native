@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['WebAppSlot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSlot'.""", DeprecationWarning)
+
 
 class WebAppSlot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSlot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -87,6 +91,7 @@ class WebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("WebAppSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSlot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -165,7 +170,7 @@ class WebAppSlot(pulumi.CustomResource):
             __props__['traffic_manager_host_names'] = None
             __props__['type'] = None
             __props__['usage_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppSlot',

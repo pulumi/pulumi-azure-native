@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// AzureStorageInfo dictionary resource.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAzureStorageAccountsSlot'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppAzureStorageAccountsSlot")]
     public partial class WebAppAzureStorageAccountsSlot : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppAzureStorageAccountsSlot"},

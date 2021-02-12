@@ -43,6 +43,12 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args.ScopeName == nil {
 		return nil, errors.New("invalid value for required argument 'ScopeName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:PrivateEndpointConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
 	err := ctx.RegisterResource("azure-nextgen:insights/v20191017preview:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {

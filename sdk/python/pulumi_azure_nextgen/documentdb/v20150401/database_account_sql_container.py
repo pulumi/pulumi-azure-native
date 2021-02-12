@@ -86,7 +86,7 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
             __props__['ts'] = None
             __props__['type'] = None
             __props__['unique_key_policy'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountSqlContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountSqlContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountSqlContainer, __self__).__init__(
             'azure-nextgen:documentdb/v20150401:DatabaseAccountSqlContainer',

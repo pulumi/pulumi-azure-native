@@ -52,6 +52,9 @@ func NewArtifactSource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:deploymentmanager:ArtifactSource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager/v20180901preview:ArtifactSource"),
 		},
 	})

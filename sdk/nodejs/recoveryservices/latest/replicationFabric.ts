@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Fabric definition.
  * Latest API Version: 2018-07-10.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationFabric'.
  */
 export class ReplicationFabric extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ReplicationFabric extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReplicationFabric {
+        pulumi.log.warn("ReplicationFabric is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationFabric'.")
         return new ReplicationFabric(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class ReplicationFabric extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationFabric'. */
     constructor(name: string, args: ReplicationFabricArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ReplicationFabric is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationFabric'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
@@ -92,7 +97,7 @@ export class ReplicationFabric extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20160810:ReplicationFabric" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationFabric" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationFabric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationFabric" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationFabric" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationFabric" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationFabric" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationFabric.__pulumiType, name, inputs, opts);
     }

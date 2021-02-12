@@ -13,6 +13,8 @@ import (
 
 // Backup of a Volume
 // Latest API Version: 2020-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Backup'.
 type Backup struct {
 	pulumi.CustomResourceState
 
@@ -61,6 +63,9 @@ func NewBackup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VolumeName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:netapp:Backup"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200501:Backup"),
 		},

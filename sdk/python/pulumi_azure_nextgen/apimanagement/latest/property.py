@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Property']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Property'.""", DeprecationWarning)
+
 
 class Property(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Property'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class Property(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Optional tags that when provided can be used to filter the property list.
         :param pulumi.Input[str] value: Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
         """
+        pulumi.log.warn("Property is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Property'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class Property(pulumi.CustomResource):
             __props__['value'] = value
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Property")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Property")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Property, __self__).__init__(
             'azure-nextgen:apimanagement/latest:Property',

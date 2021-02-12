@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['IpGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpGroup'.""", DeprecationWarning)
+
 
 class IpGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class IpGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("IpGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -71,7 +76,7 @@ class IpGroup(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190901:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191101:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191201:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200301:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200501:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200601:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200701:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200801:IpGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190901:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191101:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191201:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200301:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200501:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200601:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200701:IpGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200801:IpGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IpGroup, __self__).__init__(
             'azure-nextgen:network/latest:IpGroup',

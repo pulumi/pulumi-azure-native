@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A domain specific resource identifier.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot'.
  */
 export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppDomainOwnershipIdentifierSlot {
+        pulumi.log.warn("WebAppDomainOwnershipIdentifierSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot'.")
         return new WebAppDomainOwnershipIdentifierSlot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot'. */
     constructor(name: string, args: WebAppDomainOwnershipIdentifierSlotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppDomainOwnershipIdentifierSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.domainOwnershipIdentifierName === undefined) && !(opts && opts.urn)) {
@@ -101,7 +106,7 @@ export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifierSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifierSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDomainOwnershipIdentifierSlot.__pulumiType, name, inputs, opts);
     }

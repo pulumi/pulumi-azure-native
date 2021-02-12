@@ -53,6 +53,9 @@ func NewLogger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:Logger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:Logger"),
 		},
 		{

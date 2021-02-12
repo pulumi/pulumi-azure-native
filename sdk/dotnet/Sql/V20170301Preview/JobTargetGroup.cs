@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:JobTargetGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:JobTargetGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:JobTargetGroup"},
                 },

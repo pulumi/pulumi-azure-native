@@ -78,6 +78,9 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datalakestore:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakestore/latest:Account"),
 		},
 	})

@@ -13,6 +13,8 @@ import (
 
 // Storage mapping object.
 // Latest API Version: 2018-07-10.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping'.
 type ReplicationStorageClassificationMapping struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StorageClassificationName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping"),
 		},

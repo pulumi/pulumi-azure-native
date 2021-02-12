@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// The gateway definition
     /// Latest API Version: 2016-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:ConnectionGateway'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:ConnectionGateway")]
     public partial class ConnectionGateway : Pulumi.CustomResource
     {
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:ConnectionGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160601:ConnectionGateway"},
                 },
             };

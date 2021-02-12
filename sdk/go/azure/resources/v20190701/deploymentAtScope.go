@@ -43,6 +43,9 @@ func NewDeploymentAtScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:resources:DeploymentAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/latest:DeploymentAtScope"),
 		},
 		{

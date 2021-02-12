@@ -114,7 +114,7 @@ export class BandwidthSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/latest:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190301:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190701:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200901:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/latest:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190301:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20190701:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200901:BandwidthSchedule" }, { type: "azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BandwidthSchedule.__pulumiType, name, inputs, opts);
     }

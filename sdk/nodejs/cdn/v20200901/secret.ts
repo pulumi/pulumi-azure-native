@@ -100,7 +100,7 @@ export class Secret extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:Secret" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:Secret" }, { type: "azure-nextgen:cdn/latest:Secret" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Secret.__pulumiType, name, inputs, opts);
     }

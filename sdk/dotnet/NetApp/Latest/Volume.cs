@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
     /// Volume resource
     /// Latest API Version: 2020-11-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Volume'.")]
     [AzureNextGenResourceType("azure-nextgen:netapp/latest:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {
@@ -194,6 +195,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190501:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190601:Volume"},

@@ -68,7 +68,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/latest:MaintenanceConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:containerservice/latest:MaintenanceConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MaintenanceConfiguration, __self__).__init__(
             'azure-nextgen:containerservice/v20201201:MaintenanceConfiguration',

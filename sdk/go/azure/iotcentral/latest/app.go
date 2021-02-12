@@ -13,6 +13,8 @@ import (
 
 // The IoT Central application.
 // Latest API Version: 2018-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:iotcentral:App'.
 type App struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewApp(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:iotcentral:App"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:iotcentral/v20170701privatepreview:App"),
 		},

@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['LinkedStorageAccount']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedStorageAccount'.""", DeprecationWarning)
+
 
 class LinkedStorageAccount(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedStorageAccount'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +37,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: Linked storage accounts resources ids.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        pulumi.log.warn("LinkedStorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedStorageAccount'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -62,7 +67,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/v20190801preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:LinkedStorageAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights:LinkedStorageAccount"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20190801preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:LinkedStorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedStorageAccount, __self__).__init__(
             'azure-nextgen:operationalinsights/latest:LinkedStorageAccount',

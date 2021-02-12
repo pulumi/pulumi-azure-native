@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDCustomDomain'.")]
     [AzureNextGenResourceType("azure-nextgen:cdn/latest:AFDCustomDomain")]
     public partial class AFDCustomDomain : Pulumi.CustomResource
     {
@@ -98,6 +99,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDCustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:AFDCustomDomain"},
                 },
             };

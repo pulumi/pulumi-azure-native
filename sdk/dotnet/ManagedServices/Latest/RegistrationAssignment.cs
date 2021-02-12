@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.Latest
     /// Registration assignment.
     /// Latest API Version: 2019-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationAssignment'.")]
     [AzureNextGenResourceType("azure-nextgen:managedservices/latest:RegistrationAssignment")]
     public partial class RegistrationAssignment : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20180601preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190401preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190601:RegistrationAssignment"},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
     /// The properties of a storage account’s Table service.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:TableServiceProperties'.")]
     [AzureNextGenResourceType("azure-nextgen:storage/latest:TableServiceProperties")]
     public partial class TableServiceProperties : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:TableServiceProperties"},
                 },

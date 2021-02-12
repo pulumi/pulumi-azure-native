@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.OffAzure.Latest
     /// Site REST Resource.
     /// Latest API Version: 2020-07-07.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:HyperVSite'.")]
     [AzureNextGenResourceType("azure-nextgen:offazure/latest:HyperVSite")]
     public partial class HyperVSite : Pulumi.CustomResource
     {
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNextGen.OffAzure.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:offazure:HyperVSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200101:HyperVSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200707:HyperVSite"},
                 },

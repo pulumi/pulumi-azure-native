@@ -13,6 +13,8 @@ import (
 
 // Subscription details.
 // Latest API Version: 2019-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Subscription'.
 type Subscription struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +73,9 @@ func NewSubscription(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sid'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement:Subscription"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Subscription"),
 		},

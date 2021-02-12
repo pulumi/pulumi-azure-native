@@ -66,6 +66,8 @@ class Ledger(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:confidentialledger:Ledger")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Ledger, __self__).__init__(
             'azure-nextgen:confidentialledger/v20201201preview:Ledger',
             resource_name,

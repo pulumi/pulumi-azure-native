@@ -1,6 +1,6 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as documentdb from "@pulumi/azure-nextgen/documentdb/latest";
-import * as resources from "@pulumi/azure-nextgen/resources/latest";
+import * as documentdb from "@pulumi/azure-nextgen/documentdb";
+import * as resources from "@pulumi/azure-nextgen/resources";
 import { documentdb as documentdbInputs } from "@pulumi/azure-nextgen/types/input";
 
 export type Location =

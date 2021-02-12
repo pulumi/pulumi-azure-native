@@ -38,6 +38,12 @@ func NewIotSite(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:security:IotSite"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IotSite
 	err := ctx.RegisterResource("azure-nextgen:security/v20200806preview:IotSite", name, args, &resource, opts...)
 	if err != nil {

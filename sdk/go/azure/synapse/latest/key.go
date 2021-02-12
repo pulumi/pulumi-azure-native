@@ -13,6 +13,8 @@ import (
 
 // A workspace key
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:Key'.
 type Key struct {
 	pulumi.CustomResourceState
 
@@ -43,6 +45,9 @@ func NewKey(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse:Key"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:Key"),
 		},

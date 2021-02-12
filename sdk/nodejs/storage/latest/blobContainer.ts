@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
  * Latest API Version: 2019-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobContainer'.
  */
 export class BlobContainer extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class BlobContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BlobContainer {
+        pulumi.log.warn("BlobContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobContainer'.")
         return new BlobContainer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -120,7 +123,9 @@ export class BlobContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobContainer'. */
     constructor(name: string, args: BlobContainerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BlobContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobContainer'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -182,7 +187,7 @@ export class BlobContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/v20180201:BlobContainer" }, { type: "azure-nextgen:storage/v20180301preview:BlobContainer" }, { type: "azure-nextgen:storage/v20180701:BlobContainer" }, { type: "azure-nextgen:storage/v20181101:BlobContainer" }, { type: "azure-nextgen:storage/v20190401:BlobContainer" }, { type: "azure-nextgen:storage/v20190601:BlobContainer" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:BlobContainer" }, { type: "azure-nextgen:storage/v20180201:BlobContainer" }, { type: "azure-nextgen:storage/v20180301preview:BlobContainer" }, { type: "azure-nextgen:storage/v20180701:BlobContainer" }, { type: "azure-nextgen:storage/v20181101:BlobContainer" }, { type: "azure-nextgen:storage/v20190401:BlobContainer" }, { type: "azure-nextgen:storage/v20190601:BlobContainer" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobContainer.__pulumiType, name, inputs, opts);
     }

@@ -44,6 +44,9 @@ func NewSiteConnectionStrings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:SiteConnectionStrings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteConnectionStrings"),
 		},
 		{

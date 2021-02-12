@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['PrivateCloud']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:PrivateCloud'.""", DeprecationWarning)
+
 
 class PrivateCloud(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:PrivateCloud'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class PrivateCloud(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vcenter_password: Optionally, set the vCenter admin password when the private cloud is created
         """
+        pulumi.log.warn("PrivateCloud is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:PrivateCloud'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,7 +105,7 @@ class PrivateCloud(pulumi.CustomResource):
             __props__['type'] = None
             __props__['vcenter_certificate_thumbprint'] = None
             __props__['vmotion_network'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs/v20200320:PrivateCloud"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:PrivateCloud")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs:PrivateCloud"), pulumi.Alias(type_="azure-nextgen:avs/v20200320:PrivateCloud"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:PrivateCloud")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateCloud, __self__).__init__(
             'azure-nextgen:avs/latest:PrivateCloud',

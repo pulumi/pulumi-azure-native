@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Diagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Diagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Diagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Diagnostic"},

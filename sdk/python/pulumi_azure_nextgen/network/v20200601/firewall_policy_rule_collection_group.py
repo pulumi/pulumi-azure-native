@@ -74,7 +74,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200701:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200801:FirewallPolicyRuleCollectionGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-nextgen:network/latest:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200701:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200801:FirewallPolicyRuleCollectionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicyRuleCollectionGroup, __self__).__init__(
             'azure-nextgen:network/v20200601:FirewallPolicyRuleCollectionGroup',

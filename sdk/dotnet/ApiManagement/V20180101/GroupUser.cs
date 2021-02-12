@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:GroupUser"},

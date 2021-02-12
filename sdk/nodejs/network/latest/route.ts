@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Route resource.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Route'.
  */
 export class Route extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Route extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Route {
+        pulumi.log.warn("Route is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Route'.")
         return new Route(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class Route extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Route'. */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Route is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Route'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.nextHopType === undefined) && !(opts && opts.urn)) {
@@ -120,7 +125,7 @@ export class Route extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150501preview:Route" }, { type: "azure-nextgen:network/v20150615:Route" }, { type: "azure-nextgen:network/v20160330:Route" }, { type: "azure-nextgen:network/v20160601:Route" }, { type: "azure-nextgen:network/v20160901:Route" }, { type: "azure-nextgen:network/v20161201:Route" }, { type: "azure-nextgen:network/v20170301:Route" }, { type: "azure-nextgen:network/v20170601:Route" }, { type: "azure-nextgen:network/v20170801:Route" }, { type: "azure-nextgen:network/v20170901:Route" }, { type: "azure-nextgen:network/v20171001:Route" }, { type: "azure-nextgen:network/v20171101:Route" }, { type: "azure-nextgen:network/v20180101:Route" }, { type: "azure-nextgen:network/v20180201:Route" }, { type: "azure-nextgen:network/v20180401:Route" }, { type: "azure-nextgen:network/v20180601:Route" }, { type: "azure-nextgen:network/v20180701:Route" }, { type: "azure-nextgen:network/v20180801:Route" }, { type: "azure-nextgen:network/v20181001:Route" }, { type: "azure-nextgen:network/v20181101:Route" }, { type: "azure-nextgen:network/v20181201:Route" }, { type: "azure-nextgen:network/v20190201:Route" }, { type: "azure-nextgen:network/v20190401:Route" }, { type: "azure-nextgen:network/v20190601:Route" }, { type: "azure-nextgen:network/v20190701:Route" }, { type: "azure-nextgen:network/v20190801:Route" }, { type: "azure-nextgen:network/v20190901:Route" }, { type: "azure-nextgen:network/v20191101:Route" }, { type: "azure-nextgen:network/v20191201:Route" }, { type: "azure-nextgen:network/v20200301:Route" }, { type: "azure-nextgen:network/v20200401:Route" }, { type: "azure-nextgen:network/v20200501:Route" }, { type: "azure-nextgen:network/v20200601:Route" }, { type: "azure-nextgen:network/v20200701:Route" }, { type: "azure-nextgen:network/v20200801:Route" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Route" }, { type: "azure-nextgen:network/v20150501preview:Route" }, { type: "azure-nextgen:network/v20150615:Route" }, { type: "azure-nextgen:network/v20160330:Route" }, { type: "azure-nextgen:network/v20160601:Route" }, { type: "azure-nextgen:network/v20160901:Route" }, { type: "azure-nextgen:network/v20161201:Route" }, { type: "azure-nextgen:network/v20170301:Route" }, { type: "azure-nextgen:network/v20170601:Route" }, { type: "azure-nextgen:network/v20170801:Route" }, { type: "azure-nextgen:network/v20170901:Route" }, { type: "azure-nextgen:network/v20171001:Route" }, { type: "azure-nextgen:network/v20171101:Route" }, { type: "azure-nextgen:network/v20180101:Route" }, { type: "azure-nextgen:network/v20180201:Route" }, { type: "azure-nextgen:network/v20180401:Route" }, { type: "azure-nextgen:network/v20180601:Route" }, { type: "azure-nextgen:network/v20180701:Route" }, { type: "azure-nextgen:network/v20180801:Route" }, { type: "azure-nextgen:network/v20181001:Route" }, { type: "azure-nextgen:network/v20181101:Route" }, { type: "azure-nextgen:network/v20181201:Route" }, { type: "azure-nextgen:network/v20190201:Route" }, { type: "azure-nextgen:network/v20190401:Route" }, { type: "azure-nextgen:network/v20190601:Route" }, { type: "azure-nextgen:network/v20190701:Route" }, { type: "azure-nextgen:network/v20190801:Route" }, { type: "azure-nextgen:network/v20190901:Route" }, { type: "azure-nextgen:network/v20191101:Route" }, { type: "azure-nextgen:network/v20191201:Route" }, { type: "azure-nextgen:network/v20200301:Route" }, { type: "azure-nextgen:network/v20200401:Route" }, { type: "azure-nextgen:network/v20200501:Route" }, { type: "azure-nextgen:network/v20200601:Route" }, { type: "azure-nextgen:network/v20200701:Route" }, { type: "azure-nextgen:network/v20200801:Route" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Route.__pulumiType, name, inputs, opts);
     }

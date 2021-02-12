@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ReplicationvCenter']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationvCenter'.""", DeprecationWarning)
+
 
 class ReplicationvCenter(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationvCenter'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class ReplicationvCenter(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
         :param pulumi.Input[str] v_center_name: vCenter name.
         """
+        pulumi.log.warn("ReplicationvCenter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationvCenter'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class ReplicationvCenter(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160810:ReplicationvCenter"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180110:ReplicationvCenter"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationvCenter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices:ReplicationvCenter"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160810:ReplicationvCenter"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180110:ReplicationvCenter"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationvCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationvCenter, __self__).__init__(
             'azure-nextgen:recoveryservices/latest:ReplicationvCenter',

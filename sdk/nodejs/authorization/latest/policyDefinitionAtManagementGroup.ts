@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The policy definition.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyDefinitionAtManagementGroup'.
  */
 export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PolicyDefinitionAtManagementGroup {
+        pulumi.log.warn("PolicyDefinitionAtManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyDefinitionAtManagementGroup'.")
         return new PolicyDefinitionAtManagementGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyDefinitionAtManagementGroup'. */
     constructor(name: string, args: PolicyDefinitionAtManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PolicyDefinitionAtManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyDefinitionAtManagementGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.managementGroupId === undefined) && !(opts && opts.urn)) {
@@ -118,7 +123,7 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20161201:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20180301:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20180501:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20190101:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20190601:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20190901:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20200301:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20200901:PolicyDefinitionAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20161201:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20180301:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20180501:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20190101:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20190601:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20190901:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20200301:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20200901:PolicyDefinitionAtManagementGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyDefinitionAtManagementGroup.__pulumiType, name, inputs, opts);
     }

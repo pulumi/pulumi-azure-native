@@ -78,7 +78,7 @@ class BandwidthSchedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'stop'")
             __props__['stop'] = stop
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/latest:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/latest:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BandwidthSchedule, __self__).__init__(
             'azure-nextgen:databoxedge/v20190801:BandwidthSchedule',

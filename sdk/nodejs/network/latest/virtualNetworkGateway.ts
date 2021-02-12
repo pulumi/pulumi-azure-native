@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A common class for general resource information.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkGateway'.
  */
 export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetworkGateway {
+        pulumi.log.warn("VirtualNetworkGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkGateway'.")
         return new VirtualNetworkGateway(name, undefined as any, { ...opts, id: id });
     }
 
@@ -136,7 +139,9 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkGateway'. */
     constructor(name: string, args: VirtualNetworkGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualNetworkGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkGateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -203,7 +208,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150615:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20160330:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20160601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20160901:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20161201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170301:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170901:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20171001:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20171101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180401:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180701:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20181001:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20181101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20181201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190401:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190701:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190901:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20191101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20191201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200301:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200401:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200501:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200701:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200801:VirtualNetworkGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20150615:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20160330:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20160601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20160901:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20161201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170301:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170901:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20171001:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20171101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180401:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180701:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20181001:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20181101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20181201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190401:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190701:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190901:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20191101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20191201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200301:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200401:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200501:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200701:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200801:VirtualNetworkGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkGateway.__pulumiType, name, inputs, opts);
     }

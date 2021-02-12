@@ -93,7 +93,7 @@ class SignalR(pulumi.CustomResource):
             __props__['server_port'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:signalrservice/latest:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20180301preview:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20181001:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20200701preview:SignalR")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:signalrservice:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/latest:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20180301preview:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20181001:SignalR"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20200701preview:SignalR")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalR, __self__).__init__(
             'azure-nextgen:signalrservice/v20200501:SignalR',

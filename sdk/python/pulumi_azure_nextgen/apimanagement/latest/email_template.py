@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['EmailTemplate']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:EmailTemplate'.""", DeprecationWarning)
+
 
 class EmailTemplate(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:EmailTemplate'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +47,7 @@ class EmailTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] template_name: Email Template Name Identifier.
         :param pulumi.Input[str] title: Title of the Template.
         """
+        pulumi.log.warn("EmailTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:EmailTemplate'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -77,7 +82,7 @@ class EmailTemplate(pulumi.CustomResource):
             __props__['is_default'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:EmailTemplate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:EmailTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EmailTemplate, __self__).__init__(
             'azure-nextgen:apimanagement/latest:EmailTemplate',

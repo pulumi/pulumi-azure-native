@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Advisor.V20170419
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:advisor:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor/latest:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor/v20160712preview:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor/v20170331:Suppression"},

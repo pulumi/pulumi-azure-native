@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['NetworkExperimentProfile']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkExperimentProfile'.""", DeprecationWarning)
+
 
 class NetworkExperimentProfile(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkExperimentProfile'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("NetworkExperimentProfile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkExperimentProfile'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['resource_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20191101:NetworkExperimentProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:NetworkExperimentProfile"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NetworkExperimentProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkExperimentProfile, __self__).__init__(
             'azure-nextgen:network/latest:NetworkExperimentProfile',

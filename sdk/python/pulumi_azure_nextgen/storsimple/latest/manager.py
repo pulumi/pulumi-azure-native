@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Manager']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:Manager'.""", DeprecationWarning)
+
 
 class Manager(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:Manager'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class Manager(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagerSkuArgs']] sku: Specifies the Sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags attached to the resource.
         """
+        pulumi.log.warn("Manager is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:Manager'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class Manager(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:Manager"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:Manager")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:Manager"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:Manager"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:Manager")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Manager, __self__).__init__(
             'azure-nextgen:storsimple/latest:Manager',

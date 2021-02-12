@@ -13,6 +13,8 @@ import (
 
 // The User registered to a lab
 // Latest API Version: 2018-10-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:User'.
 type User struct {
 	pulumi.CustomResourceState
 
@@ -62,6 +64,9 @@ func NewUser(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:labservices:User"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:labservices/v20181015:User"),
 		},

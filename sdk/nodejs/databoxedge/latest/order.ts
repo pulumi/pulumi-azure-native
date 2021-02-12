@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The order details.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Order'.
  */
 export class Order extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Order extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Order {
+        pulumi.log.warn("Order is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Order'.")
         return new Order(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,7 +87,9 @@ export class Order extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Order'. */
     constructor(name: string, args: OrderArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Order is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Order'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.contactInformation === undefined) && !(opts && opts.urn)) {
@@ -127,7 +132,7 @@ export class Order extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:Order" }, { type: "azure-nextgen:databoxedge/v20190701:Order" }, { type: "azure-nextgen:databoxedge/v20190801:Order" }, { type: "azure-nextgen:databoxedge/v20200501preview:Order" }, { type: "azure-nextgen:databoxedge/v20200901:Order" }, { type: "azure-nextgen:databoxedge/v20200901preview:Order" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Order" }, { type: "azure-nextgen:databoxedge/v20190301:Order" }, { type: "azure-nextgen:databoxedge/v20190701:Order" }, { type: "azure-nextgen:databoxedge/v20190801:Order" }, { type: "azure-nextgen:databoxedge/v20200501preview:Order" }, { type: "azure-nextgen:databoxedge/v20200901:Order" }, { type: "azure-nextgen:databoxedge/v20200901preview:Order" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Order.__pulumiType, name, inputs, opts);
     }

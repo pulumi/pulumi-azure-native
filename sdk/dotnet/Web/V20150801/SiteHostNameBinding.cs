@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:SiteHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteHostNameBinding"},

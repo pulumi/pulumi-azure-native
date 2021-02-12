@@ -79,7 +79,7 @@ export class Skus extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub/latest:Skus" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub:Skus" }, { type: "azure-nextgen:providerhub/latest:Skus" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Skus.__pulumiType, name, inputs, opts);
     }

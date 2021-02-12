@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Instance of an Azure ML web service resource.
  * Latest API Version: 2017-01-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:WebService'.
  */
 export class WebService extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebService {
+        pulumi.log.warn("WebService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:WebService'.")
         return new WebService(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class WebService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:WebService'. */
     constructor(name: string, args: WebServiceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:WebService'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
@@ -97,7 +102,7 @@ export class WebService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearning/v20160501preview:WebService" }, { type: "azure-nextgen:machinelearning/v20170101:WebService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearning:WebService" }, { type: "azure-nextgen:machinelearning/v20160501preview:WebService" }, { type: "azure-nextgen:machinelearning/v20170101:WebService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebService.__pulumiType, name, inputs, opts);
     }

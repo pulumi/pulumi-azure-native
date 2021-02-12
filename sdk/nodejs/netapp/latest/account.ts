@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * NetApp account resource
  * Latest API Version: 2020-11-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Account'.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Account extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Account {
+        pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Account'.")
         return new Account(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Account'. */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Account'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -112,7 +117,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20170815:Account" }, { type: "azure-nextgen:netapp/v20190501:Account" }, { type: "azure-nextgen:netapp/v20190601:Account" }, { type: "azure-nextgen:netapp/v20190701:Account" }, { type: "azure-nextgen:netapp/v20190801:Account" }, { type: "azure-nextgen:netapp/v20191001:Account" }, { type: "azure-nextgen:netapp/v20191101:Account" }, { type: "azure-nextgen:netapp/v20200201:Account" }, { type: "azure-nextgen:netapp/v20200301:Account" }, { type: "azure-nextgen:netapp/v20200501:Account" }, { type: "azure-nextgen:netapp/v20200601:Account" }, { type: "azure-nextgen:netapp/v20200701:Account" }, { type: "azure-nextgen:netapp/v20200801:Account" }, { type: "azure-nextgen:netapp/v20200901:Account" }, { type: "azure-nextgen:netapp/v20201101:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:Account" }, { type: "azure-nextgen:netapp/v20170815:Account" }, { type: "azure-nextgen:netapp/v20190501:Account" }, { type: "azure-nextgen:netapp/v20190601:Account" }, { type: "azure-nextgen:netapp/v20190701:Account" }, { type: "azure-nextgen:netapp/v20190801:Account" }, { type: "azure-nextgen:netapp/v20191001:Account" }, { type: "azure-nextgen:netapp/v20191101:Account" }, { type: "azure-nextgen:netapp/v20200201:Account" }, { type: "azure-nextgen:netapp/v20200301:Account" }, { type: "azure-nextgen:netapp/v20200501:Account" }, { type: "azure-nextgen:netapp/v20200601:Account" }, { type: "azure-nextgen:netapp/v20200701:Account" }, { type: "azure-nextgen:netapp/v20200801:Account" }, { type: "azure-nextgen:netapp/v20200901:Account" }, { type: "azure-nextgen:netapp/v20201101:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

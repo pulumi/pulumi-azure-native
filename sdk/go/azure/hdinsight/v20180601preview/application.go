@@ -45,6 +45,9 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:hdinsight:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hdinsight/v20150301preview:Application"),
 		},
 	})

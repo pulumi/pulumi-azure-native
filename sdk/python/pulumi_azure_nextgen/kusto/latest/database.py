@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['Database']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Database'.""", DeprecationWarning)
+
 
 class Database(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Database'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         """
+        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Database'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class Database(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:Database")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure-nextgen:kusto/latest:Database',

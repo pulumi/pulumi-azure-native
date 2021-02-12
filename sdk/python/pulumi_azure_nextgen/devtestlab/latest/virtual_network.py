@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['VirtualNetwork']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualNetwork'.""", DeprecationWarning)
+
 
 class VirtualNetwork(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualNetwork'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetOverrideArgs']]]] subnet_overrides: The subnet overrides of the virtual network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
+        pulumi.log.warn("VirtualNetwork is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualNetwork'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,7 +88,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:VirtualNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:VirtualNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetwork, __self__).__init__(
             'azure-nextgen:devtestlab/latest:VirtualNetwork',

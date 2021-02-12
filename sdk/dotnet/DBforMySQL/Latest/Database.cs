@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
     /// Represents a Database.
     /// Latest API Version: 2017-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:Database'.")]
     [AzureNextGenResourceType("azure-nextgen:dbformysql/latest:Database")]
     public partial class Database : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201preview:Database"},
                 },

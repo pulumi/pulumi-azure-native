@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// The volume.
     /// Latest API Version: 2017-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:Volume'.")]
     [AzureNextGenResourceType("azure-nextgen:storsimple/latest:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:Volume"},
                 },
             };

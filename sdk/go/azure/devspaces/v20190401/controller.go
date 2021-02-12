@@ -62,6 +62,9 @@ func NewController(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devspaces:Controller"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devspaces/latest:Controller"),
 		},
 	})

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A budget resource.
  * Latest API Version: 2019-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:Budget'.
  */
 export class Budget extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Budget extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Budget {
+        pulumi.log.warn("Budget is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:Budget'.")
         return new Budget(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,7 +87,9 @@ export class Budget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:Budget'. */
     constructor(name: string, args: BudgetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Budget is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:Budget'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.amount === undefined) && !(opts && opts.urn)) {
@@ -136,7 +141,7 @@ export class Budget extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:consumption/v20190101:Budget" }, { type: "azure-nextgen:consumption/v20190401preview:Budget" }, { type: "azure-nextgen:consumption/v20190501:Budget" }, { type: "azure-nextgen:consumption/v20190501preview:Budget" }, { type: "azure-nextgen:consumption/v20190601:Budget" }, { type: "azure-nextgen:consumption/v20191001:Budget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:consumption:Budget" }, { type: "azure-nextgen:consumption/v20190101:Budget" }, { type: "azure-nextgen:consumption/v20190401preview:Budget" }, { type: "azure-nextgen:consumption/v20190501:Budget" }, { type: "azure-nextgen:consumption/v20190501preview:Budget" }, { type: "azure-nextgen:consumption/v20190601:Budget" }, { type: "azure-nextgen:consumption/v20191001:Budget" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Budget.__pulumiType, name, inputs, opts);
     }

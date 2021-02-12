@@ -67,6 +67,9 @@ func NewFlowLog(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:FlowLog"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:FlowLog"),
 		},
 		{

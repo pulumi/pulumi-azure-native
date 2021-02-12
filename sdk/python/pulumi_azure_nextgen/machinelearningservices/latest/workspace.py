@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Workspace']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:Workspace'.""", DeprecationWarning)
+
 
 class Workspace(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:Workspace'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -68,6 +72,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
+        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:Workspace'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -122,7 +127,7 @@ class Workspace(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['type'] = None
             __props__['workspace_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20180301preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20181119:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20190501:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20190601:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20191101:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200101:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200218preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200301:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200401:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200501preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200515preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200601:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200801:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210101:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20180301preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20181119:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20190501:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20190601:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20191101:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200101:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200218preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200301:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200401:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200501preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200515preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200601:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200801:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210101:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-nextgen:machinelearningservices/latest:Workspace',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Workspace']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:Workspace'.""", DeprecationWarning)
+
 
 class Workspace(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:Workspace'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:Workspace'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class Workspace(pulumi.CustomResource):
             __props__['updated_by'] = None
             __props__['workspace_id'] = None
             __props__['workspace_url'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databricks/v20180401:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databricks:Workspace"), pulumi.Alias(type_="azure-nextgen:databricks/v20180401:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-nextgen:databricks/latest:Workspace',

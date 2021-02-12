@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Cache details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Cache'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:Cache")]
     public partial class Cache : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Cache"},

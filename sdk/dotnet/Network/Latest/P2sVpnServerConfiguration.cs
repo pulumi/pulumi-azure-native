@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// P2SVpnServerConfiguration Resource.
     /// Latest API Version: 2019-07-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnServerConfiguration'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:P2sVpnServerConfiguration")]
     public partial class P2sVpnServerConfiguration : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:P2sVpnServerConfiguration"},

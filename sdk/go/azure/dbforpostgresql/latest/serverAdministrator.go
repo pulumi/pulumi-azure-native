@@ -13,6 +13,8 @@ import (
 
 // Represents a and external administrator to be created.
 // Latest API Version: 2017-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:ServerAdministrator'.
 type ServerAdministrator struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +58,9 @@ func NewServerAdministrator(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TenantId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:dbforpostgresql:ServerAdministrator"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201:ServerAdministrator"),
 		},

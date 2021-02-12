@@ -51,6 +51,9 @@ func NewConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:dbformariadb:Configuration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/latest:Configuration"),
 		},
 		{

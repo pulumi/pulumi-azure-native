@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A network interface in a resource group.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkInterface'.
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkInterface {
+        pulumi.log.warn("NetworkInterface is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkInterface'.")
         return new NetworkInterface(name, undefined as any, { ...opts, id: id });
     }
 
@@ -124,7 +127,9 @@ export class NetworkInterface extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkInterface'. */
     constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("NetworkInterface is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkInterface'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.networkInterfaceName === undefined) && !(opts && opts.urn)) {
@@ -185,7 +190,7 @@ export class NetworkInterface extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150501preview:NetworkInterface" }, { type: "azure-nextgen:network/v20150615:NetworkInterface" }, { type: "azure-nextgen:network/v20160330:NetworkInterface" }, { type: "azure-nextgen:network/v20160601:NetworkInterface" }, { type: "azure-nextgen:network/v20160901:NetworkInterface" }, { type: "azure-nextgen:network/v20161201:NetworkInterface" }, { type: "azure-nextgen:network/v20170301:NetworkInterface" }, { type: "azure-nextgen:network/v20170601:NetworkInterface" }, { type: "azure-nextgen:network/v20170801:NetworkInterface" }, { type: "azure-nextgen:network/v20170901:NetworkInterface" }, { type: "azure-nextgen:network/v20171001:NetworkInterface" }, { type: "azure-nextgen:network/v20171101:NetworkInterface" }, { type: "azure-nextgen:network/v20180101:NetworkInterface" }, { type: "azure-nextgen:network/v20180201:NetworkInterface" }, { type: "azure-nextgen:network/v20180401:NetworkInterface" }, { type: "azure-nextgen:network/v20180601:NetworkInterface" }, { type: "azure-nextgen:network/v20180701:NetworkInterface" }, { type: "azure-nextgen:network/v20180801:NetworkInterface" }, { type: "azure-nextgen:network/v20181001:NetworkInterface" }, { type: "azure-nextgen:network/v20181101:NetworkInterface" }, { type: "azure-nextgen:network/v20181201:NetworkInterface" }, { type: "azure-nextgen:network/v20190201:NetworkInterface" }, { type: "azure-nextgen:network/v20190401:NetworkInterface" }, { type: "azure-nextgen:network/v20190601:NetworkInterface" }, { type: "azure-nextgen:network/v20190701:NetworkInterface" }, { type: "azure-nextgen:network/v20190801:NetworkInterface" }, { type: "azure-nextgen:network/v20190901:NetworkInterface" }, { type: "azure-nextgen:network/v20191101:NetworkInterface" }, { type: "azure-nextgen:network/v20191201:NetworkInterface" }, { type: "azure-nextgen:network/v20200301:NetworkInterface" }, { type: "azure-nextgen:network/v20200401:NetworkInterface" }, { type: "azure-nextgen:network/v20200501:NetworkInterface" }, { type: "azure-nextgen:network/v20200601:NetworkInterface" }, { type: "azure-nextgen:network/v20200701:NetworkInterface" }, { type: "azure-nextgen:network/v20200801:NetworkInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:NetworkInterface" }, { type: "azure-nextgen:network/v20150501preview:NetworkInterface" }, { type: "azure-nextgen:network/v20150615:NetworkInterface" }, { type: "azure-nextgen:network/v20160330:NetworkInterface" }, { type: "azure-nextgen:network/v20160601:NetworkInterface" }, { type: "azure-nextgen:network/v20160901:NetworkInterface" }, { type: "azure-nextgen:network/v20161201:NetworkInterface" }, { type: "azure-nextgen:network/v20170301:NetworkInterface" }, { type: "azure-nextgen:network/v20170601:NetworkInterface" }, { type: "azure-nextgen:network/v20170801:NetworkInterface" }, { type: "azure-nextgen:network/v20170901:NetworkInterface" }, { type: "azure-nextgen:network/v20171001:NetworkInterface" }, { type: "azure-nextgen:network/v20171101:NetworkInterface" }, { type: "azure-nextgen:network/v20180101:NetworkInterface" }, { type: "azure-nextgen:network/v20180201:NetworkInterface" }, { type: "azure-nextgen:network/v20180401:NetworkInterface" }, { type: "azure-nextgen:network/v20180601:NetworkInterface" }, { type: "azure-nextgen:network/v20180701:NetworkInterface" }, { type: "azure-nextgen:network/v20180801:NetworkInterface" }, { type: "azure-nextgen:network/v20181001:NetworkInterface" }, { type: "azure-nextgen:network/v20181101:NetworkInterface" }, { type: "azure-nextgen:network/v20181201:NetworkInterface" }, { type: "azure-nextgen:network/v20190201:NetworkInterface" }, { type: "azure-nextgen:network/v20190401:NetworkInterface" }, { type: "azure-nextgen:network/v20190601:NetworkInterface" }, { type: "azure-nextgen:network/v20190701:NetworkInterface" }, { type: "azure-nextgen:network/v20190801:NetworkInterface" }, { type: "azure-nextgen:network/v20190901:NetworkInterface" }, { type: "azure-nextgen:network/v20191101:NetworkInterface" }, { type: "azure-nextgen:network/v20191201:NetworkInterface" }, { type: "azure-nextgen:network/v20200301:NetworkInterface" }, { type: "azure-nextgen:network/v20200401:NetworkInterface" }, { type: "azure-nextgen:network/v20200501:NetworkInterface" }, { type: "azure-nextgen:network/v20200601:NetworkInterface" }, { type: "azure-nextgen:network/v20200701:NetworkInterface" }, { type: "azure-nextgen:network/v20200801:NetworkInterface" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkInterface.__pulumiType, name, inputs, opts);
     }

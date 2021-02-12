@@ -64,6 +64,9 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:databoxedge:StorageAccountCredential"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/latest:StorageAccountCredential"),
 		},
 		{

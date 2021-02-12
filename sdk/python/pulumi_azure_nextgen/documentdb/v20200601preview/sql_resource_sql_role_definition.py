@@ -72,6 +72,8 @@ class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
             __props__['role_name'] = role_name
             __props__['type'] = type
             __props__['name'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:SqlResourceSqlRoleDefinition")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlResourceSqlRoleDefinition, __self__).__init__(
             'azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition',
             resource_name,

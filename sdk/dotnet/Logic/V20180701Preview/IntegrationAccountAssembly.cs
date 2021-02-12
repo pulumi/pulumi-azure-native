@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountAssembly"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationAccountAssembly"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountAssembly"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationAccountAssembly"},

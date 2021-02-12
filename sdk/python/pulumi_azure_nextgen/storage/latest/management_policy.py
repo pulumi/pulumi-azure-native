@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ManagementPolicy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ManagementPolicy'.""", DeprecationWarning)
+
 
 class ManagementPolicy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ManagementPolicy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class ManagementPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagementPolicySchemaArgs']] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
+        pulumi.log.warn("ManagementPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ManagementPolicy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class ManagementPolicy(pulumi.CustomResource):
             __props__['last_modified_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:ManagementPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:ManagementPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementPolicy, __self__).__init__(
             'azure-nextgen:storage/latest:ManagementPolicy',

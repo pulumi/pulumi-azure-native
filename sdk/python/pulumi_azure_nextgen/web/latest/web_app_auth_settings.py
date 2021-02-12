@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['WebAppAuthSettings']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettings'.""", DeprecationWarning)
+
 
 class WebAppAuthSettings(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettings'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -158,6 +162,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
         :param pulumi.Input['UnauthenticatedClientAction'] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app.
         :param pulumi.Input[bool] validate_issuer: Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
         """
+        pulumi.log.warn("WebAppAuthSettings is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettings'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -221,7 +226,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
             __props__['validate_issuer'] = validate_issuer
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAuthSettings")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAuthSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAuthSettings, __self__).__init__(
             'azure-nextgen:web/latest:WebAppAuthSettings',

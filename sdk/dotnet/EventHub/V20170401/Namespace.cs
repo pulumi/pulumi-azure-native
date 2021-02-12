@@ -118,6 +118,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:Namespace"},

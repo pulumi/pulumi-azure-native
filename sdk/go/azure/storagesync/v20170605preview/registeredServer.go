@@ -63,6 +63,9 @@ func NewRegisteredServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storagesync:RegisteredServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/latest:RegisteredServer"),
 		},
 		{

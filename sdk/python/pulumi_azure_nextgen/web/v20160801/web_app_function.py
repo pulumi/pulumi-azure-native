@@ -85,7 +85,7 @@ class WebAppFunction(pulumi.CustomResource):
             __props__['test_data'] = test_data
             __props__['function_app_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppFunction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppFunction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppFunction, __self__).__init__(
             'azure-nextgen:web/v20160801:WebAppFunction',

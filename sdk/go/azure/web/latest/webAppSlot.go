@@ -13,6 +13,8 @@ import (
 
 // A web app, a mobile app backend, or an API app.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSlot'.
 type WebAppSlot struct {
 	pulumi.CustomResourceState
 
@@ -144,6 +146,9 @@ func NewWebAppSlot(ctx *pulumi.Context,
 		args.ScmSiteAlsoStopped = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:WebAppSlot"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppSlot"),
 		},

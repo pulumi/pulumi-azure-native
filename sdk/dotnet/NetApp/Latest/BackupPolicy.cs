@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
     /// Backup policy information
     /// Latest API Version: 2020-11-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:BackupPolicy'.")]
     [AzureNextGenResourceType("azure-nextgen:netapp/latest:BackupPolicy")]
     public partial class BackupPolicy : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:BackupPolicy"},

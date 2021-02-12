@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Search.Latest
     /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:SharedPrivateLinkResource'.")]
     [AzureNextGenResourceType("azure-nextgen:search/latest:SharedPrivateLinkResource")]
     public partial class SharedPrivateLinkResource : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.Search.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:search:SharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801:SharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801preview:SharedPrivateLinkResource"},
                 },

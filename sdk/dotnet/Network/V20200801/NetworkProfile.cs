@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:NetworkProfile"},

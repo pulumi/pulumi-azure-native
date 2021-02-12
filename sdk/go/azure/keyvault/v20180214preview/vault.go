@@ -45,6 +45,9 @@ func NewVault(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:keyvault:Vault"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/latest:Vault"),
 		},
 		{

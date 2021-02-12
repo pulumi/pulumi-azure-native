@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Application']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:Application'.""", DeprecationWarning)
+
 
 class Application(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:Application'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +58,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("Application is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:Application'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -103,7 +108,7 @@ class Application(pulumi.CustomResource):
             __props__['support_urls'] = None
             __props__['type'] = None
             __props__['updated_by'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:solutions/v20170901:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20180601:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20190701:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20200821preview:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:solutions:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20170901:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20180601:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20190701:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20200821preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azure-nextgen:solutions/latest:Application',

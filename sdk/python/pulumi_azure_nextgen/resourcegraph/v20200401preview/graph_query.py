@@ -72,7 +72,7 @@ class GraphQuery(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['time_modified'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resourcegraph/v20180901preview:GraphQuery")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resourcegraph:GraphQuery"), pulumi.Alias(type_="azure-nextgen:resourcegraph/v20180901preview:GraphQuery")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GraphQuery, __self__).__init__(
             'azure-nextgen:resourcegraph/v20200401preview:GraphQuery',

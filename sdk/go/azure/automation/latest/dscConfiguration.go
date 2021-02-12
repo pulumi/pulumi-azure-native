@@ -13,6 +13,8 @@ import (
 
 // Definition of the configuration type.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:DscConfiguration'.
 type DscConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +70,9 @@ func NewDscConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:automation:DscConfiguration"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:DscConfiguration"),
 		},

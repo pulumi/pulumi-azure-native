@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateLinkServicePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:PrivateLinkServicePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:PrivateLinkServicePrivateEndpointConnection"},

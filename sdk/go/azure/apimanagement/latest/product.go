@@ -13,6 +13,8 @@ import (
 
 // Product details.
 // Latest API Version: 2019-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Product'.
 type Product struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +58,9 @@ func NewProduct(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement:Product"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Product"),
 		},

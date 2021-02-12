@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearning:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning/latest:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning/v20191001:Workspace"},
                 },

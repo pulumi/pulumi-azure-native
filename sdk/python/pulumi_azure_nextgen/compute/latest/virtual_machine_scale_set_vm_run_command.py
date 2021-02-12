@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['VirtualMachineScaleSetVMRunCommand']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand'.""", DeprecationWarning)
+
 
 class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +61,7 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
         :param pulumi.Input[int] timeout_in_seconds: The timeout in seconds to execute the run command.
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set.
         """
+        pulumi.log.warn("VirtualMachineScaleSetVMRunCommand is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -103,7 +108,7 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSetVMRunCommand, __self__).__init__(
             'azure-nextgen:compute/latest:VirtualMachineScaleSetVMRunCommand',

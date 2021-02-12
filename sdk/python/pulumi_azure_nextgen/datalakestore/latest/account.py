@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Account']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:Account'.""", DeprecationWarning)
+
 
 class Account(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:Account'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +62,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateTrustedIdProviderWithAccountParametersArgs']]]] trusted_id_providers: The list of trusted identity providers associated with this Data Lake Store account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateVirtualNetworkRuleWithAccountParametersArgs']]]] virtual_network_rules: The list of virtual network rules associated with this Data Lake Store account.
         """
+        pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:Account'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -104,7 +109,7 @@ class Account(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakestore/v20161101:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakestore:Account"), pulumi.Alias(type_="azure-nextgen:datalakestore/v20161101:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-nextgen:datalakestore/latest:Account',

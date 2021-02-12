@@ -261,9 +261,11 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 
 			// Populate C#, Python and Go module mapping.
 			module := gen.providerToModule(providerName)
-			csVersion := strings.Title(csharpVersionReplacer.Replace(version))
 			csharpNamespaces[strings.ToLower(providerName)] = providerName
-			csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
+			if version != "" {
+				csVersion := strings.Title(csharpVersionReplacer.Replace(version))
+				csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
+			}
 			pythonModuleNames[module] = module
 			golangImportAliases[filepath.Join(goBasePath, module)] = strings.ToLower(providerName)
 
@@ -340,10 +342,10 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 
 func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) error {
 	// Mixin 'getClientConfig' to read current configuration values.
-	if _, has := pkg.Functions["azure-nextgen:authorization/latest:getClientConfig"]; has {
-		return errors.New("Invoke 'azure-nextgen:authorization/latest:getClientConfig' is already defined")
+	if _, has := pkg.Functions["azure-nextgen:authorization:getClientConfig"]; has {
+		return errors.New("Invoke 'azure-nextgen:authorization:getClientConfig' is already defined")
 	}
-	pkg.Functions["azure-nextgen:authorization/latest:getClientConfig"] = schema.FunctionSpec{
+	pkg.Functions["azure-nextgen:authorization:getClientConfig"] = schema.FunctionSpec{
 		Description: "Use this function to access the current configuration of the Azure NextGen provider.",
 		Outputs: &schema.ObjectTypeSpec{
 			Description: "Configuration values returned by getClientConfig.",
@@ -371,10 +373,10 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 	}
 
 	// Mixin 'getClientToken' to obtain an Azure auth token.
-	if _, has := pkg.Functions["azure-nextgen:authorization/latest:getClientToken"]; has {
-		return errors.New("Invoke 'azure-nextgen:authorization/latest:getClientToken' is already defined")
+	if _, has := pkg.Functions["azure-nextgen:authorization:getClientToken"]; has {
+		return errors.New("Invoke 'azure-nextgen:authorization:getClientToken' is already defined")
 	}
-	pkg.Functions["azure-nextgen:authorization/latest:getClientToken"] = schema.FunctionSpec{
+	pkg.Functions["azure-nextgen:authorization:getClientToken"] = schema.FunctionSpec{
 		Description: "Use this function to get an Azure authentication token for the current login context.",
 		Inputs: &schema.ObjectTypeSpec{
 			Properties: map[string]schema.PropertySpec{
@@ -487,13 +489,21 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	// Add an alias for each API version that has the same path in it.
 	var aliases []pschema.AliasSpec
 	for _, version := range resource.CompatibleVersions {
-		alias := fmt.Sprintf("%s:%s/%s:%s", g.pkg.Name, strings.ToLower(prov), version, typeName)
+		moduleName := providerApiToModule(prov, version)
+		alias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, moduleName, typeName)
 		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
 	}
 
+	var deprecationMessage string
 	resourceDescription := resourceResponse.description
-	if g.apiVersion == "latest" {
+	switch g.apiVersion {
+	case "":
+		resourceDescription = fmt.Sprintf("%s\nAPI Version: %s.", resourceDescription, swagger.Info.Version)
+	case "latest":
 		resourceDescription = fmt.Sprintf("%s\nLatest API Version: %s.", resourceDescription, swagger.Info.Version)
+		topToken := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, providerApiToModule(prov, ""), typeName)
+		deprecationMessage =
+			fmt.Sprintf("The 'latest' version is deprecated. Please migrate to the resource in the top-level module: '%s'.", topToken)
 	}
 
 	resourceSpec := pschema.ResourceSpec{
@@ -503,9 +513,10 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 			Properties:  resourceResponse.specs,
 			Required:    resourceResponse.requiredSpecs.SortedValues(),
 		},
-		InputProperties: resourceRequest.specs,
-		RequiredInputs:  resourceRequest.requiredSpecs.SortedValues(),
-		Aliases:         aliases,
+		InputProperties:    resourceRequest.specs,
+		RequiredInputs:     resourceRequest.requiredSpecs.SortedValues(),
+		Aliases:            aliases,
+		DeprecationMessage: deprecationMessage,
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
 
@@ -705,7 +716,13 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 
 // providerToModule produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).
 func (g *packageGenerator) providerToModule(prov string) string {
-	return fmt.Sprintf("%s/%s", strings.ToLower(prov), g.apiVersion)
+	return providerApiToModule(prov, g.apiVersion)
+}
+func providerApiToModule(prov, apiVersion string) string {
+	if apiVersion == "" {
+		return strings.ToLower(prov)
+	}
+	return fmt.Sprintf("%s/%s", strings.ToLower(prov), apiVersion)
 }
 
 func (g *packageGenerator) getAsyncStyle(op *spec.Operation) string {

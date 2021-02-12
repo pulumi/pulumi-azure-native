@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ManagementLockAtResourceGroupLevel']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtResourceGroupLevel'.""", DeprecationWarning)
+
 
 class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtResourceGroupLevel'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]] owners: The owners of the lock.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to lock.
         """
+        pulumi.log.warn("ManagementLockAtResourceGroupLevel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtResourceGroupLevel'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20150101:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockAtResourceGroupLevel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20150101:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockAtResourceGroupLevel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLockAtResourceGroupLevel, __self__).__init__(
             'azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel',

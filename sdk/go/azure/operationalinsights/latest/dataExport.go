@@ -13,6 +13,8 @@ import (
 
 // The top level data export resource container.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataExport'.
 type DataExport struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewDataExport(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:operationalinsights:DataExport"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20190801preview:DataExport"),
 		},

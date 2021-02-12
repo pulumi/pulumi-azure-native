@@ -144,7 +144,7 @@ export class Job extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databox/latest:Job" }, { type: "azure-nextgen:databox/v20190901:Job" }, { type: "azure-nextgen:databox/v20200401:Job" }, { type: "azure-nextgen:databox/v20201101:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databox:Job" }, { type: "azure-nextgen:databox/latest:Job" }, { type: "azure-nextgen:databox/v20190901:Job" }, { type: "azure-nextgen:databox/v20200401:Job" }, { type: "azure-nextgen:databox/v20201101:Job" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Job.__pulumiType, name, inputs, opts);
     }

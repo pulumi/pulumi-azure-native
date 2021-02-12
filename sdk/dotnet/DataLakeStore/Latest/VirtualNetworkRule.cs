@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
     /// Data Lake Store virtual network rule information.
     /// Latest API Version: 2016-11-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:VirtualNetworkRule'.")]
     [AzureNextGenResourceType("azure-nextgen:datalakestore/latest:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakestore:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore/v20161101:VirtualNetworkRule"},
                 },
             };

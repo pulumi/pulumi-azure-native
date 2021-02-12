@@ -60,6 +60,9 @@ func NewBatchAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:batch:BatchAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/latest:BatchAccount"),
 		},
 		{

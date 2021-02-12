@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Issue Comment Contract details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueComment'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:ApiIssueComment")]
     public partial class ApiIssueComment : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiIssueComment"},

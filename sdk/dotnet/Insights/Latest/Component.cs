@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// An Application Insights component definition.
     /// Latest API Version: 2015-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Component'.")]
     [AzureNextGenResourceType("azure-nextgen:insights/latest:Component")]
     public partial class Component : Pulumi.CustomResource
     {
@@ -179,6 +180,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:Component"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:Component"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180501preview:Component"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20200202preview:Component"},

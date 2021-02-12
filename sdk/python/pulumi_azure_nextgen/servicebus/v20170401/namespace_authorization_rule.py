@@ -64,7 +64,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__['rights'] = rights
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/latest:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:NamespaceAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/latest:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:NamespaceAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azure-nextgen:servicebus/v20170401:NamespaceAuthorizationRule',

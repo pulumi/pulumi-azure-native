@@ -60,6 +60,9 @@ func NewPolicyResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab:PolicyResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:PolicyResource"),
 		},
 		{

@@ -13,6 +13,8 @@ import (
 
 // Replication protected item.
 // Latest API Version: 2018-07-10.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationProtectedItem'.
 type ReplicationProtectedItem struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewReplicationProtectedItem(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationProtectedItem"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem"),
 		},

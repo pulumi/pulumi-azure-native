@@ -44,6 +44,12 @@ func NewPrivateLinkScope(ctx *pulumi.Context,
 	if args.ScopeName == nil {
 		return nil, errors.New("invalid value for required argument 'ScopeName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:hybridcompute:PrivateLinkScope"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateLinkScope
 	err := ctx.RegisterResource("azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope", name, args, &resource, opts...)
 	if err != nil {

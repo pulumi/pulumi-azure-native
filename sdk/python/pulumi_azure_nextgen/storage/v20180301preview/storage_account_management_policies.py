@@ -62,7 +62,7 @@ class StorageAccountManagementPolicies(pulumi.CustomResource):
             __props__['last_modified_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:StorageAccountManagementPolicies"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:StorageAccountManagementPolicies"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:StorageAccountManagementPolicies"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:StorageAccountManagementPolicies"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:StorageAccountManagementPolicies")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:StorageAccountManagementPolicies"), pulumi.Alias(type_="azure-nextgen:storage/latest:StorageAccountManagementPolicies"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:StorageAccountManagementPolicies"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:StorageAccountManagementPolicies"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:StorageAccountManagementPolicies"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:StorageAccountManagementPolicies")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccountManagementPolicies, __self__).__init__(
             'azure-nextgen:storage/v20180301preview:StorageAccountManagementPolicies',

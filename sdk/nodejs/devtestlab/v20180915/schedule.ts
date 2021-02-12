@@ -156,7 +156,7 @@ export class Schedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:Schedule" }, { type: "azure-nextgen:devtestlab/v20150521preview:Schedule" }, { type: "azure-nextgen:devtestlab/v20160515:Schedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:Schedule" }, { type: "azure-nextgen:devtestlab/latest:Schedule" }, { type: "azure-nextgen:devtestlab/v20150521preview:Schedule" }, { type: "azure-nextgen:devtestlab/v20160515:Schedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Schedule.__pulumiType, name, inputs, opts);
     }

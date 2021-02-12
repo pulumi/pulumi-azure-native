@@ -149,7 +149,7 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel" }, { type: "azure-nextgen:sql/v20200202preview:ManagedDatabaseSensitivityLabel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ManagedDatabaseSensitivityLabel" }, { type: "azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel" }, { type: "azure-nextgen:sql/v20200202preview:ManagedDatabaseSensitivityLabel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedDatabaseSensitivityLabel.__pulumiType, name, inputs, opts);
     }

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
     /// Customer subscription.
     /// Latest API Version: 2017-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:CustomerSubscription'.")]
     [AzureNextGenResourceType("azure-nextgen:azurestack/latest:CustomerSubscription")]
     public partial class CustomerSubscription : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestack:CustomerSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20170601:CustomerSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20200601preview:CustomerSubscription"},
                 },

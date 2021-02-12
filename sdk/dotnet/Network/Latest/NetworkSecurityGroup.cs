@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// NetworkSecurityGroup resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkSecurityGroup'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:NetworkSecurityGroup")]
     public partial class NetworkSecurityGroup : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:NetworkSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:NetworkSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:NetworkSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:NetworkSecurityGroup"},

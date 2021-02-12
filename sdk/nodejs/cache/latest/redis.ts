@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A single Redis item in List or Get Operation.
  * Latest API Version: 2020-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Redis'.
  */
 export class Redis extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Redis extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Redis {
+        pulumi.log.warn("Redis is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Redis'.")
         return new Redis(name, undefined as any, { ...opts, id: id });
     }
 
@@ -140,7 +143,9 @@ export class Redis extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Redis'. */
     constructor(name: string, args: RedisArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Redis is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Redis'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -210,7 +215,7 @@ export class Redis extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/v20150801:Redis" }, { type: "azure-nextgen:cache/v20160401:Redis" }, { type: "azure-nextgen:cache/v20170201:Redis" }, { type: "azure-nextgen:cache/v20171001:Redis" }, { type: "azure-nextgen:cache/v20180301:Redis" }, { type: "azure-nextgen:cache/v20190701:Redis" }, { type: "azure-nextgen:cache/v20200601:Redis" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache:Redis" }, { type: "azure-nextgen:cache/v20150801:Redis" }, { type: "azure-nextgen:cache/v20160401:Redis" }, { type: "azure-nextgen:cache/v20170201:Redis" }, { type: "azure-nextgen:cache/v20171001:Redis" }, { type: "azure-nextgen:cache/v20180301:Redis" }, { type: "azure-nextgen:cache/v20190701:Redis" }, { type: "azure-nextgen:cache/v20200601:Redis" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Redis.__pulumiType, name, inputs, opts);
     }

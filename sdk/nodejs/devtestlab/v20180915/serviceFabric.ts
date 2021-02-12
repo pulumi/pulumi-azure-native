@@ -124,7 +124,7 @@ export class ServiceFabric extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:ServiceFabric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:ServiceFabric" }, { type: "azure-nextgen:devtestlab/latest:ServiceFabric" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceFabric.__pulumiType, name, inputs, opts);
     }

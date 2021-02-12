@@ -13,6 +13,8 @@ import (
 
 // Azure Migrate Project.
 // Latest API Version: 2019-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Project'.
 type Project struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewProject(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:migrate:Project"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/v20191001:Project"),
 		},

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['SoftwareUpdateConfigurationByName']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SoftwareUpdateConfigurationByName'.""", DeprecationWarning)
+
 
 class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SoftwareUpdateConfigurationByName'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTasksArgs']] tasks: Tasks information for the Software update configuration.
         :param pulumi.Input[pulumi.InputType['UpdateConfigurationArgs']] update_configuration: update specific properties for the Software update configuration
         """
+        pulumi.log.warn("SoftwareUpdateConfigurationByName is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SoftwareUpdateConfigurationByName'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,7 +88,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SoftwareUpdateConfigurationByName, __self__).__init__(
             'azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName',

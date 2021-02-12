@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['ManagementGroupSubscription']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroupSubscription'.""", DeprecationWarning)
+
 
 class ManagementGroupSubscription(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroupSubscription'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -30,6 +34,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] group_id: Management Group ID.
         :param pulumi.Input[str] subscription_id: Subscription ID.
         """
+        pulumi.log.warn("ManagementGroupSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroupSubscription'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -57,7 +62,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
             __props__['state'] = None
             __props__['tenant'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:management/v20200501:ManagementGroupSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:management:ManagementGroupSubscription"), pulumi.Alias(type_="azure-nextgen:management/v20200501:ManagementGroupSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementGroupSubscription, __self__).__init__(
             'azure-nextgen:management/latest:ManagementGroupSubscription',

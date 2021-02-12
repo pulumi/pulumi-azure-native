@@ -149,7 +149,7 @@ export class LiveOutput extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/latest:LiveOutput" }, { type: "azure-nextgen:media/v20180330preview:LiveOutput" }, { type: "azure-nextgen:media/v20180601preview:LiveOutput" }, { type: "azure-nextgen:media/v20190501preview:LiveOutput" }, { type: "azure-nextgen:media/v20200501:LiveOutput" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media:LiveOutput" }, { type: "azure-nextgen:media/latest:LiveOutput" }, { type: "azure-nextgen:media/v20180330preview:LiveOutput" }, { type: "azure-nextgen:media/v20180601preview:LiveOutput" }, { type: "azure-nextgen:media/v20190501preview:LiveOutput" }, { type: "azure-nextgen:media/v20200501:LiveOutput" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LiveOutput.__pulumiType, name, inputs, opts);
     }

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
     /// A PostgreSQL Server key.
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:ServerKey'.")]
     [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/latest:ServerKey")]
     public partial class ServerKey : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200101:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200101privatepreview:ServerKey"},
                 },

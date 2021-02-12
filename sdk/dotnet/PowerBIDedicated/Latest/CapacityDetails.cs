@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
     /// Represents an instance of a Dedicated Capacity resource.
     /// Latest API Version: 2017-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbidedicated:CapacityDetails'.")]
     [AzureNextGenResourceType("azure-nextgen:powerbidedicated/latest:CapacityDetails")]
     public partial class CapacityDetails : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated:CapacityDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated/v20171001:CapacityDetails"},
                 },
             };

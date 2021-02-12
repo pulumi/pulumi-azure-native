@@ -141,7 +141,7 @@ export class ActionGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/latest:ActionGroup" }, { type: "azure-nextgen:insights/v20180301:ActionGroup" }, { type: "azure-nextgen:insights/v20180901:ActionGroup" }, { type: "azure-nextgen:insights/v20190301:ActionGroup" }, { type: "azure-nextgen:insights/v20190601:ActionGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:ActionGroup" }, { type: "azure-nextgen:insights/latest:ActionGroup" }, { type: "azure-nextgen:insights/v20180301:ActionGroup" }, { type: "azure-nextgen:insights/v20180901:ActionGroup" }, { type: "azure-nextgen:insights/v20190301:ActionGroup" }, { type: "azure-nextgen:insights/v20190601:ActionGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ActionGroup.__pulumiType, name, inputs, opts);
     }

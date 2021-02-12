@@ -66,6 +66,9 @@ func NewWebAppHybridConnectionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:WebAppHybridConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppHybridConnectionSlot"),
 		},
 		{

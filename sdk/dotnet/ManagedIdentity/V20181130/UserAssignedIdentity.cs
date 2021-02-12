@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.V20181130
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:managedidentity:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedidentity/latest:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity"},
                 },

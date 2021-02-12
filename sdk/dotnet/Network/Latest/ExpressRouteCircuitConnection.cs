@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteCircuitConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:ExpressRouteCircuitConnection")]
     public partial class ExpressRouteCircuitConnection : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:ExpressRouteCircuitConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:ExpressRouteCircuitConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:ExpressRouteCircuitConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:ExpressRouteCircuitConnection"},

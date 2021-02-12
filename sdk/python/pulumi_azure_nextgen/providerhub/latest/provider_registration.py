@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['ProviderRegistration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:ProviderRegistration'.""", DeprecationWarning)
+
 
 class ProviderRegistration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:ProviderRegistration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -27,6 +31,7 @@ class ProviderRegistration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
+        pulumi.log.warn("ProviderRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:ProviderRegistration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -50,7 +55,7 @@ class ProviderRegistration(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:ProviderRegistration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub:ProviderRegistration"), pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:ProviderRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProviderRegistration, __self__).__init__(
             'azure-nextgen:providerhub/latest:ProviderRegistration',

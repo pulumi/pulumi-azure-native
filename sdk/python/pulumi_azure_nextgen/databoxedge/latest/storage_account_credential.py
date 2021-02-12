@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['StorageAccountCredential']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:StorageAccountCredential'.""", DeprecationWarning)
+
 
 class StorageAccountCredential(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:StorageAccountCredential'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class StorageAccountCredential(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: Id of the storage account.
         :param pulumi.Input[str] user_name: Username for the storage account.
         """
+        pulumi.log.warn("StorageAccountCredential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:StorageAccountCredential'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -92,7 +97,7 @@ class StorageAccountCredential(pulumi.CustomResource):
             __props__['user_name'] = user_name
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccountCredential, __self__).__init__(
             'azure-nextgen:databoxedge/latest:StorageAccountCredential',

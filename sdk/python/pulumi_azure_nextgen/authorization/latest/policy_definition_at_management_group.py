@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['PolicyDefinitionAtManagementGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyDefinitionAtManagementGroup'.""", DeprecationWarning)
+
 
 class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyDefinitionAtManagementGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
         :param Any policy_rule: The policy rule.
         :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
+        pulumi.log.warn("PolicyDefinitionAtManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyDefinitionAtManagementGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
             __props__['policy_type'] = policy_type
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20161201:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20180301:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20180501:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20190101:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20190601:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20190901:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20200301:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20200901:PolicyDefinitionAtManagementGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20161201:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20180301:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20180501:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20190101:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20190601:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20190901:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20200301:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azure-nextgen:authorization/v20200901:PolicyDefinitionAtManagementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyDefinitionAtManagementGroup, __self__).__init__(
             'azure-nextgen:authorization/latest:PolicyDefinitionAtManagementGroup',

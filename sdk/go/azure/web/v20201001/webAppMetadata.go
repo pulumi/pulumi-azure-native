@@ -42,6 +42,9 @@ func NewWebAppMetadata(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:WebAppMetadata"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppMetadata"),
 		},
 		{

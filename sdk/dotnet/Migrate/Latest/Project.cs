@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
     /// Azure Migrate Project.
     /// Latest API Version: 2019-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Project'.")]
     [AzureNextGenResourceType("azure-nextgen:migrate/latest:Project")]
     public partial class Project : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:Project"},
                 },
             };

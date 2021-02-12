@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest
     /// The remediation definition.
     /// Latest API Version: 2019-07-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtResourceGroup'.")]
     [AzureNextGenResourceType("azure-nextgen:policyinsights/latest:RemediationAtResourceGroup")]
     public partial class RemediationAtResourceGroup : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights:RemediationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20190701:RemediationAtResourceGroup"},
                 },

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// An Application Insights web test definition.
     /// Latest API Version: 2015-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:WebTest'.")]
     [AzureNextGenResourceType("azure-nextgen:insights/latest:WebTest")]
     public partial class WebTest : Pulumi.CustomResource
     {
@@ -137,6 +138,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:WebTest"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:WebTest"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20201005preview:WebTest"},
                 },

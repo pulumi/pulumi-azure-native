@@ -132,7 +132,7 @@ export class JobStep extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20170301preview:JobStep" }, { type: "azure-nextgen:sql/v20200202preview:JobStep" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:JobStep" }, { type: "azure-nextgen:sql/v20170301preview:JobStep" }, { type: "azure-nextgen:sql/v20200202preview:JobStep" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobStep.__pulumiType, name, inputs, opts);
     }

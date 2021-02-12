@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['Certificate']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Certificate'.""", DeprecationWarning)
+
 
 class Certificate(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Certificate'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +47,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] thumbprint: This must match the thumbprint from the name.
         :param pulumi.Input[str] thumbprint_algorithm: This must match the first portion of the certificate name. Currently required to be 'SHA1'.
         """
+        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Certificate'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -85,7 +90,7 @@ class Certificate(pulumi.CustomResource):
             __props__['provisioning_state_transition_time'] = None
             __props__['public_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20170901:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20210101:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20170901:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20210101:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-nextgen:batch/latest:Certificate',

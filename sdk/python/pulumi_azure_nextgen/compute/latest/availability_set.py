@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['AvailabilitySet']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:AvailabilitySet'.""", DeprecationWarning)
+
 
 class AvailabilitySet(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:AvailabilitySet'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +49,7 @@ class AvailabilitySet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] virtual_machines: A list of references to all virtual machines in the availability set.
         """
+        pulumi.log.warn("AvailabilitySet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:AvailabilitySet'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class AvailabilitySet(pulumi.CustomResource):
             __props__['name'] = None
             __props__['statuses'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20150615:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:AvailabilitySet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20150615:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:AvailabilitySet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AvailabilitySet, __self__).__init__(
             'azure-nextgen:compute/latest:AvailabilitySet',

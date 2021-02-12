@@ -213,7 +213,7 @@ export class DomainService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:aad/latest:DomainService" }, { type: "azure-nextgen:aad/v20170101:DomainService" }, { type: "azure-nextgen:aad/v20200101:DomainService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:aad:DomainService" }, { type: "azure-nextgen:aad/latest:DomainService" }, { type: "azure-nextgen:aad/v20170101:DomainService" }, { type: "azure-nextgen:aad/v20200101:DomainService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DomainService.__pulumiType, name, inputs, opts);
     }

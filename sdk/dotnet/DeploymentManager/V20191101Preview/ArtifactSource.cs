@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20180901preview:ArtifactSource"},
                 },
             };

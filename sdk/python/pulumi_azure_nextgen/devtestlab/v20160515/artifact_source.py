@@ -95,7 +95,7 @@ class ArtifactSource(pulumi.CustomResource):
             __props__['uri'] = uri
             __props__['created_date'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/latest:ArtifactSource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:ArtifactSource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:ArtifactSource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:ArtifactSource"), pulumi.Alias(type_="azure-nextgen:devtestlab/latest:ArtifactSource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:ArtifactSource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:ArtifactSource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ArtifactSource, __self__).__init__(
             'azure-nextgen:devtestlab/v20160515:ArtifactSource',

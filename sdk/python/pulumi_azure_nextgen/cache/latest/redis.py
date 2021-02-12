@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Redis']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Redis'.""", DeprecationWarning)
+
 
 class Redis(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Redis'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +62,7 @@ class Redis(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A dictionary of tenant settings
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
+        pulumi.log.warn("Redis is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Redis'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -106,7 +111,7 @@ class Redis(pulumi.CustomResource):
             __props__['redis_version'] = None
             __props__['ssl_port'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/v20150801:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20160401:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20170201:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20200601:Redis")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20150801:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20160401:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20170201:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20200601:Redis")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Redis, __self__).__init__(
             'azure-nextgen:cache/latest:Redis',

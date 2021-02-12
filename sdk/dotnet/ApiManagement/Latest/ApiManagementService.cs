@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// A single API Management service resource in List or Get response.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiManagementService'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:ApiManagementService")]
     public partial class ApiManagementService : Pulumi.CustomResource
     {
@@ -221,6 +222,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiManagementService"},

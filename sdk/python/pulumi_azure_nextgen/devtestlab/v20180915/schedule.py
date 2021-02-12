@@ -93,7 +93,7 @@ class Schedule(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/latest:Schedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:Schedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Schedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:Schedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/latest:Schedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:Schedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Schedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schedule, __self__).__init__(
             'azure-nextgen:devtestlab/v20180915:Schedule',

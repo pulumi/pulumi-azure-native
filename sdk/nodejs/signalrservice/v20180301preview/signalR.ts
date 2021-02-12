@@ -137,7 +137,7 @@ export class SignalR extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:signalrservice/latest:SignalR" }, { type: "azure-nextgen:signalrservice/v20181001:SignalR" }, { type: "azure-nextgen:signalrservice/v20200501:SignalR" }, { type: "azure-nextgen:signalrservice/v20200701preview:SignalR" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:signalrservice:SignalR" }, { type: "azure-nextgen:signalrservice/latest:SignalR" }, { type: "azure-nextgen:signalrservice/v20181001:SignalR" }, { type: "azure-nextgen:signalrservice/v20200501:SignalR" }, { type: "azure-nextgen:signalrservice/v20200701preview:SignalR" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SignalR.__pulumiType, name, inputs, opts);
     }

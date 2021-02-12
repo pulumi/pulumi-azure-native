@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['TransparentDataEncryption']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:TransparentDataEncryption'.""", DeprecationWarning)
+
 
 class TransparentDataEncryption(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:TransparentDataEncryption'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class TransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']] status: The status of the database transparent data encryption.
         :param pulumi.Input[str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
         """
+        pulumi.log.warn("TransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:TransparentDataEncryption'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class TransparentDataEncryption(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20140401:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:TransparentDataEncryption")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:TransparentDataEncryption")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TransparentDataEncryption, __self__).__init__(
             'azure-nextgen:sql/latest:TransparentDataEncryption',

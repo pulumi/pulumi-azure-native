@@ -45,6 +45,12 @@ func NewIoTSpace(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:iotspaces:IoTSpace"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IoTSpace
 	err := ctx.RegisterResource("azure-nextgen:iotspaces/v20171001preview:IoTSpace", name, args, &resource, opts...)
 	if err != nil {

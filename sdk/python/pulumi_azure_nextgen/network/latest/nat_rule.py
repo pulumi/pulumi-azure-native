@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['NatRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NatRule'.""", DeprecationWarning)
+
 
 class NatRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NatRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class NatRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input[Union[str, 'VpnNatRuleType']] type: The type of NAT rule for VPN NAT.
         """
+        pulumi.log.warn("NatRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NatRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -85,7 +90,7 @@ class NatRule(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['ingress_vpn_site_link_connections'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200801:NatRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:NatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NatRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NatRule, __self__).__init__(
             'azure-nextgen:network/latest:NatRule',

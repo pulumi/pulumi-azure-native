@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
     /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOrigin'.")]
     [AzureNextGenResourceType("azure-nextgen:cdn/latest:AFDOrigin")]
     public partial class AFDOrigin : Pulumi.CustomResource
     {
@@ -122,6 +123,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDOrigin"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:AFDOrigin"},
                 },
             };

@@ -13,6 +13,8 @@ import (
 
 // The storage account.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:StorageAccount'.
 type StorageAccount struct {
 	pulumi.CustomResourceState
 
@@ -102,6 +104,9 @@ func NewStorageAccount(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storage:StorageAccount"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20150501preview:StorageAccount"),
 		},

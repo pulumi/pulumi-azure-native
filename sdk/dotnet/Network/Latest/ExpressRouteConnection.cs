@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// ExpressRouteConnection resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:ExpressRouteConnection")]
     public partial class ExpressRouteConnection : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:ExpressRouteConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:ExpressRouteConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:ExpressRouteConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:ExpressRouteConnection"},

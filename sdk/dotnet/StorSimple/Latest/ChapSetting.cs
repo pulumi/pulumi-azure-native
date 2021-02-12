@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// Challenge-Handshake Authentication Protocol (CHAP) setting
     /// Latest API Version: 2016-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:ChapSetting'.")]
     [AzureNextGenResourceType("azure-nextgen:storsimple/latest:ChapSetting")]
     public partial class ChapSetting : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:ChapSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:ChapSetting"},
                 },
             };

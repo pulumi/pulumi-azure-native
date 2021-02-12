@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Policy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Policy'.""", DeprecationWarning)
+
 
 class Policy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Policy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("Policy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Policy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class Policy(pulumi.CustomResource):
             __props__['resource_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20190615:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Policy"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azure-nextgen:cdn/latest:Policy',

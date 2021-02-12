@@ -98,7 +98,7 @@ class VirtualMachineSchedule(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/latest:VirtualMachineSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:VirtualMachineSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/latest:VirtualMachineSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineSchedule, __self__).__init__(
             'azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule',

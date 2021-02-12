@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.IoTCentral.V20180901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:iotcentral:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotcentral/latest:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotcentral/v20170701privatepreview:App"},
                 },

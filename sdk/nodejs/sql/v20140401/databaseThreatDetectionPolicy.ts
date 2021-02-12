@@ -146,7 +146,7 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200801preview:DatabaseThreatDetectionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200801preview:DatabaseThreatDetectionPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseThreatDetectionPolicy.__pulumiType, name, inputs, opts);
     }

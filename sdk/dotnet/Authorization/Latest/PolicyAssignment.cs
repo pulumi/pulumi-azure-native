@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
     /// The policy assignment.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyAssignment'.")]
     [AzureNextGenResourceType("azure-nextgen:authorization/latest:PolicyAssignment")]
     public partial class PolicyAssignment : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20151001preview:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160401:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20161201:PolicyAssignment"},

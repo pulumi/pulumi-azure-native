@@ -64,6 +64,8 @@ class SaasSubscriptionLevel(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['tags'] = tags
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:saas:SaasSubscriptionLevel")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SaasSubscriptionLevel, __self__).__init__(
             'azure-nextgen:saas/v20180301beta:SaasSubscriptionLevel',
             resource_name,

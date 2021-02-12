@@ -13,6 +13,8 @@ import (
 
 // Job Resource.
 // Latest API Version: 2020-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databox:Job'.
 type Job struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +78,9 @@ func NewJob(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TransferType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:databox:Job"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:databox/v20180101:Job"),
 		},

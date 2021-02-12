@@ -63,7 +63,7 @@ class Job(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:scheduler/latest:Job"), pulumi.Alias(type_="azure-nextgen:scheduler/v20140801preview:Job"), pulumi.Alias(type_="azure-nextgen:scheduler/v20160101:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:scheduler:Job"), pulumi.Alias(type_="azure-nextgen:scheduler/latest:Job"), pulumi.Alias(type_="azure-nextgen:scheduler/v20140801preview:Job"), pulumi.Alias(type_="azure-nextgen:scheduler/v20160101:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-nextgen:scheduler/v20160301:Job',

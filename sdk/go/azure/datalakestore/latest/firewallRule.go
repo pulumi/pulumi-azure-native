@@ -13,6 +13,8 @@ import (
 
 // Data Lake Store firewall rule information.
 // Latest API Version: 2016-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:FirewallRule'.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StartIpAddress'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datalakestore:FirewallRule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore/v20161101:FirewallRule"),
 		},

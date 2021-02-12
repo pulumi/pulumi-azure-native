@@ -97,7 +97,7 @@ class LiveEvent(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20200501:LiveEvent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/latest:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20200501:LiveEvent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LiveEvent, __self__).__init__(
             'azure-nextgen:media/v20180701:LiveEvent',

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Push settings for the App.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSitePushSettingsSlot'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppSitePushSettingsSlot")]
     public partial class WebAppSitePushSettingsSlot : Pulumi.CustomResource
     {
@@ -92,6 +93,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot"},

@@ -118,6 +118,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:StreamingLocator"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:StreamingLocator"},

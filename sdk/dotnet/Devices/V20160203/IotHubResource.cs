@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Devices.V20160203
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devices:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/latest:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20170119:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20170701:IotHubResource"},

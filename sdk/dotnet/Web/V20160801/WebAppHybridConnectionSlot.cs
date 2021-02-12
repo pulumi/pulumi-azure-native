@@ -107,6 +107,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppHybridConnectionSlot"},

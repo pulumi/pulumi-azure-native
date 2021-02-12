@@ -13,6 +13,8 @@ import (
 
 // Resource information.
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Resource'.
 type Resource struct {
 	pulumi.CustomResourceState
 
@@ -61,6 +63,9 @@ func NewResource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:resources:Resource"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20151101:Resource"),
 		},

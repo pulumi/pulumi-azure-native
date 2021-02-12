@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Machine Extension.
  * Latest API Version: 2020-08-02.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:MachineExtension'.
  */
 export class MachineExtension extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class MachineExtension extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MachineExtension {
+        pulumi.log.warn("MachineExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:MachineExtension'.")
         return new MachineExtension(name, undefined as any, { ...opts, id: id });
     }
 
@@ -92,7 +95,9 @@ export class MachineExtension extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:MachineExtension'. */
     constructor(name: string, args: MachineExtensionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MachineExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:MachineExtension'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.extensionName === undefined) && !(opts && opts.urn)) {
@@ -139,7 +144,7 @@ export class MachineExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybridcompute/v20190802preview:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20191212:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200730preview:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200802:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200815preview:MachineExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybridcompute:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20190802preview:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20191212:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200730preview:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200802:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200815preview:MachineExtension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineExtension.__pulumiType, name, inputs, opts);
     }

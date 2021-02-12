@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['RoleAssignment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RoleAssignment'.""", DeprecationWarning)
+
 
 class RoleAssignment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RoleAssignment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -68,6 +72,7 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] views: Views set for the assignment.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] widget_types: Widget types set for the assignment.
         """
+        pulumi.log.warn("RoleAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RoleAssignment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -119,7 +124,7 @@ class RoleAssignment(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:RoleAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:RoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleAssignment, __self__).__init__(
             'azure-nextgen:customerinsights/latest:RoleAssignment',

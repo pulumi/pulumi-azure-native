@@ -53,6 +53,9 @@ func NewSiteBackupConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:SiteBackupConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteBackupConfiguration"),
 		},
 		{

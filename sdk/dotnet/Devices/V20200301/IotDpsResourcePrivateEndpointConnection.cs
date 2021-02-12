@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"},
                 },

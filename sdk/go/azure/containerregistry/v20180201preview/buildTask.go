@@ -67,6 +67,12 @@ func NewBuildTask(ctx *pulumi.Context,
 	if args.Timeout == nil {
 		args.Timeout = pulumi.IntPtr(3600)
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry:BuildTask"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BuildTask
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20180201preview:BuildTask", name, args, &resource, opts...)
 	if err != nil {

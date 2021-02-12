@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['SignalRPrivateEndpointConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:signalrservice:SignalRPrivateEndpointConnection'.""", DeprecationWarning)
+
 
 class SignalRPrivateEndpointConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:signalrservice:SignalRPrivateEndpointConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name_: The name of the SignalR resource.
         """
+        pulumi.log.warn("SignalRPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:signalrservice:SignalRPrivateEndpointConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:signalrservice/v20200501:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20200701preview:SignalRPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:signalrservice:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20200501:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20200701preview:SignalRPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalRPrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:signalrservice/latest:SignalRPrivateEndpointConnection',

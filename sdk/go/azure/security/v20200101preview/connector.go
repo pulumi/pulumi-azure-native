@@ -35,6 +35,12 @@ func NewConnector(ctx *pulumi.Context,
 	if args.ConnectorName == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectorName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:security:Connector"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Connector
 	err := ctx.RegisterResource("azure-nextgen:security/v20200101preview:Connector", name, args, &resource, opts...)
 	if err != nil {

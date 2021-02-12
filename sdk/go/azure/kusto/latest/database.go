@@ -13,6 +13,8 @@ import (
 
 // Class representing a Kusto database.
 // Latest API Version: 2020-09-18.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Database'.
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewDatabase(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:kusto:Database"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20170907privatepreview:Database"),
 		},

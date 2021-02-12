@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// A custom API
     /// Latest API Version: 2016-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CustomApi'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:CustomApi")]
     public partial class CustomApi : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:CustomApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160601:CustomApi"},
                 },
             };

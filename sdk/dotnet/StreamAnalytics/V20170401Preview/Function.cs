@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:Function"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/latest:Function"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20160301:Function"},
                 },

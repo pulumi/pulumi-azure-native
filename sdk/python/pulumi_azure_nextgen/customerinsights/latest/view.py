@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['View']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:View'.""", DeprecationWarning)
+
 
 class View(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:View'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[str] user_id: the user ID.
         :param pulumi.Input[str] view_name: The name of the view.
         """
+        pulumi.log.warn("View is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:View'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class View(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:View"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:View")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:View"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:View"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:View")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(View, __self__).__init__(
             'azure-nextgen:customerinsights/latest:View',

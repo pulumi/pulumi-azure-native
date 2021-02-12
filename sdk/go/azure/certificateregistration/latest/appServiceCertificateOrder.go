@@ -13,6 +13,8 @@ import (
 
 // SSL certificate purchase order.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrder'.
 type AppServiceCertificateOrder struct {
 	pulumi.CustomResourceState
 
@@ -91,6 +93,9 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 		args.ValidityInYears = pulumi.IntPtr(1)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:certificateregistration:AppServiceCertificateOrder"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // A PostgreSQL Server key.
 // Latest API Version: 2020-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:ServerKey'.
 type ServerKey struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewServerKey(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:dbforpostgresql:ServerKey"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20200101:ServerKey"),
 		},

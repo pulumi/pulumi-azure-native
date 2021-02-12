@@ -13,6 +13,8 @@ import (
 
 // Managed cluster.
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ManagedCluster'.
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 
@@ -90,6 +92,9 @@ func NewManagedCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerservice:ManagedCluster"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20170831:ManagedCluster"),
 		},

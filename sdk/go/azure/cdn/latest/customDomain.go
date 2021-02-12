@@ -13,6 +13,8 @@ import (
 
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:CustomDomain'.
 type CustomDomain struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewCustomDomain(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cdn:CustomDomain"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20150601:CustomDomain"),
 		},

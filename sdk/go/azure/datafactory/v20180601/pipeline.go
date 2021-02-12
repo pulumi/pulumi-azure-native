@@ -57,6 +57,9 @@ func NewPipeline(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datafactory:Pipeline"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/latest:Pipeline"),
 		},
 		{

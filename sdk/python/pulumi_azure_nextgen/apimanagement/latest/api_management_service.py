@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ApiManagementService']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiManagementService'.""", DeprecationWarning)
+
 
 class ApiManagementService(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiManagementService'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +68,7 @@ class ApiManagementService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']] virtual_network_configuration: Virtual network configuration of the API Management service.
         :param pulumi.Input[Union[str, 'VirtualNetworkType']] virtual_network_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         """
+        pulumi.log.warn("ApiManagementService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiManagementService'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -129,7 +134,7 @@ class ApiManagementService(pulumi.CustomResource):
             __props__['scm_url'] = None
             __props__['target_provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiManagementService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiManagementService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiManagementService, __self__).__init__(
             'azure-nextgen:apimanagement/latest:ApiManagementService',

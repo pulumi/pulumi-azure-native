@@ -13,6 +13,8 @@ import (
 
 // Peering Service
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeeringService'.
 type PeeringService struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewPeeringService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:peering:PeeringService"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20190801preview:PeeringService"),
 		},

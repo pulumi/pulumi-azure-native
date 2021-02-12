@@ -105,7 +105,7 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/latest:ServerCommunicationLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ServerCommunicationLink" }, { type: "azure-nextgen:sql/latest:ServerCommunicationLink" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerCommunicationLink.__pulumiType, name, inputs, opts);
     }

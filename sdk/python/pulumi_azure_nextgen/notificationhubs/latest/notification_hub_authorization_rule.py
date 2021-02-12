@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['NotificationHubAuthorizationRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHubAuthorizationRule'.""", DeprecationWarning)
+
 
 class NotificationHubAuthorizationRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHubAuthorizationRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']] properties: Properties of the Namespace AuthorizationRules.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        pulumi.log.warn("NotificationHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHubAuthorizationRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -84,7 +89,7 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
             __props__['sku'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notificationhubs/v20160301:NotificationHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20170401:NotificationHubAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notificationhubs:NotificationHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20160301:NotificationHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20170401:NotificationHubAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotificationHubAuthorizationRule, __self__).__init__(
             'azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule',

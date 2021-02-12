@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['SavedSearch']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:SavedSearch'.""", DeprecationWarning)
+
 
 class SavedSearch(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:SavedSearch'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +53,7 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        pulumi.log.warn("SavedSearch is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:SavedSearch'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -91,7 +96,7 @@ class SavedSearch(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/v20150320:SavedSearch"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:SavedSearch"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:SavedSearch")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights:SavedSearch"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20150320:SavedSearch"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:SavedSearch"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:SavedSearch")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SavedSearch, __self__).__init__(
             'azure-nextgen:operationalinsights/latest:SavedSearch',

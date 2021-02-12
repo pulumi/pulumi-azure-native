@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
     /// The private endpoint connection of a provisioning service
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection")]
     public partial class IotDpsResourcePrivateEndpointConnection : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"},
                 },

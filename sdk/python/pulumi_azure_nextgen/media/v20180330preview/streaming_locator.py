@@ -86,7 +86,7 @@ class StreamingLocator(pulumi.CustomResource):
             __props__['created'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingLocator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/latest:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingLocator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingLocator, __self__).__init__(
             'azure-nextgen:media/v20180330preview:StreamingLocator',

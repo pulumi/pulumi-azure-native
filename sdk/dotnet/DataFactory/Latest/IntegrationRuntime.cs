@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
     /// Integration runtime resource type.
     /// Latest API Version: 2018-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:IntegrationRuntime'.")]
     [AzureNextGenResourceType("azure-nextgen:datafactory/latest:IntegrationRuntime")]
     public partial class IntegrationRuntime : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:IntegrationRuntime"},
                 },

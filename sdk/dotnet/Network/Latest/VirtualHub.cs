@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// VirtualHub Resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHub'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:VirtualHub")]
     public partial class VirtualHub : Pulumi.CustomResource
     {
@@ -179,6 +180,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:VirtualHub"},

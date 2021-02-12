@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualHubBgpConnection"},

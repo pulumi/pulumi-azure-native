@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
     /// <summary>
     /// Latest API Version: 2020-11-20.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:ProviderRegistration'.")]
     [AzureNextGenResourceType("azure-nextgen:providerhub/latest:ProviderRegistration")]
     public partial class ProviderRegistration : Pulumi.CustomResource
     {
@@ -55,6 +56,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub:ProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:ProviderRegistration"},
                 },
             };

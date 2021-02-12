@@ -130,7 +130,7 @@ class Cluster(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric/latest:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20160901:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20170701preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190601preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20191101preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200301:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/latest:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20160901:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20170701preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190601preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20191101preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200301:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-nextgen:servicefabric/v20180201:Cluster',

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An Asset Filter.
  * Latest API Version: 2020-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:AssetFilter'.
  */
 export class AssetFilter extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class AssetFilter extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AssetFilter {
+        pulumi.log.warn("AssetFilter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:AssetFilter'.")
         return new AssetFilter(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class AssetFilter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:AssetFilter'. */
     constructor(name: string, args: AssetFilterArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AssetFilter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:AssetFilter'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -108,7 +113,7 @@ export class AssetFilter extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20180701:AssetFilter" }, { type: "azure-nextgen:media/v20200501:AssetFilter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media:AssetFilter" }, { type: "azure-nextgen:media/v20180701:AssetFilter" }, { type: "azure-nextgen:media/v20200501:AssetFilter" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AssetFilter.__pulumiType, name, inputs, opts);
     }

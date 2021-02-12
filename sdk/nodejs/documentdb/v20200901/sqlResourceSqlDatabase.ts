@@ -100,7 +100,7 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/latest:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlDatabase" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlDatabase.__pulumiType, name, inputs, opts);
     }

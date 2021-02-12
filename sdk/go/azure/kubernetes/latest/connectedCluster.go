@@ -13,6 +13,8 @@ import (
 
 // Represents a connected cluster.
 // Latest API Version: 2021-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetes:ConnectedCluster'.
 type ConnectedCluster struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +76,9 @@ func NewConnectedCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:kubernetes:ConnectedCluster"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:kubernetes/v20200101preview:ConnectedCluster"),
 		},

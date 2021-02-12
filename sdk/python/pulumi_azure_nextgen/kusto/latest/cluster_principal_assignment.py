@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['ClusterPrincipalAssignment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:ClusterPrincipalAssignment'.""", DeprecationWarning)
+
 
 class ClusterPrincipalAssignment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:ClusterPrincipalAssignment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ClusterPrincipalRole']] role: Cluster principal role.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
         """
+        pulumi.log.warn("ClusterPrincipalAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:ClusterPrincipalAssignment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ClusterPrincipalAssignment, __self__).__init__(
             'azure-nextgen:kusto/latest:ClusterPrincipalAssignment',

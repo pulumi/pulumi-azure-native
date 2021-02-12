@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ReportConfigByResourceGroupName']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ReportConfigByResourceGroupName'.""", DeprecationWarning)
+
 
 class ReportConfigByResourceGroupName(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ReportConfigByResourceGroupName'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Azure Resource Group Name.
         :param pulumi.Input[pulumi.InputType['ReportConfigScheduleArgs']] schedule: Has schedule information for the report config.
         """
+        pulumi.log.warn("ReportConfigByResourceGroupName is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ReportConfigByResourceGroupName'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -74,7 +79,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement/v20180531:ReportConfigByResourceGroupName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement:ReportConfigByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20180531:ReportConfigByResourceGroupName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReportConfigByResourceGroupName, __self__).__init__(
             'azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName',

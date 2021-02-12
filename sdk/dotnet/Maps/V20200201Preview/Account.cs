@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Maps.V20200201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:maps:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps/latest:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps/v20170101preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps/v20180501:Account"},

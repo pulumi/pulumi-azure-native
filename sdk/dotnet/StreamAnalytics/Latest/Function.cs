@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
     /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
     /// Latest API Version: 2016-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Function'.")]
     [AzureNextGenResourceType("azure-nextgen:streamanalytics/latest:Function")]
     public partial class Function : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:Function"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20160301:Function"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20170401preview:Function"},
                 },

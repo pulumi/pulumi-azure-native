@@ -165,7 +165,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/latest:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20200501preview:ScheduledQueryRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:ScheduledQueryRule" }, { type: "azure-nextgen:insights/latest:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20200501preview:ScheduledQueryRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ScheduledQueryRule.__pulumiType, name, inputs, opts);
     }

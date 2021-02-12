@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['HubVirtualNetworkConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubVirtualNetworkConnection'.""", DeprecationWarning)
+
 
 class HubVirtualNetworkConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubVirtualNetworkConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +51,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         """
+        pulumi.log.warn("HubVirtualNetworkConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubVirtualNetworkConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -82,7 +87,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['etag'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200501:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:HubVirtualNetworkConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:HubVirtualNetworkConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HubVirtualNetworkConnection, __self__).__init__(
             'azure-nextgen:network/latest:HubVirtualNetworkConnection',

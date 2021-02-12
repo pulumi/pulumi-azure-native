@@ -13,6 +13,8 @@ import (
 
 // The details of subscription under management group.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroupSubscription'.
 type ManagementGroupSubscription struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +43,9 @@ func NewManagementGroupSubscription(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'GroupId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:management:ManagementGroupSubscription"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:management/v20200501:ManagementGroupSubscription"),
 		},

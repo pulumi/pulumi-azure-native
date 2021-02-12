@@ -99,7 +99,7 @@ export class Dashboard extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal/v20150801preview:Dashboard" }, { type: "azure-nextgen:portal/v20181001preview:Dashboard" }, { type: "azure-nextgen:portal/v20190101preview:Dashboard" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal:Dashboard" }, { type: "azure-nextgen:portal/v20150801preview:Dashboard" }, { type: "azure-nextgen:portal/v20181001preview:Dashboard" }, { type: "azure-nextgen:portal/v20190101preview:Dashboard" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Dashboard.__pulumiType, name, inputs, opts);
     }

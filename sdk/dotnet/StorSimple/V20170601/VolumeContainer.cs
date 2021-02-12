@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:VolumeContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:VolumeContainer"},
                 },
             };

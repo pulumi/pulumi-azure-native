@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy"},

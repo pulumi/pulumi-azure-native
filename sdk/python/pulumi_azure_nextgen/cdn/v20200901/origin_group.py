@@ -83,7 +83,7 @@ class OriginGroup(pulumi.CustomResource):
             __props__['resource_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/latest:OriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:OriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:OriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:OriginGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:OriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/latest:OriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:OriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:OriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:OriginGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OriginGroup, __self__).__init__(
             'azure-nextgen:cdn/v20200901:OriginGroup',

@@ -11,8 +11,12 @@ from ._inputs import *
 
 __all__ = ['IotHubResourceEventHubConsumerGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotHubResourceEventHubConsumerGroup'.""", DeprecationWarning)
+
 
 class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotHubResourceEventHubConsumerGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub.
         :param pulumi.Input[str] resource_name_: The name of the IoT hub.
         """
+        pulumi.log.warn("IotHubResourceEventHubConsumerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotHubResourceEventHubConsumerGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['etag'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices/v20160203:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20170119:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20170701:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20180401:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20181201preview:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20190322:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20190322preview:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20190701preview:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20191104:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200401:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200615:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200710preview:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200801:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200831:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200831preview:IotHubResourceEventHubConsumerGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20160203:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20170119:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20170701:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20180401:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20181201preview:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20190322:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20190322preview:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20190701preview:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20191104:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200401:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200615:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200710preview:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200801:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200831:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azure-nextgen:devices/v20200831preview:IotHubResourceEventHubConsumerGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotHubResourceEventHubConsumerGroup, __self__).__init__(
             'azure-nextgen:devices/latest:IotHubResourceEventHubConsumerGroup',

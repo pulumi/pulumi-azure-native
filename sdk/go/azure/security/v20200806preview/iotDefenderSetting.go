@@ -38,6 +38,12 @@ func NewIotDefenderSetting(ctx *pulumi.Context,
 	if args.SentinelWorkspaceResourceIds == nil {
 		return nil, errors.New("invalid value for required argument 'SentinelWorkspaceResourceIds'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:security:IotDefenderSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IotDefenderSetting
 	err := ctx.RegisterResource("azure-nextgen:security/v20200806preview:IotDefenderSetting", name, args, &resource, opts...)
 	if err != nil {

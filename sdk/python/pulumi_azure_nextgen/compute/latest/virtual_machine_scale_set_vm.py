@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['VirtualMachineScaleSetVM']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVM'.""", DeprecationWarning)
+
 
 class VirtualMachineScaleSetVM(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVM'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +66,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
         """
+        pulumi.log.warn("VirtualMachineScaleSetVM is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVM'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -112,7 +117,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             __props__['type'] = None
             __props__['vm_id'] = None
             __props__['zones'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSetVM, __self__).__init__(
             'azure-nextgen:compute/latest:VirtualMachineScaleSetVM',

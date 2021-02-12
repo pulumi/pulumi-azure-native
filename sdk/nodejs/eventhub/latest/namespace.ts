@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Single Namespace item in List or Get Operation
  * Latest API Version: 2017-04-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:Namespace'.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Namespace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Namespace {
+        pulumi.log.warn("Namespace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:Namespace'.")
         return new Namespace(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,7 +99,9 @@ export class Namespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:Namespace'. */
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Namespace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:Namespace'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
@@ -142,7 +147,7 @@ export class Namespace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/v20140901:Namespace" }, { type: "azure-nextgen:eventhub/v20150801:Namespace" }, { type: "azure-nextgen:eventhub/v20170401:Namespace" }, { type: "azure-nextgen:eventhub/v20180101preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:Namespace" }, { type: "azure-nextgen:eventhub/v20140901:Namespace" }, { type: "azure-nextgen:eventhub/v20150801:Namespace" }, { type: "azure-nextgen:eventhub/v20170401:Namespace" }, { type: "azure-nextgen:eventhub/v20180101preview:Namespace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Namespace.__pulumiType, name, inputs, opts);
     }

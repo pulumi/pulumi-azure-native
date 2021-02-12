@@ -13,6 +13,8 @@ import (
 
 // IoT Security solution configuration and resource information.
 // Latest API Version: 2019-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:IotSecuritySolution'.
 type IotSecuritySolution struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +78,9 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 		args.UnmaskedIpLoggingStatus = pulumi.StringPtr("Disabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:security:IotSecuritySolution"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20170801preview:IotSecuritySolution"),
 		},

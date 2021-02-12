@@ -42,6 +42,12 @@ func NewManagedHsm(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:keyvault:ManagedHsm"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagedHsm
 	err := ctx.RegisterResource("azure-nextgen:keyvault/v20200401preview:ManagedHsm", name, args, &resource, opts...)
 	if err != nil {

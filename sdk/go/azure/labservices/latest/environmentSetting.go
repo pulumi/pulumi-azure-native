@@ -13,6 +13,8 @@ import (
 
 // Represents settings of an environment, from which environment instances would be created
 // Latest API Version: 2018-10-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:EnvironmentSetting'.
 type EnvironmentSetting struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +71,9 @@ func NewEnvironmentSetting(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceSettings'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:labservices:EnvironmentSetting"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:labservices/v20181015:EnvironmentSetting"),
 		},

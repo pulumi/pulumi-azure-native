@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['Favorite']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Favorite'.""", DeprecationWarning)
+
 
 class Favorite(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Favorite'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class Favorite(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of 0 or more tags that are associated with this favorite definition
         :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
         """
+        pulumi.log.warn("Favorite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Favorite'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -84,7 +89,7 @@ class Favorite(pulumi.CustomResource):
             __props__['version'] = version
             __props__['time_modified'] = None
             __props__['user_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:Favorite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:Favorite"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:Favorite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Favorite, __self__).__init__(
             'azure-nextgen:insights/latest:Favorite',

@@ -53,6 +53,9 @@ func NewRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:servicebus:Rule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/latest:Rule"),
 		},
 		{

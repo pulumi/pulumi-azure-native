@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator"},

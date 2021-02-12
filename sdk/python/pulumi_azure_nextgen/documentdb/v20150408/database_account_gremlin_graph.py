@@ -86,7 +86,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
             __props__['ts'] = None
             __props__['type'] = None
             __props__['unique_key_policy'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinGraph")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccountGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinGraph")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountGremlinGraph, __self__).__init__(
             'azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinGraph',

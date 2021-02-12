@@ -9,3 +9,13 @@ export {
     latest,
     v20180401,
 };
+
+export const KeySource = {
+    Default: "Default",
+    Microsoft_Keyvault: "Microsoft.Keyvault",
+} as const;
+
+/**
+ * The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
+ */
+export type KeySource = (typeof KeySource)[keyof typeof KeySource];

@@ -82,7 +82,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
             __props__['resync_required'] = None
             __props__['routes'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppVnetConnectionSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppVnetConnectionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppVnetConnectionSlot, __self__).__init__(
             'azure-nextgen:web/v20200601:WebAppVnetConnectionSlot',

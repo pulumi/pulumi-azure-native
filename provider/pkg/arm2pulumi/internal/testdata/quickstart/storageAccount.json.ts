@@ -3,7 +3,7 @@ import * as azure_nextgen from "@pulumi/azure-nextgen";
 
 const config = new pulumi.Config();
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const resourceGroupVar = azure_nextgen.resources.latest.getResourceGroup({
+const resourceGroupVar = azure_nextgen.resources.getResourceGroup({
     resourceGroupName: resourceGroupNameParam,
 });
 const locationParam = config.get("locationParam") || resourceGroupVar.then(resourceGroupVar => resourceGroupVar.location);

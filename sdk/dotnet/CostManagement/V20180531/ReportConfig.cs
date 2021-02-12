@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180531
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement:ReportConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/latest:ReportConfig"},
                 },
             };

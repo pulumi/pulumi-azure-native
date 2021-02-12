@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     /// Trigger details.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Trigger'.")]
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Trigger"},

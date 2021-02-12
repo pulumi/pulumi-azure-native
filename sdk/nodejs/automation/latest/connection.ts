@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the connection.
  * Latest API Version: 2019-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Connection'.
  */
 export class Connection extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Connection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Connection {
+        pulumi.log.warn("Connection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Connection'.")
         return new Connection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,7 +75,9 @@ export class Connection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Connection'. */
     constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Connection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Connection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
@@ -116,7 +121,7 @@ export class Connection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Connection" }, { type: "azure-nextgen:automation/v20190601:Connection" }, { type: "azure-nextgen:automation/v20200113preview:Connection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:Connection" }, { type: "azure-nextgen:automation/v20151031:Connection" }, { type: "azure-nextgen:automation/v20190601:Connection" }, { type: "azure-nextgen:automation/v20200113preview:Connection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Connection.__pulumiType, name, inputs, opts);
     }

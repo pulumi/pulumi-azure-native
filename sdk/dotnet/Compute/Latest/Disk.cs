@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Disk resource.
     /// Latest API Version: 2020-09-30.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Disk'.")]
     [AzureNextGenResourceType("azure-nextgen:compute/latest:Disk")]
     public partial class Disk : Pulumi.CustomResource
     {
@@ -227,6 +228,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:Disk"},

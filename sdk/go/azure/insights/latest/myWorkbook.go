@@ -13,6 +13,8 @@ import (
 
 // An Application Insights private workbook definition.
 // Latest API Version: 2020-10-20.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:MyWorkbook'.
 type MyWorkbook struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +73,9 @@ func NewMyWorkbook(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SerializedData'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:MyWorkbook"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:MyWorkbook"),
 		},

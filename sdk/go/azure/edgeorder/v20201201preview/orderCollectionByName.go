@@ -45,6 +45,12 @@ func NewOrderCollectionByName(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:edgeorder:OrderCollectionByName"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource OrderCollectionByName
 	err := ctx.RegisterResource("azure-nextgen:edgeorder/v20201201preview:OrderCollectionByName", name, args, &resource, opts...)
 	if err != nil {

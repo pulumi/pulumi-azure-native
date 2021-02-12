@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
 import * as fs from "fs";
-import * as resources from "@pulumi/azure-nextgen/resources/latest";
+import * as resources from "@pulumi/azure-nextgen/resources";
 
 interface TemplateResourceArgs {
     resourceGroupName: string;

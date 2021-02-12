@@ -13,6 +13,8 @@ import (
 
 // A Service Fabric.
 // Latest API Version: 2018-09-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabric'.
 type ServiceFabric struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +58,9 @@ func NewServiceFabric(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab:ServiceFabric"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ServiceFabric"),
 		},

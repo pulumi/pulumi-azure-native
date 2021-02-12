@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['Cluster']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestackhci:Cluster'.""", DeprecationWarning)
+
 
 class Cluster(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestackhci:Cluster'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestackhci:Cluster'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class Cluster(pulumi.CustomResource):
             __props__['status'] = None
             __props__['trial_days_remaining'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azurestackhci/v20200301preview:Cluster"), pulumi.Alias(type_="azure-nextgen:azurestackhci/v20201001:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azurestackhci:Cluster"), pulumi.Alias(type_="azure-nextgen:azurestackhci/v20200301preview:Cluster"), pulumi.Alias(type_="azure-nextgen:azurestackhci/v20201001:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-nextgen:azurestackhci/latest:Cluster',

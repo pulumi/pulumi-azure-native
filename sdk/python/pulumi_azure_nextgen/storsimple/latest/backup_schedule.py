@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['BackupSchedule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupSchedule'.""", DeprecationWarning)
+
 
 class BackupSchedule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupSchedule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class BackupSchedule(pulumi.CustomResource):
         :param pulumi.Input['ScheduleStatus'] schedule_status: The schedule status.
         :param pulumi.Input[str] start_time: The start time of the schedule.
         """
+        pulumi.log.warn("BackupSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupSchedule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -101,7 +106,7 @@ class BackupSchedule(pulumi.CustomResource):
             __props__['last_successful_run'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:BackupSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:BackupSchedule"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:BackupSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupSchedule, __self__).__init__(
             'azure-nextgen:storsimple/latest:BackupSchedule',

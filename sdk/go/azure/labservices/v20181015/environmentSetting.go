@@ -69,6 +69,9 @@ func NewEnvironmentSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:labservices:EnvironmentSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:labservices/latest:EnvironmentSetting"),
 		},
 	})

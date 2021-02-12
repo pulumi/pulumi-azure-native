@@ -94,7 +94,7 @@ export class RuleSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:RuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:RuleSet" }, { type: "azure-nextgen:cdn/latest:RuleSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RuleSet.__pulumiType, name, inputs, opts);
     }

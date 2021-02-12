@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['CustomDomain']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:CustomDomain'.""", DeprecationWarning)
+
 
 class CustomDomain(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:CustomDomain'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         """
+        pulumi.log.warn("CustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:CustomDomain'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,7 +81,7 @@ class CustomDomain(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['type'] = None
             __props__['validation_data'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20150601:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20170402:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:CustomDomain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20150601:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20170402:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:CustomDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomDomain, __self__).__init__(
             'azure-nextgen:cdn/latest:CustomDomain',

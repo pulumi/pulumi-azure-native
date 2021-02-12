@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// The storage domain.
     /// Latest API Version: 2016-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageDomain'.")]
     [AzureNextGenResourceType("azure-nextgen:storsimple/latest:StorageDomain")]
     public partial class StorageDomain : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:StorageDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:StorageDomain"},
                 },
             };

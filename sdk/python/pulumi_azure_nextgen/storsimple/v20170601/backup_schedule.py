@@ -100,7 +100,7 @@ class BackupSchedule(pulumi.CustomResource):
             __props__['last_successful_run'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/latest:BackupSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:BackupSchedule"), pulumi.Alias(type_="azure-nextgen:storsimple/latest:BackupSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupSchedule, __self__).__init__(
             'azure-nextgen:storsimple/v20170601:BackupSchedule',

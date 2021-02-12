@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     /// The top level Log Analytics cluster resource container.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:Cluster'.")]
     [AzureNextGenResourceType("azure-nextgen:operationalinsights/latest:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -137,6 +138,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:Cluster"},

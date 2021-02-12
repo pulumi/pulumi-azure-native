@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['SupportPlanType']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:addons:SupportPlanType'.""", DeprecationWarning)
+
 
 class SupportPlanType(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:addons:SupportPlanType'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -29,6 +33,7 @@ class SupportPlanType(pulumi.CustomResource):
         :param pulumi.Input[str] plan_type_name: The Canonical support plan type.
         :param pulumi.Input[str] provider_name: The support plan type. For now the only valid type is "canonical".
         """
+        pulumi.log.warn("SupportPlanType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:addons:SupportPlanType'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -55,7 +60,7 @@ class SupportPlanType(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:addons/v20170515:SupportPlanType"), pulumi.Alias(type_="azure-nextgen:addons/v20180301:SupportPlanType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:addons:SupportPlanType"), pulumi.Alias(type_="azure-nextgen:addons/v20170515:SupportPlanType"), pulumi.Alias(type_="azure-nextgen:addons/v20180301:SupportPlanType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SupportPlanType, __self__).__init__(
             'azure-nextgen:addons/latest:SupportPlanType',

@@ -68,7 +68,7 @@ class AccessPolicy(pulumi.CustomResource):
             __props__['roles'] = roles
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:timeseriesinsights/latest:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20171115:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:timeseriesinsights:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/latest:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20171115:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessPolicy, __self__).__init__(
             'azure-nextgen:timeseriesinsights/v20200515:AccessPolicy',

@@ -124,6 +124,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs:NotificationHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:NotificationHubAuthorizationRule"},
                 },

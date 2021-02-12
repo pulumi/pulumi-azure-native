@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Profile']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Profile'.""", DeprecationWarning)
+
 
 class Profile(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Profile'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +68,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] timestamp_field_name: The timestamp property name. Represents the time when the interaction or profile update happened.
         :param pulumi.Input[str] type_name: The name of the entity.
         """
+        pulumi.log.warn("Profile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Profile'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,7 +115,7 @@ class Profile(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:Profile"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Profile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:Profile"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:Profile"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
             'azure-nextgen:customerinsights/latest:Profile',

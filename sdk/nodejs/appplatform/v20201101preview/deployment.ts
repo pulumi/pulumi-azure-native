@@ -95,7 +95,7 @@ export class Deployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/latest:Deployment" }, { type: "azure-nextgen:appplatform/v20190501preview:Deployment" }, { type: "azure-nextgen:appplatform/v20200701:Deployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform:Deployment" }, { type: "azure-nextgen:appplatform/latest:Deployment" }, { type: "azure-nextgen:appplatform/v20190501preview:Deployment" }, { type: "azure-nextgen:appplatform/v20200701:Deployment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Deployment.__pulumiType, name, inputs, opts);
     }

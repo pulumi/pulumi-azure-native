@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
     /// The DataManager resource.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataManager'.")]
     [AzureNextGenResourceType("azure-nextgen:hybriddata/latest:DataManager")]
     public partial class DataManager : Pulumi.CustomResource
     {
@@ -80,6 +81,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata:DataManager"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20160601:DataManager"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:DataManager"},
                 },

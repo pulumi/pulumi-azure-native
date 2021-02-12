@@ -42,6 +42,12 @@ func NewGatewayCertificateAuthority(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement:GatewayCertificateAuthority"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource GatewayCertificateAuthority
 	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20200601preview:GatewayCertificateAuthority", name, args, &resource, opts...)
 	if err != nil {

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
     /// Data store.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataStore'.")]
     [AzureNextGenResourceType("azure-nextgen:hybriddata/latest:DataStore")]
     public partial class DataStore : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata:DataStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20160601:DataStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:DataStore"},
                 },

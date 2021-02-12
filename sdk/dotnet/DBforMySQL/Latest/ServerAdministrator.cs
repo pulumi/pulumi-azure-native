@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
     /// Represents a and external administrator to be created.
     /// Latest API Version: 2017-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:ServerAdministrator'.")]
     [AzureNextGenResourceType("azure-nextgen:dbformysql/latest:ServerAdministrator")]
     public partial class ServerAdministrator : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201preview:ServerAdministrator"},
                 },

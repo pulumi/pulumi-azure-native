@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
     /// Class representing an attached database configuration.
     /// Latest API Version: 2020-09-18.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:AttachedDatabaseConfiguration'.")]
     [AzureNextGenResourceType("azure-nextgen:kusto/latest:AttachedDatabaseConfiguration")]
     public partial class AttachedDatabaseConfiguration : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration"},

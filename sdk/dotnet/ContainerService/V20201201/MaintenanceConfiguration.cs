@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:MaintenanceConfiguration"},
                 },
             };

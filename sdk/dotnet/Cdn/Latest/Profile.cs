@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
     /// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Profile'.")]
     [AzureNextGenResourceType("azure-nextgen:cdn/latest:Profile")]
     public partial class Profile : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20150601:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20160402:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20161002:Profile"},

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Peering Service
  * Latest API Version: 2020-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeeringService'.
  */
 export class PeeringService extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class PeeringService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PeeringService {
+        pulumi.log.warn("PeeringService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeeringService'.")
         return new PeeringService(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class PeeringService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeeringService'. */
     constructor(name: string, args: PeeringServiceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PeeringService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeeringService'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.peeringServiceName === undefined) && !(opts && opts.urn)) {
@@ -112,7 +117,7 @@ export class PeeringService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering/v20190801preview:PeeringService" }, { type: "azure-nextgen:peering/v20190901preview:PeeringService" }, { type: "azure-nextgen:peering/v20200101preview:PeeringService" }, { type: "azure-nextgen:peering/v20200401:PeeringService" }, { type: "azure-nextgen:peering/v20201001:PeeringService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering:PeeringService" }, { type: "azure-nextgen:peering/v20190801preview:PeeringService" }, { type: "azure-nextgen:peering/v20190901preview:PeeringService" }, { type: "azure-nextgen:peering/v20200101preview:PeeringService" }, { type: "azure-nextgen:peering/v20200401:PeeringService" }, { type: "azure-nextgen:peering/v20201001:PeeringService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PeeringService.__pulumiType, name, inputs, opts);
     }

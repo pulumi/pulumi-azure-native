@@ -63,6 +63,12 @@ func NewDiskPool(ctx *pulumi.Context,
 	if args.Tier == nil {
 		return nil, errors.New("invalid value for required argument 'Tier'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storagepool:DiskPool"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DiskPool
 	err := ctx.RegisterResource("azure-nextgen:storagepool/v20200315preview:DiskPool", name, args, &resource, opts...)
 	if err != nil {

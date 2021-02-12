@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['MetricAlert']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:MetricAlert'.""", DeprecationWarning)
+
 
 class MetricAlert(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:MetricAlert'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +62,7 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[str] target_resource_type: the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
         """
+        pulumi.log.warn("MetricAlert is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:MetricAlert'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,7 +115,7 @@ class MetricAlert(pulumi.CustomResource):
             __props__['last_updated_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20180301:MetricAlert")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:MetricAlert"), pulumi.Alias(type_="azure-nextgen:insights/v20180301:MetricAlert")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MetricAlert, __self__).__init__(
             'azure-nextgen:insights/latest:MetricAlert',

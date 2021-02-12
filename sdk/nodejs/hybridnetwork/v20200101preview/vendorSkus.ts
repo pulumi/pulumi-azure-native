@@ -117,6 +117,8 @@ export class VendorSkus extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybridnetwork:VendorSkus" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VendorSkus.__pulumiType, name, inputs, opts);
     }
 }

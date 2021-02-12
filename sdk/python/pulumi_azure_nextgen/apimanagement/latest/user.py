@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['User']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:User'.""", DeprecationWarning)
+
 
 class User(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:User'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +58,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'UserState']] state: Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
         :param pulumi.Input[str] user_id: User identifier. Must be unique in the current API Management service instance.
         """
+        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:User'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,7 +107,7 @@ class User(pulumi.CustomResource):
             __props__['name'] = None
             __props__['registration_date'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:User"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-nextgen:apimanagement/latest:User',

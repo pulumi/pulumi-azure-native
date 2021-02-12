@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppHybridConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHybridConnection'.""", DeprecationWarning)
+
 
 class WebAppHybridConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHybridConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +55,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
         :param pulumi.Input[str] service_bus_namespace: The name of the Service Bus namespace.
         :param pulumi.Input[str] service_bus_suffix: The suffix for the service bus endpoint. By default this is .servicebus.windows.net
         """
+        pulumi.log.warn("WebAppHybridConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHybridConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -90,7 +95,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
             __props__['service_bus_suffix'] = service_bus_suffix
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppHybridConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppHybridConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppHybridConnection, __self__).__init__(
             'azure-nextgen:web/latest:WebAppHybridConnection',

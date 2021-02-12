@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['JitNetworkAccessPolicy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:JitNetworkAccessPolicy'.""", DeprecationWarning)
+
 
 class JitNetworkAccessPolicy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:JitNetworkAccessPolicy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
         """
+        pulumi.log.warn("JitNetworkAccessPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:JitNetworkAccessPolicy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy"), pulumi.Alias(type_="azure-nextgen:security/v20200101:JitNetworkAccessPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:JitNetworkAccessPolicy"), pulumi.Alias(type_="azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy"), pulumi.Alias(type_="azure-nextgen:security/v20200101:JitNetworkAccessPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JitNetworkAccessPolicy, __self__).__init__(
             'azure-nextgen:security/latest:JitNetworkAccessPolicy',

@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppDomainOwnershipIdentifierSlot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot'.""", DeprecationWarning)
+
 
 class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
         :param pulumi.Input[str] value: String representation of the identity.
         """
+        pulumi.log.warn("WebAppDomainOwnershipIdentifierSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -71,7 +76,7 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
             __props__['value'] = value
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifierSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifierSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppDomainOwnershipIdentifierSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppDomainOwnershipIdentifierSlot',

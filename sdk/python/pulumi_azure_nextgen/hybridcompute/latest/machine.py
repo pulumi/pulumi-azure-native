@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Machine']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:Machine'.""", DeprecationWarning)
+
 
 class Machine(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:Machine'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class Machine(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vm_id: Specifies the hybrid machine unique ID.
         """
+        pulumi.log.warn("Machine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:Machine'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -88,7 +93,7 @@ class Machine(pulumi.CustomResource):
             __props__['status'] = None
             __props__['type'] = None
             __props__['vm_uuid'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridcompute/v20190318preview:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20190802preview:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20191212:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200730preview:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200802:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:Machine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridcompute:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20190318preview:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20190802preview:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20191212:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200730preview:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200802:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:Machine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Machine, __self__).__init__(
             'azure-nextgen:hybridcompute/latest:Machine',

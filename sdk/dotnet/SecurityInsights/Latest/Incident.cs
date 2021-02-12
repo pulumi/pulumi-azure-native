@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
     /// Represents an incident in Azure Security Insights.
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Incident'.")]
     [AzureNextGenResourceType("azure-nextgen:securityinsights/latest:Incident")]
     public partial class Incident : Pulumi.CustomResource
     {
@@ -161,6 +162,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Incident"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:Incident"},
                 },
             };

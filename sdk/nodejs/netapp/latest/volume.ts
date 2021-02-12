@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Volume resource
  * Latest API Version: 2020-11-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Volume'.
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Volume extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Volume {
+        pulumi.log.warn("Volume is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Volume'.")
         return new Volume(name, undefined as any, { ...opts, id: id });
     }
 
@@ -145,7 +148,9 @@ export class Volume extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Volume'. */
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Volume is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Volume'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -234,7 +239,7 @@ export class Volume extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20170815:Volume" }, { type: "azure-nextgen:netapp/v20190501:Volume" }, { type: "azure-nextgen:netapp/v20190601:Volume" }, { type: "azure-nextgen:netapp/v20190701:Volume" }, { type: "azure-nextgen:netapp/v20190801:Volume" }, { type: "azure-nextgen:netapp/v20191001:Volume" }, { type: "azure-nextgen:netapp/v20191101:Volume" }, { type: "azure-nextgen:netapp/v20200201:Volume" }, { type: "azure-nextgen:netapp/v20200301:Volume" }, { type: "azure-nextgen:netapp/v20200501:Volume" }, { type: "azure-nextgen:netapp/v20200601:Volume" }, { type: "azure-nextgen:netapp/v20200701:Volume" }, { type: "azure-nextgen:netapp/v20200801:Volume" }, { type: "azure-nextgen:netapp/v20200901:Volume" }, { type: "azure-nextgen:netapp/v20201101:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:Volume" }, { type: "azure-nextgen:netapp/v20170815:Volume" }, { type: "azure-nextgen:netapp/v20190501:Volume" }, { type: "azure-nextgen:netapp/v20190601:Volume" }, { type: "azure-nextgen:netapp/v20190701:Volume" }, { type: "azure-nextgen:netapp/v20190801:Volume" }, { type: "azure-nextgen:netapp/v20191001:Volume" }, { type: "azure-nextgen:netapp/v20191101:Volume" }, { type: "azure-nextgen:netapp/v20200201:Volume" }, { type: "azure-nextgen:netapp/v20200301:Volume" }, { type: "azure-nextgen:netapp/v20200501:Volume" }, { type: "azure-nextgen:netapp/v20200601:Volume" }, { type: "azure-nextgen:netapp/v20200701:Volume" }, { type: "azure-nextgen:netapp/v20200801:Volume" }, { type: "azure-nextgen:netapp/v20200901:Volume" }, { type: "azure-nextgen:netapp/v20201101:Volume" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Volume.__pulumiType, name, inputs, opts);
     }

@@ -64,6 +64,9 @@ func NewBudgetByResourceGroupName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:consumption:BudgetByResourceGroupName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:consumption/latest:BudgetByResourceGroupName"),
 		},
 		{

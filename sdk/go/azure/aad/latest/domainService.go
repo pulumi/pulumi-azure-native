@@ -13,6 +13,8 @@ import (
 
 // Domain service.
 // Latest API Version: 2020-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aad:DomainService'.
 type DomainService struct {
 	pulumi.CustomResourceState
 
@@ -72,6 +74,9 @@ func NewDomainService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:aad:DomainService"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:aad/v20170101:DomainService"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 // Latest API Version: 2020-05-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:Environment'.
 type Environment struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:timeseriesinsights:Environment"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:Environment"),
 		},

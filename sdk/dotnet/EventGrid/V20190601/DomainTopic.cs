@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:DomainTopic"},

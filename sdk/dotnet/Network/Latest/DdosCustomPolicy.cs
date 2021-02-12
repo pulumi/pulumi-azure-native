@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// A DDoS custom policy in a resource group.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DdosCustomPolicy'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:DdosCustomPolicy")]
     public partial class DdosCustomPolicy : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:DdosCustomPolicy"},

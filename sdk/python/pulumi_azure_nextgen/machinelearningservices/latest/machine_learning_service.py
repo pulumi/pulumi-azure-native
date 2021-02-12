@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['MachineLearningService']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningService'.""", DeprecationWarning)
+
 
 class MachineLearningService(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningService'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class MachineLearningService(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: Name of the Azure Machine Learning service.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
+        pulumi.log.warn("MachineLearningService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningService'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,7 +94,7 @@ class MachineLearningService(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210101:MachineLearningService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices:MachineLearningService"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210101:MachineLearningService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineLearningService, __self__).__init__(
             'azure-nextgen:machinelearningservices/latest:MachineLearningService',

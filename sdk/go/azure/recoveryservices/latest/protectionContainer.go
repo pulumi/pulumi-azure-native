@@ -13,6 +13,8 @@ import (
 
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
 // Latest API Version: 2021-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionContainer'.
 type ProtectionContainer struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewProtectionContainer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices:ProtectionContainer"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20161201:ProtectionContainer"),
 		},

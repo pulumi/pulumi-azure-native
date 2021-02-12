@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// Properties that define an Analytics item that is associated to an Application Insights component.
     /// Latest API Version: 2015-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AnalyticsItem'.")]
     [AzureNextGenResourceType("azure-nextgen:insights/latest:AnalyticsItem")]
     public partial class AnalyticsItem : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:AnalyticsItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:AnalyticsItem"},
                 },
             };

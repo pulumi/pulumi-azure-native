@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Pipeline']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Pipeline'.""", DeprecationWarning)
+
 
 class Pipeline(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Pipeline'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] run_dimensions: Dimensions emitted by Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['VariableSpecificationArgs']]]] variables: List of variables for pipeline.
         """
+        pulumi.log.warn("Pipeline is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Pipeline'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class Pipeline(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datafactory/v20170901preview:Pipeline"), pulumi.Alias(type_="azure-nextgen:datafactory/v20180601:Pipeline")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datafactory:Pipeline"), pulumi.Alias(type_="azure-nextgen:datafactory/v20170901preview:Pipeline"), pulumi.Alias(type_="azure-nextgen:datafactory/v20180601:Pipeline")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pipeline, __self__).__init__(
             'azure-nextgen:datafactory/latest:Pipeline',

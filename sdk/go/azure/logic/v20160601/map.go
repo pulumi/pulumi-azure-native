@@ -59,6 +59,9 @@ func NewMap(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:logic:Map"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/latest:Map"),
 		},
 		{

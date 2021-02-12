@@ -69,6 +69,9 @@ func NewSiteInstanceDeploymentSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:SiteInstanceDeploymentSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteInstanceDeploymentSlot"),
 		},
 	})

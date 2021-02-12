@@ -13,6 +13,8 @@ import (
 
 // The customer's prefix that is registered by the peering service provider.
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredPrefix'.
 type RegisteredPrefix struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:peering:RegisteredPrefix"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20200101preview:RegisteredPrefix"),
 		},

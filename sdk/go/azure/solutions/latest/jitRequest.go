@@ -13,6 +13,8 @@ import (
 
 // Information about JIT request definition.
 // Latest API Version: 2019-07-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:JitRequest'.
 type JitRequest struct {
 	pulumi.CustomResourceState
 
@@ -65,6 +67,9 @@ func NewJitRequest(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:solutions:JitRequest"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:solutions/v20190701:JitRequest"),
 		},

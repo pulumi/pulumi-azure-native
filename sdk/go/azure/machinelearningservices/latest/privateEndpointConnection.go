@@ -13,6 +13,8 @@ import (
 
 // The Private Endpoint Connection resource.
 // Latest API Version: 2021-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +60,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices:PrivateEndpointConnection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200101:PrivateEndpointConnection"),
 		},

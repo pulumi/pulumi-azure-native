@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180701:BlobContainerImmutabilityPolicy"},

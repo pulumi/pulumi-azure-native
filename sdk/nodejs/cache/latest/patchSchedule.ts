@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Response to put/get patch schedules for Redis cache.
  * Latest API Version: 2020-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:PatchSchedule'.
  */
 export class PatchSchedule extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class PatchSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PatchSchedule {
+        pulumi.log.warn("PatchSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:PatchSchedule'.")
         return new PatchSchedule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -56,7 +59,9 @@ export class PatchSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:PatchSchedule'. */
     constructor(name: string, args: PatchScheduleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PatchSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:PatchSchedule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.default === undefined) && !(opts && opts.urn)) {
@@ -88,7 +93,7 @@ export class PatchSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/v20171001:PatchSchedule" }, { type: "azure-nextgen:cache/v20180301:PatchSchedule" }, { type: "azure-nextgen:cache/v20190701:PatchSchedule" }, { type: "azure-nextgen:cache/v20200601:PatchSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache:PatchSchedule" }, { type: "azure-nextgen:cache/v20171001:PatchSchedule" }, { type: "azure-nextgen:cache/v20180301:PatchSchedule" }, { type: "azure-nextgen:cache/v20190701:PatchSchedule" }, { type: "azure-nextgen:cache/v20200601:PatchSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PatchSchedule.__pulumiType, name, inputs, opts);
     }

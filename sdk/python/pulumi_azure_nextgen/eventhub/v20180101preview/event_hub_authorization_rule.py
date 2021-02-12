@@ -69,7 +69,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
             __props__['rights'] = rights
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/latest:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/latest:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHubAuthorizationRule, __self__).__init__(
             'azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule',

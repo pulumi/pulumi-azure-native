@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
     /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:Cache'.")]
     [AzureNextGenResourceType("azure-nextgen:storagecache/latest:Cache")]
     public partial class Cache : Pulumi.CustomResource
     {
@@ -143,6 +144,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20190801preview:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20191101:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20200301:Cache"},

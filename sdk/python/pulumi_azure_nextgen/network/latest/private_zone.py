@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['PrivateZone']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateZone'.""", DeprecationWarning)
+
 
 class PrivateZone(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateZone'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class PrivateZone(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("PrivateZone is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateZone'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -71,7 +76,7 @@ class PrivateZone(pulumi.CustomResource):
             __props__['number_of_virtual_network_links_with_registration'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180901:PrivateZone"), pulumi.Alias(type_="azure-nextgen:network/v20200101:PrivateZone"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateZone")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:PrivateZone"), pulumi.Alias(type_="azure-nextgen:network/v20180901:PrivateZone"), pulumi.Alias(type_="azure-nextgen:network/v20200101:PrivateZone"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateZone")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateZone, __self__).__init__(
             'azure-nextgen:network/latest:PrivateZone',

@@ -71,7 +71,7 @@ export class ProviderRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub/latest:ProviderRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub:ProviderRegistration" }, { type: "azure-nextgen:providerhub/latest:ProviderRegistration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProviderRegistration.__pulumiType, name, inputs, opts);
     }

@@ -13,6 +13,8 @@ import (
 
 // HealthBot resource definition
 // Latest API Version: 2020-12-08.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthbot:Bot'.
 type Bot struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewBot(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:healthbot:Bot"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:healthbot/v20201020:Bot"),
 		},

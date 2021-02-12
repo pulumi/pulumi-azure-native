@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Table']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Table'.""", DeprecationWarning)
+
 
 class Table(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Table'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -31,6 +35,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] table_name: A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
         """
+        pulumi.log.warn("Table is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Table'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -59,7 +64,7 @@ class Table(pulumi.CustomResource):
             __props__['table_name'] = table_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20190601:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:Table")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:Table")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Table, __self__).__init__(
             'azure-nextgen:storage/latest:Table',

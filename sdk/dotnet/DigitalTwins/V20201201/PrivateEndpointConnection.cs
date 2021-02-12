@@ -55,6 +55,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:digitaltwins:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/latest:PrivateEndpointConnection"},
                 },
             };

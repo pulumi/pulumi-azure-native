@@ -43,6 +43,12 @@ func NewSqlResourceSqlRoleAssignment(ctx *pulumi.Context,
 	if args.RoleAssignmentId == nil {
 		return nil, errors.New("invalid value for required argument 'RoleAssignmentId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlRoleAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlResourceSqlRoleAssignment
 	err := ctx.RegisterResource("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment", name, args, &resource, opts...)
 	if err != nil {

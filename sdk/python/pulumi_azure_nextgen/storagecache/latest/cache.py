@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Cache']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:Cache'.""", DeprecationWarning)
+
 
 class Cache(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:Cache'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +58,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] subnet: Subnet used for the Cache.
         :param Any tags: ARM tags as name/value pairs.
         """
+        pulumi.log.warn("Cache is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:Cache'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -94,7 +99,7 @@ class Cache(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['type'] = None
             __props__['upgrade_status'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagecache/v20190801preview:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20191101:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20200301:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20201001:Cache")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagecache:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20190801preview:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20191101:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20200301:Cache"), pulumi.Alias(type_="azure-nextgen:storagecache/v20201001:Cache")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cache, __self__).__init__(
             'azure-nextgen:storagecache/latest:Cache',

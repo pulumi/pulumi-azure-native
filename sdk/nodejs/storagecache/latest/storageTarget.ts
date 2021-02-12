@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Type of the Storage Target.
  * Latest API Version: 2020-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:StorageTarget'.
  */
 export class StorageTarget extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class StorageTarget extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageTarget {
+        pulumi.log.warn("StorageTarget is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:StorageTarget'.")
         return new StorageTarget(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,7 +87,9 @@ export class StorageTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:StorageTarget'. */
     constructor(name: string, args: StorageTargetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("StorageTarget is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:StorageTarget'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.cacheName === undefined) && !(opts && opts.urn)) {
@@ -131,7 +136,7 @@ export class StorageTarget extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagecache/v20190801preview:StorageTarget" }, { type: "azure-nextgen:storagecache/v20191101:StorageTarget" }, { type: "azure-nextgen:storagecache/v20200301:StorageTarget" }, { type: "azure-nextgen:storagecache/v20201001:StorageTarget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagecache:StorageTarget" }, { type: "azure-nextgen:storagecache/v20190801preview:StorageTarget" }, { type: "azure-nextgen:storagecache/v20191101:StorageTarget" }, { type: "azure-nextgen:storagecache/v20200301:StorageTarget" }, { type: "azure-nextgen:storagecache/v20201001:StorageTarget" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageTarget.__pulumiType, name, inputs, opts);
     }

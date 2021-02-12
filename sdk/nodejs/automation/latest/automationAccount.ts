@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the automation account type.
  * Latest API Version: 2019-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:AutomationAccount'.
  */
 export class AutomationAccount extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class AutomationAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AutomationAccount {
+        pulumi.log.warn("AutomationAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:AutomationAccount'.")
         return new AutomationAccount(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,7 +91,9 @@ export class AutomationAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:AutomationAccount'. */
     constructor(name: string, args: AutomationAccountArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AutomationAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:AutomationAccount'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
@@ -130,7 +135,7 @@ export class AutomationAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:AutomationAccount" }, { type: "azure-nextgen:automation/v20190601:AutomationAccount" }, { type: "azure-nextgen:automation/v20200113preview:AutomationAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:AutomationAccount" }, { type: "azure-nextgen:automation/v20151031:AutomationAccount" }, { type: "azure-nextgen:automation/v20190601:AutomationAccount" }, { type: "azure-nextgen:automation/v20200113preview:AutomationAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AutomationAccount.__pulumiType, name, inputs, opts);
     }

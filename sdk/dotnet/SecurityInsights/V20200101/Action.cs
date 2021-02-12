@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Action"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/latest:Action"},
                 },
             };

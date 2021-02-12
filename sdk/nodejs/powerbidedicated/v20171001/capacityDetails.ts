@@ -114,7 +114,7 @@ export class CapacityDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbidedicated/latest:CapacityDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbidedicated:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/latest:CapacityDetails" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CapacityDetails.__pulumiType, name, inputs, opts);
     }

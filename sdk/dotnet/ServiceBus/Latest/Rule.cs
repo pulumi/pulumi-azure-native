@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
     /// Description of Rule Resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Rule'.")]
     [AzureNextGenResourceType("azure-nextgen:servicebus/latest:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Rule"},
                 },

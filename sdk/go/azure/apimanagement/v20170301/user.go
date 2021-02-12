@@ -67,6 +67,9 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:User"),
 		},
 		{

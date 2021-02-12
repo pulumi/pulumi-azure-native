@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20170701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ProtectionIntent"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ProtectionIntent"},
                 },
             };

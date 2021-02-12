@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:PrivateEndpoint"},

@@ -73,7 +73,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement:ReportConfigByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReportConfigByResourceGroupName, __self__).__init__(
             'azure-nextgen:costmanagement/v20180531:ReportConfigByResourceGroupName',

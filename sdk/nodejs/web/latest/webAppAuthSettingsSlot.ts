@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettingsSlot'.
  */
 export class WebAppAuthSettingsSlot extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebAppAuthSettingsSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppAuthSettingsSlot {
+        pulumi.log.warn("WebAppAuthSettingsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettingsSlot'.")
         return new WebAppAuthSettingsSlot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -259,7 +262,9 @@ export class WebAppAuthSettingsSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettingsSlot'. */
     constructor(name: string, args: WebAppAuthSettingsSlotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppAuthSettingsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettingsSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -364,7 +369,7 @@ export class WebAppAuthSettingsSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettingsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20150801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettingsSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppAuthSettingsSlot.__pulumiType, name, inputs, opts);
     }

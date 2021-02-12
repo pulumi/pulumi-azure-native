@@ -124,6 +124,7 @@ namespace Pulumi.AzureNextGen.Intune.V20150114Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:intune:AndroidMAMPolicyByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName"},
                 },
             };

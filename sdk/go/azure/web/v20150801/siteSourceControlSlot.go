@@ -55,6 +55,9 @@ func NewSiteSourceControlSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:SiteSourceControlSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteSourceControlSlot"),
 		},
 		{

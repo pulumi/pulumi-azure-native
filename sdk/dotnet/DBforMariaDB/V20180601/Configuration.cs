@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/latest:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601preview:Configuration"},
                 },

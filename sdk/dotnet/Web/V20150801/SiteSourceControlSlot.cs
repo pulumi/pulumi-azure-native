@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:SiteSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteSourceControlSlot"},

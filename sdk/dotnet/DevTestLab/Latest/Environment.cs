@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// An environment, which is essentially an ARM template deployment.
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Environment'.")]
     [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Environment"},
                 },

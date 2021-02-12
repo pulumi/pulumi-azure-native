@@ -38,6 +38,12 @@ func NewAssociation(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:customproviders:Association"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Association
 	err := ctx.RegisterResource("azure-nextgen:customproviders/v20180901preview:Association", name, args, &resource, opts...)
 	if err != nil {

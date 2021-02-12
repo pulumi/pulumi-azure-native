@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20151001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160401:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20161201:PolicyDefinition"},

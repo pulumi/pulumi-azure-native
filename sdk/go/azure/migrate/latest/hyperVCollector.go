@@ -12,6 +12,8 @@ import (
 )
 
 // Latest API Version: 2019-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:HyperVCollector'.
 type HyperVCollector struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +40,9 @@ func NewHyperVCollector(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:migrate:HyperVCollector"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/v20191001:HyperVCollector"),
 		},

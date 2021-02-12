@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['VirtualNetworkRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:VirtualNetworkRule'.""", DeprecationWarning)
+
 
 class VirtualNetworkRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:VirtualNetworkRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +37,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: The resource identifier for the subnet.
         :param pulumi.Input[str] virtual_network_rule_name: The name of the virtual network rule to create or update.
         """
+        pulumi.log.warn("VirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:VirtualNetworkRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -64,7 +69,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
             __props__['virtual_network_rule_name'] = virtual_network_rule_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakestore/v20161101:VirtualNetworkRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakestore:VirtualNetworkRule"), pulumi.Alias(type_="azure-nextgen:datalakestore/v20161101:VirtualNetworkRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkRule, __self__).__init__(
             'azure-nextgen:datalakestore/latest:VirtualNetworkRule',

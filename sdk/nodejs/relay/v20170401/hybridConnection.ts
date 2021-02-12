@@ -108,7 +108,7 @@ export class HybridConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:relay/latest:HybridConnection" }, { type: "azure-nextgen:relay/v20160701:HybridConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:relay:HybridConnection" }, { type: "azure-nextgen:relay/latest:HybridConnection" }, { type: "azure-nextgen:relay/v20160701:HybridConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HybridConnection.__pulumiType, name, inputs, opts);
     }

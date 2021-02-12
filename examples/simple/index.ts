@@ -1,12 +1,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
 
-import * as compute from "@pulumi/azure-nextgen/compute/latest";
-import * as eventgrid from "@pulumi/azure-nextgen/eventgrid/latest";
-import * as network from "@pulumi/azure-nextgen/network/latest";
-import * as resources from "@pulumi/azure-nextgen/resources/latest";
-import * as storage from "@pulumi/azure-nextgen/storage/latest";
-import * as web from "@pulumi/azure-nextgen/web/latest";
+import * as compute from "@pulumi/azure-nextgen/compute";
+import * as eventgrid from "@pulumi/azure-nextgen/eventgrid";
+import * as network from "@pulumi/azure-nextgen/network";
+import * as resources from "@pulumi/azure-nextgen/resources";
+import * as storage from "@pulumi/azure-nextgen/storage";
+import * as web from "@pulumi/azure-nextgen/web";
 
 const randomString = new random.RandomString("random", {
     length: 12,

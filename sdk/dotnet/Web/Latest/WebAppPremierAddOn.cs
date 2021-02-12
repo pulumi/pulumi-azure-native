@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Premier add-on.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPremierAddOn'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppPremierAddOn")]
     public partial class WebAppPremierAddOn : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppPremierAddOn"},

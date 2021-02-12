@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Specifies information about the Shared Image Gallery that you want to create or update.
     /// Latest API Version: 2020-09-30.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Gallery'.")]
     [AzureNextGenResourceType("azure-nextgen:compute/latest:Gallery")]
     public partial class Gallery : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:Gallery"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:Gallery"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:Gallery"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Gallery"},

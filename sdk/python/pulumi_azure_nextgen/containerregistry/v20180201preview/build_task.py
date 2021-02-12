@@ -92,6 +92,8 @@ class BuildTask(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry:BuildTask")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BuildTask, __self__).__init__(
             'azure-nextgen:containerregistry/v20180201preview:BuildTask',
             resource_name,

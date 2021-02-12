@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:Account"},

@@ -148,6 +148,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20191109
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20180907preview:Cluster"},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
     /// Information about a domain.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:Domain'.")]
     [AzureNextGenResourceType("azure-nextgen:domainregistration/latest:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
@@ -195,6 +196,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20150401:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20180201:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20190801:Domain"},

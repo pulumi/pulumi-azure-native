@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Formula']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Formula'.""", DeprecationWarning)
+
 
 class Formula(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Formula'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class Formula(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[pulumi.InputType['FormulaPropertiesFromVmArgs']] vm: Information about a VM from which a formula is to be created.
         """
+        pulumi.log.warn("Formula is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Formula'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -85,7 +90,7 @@ class Formula(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:Formula"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Formula"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:Formula")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:Formula"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:Formula"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Formula"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:Formula")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Formula, __self__).__init__(
             'azure-nextgen:devtestlab/latest:Formula',

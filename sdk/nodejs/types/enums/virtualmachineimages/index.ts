@@ -11,3 +11,23 @@ export {
     v20190501preview,
     v20200214,
 };
+
+export const ResourceIdentityType = {
+    UserAssigned: "UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The type of identity used for the image template. The type 'None' will remove any identities from the image template.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const SharedImageStorageAccountType = {
+    Standard_LRS: "Standard_LRS",
+    Standard_ZRS: "Standard_ZRS",
+} as const;
+
+/**
+ * Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
+ */
+export type SharedImageStorageAccountType = (typeof SharedImageStorageAccountType)[keyof typeof SharedImageStorageAccountType];

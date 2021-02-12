@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Schedule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Schedule'.""", DeprecationWarning)
+
 
 class Schedule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Schedule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +58,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
         :param pulumi.Input[pulumi.InputType['WeekDetailsArgs']] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
+        pulumi.log.warn("Schedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Schedule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -94,7 +99,7 @@ class Schedule(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:Schedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Schedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:Schedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:Schedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:Schedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Schedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:Schedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schedule, __self__).__init__(
             'azure-nextgen:devtestlab/latest:Schedule',

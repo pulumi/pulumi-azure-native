@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:TableResourceTable"},

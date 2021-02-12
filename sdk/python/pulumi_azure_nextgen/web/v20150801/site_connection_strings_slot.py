@@ -77,7 +77,7 @@ class SiteConnectionStringsSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteConnectionStringsSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteConnectionStringsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteConnectionStringsSlot, __self__).__init__(
             'azure-nextgen:web/v20150801:SiteConnectionStringsSlot',

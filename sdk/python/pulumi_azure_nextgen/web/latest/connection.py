@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Connection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Connection'.""", DeprecationWarning)
+
 
 class Connection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Connection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] subscription_id: Subscription Id
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("Connection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Connection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class Connection(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801preview:Connection"), pulumi.Alias(type_="azure-nextgen:web/v20160601:Connection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:Connection"), pulumi.Alias(type_="azure-nextgen:web/v20150801preview:Connection"), pulumi.Alias(type_="azure-nextgen:web/v20160601:Connection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connection, __self__).__init__(
             'azure-nextgen:web/latest:Connection',

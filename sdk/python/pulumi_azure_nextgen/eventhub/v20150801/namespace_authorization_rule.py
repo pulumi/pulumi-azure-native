@@ -69,7 +69,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rights'")
             __props__['rights'] = rights
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/latest:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:NamespaceAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/latest:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:NamespaceAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azure-nextgen:eventhub/v20150801:NamespaceAuthorizationRule',

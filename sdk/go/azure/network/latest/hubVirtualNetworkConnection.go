@@ -13,6 +13,8 @@ import (
 
 // HubVirtualNetworkConnection Resource.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubVirtualNetworkConnection'.
 type HubVirtualNetworkConnection struct {
 	pulumi.CustomResourceState
 
@@ -51,6 +53,9 @@ func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VirtualHubName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:HubVirtualNetworkConnection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:HubVirtualNetworkConnection"),
 		},

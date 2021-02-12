@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
     /// Resource information with extended details.
     /// Latest API Version: 2019-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Secret'.")]
     [AzureNextGenResourceType("azure-nextgen:keyvault/latest:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:keyvault:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20161001:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20180214:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20180214preview:Secret"},

@@ -13,6 +13,8 @@ import (
 
 // The Log Search Rule resource.
 // Latest API Version: 2018-04-16.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ScheduledQueryRule'.
 type ScheduledQueryRule struct {
 	pulumi.CustomResourceState
 
@@ -70,6 +72,9 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:ScheduledQueryRule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20180416:ScheduledQueryRule"),
 		},

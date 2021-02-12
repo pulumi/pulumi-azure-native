@@ -105,7 +105,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/latest:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingEndpoint, __self__).__init__(
             'azure-nextgen:media/v20180601preview:StreamingEndpoint',

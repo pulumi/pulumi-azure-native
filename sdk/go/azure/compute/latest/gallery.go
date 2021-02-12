@@ -13,6 +13,8 @@ import (
 
 // Specifies information about the Shared Image Gallery that you want to create or update.
 // Latest API Version: 2020-09-30.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Gallery'.
 type Gallery struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewGallery(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:compute:Gallery"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:Gallery"),
 		},

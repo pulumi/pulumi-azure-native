@@ -21,42 +21,6 @@ export const Action = {
  */
 export type Action = (typeof Action)[keyof typeof Action];
 
-export const BlobAccessTier = {
-    /**
-     * Optimized for storing data that is accessed frequently.
-     */
-    Hot: "Hot",
-    /**
-     * Optimized for storing data that is infrequently accessed and stored for at least 30 days.
-     */
-    Cool: "Cool",
-    /**
-     * Optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements, on the order of hours.
-     */
-    Archive: "Archive",
-} as const;
-
-/**
- * The access tier of a storage blob.
- */
-export type BlobAccessTier = (typeof BlobAccessTier)[keyof typeof BlobAccessTier];
-
-export const BlobType = {
-    /**
-     * Block blobs store text and binary data. Block blobs are made up of blocks of data that can be managed individually.
-     */
-    Block: "Block",
-    /**
-     * Append blobs are made up of blocks like block blobs, but are optimized for append operations.
-     */
-    Append: "Append",
-} as const;
-
-/**
- * The type of a storage blob to be created.
- */
-export type BlobType = (typeof BlobType)[keyof typeof BlobType];
-
 export const Bypass = {
     None: "None",
     Logging: "Logging",

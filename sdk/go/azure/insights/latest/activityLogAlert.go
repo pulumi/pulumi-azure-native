@@ -13,6 +13,8 @@ import (
 
 // An Activity Log Alert rule resource.
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActivityLogAlert'.
 type ActivityLogAlert struct {
 	pulumi.CustomResourceState
 
@@ -65,6 +67,9 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 		args.Location = pulumi.StringPtr("global")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:ActivityLogAlert"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20170401:ActivityLogAlert"),
 		},

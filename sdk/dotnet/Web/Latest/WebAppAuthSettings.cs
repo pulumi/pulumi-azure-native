@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Configuration settings for the Azure App Service Authentication / Authorization feature.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettings'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppAuthSettings")]
     public partial class WebAppAuthSettings : Pulumi.CustomResource
     {
@@ -338,6 +339,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppAuthSettings"},

@@ -154,7 +154,7 @@ export class Disk extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:Disk" }, { type: "azure-nextgen:devtestlab/v20160515:Disk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:Disk" }, { type: "azure-nextgen:devtestlab/latest:Disk" }, { type: "azure-nextgen:devtestlab/v20160515:Disk" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Disk.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Private endpoint resource.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateEndpoint'.
  */
 export class PrivateEndpoint extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpoint {
+        pulumi.log.warn("PrivateEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateEndpoint'.")
         return new PrivateEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
@@ -92,7 +95,9 @@ export class PrivateEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateEndpoint'. */
     constructor(name: string, args: PrivateEndpointArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PrivateEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateEndpoint'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.privateEndpointName === undefined) && !(opts && opts.urn)) {
@@ -137,7 +142,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190401:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190601:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190701:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190801:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190901:PrivateEndpoint" }, { type: "azure-nextgen:network/v20191101:PrivateEndpoint" }, { type: "azure-nextgen:network/v20191201:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200301:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200401:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200501:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200601:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200701:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200801:PrivateEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190401:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190601:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190701:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190801:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190901:PrivateEndpoint" }, { type: "azure-nextgen:network/v20191101:PrivateEndpoint" }, { type: "azure-nextgen:network/v20191201:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200301:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200401:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200501:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200601:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200701:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200801:PrivateEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpoint.__pulumiType, name, inputs, opts);
     }

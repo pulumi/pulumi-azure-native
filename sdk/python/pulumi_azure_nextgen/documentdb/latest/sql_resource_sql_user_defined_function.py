@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['SqlResourceSqlUserDefinedFunction']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction'.""", DeprecationWarning)
+
 
 class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +49,7 @@ class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         :param pulumi.Input[str] user_defined_function_name: Cosmos DB userDefinedFunction name.
         """
+        pulumi.log.warn("SqlResourceSqlUserDefinedFunction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -85,7 +90,7 @@ class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
             __props__['user_defined_function_name'] = user_defined_function_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlResourceSqlUserDefinedFunction, __self__).__init__(
             'azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction',

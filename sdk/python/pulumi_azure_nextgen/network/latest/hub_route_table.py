@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['HubRouteTable']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubRouteTable'.""", DeprecationWarning)
+
 
 class HubRouteTable(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubRouteTable'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class HubRouteTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubRouteArgs']]]] routes: List of all routes.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         """
+        pulumi.log.warn("HubRouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubRouteTable'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,7 +81,7 @@ class HubRouteTable(pulumi.CustomResource):
             __props__['propagating_connections'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200401:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200501:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200601:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200701:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200801:HubRouteTable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200401:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200501:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200601:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200701:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200801:HubRouteTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HubRouteTable, __self__).__init__(
             'azure-nextgen:network/latest:HubRouteTable',

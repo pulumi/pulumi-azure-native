@@ -90,7 +90,7 @@ class Device(pulumi.CustomResource):
             __props__['serial_number'] = None
             __props__['time_zone'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/latest:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Device")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/latest:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Device")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Device, __self__).__init__(
             'azure-nextgen:databoxedge/v20190701:Device',

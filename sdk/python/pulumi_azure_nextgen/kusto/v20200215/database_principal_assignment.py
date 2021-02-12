@@ -85,7 +85,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/latest:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:DatabasePrincipalAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/latest:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:DatabasePrincipalAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabasePrincipalAssignment, __self__).__init__(
             'azure-nextgen:kusto/v20200215:DatabasePrincipalAssignment',

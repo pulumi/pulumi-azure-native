@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['IntegrationAccountPartner']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountPartner'.""", DeprecationWarning)
+
 
 class IntegrationAccountPartner(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountPartner'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        pulumi.log.warn("IntegrationAccountPartner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountPartner'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,7 +88,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountPartner")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountPartner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountPartner, __self__).__init__(
             'azure-nextgen:logic/latest:IntegrationAccountPartner',

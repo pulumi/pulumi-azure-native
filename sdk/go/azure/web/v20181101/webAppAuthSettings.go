@@ -130,6 +130,9 @@ func NewWebAppAuthSettings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:WebAppAuthSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppAuthSettings"),
 		},
 		{

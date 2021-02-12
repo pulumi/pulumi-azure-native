@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a database.
  * Latest API Version: 2014-04-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Database extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Database {
+        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'.")
         return new Database(name, undefined as any, { ...opts, id: id });
     }
 
@@ -206,7 +209,9 @@ export class Database extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'. */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
@@ -292,7 +297,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20140401:Database" }, { type: "azure-nextgen:sql/v20170301preview:Database" }, { type: "azure-nextgen:sql/v20171001preview:Database" }, { type: "azure-nextgen:sql/v20190601preview:Database" }, { type: "azure-nextgen:sql/v20200202preview:Database" }, { type: "azure-nextgen:sql/v20200801preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:Database" }, { type: "azure-nextgen:sql/v20140401:Database" }, { type: "azure-nextgen:sql/v20170301preview:Database" }, { type: "azure-nextgen:sql/v20171001preview:Database" }, { type: "azure-nextgen:sql/v20190601preview:Database" }, { type: "azure-nextgen:sql/v20200202preview:Database" }, { type: "azure-nextgen:sql/v20200801preview:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

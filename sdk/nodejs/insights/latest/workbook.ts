@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An Application Insights workbook definition.
  * Latest API Version: 2020-10-20.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Workbook'.
  */
 export class Workbook extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Workbook extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Workbook {
+        pulumi.log.warn("Workbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Workbook'.")
         return new Workbook(name, undefined as any, { ...opts, id: id });
     }
 
@@ -104,7 +107,9 @@ export class Workbook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Workbook'. */
     constructor(name: string, args: WorkbookArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Workbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Workbook'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.category === undefined) && !(opts && opts.urn)) {
@@ -164,7 +169,7 @@ export class Workbook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20150501:Workbook" }, { type: "azure-nextgen:insights/v20180617preview:Workbook" }, { type: "azure-nextgen:insights/v20201020:Workbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:Workbook" }, { type: "azure-nextgen:insights/v20150501:Workbook" }, { type: "azure-nextgen:insights/v20180617preview:Workbook" }, { type: "azure-nextgen:insights/v20201020:Workbook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workbook.__pulumiType, name, inputs, opts);
     }

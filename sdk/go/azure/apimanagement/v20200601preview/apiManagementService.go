@@ -117,6 +117,9 @@ func NewApiManagementService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:ApiManagementService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiManagementService"),
 		},
 		{

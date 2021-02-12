@@ -13,6 +13,8 @@ import (
 
 // Description of a Namespace AuthorizationRules.
 // Latest API Version: 2017-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHubAuthorizationRule'.
 type NotificationHubAuthorizationRule struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +71,9 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:notificationhubs:NotificationHubAuthorizationRule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20160301:NotificationHubAuthorizationRule"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // The privateStore offer data structure.
 // Latest API Version: 2020-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:marketplace:PrivateStoreOffer'.
 type PrivateStoreOffer struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +60,9 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PrivateStoreId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:marketplace:PrivateStoreOffer"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:marketplace/v20200101:PrivateStoreOffer"),
 		},

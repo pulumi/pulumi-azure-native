@@ -76,7 +76,7 @@ export class TenantConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal/v20190101preview:TenantConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal:TenantConfiguration" }, { type: "azure-nextgen:portal/v20190101preview:TenantConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TenantConfiguration.__pulumiType, name, inputs, opts);
     }

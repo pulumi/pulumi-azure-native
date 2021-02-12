@@ -87,7 +87,7 @@ class Map(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/latest:Map"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:Map"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:Map"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:Map")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:Map"), pulumi.Alias(type_="azure-nextgen:logic/latest:Map"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:Map"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:Map"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:Map")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Map, __self__).__init__(
             'azure-nextgen:logic/v20160601:Map',

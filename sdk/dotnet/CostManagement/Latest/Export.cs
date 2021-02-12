@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
     /// An export resource.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:Export'.")]
     [AzureNextGenResourceType("azure-nextgen:costmanagement/latest:Export")]
     public partial class Export : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement:Export"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190101:Export"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190901:Export"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20191001:Export"},

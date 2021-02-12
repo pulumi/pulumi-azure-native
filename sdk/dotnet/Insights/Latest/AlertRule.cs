@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// The alert rule resource.
     /// Latest API Version: 2016-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AlertRule'.")]
     [AzureNextGenResourceType("azure-nextgen:insights/latest:AlertRule")]
     public partial class AlertRule : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:AlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20140401:AlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20160301:AlertRule"},
                 },

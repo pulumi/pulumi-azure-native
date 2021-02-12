@@ -234,7 +234,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric/latest:Cluster" }, { type: "azure-nextgen:servicefabric/v20160901:Cluster" }, { type: "azure-nextgen:servicefabric/v20180201:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20190601preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20191101preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20200301:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric:Cluster" }, { type: "azure-nextgen:servicefabric/latest:Cluster" }, { type: "azure-nextgen:servicefabric/v20160901:Cluster" }, { type: "azure-nextgen:servicefabric/v20180201:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20190601preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20191101preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20200301:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

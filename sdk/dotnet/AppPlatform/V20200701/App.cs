@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:App"},

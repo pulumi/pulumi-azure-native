@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Maps.Latest
     /// An Azure resource which represents access to a suite of Maps REST APIs.
     /// Latest API Version: 2018-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maps:Account'.")]
     [AzureNextGenResourceType("azure-nextgen:maps/latest:Account")]
     public partial class Account : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.Maps.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:maps:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps/v20170101preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps/v20180501:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps/v20200201preview:Account"},

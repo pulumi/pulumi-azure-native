@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Custom IP prefix resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:CustomIPPrefix'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:CustomIPPrefix")]
     public partial class CustomIPPrefix : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:CustomIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:CustomIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:CustomIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:CustomIPPrefix"},

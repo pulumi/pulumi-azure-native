@@ -118,6 +118,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Connector"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Connector"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Connector"},
                 },

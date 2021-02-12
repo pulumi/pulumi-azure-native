@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Issue Contract details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssue'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:ApiIssue")]
     public partial class ApiIssue : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiIssue"},

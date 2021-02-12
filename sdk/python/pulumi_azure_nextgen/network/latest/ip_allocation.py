@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['IpAllocation']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpAllocation'.""", DeprecationWarning)
+
 
 class IpAllocation(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpAllocation'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +53,7 @@ class IpAllocation(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'IpAllocationType']] type: The type for the IpAllocation.
         """
+        pulumi.log.warn("IpAllocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpAllocation'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class IpAllocation(pulumi.CustomResource):
             __props__['name'] = None
             __props__['subnet'] = None
             __props__['virtual_network'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200301:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200401:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200501:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200601:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200701:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200801:IpAllocation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200301:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200401:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200501:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200601:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200701:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200801:IpAllocation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IpAllocation, __self__).__init__(
             'azure-nextgen:network/latest:IpAllocation',

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     /// Compute role.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Role'.")]
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Role")]
     public partial class Role : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Role"},

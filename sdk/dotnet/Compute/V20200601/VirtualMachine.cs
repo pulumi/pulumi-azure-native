@@ -208,6 +208,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20150615:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160330:VirtualMachine"},

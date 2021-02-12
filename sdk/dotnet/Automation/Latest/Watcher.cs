@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
     /// Definition of the watcher type.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Watcher'.")]
     [AzureNextGenResourceType("azure-nextgen:automation/latest:Watcher")]
     public partial class Watcher : Pulumi.CustomResource
     {
@@ -125,6 +126,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Watcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Watcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Watcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Watcher"},

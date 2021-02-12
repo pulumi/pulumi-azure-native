@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
-import * as network from "@pulumi/azure-nextgen/network/latest";
-import * as resources from "@pulumi/azure-nextgen/resources/latest";
+import * as network from "@pulumi/azure-nextgen/network";
+import * as resources from "@pulumi/azure-nextgen/resources";
 import * as manual from "./manualResource";
 
 function hashCode(s: string) {
@@ -44,7 +44,7 @@ async function main() {
             privateEndpointNetworkPolicies: "Enabled",
             privateLinkServiceNetworkPolicies: "Disabled", // It's "Enabled" in the imported resource. We are testing `ignoreChanges` here.
         }],
-    }, { import: vnetId, ignoreChanges: ["subnets[0].privateLinkServiceNetworkPolicies"] });
+    }, { import: vnetId, ignoreChanges: ["subnets[0].privateLinkServiceNetworkPolicies", "enableVmProtection"] });
 }
 
 module.exports = main();

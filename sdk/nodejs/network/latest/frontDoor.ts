@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
  * Latest API Version: 2020-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FrontDoor'.
  */
 export class FrontDoor extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class FrontDoor extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FrontDoor {
+        pulumi.log.warn("FrontDoor is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FrontDoor'.")
         return new FrontDoor(name, undefined as any, { ...opts, id: id });
     }
 
@@ -112,7 +115,9 @@ export class FrontDoor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FrontDoor'. */
     constructor(name: string, args: FrontDoorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("FrontDoor is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FrontDoor'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.frontDoorName === undefined) && !(opts && opts.urn)) {
@@ -166,7 +171,7 @@ export class FrontDoor extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180801:FrontDoor" }, { type: "azure-nextgen:network/v20190401:FrontDoor" }, { type: "azure-nextgen:network/v20190501:FrontDoor" }, { type: "azure-nextgen:network/v20200101:FrontDoor" }, { type: "azure-nextgen:network/v20200401:FrontDoor" }, { type: "azure-nextgen:network/v20200501:FrontDoor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:FrontDoor" }, { type: "azure-nextgen:network/v20180801:FrontDoor" }, { type: "azure-nextgen:network/v20190401:FrontDoor" }, { type: "azure-nextgen:network/v20190501:FrontDoor" }, { type: "azure-nextgen:network/v20200101:FrontDoor" }, { type: "azure-nextgen:network/v20200401:FrontDoor" }, { type: "azure-nextgen:network/v20200501:FrontDoor" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FrontDoor.__pulumiType, name, inputs, opts);
     }

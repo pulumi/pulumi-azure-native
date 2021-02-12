@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Python2Package']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Python2Package'.""", DeprecationWarning)
+
 
 class Python2Package(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Python2Package'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class Python2Package(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
+        pulumi.log.warn("Python2Package is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Python2Package'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class Python2Package(pulumi.CustomResource):
             __props__['size_in_bytes'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20180630:Python2Package"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Python2Package"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Python2Package")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:Python2Package"), pulumi.Alias(type_="azure-nextgen:automation/v20180630:Python2Package"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Python2Package"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Python2Package")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Python2Package, __self__).__init__(
             'azure-nextgen:automation/latest:Python2Package',

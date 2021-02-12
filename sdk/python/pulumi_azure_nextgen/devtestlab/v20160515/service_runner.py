@@ -68,7 +68,7 @@ class ServiceRunner(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/latest:ServiceRunner"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:ServiceRunner")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:ServiceRunner"), pulumi.Alias(type_="azure-nextgen:devtestlab/latest:ServiceRunner"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:ServiceRunner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceRunner, __self__).__init__(
             'azure-nextgen:devtestlab/v20160515:ServiceRunner',

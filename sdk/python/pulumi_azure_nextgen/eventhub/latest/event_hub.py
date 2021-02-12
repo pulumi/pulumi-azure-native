@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['EventHub']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHub'.""", DeprecationWarning)
+
 
 class EventHub(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHub'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
         """
+        pulumi.log.warn("EventHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHub'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -77,7 +82,7 @@ class EventHub(pulumi.CustomResource):
             __props__['partition_ids'] = None
             __props__['type'] = None
             __props__['updated_at'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:EventHub"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:EventHub"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:EventHub"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:EventHub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub:EventHub"), pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:EventHub"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:EventHub"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:EventHub"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:EventHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHub, __self__).__init__(
             'azure-nextgen:eventhub/latest:EventHub',

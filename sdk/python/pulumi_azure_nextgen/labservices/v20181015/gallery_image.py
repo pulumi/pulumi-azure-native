@@ -87,7 +87,7 @@ class GalleryImage(pulumi.CustomResource):
             __props__['name'] = None
             __props__['plan_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices/latest:GalleryImage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices:GalleryImage"), pulumi.Alias(type_="azure-nextgen:labservices/latest:GalleryImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImage, __self__).__init__(
             'azure-nextgen:labservices/v20181015:GalleryImage',

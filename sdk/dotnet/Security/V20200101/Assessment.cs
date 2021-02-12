@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/latest:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190101preview:Assessment"},
                 },

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
     /// An object that represents a machine learning workspace.
     /// Latest API Version: 2021-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:Workspace'.")]
     [AzureNextGenResourceType("azure-nextgen:machinelearningservices/latest:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
@@ -203,6 +204,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20180301preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20181119:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20190501:Workspace"},

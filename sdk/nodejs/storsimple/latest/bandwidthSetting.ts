@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The bandwidth setting.
  * Latest API Version: 2017-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BandwidthSetting'.
  */
 export class BandwidthSetting extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class BandwidthSetting extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BandwidthSetting {
+        pulumi.log.warn("BandwidthSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BandwidthSetting'.")
         return new BandwidthSetting(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class BandwidthSetting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BandwidthSetting'. */
     constructor(name: string, args: BandwidthSettingArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BandwidthSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BandwidthSetting'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.bandwidthSettingName === undefined) && !(opts && opts.urn)) {
@@ -101,7 +106,7 @@ export class BandwidthSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20170601:BandwidthSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:BandwidthSetting" }, { type: "azure-nextgen:storsimple/v20170601:BandwidthSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BandwidthSetting.__pulumiType, name, inputs, opts);
     }

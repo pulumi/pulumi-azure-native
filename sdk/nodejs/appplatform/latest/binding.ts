@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Binding resource payload
  * Latest API Version: 2020-07-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Binding'.
  */
 export class Binding extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Binding extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Binding {
+        pulumi.log.warn("Binding is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Binding'.")
         return new Binding(name, undefined as any, { ...opts, id: id });
     }
 
@@ -56,7 +59,9 @@ export class Binding extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Binding'. */
     constructor(name: string, args: BindingArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Binding is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Binding'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.appName === undefined) && !(opts && opts.urn)) {
@@ -90,7 +95,7 @@ export class Binding extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/v20190501preview:Binding" }, { type: "azure-nextgen:appplatform/v20200701:Binding" }, { type: "azure-nextgen:appplatform/v20201101preview:Binding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform:Binding" }, { type: "azure-nextgen:appplatform/v20190501preview:Binding" }, { type: "azure-nextgen:appplatform/v20200701:Binding" }, { type: "azure-nextgen:appplatform/v20201101preview:Binding" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Binding.__pulumiType, name, inputs, opts);
     }

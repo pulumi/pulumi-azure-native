@@ -13,6 +13,8 @@ import (
 
 // Data Lake Store virtual network rule information.
 // Latest API Version: 2016-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:VirtualNetworkRule'.
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkRuleName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datalakestore:VirtualNetworkRule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore/v20161101:VirtualNetworkRule"),
 		},

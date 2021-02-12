@@ -62,7 +62,7 @@ class WebAppAzureStorageAccounts(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAzureStorageAccounts")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAzureStorageAccounts")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAzureStorageAccounts, __self__).__init__(
             'azure-nextgen:web/v20200901:WebAppAzureStorageAccounts',

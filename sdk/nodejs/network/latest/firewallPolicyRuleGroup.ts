@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Rule Group resource.
  * Latest API Version: 2020-04-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicyRuleGroup'.
  */
 export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FirewallPolicyRuleGroup {
+        pulumi.log.warn("FirewallPolicyRuleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicyRuleGroup'.")
         return new FirewallPolicyRuleGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicyRuleGroup'. */
     constructor(name: string, args: FirewallPolicyRuleGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("FirewallPolicyRuleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicyRuleGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.firewallPolicyName === undefined) && !(opts && opts.urn)) {
@@ -105,7 +110,7 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190601:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20190701:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20190801:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20190901:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20191101:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20191201:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20200301:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20200401:FirewallPolicyRuleGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20190601:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20190701:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20190801:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20190901:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20191101:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20191201:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20200301:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20200401:FirewallPolicyRuleGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallPolicyRuleGroup.__pulumiType, name, inputs, opts);
     }

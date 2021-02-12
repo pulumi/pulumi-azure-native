@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Subscription.Latest
     /// Subscription Information with the alias.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:subscription:Alias'.")]
     [AzureNextGenResourceType("azure-nextgen:subscription/latest:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.Subscription.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:subscription:Alias"},
                     new Pulumi.Alias { Type = "azure-nextgen:subscription/v20191001preview:Alias"},
                     new Pulumi.Alias { Type = "azure-nextgen:subscription/v20200901:Alias"},
                 },

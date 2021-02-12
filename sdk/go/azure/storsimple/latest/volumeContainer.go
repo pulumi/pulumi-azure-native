@@ -13,6 +13,8 @@ import (
 
 // The volume container.
 // Latest API Version: 2017-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:VolumeContainer'.
 type VolumeContainer struct {
 	pulumi.CustomResourceState
 
@@ -63,6 +65,9 @@ func NewVolumeContainer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VolumeContainerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storsimple:VolumeContainer"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20170601:VolumeContainer"),
 		},

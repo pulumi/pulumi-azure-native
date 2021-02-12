@@ -48,6 +48,12 @@ func NewIscsiTarget(ctx *pulumi.Context,
 	if args.Tpgs == nil {
 		return nil, errors.New("invalid value for required argument 'Tpgs'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storagepool:IscsiTarget"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IscsiTarget
 	err := ctx.RegisterResource("azure-nextgen:storagepool/v20200315preview:IscsiTarget", name, args, &resource, opts...)
 	if err != nil {

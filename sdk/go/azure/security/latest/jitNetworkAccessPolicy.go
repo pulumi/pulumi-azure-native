@@ -12,6 +12,8 @@ import (
 )
 
 // Latest API Version: 2020-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:JitNetworkAccessPolicy'.
 type JitNetworkAccessPolicy struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VirtualMachines'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:security:JitNetworkAccessPolicy"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy"),
 		},

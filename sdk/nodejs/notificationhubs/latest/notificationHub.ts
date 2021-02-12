@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of a NotificationHub Resource.
  * Latest API Version: 2017-04-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHub'.
  */
 export class NotificationHub extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class NotificationHub extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NotificationHub {
+        pulumi.log.warn("NotificationHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHub'.")
         return new NotificationHub(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,7 +99,9 @@ export class NotificationHub extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHub'. */
     constructor(name: string, args: NotificationHubArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("NotificationHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHub'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
@@ -146,7 +151,7 @@ export class NotificationHub extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:notificationhubs/v20140901:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20160301:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20170401:NotificationHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:notificationhubs:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20140901:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20160301:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20170401:NotificationHub" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotificationHub.__pulumiType, name, inputs, opts);
     }

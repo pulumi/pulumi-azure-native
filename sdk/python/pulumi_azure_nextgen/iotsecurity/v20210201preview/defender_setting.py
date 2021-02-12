@@ -53,6 +53,8 @@ class DefenderSetting(pulumi.CustomResource):
             __props__['sentinel_workspace_resource_ids'] = sentinel_workspace_resource_ids
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:iotsecurity:DefenderSetting")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefenderSetting, __self__).__init__(
             'azure-nextgen:iotsecurity/v20210201preview:DefenderSetting',
             resource_name,

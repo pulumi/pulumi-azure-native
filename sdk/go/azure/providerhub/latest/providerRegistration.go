@@ -12,6 +12,8 @@ import (
 )
 
 // Latest API Version: 2020-11-20.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:ProviderRegistration'.
 type ProviderRegistration struct {
 	pulumi.CustomResourceState
 
@@ -33,6 +35,9 @@ func NewProviderRegistration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:providerhub:ProviderRegistration"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:ProviderRegistration"),
 		},

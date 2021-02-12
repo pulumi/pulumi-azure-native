@@ -13,6 +13,8 @@ import (
 
 // The view resource format.
 // Latest API Version: 2017-04-26.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:View'.
 type View struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +58,9 @@ func NewView(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ViewName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:customerinsights:View"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:View"),
 		},

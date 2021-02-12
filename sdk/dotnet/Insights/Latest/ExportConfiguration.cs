@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// Properties that define a Continuous Export configuration.
     /// Latest API Version: 2015-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ExportConfiguration'.")]
     [AzureNextGenResourceType("azure-nextgen:insights/latest:ExportConfiguration")]
     public partial class ExportConfiguration : Pulumi.CustomResource
     {
@@ -155,6 +156,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:ExportConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:ExportConfiguration"},
                 },
             };

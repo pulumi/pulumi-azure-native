@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.Relay.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:relay:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/latest:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:NamespaceAuthorizationRule"},
                 },

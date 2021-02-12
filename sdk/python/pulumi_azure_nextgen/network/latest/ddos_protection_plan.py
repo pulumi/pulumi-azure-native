@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['DdosProtectionPlan']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DdosProtectionPlan'.""", DeprecationWarning)
+
 
 class DdosProtectionPlan(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DdosProtectionPlan'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +38,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("DdosProtectionPlan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DdosProtectionPlan'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -65,7 +70,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
             __props__['resource_guid'] = None
             __props__['type'] = None
             __props__['virtual_networks'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180201:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180401:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180601:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180701:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180801:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20181001:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20181101:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20181201:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190201:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190401:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190601:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190701:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190801:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190901:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20191101:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20191201:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200301:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200401:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200501:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200601:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200701:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200801:DdosProtectionPlan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180201:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180401:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180601:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180701:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180801:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20181001:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20181101:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20181201:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190201:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190401:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190601:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190701:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190801:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190901:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20191101:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20191201:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200301:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200401:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200501:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200601:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200701:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200801:DdosProtectionPlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DdosProtectionPlan, __self__).__init__(
             'azure-nextgen:network/latest:DdosProtectionPlan',

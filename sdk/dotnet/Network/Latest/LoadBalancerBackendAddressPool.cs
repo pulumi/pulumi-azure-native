@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Pool of backend IP addresses.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LoadBalancerBackendAddressPool'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:LoadBalancerBackendAddressPool")]
     public partial class LoadBalancerBackendAddressPool : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool"},

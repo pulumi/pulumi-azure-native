@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest
     /// The service resource.
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Service'.")]
     [AzureNextGenResourceType("azure-nextgen:servicefabric/latest:Service")]
     public partial class Service : Pulumi.CustomResource
     {
@@ -137,6 +138,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301preview:Service"},

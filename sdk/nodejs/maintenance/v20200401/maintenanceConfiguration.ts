@@ -105,7 +105,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:maintenance/latest:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:maintenance:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/latest:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MaintenanceConfiguration.__pulumiType, name, inputs, opts);
     }

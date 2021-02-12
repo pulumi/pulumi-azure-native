@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Logger details.
     /// Latest API Version: 2018-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:DiagnosticLogger'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:DiagnosticLogger")]
     public partial class DiagnosticLogger : Pulumi.CustomResource
     {
@@ -78,6 +79,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:DiagnosticLogger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:DiagnosticLogger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:DiagnosticLogger"},
                 },

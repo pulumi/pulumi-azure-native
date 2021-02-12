@@ -48,6 +48,9 @@ func NewGallery(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute:Gallery"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:Gallery"),
 		},
 		{

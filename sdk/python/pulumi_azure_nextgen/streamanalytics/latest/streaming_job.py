@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['StreamingJob']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:StreamingJob'.""", DeprecationWarning)
+
 
 class StreamingJob(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:StreamingJob'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +66,7 @@ class StreamingJob(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['TransformationArgs']] transformation: Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
+        pulumi.log.warn("StreamingJob is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:StreamingJob'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -108,7 +113,7 @@ class StreamingJob(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:StreamingJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:StreamingJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingJob, __self__).__init__(
             'azure-nextgen:streamanalytics/latest:StreamingJob',

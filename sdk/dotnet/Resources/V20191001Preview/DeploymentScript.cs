@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Resources.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/latest:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentScript"},
                 },

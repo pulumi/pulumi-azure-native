@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:digitaltwins:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/latest:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201031:DigitalTwin"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201201:DigitalTwin"},

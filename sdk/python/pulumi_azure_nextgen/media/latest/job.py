@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Job']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Job'.""", DeprecationWarning)
+
 
 class Job(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Job'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] transform_name: The Transform name.
         """
+        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Job'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -92,7 +97,7 @@ class Job(pulumi.CustomResource):
             __props__['state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180330preview:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Job"), pulumi.Alias(type_="azure-nextgen:media/v20200501:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Job"), pulumi.Alias(type_="azure-nextgen:media/v20200501:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-nextgen:media/latest:Job',

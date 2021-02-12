@@ -148,6 +148,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/latest:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190401preview:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20200601:ViewByScope"},

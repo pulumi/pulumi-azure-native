@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// A Policy.
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Policy'.")]
     [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Policy"},

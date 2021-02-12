@@ -75,6 +75,9 @@ func NewSnapshot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute:Snapshot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:Snapshot"),
 		},
 		{

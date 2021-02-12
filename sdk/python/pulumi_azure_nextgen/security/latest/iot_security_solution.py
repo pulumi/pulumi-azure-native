@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['IotSecuritySolution']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:IotSecuritySolution'.""", DeprecationWarning)
+
 
 class IotSecuritySolution(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:IotSecuritySolution'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +60,7 @@ class IotSecuritySolution(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']] user_defined_resources: Properties of the IoT Security solution's user defined resources.
         :param pulumi.Input[str] workspace: Workspace resource ID
         """
+        pulumi.log.warn("IotSecuritySolution is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:IotSecuritySolution'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -103,7 +108,7 @@ class IotSecuritySolution(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20170801preview:IotSecuritySolution"), pulumi.Alias(type_="azure-nextgen:security/v20190801:IotSecuritySolution")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:IotSecuritySolution"), pulumi.Alias(type_="azure-nextgen:security/v20170801preview:IotSecuritySolution"), pulumi.Alias(type_="azure-nextgen:security/v20190801:IotSecuritySolution")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotSecuritySolution, __self__).__init__(
             'azure-nextgen:security/latest:IotSecuritySolution',

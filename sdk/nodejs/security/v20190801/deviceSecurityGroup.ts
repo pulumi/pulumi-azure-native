@@ -99,7 +99,7 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/latest:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20170801preview:DeviceSecurityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:DeviceSecurityGroup" }, { type: "azure-nextgen:security/latest:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20170801preview:DeviceSecurityGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeviceSecurityGroup.__pulumiType, name, inputs, opts);
     }

@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['ShareSubscription']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:ShareSubscription'.""", DeprecationWarning)
+
 
 class ShareSubscription(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:ShareSubscription'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class ShareSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] share_subscription_name: The name of the shareSubscription.
         :param pulumi.Input[str] source_share_location: Source share location.
         """
+        pulumi.log.warn("ShareSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:ShareSubscription'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -86,7 +91,7 @@ class ShareSubscription(pulumi.CustomResource):
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:ShareSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:ShareSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ShareSubscription, __self__).__init__(
             'azure-nextgen:datashare/latest:ShareSubscription',

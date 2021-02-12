@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['DedicatedCloudNode']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:DedicatedCloudNode'.""", DeprecationWarning)
+
 
 class DedicatedCloudNode(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:DedicatedCloudNode'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +53,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Dedicated Cloud Nodes SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Dedicated Cloud Nodes tags
         """
+        pulumi.log.warn("DedicatedCloudNode is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:DedicatedCloudNode'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -103,7 +108,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
             __props__['status'] = None
             __props__['type'] = None
             __props__['vmware_cluster_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple:DedicatedCloudNode"), pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedCloudNode, __self__).__init__(
             'azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode',

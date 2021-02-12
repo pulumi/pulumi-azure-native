@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Machine Learning compute object wrapped into ARM resource envelope.
  * Latest API Version: 2021-01-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningCompute'.
  */
 export class MachineLearningCompute extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class MachineLearningCompute extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MachineLearningCompute {
+        pulumi.log.warn("MachineLearningCompute is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningCompute'.")
         return new MachineLearningCompute(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class MachineLearningCompute extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningCompute'. */
     constructor(name: string, args: MachineLearningComputeArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MachineLearningCompute is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningCompute'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.computeName === undefined) && !(opts && opts.urn)) {
@@ -116,7 +121,7 @@ export class MachineLearningCompute extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20180301preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20181119:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20190501:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20190601:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20191101:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200101:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200218preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200301:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200401:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200601:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200801:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20210101:MachineLearningCompute" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20180301preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20181119:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20190501:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20190601:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20191101:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200101:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200218preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200301:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200401:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200601:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200801:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20210101:MachineLearningCompute" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineLearningCompute.__pulumiType, name, inputs, opts);
     }

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// The access control record.
     /// Latest API Version: 2017-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:AccessControlRecord'.")]
     [AzureNextGenResourceType("azure-nextgen:storsimple/latest:AccessControlRecord")]
     public partial class AccessControlRecord : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:AccessControlRecord"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:AccessControlRecord"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:AccessControlRecord"},
                 },

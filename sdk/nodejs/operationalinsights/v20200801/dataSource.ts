@@ -109,7 +109,7 @@ export class DataSource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/latest:DataSource" }, { type: "azure-nextgen:operationalinsights/v20151101preview:DataSource" }, { type: "azure-nextgen:operationalinsights/v20200301preview:DataSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:DataSource" }, { type: "azure-nextgen:operationalinsights/latest:DataSource" }, { type: "azure-nextgen:operationalinsights/v20151101preview:DataSource" }, { type: "azure-nextgen:operationalinsights/v20200301preview:DataSource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataSource.__pulumiType, name, inputs, opts);
     }

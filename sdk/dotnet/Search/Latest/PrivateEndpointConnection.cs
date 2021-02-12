@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Search.Latest
     /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:PrivateEndpointConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:search/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.Search.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:search:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20191001preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200313:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801:PrivateEndpointConnection"},

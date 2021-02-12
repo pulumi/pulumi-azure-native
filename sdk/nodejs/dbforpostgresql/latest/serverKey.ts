@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A PostgreSQL Server key.
  * Latest API Version: 2020-01-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:ServerKey'.
  */
 export class ServerKey extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ServerKey extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerKey {
+        pulumi.log.warn("ServerKey is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:ServerKey'.")
         return new ServerKey(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class ServerKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:ServerKey'. */
     constructor(name: string, args: ServerKeyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ServerKey is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:ServerKey'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.keyName === undefined) && !(opts && opts.urn)) {
@@ -107,7 +112,7 @@ export class ServerKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/v20200101:ServerKey" }, { type: "azure-nextgen:dbforpostgresql/v20200101privatepreview:ServerKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql:ServerKey" }, { type: "azure-nextgen:dbforpostgresql/v20200101:ServerKey" }, { type: "azure-nextgen:dbforpostgresql/v20200101privatepreview:ServerKey" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerKey.__pulumiType, name, inputs, opts);
     }

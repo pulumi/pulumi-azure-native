@@ -13,6 +13,8 @@ import (
 
 // A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 // Latest API Version: 2020-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:FirewallRule'.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StartIP'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cache:FirewallRule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20160401:FirewallRule"),
 		},

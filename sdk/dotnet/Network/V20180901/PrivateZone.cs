@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.Network.V20180901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:PrivateZone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateZone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:PrivateZone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateZone"},

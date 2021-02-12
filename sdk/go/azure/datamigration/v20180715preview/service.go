@@ -57,6 +57,9 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datamigration:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration/latest:Service"),
 		},
 		{

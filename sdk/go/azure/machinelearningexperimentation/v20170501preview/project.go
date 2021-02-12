@@ -63,6 +63,12 @@ func NewProject(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:machinelearningexperimentation:Project"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Project
 	err := ctx.RegisterResource("azure-nextgen:machinelearningexperimentation/v20170501preview:Project", name, args, &resource, opts...)
 	if err != nil {

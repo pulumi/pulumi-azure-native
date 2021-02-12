@@ -65,6 +65,12 @@ func NewAssignment(ctx *pulumi.Context,
 	if args.ResourceScope == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceScope'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:blueprint:Assignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Assignment
 	err := ctx.RegisterResource("azure-nextgen:blueprint/v20181101preview:Assignment", name, args, &resource, opts...)
 	if err != nil {

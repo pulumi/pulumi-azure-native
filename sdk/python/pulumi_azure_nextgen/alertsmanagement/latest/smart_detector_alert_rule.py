@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['SmartDetectorAlertRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:alertsmanagement:SmartDetectorAlertRule'.""", DeprecationWarning)
+
 
 class SmartDetectorAlertRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:alertsmanagement:SmartDetectorAlertRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']] throttling: The alert rule throttling information.
         """
+        pulumi.log.warn("SmartDetectorAlertRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:alertsmanagement:SmartDetectorAlertRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -101,7 +106,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             __props__['throttling'] = throttling
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:alertsmanagement:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SmartDetectorAlertRule, __self__).__init__(
             'azure-nextgen:alertsmanagement/latest:SmartDetectorAlertRule',

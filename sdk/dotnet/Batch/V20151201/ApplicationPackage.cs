@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Batch.V20151201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batch:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/latest:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170101:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170501:ApplicationPackage"},

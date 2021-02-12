@@ -91,7 +91,7 @@ class LiveOutput(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20180701:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20200501:LiveOutput")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/latest:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20180701:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20200501:LiveOutput")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LiveOutput, __self__).__init__(
             'azure-nextgen:media/v20180601preview:LiveOutput',

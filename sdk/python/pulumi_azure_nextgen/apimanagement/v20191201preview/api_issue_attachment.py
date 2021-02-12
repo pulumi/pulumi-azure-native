@@ -83,7 +83,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
             __props__['title'] = title
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiIssueAttachment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssueAttachment, __self__).__init__(
             'azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment',

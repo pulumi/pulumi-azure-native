@@ -136,6 +136,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databox:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/latest:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20180101:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20200401:Job"},

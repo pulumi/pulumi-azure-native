@@ -77,7 +77,7 @@ class LogProfile(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/latest:LogProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:LogProfile"), pulumi.Alias(type_="azure-nextgen:insights/latest:LogProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LogProfile, __self__).__init__(
             'azure-nextgen:insights/v20160301:LogProfile',

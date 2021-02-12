@@ -117,7 +117,7 @@ export class Profile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:Profile" }, { type: "azure-nextgen:network/v20151101:Profile" }, { type: "azure-nextgen:network/v20170501:Profile" }, { type: "azure-nextgen:network/v20180201:Profile" }, { type: "azure-nextgen:network/v20180301:Profile" }, { type: "azure-nextgen:network/v20180401:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Profile" }, { type: "azure-nextgen:network/latest:Profile" }, { type: "azure-nextgen:network/v20151101:Profile" }, { type: "azure-nextgen:network/v20170501:Profile" }, { type: "azure-nextgen:network/v20180201:Profile" }, { type: "azure-nextgen:network/v20180301:Profile" }, { type: "azure-nextgen:network/v20180401:Profile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Profile.__pulumiType, name, inputs, opts);
     }

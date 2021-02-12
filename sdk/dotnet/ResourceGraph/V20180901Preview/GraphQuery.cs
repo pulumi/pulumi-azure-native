@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resourcegraph:GraphQuery"},
                     new Pulumi.Alias { Type = "azure-nextgen:resourcegraph/v20200401preview:GraphQuery"},
                 },
             };

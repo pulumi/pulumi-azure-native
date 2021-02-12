@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Domain ownership Identifier.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:DomainOwnershipIdentifier'.
  */
 export class DomainOwnershipIdentifier extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DomainOwnershipIdentifier {
+        pulumi.log.warn("DomainOwnershipIdentifier is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:DomainOwnershipIdentifier'.")
         return new DomainOwnershipIdentifier(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:DomainOwnershipIdentifier'. */
     constructor(name: string, args: DomainOwnershipIdentifierArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DomainOwnershipIdentifier is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:DomainOwnershipIdentifier'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
@@ -97,7 +102,7 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20201001:DomainOwnershipIdentifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:domainregistration:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20201001:DomainOwnershipIdentifier" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DomainOwnershipIdentifier.__pulumiType, name, inputs, opts);
     }

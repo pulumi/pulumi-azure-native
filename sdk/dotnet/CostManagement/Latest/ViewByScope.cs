@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
     /// States and configurations of Cost Analysis.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ViewByScope'.")]
     [AzureNextGenResourceType("azure-nextgen:costmanagement/latest:ViewByScope")]
     public partial class ViewByScope : Pulumi.CustomResource
     {
@@ -131,6 +132,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190401preview:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20191101:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20200601:ViewByScope"},

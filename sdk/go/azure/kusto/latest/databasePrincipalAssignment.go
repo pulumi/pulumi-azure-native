@@ -13,6 +13,8 @@ import (
 
 // Class representing a database principal assignment.
 // Latest API Version: 2020-09-18.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:DatabasePrincipalAssignment'.
 type DatabasePrincipalAssignment struct {
 	pulumi.CustomResourceState
 
@@ -65,6 +67,9 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:kusto:DatabasePrincipalAssignment"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment"),
 		},

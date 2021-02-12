@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Agent Pool.
  * Latest API Version: 2020-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:AgentPool'.
  */
 export class AgentPool extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class AgentPool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AgentPool {
+        pulumi.log.warn("AgentPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:AgentPool'.")
         return new AgentPool(name, undefined as any, { ...opts, id: id });
     }
 
@@ -172,7 +175,9 @@ export class AgentPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:AgentPool'. */
     constructor(name: string, args: AgentPoolArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AgentPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:AgentPool'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.agentPoolName === undefined) && !(opts && opts.urn)) {
@@ -260,7 +265,7 @@ export class AgentPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/v20190201:AgentPool" }, { type: "azure-nextgen:containerservice/v20190401:AgentPool" }, { type: "azure-nextgen:containerservice/v20190601:AgentPool" }, { type: "azure-nextgen:containerservice/v20190801:AgentPool" }, { type: "azure-nextgen:containerservice/v20191001:AgentPool" }, { type: "azure-nextgen:containerservice/v20191101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200201:AgentPool" }, { type: "azure-nextgen:containerservice/v20200301:AgentPool" }, { type: "azure-nextgen:containerservice/v20200401:AgentPool" }, { type: "azure-nextgen:containerservice/v20200601:AgentPool" }, { type: "azure-nextgen:containerservice/v20200701:AgentPool" }, { type: "azure-nextgen:containerservice/v20200901:AgentPool" }, { type: "azure-nextgen:containerservice/v20201101:AgentPool" }, { type: "azure-nextgen:containerservice/v20201201:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice:AgentPool" }, { type: "azure-nextgen:containerservice/v20190201:AgentPool" }, { type: "azure-nextgen:containerservice/v20190401:AgentPool" }, { type: "azure-nextgen:containerservice/v20190601:AgentPool" }, { type: "azure-nextgen:containerservice/v20190801:AgentPool" }, { type: "azure-nextgen:containerservice/v20191001:AgentPool" }, { type: "azure-nextgen:containerservice/v20191101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200201:AgentPool" }, { type: "azure-nextgen:containerservice/v20200301:AgentPool" }, { type: "azure-nextgen:containerservice/v20200401:AgentPool" }, { type: "azure-nextgen:containerservice/v20200601:AgentPool" }, { type: "azure-nextgen:containerservice/v20200701:AgentPool" }, { type: "azure-nextgen:containerservice/v20200901:AgentPool" }, { type: "azure-nextgen:containerservice/v20201101:AgentPool" }, { type: "azure-nextgen:containerservice/v20201201:AgentPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AgentPool.__pulumiType, name, inputs, opts);
     }

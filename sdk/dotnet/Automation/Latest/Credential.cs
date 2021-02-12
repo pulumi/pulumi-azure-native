@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
     /// Definition of the credential.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Credential'.")]
     [AzureNextGenResourceType("azure-nextgen:automation/latest:Credential")]
     public partial class Credential : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Credential"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Credential"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Credential"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Credential"},

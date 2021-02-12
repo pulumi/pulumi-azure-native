@@ -13,6 +13,8 @@ import (
 
 // A Policy.
 // Latest API Version: 2018-09-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Policy'.
 type Policy struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +66,9 @@ func NewPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab:Policy"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:Policy"),
 		},

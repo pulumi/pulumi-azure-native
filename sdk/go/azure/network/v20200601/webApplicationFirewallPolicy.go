@@ -61,6 +61,9 @@ func NewWebApplicationFirewallPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:WebApplicationFirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:WebApplicationFirewallPolicy"),
 		},
 		{

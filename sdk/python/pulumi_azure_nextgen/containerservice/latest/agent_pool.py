@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['AgentPool']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:AgentPool'.""", DeprecationWarning)
+
 
 class AgentPool(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:AgentPool'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -90,6 +94,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         """
+        pulumi.log.warn("AgentPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:AgentPool'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -148,7 +153,7 @@ class AgentPool(pulumi.CustomResource):
             __props__['node_image_version'] = None
             __props__['power_state'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201201:AgentPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201201:AgentPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AgentPool, __self__).__init__(
             'azure-nextgen:containerservice/latest:AgentPool',

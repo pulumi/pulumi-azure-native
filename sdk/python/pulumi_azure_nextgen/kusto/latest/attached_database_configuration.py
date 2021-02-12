@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['AttachedDatabaseConfiguration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:AttachedDatabaseConfiguration'.""", DeprecationWarning)
+
 
 class AttachedDatabaseConfiguration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:AttachedDatabaseConfiguration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         """
+        pulumi.log.warn("AttachedDatabaseConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:AttachedDatabaseConfiguration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttachedDatabaseConfiguration, __self__).__init__(
             'azure-nextgen:kusto/latest:AttachedDatabaseConfiguration',

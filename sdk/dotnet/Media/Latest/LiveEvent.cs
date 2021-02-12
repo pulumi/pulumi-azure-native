@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
     /// The live event.
     /// Latest API Version: 2020-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:LiveEvent'.")]
     [AzureNextGenResourceType("azure-nextgen:media/latest:LiveEvent")]
     public partial class LiveEvent : Pulumi.CustomResource
     {
@@ -149,6 +150,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:LiveEvent"},

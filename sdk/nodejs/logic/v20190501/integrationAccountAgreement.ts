@@ -163,7 +163,7 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/latest:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountAgreement" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/latest:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountAgreement" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountAgreement.__pulumiType, name, inputs, opts);
     }

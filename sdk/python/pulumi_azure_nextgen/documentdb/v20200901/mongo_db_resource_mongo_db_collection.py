@@ -79,7 +79,7 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MongoDBResourceMongoDBCollection, __self__).__init__(
             'azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBCollection',

@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebApplicationSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebApplicationSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebApplicationSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebApplicationSettingsSlot"},

@@ -71,7 +71,7 @@ class DatabaseAccountTable(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountTable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountTable, __self__).__init__(
             'azure-nextgen:documentdb/v20151106:DatabaseAccountTable',

@@ -94,7 +94,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory/latest:IntegrationRuntime" }, { type: "azure-nextgen:datafactory/v20170901preview:IntegrationRuntime" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory:IntegrationRuntime" }, { type: "azure-nextgen:datafactory/latest:IntegrationRuntime" }, { type: "azure-nextgen:datafactory/v20170901preview:IntegrationRuntime" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationRuntime.__pulumiType, name, inputs, opts);
     }

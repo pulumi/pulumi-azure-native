@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// RouteTable resource in a virtual hub.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubRouteTable'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:HubRouteTable")]
     public partial class HubRouteTable : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:HubRouteTable"},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest
     /// Custom domain resource payload.
     /// Latest API Version: 2020-07-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:CustomDomain'.")]
     [AzureNextGenResourceType("azure-nextgen:appplatform/latest:CustomDomain")]
     public partial class CustomDomain : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:CustomDomain"},

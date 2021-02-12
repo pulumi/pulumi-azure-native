@@ -142,6 +142,9 @@ func NewWebAppSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:WebAppSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppSlot"),
 		},
 		{

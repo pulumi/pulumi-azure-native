@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Search.Latest
     /// Describes an Azure Cognitive Search service and its current state.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:Service'.")]
     [AzureNextGenResourceType("azure-nextgen:search/latest:Service")]
     public partial class Service : Pulumi.CustomResource
     {
@@ -137,6 +138,7 @@ namespace Pulumi.AzureNextGen.Search.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:search:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20150819:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20191001preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200313:Service"},

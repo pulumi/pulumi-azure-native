@@ -75,6 +75,9 @@ func NewSignalR(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:signalrservice:SignalR"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:signalrservice/latest:SignalR"),
 		},
 		{

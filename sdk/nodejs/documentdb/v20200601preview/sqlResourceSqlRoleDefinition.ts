@@ -97,6 +97,8 @@ export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlRoleDefinition" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlRoleDefinition.__pulumiType, name, inputs, opts);
     }
 }

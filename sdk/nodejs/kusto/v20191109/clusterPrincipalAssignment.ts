@@ -130,7 +130,7 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/latest:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200215:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/latest:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200215:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ClusterPrincipalAssignment.__pulumiType, name, inputs, opts);
     }

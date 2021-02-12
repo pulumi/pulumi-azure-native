@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppPremierAddOnSlot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPremierAddOnSlot'.""", DeprecationWarning)
+
 
 class WebAppPremierAddOnSlot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPremierAddOnSlot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vendor: Premier add on Vendor.
         """
+        pulumi.log.warn("WebAppPremierAddOnSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPremierAddOnSlot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,7 +94,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
             __props__['vendor'] = vendor
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPremierAddOnSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPremierAddOnSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPremierAddOnSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppPremierAddOnSlot',

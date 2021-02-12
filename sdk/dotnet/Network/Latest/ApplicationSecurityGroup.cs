@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// An application security group in a resource group.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationSecurityGroup'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:ApplicationSecurityGroup")]
     public partial class ApplicationSecurityGroup : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:ApplicationSecurityGroup"},

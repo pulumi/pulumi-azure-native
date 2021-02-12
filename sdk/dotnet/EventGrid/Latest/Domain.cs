@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
     /// EventGrid Domain.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:Domain'.")]
     [AzureNextGenResourceType("azure-nextgen:eventgrid/latest:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
@@ -114,6 +115,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180915preview:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:Domain"},

@@ -13,6 +13,8 @@ import (
 
 // Workload classifier operations for a data warehouse
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadClassifier'.
 type SqlPoolWorkloadClassifier struct {
 	pulumi.CustomResourceState
 
@@ -60,6 +62,9 @@ func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse:SqlPoolWorkloadClassifier"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier"),
 		},

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ProtectionIntent']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionIntent'.""", DeprecationWarning)
+
 
 class ProtectionIntent(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionIntent'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class ProtectionIntent(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the recovery services vault.
         """
+        pulumi.log.warn("ProtectionIntent is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionIntent'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -79,7 +84,7 @@ class ProtectionIntent(pulumi.CustomResource):
             __props__['vault_name'] = vault_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20170701:ProtectionIntent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices:ProtectionIntent"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20170701:ProtectionIntent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProtectionIntent, __self__).__init__(
             'azure-nextgen:recoveryservices/latest:ProtectionIntent',

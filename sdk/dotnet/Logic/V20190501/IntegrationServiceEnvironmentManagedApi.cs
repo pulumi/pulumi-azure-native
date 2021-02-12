@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi"},
                 },
             };

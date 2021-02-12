@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ConnectorMapping']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:ConnectorMapping'.""", DeprecationWarning)
+
 
 class ConnectorMapping(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:ConnectorMapping'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class ConnectorMapping(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConnectorMappingPropertiesArgs']] mapping_properties: The properties of the mapping.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        pulumi.log.warn("ConnectorMapping is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:ConnectorMapping'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -99,7 +104,7 @@ class ConnectorMapping(pulumi.CustomResource):
             __props__['state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:ConnectorMapping"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:ConnectorMapping")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:ConnectorMapping"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:ConnectorMapping"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:ConnectorMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectorMapping, __self__).__init__(
             'azure-nextgen:customerinsights/latest:ConnectorMapping',

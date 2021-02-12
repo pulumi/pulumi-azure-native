@@ -13,6 +13,8 @@ import (
 
 // An Azure Cosmos DB Cassandra keyspace.
 // Latest API Version: 2016-03-31.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace'.
 type DatabaseAccountCassandraKeyspace struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewDatabaseAccountCassandraKeyspace(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraKeyspace"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // Linked workspace.
 // Latest API Version: 2020-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:LinkedWorkspace'.
 type LinkedWorkspace struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +43,9 @@ func NewLinkedWorkspace(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices:LinkedWorkspace"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200301:LinkedWorkspace"),
 		},

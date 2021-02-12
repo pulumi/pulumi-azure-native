@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Class representing Traffic Manager User Metrics.
     /// Latest API Version: 2018-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:TrafficManagerUserMetricsKey'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:TrafficManagerUserMetricsKey")]
     public partial class TrafficManagerUserMetricsKey : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:TrafficManagerUserMetricsKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey"},
                 },
             };

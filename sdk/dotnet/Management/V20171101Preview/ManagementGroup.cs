@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Management.V20171101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:management:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/latest:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20180101preview:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20180301preview:ManagementGroup"},

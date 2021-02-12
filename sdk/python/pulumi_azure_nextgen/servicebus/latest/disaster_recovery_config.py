@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['DisasterRecoveryConfig']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:DisasterRecoveryConfig'.""", DeprecationWarning)
+
 
 class DisasterRecoveryConfig(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:DisasterRecoveryConfig'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         :param pulumi.Input[str] partner_namespace: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         """
+        pulumi.log.warn("DisasterRecoveryConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:DisasterRecoveryConfig'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['role'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DisasterRecoveryConfig, __self__).__init__(
             'azure-nextgen:servicebus/latest:DisasterRecoveryConfig',

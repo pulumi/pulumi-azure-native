@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['GatewayApiEntityTag']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayApiEntityTag'.""", DeprecationWarning)
+
 
 class GatewayApiEntityTag(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayApiEntityTag'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
+        pulumi.log.warn("GatewayApiEntityTag is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayApiEntityTag'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
             __props__['subscription_key_parameter_names'] = None
             __props__['subscription_required'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayApiEntityTag, __self__).__init__(
             'azure-nextgen:apimanagement/latest:GatewayApiEntityTag',

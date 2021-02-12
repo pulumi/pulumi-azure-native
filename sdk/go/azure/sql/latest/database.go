@@ -13,6 +13,8 @@ import (
 
 // Represents a database.
 // Latest API Version: 2014-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'.
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -119,6 +121,9 @@ func NewDatabase(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql:Database"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:Database"),
 		},

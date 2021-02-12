@@ -130,6 +130,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/latest:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20160516:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170714:ServerDetails"},

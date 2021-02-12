@@ -1,10 +1,10 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
-import * as authorization from "@pulumi/azure-nextgen/authorization/latest";
-import * as containerinstance from "@pulumi/azure-nextgen/containerinstance/latest";
-import * as keyvault from "@pulumi/azure-nextgen/keyvault/latest";
-import * as managedidentity from "@pulumi/azure-nextgen/managedidentity/latest";
-import * as resources from "@pulumi/azure-nextgen/resources/latest";
+import * as authorization from "@pulumi/azure-nextgen/authorization";
+import * as containerinstance from "@pulumi/azure-nextgen/containerinstance";
+import * as keyvault from "@pulumi/azure-nextgen/keyvault";
+import * as managedidentity from "@pulumi/azure-nextgen/managedidentity";
+import * as resources from "@pulumi/azure-nextgen/resources";
 
 const randomString = new random.RandomString("random", {
     length: 12,

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An object that represents a container registry.
  * Latest API Version: 2019-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Registry'.
  */
 export class Registry extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Registry extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Registry {
+        pulumi.log.warn("Registry is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Registry'.")
         return new Registry(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,7 +99,9 @@ export class Registry extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Registry'. */
     constructor(name: string, args: RegistryArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Registry is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Registry'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
@@ -145,7 +150,7 @@ export class Registry extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20160627preview:Registry" }, { type: "azure-nextgen:containerregistry/v20170301:Registry" }, { type: "azure-nextgen:containerregistry/v20170601preview:Registry" }, { type: "azure-nextgen:containerregistry/v20171001:Registry" }, { type: "azure-nextgen:containerregistry/v20190501:Registry" }, { type: "azure-nextgen:containerregistry/v20191201preview:Registry" }, { type: "azure-nextgen:containerregistry/v20201101preview:Registry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:Registry" }, { type: "azure-nextgen:containerregistry/v20160627preview:Registry" }, { type: "azure-nextgen:containerregistry/v20170301:Registry" }, { type: "azure-nextgen:containerregistry/v20170601preview:Registry" }, { type: "azure-nextgen:containerregistry/v20171001:Registry" }, { type: "azure-nextgen:containerregistry/v20190501:Registry" }, { type: "azure-nextgen:containerregistry/v20191201preview:Registry" }, { type: "azure-nextgen:containerregistry/v20201101preview:Registry" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Registry.__pulumiType, name, inputs, opts);
     }

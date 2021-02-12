@@ -74,7 +74,7 @@ class Manager(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/latest:Manager"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:Manager")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:Manager"), pulumi.Alias(type_="azure-nextgen:storsimple/latest:Manager"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:Manager")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Manager, __self__).__init__(
             'azure-nextgen:storsimple/v20170601:Manager',

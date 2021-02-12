@@ -92,7 +92,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/latest:OpenShiftManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190430:OpenShiftManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190930preview:OpenShiftManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191027preview:OpenShiftManagedCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice:OpenShiftManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/latest:OpenShiftManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190430:OpenShiftManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190930preview:OpenShiftManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191027preview:OpenShiftManagedCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenShiftManagedCluster, __self__).__init__(
             'azure-nextgen:containerservice/v20180930preview:OpenShiftManagedCluster',

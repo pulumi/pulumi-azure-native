@@ -64,7 +64,7 @@ class ContentItem(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ContentItem"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ContentItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ContentItem"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ContentItem"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ContentItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContentItem, __self__).__init__(
             'azure-nextgen:apimanagement/v20191201:ContentItem',

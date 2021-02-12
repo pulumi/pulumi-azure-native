@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
     /// A private cloud resource
     /// Latest API Version: 2020-03-20.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:PrivateCloud'.")]
     [AzureNextGenResourceType("azure-nextgen:avs/latest:PrivateCloud")]
     public partial class PrivateCloud : Pulumi.CustomResource
     {
@@ -155,6 +156,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:avs:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:PrivateCloud"},
                 },

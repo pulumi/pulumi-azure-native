@@ -13,6 +13,8 @@ import (
 
 // A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'.
 type RulesEngine struct {
 	pulumi.CustomResourceState
 
@@ -43,6 +45,9 @@ func NewRulesEngine(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RulesEngineName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:RulesEngine"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200101:RulesEngine"),
 		},

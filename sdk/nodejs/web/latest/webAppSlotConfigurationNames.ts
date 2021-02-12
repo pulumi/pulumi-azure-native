@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Slot Config names azure resource.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSlotConfigurationNames'.
  */
 export class WebAppSlotConfigurationNames extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebAppSlotConfigurationNames extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppSlotConfigurationNames {
+        pulumi.log.warn("WebAppSlotConfigurationNames is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSlotConfigurationNames'.")
         return new WebAppSlotConfigurationNames(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,7 +75,9 @@ export class WebAppSlotConfigurationNames extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSlotConfigurationNames'. */
     constructor(name: string, args: WebAppSlotConfigurationNamesArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppSlotConfigurationNames is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSlotConfigurationNames'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -105,7 +110,7 @@ export class WebAppSlotConfigurationNames extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20160801:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20180201:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20181101:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20190801:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20200601:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20200901:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20201001:WebAppSlotConfigurationNames" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20150801:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20160801:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20180201:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20181101:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20190801:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20200601:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20200901:WebAppSlotConfigurationNames" }, { type: "azure-nextgen:web/v20201001:WebAppSlotConfigurationNames" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSlotConfigurationNames.__pulumiType, name, inputs, opts);
     }

@@ -51,6 +51,9 @@ func NewDataController(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:azuredata:DataController"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azuredata/v20190724preview:DataController"),
 		},
 	})

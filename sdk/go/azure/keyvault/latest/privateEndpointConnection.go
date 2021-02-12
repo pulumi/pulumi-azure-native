@@ -13,6 +13,8 @@ import (
 
 // Private endpoint connection resource.
 // Latest API Version: 2019-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -51,6 +53,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:keyvault:PrivateEndpointConnection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20180214:PrivateEndpointConnection"),
 		},

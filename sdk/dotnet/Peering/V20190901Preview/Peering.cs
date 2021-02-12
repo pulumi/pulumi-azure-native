@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:peering:Peering"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/latest:Peering"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20190801preview:Peering"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:Peering"},

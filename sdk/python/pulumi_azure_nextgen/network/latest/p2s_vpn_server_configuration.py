@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['P2sVpnServerConfiguration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnServerConfiguration'.""", DeprecationWarning)
+
 
 class P2sVpnServerConfiguration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnServerConfiguration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +60,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] vpn_client_ipsec_policies: VpnClientIpsecPolicies for P2SVpnServerConfiguration.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]] vpn_protocols: VPN protocols for the P2SVpnServerConfiguration.
         """
+        pulumi.log.warn("P2sVpnServerConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnServerConfiguration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -95,7 +100,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
             __props__['vpn_protocols'] = vpn_protocols
             __props__['p2_s_vpn_gateways'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20181001:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20181101:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20181201:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20190201:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20190401:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20190601:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20190701:P2sVpnServerConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20180801:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20181001:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20181101:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20181201:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20190201:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20190401:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20190601:P2sVpnServerConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20190701:P2sVpnServerConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(P2sVpnServerConfiguration, __self__).__init__(
             'azure-nextgen:network/latest:P2sVpnServerConfiguration',

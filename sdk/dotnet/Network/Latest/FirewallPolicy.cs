@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// FirewallPolicy Resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicy'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:FirewallPolicy")]
     public partial class FirewallPolicy : Pulumi.CustomResource
     {
@@ -143,6 +144,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:FirewallPolicy"},

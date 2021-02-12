@@ -130,6 +130,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:VirtualMachineSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:VirtualMachineSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule"},
                 },

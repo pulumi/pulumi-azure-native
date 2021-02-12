@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['FirewallPolicyRuleGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicyRuleGroup'.""", DeprecationWarning)
+
 
 class FirewallPolicyRuleGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicyRuleGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] rule_group_name: The name of the FirewallPolicyRuleGroup.
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleArgs'], pulumi.InputType['FirewallPolicyNatRuleArgs']]]]] rules: Group of Firewall Policy rules.
         """
+        pulumi.log.warn("FirewallPolicyRuleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicyRuleGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190601:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190701:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190801:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190901:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191101:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191201:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200301:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FirewallPolicyRuleGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190601:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190701:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190801:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20190901:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191101:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20191201:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200301:FirewallPolicyRuleGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FirewallPolicyRuleGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicyRuleGroup, __self__).__init__(
             'azure-nextgen:network/latest:FirewallPolicyRuleGroup',

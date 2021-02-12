@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
     /// A sensitivity label.
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolSensitivityLabel'.")]
     [AzureNextGenResourceType("azure-nextgen:synapse/latest:SqlPoolSensitivityLabel")]
     public partial class SqlPoolSensitivityLabel : Pulumi.CustomResource
     {
@@ -110,6 +111,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPoolSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:SqlPoolSensitivityLabel"},
                 },

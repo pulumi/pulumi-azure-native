@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet"},
                 },

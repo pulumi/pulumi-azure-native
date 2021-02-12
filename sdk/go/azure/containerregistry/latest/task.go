@@ -14,6 +14,8 @@ import (
 // The task that has the ARM resource and task properties.
 // The task will have all information to schedule a run against it.
 // Latest API Version: 2019-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Task'.
 type Task struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +75,9 @@ func NewTask(ctx *pulumi.Context,
 		args.Timeout = pulumi.IntPtr(3600)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry:Task"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20180901:Task"),
 		},

@@ -85,7 +85,7 @@ class Job(pulumi.CustomResource):
             __props__['name'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Job"), pulumi.Alias(type_="azure-nextgen:media/v20200501:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:Job"), pulumi.Alias(type_="azure-nextgen:media/latest:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Job"), pulumi.Alias(type_="azure-nextgen:media/v20200501:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-nextgen:media/v20180330preview:Job',

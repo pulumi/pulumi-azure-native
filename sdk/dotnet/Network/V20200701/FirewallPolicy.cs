@@ -142,6 +142,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:FirewallPolicy"},

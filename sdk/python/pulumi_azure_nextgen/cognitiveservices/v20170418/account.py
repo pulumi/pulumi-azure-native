@@ -75,7 +75,7 @@ class Account(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cognitiveservices/latest:Account"), pulumi.Alias(type_="azure-nextgen:cognitiveservices/v20160201preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cognitiveservices:Account"), pulumi.Alias(type_="azure-nextgen:cognitiveservices/latest:Account"), pulumi.Alias(type_="azure-nextgen:cognitiveservices/v20160201preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-nextgen:cognitiveservices/v20170418:Account',

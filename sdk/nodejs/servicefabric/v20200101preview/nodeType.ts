@@ -184,6 +184,8 @@ export class NodeType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric:NodeType" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NodeType.__pulumiType, name, inputs, opts);
     }
 }

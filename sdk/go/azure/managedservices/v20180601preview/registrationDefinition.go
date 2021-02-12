@@ -40,6 +40,9 @@ func NewRegistrationDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:managedservices:RegistrationDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managedservices/latest:RegistrationDefinition"),
 		},
 		{

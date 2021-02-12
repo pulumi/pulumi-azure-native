@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
     /// Response to put/get linked server (with properties) for Redis cache.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:LinkedServer'.")]
     [AzureNextGenResourceType("azure-nextgen:cache/latest:LinkedServer")]
     public partial class LinkedServer : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:LinkedServer"},

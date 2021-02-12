@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Watcher']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Watcher'.""", DeprecationWarning)
+
 
 class Watcher(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Watcher'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +51,7 @@ class Watcher(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] watcher_name: The watcher name.
         """
+        pulumi.log.warn("Watcher is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Watcher'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class Watcher(pulumi.CustomResource):
             __props__['name'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Watcher"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Watcher"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Watcher")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:Watcher"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Watcher"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Watcher"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Watcher")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Watcher, __self__).__init__(
             'azure-nextgen:automation/latest:Watcher',

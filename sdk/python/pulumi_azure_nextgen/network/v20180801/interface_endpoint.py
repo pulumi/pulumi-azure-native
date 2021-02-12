@@ -80,7 +80,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
             __props__['owner'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20181001:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20181101:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20181201:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190201:InterfaceEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/latest:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20181001:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20181101:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20181201:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190201:InterfaceEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InterfaceEndpoint, __self__).__init__(
             'azure-nextgen:network/v20180801:InterfaceEndpoint',

@@ -3,10 +3,10 @@ using Microsoft.Azure.Management.Storage;
 using EncryptionScope = Microsoft.Azure.Management.Storage.Models.EncryptionScope;
 using Microsoft.Rest;
 using Pulumi;
-using Pulumi.AzureNextGen.Authorization.Latest;
-using Pulumi.AzureNextGen.Resources.Latest;
-using Pulumi.AzureNextGen.Storage.Latest;
-using Pulumi.AzureNextGen.Storage.Latest.Inputs;
+using Pulumi.AzureNextGen.Authorization;
+using Pulumi.AzureNextGen.Resources;
+using Pulumi.AzureNextGen.Storage;
+using Pulumi.AzureNextGen.Storage.Inputs;
 using Pulumi.Random;
 
 class MyStack : Stack

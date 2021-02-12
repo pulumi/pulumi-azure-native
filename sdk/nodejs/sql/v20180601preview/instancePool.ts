@@ -120,7 +120,7 @@ export class InstancePool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20200202preview:InstancePool" }, { type: "azure-nextgen:sql/v20200801preview:InstancePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:InstancePool" }, { type: "azure-nextgen:sql/v20200202preview:InstancePool" }, { type: "azure-nextgen:sql/v20200801preview:InstancePool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(InstancePool.__pulumiType, name, inputs, opts);
     }

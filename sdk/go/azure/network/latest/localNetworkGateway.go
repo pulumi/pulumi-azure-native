@@ -13,6 +13,8 @@ import (
 
 // A common class for general resource information.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LocalNetworkGateway'.
 type LocalNetworkGateway struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +56,9 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:LocalNetworkGateway"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150615:LocalNetworkGateway"),
 		},

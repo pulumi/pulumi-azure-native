@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Registry']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Registry'.""", DeprecationWarning)
+
 
 class Registry(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Registry'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']] storage_account: The properties of the storage account for the container registry. Only applicable to Classic SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
+        pulumi.log.warn("Registry is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Registry'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -86,7 +91,7 @@ class Registry(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/v20160627preview:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20170301:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20170601preview:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20171001:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190501:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20191201preview:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:Registry")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20160627preview:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20170301:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20170601preview:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20171001:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190501:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20191201preview:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:Registry")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Registry, __self__).__init__(
             'azure-nextgen:containerregistry/latest:Registry',

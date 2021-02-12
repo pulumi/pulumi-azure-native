@@ -123,7 +123,7 @@ export class Export extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement/latest:Export" }, { type: "azure-nextgen:costmanagement/v20190101:Export" }, { type: "azure-nextgen:costmanagement/v20190901:Export" }, { type: "azure-nextgen:costmanagement/v20191001:Export" }, { type: "azure-nextgen:costmanagement/v20191101:Export" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement:Export" }, { type: "azure-nextgen:costmanagement/latest:Export" }, { type: "azure-nextgen:costmanagement/v20190101:Export" }, { type: "azure-nextgen:costmanagement/v20190901:Export" }, { type: "azure-nextgen:costmanagement/v20191001:Export" }, { type: "azure-nextgen:costmanagement/v20191101:Export" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Export.__pulumiType, name, inputs, opts);
     }

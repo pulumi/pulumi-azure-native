@@ -13,6 +13,8 @@ import (
 
 // The Live Output.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:LiveOutput'.
 type LiveOutput struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +70,9 @@ func NewLiveOutput(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:media:LiveOutput"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:LiveOutput"),
 		},

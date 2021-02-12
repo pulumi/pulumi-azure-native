@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['NetworkVirtualAppliance']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkVirtualAppliance'.""", DeprecationWarning)
+
 
 class NetworkVirtualAppliance(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkVirtualAppliance'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
         """
+        pulumi.log.warn("NetworkVirtualAppliance is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkVirtualAppliance'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -93,7 +98,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__['type'] = None
             __props__['virtual_appliance_nics'] = None
             __props__['virtual_appliance_sites'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20191201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20200701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NetworkVirtualAppliance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20200701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NetworkVirtualAppliance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkVirtualAppliance, __self__).__init__(
             'azure-nextgen:network/latest:NetworkVirtualAppliance',

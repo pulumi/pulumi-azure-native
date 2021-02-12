@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto:EventHubConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20180907preview:EventHubConnection"},
                 },
             };

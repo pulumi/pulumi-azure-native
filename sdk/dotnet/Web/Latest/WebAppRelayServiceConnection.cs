@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Hybrid Connection for an App Service app.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppRelayServiceConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppRelayServiceConnection")]
     public partial class WebAppRelayServiceConnection : Pulumi.CustomResource
     {
@@ -86,6 +87,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppRelayServiceConnection"},

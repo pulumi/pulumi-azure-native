@@ -13,6 +13,8 @@ import (
 
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:Cache'.
 type Cache struct {
 	pulumi.CustomResourceState
 
@@ -66,6 +68,9 @@ func NewCache(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storagecache:Cache"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storagecache/v20190801preview:Cache"),
 		},

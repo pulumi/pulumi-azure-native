@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:OriginGroup'.
  */
 export class OriginGroup extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class OriginGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OriginGroup {
+        pulumi.log.warn("OriginGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:OriginGroup'.")
         return new OriginGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class OriginGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:OriginGroup'. */
     constructor(name: string, args: OriginGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("OriginGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:OriginGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
@@ -129,7 +134,7 @@ export class OriginGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20191231:OriginGroup" }, { type: "azure-nextgen:cdn/v20200331:OriginGroup" }, { type: "azure-nextgen:cdn/v20200415:OriginGroup" }, { type: "azure-nextgen:cdn/v20200901:OriginGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:OriginGroup" }, { type: "azure-nextgen:cdn/v20191231:OriginGroup" }, { type: "azure-nextgen:cdn/v20200331:OriginGroup" }, { type: "azure-nextgen:cdn/v20200415:OriginGroup" }, { type: "azure-nextgen:cdn/v20200901:OriginGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OriginGroup.__pulumiType, name, inputs, opts);
     }

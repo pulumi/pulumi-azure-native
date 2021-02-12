@@ -74,7 +74,7 @@ class ReplicationProtectedItem(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:ReplicationProtectedItem"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180110:ReplicationProtectedItem"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices:ReplicationProtectedItem"), pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:ReplicationProtectedItem"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180110:ReplicationProtectedItem"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationProtectedItem, __self__).__init__(
             'azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem',

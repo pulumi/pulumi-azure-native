@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['SnapshotPolicy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:SnapshotPolicy'.""", DeprecationWarning)
+
 
 class SnapshotPolicy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:SnapshotPolicy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +51,7 @@ class SnapshotPolicy(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']] weekly_schedule: Schedule for weekly snapshots
         """
+        pulumi.log.warn("SnapshotPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:SnapshotPolicy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,7 +88,7 @@ class SnapshotPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20200501:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:SnapshotPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:SnapshotPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SnapshotPolicy, __self__).__init__(
             'azure-nextgen:netapp/latest:SnapshotPolicy',

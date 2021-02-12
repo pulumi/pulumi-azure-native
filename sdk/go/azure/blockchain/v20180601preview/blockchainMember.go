@@ -68,6 +68,12 @@ func NewBlockchainMember(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:blockchain:BlockchainMember"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BlockchainMember
 	err := ctx.RegisterResource("azure-nextgen:blockchain/v20180601preview:BlockchainMember", name, args, &resource, opts...)
 	if err != nil {

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
     /// Contains information about a certificate.
     /// Latest API Version: 2021-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Certificate'.")]
     [AzureNextGenResourceType("azure-nextgen:batch/latest:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
@@ -104,6 +105,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batch:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20181201:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:Certificate"},

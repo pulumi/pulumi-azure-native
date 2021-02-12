@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:StreamingPolicy"},

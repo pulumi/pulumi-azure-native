@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['DeploymentAtManagementGroupScope']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtManagementGroupScope'.""", DeprecationWarning)
+
 
 class DeploymentAtManagementGroupScope(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtManagementGroupScope'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']] properties: The deployment properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Deployment tags
         """
+        pulumi.log.warn("DeploymentAtManagementGroupScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtManagementGroupScope'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources/v20190501:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20190510:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20190701:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20190801:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20191001:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20200601:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20200801:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20201001:DeploymentAtManagementGroupScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20190501:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20190510:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20190701:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20190801:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20191001:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20200601:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20200801:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-nextgen:resources/v20201001:DeploymentAtManagementGroupScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentAtManagementGroupScope, __self__).__init__(
             'azure-nextgen:resources/latest:DeploymentAtManagementGroupScope',

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
     /// A task resource
     /// Latest API Version: 2018-04-19.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Task'.")]
     [AzureNextGenResourceType("azure-nextgen:datamigration/latest:Task")]
     public partial class Task : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datamigration:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20171115preview:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180315preview:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180331preview:Task"},

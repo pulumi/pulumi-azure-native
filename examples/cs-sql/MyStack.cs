@@ -1,9 +1,9 @@
 using Pulumi;
-using Pulumi.AzureNextGen.Network.Latest;
-using Pulumi.AzureNextGen.Network.Latest.Inputs;
-using SubnetArgs = Pulumi.AzureNextGen.Network.Latest.Inputs.SubnetArgs;
-using Pulumi.AzureNextGen.Resources.Latest;
-using Pulumi.AzureNextGen.Sql.Latest;
+using Pulumi.AzureNextGen.Network;
+using Pulumi.AzureNextGen.Network.Inputs;
+using SubnetArgs = Pulumi.AzureNextGen.Network.Inputs.SubnetArgs;
+using Pulumi.AzureNextGen.Resources;
+using Pulumi.AzureNextGen.Sql;
 using Pulumi.Random;
 
 class MyStack : Stack

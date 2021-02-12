@@ -75,7 +75,7 @@ class Action(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['workflow_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/latest:Action")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:Action"), pulumi.Alias(type_="azure-nextgen:securityinsights/latest:Action")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Action, __self__).__init__(
             'azure-nextgen:securityinsights/v20200101:Action',

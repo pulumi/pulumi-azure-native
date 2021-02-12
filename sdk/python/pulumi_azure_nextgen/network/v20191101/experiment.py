@@ -82,7 +82,7 @@ class Experiment(pulumi.CustomResource):
             __props__['script_file_uri'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:Experiment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:Experiment"), pulumi.Alias(type_="azure-nextgen:network/latest:Experiment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Experiment, __self__).__init__(
             'azure-nextgen:network/v20191101:Experiment',

@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:GalleryApplicationVersion"},

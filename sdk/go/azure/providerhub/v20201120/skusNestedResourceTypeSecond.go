@@ -45,6 +45,9 @@ func NewSkusNestedResourceTypeSecond(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:providerhub:SkusNestedResourceTypeSecond"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:providerhub/latest:SkusNestedResourceTypeSecond"),
 		},
 	})

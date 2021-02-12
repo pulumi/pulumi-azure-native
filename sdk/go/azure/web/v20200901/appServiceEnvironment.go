@@ -126,6 +126,9 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:AppServiceEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:AppServiceEnvironment"),
 		},
 		{

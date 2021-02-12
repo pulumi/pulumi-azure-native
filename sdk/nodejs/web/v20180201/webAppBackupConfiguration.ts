@@ -113,7 +113,7 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20150801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20160801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20181101:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20190801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20200601:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20200901:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20201001:WebAppBackupConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/latest:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20150801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20160801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20181101:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20190801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20200601:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20200901:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20201001:WebAppBackupConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppBackupConfiguration.__pulumiType, name, inputs, opts);
     }

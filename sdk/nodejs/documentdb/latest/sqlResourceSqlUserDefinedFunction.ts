@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB userDefinedFunction.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction'.
  */
 export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlResourceSqlUserDefinedFunction {
+        pulumi.log.warn("SqlResourceSqlUserDefinedFunction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction'.")
         return new SqlResourceSqlUserDefinedFunction(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,7 +64,9 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction'. */
     constructor(name: string, args: SqlResourceSqlUserDefinedFunctionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SqlResourceSqlUserDefinedFunction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -107,7 +112,7 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlUserDefinedFunction.__pulumiType, name, inputs, opts);
     }

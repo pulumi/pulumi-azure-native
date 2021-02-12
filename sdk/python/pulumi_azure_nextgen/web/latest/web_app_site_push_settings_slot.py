@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppSitePushSettingsSlot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSitePushSettingsSlot'.""", DeprecationWarning)
+
 
 class WebAppSitePushSettingsSlot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSitePushSettingsSlot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +49,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
                '_', '@', '#', '.', ':', '-'. 
                Validation should be performed at the PushRequestHandler.
         """
+        pulumi.log.warn("WebAppSitePushSettingsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSitePushSettingsSlot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
             __props__['tags_requiring_auth'] = tags_requiring_auth
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSitePushSettingsSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppSitePushSettingsSlot',

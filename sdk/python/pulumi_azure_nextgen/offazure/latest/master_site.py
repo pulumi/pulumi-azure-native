@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['MasterSite']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:MasterSite'.""", DeprecationWarning)
+
 
 class MasterSite(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:MasterSite'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class MasterSite(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] site_name: Site name.
         """
+        pulumi.log.warn("MasterSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:MasterSite'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -67,7 +72,7 @@ class MasterSite(pulumi.CustomResource):
                 raise TypeError("Missing required property 'site_name'")
             __props__['site_name'] = site_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:offazure/v20200707:MasterSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:offazure:MasterSite"), pulumi.Alias(type_="azure-nextgen:offazure/v20200707:MasterSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MasterSite, __self__).__init__(
             'azure-nextgen:offazure/latest:MasterSite',

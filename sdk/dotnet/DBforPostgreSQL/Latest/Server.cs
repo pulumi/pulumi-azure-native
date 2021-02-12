@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
     /// Represents a server.
     /// Latest API Version: 2017-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:Server'.")]
     [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/latest:Server")]
     public partial class Server : Pulumi.CustomResource
     {
@@ -167,6 +168,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:Server"},
                 },

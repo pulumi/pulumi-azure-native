@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['BatchAccount']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:BatchAccount'.""", DeprecationWarning)
+
 
 class BatchAccount(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:BatchAccount'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class BatchAccount(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The user-specified tags associated with the account.
         """
+        pulumi.log.warn("BatchAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:BatchAccount'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -90,7 +95,7 @@ class BatchAccount(pulumi.CustomResource):
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20151201:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20170101:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20170501:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20170901:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20210101:BatchAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20151201:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20170101:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20170501:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20170901:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:BatchAccount"), pulumi.Alias(type_="azure-nextgen:batch/v20210101:BatchAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BatchAccount, __self__).__init__(
             'azure-nextgen:batch/latest:BatchAccount',

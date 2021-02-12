@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Deployment information.
  * Latest API Version: 2020-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Deployment'.
  */
 export class Deployment extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Deployment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Deployment {
+        pulumi.log.warn("Deployment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Deployment'.")
         return new Deployment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class Deployment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Deployment'. */
     constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Deployment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Deployment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.deploymentName === undefined) && !(opts && opts.urn)) {
@@ -97,7 +102,7 @@ export class Deployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20151101:Deployment" }, { type: "azure-nextgen:resources/v20160201:Deployment" }, { type: "azure-nextgen:resources/v20160701:Deployment" }, { type: "azure-nextgen:resources/v20160901:Deployment" }, { type: "azure-nextgen:resources/v20170510:Deployment" }, { type: "azure-nextgen:resources/v20180201:Deployment" }, { type: "azure-nextgen:resources/v20180501:Deployment" }, { type: "azure-nextgen:resources/v20190301:Deployment" }, { type: "azure-nextgen:resources/v20190501:Deployment" }, { type: "azure-nextgen:resources/v20190510:Deployment" }, { type: "azure-nextgen:resources/v20190701:Deployment" }, { type: "azure-nextgen:resources/v20190801:Deployment" }, { type: "azure-nextgen:resources/v20191001:Deployment" }, { type: "azure-nextgen:resources/v20200601:Deployment" }, { type: "azure-nextgen:resources/v20200801:Deployment" }, { type: "azure-nextgen:resources/v20201001:Deployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources:Deployment" }, { type: "azure-nextgen:resources/v20151101:Deployment" }, { type: "azure-nextgen:resources/v20160201:Deployment" }, { type: "azure-nextgen:resources/v20160701:Deployment" }, { type: "azure-nextgen:resources/v20160901:Deployment" }, { type: "azure-nextgen:resources/v20170510:Deployment" }, { type: "azure-nextgen:resources/v20180201:Deployment" }, { type: "azure-nextgen:resources/v20180501:Deployment" }, { type: "azure-nextgen:resources/v20190301:Deployment" }, { type: "azure-nextgen:resources/v20190501:Deployment" }, { type: "azure-nextgen:resources/v20190510:Deployment" }, { type: "azure-nextgen:resources/v20190701:Deployment" }, { type: "azure-nextgen:resources/v20190801:Deployment" }, { type: "azure-nextgen:resources/v20191001:Deployment" }, { type: "azure-nextgen:resources/v20200601:Deployment" }, { type: "azure-nextgen:resources/v20200801:Deployment" }, { type: "azure-nextgen:resources/v20201001:Deployment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Deployment.__pulumiType, name, inputs, opts);
     }

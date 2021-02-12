@@ -13,6 +13,8 @@ import (
 
 // The diagnostic setting resource.
 // Latest API Version: 2017-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aadiam:DiagnosticSetting'.
 type DiagnosticSetting struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +47,9 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:aadiam:DiagnosticSetting"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:aadiam/v20170401:DiagnosticSetting"),
 		},

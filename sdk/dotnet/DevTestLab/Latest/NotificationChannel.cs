@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// A notification.
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:NotificationChannel'.")]
     [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:NotificationChannel")]
     public partial class NotificationChannel : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:NotificationChannel"},
                 },

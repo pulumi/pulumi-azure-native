@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['IdentityProvider']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:IdentityProvider'.""", DeprecationWarning)
+
 
 class IdentityProvider(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:IdentityProvider'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class IdentityProvider(pulumi.CustomResource):
         :param pulumi.Input[str] signup_policy_name: Signup Policy Name. Only applies to AAD B2C Identity Provider.
         :param pulumi.Input[Union[str, 'IdentityProviderType']] type: Identity Provider Type identifier.
         """
+        pulumi.log.warn("IdentityProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:IdentityProvider'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -93,7 +98,7 @@ class IdentityProvider(pulumi.CustomResource):
             __props__['signup_policy_name'] = signup_policy_name
             __props__['type'] = type
             __props__['name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:IdentityProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:IdentityProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IdentityProvider, __self__).__init__(
             'azure-nextgen:apimanagement/latest:IdentityProvider',

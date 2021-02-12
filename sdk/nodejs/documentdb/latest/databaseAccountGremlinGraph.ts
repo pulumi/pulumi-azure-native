@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Gremlin graph.
  * Latest API Version: 2016-03-31.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountGremlinGraph'.
  */
 export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountGremlinGraph {
+        pulumi.log.warn("DatabaseAccountGremlinGraph is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountGremlinGraph'.")
         return new DatabaseAccountGremlinGraph(name, undefined as any, { ...opts, id: id });
     }
 
@@ -92,7 +95,9 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountGremlinGraph'. */
     constructor(name: string, args: DatabaseAccountGremlinGraphArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DatabaseAccountGremlinGraph is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountGremlinGraph'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -152,7 +157,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinGraph" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountGremlinGraph.__pulumiType, name, inputs, opts);
     }

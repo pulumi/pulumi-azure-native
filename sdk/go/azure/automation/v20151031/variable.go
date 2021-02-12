@@ -52,6 +52,9 @@ func NewVariable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:automation:Variable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Variable"),
 		},
 		{

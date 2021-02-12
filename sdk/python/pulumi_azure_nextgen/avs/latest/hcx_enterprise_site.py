@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['HcxEnterpriseSite']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:HcxEnterpriseSite'.""", DeprecationWarning)
+
 
 class HcxEnterpriseSite(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:HcxEnterpriseSite'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -31,6 +35,7 @@ class HcxEnterpriseSite(pulumi.CustomResource):
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
+        pulumi.log.warn("HcxEnterpriseSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:HcxEnterpriseSite'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -61,7 +66,7 @@ class HcxEnterpriseSite(pulumi.CustomResource):
             __props__['name'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs/v20200320:HcxEnterpriseSite"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:HcxEnterpriseSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs:HcxEnterpriseSite"), pulumi.Alias(type_="azure-nextgen:avs/v20200320:HcxEnterpriseSite"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:HcxEnterpriseSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HcxEnterpriseSite, __self__).__init__(
             'azure-nextgen:avs/latest:HcxEnterpriseSite',

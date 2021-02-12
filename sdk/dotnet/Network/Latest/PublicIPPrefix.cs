@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Public IP prefix resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PublicIPPrefix'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:PublicIPPrefix")]
     public partial class PublicIPPrefix : Pulumi.CustomResource
     {
@@ -143,6 +144,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:PublicIPPrefix"},

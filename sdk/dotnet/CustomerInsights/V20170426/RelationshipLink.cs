@@ -118,6 +118,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights:RelationshipLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:RelationshipLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:RelationshipLink"},
                 },

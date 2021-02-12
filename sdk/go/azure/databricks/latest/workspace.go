@@ -13,6 +13,8 @@ import (
 
 // Information about workspace.
 // Latest API Version: 2018-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:Workspace'.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +69,9 @@ func NewWorkspace(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:databricks:Workspace"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:databricks/v20180401:Workspace"),
 		},

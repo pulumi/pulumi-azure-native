@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Backup of a Volume
  * Latest API Version: 2020-11-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Backup'.
  */
 export class Backup extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Backup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Backup {
+        pulumi.log.warn("Backup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Backup'.")
         return new Backup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -83,7 +86,9 @@ export class Backup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Backup'. */
     constructor(name: string, args: BackupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Backup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Backup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -135,7 +140,7 @@ export class Backup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20200501:Backup" }, { type: "azure-nextgen:netapp/v20200601:Backup" }, { type: "azure-nextgen:netapp/v20200701:Backup" }, { type: "azure-nextgen:netapp/v20200801:Backup" }, { type: "azure-nextgen:netapp/v20200901:Backup" }, { type: "azure-nextgen:netapp/v20201101:Backup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:Backup" }, { type: "azure-nextgen:netapp/v20200501:Backup" }, { type: "azure-nextgen:netapp/v20200601:Backup" }, { type: "azure-nextgen:netapp/v20200701:Backup" }, { type: "azure-nextgen:netapp/v20200801:Backup" }, { type: "azure-nextgen:netapp/v20200901:Backup" }, { type: "azure-nextgen:netapp/v20201101:Backup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Backup.__pulumiType, name, inputs, opts);
     }

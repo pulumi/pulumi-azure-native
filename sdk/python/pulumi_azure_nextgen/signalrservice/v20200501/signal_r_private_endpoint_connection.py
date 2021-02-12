@@ -68,7 +68,7 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:signalrservice/latest:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20200701preview:SignalRPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:signalrservice:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:signalrservice/latest:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:signalrservice/v20200701preview:SignalRPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalRPrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:signalrservice/v20200501:SignalRPrivateEndpointConnection',

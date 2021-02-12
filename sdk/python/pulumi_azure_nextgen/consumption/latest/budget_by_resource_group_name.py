@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['BudgetByResourceGroupName']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:BudgetByResourceGroupName'.""", DeprecationWarning)
+
 
 class BudgetByResourceGroupName(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:BudgetByResourceGroupName'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'TimeGrainType']] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain.
         :param pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']] time_period: Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
         """
+        pulumi.log.warn("BudgetByResourceGroupName is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:BudgetByResourceGroupName'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
             __props__['current_spend'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:consumption/v20180131:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20180331:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20180630:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20180831:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20181001:BudgetByResourceGroupName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:consumption:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20180131:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20180331:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20180630:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20180831:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20181001:BudgetByResourceGroupName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BudgetByResourceGroupName, __self__).__init__(
             'azure-nextgen:consumption/latest:BudgetByResourceGroupName',

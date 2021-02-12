@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Integration runtime resource type.
  * Latest API Version: 2018-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:IntegrationRuntime'.
  */
 export class IntegrationRuntime extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationRuntime {
+        pulumi.log.warn("IntegrationRuntime is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:IntegrationRuntime'.")
         return new IntegrationRuntime(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class IntegrationRuntime extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:IntegrationRuntime'. */
     constructor(name: string, args: IntegrationRuntimeArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IntegrationRuntime is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:IntegrationRuntime'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
@@ -95,7 +100,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory/v20170901preview:IntegrationRuntime" }, { type: "azure-nextgen:datafactory/v20180601:IntegrationRuntime" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory:IntegrationRuntime" }, { type: "azure-nextgen:datafactory/v20170901preview:IntegrationRuntime" }, { type: "azure-nextgen:datafactory/v20180601:IntegrationRuntime" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationRuntime.__pulumiType, name, inputs, opts);
     }

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
     /// Deployment information.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtManagementGroupScope'.")]
     [AzureNextGenResourceType("azure-nextgen:resources/latest:DeploymentAtManagementGroupScope")]
     public partial class DeploymentAtManagementGroupScope : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190501:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190510:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:DeploymentAtManagementGroupScope"},

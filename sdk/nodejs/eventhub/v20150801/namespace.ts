@@ -135,7 +135,7 @@ export class Namespace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/latest:Namespace" }, { type: "azure-nextgen:eventhub/v20140901:Namespace" }, { type: "azure-nextgen:eventhub/v20170401:Namespace" }, { type: "azure-nextgen:eventhub/v20180101preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:Namespace" }, { type: "azure-nextgen:eventhub/latest:Namespace" }, { type: "azure-nextgen:eventhub/v20140901:Namespace" }, { type: "azure-nextgen:eventhub/v20170401:Namespace" }, { type: "azure-nextgen:eventhub/v20180101preview:Namespace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Namespace.__pulumiType, name, inputs, opts);
     }

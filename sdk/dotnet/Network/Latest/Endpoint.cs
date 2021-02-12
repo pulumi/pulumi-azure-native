@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Class representing a Traffic Manager endpoint.
     /// Latest API Version: 2018-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Endpoint'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20151101:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170501:Endpoint"},

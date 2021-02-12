@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Challenge-Handshake Authentication Protocol (CHAP) setting
  * Latest API Version: 2016-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:ChapSetting'.
  */
 export class ChapSetting extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ChapSetting extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ChapSetting {
+        pulumi.log.warn("ChapSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:ChapSetting'.")
         return new ChapSetting(name, undefined as any, { ...opts, id: id });
     }
 
@@ -56,7 +59,9 @@ export class ChapSetting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:ChapSetting'. */
     constructor(name: string, args: ChapSettingArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ChapSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:ChapSetting'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.chapUserName === undefined) && !(opts && opts.urn)) {
@@ -93,7 +98,7 @@ export class ChapSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20161001:ChapSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:ChapSetting" }, { type: "azure-nextgen:storsimple/v20161001:ChapSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ChapSetting.__pulumiType, name, inputs, opts);
     }

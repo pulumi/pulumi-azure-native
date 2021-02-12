@@ -113,6 +113,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20180301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:signalrservice:SignalR"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/latest:SignalR"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20181001:SignalR"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20200501:SignalR"},

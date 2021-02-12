@@ -13,6 +13,8 @@ import (
 
 // A formula for creating a VM, specifying an image base and other parameters
 // Latest API Version: 2018-09-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Formula'.
 type Formula struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewFormula(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab:Formula"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:Formula"),
 		},

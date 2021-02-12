@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['WebService']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:WebService'.""", DeprecationWarning)
+
 
 class WebService(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:WebService'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class WebService(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         :param pulumi.Input[str] web_service_name: The name of the web service.
         """
+        pulumi.log.warn("WebService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:WebService'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class WebService(pulumi.CustomResource):
             __props__['web_service_name'] = web_service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearning/v20160501preview:WebService"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20170101:WebService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearning:WebService"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20160501preview:WebService"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20170101:WebService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebService, __self__).__init__(
             'azure-nextgen:machinelearning/latest:WebService',

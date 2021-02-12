@@ -13,6 +13,8 @@ import (
 
 // A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Transform'.
 type Transform struct {
 	pulumi.CustomResourceState
 
@@ -52,6 +54,9 @@ func NewTransform(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TransformName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:media:Transform"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:Transform"),
 		},

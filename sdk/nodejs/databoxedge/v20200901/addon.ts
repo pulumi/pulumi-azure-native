@@ -98,7 +98,7 @@ export class Addon extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/latest:Addon" }, { type: "azure-nextgen:databoxedge/v20200901preview:Addon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Addon" }, { type: "azure-nextgen:databoxedge/latest:Addon" }, { type: "azure-nextgen:databoxedge/v20200901preview:Addon" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Addon.__pulumiType, name, inputs, opts);
     }

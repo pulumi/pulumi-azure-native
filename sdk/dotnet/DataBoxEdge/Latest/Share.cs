@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     /// Represents a share on the  Data Box Edge/Gateway device.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Share'.")]
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Share")]
     public partial class Share : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Share"},

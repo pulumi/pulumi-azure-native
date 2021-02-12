@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['WebAppConnectionStrings']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppConnectionStrings'.""", DeprecationWarning)
+
 
 class WebAppConnectionStrings(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppConnectionStrings'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class WebAppConnectionStrings(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ConnStringValueTypePairArgs']]]] properties: Connection strings.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
+        pulumi.log.warn("WebAppConnectionStrings is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppConnectionStrings'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -63,7 +68,7 @@ class WebAppConnectionStrings(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppConnectionStrings")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppConnectionStrings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppConnectionStrings, __self__).__init__(
             'azure-nextgen:web/latest:WebAppConnectionStrings',

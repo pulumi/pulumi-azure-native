@@ -13,6 +13,8 @@ import (
 
 // Azure Data Catalog.
 // Latest API Version: 2016-03-30.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datacatalog:ADCCatalog'.
 type ADCCatalog struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +56,9 @@ func NewADCCatalog(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datacatalog:ADCCatalog"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:datacatalog/v20160330:ADCCatalog"),
 		},

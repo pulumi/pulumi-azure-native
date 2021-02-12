@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['DataFlow']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:DataFlow'.""", DeprecationWarning)
+
 
 class DataFlow(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:DataFlow'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class DataFlow(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MappingDataFlowArgs']] properties: Data flow properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
+        pulumi.log.warn("DataFlow is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:DataFlow'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -67,7 +72,7 @@ class DataFlow(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datafactory/v20180601:DataFlow")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datafactory:DataFlow"), pulumi.Alias(type_="azure-nextgen:datafactory/v20180601:DataFlow")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataFlow, __self__).__init__(
             'azure-nextgen:datafactory/latest:DataFlow',

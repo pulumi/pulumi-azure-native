@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['LiveEvent']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:LiveEvent'.""", DeprecationWarning)
+
 
 class LiveEvent(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:LiveEvent'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +62,7 @@ class LiveEvent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LiveEventTranscriptionArgs']]]] transcriptions: Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
         :param pulumi.Input[bool] use_static_hostname: Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
         """
+        pulumi.log.warn("LiveEvent is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:LiveEvent'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -105,7 +110,7 @@ class LiveEvent(pulumi.CustomResource):
             __props__['resource_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180330preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180701:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20200501:LiveEvent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180701:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20200501:LiveEvent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LiveEvent, __self__).__init__(
             'azure-nextgen:media/latest:LiveEvent',

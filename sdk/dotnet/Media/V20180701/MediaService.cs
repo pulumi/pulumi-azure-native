@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20151001:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:MediaService"},

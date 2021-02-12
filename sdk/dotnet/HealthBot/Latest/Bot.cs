@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.HealthBot.Latest
     /// HealthBot resource definition
     /// Latest API Version: 2020-12-08.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthbot:Bot'.")]
     [AzureNextGenResourceType("azure-nextgen:healthbot/latest:Bot")]
     public partial class Bot : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.HealthBot.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:healthbot:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/v20201020:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/v20201020preview:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/v20201208:Bot"},

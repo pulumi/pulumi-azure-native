@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
     /// A project resource
     /// Latest API Version: 2018-04-19.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Project'.")]
     [AzureNextGenResourceType("azure-nextgen:datamigration/latest:Project")]
     public partial class Project : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datamigration:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20171115preview:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180315preview:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180331preview:Project"},

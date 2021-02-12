@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
     /// Agent Pool.
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:AgentPool'.")]
     [AzureNextGenResourceType("azure-nextgen:containerservice/latest:AgentPool")]
     public partial class AgentPool : Pulumi.CustomResource
     {
@@ -233,6 +234,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190201:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190401:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190601:AgentPool"},

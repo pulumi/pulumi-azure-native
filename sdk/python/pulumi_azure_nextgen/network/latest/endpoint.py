@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Endpoint']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Endpoint'.""", DeprecationWarning)
+
 
 class Endpoint(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Endpoint'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +68,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         :param pulumi.Input[float] weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
+        pulumi.log.warn("Endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Endpoint'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -107,7 +112,7 @@ class Endpoint(pulumi.CustomResource):
             __props__['target_resource_id'] = target_resource_id
             __props__['type'] = type
             __props__['weight'] = weight
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20151101:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20170501:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180301:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Endpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20151101:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20170501:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180301:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
             'azure-nextgen:network/latest:Endpoint',

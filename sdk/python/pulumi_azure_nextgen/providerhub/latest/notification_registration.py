@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['NotificationRegistration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:NotificationRegistration'.""", DeprecationWarning)
+
 
 class NotificationRegistration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:NotificationRegistration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -30,6 +34,7 @@ class NotificationRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] notification_registration_name: The notification registration.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
+        pulumi.log.warn("NotificationRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:NotificationRegistration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -56,7 +61,7 @@ class NotificationRegistration(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:NotificationRegistration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub:NotificationRegistration"), pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:NotificationRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotificationRegistration, __self__).__init__(
             'azure-nextgen:providerhub/latest:NotificationRegistration',

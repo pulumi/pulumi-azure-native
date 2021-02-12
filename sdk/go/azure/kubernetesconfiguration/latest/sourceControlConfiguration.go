@@ -13,6 +13,8 @@ import (
 
 // The SourceControl Configuration object returned in Get & Put response.
 // Latest API Version: 2021-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetesconfiguration:SourceControlConfiguration'.
 type SourceControlConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +78,9 @@ func NewSourceControlConfiguration(ctx *pulumi.Context,
 		args.OperatorNamespace = pulumi.StringPtr("default")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:kubernetesconfiguration:SourceControlConfiguration"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"),
 		},

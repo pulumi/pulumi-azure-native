@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkTap"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkTap"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:VirtualNetworkTap"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:VirtualNetworkTap"},

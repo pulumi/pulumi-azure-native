@@ -137,7 +137,7 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/latest:IntegrationAccountSchema" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountSchema" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountSchema" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountSchema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationAccountSchema" }, { type: "azure-nextgen:logic/latest:IntegrationAccountSchema" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountSchema" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountSchema" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountSchema" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountSchema.__pulumiType, name, inputs, opts);
     }

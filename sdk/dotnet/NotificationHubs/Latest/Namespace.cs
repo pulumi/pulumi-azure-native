@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
     /// Description of a Namespace resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:Namespace'.")]
     [AzureNextGenResourceType("azure-nextgen:notificationhubs/latest:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
@@ -149,6 +150,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20170401:Namespace"},

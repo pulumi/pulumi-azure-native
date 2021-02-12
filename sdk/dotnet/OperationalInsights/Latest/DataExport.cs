@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     /// The top level data export resource container.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataExport'.")]
     [AzureNextGenResourceType("azure-nextgen:operationalinsights/latest:DataExport")]
     public partial class DataExport : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:DataExport"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:DataExport"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:DataExport"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:DataExport"},

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A container group.
  * Latest API Version: 2020-11-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerinstance:ContainerGroup'.
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ContainerGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ContainerGroup {
+        pulumi.log.warn("ContainerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerinstance:ContainerGroup'.")
         return new ContainerGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -123,7 +126,9 @@ export class ContainerGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerinstance:ContainerGroup'. */
     constructor(name: string, args: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ContainerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerinstance:ContainerGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.containerGroupName === undefined) && !(opts && opts.urn)) {
@@ -187,7 +192,7 @@ export class ContainerGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerinstance/v20170801preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20171001preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20171201preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180201preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180401:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180601:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180901:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20181001:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20191201:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20201101:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20210301:ContainerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerinstance:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20170801preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20171001preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20171201preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180201preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180401:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180601:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180901:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20181001:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20191201:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20201101:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20210301:ContainerGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContainerGroup.__pulumiType, name, inputs, opts);
     }

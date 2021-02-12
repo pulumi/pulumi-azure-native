@@ -48,6 +48,12 @@ func NewVendorSkus(ctx *pulumi.Context,
 	if args.VendorName == nil {
 		return nil, errors.New("invalid value for required argument 'VendorName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:hybridnetwork:VendorSkus"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VendorSkus
 	err := ctx.RegisterResource("azure-nextgen:hybridnetwork/v20200101preview:VendorSkus", name, args, &resource, opts...)
 	if err != nil {

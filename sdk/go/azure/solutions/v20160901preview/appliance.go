@@ -63,6 +63,12 @@ func NewAppliance(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:solutions:Appliance"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Appliance
 	err := ctx.RegisterResource("azure-nextgen:solutions/v20160901preview:Appliance", name, args, &resource, opts...)
 	if err != nil {

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
     /// Represents a and external administrator to be created.
     /// Latest API Version: 2017-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:ServerAdministrator'.")]
     [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/latest:ServerAdministrator")]
     public partial class ServerAdministrator : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:ServerAdministrator"},
                 },

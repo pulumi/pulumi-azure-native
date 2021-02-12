@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Source control configuration for an app.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSourceControlSlot'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppSourceControlSlot")]
     public partial class WebAppSourceControlSlot : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSourceControlSlot"},

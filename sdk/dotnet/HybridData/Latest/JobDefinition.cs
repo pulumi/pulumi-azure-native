@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
     /// Job Definition.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:JobDefinition'.")]
     [AzureNextGenResourceType("azure-nextgen:hybriddata/latest:JobDefinition")]
     public partial class JobDefinition : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata:JobDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20160601:JobDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:JobDefinition"},
                 },

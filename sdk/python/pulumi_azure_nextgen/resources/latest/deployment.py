@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Deployment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Deployment'.""", DeprecationWarning)
+
 
 class Deployment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Deployment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group to deploy the resources to. The name is case insensitive. The resource group must already exist.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Deployment tags
         """
+        pulumi.log.warn("Deployment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Deployment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class Deployment(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources/v20151101:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20160201:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20160701:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20160901:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20170510:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20180201:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20180501:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20190301:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20190501:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20190510:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20190701:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20190801:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20191001:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20200601:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20200801:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20201001:Deployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20151101:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20160201:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20160701:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20160901:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20170510:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20180201:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20180501:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20190301:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20190501:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20190510:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20190701:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20190801:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20191001:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20200601:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20200801:Deployment"), pulumi.Alias(type_="azure-nextgen:resources/v20201001:Deployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Deployment, __self__).__init__(
             'azure-nextgen:resources/latest:Deployment',

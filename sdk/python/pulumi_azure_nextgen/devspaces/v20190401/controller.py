@@ -79,7 +79,7 @@ class Controller(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['target_container_host_api_server_fqdn'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devspaces/latest:Controller")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devspaces:Controller"), pulumi.Alias(type_="azure-nextgen:devspaces/latest:Controller")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Controller, __self__).__init__(
             'azure-nextgen:devspaces/v20190401:Controller',

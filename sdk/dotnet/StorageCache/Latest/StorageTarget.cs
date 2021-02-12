@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
     /// Type of the Storage Target.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:StorageTarget'.")]
     [AzureNextGenResourceType("azure-nextgen:storagecache/latest:StorageTarget")]
     public partial class StorageTarget : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache:StorageTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20190801preview:StorageTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20191101:StorageTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20200301:StorageTarget"},

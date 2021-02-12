@@ -66,7 +66,7 @@ class Step(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:deploymentmanager/v20191101preview:Step")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:deploymentmanager:Step"), pulumi.Alias(type_="azure-nextgen:deploymentmanager/v20191101preview:Step")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Step, __self__).__init__(
             'azure-nextgen:deploymentmanager/v20180901preview:Step',

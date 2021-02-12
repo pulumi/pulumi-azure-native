@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:VirtualNetwork"},

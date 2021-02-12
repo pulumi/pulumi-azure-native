@@ -13,6 +13,8 @@ import (
 
 // File Server information.
 // Latest API Version: 2018-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:FileServer'.
 type FileServer struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +66,9 @@ func NewFileServer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:batchai:FileServer"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:batchai/v20180501:FileServer"),
 		},

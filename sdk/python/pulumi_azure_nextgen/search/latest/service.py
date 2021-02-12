@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Service']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:Service'.""", DeprecationWarning)
+
 
 class Service(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:Service'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:Service'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -97,7 +102,7 @@ class Service(pulumi.CustomResource):
             __props__['status'] = None
             __props__['status_details'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:search/v20150819:Service"), pulumi.Alias(type_="azure-nextgen:search/v20191001preview:Service"), pulumi.Alias(type_="azure-nextgen:search/v20200313:Service"), pulumi.Alias(type_="azure-nextgen:search/v20200801:Service"), pulumi.Alias(type_="azure-nextgen:search/v20200801preview:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:search:Service"), pulumi.Alias(type_="azure-nextgen:search/v20150819:Service"), pulumi.Alias(type_="azure-nextgen:search/v20191001preview:Service"), pulumi.Alias(type_="azure-nextgen:search/v20200313:Service"), pulumi.Alias(type_="azure-nextgen:search/v20200801:Service"), pulumi.Alias(type_="azure-nextgen:search/v20200801preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-nextgen:search/latest:Service',

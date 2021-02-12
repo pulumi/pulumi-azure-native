@@ -92,7 +92,7 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementLockAtSubscriptionLevel.__pulumiType, name, inputs, opts);
     }

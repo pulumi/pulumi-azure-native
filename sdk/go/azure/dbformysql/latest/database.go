@@ -13,6 +13,8 @@ import (
 
 // Represents a Database.
 // Latest API Version: 2017-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:Database'.
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -43,6 +45,9 @@ func NewDatabase(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:dbformysql:Database"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20171201:Database"),
 		},

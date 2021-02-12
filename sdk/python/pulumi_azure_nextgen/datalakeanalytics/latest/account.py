@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Account']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:Account'.""", DeprecationWarning)
+
 
 class Account(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:Account'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +66,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddStorageAccountWithAccountParametersArgs']]]] storage_accounts: The list of Azure Blob Storage accounts associated with this account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:Account'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -124,7 +129,7 @@ class Account(pulumi.CustomResource):
             __props__['system_max_job_count'] = None
             __props__['type'] = None
             __props__['virtual_network_rules'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakeanalytics/v20151001preview:Account"), pulumi.Alias(type_="azure-nextgen:datalakeanalytics/v20161101:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakeanalytics:Account"), pulumi.Alias(type_="azure-nextgen:datalakeanalytics/v20151001preview:Account"), pulumi.Alias(type_="azure-nextgen:datalakeanalytics/v20161101:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-nextgen:datalakeanalytics/latest:Account',

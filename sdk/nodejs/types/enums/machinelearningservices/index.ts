@@ -37,3 +37,223 @@ export {
     v20200901preview,
     v20210101,
 };
+
+export const ApplicationSharingPolicy = {
+    Personal: "Personal",
+    Shared: "Shared",
+} as const;
+
+/**
+ * Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+ */
+export type ApplicationSharingPolicy = (typeof ApplicationSharingPolicy)[keyof typeof ApplicationSharingPolicy];
+
+export const ClusterPurpose = {
+    FastProd: "FastProd",
+    DenseProd: "DenseProd",
+    DevTest: "DevTest",
+} as const;
+
+/**
+ * Intended usage of the cluster
+ */
+export type ClusterPurpose = (typeof ClusterPurpose)[keyof typeof ClusterPurpose];
+
+export const ComputeEnvironmentType = {
+    ACI: "ACI",
+    AKS: "AKS",
+} as const;
+
+/**
+ * The compute environment type for the service.
+ */
+export type ComputeEnvironmentType = (typeof ComputeEnvironmentType)[keyof typeof ComputeEnvironmentType];
+
+export const ComputeInstanceAuthorizationType = {
+    Personal: "personal",
+} as const;
+
+/**
+ * The Compute Instance Authorization type. Available values are personal (default).
+ */
+export type ComputeInstanceAuthorizationType = (typeof ComputeInstanceAuthorizationType)[keyof typeof ComputeInstanceAuthorizationType];
+
+export const ComputeType = {
+    AKS: "AKS",
+    AmlCompute: "AmlCompute",
+    ComputeInstance: "ComputeInstance",
+    DataFactory: "DataFactory",
+    VirtualMachine: "VirtualMachine",
+    HDInsight: "HDInsight",
+    Databricks: "Databricks",
+    DataLakeAnalytics: "DataLakeAnalytics",
+} as const;
+
+/**
+ * The type of compute
+ */
+export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
+
+export const DatasetType = {
+    Tabular: "tabular",
+    File: "file",
+} as const;
+
+/**
+ * Specifies dataset type.
+ */
+export type DatasetType = (typeof DatasetType)[keyof typeof DatasetType];
+
+export const DatastoreTypeArm = {
+    Blob: "blob",
+    Adls: "adls",
+    Adls_gen2: "adls-gen2",
+    Dbfs: "dbfs",
+    File: "file",
+    Mysqldb: "mysqldb",
+    Sqldb: "sqldb",
+    Psqldb: "psqldb",
+} as const;
+
+/**
+ * Specifies datastore type.
+ */
+export type DatastoreTypeArm = (typeof DatastoreTypeArm)[keyof typeof DatastoreTypeArm];
+
+export const EncryptionStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether or not the encryption is enabled for the workspace.
+ */
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
+export const Header = {
+    All_files_have_same_headers: "all_files_have_same_headers",
+    Only_first_file_has_headers: "only_first_file_has_headers",
+    No_headers: "no_headers",
+    Combine_all_files_headers: "combine_all_files_headers",
+} as const;
+
+/**
+ * Header type.
+ */
+export type Header = (typeof Header)[keyof typeof Header];
+
+export const ImageAnnotationType = {
+    Classification: "Classification",
+    BoundingBox: "BoundingBox",
+    InstanceSegmentation: "InstanceSegmentation",
+} as const;
+
+/**
+ * Annotation type of image labeling tasks.
+ */
+export type ImageAnnotationType = (typeof ImageAnnotationType)[keyof typeof ImageAnnotationType];
+
+export const LinkedServiceLinkType = {
+    Synapse: "Synapse",
+} as const;
+
+/**
+ * Type of the link target.
+ */
+export type LinkedServiceLinkType = (typeof LinkedServiceLinkType)[keyof typeof LinkedServiceLinkType];
+
+export const MediaType = {
+    Image: "Image",
+    Text: "Text",
+} as const;
+
+/**
+ * Media type of data asset.
+ */
+export type MediaType = (typeof MediaType)[keyof typeof MediaType];
+
+export const OsType = {
+    Linux: "Linux",
+    Windows: "Windows",
+} as const;
+
+/**
+ * Compute OS Type
+ */
+export type OsType = (typeof OsType)[keyof typeof OsType];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+    Timeout: "Timeout",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const RemoteLoginPortPublicAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    NotSpecified: "NotSpecified",
+} as const;
+
+/**
+ * State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
+ */
+export type RemoteLoginPortPublicAccess = (typeof RemoteLoginPortPublicAccess)[keyof typeof RemoteLoginPortPublicAccess];
+
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+    UserAssigned: "UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const SourceType = {
+    Delimited_files: "delimited_files",
+    Json_lines_files: "json_lines_files",
+    Parquet_files: "parquet_files",
+} as const;
+
+/**
+ * Data source type.
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+export const SshPublicAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+ */
+export type SshPublicAccess = (typeof SshPublicAccess)[keyof typeof SshPublicAccess];
+
+export const ValueFormat = {
+    JSON: "JSON",
+} as const;
+
+/**
+ * format for the workspace connection value
+ */
+export type ValueFormat = (typeof ValueFormat)[keyof typeof ValueFormat];
+
+export const VmPriority = {
+    Dedicated: "Dedicated",
+    LowPriority: "LowPriority",
+} as const;
+
+/**
+ * Virtual Machine priority
+ */
+export type VmPriority = (typeof VmPriority)[keyof typeof VmPriority];

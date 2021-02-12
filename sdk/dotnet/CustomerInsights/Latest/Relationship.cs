@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
     /// The relationship resource format.
     /// Latest API Version: 2017-04-26.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Relationship'.")]
     [AzureNextGenResourceType("azure-nextgen:customerinsights/latest:Relationship")]
     public partial class Relationship : Pulumi.CustomResource
     {
@@ -125,6 +126,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Relationship"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Relationship"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Relationship"},
                 },

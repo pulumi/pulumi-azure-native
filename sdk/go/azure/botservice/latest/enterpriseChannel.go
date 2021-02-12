@@ -13,6 +13,8 @@ import (
 
 // Enterprise Channel resource definition
 // Latest API Version: 2018-07-12.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:EnterpriseChannel'.
 type EnterpriseChannel struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewEnterpriseChannel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:botservice:EnterpriseChannel"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20180712:EnterpriseChannel"),
 		},

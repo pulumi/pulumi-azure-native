@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['AutoscaleSetting']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AutoscaleSetting'.""", DeprecationWarning)
+
 
 class AutoscaleSetting(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AutoscaleSetting'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
         """
+        pulumi.log.warn("AutoscaleSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AutoscaleSetting'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['target_resource_uri'] = target_resource_uri
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150401:AutoscaleSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:AutoscaleSetting"), pulumi.Alias(type_="azure-nextgen:insights/v20150401:AutoscaleSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutoscaleSetting, __self__).__init__(
             'azure-nextgen:insights/latest:AutoscaleSetting',

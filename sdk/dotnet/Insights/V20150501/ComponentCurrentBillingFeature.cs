@@ -52,6 +52,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:ComponentCurrentBillingFeature"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ComponentCurrentBillingFeature"},
                 },
             };

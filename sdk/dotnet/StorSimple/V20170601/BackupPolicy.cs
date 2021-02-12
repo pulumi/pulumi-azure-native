@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:BackupPolicy"},
                 },
             };

@@ -68,7 +68,7 @@ class User(pulumi.CustomResource):
             __props__['share_access_rights'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/latest:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/latest:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-nextgen:databoxedge/v20200901preview:User',

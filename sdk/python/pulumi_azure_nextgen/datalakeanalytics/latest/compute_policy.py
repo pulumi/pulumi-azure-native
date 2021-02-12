@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['ComputePolicy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:ComputePolicy'.""", DeprecationWarning)
+
 
 class ComputePolicy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:ComputePolicy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class ComputePolicy(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'AADObjectType']] object_type: The type of AAD object the object identifier refers to.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         """
+        pulumi.log.warn("ComputePolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:ComputePolicy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,7 +81,7 @@ class ComputePolicy(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy"), pulumi.Alias(type_="azure-nextgen:datalakeanalytics/v20161101:ComputePolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakeanalytics:ComputePolicy"), pulumi.Alias(type_="azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy"), pulumi.Alias(type_="azure-nextgen:datalakeanalytics/v20161101:ComputePolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ComputePolicy, __self__).__init__(
             'azure-nextgen:datalakeanalytics/latest:ComputePolicy',

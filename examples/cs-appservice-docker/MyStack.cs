@@ -1,10 +1,10 @@
 using System.Linq;
 using Pulumi;
-using Pulumi.AzureNextGen.ContainerRegistry.Latest;
-using Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs;
-using Pulumi.AzureNextGen.Resources.Latest;
-using Pulumi.AzureNextGen.Web.Latest;
-using Pulumi.AzureNextGen.Web.Latest.Inputs;
+using Pulumi.AzureNextGen.ContainerRegistry;
+using Pulumi.AzureNextGen.ContainerRegistry.Inputs;
+using Pulumi.AzureNextGen.Resources;
+using Pulumi.AzureNextGen.Web;
+using Pulumi.AzureNextGen.Web.Inputs;
 using Pulumi.Docker;
 using Pulumi.Random;
 

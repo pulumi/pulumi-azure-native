@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Cache"},

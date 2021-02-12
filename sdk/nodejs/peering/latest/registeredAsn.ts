@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The customer's ASN that is registered by the peering service provider.
  * Latest API Version: 2020-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredAsn'.
  */
 export class RegisteredAsn extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class RegisteredAsn extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegisteredAsn {
+        pulumi.log.warn("RegisteredAsn is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredAsn'.")
         return new RegisteredAsn(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,7 +66,9 @@ export class RegisteredAsn extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredAsn'. */
     constructor(name: string, args: RegisteredAsnArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("RegisteredAsn is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredAsn'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
@@ -97,7 +102,7 @@ export class RegisteredAsn extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering/v20200101preview:RegisteredAsn" }, { type: "azure-nextgen:peering/v20200401:RegisteredAsn" }, { type: "azure-nextgen:peering/v20201001:RegisteredAsn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering:RegisteredAsn" }, { type: "azure-nextgen:peering/v20200101preview:RegisteredAsn" }, { type: "azure-nextgen:peering/v20200401:RegisteredAsn" }, { type: "azure-nextgen:peering/v20201001:RegisteredAsn" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegisteredAsn.__pulumiType, name, inputs, opts);
     }

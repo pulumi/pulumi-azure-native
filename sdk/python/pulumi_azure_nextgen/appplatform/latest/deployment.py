@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Deployment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Deployment'.""", DeprecationWarning)
+
 
 class Deployment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Deployment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the Service resource.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Sku of the Deployment resource
         """
+        pulumi.log.warn("Deployment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Deployment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class Deployment(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform/v20190501preview:Deployment"), pulumi.Alias(type_="azure-nextgen:appplatform/v20200701:Deployment"), pulumi.Alias(type_="azure-nextgen:appplatform/v20201101preview:Deployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform:Deployment"), pulumi.Alias(type_="azure-nextgen:appplatform/v20190501preview:Deployment"), pulumi.Alias(type_="azure-nextgen:appplatform/v20200701:Deployment"), pulumi.Alias(type_="azure-nextgen:appplatform/v20201101preview:Deployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Deployment, __self__).__init__(
             'azure-nextgen:appplatform/latest:Deployment',

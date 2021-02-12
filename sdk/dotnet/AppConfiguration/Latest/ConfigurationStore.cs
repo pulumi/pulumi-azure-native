@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.Latest
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appconfiguration:ConfigurationStore'.")]
     [AzureNextGenResourceType("azure-nextgen:appconfiguration/latest:ConfigurationStore")]
     public partial class ConfigurationStore : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20191001:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore"},

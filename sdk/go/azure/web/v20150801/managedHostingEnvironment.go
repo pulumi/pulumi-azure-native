@@ -103,6 +103,9 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:ManagedHostingEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:ManagedHostingEnvironment"),
 		},
 	})

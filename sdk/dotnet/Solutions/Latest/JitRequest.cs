@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
     /// Information about JIT request definition.
     /// Latest API Version: 2019-07-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:JitRequest'.")]
     [AzureNextGenResourceType("azure-nextgen:solutions/latest:JitRequest")]
     public partial class JitRequest : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions:JitRequest"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:JitRequest"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:JitRequest"},
                 },

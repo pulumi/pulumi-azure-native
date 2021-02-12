@@ -46,6 +46,9 @@ func NewTransparentDataEncryption(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql:TransparentDataEncryption"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/latest:TransparentDataEncryption"),
 		},
 		{

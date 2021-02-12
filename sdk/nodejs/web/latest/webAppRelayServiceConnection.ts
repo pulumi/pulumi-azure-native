@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Hybrid Connection for an App Service app.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppRelayServiceConnection'.
  */
 export class WebAppRelayServiceConnection extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppRelayServiceConnection {
+        pulumi.log.warn("WebAppRelayServiceConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppRelayServiceConnection'.")
         return new WebAppRelayServiceConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -67,7 +70,9 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppRelayServiceConnection'. */
     constructor(name: string, args: WebAppRelayServiceConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppRelayServiceConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppRelayServiceConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.entityName === undefined) && !(opts && opts.urn)) {
@@ -111,7 +116,7 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20160801:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20180201:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20181101:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20190801:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20200601:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20200901:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20201001:WebAppRelayServiceConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20150801:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20160801:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20180201:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20181101:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20190801:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20200601:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20200901:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20201001:WebAppRelayServiceConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppRelayServiceConnection.__pulumiType, name, inputs, opts);
     }

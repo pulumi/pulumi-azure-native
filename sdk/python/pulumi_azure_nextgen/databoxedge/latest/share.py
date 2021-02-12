@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Share']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Share'.""", DeprecationWarning)
+
 
 class Share(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Share'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ShareStatus']] share_status: Current status of the share.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """
+        pulumi.log.warn("Share is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Share'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,7 +101,7 @@ class Share(pulumi.CustomResource):
             __props__['share_mappings'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Share")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Share")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Share, __self__).__init__(
             'azure-nextgen:databoxedge/latest:Share',

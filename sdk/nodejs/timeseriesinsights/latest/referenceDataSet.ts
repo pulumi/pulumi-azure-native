@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
  * Latest API Version: 2020-05-15.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:ReferenceDataSet'.
  */
 export class ReferenceDataSet extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReferenceDataSet {
+        pulumi.log.warn("ReferenceDataSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:ReferenceDataSet'.")
         return new ReferenceDataSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class ReferenceDataSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:ReferenceDataSet'. */
     constructor(name: string, args: ReferenceDataSetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ReferenceDataSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:ReferenceDataSet'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
@@ -119,7 +124,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20171115:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:timeseriesinsights:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20171115:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReferenceDataSet.__pulumiType, name, inputs, opts);
     }

@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['AppServiceCertificateOrderCertificate']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate'.""", DeprecationWarning)
+
 
 class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("AppServiceCertificateOrderCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,7 +81,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrderCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrderCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServiceCertificateOrderCertificate, __self__).__init__(
             'azure-nextgen:certificateregistration/latest:AppServiceCertificateOrderCertificate',

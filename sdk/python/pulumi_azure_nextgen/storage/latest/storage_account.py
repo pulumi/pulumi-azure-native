@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['StorageAccount']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:StorageAccount'.""", DeprecationWarning)
+
 
 class StorageAccount(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:StorageAccount'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -66,6 +70,7 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Required. Gets or sets the SKU name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         """
+        pulumi.log.warn("StorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:StorageAccount'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -125,7 +130,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__['status_of_primary'] = None
             __props__['status_of_secondary'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:StorageAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:StorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccount, __self__).__init__(
             'azure-nextgen:storage/latest:StorageAccount',

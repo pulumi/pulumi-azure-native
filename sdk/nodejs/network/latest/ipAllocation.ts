@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * IpAllocation resource.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpAllocation'.
  */
 export class IpAllocation extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class IpAllocation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IpAllocation {
+        pulumi.log.warn("IpAllocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpAllocation'.")
         return new IpAllocation(name, undefined as any, { ...opts, id: id });
     }
 
@@ -92,7 +95,9 @@ export class IpAllocation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpAllocation'. */
     constructor(name: string, args: IpAllocationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IpAllocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpAllocation'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.ipAllocationName === undefined) && !(opts && opts.urn)) {
@@ -137,7 +142,7 @@ export class IpAllocation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200301:IpAllocation" }, { type: "azure-nextgen:network/v20200401:IpAllocation" }, { type: "azure-nextgen:network/v20200501:IpAllocation" }, { type: "azure-nextgen:network/v20200601:IpAllocation" }, { type: "azure-nextgen:network/v20200701:IpAllocation" }, { type: "azure-nextgen:network/v20200801:IpAllocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:IpAllocation" }, { type: "azure-nextgen:network/v20200301:IpAllocation" }, { type: "azure-nextgen:network/v20200401:IpAllocation" }, { type: "azure-nextgen:network/v20200501:IpAllocation" }, { type: "azure-nextgen:network/v20200601:IpAllocation" }, { type: "azure-nextgen:network/v20200701:IpAllocation" }, { type: "azure-nextgen:network/v20200801:IpAllocation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IpAllocation.__pulumiType, name, inputs, opts);
     }

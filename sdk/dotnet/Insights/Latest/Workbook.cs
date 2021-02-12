@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// An Application Insights workbook definition.
     /// Latest API Version: 2020-10-20.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Workbook'.")]
     [AzureNextGenResourceType("azure-nextgen:insights/latest:Workbook")]
     public partial class Workbook : Pulumi.CustomResource
     {
@@ -131,6 +132,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:Workbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:Workbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180617preview:Workbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20201020:Workbook"},

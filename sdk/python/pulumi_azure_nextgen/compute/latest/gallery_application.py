@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['GalleryApplication']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryApplication'.""", DeprecationWarning)
+
 
 class GalleryApplication(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryApplication'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class GalleryApplication(pulumi.CustomResource):
         :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("GalleryApplication is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryApplication'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -86,7 +91,7 @@ class GalleryApplication(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20190301:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:GalleryApplication")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:GalleryApplication")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryApplication, __self__).__init__(
             'azure-nextgen:compute/latest:GalleryApplication',

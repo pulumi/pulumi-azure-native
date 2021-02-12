@@ -74,7 +74,7 @@ class SiteAppSettingsSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteAppSettingsSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteAppSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteAppSettingsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteAppSettingsSlot, __self__).__init__(
             'azure-nextgen:web/v20150801:SiteAppSettingsSlot',

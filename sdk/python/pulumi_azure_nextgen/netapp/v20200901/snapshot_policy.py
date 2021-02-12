@@ -82,7 +82,7 @@ class SnapshotPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/latest:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:SnapshotPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/latest:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:SnapshotPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SnapshotPolicy, __self__).__init__(
             'azure-nextgen:netapp/v20200901:SnapshotPolicy',

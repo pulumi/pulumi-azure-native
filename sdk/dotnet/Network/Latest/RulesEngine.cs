@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
     /// Latest API Version: 2020-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:RulesEngine")]
     public partial class RulesEngine : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:RulesEngine"},

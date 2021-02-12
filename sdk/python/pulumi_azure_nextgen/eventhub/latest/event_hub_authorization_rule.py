@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['EventHubAuthorizationRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHubAuthorizationRule'.""", DeprecationWarning)
+
 
 class EventHubAuthorizationRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHubAuthorizationRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
         """
+        pulumi.log.warn("EventHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHubAuthorizationRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
             __props__['rights'] = rights
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHubAuthorizationRule, __self__).__init__(
             'azure-nextgen:eventhub/latest:EventHubAuthorizationRule',

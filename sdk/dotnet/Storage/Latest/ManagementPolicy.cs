@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
     /// The Get Storage Account ManagementPolicies operation response.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ManagementPolicy'.")]
     [AzureNextGenResourceType("azure-nextgen:storage/latest:ManagementPolicy")]
     public partial class ManagementPolicy : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:ManagementPolicy"},

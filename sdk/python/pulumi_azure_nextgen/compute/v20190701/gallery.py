@@ -65,7 +65,7 @@ class Gallery(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Gallery")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/latest:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Gallery")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gallery, __self__).__init__(
             'azure-nextgen:compute/v20190701:Gallery',

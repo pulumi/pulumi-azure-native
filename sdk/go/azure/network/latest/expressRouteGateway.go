@@ -13,6 +13,8 @@ import (
 
 // ExpressRoute gateway resource.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteGateway'.
 type ExpressRouteGateway struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewExpressRouteGateway(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VirtualHub'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:ExpressRouteGateway"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:ExpressRouteGateway"),
 		},

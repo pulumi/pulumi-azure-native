@@ -44,6 +44,12 @@ func NewFile(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datamigration:File"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource File
 	err := ctx.RegisterResource("azure-nextgen:datamigration/v20180715preview:File", name, args, &resource, opts...)
 	if err != nil {

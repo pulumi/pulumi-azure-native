@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Profile']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Profile'.""", DeprecationWarning)
+
 
 class Profile(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Profile'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +60,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'TrafficViewEnrollmentStatus']] traffic_view_enrollment_status: Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
         :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         """
+        pulumi.log.warn("Profile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Profile'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -91,7 +96,7 @@ class Profile(pulumi.CustomResource):
             __props__['traffic_routing_method'] = traffic_routing_method
             __props__['traffic_view_enrollment_status'] = traffic_view_enrollment_status
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20151101:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20170501:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180301:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Profile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20151101:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20170501:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180301:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
             'azure-nextgen:network/latest:Profile',

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Role definition.
  * Latest API Version: 2015-07-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleDefinition'.
  */
 export class RoleDefinition extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class RoleDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RoleDefinition {
+        pulumi.log.warn("RoleDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleDefinition'.")
         return new RoleDefinition(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,7 +75,9 @@ export class RoleDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleDefinition'. */
     constructor(name: string, args: RoleDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("RoleDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleDefinition'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.roleDefinitionId === undefined) && !(opts && opts.urn)) {
@@ -106,7 +111,7 @@ export class RoleDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20150701:RoleDefinition" }, { type: "azure-nextgen:authorization/v20180101preview:RoleDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:RoleDefinition" }, { type: "azure-nextgen:authorization/v20150701:RoleDefinition" }, { type: "azure-nextgen:authorization/v20180101preview:RoleDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RoleDefinition.__pulumiType, name, inputs, opts);
     }

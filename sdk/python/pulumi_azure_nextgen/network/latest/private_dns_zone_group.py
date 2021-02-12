@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['PrivateDnsZoneGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateDnsZoneGroup'.""", DeprecationWarning)
+
 
 class PrivateDnsZoneGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateDnsZoneGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        pulumi.log.warn("PrivateDnsZoneGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateDnsZoneGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PrivateDnsZoneGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PrivateDnsZoneGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateDnsZoneGroup, __self__).__init__(
             'azure-nextgen:network/latest:PrivateDnsZoneGroup',

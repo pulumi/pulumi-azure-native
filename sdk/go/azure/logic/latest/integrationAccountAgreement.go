@@ -13,6 +13,8 @@ import (
 
 // The integration account agreement.
 // Latest API Version: 2019-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAgreement'.
 type IntegrationAccountAgreement struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +78,9 @@ func NewIntegrationAccountAgreement(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountAgreement"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20150801preview:IntegrationAccountAgreement"),
 		},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// User details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GroupUser'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:GroupUser")]
     public partial class GroupUser : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:GroupUser"},

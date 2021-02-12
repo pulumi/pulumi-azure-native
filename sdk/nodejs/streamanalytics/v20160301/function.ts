@@ -85,7 +85,7 @@ export class Function extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics/latest:Function" }, { type: "azure-nextgen:streamanalytics/v20170401preview:Function" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics:Function" }, { type: "azure-nextgen:streamanalytics/latest:Function" }, { type: "azure-nextgen:streamanalytics/v20170401preview:Function" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Function.__pulumiType, name, inputs, opts);
     }

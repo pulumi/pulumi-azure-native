@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Certificate details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Certificate'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Certificate"},

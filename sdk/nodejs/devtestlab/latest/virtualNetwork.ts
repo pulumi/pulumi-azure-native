@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A virtual network.
  * Latest API Version: 2018-09-15.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualNetwork'.
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetwork {
+        pulumi.log.warn("VirtualNetwork is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualNetwork'.")
         return new VirtualNetwork(name, undefined as any, { ...opts, id: id });
     }
 
@@ -92,7 +95,9 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualNetwork'. */
     constructor(name: string, args: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualNetwork is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualNetwork'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -139,7 +144,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20150521preview:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/v20150521preview:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualNetwork" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetwork.__pulumiType, name, inputs, opts);
     }

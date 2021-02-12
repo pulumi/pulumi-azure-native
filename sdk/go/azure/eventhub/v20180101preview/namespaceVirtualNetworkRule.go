@@ -39,6 +39,12 @@ func NewNamespaceVirtualNetworkRule(ctx *pulumi.Context,
 	if args.VirtualNetworkRuleName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkRuleName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:eventhub:NamespaceVirtualNetworkRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NamespaceVirtualNetworkRule
 	err := ctx.RegisterResource("azure-nextgen:eventhub/v20180101preview:NamespaceVirtualNetworkRule", name, args, &resource, opts...)
 	if err != nil {

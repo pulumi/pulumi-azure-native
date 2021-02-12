@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Virtual machine model
  * Latest API Version: 2019-04-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:VirtualMachine'.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachine {
+        pulumi.log.warn("VirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:VirtualMachine'.")
         return new VirtualMachine(name, undefined as any, { ...opts, id: id });
     }
 
@@ -148,7 +151,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:VirtualMachine'. */
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:VirtualMachine'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.amountOfRam === undefined) && !(opts && opts.urn)) {
@@ -229,7 +234,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:vmwarecloudsimple:VirtualMachine" }, { type: "azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }

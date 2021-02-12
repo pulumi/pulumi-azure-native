@@ -103,7 +103,7 @@ export class LinkedService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/latest:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20200801:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:LinkedService" }, { type: "azure-nextgen:operationalinsights/latest:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20200801:LinkedService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedService.__pulumiType, name, inputs, opts);
     }

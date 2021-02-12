@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
     /// Role definition.
     /// Latest API Version: 2015-07-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleDefinition'.")]
     [AzureNextGenResourceType("azure-nextgen:authorization/latest:RoleDefinition")]
     public partial class RoleDefinition : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization:RoleDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150701:RoleDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180101preview:RoleDefinition"},
                 },

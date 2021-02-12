@@ -87,7 +87,7 @@ export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ServerAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerAzureADOnlyAuthentication.__pulumiType, name, inputs, opts);
     }

@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:JobSchedule"},

@@ -92,7 +92,7 @@ class GlobalSchedule(pulumi.CustomResource):
             __props__['weekly_recurrence'] = weekly_recurrence
             __props__['created_date'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/latest:GlobalSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:GlobalSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:GlobalSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/latest:GlobalSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:GlobalSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GlobalSchedule, __self__).__init__(
             'azure-nextgen:devtestlab/v20160515:GlobalSchedule',

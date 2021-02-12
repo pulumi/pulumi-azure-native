@@ -64,6 +64,9 @@ func NewDedicatedHost(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute:DedicatedHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:DedicatedHost"),
 		},
 		{

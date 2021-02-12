@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['App']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:iotcentral:App'.""", DeprecationWarning)
+
 
 class App(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:iotcentral:App'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] template: The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
         """
+        pulumi.log.warn("App is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:iotcentral:App'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class App(pulumi.CustomResource):
             __props__['application_id'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:iotcentral/v20170701privatepreview:App"), pulumi.Alias(type_="azure-nextgen:iotcentral/v20180901:App")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:iotcentral:App"), pulumi.Alias(type_="azure-nextgen:iotcentral/v20170701privatepreview:App"), pulumi.Alias(type_="azure-nextgen:iotcentral/v20180901:App")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(App, __self__).__init__(
             'azure-nextgen:iotcentral/latest:App',

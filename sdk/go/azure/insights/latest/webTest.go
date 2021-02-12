@@ -13,6 +13,8 @@ import (
 
 // An Application Insights web test definition.
 // Latest API Version: 2015-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:WebTest'.
 type WebTest struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +85,9 @@ func NewWebTest(ctx *pulumi.Context,
 		args.WebTestKind = WebTestKind("ping")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:WebTest"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:WebTest"),
 		},

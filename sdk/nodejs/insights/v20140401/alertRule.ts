@@ -138,7 +138,7 @@ export class AlertRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/latest:AlertRule" }, { type: "azure-nextgen:insights/v20160301:AlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:AlertRule" }, { type: "azure-nextgen:insights/latest:AlertRule" }, { type: "azure-nextgen:insights/v20160301:AlertRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AlertRule.__pulumiType, name, inputs, opts);
     }

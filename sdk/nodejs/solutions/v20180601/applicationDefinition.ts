@@ -165,7 +165,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:solutions/latest:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20170901:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20190701:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20200821preview:ApplicationDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:solutions:ApplicationDefinition" }, { type: "azure-nextgen:solutions/latest:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20170901:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20190701:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20200821preview:ApplicationDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationDefinition.__pulumiType, name, inputs, opts);
     }

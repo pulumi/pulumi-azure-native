@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
     /// IP firewall rule
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IpFirewallRule'.")]
     [AzureNextGenResourceType("azure-nextgen:synapse/latest:IpFirewallRule")]
     public partial class IpFirewallRule : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:IpFirewallRule"},
                 },

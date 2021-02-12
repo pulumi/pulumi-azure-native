@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiIssue"},

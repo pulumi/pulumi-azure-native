@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:Route"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:Route"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:Route"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:Route"},

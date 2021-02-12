@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:RouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:RouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:RouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:RouteTable"},

@@ -7,3 +7,45 @@ import * as v20201201preview from "./v20201201preview";
 export {
     v20201201preview,
 };
+
+export const Name = {
+    Standard: "Standard",
+} as const;
+
+/**
+ * Gets or sets the sku name.
+ */
+export type Name = (typeof Name)[keyof typeof Name];
+
+export const PublicNetworkAccess = {
+    NotSpecified: "NotSpecified",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Gets or sets the public network access.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const Status = {
+    Unknown: "Unknown",
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * The status.
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+export const Type = {
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * Identity Type
+ */
+export type Type = (typeof Type)[keyof typeof Type];

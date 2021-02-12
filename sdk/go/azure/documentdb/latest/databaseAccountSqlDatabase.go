@@ -13,6 +13,8 @@ import (
 
 // An Azure Cosmos DB SQL database.
 // Latest API Version: 2016-03-31.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountSqlDatabase'.
 type DatabaseAccountSqlDatabase struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewDatabaseAccountSqlDatabase(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountSqlDatabase"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountSqlDatabase"),
 		},

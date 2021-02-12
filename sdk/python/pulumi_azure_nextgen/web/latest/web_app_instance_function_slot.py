@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppInstanceFunctionSlot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppInstanceFunctionSlot'.""", DeprecationWarning)
+
 
 class WebAppInstanceFunctionSlot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppInstanceFunctionSlot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +66,7 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
         :param pulumi.Input[str] test_data: Test data used when testing via the Azure Portal.
         :param pulumi.Input[str] test_data_href: Test data URI.
         """
+        pulumi.log.warn("WebAppInstanceFunctionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppInstanceFunctionSlot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -107,7 +112,7 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
             __props__['test_data_href'] = test_data_href
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppInstanceFunctionSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppInstanceFunctionSlot',

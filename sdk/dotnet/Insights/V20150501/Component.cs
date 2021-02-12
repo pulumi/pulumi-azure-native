@@ -178,6 +178,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:Component"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:Component"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180501preview:Component"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20200202preview:Component"},

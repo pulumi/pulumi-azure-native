@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
     /// A workspace key
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:Key'.")]
     [AzureNextGenResourceType("azure-nextgen:synapse/latest:Key")]
     public partial class Key : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:Key"},
                 },

@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['Component']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Component'.""", DeprecationWarning)
+
 
 class Component(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Component'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +59,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("Component is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Component'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -115,7 +120,7 @@ class Component(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20180501preview:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20200202preview:Component")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20180501preview:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20200202preview:Component")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Component, __self__).__init__(
             'azure-nextgen:insights/latest:Component',

@@ -130,6 +130,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:VpnConnection"},

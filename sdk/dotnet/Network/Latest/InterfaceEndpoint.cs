@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Interface endpoint resource.
     /// Latest API Version: 2019-02-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InterfaceEndpoint'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:InterfaceEndpoint")]
     public partial class InterfaceEndpoint : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:InterfaceEndpoint"},

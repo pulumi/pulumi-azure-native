@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Certificate"},

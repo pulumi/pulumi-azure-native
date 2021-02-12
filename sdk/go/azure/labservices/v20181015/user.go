@@ -62,6 +62,9 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:labservices:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:labservices/latest:User"),
 		},
 	})

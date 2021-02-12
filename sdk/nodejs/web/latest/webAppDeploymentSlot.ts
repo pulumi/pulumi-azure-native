@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * User credentials used for publishing activity.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDeploymentSlot'.
  */
 export class WebAppDeploymentSlot extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppDeploymentSlot {
+        pulumi.log.warn("WebAppDeploymentSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDeploymentSlot'.")
         return new WebAppDeploymentSlot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,7 +99,9 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDeploymentSlot'. */
     constructor(name: string, args: WebAppDeploymentSlotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppDeploymentSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDeploymentSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.id === undefined) && !(opts && opts.urn)) {
@@ -149,7 +154,7 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20160801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20180201:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20181101:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20190801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200601:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200901:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20201001:WebAppDeploymentSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20150801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20160801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20180201:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20181101:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20190801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200601:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200901:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20201001:WebAppDeploymentSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDeploymentSlot.__pulumiType, name, inputs, opts);
     }

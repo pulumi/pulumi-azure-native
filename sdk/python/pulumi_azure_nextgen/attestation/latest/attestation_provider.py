@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['AttestationProvider']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:attestation:AttestationProvider'.""", DeprecationWarning)
+
 
 class AttestationProvider(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:attestation:AttestationProvider'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class AttestationProvider(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the attestation provider.
         """
+        pulumi.log.warn("AttestationProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:attestation:AttestationProvider'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class AttestationProvider(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['trust_model'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:attestation/v20180901preview:AttestationProvider"), pulumi.Alias(type_="azure-nextgen:attestation/v20201001:AttestationProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:attestation:AttestationProvider"), pulumi.Alias(type_="azure-nextgen:attestation/v20180901preview:AttestationProvider"), pulumi.Alias(type_="azure-nextgen:attestation/v20201001:AttestationProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttestationProvider, __self__).__init__(
             'azure-nextgen:attestation/latest:AttestationProvider',

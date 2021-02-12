@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['PeerAsn']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeerAsn'.""", DeprecationWarning)
+
 
 class PeerAsn(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeerAsn'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class PeerAsn(pulumi.CustomResource):
         :param pulumi.Input[str] peer_name: The name of the peer.
         :param pulumi.Input[Union[str, 'ValidationState']] validation_state: The validation state of the ASN associated with the peer.
         """
+        pulumi.log.warn("PeerAsn is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeerAsn'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -65,7 +70,7 @@ class PeerAsn(pulumi.CustomResource):
             __props__['error_message'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering/v20190801preview:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20190901preview:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20200401:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20201001:PeerAsn")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20190801preview:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20190901preview:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20200401:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20201001:PeerAsn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PeerAsn, __self__).__init__(
             'azure-nextgen:peering/latest:PeerAsn',

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ManagementPartner.Latest
     /// this is the management partner operations response
     /// Latest API Version: 2018-02-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managementpartner:Partner'.")]
     [AzureNextGenResourceType("azure-nextgen:managementpartner/latest:Partner")]
     public partial class Partner : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.ManagementPartner.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:managementpartner:Partner"},
                     new Pulumi.Alias { Type = "azure-nextgen:managementpartner/v20180201:Partner"},
                 },
             };

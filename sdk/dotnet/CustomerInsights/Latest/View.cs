@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
     /// The view resource format.
     /// Latest API Version: 2017-04-26.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:View'.")]
     [AzureNextGenResourceType("azure-nextgen:customerinsights/latest:View")]
     public partial class View : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights:View"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:View"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:View"},
                 },

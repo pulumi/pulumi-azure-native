@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppVnetConnectionSlot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppVnetConnectionSlot'.""", DeprecationWarning)
+
 
 class WebAppVnetConnectionSlot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppVnetConnectionSlot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +49,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
         :param pulumi.Input[str] vnet_name: Name of an existing Virtual Network.
         :param pulumi.Input[str] vnet_resource_id: The Virtual Network's resource ID.
         """
+        pulumi.log.warn("WebAppVnetConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppVnetConnectionSlot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -84,7 +89,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
             __props__['routes'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppVnetConnectionSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppVnetConnectionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppVnetConnectionSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppVnetConnectionSlot',

@@ -111,7 +111,7 @@ export class Manager extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:Manager" }, { type: "azure-nextgen:storsimple/v20161001:Manager" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:Manager" }, { type: "azure-nextgen:storsimple/latest:Manager" }, { type: "azure-nextgen:storsimple/v20161001:Manager" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Manager.__pulumiType, name, inputs, opts);
     }

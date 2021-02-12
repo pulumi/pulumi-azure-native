@@ -13,6 +13,8 @@ import (
 
 // The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 // Latest API Version: 2020-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:advisor:Suppression'.
 type Suppression struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +47,9 @@ func NewSuppression(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceUri'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:advisor:Suppression"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:advisor/v20160712preview:Suppression"),
 		},

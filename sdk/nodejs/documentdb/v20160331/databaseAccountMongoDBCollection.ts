@@ -115,7 +115,7 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountMongoDBCollection.__pulumiType, name, inputs, opts);
     }

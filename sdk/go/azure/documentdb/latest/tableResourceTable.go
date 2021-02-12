@@ -13,6 +13,8 @@ import (
 
 // An Azure Cosmos DB Table.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:TableResourceTable'.
 type TableResourceTable struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewTableResourceTable(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:documentdb:TableResourceTable"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:TableResourceTable"),
 		},

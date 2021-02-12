@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:ManagementPolicy"},

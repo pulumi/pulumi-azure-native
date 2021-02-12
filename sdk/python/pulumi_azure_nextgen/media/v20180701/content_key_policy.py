@@ -72,7 +72,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['policy_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:ContentKeyPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:ContentKeyPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:ContentKeyPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20200501:ContentKeyPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:ContentKeyPolicy"), pulumi.Alias(type_="azure-nextgen:media/latest:ContentKeyPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:ContentKeyPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:ContentKeyPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20200501:ContentKeyPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContentKeyPolicy, __self__).__init__(
             'azure-nextgen:media/v20180701:ContentKeyPolicy',

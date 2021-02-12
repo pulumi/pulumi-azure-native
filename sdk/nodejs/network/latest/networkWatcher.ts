@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Network watcher in a resource group.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkWatcher'.
  */
 export class NetworkWatcher extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkWatcher {
+        pulumi.log.warn("NetworkWatcher is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkWatcher'.")
         return new NetworkWatcher(name, undefined as any, { ...opts, id: id });
     }
 
@@ -67,7 +70,9 @@ export class NetworkWatcher extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkWatcher'. */
     constructor(name: string, args: NetworkWatcherArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("NetworkWatcher is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkWatcher'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.networkWatcherName === undefined) && !(opts && opts.urn)) {
@@ -100,7 +105,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20160901:NetworkWatcher" }, { type: "azure-nextgen:network/v20161201:NetworkWatcher" }, { type: "azure-nextgen:network/v20170301:NetworkWatcher" }, { type: "azure-nextgen:network/v20170601:NetworkWatcher" }, { type: "azure-nextgen:network/v20170801:NetworkWatcher" }, { type: "azure-nextgen:network/v20170901:NetworkWatcher" }, { type: "azure-nextgen:network/v20171001:NetworkWatcher" }, { type: "azure-nextgen:network/v20171101:NetworkWatcher" }, { type: "azure-nextgen:network/v20180101:NetworkWatcher" }, { type: "azure-nextgen:network/v20180201:NetworkWatcher" }, { type: "azure-nextgen:network/v20180401:NetworkWatcher" }, { type: "azure-nextgen:network/v20180601:NetworkWatcher" }, { type: "azure-nextgen:network/v20180701:NetworkWatcher" }, { type: "azure-nextgen:network/v20180801:NetworkWatcher" }, { type: "azure-nextgen:network/v20181001:NetworkWatcher" }, { type: "azure-nextgen:network/v20181101:NetworkWatcher" }, { type: "azure-nextgen:network/v20181201:NetworkWatcher" }, { type: "azure-nextgen:network/v20190201:NetworkWatcher" }, { type: "azure-nextgen:network/v20190401:NetworkWatcher" }, { type: "azure-nextgen:network/v20190601:NetworkWatcher" }, { type: "azure-nextgen:network/v20190701:NetworkWatcher" }, { type: "azure-nextgen:network/v20190801:NetworkWatcher" }, { type: "azure-nextgen:network/v20190901:NetworkWatcher" }, { type: "azure-nextgen:network/v20191101:NetworkWatcher" }, { type: "azure-nextgen:network/v20191201:NetworkWatcher" }, { type: "azure-nextgen:network/v20200301:NetworkWatcher" }, { type: "azure-nextgen:network/v20200401:NetworkWatcher" }, { type: "azure-nextgen:network/v20200501:NetworkWatcher" }, { type: "azure-nextgen:network/v20200601:NetworkWatcher" }, { type: "azure-nextgen:network/v20200701:NetworkWatcher" }, { type: "azure-nextgen:network/v20200801:NetworkWatcher" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:NetworkWatcher" }, { type: "azure-nextgen:network/v20160901:NetworkWatcher" }, { type: "azure-nextgen:network/v20161201:NetworkWatcher" }, { type: "azure-nextgen:network/v20170301:NetworkWatcher" }, { type: "azure-nextgen:network/v20170601:NetworkWatcher" }, { type: "azure-nextgen:network/v20170801:NetworkWatcher" }, { type: "azure-nextgen:network/v20170901:NetworkWatcher" }, { type: "azure-nextgen:network/v20171001:NetworkWatcher" }, { type: "azure-nextgen:network/v20171101:NetworkWatcher" }, { type: "azure-nextgen:network/v20180101:NetworkWatcher" }, { type: "azure-nextgen:network/v20180201:NetworkWatcher" }, { type: "azure-nextgen:network/v20180401:NetworkWatcher" }, { type: "azure-nextgen:network/v20180601:NetworkWatcher" }, { type: "azure-nextgen:network/v20180701:NetworkWatcher" }, { type: "azure-nextgen:network/v20180801:NetworkWatcher" }, { type: "azure-nextgen:network/v20181001:NetworkWatcher" }, { type: "azure-nextgen:network/v20181101:NetworkWatcher" }, { type: "azure-nextgen:network/v20181201:NetworkWatcher" }, { type: "azure-nextgen:network/v20190201:NetworkWatcher" }, { type: "azure-nextgen:network/v20190401:NetworkWatcher" }, { type: "azure-nextgen:network/v20190601:NetworkWatcher" }, { type: "azure-nextgen:network/v20190701:NetworkWatcher" }, { type: "azure-nextgen:network/v20190801:NetworkWatcher" }, { type: "azure-nextgen:network/v20190901:NetworkWatcher" }, { type: "azure-nextgen:network/v20191101:NetworkWatcher" }, { type: "azure-nextgen:network/v20191201:NetworkWatcher" }, { type: "azure-nextgen:network/v20200301:NetworkWatcher" }, { type: "azure-nextgen:network/v20200401:NetworkWatcher" }, { type: "azure-nextgen:network/v20200501:NetworkWatcher" }, { type: "azure-nextgen:network/v20200601:NetworkWatcher" }, { type: "azure-nextgen:network/v20200701:NetworkWatcher" }, { type: "azure-nextgen:network/v20200801:NetworkWatcher" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkWatcher.__pulumiType, name, inputs, opts);
     }

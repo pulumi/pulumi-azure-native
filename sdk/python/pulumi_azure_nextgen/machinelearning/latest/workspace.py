@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Workspace']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:Workspace'.""", DeprecationWarning)
+
 
 class Workspace(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:Workspace'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] user_storage_account_id: The fully qualified arm id of the storage account associated with this workspace.
         :param pulumi.Input[str] workspace_name: The name of the machine learning workspace.
         """
+        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:Workspace'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class Workspace(pulumi.CustomResource):
             __props__['workspace_id'] = None
             __props__['workspace_state'] = None
             __props__['workspace_type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearning/v20160401:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20191001:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearning:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20160401:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20191001:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-nextgen:machinelearning/latest:Workspace',

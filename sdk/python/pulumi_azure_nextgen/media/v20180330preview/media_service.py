@@ -66,7 +66,7 @@ class MediaService(pulumi.CustomResource):
             __props__['media_service_id'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20151001:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20180701:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20200501:MediaService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:MediaService"), pulumi.Alias(type_="azure-nextgen:media/latest:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20151001:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20180701:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20200501:MediaService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MediaService, __self__).__init__(
             'azure-nextgen:media/v20180330preview:MediaService',

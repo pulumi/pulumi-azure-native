@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AzureStackHCI.Latest
     /// Cluster details.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestackhci:Cluster'.")]
     [AzureNextGenResourceType("azure-nextgen:azurestackhci/latest:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -131,6 +132,7 @@ namespace Pulumi.AzureNextGen.AzureStackHCI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestackhci:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestackhci/v20200301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestackhci/v20201001:Cluster"},
                 },

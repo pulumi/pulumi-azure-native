@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Service']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Service'.""", DeprecationWarning)
+
 
 class Service(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Service'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +64,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] service_type_name: The name of the service type
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         """
+        pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Service'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -107,7 +112,7 @@ class Service(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric/v20170701preview:Service"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301:Service"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301preview:Service"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190601preview:Service"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20191101preview:Service"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200301:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric:Service"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20170701preview:Service"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301:Service"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301preview:Service"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190601preview:Service"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20191101preview:Service"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200301:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-nextgen:servicefabric/latest:Service',

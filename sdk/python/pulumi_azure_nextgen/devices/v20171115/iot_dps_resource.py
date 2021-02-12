@@ -75,7 +75,7 @@ class IotDpsResource(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices/latest:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20170821preview:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200101:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200901preview:IotDpsResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/latest:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20170821preview:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200101:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200901preview:IotDpsResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotDpsResource, __self__).__init__(
             'azure-nextgen:devices/v20171115:IotDpsResource',

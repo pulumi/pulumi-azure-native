@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A Media Services account.
  * Latest API Version: 2020-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:MediaService'.
  */
 export class MediaService extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class MediaService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MediaService {
+        pulumi.log.warn("MediaService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:MediaService'.")
         return new MediaService(name, undefined as any, { ...opts, id: id });
     }
 
@@ -81,7 +84,9 @@ export class MediaService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:MediaService'. */
     constructor(name: string, args: MediaServiceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MediaService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:MediaService'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -121,7 +126,7 @@ export class MediaService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20151001:MediaService" }, { type: "azure-nextgen:media/v20180330preview:MediaService" }, { type: "azure-nextgen:media/v20180601preview:MediaService" }, { type: "azure-nextgen:media/v20180701:MediaService" }, { type: "azure-nextgen:media/v20200501:MediaService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media:MediaService" }, { type: "azure-nextgen:media/v20151001:MediaService" }, { type: "azure-nextgen:media/v20180330preview:MediaService" }, { type: "azure-nextgen:media/v20180601preview:MediaService" }, { type: "azure-nextgen:media/v20180701:MediaService" }, { type: "azure-nextgen:media/v20200501:MediaService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MediaService.__pulumiType, name, inputs, opts);
     }

@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['TagByApi']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:TagByApi'.""", DeprecationWarning)
+
 
 class TagByApi(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:TagByApi'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +37,7 @@ class TagByApi(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] tag_id: Tag identifier. Must be unique in the current API Management service instance.
         """
+        pulumi.log.warn("TagByApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:TagByApi'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -65,7 +70,7 @@ class TagByApi(pulumi.CustomResource):
             __props__['display_name'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:TagByApi")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:TagByApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:TagByApi")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TagByApi, __self__).__init__(
             'azure-nextgen:apimanagement/latest:TagByApi',

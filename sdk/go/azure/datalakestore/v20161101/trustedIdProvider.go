@@ -44,6 +44,9 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datalakestore:TrustedIdProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakestore/latest:TrustedIdProvider"),
 		},
 	})

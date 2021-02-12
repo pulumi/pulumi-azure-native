@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest
     /// A container group.
     /// Latest API Version: 2020-11-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerinstance:ContainerGroup'.")]
     [AzureNextGenResourceType("azure-nextgen:containerinstance/latest:ContainerGroup")]
     public partial class ContainerGroup : Pulumi.CustomResource
     {
@@ -158,6 +159,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20170801preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20171001preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20171201preview:ContainerGroup"},

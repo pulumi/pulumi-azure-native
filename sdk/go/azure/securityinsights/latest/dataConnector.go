@@ -13,6 +13,8 @@ import (
 
 // Data connector.
 // Latest API Version: 2020-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:DataConnector'.
 type DataConnector struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewDataConnector(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights:DataConnector"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:DataConnector"),
 		},

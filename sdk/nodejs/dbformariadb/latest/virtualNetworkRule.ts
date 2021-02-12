@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A virtual network rule.
  * Latest API Version: 2018-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:VirtualNetworkRule'.
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetworkRule {
+        pulumi.log.warn("VirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:VirtualNetworkRule'.")
         return new VirtualNetworkRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,7 +66,9 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:VirtualNetworkRule'. */
     constructor(name: string, args: VirtualNetworkRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:VirtualNetworkRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -100,7 +105,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb/v20180601:VirtualNetworkRule" }, { type: "azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb:VirtualNetworkRule" }, { type: "azure-nextgen:dbformariadb/v20180601:VirtualNetworkRule" }, { type: "azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
     }

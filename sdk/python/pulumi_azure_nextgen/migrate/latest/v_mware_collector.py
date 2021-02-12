@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['VMwareCollector']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:VMwareCollector'.""", DeprecationWarning)
+
 
 class VMwareCollector(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:VMwareCollector'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +38,7 @@ class VMwareCollector(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[str] vm_ware_collector_name: Unique name of a VMware collector within a project.
         """
+        pulumi.log.warn("VMwareCollector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:VMwareCollector'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -64,7 +69,7 @@ class VMwareCollector(pulumi.CustomResource):
             __props__['vm_ware_collector_name'] = vm_ware_collector_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate/v20191001:VMwareCollector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate:VMwareCollector"), pulumi.Alias(type_="azure-nextgen:migrate/v20191001:VMwareCollector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VMwareCollector, __self__).__init__(
             'azure-nextgen:migrate/latest:VMwareCollector',

@@ -13,6 +13,8 @@ import (
 
 // An application type version resource for the specified application type name resource.
 // Latest API Version: 2020-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationTypeVersion'.
 type ApplicationTypeVersion struct {
 	pulumi.CustomResourceState
 
@@ -57,6 +59,9 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:servicefabric:ApplicationTypeVersion"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20170701preview:ApplicationTypeVersion"),
 		},

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The managed api definition.
  * Latest API Version: 2019-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi'.
  */
 export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationServiceEnvironmentManagedApi {
+        pulumi.log.warn("IntegrationServiceEnvironmentManagedApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi'.")
         return new IntegrationServiceEnvironmentManagedApi(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi'. */
     constructor(name: string, args: IntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IntegrationServiceEnvironmentManagedApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.apiName === undefined) && !(opts && opts.urn)) {
@@ -98,7 +103,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationServiceEnvironmentManagedApi.__pulumiType, name, inputs, opts);
     }

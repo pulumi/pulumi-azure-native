@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// User credentials used for publishing activity.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDeployment'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppDeployment")]
     public partial class WebAppDeployment : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppDeployment"},

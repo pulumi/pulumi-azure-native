@@ -13,6 +13,8 @@ import (
 
 // An Azure Cosmos DB Cassandra table.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:CassandraResourceCassandraTable'.
 type CassandraResourceCassandraTable struct {
 	pulumi.CustomResourceState
 
@@ -51,6 +53,9 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:documentdb:CassandraResourceCassandraTable"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:CassandraResourceCassandraTable"),
 		},

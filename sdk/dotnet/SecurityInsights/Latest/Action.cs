@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
     /// Action for alert rule.
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Action'.")]
     [AzureNextGenResourceType("azure-nextgen:securityinsights/latest:Action")]
     public partial class Action : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Action"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:Action"},
                 },
             };

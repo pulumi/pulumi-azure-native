@@ -71,7 +71,7 @@ class DatabaseAccountCassandraKeyspace(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraKeyspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraKeyspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountCassandraKeyspace, __self__).__init__(
             'azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraKeyspace',

@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:Transform"},

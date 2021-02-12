@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// Properties of an artifact source.
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ArtifactSource'.")]
     [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:ArtifactSource")]
     public partial class ArtifactSource : Pulumi.CustomResource
     {
@@ -131,6 +132,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:ArtifactSource"},

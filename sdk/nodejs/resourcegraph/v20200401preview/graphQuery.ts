@@ -126,7 +126,7 @@ export class GraphQuery extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resourcegraph/v20180901preview:GraphQuery" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resourcegraph:GraphQuery" }, { type: "azure-nextgen:resourcegraph/v20180901preview:GraphQuery" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GraphQuery.__pulumiType, name, inputs, opts);
     }

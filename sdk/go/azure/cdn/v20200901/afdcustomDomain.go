@@ -57,6 +57,9 @@ func NewAFDCustomDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cdn:AFDCustomDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:AFDCustomDomain"),
 		},
 	})

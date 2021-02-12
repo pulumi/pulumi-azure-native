@@ -71,7 +71,7 @@ class AttestationProvider(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['trust_model'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:attestation/latest:AttestationProvider"), pulumi.Alias(type_="azure-nextgen:attestation/v20180901preview:AttestationProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:attestation:AttestationProvider"), pulumi.Alias(type_="azure-nextgen:attestation/latest:AttestationProvider"), pulumi.Alias(type_="azure-nextgen:attestation/v20180901preview:AttestationProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttestationProvider, __self__).__init__(
             'azure-nextgen:attestation/v20201001:AttestationProvider',

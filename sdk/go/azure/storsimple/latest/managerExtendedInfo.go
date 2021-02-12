@@ -13,6 +13,8 @@ import (
 
 // The extended info of the manager.
 // Latest API Version: 2017-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:ManagerExtendedInfo'.
 type ManagerExtendedInfo struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +60,9 @@ func NewManagerExtendedInfo(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storsimple:ManagerExtendedInfo"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:ManagerExtendedInfo"),
 		},

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The X509 Certificate.
  * Latest API Version: 2020-03-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:DpsCertificate'.
  */
 export class DpsCertificate extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DpsCertificate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DpsCertificate {
+        pulumi.log.warn("DpsCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:DpsCertificate'.")
         return new DpsCertificate(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class DpsCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:DpsCertificate'. */
     constructor(name: string, args: DpsCertificateArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DpsCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:DpsCertificate'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.certificateName === undefined) && !(opts && opts.urn)) {
@@ -93,7 +98,7 @@ export class DpsCertificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/v20170821preview:DpsCertificate" }, { type: "azure-nextgen:devices/v20171115:DpsCertificate" }, { type: "azure-nextgen:devices/v20180122:DpsCertificate" }, { type: "azure-nextgen:devices/v20200101:DpsCertificate" }, { type: "azure-nextgen:devices/v20200301:DpsCertificate" }, { type: "azure-nextgen:devices/v20200901preview:DpsCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices:DpsCertificate" }, { type: "azure-nextgen:devices/v20170821preview:DpsCertificate" }, { type: "azure-nextgen:devices/v20171115:DpsCertificate" }, { type: "azure-nextgen:devices/v20180122:DpsCertificate" }, { type: "azure-nextgen:devices/v20200101:DpsCertificate" }, { type: "azure-nextgen:devices/v20200301:DpsCertificate" }, { type: "azure-nextgen:devices/v20200901preview:DpsCertificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DpsCertificate.__pulumiType, name, inputs, opts);
     }

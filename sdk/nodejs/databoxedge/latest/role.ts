@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Compute role.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Role'.
  */
 export class Role extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Role extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Role {
+        pulumi.log.warn("Role is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Role'.")
         return new Role(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class Role extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Role'. */
     constructor(name: string, args: RoleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Role is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Role'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
@@ -94,7 +99,7 @@ export class Role extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:Role" }, { type: "azure-nextgen:databoxedge/v20190701:Role" }, { type: "azure-nextgen:databoxedge/v20190801:Role" }, { type: "azure-nextgen:databoxedge/v20200501preview:Role" }, { type: "azure-nextgen:databoxedge/v20200901:Role" }, { type: "azure-nextgen:databoxedge/v20200901preview:Role" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Role" }, { type: "azure-nextgen:databoxedge/v20190301:Role" }, { type: "azure-nextgen:databoxedge/v20190701:Role" }, { type: "azure-nextgen:databoxedge/v20190801:Role" }, { type: "azure-nextgen:databoxedge/v20200501preview:Role" }, { type: "azure-nextgen:databoxedge/v20200901:Role" }, { type: "azure-nextgen:databoxedge/v20200901preview:Role" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Role.__pulumiType, name, inputs, opts);
     }

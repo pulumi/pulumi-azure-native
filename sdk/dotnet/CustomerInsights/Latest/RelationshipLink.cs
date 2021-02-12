@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
     /// The relationship link resource format.
     /// Latest API Version: 2017-04-26.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RelationshipLink'.")]
     [AzureNextGenResourceType("azure-nextgen:customerinsights/latest:RelationshipLink")]
     public partial class RelationshipLink : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights:RelationshipLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:RelationshipLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:RelationshipLink"},
                 },

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest
     /// Bot channel resource definition
     /// Latest API Version: 2020-06-02.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:BotConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:botservice/latest:BotConnection")]
     public partial class BotConnection : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice:BotConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20171201:BotConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20180712:BotConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20200602:BotConnection"},

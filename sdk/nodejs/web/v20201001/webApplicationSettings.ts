@@ -92,7 +92,7 @@ export class WebApplicationSettings extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebApplicationSettings" }, { type: "azure-nextgen:web/v20150801:WebApplicationSettings" }, { type: "azure-nextgen:web/v20160801:WebApplicationSettings" }, { type: "azure-nextgen:web/v20180201:WebApplicationSettings" }, { type: "azure-nextgen:web/v20181101:WebApplicationSettings" }, { type: "azure-nextgen:web/v20190801:WebApplicationSettings" }, { type: "azure-nextgen:web/v20200601:WebApplicationSettings" }, { type: "azure-nextgen:web/v20200901:WebApplicationSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebApplicationSettings" }, { type: "azure-nextgen:web/latest:WebApplicationSettings" }, { type: "azure-nextgen:web/v20150801:WebApplicationSettings" }, { type: "azure-nextgen:web/v20160801:WebApplicationSettings" }, { type: "azure-nextgen:web/v20180201:WebApplicationSettings" }, { type: "azure-nextgen:web/v20181101:WebApplicationSettings" }, { type: "azure-nextgen:web/v20190801:WebApplicationSettings" }, { type: "azure-nextgen:web/v20200601:WebApplicationSettings" }, { type: "azure-nextgen:web/v20200901:WebApplicationSettings" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebApplicationSettings.__pulumiType, name, inputs, opts);
     }

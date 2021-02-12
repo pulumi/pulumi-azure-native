@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A sensitivity label.
  * Latest API Version: 2020-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolSensitivityLabel'.
  */
 export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlPoolSensitivityLabel {
+        pulumi.log.warn("SqlPoolSensitivityLabel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolSensitivityLabel'.")
         return new SqlPoolSensitivityLabel(name, undefined as any, { ...opts, id: id });
     }
 
@@ -89,7 +92,9 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolSensitivityLabel'. */
     constructor(name: string, args: SqlPoolSensitivityLabelArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SqlPoolSensitivityLabel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolSensitivityLabel'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.columnName === undefined) && !(opts && opts.urn)) {
@@ -150,7 +155,7 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolSensitivityLabel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:SqlPoolSensitivityLabel" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolSensitivityLabel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlPoolSensitivityLabel.__pulumiType, name, inputs, opts);
     }

@@ -130,7 +130,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200601:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200801:CustomIPPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:CustomIPPrefix" }, { type: "azure-nextgen:network/latest:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200601:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200801:CustomIPPrefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomIPPrefix.__pulumiType, name, inputs, opts);
     }

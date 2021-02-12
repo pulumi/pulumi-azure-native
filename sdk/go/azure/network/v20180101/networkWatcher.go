@@ -46,6 +46,9 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:NetworkWatcher"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:NetworkWatcher"),
 		},
 		{

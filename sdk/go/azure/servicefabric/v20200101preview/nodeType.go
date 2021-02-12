@@ -78,6 +78,12 @@ func NewNodeType(ctx *pulumi.Context,
 	if args.VmInstanceCount == nil {
 		return nil, errors.New("invalid value for required argument 'VmInstanceCount'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:servicefabric:NodeType"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NodeType
 	err := ctx.RegisterResource("azure-nextgen:servicefabric/v20200101preview:NodeType", name, args, &resource, opts...)
 	if err != nil {

@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppPublicCertificate"},

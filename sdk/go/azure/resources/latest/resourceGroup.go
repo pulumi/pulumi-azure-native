@@ -13,6 +13,8 @@ import (
 
 // Resource group information.
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:ResourceGroup'.
 type ResourceGroup struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +43,9 @@ func NewResourceGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:resources:ResourceGroup"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20151101:ResourceGroup"),
 		},

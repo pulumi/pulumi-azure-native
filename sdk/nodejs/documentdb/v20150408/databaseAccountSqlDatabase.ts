@@ -129,7 +129,7 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountSqlDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountSqlDatabase" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountSqlDatabase.__pulumiType, name, inputs, opts);
     }

@@ -108,7 +108,7 @@ class Task(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/latest:Task"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20180901:Task"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190401:Task")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry:Task"), pulumi.Alias(type_="azure-nextgen:containerregistry/latest:Task"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20180901:Task"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190401:Task")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Task, __self__).__init__(
             'azure-nextgen:containerregistry/v20190601preview:Task',

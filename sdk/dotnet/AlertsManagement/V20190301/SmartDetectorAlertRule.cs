@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement:SmartDetectorAlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/latest:SmartDetectorAlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule"},
                 },

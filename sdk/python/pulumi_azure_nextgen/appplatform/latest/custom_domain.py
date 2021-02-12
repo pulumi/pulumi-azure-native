@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['CustomDomain']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:CustomDomain'.""", DeprecationWarning)
+
 
 class CustomDomain(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:CustomDomain'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] service_name: The name of the Service resource.
         """
+        pulumi.log.warn("CustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:CustomDomain'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class CustomDomain(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform/v20190501preview:CustomDomain"), pulumi.Alias(type_="azure-nextgen:appplatform/v20200701:CustomDomain"), pulumi.Alias(type_="azure-nextgen:appplatform/v20201101preview:CustomDomain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform:CustomDomain"), pulumi.Alias(type_="azure-nextgen:appplatform/v20190501preview:CustomDomain"), pulumi.Alias(type_="azure-nextgen:appplatform/v20200701:CustomDomain"), pulumi.Alias(type_="azure-nextgen:appplatform/v20201101preview:CustomDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomDomain, __self__).__init__(
             'azure-nextgen:appplatform/latest:CustomDomain',

@@ -74,6 +74,9 @@ func NewProductApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:ProductApi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ProductApi"),
 		},
 		{

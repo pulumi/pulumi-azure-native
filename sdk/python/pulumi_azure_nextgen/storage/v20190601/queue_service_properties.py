@@ -63,7 +63,7 @@ class QueueServiceProperties(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:QueueServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/latest:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:QueueServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(QueueServiceProperties, __self__).__init__(
             'azure-nextgen:storage/v20190601:QueueServiceProperties',

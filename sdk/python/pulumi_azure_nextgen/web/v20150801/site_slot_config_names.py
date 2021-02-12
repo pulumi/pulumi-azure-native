@@ -72,7 +72,7 @@ class SiteSlotConfigNames(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteSlotConfigNames")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/latest:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteSlotConfigNames"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteSlotConfigNames")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteSlotConfigNames, __self__).__init__(
             'azure-nextgen:web/v20150801:SiteSlotConfigNames',

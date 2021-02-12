@@ -144,6 +144,8 @@ export class DiskPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagepool:DiskPool" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskPool.__pulumiType, name, inputs, opts);
     }
 }

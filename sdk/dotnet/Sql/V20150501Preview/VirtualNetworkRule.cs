@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:VirtualNetworkRule"},
                 },

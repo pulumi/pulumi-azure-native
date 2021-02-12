@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['WebAppPrivateEndpointConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPrivateEndpointConnection'.""", DeprecationWarning)
+
 
 class WebAppPrivateEndpointConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPrivateEndpointConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PrivateLinkConnectionStateArgs']] private_link_service_connection_state: The state of a private link connection
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
+        pulumi.log.warn("WebAppPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPrivateEndpointConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:web/latest:WebAppPrivateEndpointConnection',

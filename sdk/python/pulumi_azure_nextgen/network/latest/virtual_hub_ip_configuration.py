@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['VirtualHubIpConfiguration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHubIpConfiguration'.""", DeprecationWarning)
+
 
 class VirtualHubIpConfiguration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHubIpConfiguration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The reference to the subnet resource.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         """
+        pulumi.log.warn("VirtualHubIpConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHubIpConfiguration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualHubIpConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualHubIpConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHubIpConfiguration, __self__).__init__(
             'azure-nextgen:network/latest:VirtualHubIpConfiguration',

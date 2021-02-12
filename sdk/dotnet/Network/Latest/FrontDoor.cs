@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
     /// Latest API Version: 2020-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FrontDoor'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:FrontDoor")]
     public partial class FrontDoor : Pulumi.CustomResource
     {
@@ -143,6 +144,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190501:FrontDoor"},

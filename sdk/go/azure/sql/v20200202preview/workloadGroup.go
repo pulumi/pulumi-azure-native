@@ -63,6 +63,9 @@ func NewWorkloadGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql:WorkloadGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20190601preview:WorkloadGroup"),
 		},
 		{

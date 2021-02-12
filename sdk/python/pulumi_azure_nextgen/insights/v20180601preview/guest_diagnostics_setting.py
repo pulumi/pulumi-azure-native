@@ -69,6 +69,8 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:guestDiagnosticsSetting")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestDiagnosticsSetting, __self__).__init__(
             'azure-nextgen:insights/v20180601preview:guestDiagnosticsSetting',
             resource_name,

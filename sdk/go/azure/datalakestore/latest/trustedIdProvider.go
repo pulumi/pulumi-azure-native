@@ -13,6 +13,8 @@ import (
 
 // Data Lake Store trusted identity provider information.
 // Latest API Version: 2016-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:TrustedIdProvider'.
 type TrustedIdProvider struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TrustedIdProviderName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datalakestore:TrustedIdProvider"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore/v20161101:TrustedIdProvider"),
 		},

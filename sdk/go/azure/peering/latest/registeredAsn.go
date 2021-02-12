@@ -13,6 +13,8 @@ import (
 
 // The customer's ASN that is registered by the peering service provider.
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredAsn'.
 type RegisteredAsn struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +47,9 @@ func NewRegisteredAsn(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:peering:RegisteredAsn"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20200101preview:RegisteredAsn"),
 		},

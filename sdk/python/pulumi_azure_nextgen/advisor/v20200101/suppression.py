@@ -64,7 +64,7 @@ class Suppression(pulumi.CustomResource):
             __props__['ttl'] = ttl
             __props__['expiration_time_stamp'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:advisor/latest:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20160712preview:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20170419:Suppression")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:advisor:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/latest:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20160712preview:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20170419:Suppression")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Suppression, __self__).__init__(
             'azure-nextgen:advisor/v20200101:Suppression',

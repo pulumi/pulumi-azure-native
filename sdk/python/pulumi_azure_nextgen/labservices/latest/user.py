@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['User']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:User'.""", DeprecationWarning)
+
 
 class User(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:User'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         :param pulumi.Input[str] user_name: The name of the user.
         """
+        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:User'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,7 +88,7 @@ class User(pulumi.CustomResource):
             __props__['tenant_id'] = None
             __props__['total_usage'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices/v20181015:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices:User"), pulumi.Alias(type_="azure-nextgen:labservices/v20181015:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-nextgen:labservices/latest:User',

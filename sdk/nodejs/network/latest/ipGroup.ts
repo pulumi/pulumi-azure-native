@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The IpGroups resource information.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpGroup'.
  */
 export class IpGroup extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class IpGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IpGroup {
+        pulumi.log.warn("IpGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpGroup'.")
         return new IpGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class IpGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpGroup'. */
     constructor(name: string, args: IpGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IpGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.ipGroupsName === undefined) && !(opts && opts.urn)) {
@@ -119,7 +124,7 @@ export class IpGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190901:IpGroup" }, { type: "azure-nextgen:network/v20191101:IpGroup" }, { type: "azure-nextgen:network/v20191201:IpGroup" }, { type: "azure-nextgen:network/v20200301:IpGroup" }, { type: "azure-nextgen:network/v20200401:IpGroup" }, { type: "azure-nextgen:network/v20200501:IpGroup" }, { type: "azure-nextgen:network/v20200601:IpGroup" }, { type: "azure-nextgen:network/v20200701:IpGroup" }, { type: "azure-nextgen:network/v20200801:IpGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:IpGroup" }, { type: "azure-nextgen:network/v20190901:IpGroup" }, { type: "azure-nextgen:network/v20191101:IpGroup" }, { type: "azure-nextgen:network/v20191201:IpGroup" }, { type: "azure-nextgen:network/v20200301:IpGroup" }, { type: "azure-nextgen:network/v20200401:IpGroup" }, { type: "azure-nextgen:network/v20200501:IpGroup" }, { type: "azure-nextgen:network/v20200601:IpGroup" }, { type: "azure-nextgen:network/v20200701:IpGroup" }, { type: "azure-nextgen:network/v20200801:IpGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IpGroup.__pulumiType, name, inputs, opts);
     }

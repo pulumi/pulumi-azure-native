@@ -13,6 +13,8 @@ import (
 
 // A task resource
 // Latest API Version: 2018-04-19.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Task'.
 type Task struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewTask(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TaskName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datamigration:Task"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20171115preview:Task"),
 		},

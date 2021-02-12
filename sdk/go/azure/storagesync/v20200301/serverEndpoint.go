@@ -78,6 +78,9 @@ func NewServerEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storagesync:ServerEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/latest:ServerEndpoint"),
 		},
 		{

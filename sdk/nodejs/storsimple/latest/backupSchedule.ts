@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The backup schedule.
  * Latest API Version: 2017-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupSchedule'.
  */
 export class BackupSchedule extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class BackupSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BackupSchedule {
+        pulumi.log.warn("BackupSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupSchedule'.")
         return new BackupSchedule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class BackupSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupSchedule'. */
     constructor(name: string, args: BackupScheduleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BackupSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupSchedule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.backupPolicyName === undefined) && !(opts && opts.urn)) {
@@ -145,7 +150,7 @@ export class BackupSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20170601:BackupSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:BackupSchedule" }, { type: "azure-nextgen:storsimple/v20170601:BackupSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BackupSchedule.__pulumiType, name, inputs, opts);
     }

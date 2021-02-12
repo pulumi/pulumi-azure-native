@@ -153,7 +153,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:search/latest:Service" }, { type: "azure-nextgen:search/v20150819:Service" }, { type: "azure-nextgen:search/v20191001preview:Service" }, { type: "azure-nextgen:search/v20200801:Service" }, { type: "azure-nextgen:search/v20200801preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:search:Service" }, { type: "azure-nextgen:search/latest:Service" }, { type: "azure-nextgen:search/v20150819:Service" }, { type: "azure-nextgen:search/v20191001preview:Service" }, { type: "azure-nextgen:search/v20200801:Service" }, { type: "azure-nextgen:search/v20200801preview:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }

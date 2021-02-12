@@ -49,6 +49,9 @@ func NewVirtualWAN(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualWAN"),
 		},
 		{

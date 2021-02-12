@@ -40,6 +40,12 @@ func NewGuestUsage(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:azureactivedirectory:GuestUsage"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource GuestUsage
 	err := ctx.RegisterResource("azure-nextgen:azureactivedirectory/v20200501preview:GuestUsage", name, args, &resource, opts...)
 	if err != nil {

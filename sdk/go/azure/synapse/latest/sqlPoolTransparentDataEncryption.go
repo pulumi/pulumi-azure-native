@@ -13,6 +13,8 @@ import (
 
 // Represents a Sql pool transparent data encryption configuration.
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolTransparentDataEncryption'.
 type SqlPoolTransparentDataEncryption struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewSqlPoolTransparentDataEncryption(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse:SqlPoolTransparentDataEncryption"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption"),
 		},

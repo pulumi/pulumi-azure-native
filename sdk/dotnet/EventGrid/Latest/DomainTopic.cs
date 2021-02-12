@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
     /// Domain Topic.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:DomainTopic'.")]
     [AzureNextGenResourceType("azure-nextgen:eventgrid/latest:DomainTopic")]
     public partial class DomainTopic : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:DomainTopic"},

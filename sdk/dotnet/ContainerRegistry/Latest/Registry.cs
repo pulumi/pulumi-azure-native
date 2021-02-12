@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
     /// An object that represents a container registry.
     /// Latest API Version: 2019-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Registry'.")]
     [AzureNextGenResourceType("azure-nextgen:containerregistry/latest:Registry")]
     public partial class Registry : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20160627preview:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170301:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170601preview:Registry"},

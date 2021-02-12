@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.Resources.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources:TagAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/latest:TagAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:TagAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:TagAtScope"},

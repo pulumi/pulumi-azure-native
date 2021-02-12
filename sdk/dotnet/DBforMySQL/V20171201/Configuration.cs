@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201preview:Configuration"},
                 },

@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['AlertRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:AlertRule'.""", DeprecationWarning)
+
 
 class AlertRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:AlertRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class AlertRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_id: Alert rule ID
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        pulumi.log.warn("AlertRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:AlertRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class AlertRule(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:AlertRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:AlertRule"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:AlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AlertRule, __self__).__init__(
             'azure-nextgen:securityinsights/latest:AlertRule',

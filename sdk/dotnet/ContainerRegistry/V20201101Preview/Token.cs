@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Token"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190501preview:Token"},
                 },
             };

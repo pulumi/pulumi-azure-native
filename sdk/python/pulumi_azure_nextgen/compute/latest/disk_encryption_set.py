@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['DiskEncryptionSet']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskEncryptionSet'.""", DeprecationWarning)
+
 
 class DiskEncryptionSet(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskEncryptionSet'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("DiskEncryptionSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskEncryptionSet'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -74,7 +79,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__['previous_keys'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20190701:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:DiskEncryptionSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:DiskEncryptionSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskEncryptionSet, __self__).__init__(
             'azure-nextgen:compute/latest:DiskEncryptionSet',

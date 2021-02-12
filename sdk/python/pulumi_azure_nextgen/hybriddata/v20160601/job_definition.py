@@ -101,7 +101,7 @@ class JobDefinition(pulumi.CustomResource):
             __props__['user_confirmation'] = user_confirmation
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybriddata/latest:JobDefinition"), pulumi.Alias(type_="azure-nextgen:hybriddata/v20190601:JobDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybriddata:JobDefinition"), pulumi.Alias(type_="azure-nextgen:hybriddata/latest:JobDefinition"), pulumi.Alias(type_="azure-nextgen:hybriddata/v20190601:JobDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobDefinition, __self__).__init__(
             'azure-nextgen:hybriddata/v20160601:JobDefinition',

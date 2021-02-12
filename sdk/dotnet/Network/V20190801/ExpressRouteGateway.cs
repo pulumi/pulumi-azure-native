@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:ExpressRouteGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:ExpressRouteGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:ExpressRouteGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:ExpressRouteGateway"},

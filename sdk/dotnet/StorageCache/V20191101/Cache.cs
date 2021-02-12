@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/latest:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20190801preview:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20200301:Cache"},

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Virtual Machine.
  * Latest API Version: 2020-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachine'.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachine {
+        pulumi.log.warn("VirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachine'.")
         return new VirtualMachine(name, undefined as any, { ...opts, id: id });
     }
 
@@ -164,7 +167,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachine'. */
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachine'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -244,7 +249,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20150615:VirtualMachine" }, { type: "azure-nextgen:compute/v20160330:VirtualMachine" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachine" }, { type: "azure-nextgen:compute/v20170330:VirtualMachine" }, { type: "azure-nextgen:compute/v20171201:VirtualMachine" }, { type: "azure-nextgen:compute/v20180401:VirtualMachine" }, { type: "azure-nextgen:compute/v20180601:VirtualMachine" }, { type: "azure-nextgen:compute/v20181001:VirtualMachine" }, { type: "azure-nextgen:compute/v20190301:VirtualMachine" }, { type: "azure-nextgen:compute/v20190701:VirtualMachine" }, { type: "azure-nextgen:compute/v20191201:VirtualMachine" }, { type: "azure-nextgen:compute/v20200601:VirtualMachine" }, { type: "azure-nextgen:compute/v20201201:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachine" }, { type: "azure-nextgen:compute/v20150615:VirtualMachine" }, { type: "azure-nextgen:compute/v20160330:VirtualMachine" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachine" }, { type: "azure-nextgen:compute/v20170330:VirtualMachine" }, { type: "azure-nextgen:compute/v20171201:VirtualMachine" }, { type: "azure-nextgen:compute/v20180401:VirtualMachine" }, { type: "azure-nextgen:compute/v20180601:VirtualMachine" }, { type: "azure-nextgen:compute/v20181001:VirtualMachine" }, { type: "azure-nextgen:compute/v20190301:VirtualMachine" }, { type: "azure-nextgen:compute/v20190701:VirtualMachine" }, { type: "azure-nextgen:compute/v20191201:VirtualMachine" }, { type: "azure-nextgen:compute/v20200601:VirtualMachine" }, { type: "azure-nextgen:compute/v20201201:VirtualMachine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }

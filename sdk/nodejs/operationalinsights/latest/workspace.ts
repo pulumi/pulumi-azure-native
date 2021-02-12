@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The top level Workspace resource container.
  * Latest API Version: 2020-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:Workspace'.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Workspace {
+        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:Workspace'.")
         return new Workspace(name, undefined as any, { ...opts, id: id });
     }
 
@@ -100,7 +103,9 @@ export class Workspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:Workspace'. */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:Workspace'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -148,7 +153,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20151101preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200301preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200801:Workspace" }, { type: "azure-nextgen:operationalinsights/v20201001:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:Workspace" }, { type: "azure-nextgen:operationalinsights/v20151101preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200301preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200801:Workspace" }, { type: "azure-nextgen:operationalinsights/v20201001:Workspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workspace.__pulumiType, name, inputs, opts);
     }

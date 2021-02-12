@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hdinsight:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:hdinsight/v20150301preview:Cluster"},
                 },
             };

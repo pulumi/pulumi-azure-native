@@ -13,6 +13,8 @@ import (
 
 // Interface endpoint resource.
 // Latest API Version: 2019-02-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InterfaceEndpoint'.
 type InterfaceEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +56,9 @@ func NewInterfaceEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:InterfaceEndpoint"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:InterfaceEndpoint"),
 		},

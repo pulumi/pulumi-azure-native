@@ -112,7 +112,7 @@ export class JobAgent extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20200202preview:JobAgent" }, { type: "azure-nextgen:sql/v20200801preview:JobAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:JobAgent" }, { type: "azure-nextgen:sql/v20200202preview:JobAgent" }, { type: "azure-nextgen:sql/v20200801preview:JobAgent" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobAgent.__pulumiType, name, inputs, opts);
     }

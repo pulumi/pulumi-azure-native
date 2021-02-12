@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ADCCatalog']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datacatalog:ADCCatalog'.""", DeprecationWarning)
+
 
 class ADCCatalog(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datacatalog:ADCCatalog'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class ADCCatalog(pulumi.CustomResource):
         :param pulumi.Input[int] units: Azure data catalog units.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] users: Azure data catalog user list.
         """
+        pulumi.log.warn("ADCCatalog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datacatalog:ADCCatalog'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -84,7 +89,7 @@ class ADCCatalog(pulumi.CustomResource):
             __props__['users'] = users
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datacatalog/v20160330:ADCCatalog")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datacatalog:ADCCatalog"), pulumi.Alias(type_="azure-nextgen:datacatalog/v20160330:ADCCatalog")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ADCCatalog, __self__).__init__(
             'azure-nextgen:datacatalog/latest:ADCCatalog',

@@ -74,7 +74,7 @@ class Cache(pulumi.CustomResource):
             __props__['use_from_location'] = use_from_location
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Cache")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Cache")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cache, __self__).__init__(
             'azure-nextgen:apimanagement/v20200601preview:Cache',

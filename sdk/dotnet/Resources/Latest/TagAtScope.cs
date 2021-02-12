@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
     /// Wrapper resource for tags API requests and responses.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:TagAtScope'.")]
     [AzureNextGenResourceType("azure-nextgen:resources/latest:TagAtScope")]
     public partial class TagAtScope : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources:TagAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:TagAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:TagAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:TagAtScope"},

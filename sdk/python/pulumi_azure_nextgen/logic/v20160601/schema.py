@@ -92,7 +92,7 @@ class Schema(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/latest:Schema"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:Schema"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:Schema"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:Schema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:Schema"), pulumi.Alias(type_="azure-nextgen:logic/latest:Schema"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:Schema"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:Schema"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:Schema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schema, __self__).__init__(
             'azure-nextgen:logic/v20160601:Schema',

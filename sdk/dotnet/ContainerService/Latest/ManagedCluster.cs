@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
     /// Managed cluster.
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ManagedCluster'.")]
     [AzureNextGenResourceType("azure-nextgen:containerservice/latest:ManagedCluster")]
     public partial class ManagedCluster : Pulumi.CustomResource
     {
@@ -215,6 +216,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20170831:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20180331:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20180801preview:ManagedCluster"},

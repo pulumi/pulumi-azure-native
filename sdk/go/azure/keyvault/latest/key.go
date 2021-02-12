@@ -13,6 +13,8 @@ import (
 
 // The key resource.
 // Latest API Version: 2019-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Key'.
 type Key struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewKey(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:keyvault:Key"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20190901:Key"),
 		},

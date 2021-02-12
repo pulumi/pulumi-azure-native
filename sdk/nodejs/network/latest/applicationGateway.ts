@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Application gateway resource.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGateway'.
  */
 export class ApplicationGateway extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationGateway {
+        pulumi.log.warn("ApplicationGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGateway'.")
         return new ApplicationGateway(name, undefined as any, { ...opts, id: id });
     }
 
@@ -192,7 +195,9 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGateway'. */
     constructor(name: string, args: ApplicationGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ApplicationGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.applicationGatewayName === undefined) && !(opts && opts.urn)) {
@@ -287,7 +292,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150501preview:ApplicationGateway" }, { type: "azure-nextgen:network/v20150615:ApplicationGateway" }, { type: "azure-nextgen:network/v20160330:ApplicationGateway" }, { type: "azure-nextgen:network/v20160601:ApplicationGateway" }, { type: "azure-nextgen:network/v20160901:ApplicationGateway" }, { type: "azure-nextgen:network/v20161201:ApplicationGateway" }, { type: "azure-nextgen:network/v20170301:ApplicationGateway" }, { type: "azure-nextgen:network/v20170601:ApplicationGateway" }, { type: "azure-nextgen:network/v20170801:ApplicationGateway" }, { type: "azure-nextgen:network/v20170901:ApplicationGateway" }, { type: "azure-nextgen:network/v20171001:ApplicationGateway" }, { type: "azure-nextgen:network/v20171101:ApplicationGateway" }, { type: "azure-nextgen:network/v20180101:ApplicationGateway" }, { type: "azure-nextgen:network/v20180201:ApplicationGateway" }, { type: "azure-nextgen:network/v20180401:ApplicationGateway" }, { type: "azure-nextgen:network/v20180601:ApplicationGateway" }, { type: "azure-nextgen:network/v20180701:ApplicationGateway" }, { type: "azure-nextgen:network/v20180801:ApplicationGateway" }, { type: "azure-nextgen:network/v20181001:ApplicationGateway" }, { type: "azure-nextgen:network/v20181101:ApplicationGateway" }, { type: "azure-nextgen:network/v20181201:ApplicationGateway" }, { type: "azure-nextgen:network/v20190201:ApplicationGateway" }, { type: "azure-nextgen:network/v20190401:ApplicationGateway" }, { type: "azure-nextgen:network/v20190601:ApplicationGateway" }, { type: "azure-nextgen:network/v20190701:ApplicationGateway" }, { type: "azure-nextgen:network/v20190801:ApplicationGateway" }, { type: "azure-nextgen:network/v20190901:ApplicationGateway" }, { type: "azure-nextgen:network/v20191101:ApplicationGateway" }, { type: "azure-nextgen:network/v20191201:ApplicationGateway" }, { type: "azure-nextgen:network/v20200301:ApplicationGateway" }, { type: "azure-nextgen:network/v20200401:ApplicationGateway" }, { type: "azure-nextgen:network/v20200501:ApplicationGateway" }, { type: "azure-nextgen:network/v20200601:ApplicationGateway" }, { type: "azure-nextgen:network/v20200701:ApplicationGateway" }, { type: "azure-nextgen:network/v20200801:ApplicationGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:ApplicationGateway" }, { type: "azure-nextgen:network/v20150501preview:ApplicationGateway" }, { type: "azure-nextgen:network/v20150615:ApplicationGateway" }, { type: "azure-nextgen:network/v20160330:ApplicationGateway" }, { type: "azure-nextgen:network/v20160601:ApplicationGateway" }, { type: "azure-nextgen:network/v20160901:ApplicationGateway" }, { type: "azure-nextgen:network/v20161201:ApplicationGateway" }, { type: "azure-nextgen:network/v20170301:ApplicationGateway" }, { type: "azure-nextgen:network/v20170601:ApplicationGateway" }, { type: "azure-nextgen:network/v20170801:ApplicationGateway" }, { type: "azure-nextgen:network/v20170901:ApplicationGateway" }, { type: "azure-nextgen:network/v20171001:ApplicationGateway" }, { type: "azure-nextgen:network/v20171101:ApplicationGateway" }, { type: "azure-nextgen:network/v20180101:ApplicationGateway" }, { type: "azure-nextgen:network/v20180201:ApplicationGateway" }, { type: "azure-nextgen:network/v20180401:ApplicationGateway" }, { type: "azure-nextgen:network/v20180601:ApplicationGateway" }, { type: "azure-nextgen:network/v20180701:ApplicationGateway" }, { type: "azure-nextgen:network/v20180801:ApplicationGateway" }, { type: "azure-nextgen:network/v20181001:ApplicationGateway" }, { type: "azure-nextgen:network/v20181101:ApplicationGateway" }, { type: "azure-nextgen:network/v20181201:ApplicationGateway" }, { type: "azure-nextgen:network/v20190201:ApplicationGateway" }, { type: "azure-nextgen:network/v20190401:ApplicationGateway" }, { type: "azure-nextgen:network/v20190601:ApplicationGateway" }, { type: "azure-nextgen:network/v20190701:ApplicationGateway" }, { type: "azure-nextgen:network/v20190801:ApplicationGateway" }, { type: "azure-nextgen:network/v20190901:ApplicationGateway" }, { type: "azure-nextgen:network/v20191101:ApplicationGateway" }, { type: "azure-nextgen:network/v20191201:ApplicationGateway" }, { type: "azure-nextgen:network/v20200301:ApplicationGateway" }, { type: "azure-nextgen:network/v20200401:ApplicationGateway" }, { type: "azure-nextgen:network/v20200501:ApplicationGateway" }, { type: "azure-nextgen:network/v20200601:ApplicationGateway" }, { type: "azure-nextgen:network/v20200701:ApplicationGateway" }, { type: "azure-nextgen:network/v20200801:ApplicationGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationGateway.__pulumiType, name, inputs, opts);
     }

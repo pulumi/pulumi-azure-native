@@ -13,6 +13,8 @@ import (
 
 // Logger details.
 // Latest API Version: 2018-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiDiagnosticLogger'.
 type ApiDiagnosticLogger struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +56,9 @@ func NewApiDiagnosticLogger(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement:ApiDiagnosticLogger"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiDiagnosticLogger"),
 		},

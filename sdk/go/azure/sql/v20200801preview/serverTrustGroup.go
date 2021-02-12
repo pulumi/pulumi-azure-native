@@ -49,6 +49,9 @@ func NewServerTrustGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql:ServerTrustGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerTrustGroup"),
 		},
 	})

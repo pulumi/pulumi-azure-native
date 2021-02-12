@@ -67,6 +67,9 @@ func NewServerFarm(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:ServerFarm"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:ServerFarm"),
 		},
 		{

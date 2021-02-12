@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['RegistrationDefinition']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationDefinition'.""", DeprecationWarning)
+
 
 class RegistrationDefinition(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationDefinition'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class RegistrationDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] registration_definition_id: Guid of the registration definition.
         :param pulumi.Input[str] scope: Scope of the resource.
         """
+        pulumi.log.warn("RegistrationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationDefinition'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -62,7 +67,7 @@ class RegistrationDefinition(pulumi.CustomResource):
             __props__['scope'] = scope
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:managedservices/v20180601preview:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190401preview:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190601:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190901:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20200201preview:RegistrationDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:managedservices:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20180601preview:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190401preview:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190601:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190901:RegistrationDefinition"), pulumi.Alias(type_="azure-nextgen:managedservices/v20200201preview:RegistrationDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegistrationDefinition, __self__).__init__(
             'azure-nextgen:managedservices/latest:RegistrationDefinition',

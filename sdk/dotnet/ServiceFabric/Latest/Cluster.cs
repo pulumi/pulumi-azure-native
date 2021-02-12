@@ -14,6 +14,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest
     /// 
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Cluster'.")]
     [AzureNextGenResourceType("azure-nextgen:servicefabric/latest:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -236,6 +237,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20160901:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20180201:Cluster"},

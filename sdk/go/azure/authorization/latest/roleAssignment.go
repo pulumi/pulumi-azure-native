@@ -13,6 +13,8 @@ import (
 
 // Role Assignments
 // Latest API Version: 2015-07-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleAssignment'.
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +43,9 @@ func NewRoleAssignment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:authorization:RoleAssignment"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20150701:RoleAssignment"),
 		},

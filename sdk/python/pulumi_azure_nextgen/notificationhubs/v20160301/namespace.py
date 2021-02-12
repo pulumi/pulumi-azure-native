@@ -97,7 +97,7 @@ class Namespace(pulumi.CustomResource):
             __props__['subscription_id'] = subscription_id
             __props__['tags'] = tags
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notificationhubs/latest:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20140901:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20170401:Namespace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notificationhubs:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/latest:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20140901:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20170401:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Namespace, __self__).__init__(
             'azure-nextgen:notificationhubs/v20160301:Namespace',

@@ -117,7 +117,7 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/latest:AdaptiveApplicationControl" }, { type: "azure-nextgen:security/v20150601preview:AdaptiveApplicationControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:AdaptiveApplicationControl" }, { type: "azure-nextgen:security/latest:AdaptiveApplicationControl" }, { type: "azure-nextgen:security/v20150601preview:AdaptiveApplicationControl" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AdaptiveApplicationControl.__pulumiType, name, inputs, opts);
     }

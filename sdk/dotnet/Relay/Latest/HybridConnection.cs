@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
     /// Description of hybrid connection resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:relay/latest:HybridConnection")]
     public partial class HybridConnection : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:relay:HybridConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:HybridConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:HybridConnection"},
                 },

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Runbook']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Runbook'.""", DeprecationWarning)
+
 
 class Runbook(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Runbook'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +58,7 @@ class Runbook(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'RunbookTypeEnum']] runbook_type: Gets or sets the type of the runbook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
+        pulumi.log.warn("Runbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Runbook'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,7 +107,7 @@ class Runbook(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Runbook"), pulumi.Alias(type_="azure-nextgen:automation/v20180630:Runbook"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Runbook")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:Runbook"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Runbook"), pulumi.Alias(type_="azure-nextgen:automation/v20180630:Runbook"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Runbook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Runbook, __self__).__init__(
             'azure-nextgen:automation/latest:Runbook',

@@ -139,6 +139,7 @@ namespace Pulumi.AzureNextGen.Batch.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batch:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/latest:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20151201:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170101:BatchAccount"},

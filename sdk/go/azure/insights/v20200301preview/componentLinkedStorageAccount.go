@@ -39,6 +39,12 @@ func NewComponentLinkedStorageAccount(ctx *pulumi.Context,
 	if args.StorageType == nil {
 		return nil, errors.New("invalid value for required argument 'StorageType'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:ComponentLinkedStorageAccount"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ComponentLinkedStorageAccount
 	err := ctx.RegisterResource("azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount", name, args, &resource, opts...)
 	if err != nil {

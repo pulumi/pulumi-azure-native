@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSourceControlSlot"},

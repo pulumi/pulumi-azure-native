@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppSiteExtension']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSiteExtension'.""", DeprecationWarning)
+
 
 class WebAppSiteExtension(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSiteExtension'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +36,7 @@ class WebAppSiteExtension(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] site_extension_id: Site extension name.
         """
+        pulumi.log.warn("WebAppSiteExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSiteExtension'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class WebAppSiteExtension(pulumi.CustomResource):
             __props__['title'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSiteExtension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSiteExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSiteExtension, __self__).__init__(
             'azure-nextgen:web/latest:WebAppSiteExtension',

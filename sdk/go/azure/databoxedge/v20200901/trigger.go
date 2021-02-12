@@ -46,6 +46,9 @@ func NewTrigger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:databoxedge:Trigger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/latest:Trigger"),
 		},
 		{

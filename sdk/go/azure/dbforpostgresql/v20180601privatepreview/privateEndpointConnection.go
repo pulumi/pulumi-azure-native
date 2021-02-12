@@ -45,6 +45,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:dbforpostgresql:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/latest:PrivateEndpointConnection"),
 		},
 		{

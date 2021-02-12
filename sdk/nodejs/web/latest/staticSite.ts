@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Static Site ARM resource.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:StaticSite'.
  */
 export class StaticSite extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class StaticSite extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StaticSite {
+        pulumi.log.warn("StaticSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:StaticSite'.")
         return new StaticSite(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,7 +99,9 @@ export class StaticSite extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:StaticSite'. */
     constructor(name: string, args: StaticSiteArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("StaticSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:StaticSite'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -141,7 +146,7 @@ export class StaticSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20190801:StaticSite" }, { type: "azure-nextgen:web/v20200601:StaticSite" }, { type: "azure-nextgen:web/v20200901:StaticSite" }, { type: "azure-nextgen:web/v20201001:StaticSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:StaticSite" }, { type: "azure-nextgen:web/v20190801:StaticSite" }, { type: "azure-nextgen:web/v20200601:StaticSite" }, { type: "azure-nextgen:web/v20200901:StaticSite" }, { type: "azure-nextgen:web/v20201001:StaticSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StaticSite.__pulumiType, name, inputs, opts);
     }

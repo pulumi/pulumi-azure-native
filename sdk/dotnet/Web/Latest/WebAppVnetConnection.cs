@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Virtual Network information contract.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppVnetConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppVnetConnection")]
     public partial class WebAppVnetConnection : Pulumi.CustomResource
     {
@@ -108,6 +109,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppVnetConnection"},

@@ -69,7 +69,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
             __props__['rights'] = rights
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/latest:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:QueueAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/latest:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:QueueAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(QueueAuthorizationRule, __self__).__init__(
             'azure-nextgen:servicebus/v20180101preview:QueueAuthorizationRule',

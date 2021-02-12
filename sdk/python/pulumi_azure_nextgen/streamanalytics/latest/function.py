@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Function']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Function'.""", DeprecationWarning)
+
 
 class Function(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Function'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ScalarFunctionPropertiesArgs']] properties: The properties that are associated with a function.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         """
+        pulumi.log.warn("Function is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Function'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -66,7 +71,7 @@ class Function(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:Function"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:Function")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics:Function"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:Function"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:Function")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Function, __self__).__init__(
             'azure-nextgen:streamanalytics/latest:Function',

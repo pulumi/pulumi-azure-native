@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Variable']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Variable'.""", DeprecationWarning)
+
 
 class Variable(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Variable'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class Variable(pulumi.CustomResource):
         :param pulumi.Input[str] value: Gets or sets the value of the variable.
         :param pulumi.Input[str] variable_name: The variable name.
         """
+        pulumi.log.warn("Variable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Variable'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -74,7 +79,7 @@ class Variable(pulumi.CustomResource):
             __props__['creation_time'] = None
             __props__['last_modified_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Variable"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Variable"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Variable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:Variable"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Variable"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Variable"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Variable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Variable, __self__).__init__(
             'azure-nextgen:automation/latest:Variable',

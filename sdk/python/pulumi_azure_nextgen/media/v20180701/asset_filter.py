@@ -75,7 +75,7 @@ class AssetFilter(pulumi.CustomResource):
             __props__['tracks'] = tracks
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:AssetFilter"), pulumi.Alias(type_="azure-nextgen:media/v20200501:AssetFilter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:AssetFilter"), pulumi.Alias(type_="azure-nextgen:media/latest:AssetFilter"), pulumi.Alias(type_="azure-nextgen:media/v20200501:AssetFilter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssetFilter, __self__).__init__(
             'azure-nextgen:media/v20180701:AssetFilter',

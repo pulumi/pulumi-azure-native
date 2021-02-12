@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:PolicyResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:PolicyResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:PolicyResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:PolicyResource"},

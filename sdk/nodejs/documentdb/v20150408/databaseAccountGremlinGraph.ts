@@ -151,7 +151,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinGraph" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountGremlinGraph.__pulumiType, name, inputs, opts);
     }

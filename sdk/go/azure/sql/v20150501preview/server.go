@@ -54,6 +54,9 @@ func NewServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql:Server"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/latest:Server"),
 		},
 		{

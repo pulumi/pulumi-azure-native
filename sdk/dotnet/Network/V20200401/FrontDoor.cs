@@ -142,6 +142,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:FrontDoor"},

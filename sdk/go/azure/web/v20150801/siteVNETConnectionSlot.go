@@ -61,6 +61,9 @@ func NewSiteVNETConnectionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:SiteVNETConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteVNETConnectionSlot"),
 		},
 		{

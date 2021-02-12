@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Properties that define an Analytics item that is associated to an Application Insights component.
  * Latest API Version: 2015-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AnalyticsItem'.
  */
 export class AnalyticsItem extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class AnalyticsItem extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AnalyticsItem {
+        pulumi.log.warn("AnalyticsItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AnalyticsItem'.")
         return new AnalyticsItem(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class AnalyticsItem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AnalyticsItem'. */
     constructor(name: string, args: AnalyticsItemArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AnalyticsItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AnalyticsItem'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -118,7 +123,7 @@ export class AnalyticsItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20150501:AnalyticsItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:AnalyticsItem" }, { type: "azure-nextgen:insights/v20150501:AnalyticsItem" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AnalyticsItem.__pulumiType, name, inputs, opts);
     }

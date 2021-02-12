@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['StorageSyncService']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:StorageSyncService'.""", DeprecationWarning)
+
 
 class StorageSyncService(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:StorageSyncService'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class StorageSyncService(pulumi.CustomResource):
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         """
+        pulumi.log.warn("StorageSyncService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:StorageSyncService'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -71,7 +76,7 @@ class StorageSyncService(pulumi.CustomResource):
             __props__['storage_sync_service_status'] = None
             __props__['storage_sync_service_uid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagesync/v20170605preview:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180402:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180701:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20181001:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190201:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190301:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190601:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20191001:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200301:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200901:StorageSyncService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagesync:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20170605preview:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180402:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180701:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20181001:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190201:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190301:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190601:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20191001:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200301:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200901:StorageSyncService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageSyncService, __self__).__init__(
             'azure-nextgen:storagesync/latest:StorageSyncService',

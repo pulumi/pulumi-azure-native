@@ -69,7 +69,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vm_name'")
             __props__['vm_name'] = vm_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:guestconfiguration:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestConfigurationAssignment, __self__).__init__(
             'azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment',

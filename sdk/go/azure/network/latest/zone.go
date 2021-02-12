@@ -13,6 +13,8 @@ import (
 
 // Describes a DNS zone.
 // Latest API Version: 2018-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Zone'.
 type Zone struct {
 	pulumi.CustomResourceState
 
@@ -60,6 +62,9 @@ func NewZone(ctx *pulumi.Context,
 		args.ZoneType = &e
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:Zone"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150504preview:Zone"),
 		},

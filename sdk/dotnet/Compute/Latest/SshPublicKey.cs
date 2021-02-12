@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Specifies information about the SSH public key.
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:SshPublicKey'.")]
     [AzureNextGenResourceType("azure-nextgen:compute/latest:SshPublicKey")]
     public partial class SshPublicKey : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:SshPublicKey"},

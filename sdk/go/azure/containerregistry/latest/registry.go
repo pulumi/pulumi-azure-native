@@ -13,6 +13,8 @@ import (
 
 // An object that represents a container registry.
 // Latest API Version: 2019-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Registry'.
 type Registry struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +66,9 @@ func NewRegistry(ctx *pulumi.Context,
 		args.AdminUserEnabled = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry:Registry"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20160627preview:Registry"),
 		},

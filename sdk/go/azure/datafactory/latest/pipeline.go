@@ -13,6 +13,8 @@ import (
 
 // Pipeline resource type.
 // Latest API Version: 2018-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Pipeline'.
 type Pipeline struct {
 	pulumi.CustomResourceState
 
@@ -57,6 +59,9 @@ func NewPipeline(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datafactory:Pipeline"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:Pipeline"),
 		},

@@ -100,7 +100,7 @@ export class BandwidthSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:BandwidthSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:BandwidthSetting" }, { type: "azure-nextgen:storsimple/latest:BandwidthSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BandwidthSetting.__pulumiType, name, inputs, opts);
     }

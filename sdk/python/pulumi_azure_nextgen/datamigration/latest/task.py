@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Task']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Task'.""", DeprecationWarning)
+
 
 class Task(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Task'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input[str] task_name: Name of the Task
         """
+        pulumi.log.warn("Task is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Task'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class Task(pulumi.CustomResource):
             __props__['task_name'] = task_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Task"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180315preview:Task"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Task"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Task"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180715preview:Task")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration:Task"), pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Task"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180315preview:Task"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Task"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Task"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180715preview:Task")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Task, __self__).__init__(
             'azure-nextgen:datamigration/latest:Task',

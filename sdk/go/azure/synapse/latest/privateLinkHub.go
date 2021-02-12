@@ -13,6 +13,8 @@ import (
 
 // A privateLinkHub
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:PrivateLinkHub'.
 type PrivateLinkHub struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse:PrivateLinkHub"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:PrivateLinkHub"),
 		},

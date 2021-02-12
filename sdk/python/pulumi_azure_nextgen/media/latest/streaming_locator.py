@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['StreamingLocator']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingLocator'.""", DeprecationWarning)
+
 
 class StreamingLocator(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingLocator'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +55,7 @@ class StreamingLocator(pulumi.CustomResource):
         :param pulumi.Input[str] streaming_locator_name: The Streaming Locator name.
         :param pulumi.Input[str] streaming_policy_name: Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
         """
+        pulumi.log.warn("StreamingLocator is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingLocator'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -94,7 +99,7 @@ class StreamingLocator(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingLocator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingLocator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingLocator, __self__).__init__(
             'azure-nextgen:media/latest:StreamingLocator',

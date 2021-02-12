@@ -130,6 +130,7 @@ namespace Pulumi.AzureNextGen.Storage.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20150615:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20160101:StorageAccount"},

@@ -77,7 +77,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:ReplicationMigrationItem"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices:ReplicationMigrationItem"), pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:ReplicationMigrationItem"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationMigrationItem, __self__).__init__(
             'azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem',

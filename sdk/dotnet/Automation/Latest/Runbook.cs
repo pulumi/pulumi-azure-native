@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
     /// Definition of the runbook type.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Runbook'.")]
     [AzureNextGenResourceType("azure-nextgen:automation/latest:Runbook")]
     public partial class Runbook : Pulumi.CustomResource
     {
@@ -161,6 +162,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Runbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Runbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20180630:Runbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Runbook"},

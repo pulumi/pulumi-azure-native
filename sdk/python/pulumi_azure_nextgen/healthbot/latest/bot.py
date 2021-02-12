@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Bot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthbot:Bot'.""", DeprecationWarning)
+
 
 class Bot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthbot:Bot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class Bot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SKU of the HealthBot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("Bot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthbot:Bot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class Bot(pulumi.CustomResource):
             __props__['properties'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthbot/v20201020:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201020preview:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201208:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201208preview:Bot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthbot:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201020:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201020preview:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201208:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201208preview:Bot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Bot, __self__).__init__(
             'azure-nextgen:healthbot/latest:Bot',

@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['DatabasePrincipalAssignment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:DatabasePrincipalAssignment'.""", DeprecationWarning)
+
 
 class DatabasePrincipalAssignment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:DatabasePrincipalAssignment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'DatabasePrincipalRole']] role: Database principal role.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
         """
+        pulumi.log.warn("DatabasePrincipalAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:DatabasePrincipalAssignment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -86,7 +91,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:DatabasePrincipalAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:DatabasePrincipalAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabasePrincipalAssignment, __self__).__init__(
             'azure-nextgen:kusto/latest:DatabasePrincipalAssignment',

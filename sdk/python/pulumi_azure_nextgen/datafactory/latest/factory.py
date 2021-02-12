@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Factory']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Factory'.""", DeprecationWarning)
+
 
 class Factory(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Factory'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        pulumi.log.warn("Factory is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Factory'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -82,7 +87,7 @@ class Factory(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datafactory/v20170901preview:Factory"), pulumi.Alias(type_="azure-nextgen:datafactory/v20180601:Factory")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datafactory:Factory"), pulumi.Alias(type_="azure-nextgen:datafactory/v20170901preview:Factory"), pulumi.Alias(type_="azure-nextgen:datafactory/v20180601:Factory")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Factory, __self__).__init__(
             'azure-nextgen:datafactory/latest:Factory',

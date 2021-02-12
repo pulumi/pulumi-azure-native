@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['MoveCollection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveCollection'.""", DeprecationWarning)
+
 
 class MoveCollection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveCollection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class MoveCollection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("MoveCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveCollection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class MoveCollection(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate/v20191001preview:MoveCollection"), pulumi.Alias(type_="azure-nextgen:migrate/v20210101:MoveCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate:MoveCollection"), pulumi.Alias(type_="azure-nextgen:migrate/v20191001preview:MoveCollection"), pulumi.Alias(type_="azure-nextgen:migrate/v20210101:MoveCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MoveCollection, __self__).__init__(
             'azure-nextgen:migrate/latest:MoveCollection',

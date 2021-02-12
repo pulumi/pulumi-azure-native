@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Device']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Device'.""", DeprecationWarning)
+
 
 class Device(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Device'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class Device(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
         """
+        pulumi.log.warn("Device is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Device'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -92,7 +97,7 @@ class Device(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['time_zone'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Device")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Device"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Device")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Device, __self__).__init__(
             'azure-nextgen:databoxedge/latest:Device',

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Properties of an artifact source.
  * Latest API Version: 2018-09-15.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ArtifactSource'.
  */
 export class ArtifactSource extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ArtifactSource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ArtifactSource {
+        pulumi.log.warn("ArtifactSource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ArtifactSource'.")
         return new ArtifactSource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -104,7 +107,9 @@ export class ArtifactSource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ArtifactSource'. */
     constructor(name: string, args: ArtifactSourceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ArtifactSource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ArtifactSource'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -157,7 +162,7 @@ export class ArtifactSource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20150521preview:ArtifactSource" }, { type: "azure-nextgen:devtestlab/v20160515:ArtifactSource" }, { type: "azure-nextgen:devtestlab/v20180915:ArtifactSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:ArtifactSource" }, { type: "azure-nextgen:devtestlab/v20150521preview:ArtifactSource" }, { type: "azure-nextgen:devtestlab/v20160515:ArtifactSource" }, { type: "azure-nextgen:devtestlab/v20180915:ArtifactSource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ArtifactSource.__pulumiType, name, inputs, opts);
     }

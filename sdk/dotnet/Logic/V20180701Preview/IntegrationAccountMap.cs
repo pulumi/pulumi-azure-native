@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountMap"},

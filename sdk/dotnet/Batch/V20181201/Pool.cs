@@ -172,6 +172,7 @@ namespace Pulumi.AzureNextGen.Batch.V20181201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batch:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/latest:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:Pool"},

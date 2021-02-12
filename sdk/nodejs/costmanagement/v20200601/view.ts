@@ -155,7 +155,7 @@ export class View extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement/latest:View" }, { type: "azure-nextgen:costmanagement/v20190401preview:View" }, { type: "azure-nextgen:costmanagement/v20191101:View" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement:View" }, { type: "azure-nextgen:costmanagement/latest:View" }, { type: "azure-nextgen:costmanagement/v20190401preview:View" }, { type: "azure-nextgen:costmanagement/v20191101:View" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(View.__pulumiType, name, inputs, opts);
     }

@@ -97,7 +97,7 @@ export class AccessPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:timeseriesinsights/latest:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20200515:AccessPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:timeseriesinsights:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/latest:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20200515:AccessPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AccessPolicy.__pulumiType, name, inputs, opts);
     }

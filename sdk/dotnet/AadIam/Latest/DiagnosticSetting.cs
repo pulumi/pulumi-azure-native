@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AadIam.Latest
     /// The diagnostic setting resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aadiam:DiagnosticSetting'.")]
     [AzureNextGenResourceType("azure-nextgen:aadiam/latest:DiagnosticSetting")]
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.AadIam.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:aadiam:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam/v20170401:DiagnosticSetting"},
                 },
             };

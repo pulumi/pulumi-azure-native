@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:azuredata:SqlManagedInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20200908preview:SqlManagedInstance"},
                 },
             };

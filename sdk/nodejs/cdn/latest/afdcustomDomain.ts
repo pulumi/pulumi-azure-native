@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDCustomDomain'.
  */
 export class AFDCustomDomain extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AFDCustomDomain {
+        pulumi.log.warn("AFDCustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDCustomDomain'.")
         return new AFDCustomDomain(name, undefined as any, { ...opts, id: id });
     }
 
@@ -81,7 +84,9 @@ export class AFDCustomDomain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDCustomDomain'. */
     constructor(name: string, args: AFDCustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AFDCustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDCustomDomain'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.customDomainName === undefined) && !(opts && opts.urn)) {
@@ -128,7 +133,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20200901:AFDCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:AFDCustomDomain" }, { type: "azure-nextgen:cdn/v20200901:AFDCustomDomain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AFDCustomDomain.__pulumiType, name, inputs, opts);
     }

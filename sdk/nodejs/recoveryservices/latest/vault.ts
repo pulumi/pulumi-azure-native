@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Resource information, as returned by the resource provider.
  * Latest API Version: 2020-02-02.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:Vault'.
  */
 export class Vault extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Vault extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Vault {
+        pulumi.log.warn("Vault is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:Vault'.")
         return new Vault(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class Vault extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:Vault'. */
     constructor(name: string, args: VaultArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Vault is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:Vault'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -112,7 +117,7 @@ export class Vault extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20160601:Vault" }, { type: "azure-nextgen:recoveryservices/v20200202:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:Vault" }, { type: "azure-nextgen:recoveryservices/v20160601:Vault" }, { type: "azure-nextgen:recoveryservices/v20200202:Vault" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Vault.__pulumiType, name, inputs, opts);
     }

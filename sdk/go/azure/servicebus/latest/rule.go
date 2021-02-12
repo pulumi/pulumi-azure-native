@@ -13,6 +13,8 @@ import (
 
 // Description of Rule Resource.
 // Latest API Version: 2017-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Rule'.
 type Rule struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:servicebus:Rule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:Rule"),
 		},

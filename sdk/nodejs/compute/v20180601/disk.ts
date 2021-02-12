@@ -156,7 +156,7 @@ export class Disk extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:Disk" }, { type: "azure-nextgen:compute/v20160430preview:Disk" }, { type: "azure-nextgen:compute/v20170330:Disk" }, { type: "azure-nextgen:compute/v20180401:Disk" }, { type: "azure-nextgen:compute/v20180930:Disk" }, { type: "azure-nextgen:compute/v20190301:Disk" }, { type: "azure-nextgen:compute/v20190701:Disk" }, { type: "azure-nextgen:compute/v20191101:Disk" }, { type: "azure-nextgen:compute/v20200501:Disk" }, { type: "azure-nextgen:compute/v20200630:Disk" }, { type: "azure-nextgen:compute/v20200930:Disk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:Disk" }, { type: "azure-nextgen:compute/latest:Disk" }, { type: "azure-nextgen:compute/v20160430preview:Disk" }, { type: "azure-nextgen:compute/v20170330:Disk" }, { type: "azure-nextgen:compute/v20180401:Disk" }, { type: "azure-nextgen:compute/v20180930:Disk" }, { type: "azure-nextgen:compute/v20190301:Disk" }, { type: "azure-nextgen:compute/v20190701:Disk" }, { type: "azure-nextgen:compute/v20191101:Disk" }, { type: "azure-nextgen:compute/v20200501:Disk" }, { type: "azure-nextgen:compute/v20200630:Disk" }, { type: "azure-nextgen:compute/v20200930:Disk" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Disk.__pulumiType, name, inputs, opts);
     }

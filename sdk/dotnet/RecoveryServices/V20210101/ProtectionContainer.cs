@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20161201:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201001:ProtectionContainer"},

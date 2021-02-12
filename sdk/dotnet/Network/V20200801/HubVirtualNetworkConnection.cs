@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:HubVirtualNetworkConnection"},

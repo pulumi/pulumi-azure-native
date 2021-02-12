@@ -103,7 +103,7 @@ export class Extension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:visualstudio/v20171101preview:Extension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:visualstudio:Extension" }, { type: "azure-nextgen:visualstudio/v20171101preview:Extension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Extension.__pulumiType, name, inputs, opts);
     }

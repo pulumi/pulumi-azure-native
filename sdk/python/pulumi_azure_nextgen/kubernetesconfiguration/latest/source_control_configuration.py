@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['SourceControlConfiguration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetesconfiguration:SourceControlConfiguration'.""", DeprecationWarning)
+
 
 class SourceControlConfiguration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetesconfiguration:SourceControlConfiguration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +62,7 @@ class SourceControlConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] source_control_configuration_name: Name of the Source Control Configuration.
         :param pulumi.Input[str] ssh_known_hosts_contents: Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
         """
+        pulumi.log.warn("SourceControlConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetesconfiguration:SourceControlConfiguration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -108,7 +113,7 @@ class SourceControlConfiguration(pulumi.CustomResource):
             __props__['repository_public_key'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration:SourceControlConfiguration"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SourceControlConfiguration, __self__).__init__(
             'azure-nextgen:kubernetesconfiguration/latest:SourceControlConfiguration',

@@ -103,6 +103,7 @@ namespace Pulumi.AzureNextGen.DevSpaces.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devspaces:Controller"},
                     new Pulumi.Alias { Type = "azure-nextgen:devspaces/latest:Controller"},
                 },
             };

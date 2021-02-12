@@ -82,7 +82,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/latest:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountPartner")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/latest:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountPartner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountPartner, __self__).__init__(
             'azure-nextgen:logic/v20190501:IntegrationAccountPartner',

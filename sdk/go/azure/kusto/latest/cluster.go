@@ -13,6 +13,8 @@ import (
 
 // Class representing a Kusto cluster.
 // Latest API Version: 2020-09-18.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Cluster'.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -88,6 +90,9 @@ func NewCluster(ctx *pulumi.Context,
 		args.EnableStreamingIngest = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:kusto:Cluster"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20170907privatepreview:Cluster"),
 		},

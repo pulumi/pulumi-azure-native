@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Snapshot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Snapshot'.""", DeprecationWarning)
+
 
 class Snapshot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Snapshot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +64,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Snapshot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -107,7 +112,7 @@ class Snapshot(pulumi.CustomResource):
             __props__['time_created'] = None
             __props__['type'] = None
             __props__['unique_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Snapshot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Snapshot, __self__).__init__(
             'azure-nextgen:compute/latest:Snapshot',

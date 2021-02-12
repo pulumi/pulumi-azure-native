@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccountTable"},

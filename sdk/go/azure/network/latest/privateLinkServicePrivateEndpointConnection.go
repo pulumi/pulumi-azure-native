@@ -13,6 +13,8 @@ import (
 
 // PrivateEndpointConnection resource.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection'.
 type PrivateLinkServicePrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewPrivateLinkServicePrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:PrivateLinkServicePrivateEndpointConnection"),
 		},

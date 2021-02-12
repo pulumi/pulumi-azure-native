@@ -45,6 +45,12 @@ func NewSubscriptionDiagnosticSetting(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:SubscriptionDiagnosticSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SubscriptionDiagnosticSetting
 	err := ctx.RegisterResource("azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting", name, args, &resource, opts...)
 	if err != nil {

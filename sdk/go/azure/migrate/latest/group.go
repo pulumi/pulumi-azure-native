@@ -13,6 +13,8 @@ import (
 
 // A group created in a Migration project.
 // Latest API Version: 2019-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Group'.
 type Group struct {
 	pulumi.CustomResourceState
 
@@ -43,6 +45,9 @@ func NewGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:migrate:Group"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/v20191001:Group"),
 		},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
     /// ExpressRoute Circuit Authorization
     /// Latest API Version: 2020-03-20.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'.")]
     [AzureNextGenResourceType("azure-nextgen:avs/latest:Authorization")]
     public partial class Authorization : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:avs:Authorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:Authorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:Authorization"},
                 },

@@ -66,6 +66,8 @@ class PrivateLinkScope(pulumi.CustomResource):
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridcompute:PrivateLinkScope")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkScope, __self__).__init__(
             'azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope',
             resource_name,

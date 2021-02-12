@@ -11,8 +11,12 @@ from ._inputs import *
 
 __all__ = ['DatabaseAccountSqlDatabase']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountSqlDatabase'.""", DeprecationWarning)
+
 
 class DatabaseAccountSqlDatabase(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountSqlDatabase'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SqlDatabaseResourceArgs']] resource: The standard JSON format of a SQL database
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         """
+        pulumi.log.warn("DatabaseAccountSqlDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountSqlDatabase'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -77,7 +82,7 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
             __props__['ts'] = None
             __props__['type'] = None
             __props__['users'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountSqlDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountSqlDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountSqlDatabase, __self__).__init__(
             'azure-nextgen:documentdb/latest:DatabaseAccountSqlDatabase',

@@ -67,6 +67,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20140801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:scheduler:JobCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:scheduler/latest:JobCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:scheduler/v20160101:JobCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:scheduler/v20160301:JobCollection"},

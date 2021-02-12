@@ -13,6 +13,8 @@ import (
 
 // An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
 // Latest API Version: 2020-05-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:EventSource'.
 type EventSource struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewEventSource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:timeseriesinsights:EventSource"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:EventSource"),
 		},

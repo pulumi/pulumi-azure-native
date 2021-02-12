@@ -136,6 +136,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:Snapshot"},

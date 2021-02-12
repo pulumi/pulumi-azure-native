@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Policy Contract details.
  * Latest API Version: 2019-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Policy'.
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Policy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Policy {
+        pulumi.log.warn("Policy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Policy'.")
         return new Policy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Policy'. */
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Policy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Policy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
@@ -95,7 +100,7 @@ export class Policy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20170301:Policy" }, { type: "azure-nextgen:apimanagement/v20180101:Policy" }, { type: "azure-nextgen:apimanagement/v20180601preview:Policy" }, { type: "azure-nextgen:apimanagement/v20190101:Policy" }, { type: "azure-nextgen:apimanagement/v20191201:Policy" }, { type: "azure-nextgen:apimanagement/v20191201preview:Policy" }, { type: "azure-nextgen:apimanagement/v20200601preview:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:Policy" }, { type: "azure-nextgen:apimanagement/v20170301:Policy" }, { type: "azure-nextgen:apimanagement/v20180101:Policy" }, { type: "azure-nextgen:apimanagement/v20180601preview:Policy" }, { type: "azure-nextgen:apimanagement/v20190101:Policy" }, { type: "azure-nextgen:apimanagement/v20191201:Policy" }, { type: "azure-nextgen:apimanagement/v20191201preview:Policy" }, { type: "azure-nextgen:apimanagement/v20200601preview:Policy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Policy.__pulumiType, name, inputs, opts);
     }

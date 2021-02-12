@@ -7,3 +7,15 @@ import * as v20171001preview from "./v20171001preview";
 export {
     v20171001preview,
 };
+
+export const IoTSpacesSku = {
+    F1: "F1",
+    S1: "S1",
+    S2: "S2",
+    S3: "S3",
+} as const;
+
+/**
+ * The name of the SKU.
+ */
+export type IoTSpacesSku = (typeof IoTSpacesSku)[keyof typeof IoTSpacesSku];

@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['CloudEndpoint']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:CloudEndpoint'.""", DeprecationWarning)
+
 
 class CloudEndpoint(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:CloudEndpoint'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class CloudEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[str] sync_group_name: Name of Sync Group resource.
         """
+        pulumi.log.warn("CloudEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:CloudEndpoint'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class CloudEndpoint(pulumi.CustomResource):
             __props__['partnership_id'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagesync/v20170605preview:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180402:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180701:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20181001:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190201:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190301:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190601:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20191001:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200301:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200901:CloudEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagesync:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20170605preview:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180402:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180701:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20181001:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190201:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190301:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190601:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20191001:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200301:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200901:CloudEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudEndpoint, __self__).__init__(
             'azure-nextgen:storagesync/latest:CloudEndpoint',

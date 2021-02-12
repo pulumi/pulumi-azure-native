@@ -13,6 +13,8 @@ import (
 
 // Role definition.
 // Latest API Version: 2015-07-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleDefinition'.
 type RoleDefinition struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewRoleDefinition(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:authorization:RoleDefinition"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20150701:RoleDefinition"),
 		},

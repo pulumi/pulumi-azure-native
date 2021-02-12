@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['Queue']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Queue'.""", DeprecationWarning)
+
 
 class Queue(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Queue'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -63,6 +67,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         """
+        pulumi.log.warn("Queue is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Queue'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -112,7 +117,7 @@ class Queue(pulumi.CustomResource):
             __props__['size_in_bytes'] = None
             __props__['type'] = None
             __props__['updated_at'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:Queue"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:Queue"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:Queue"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:Queue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus:Queue"), pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:Queue"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:Queue"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:Queue"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:Queue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Queue, __self__).__init__(
             'azure-nextgen:servicebus/latest:Queue',

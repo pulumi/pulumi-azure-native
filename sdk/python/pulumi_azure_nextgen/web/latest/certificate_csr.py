@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['CertificateCsr']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CertificateCsr'.""", DeprecationWarning)
+
 
 class CertificateCsr(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CertificateCsr'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +55,7 @@ class CertificateCsr(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         """
+        pulumi.log.warn("CertificateCsr is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CertificateCsr'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -85,7 +90,7 @@ class CertificateCsr(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:CertificateCsr")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:CertificateCsr"), pulumi.Alias(type_="azure-nextgen:web/v20150801:CertificateCsr")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CertificateCsr, __self__).__init__(
             'azure-nextgen:web/latest:CertificateCsr',

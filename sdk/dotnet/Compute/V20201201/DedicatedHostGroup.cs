@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Compute.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:DedicatedHostGroup"},

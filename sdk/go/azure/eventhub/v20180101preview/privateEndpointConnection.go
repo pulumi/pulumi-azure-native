@@ -43,6 +43,12 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:eventhub:PrivateEndpointConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
 	err := ctx.RegisterResource("azure-nextgen:eventhub/v20180101preview:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {

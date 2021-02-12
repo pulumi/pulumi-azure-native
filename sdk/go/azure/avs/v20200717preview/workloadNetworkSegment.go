@@ -51,6 +51,12 @@ func NewWorkloadNetworkSegment(ctx *pulumi.Context,
 	if args.SegmentId == nil {
 		return nil, errors.New("invalid value for required argument 'SegmentId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:avs:WorkloadNetworkSegment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WorkloadNetworkSegment
 	err := ctx.RegisterResource("azure-nextgen:avs/v20200717preview:WorkloadNetworkSegment", name, args, &resource, opts...)
 	if err != nil {

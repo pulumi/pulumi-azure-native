@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
     /// A single Redis item in List or Get Operation.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Redis'.")]
     [AzureNextGenResourceType("azure-nextgen:cache/latest:Redis")]
     public partial class Redis : Pulumi.CustomResource
     {
@@ -185,6 +186,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20150801:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20160401:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:Redis"},

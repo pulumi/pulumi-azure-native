@@ -13,6 +13,8 @@ import (
 
 // Description of subscription resource.
 // Latest API Version: 2017-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Subscription'.
 type Subscription struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +78,9 @@ func NewSubscription(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:servicebus:Subscription"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20140901:Subscription"),
 		},

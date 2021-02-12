@@ -103,6 +103,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:keyvault:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/latest:Key"},
                 },
             };

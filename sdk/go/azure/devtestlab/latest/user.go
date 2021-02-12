@@ -13,6 +13,8 @@ import (
 
 // Profile of a lab user.
 // Latest API Version: 2018-09-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:User'.
 type User struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewUser(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab:User"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:User"),
 		},

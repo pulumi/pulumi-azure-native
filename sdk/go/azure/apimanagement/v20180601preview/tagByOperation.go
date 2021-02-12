@@ -47,6 +47,9 @@ func NewTagByOperation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:TagByOperation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:TagByOperation"),
 		},
 		{

@@ -13,6 +13,8 @@ import (
 
 // Represents a server firewall rule.
 // Latest API Version: 2018-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:FirewallRule'.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StartIpAddress'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:dbformariadb:FirewallRule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601:FirewallRule"),
 		},

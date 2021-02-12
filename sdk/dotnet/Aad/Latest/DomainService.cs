@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
     /// Domain service.
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aad:DomainService'.")]
     [AzureNextGenResourceType("azure-nextgen:aad/latest:DomainService")]
     public partial class DomainService : Pulumi.CustomResource
     {
@@ -161,6 +162,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:aad:DomainService"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20170101:DomainService"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20170601:DomainService"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20200101:DomainService"},

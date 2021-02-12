@@ -55,6 +55,9 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datashare:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/latest:Account"),
 		},
 		{

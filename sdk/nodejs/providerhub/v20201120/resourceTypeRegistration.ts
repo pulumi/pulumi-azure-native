@@ -75,7 +75,7 @@ export class ResourceTypeRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub/latest:ResourceTypeRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub:ResourceTypeRegistration" }, { type: "azure-nextgen:providerhub/latest:ResourceTypeRegistration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ResourceTypeRegistration.__pulumiType, name, inputs, opts);
     }

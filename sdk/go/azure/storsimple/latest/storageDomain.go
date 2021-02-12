@@ -13,6 +13,8 @@ import (
 
 // The storage domain.
 // Latest API Version: 2016-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageDomain'.
 type StorageDomain struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewStorageDomain(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StorageDomainName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storsimple:StorageDomain"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:StorageDomain"),
 		},

@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['RoleDefinition']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleDefinition'.""", DeprecationWarning)
+
 
 class RoleDefinition(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleDefinition'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class RoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] role_type: The role type.
         :param pulumi.Input[str] scope: The scope of the role definition.
         """
+        pulumi.log.warn("RoleDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleDefinition'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -71,7 +76,7 @@ class RoleDefinition(pulumi.CustomResource):
             __props__['scope'] = scope
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20150701:RoleDefinition"), pulumi.Alias(type_="azure-nextgen:authorization/v20180101preview:RoleDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:RoleDefinition"), pulumi.Alias(type_="azure-nextgen:authorization/v20150701:RoleDefinition"), pulumi.Alias(type_="azure-nextgen:authorization/v20180101preview:RoleDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleDefinition, __self__).__init__(
             'azure-nextgen:authorization/latest:RoleDefinition',

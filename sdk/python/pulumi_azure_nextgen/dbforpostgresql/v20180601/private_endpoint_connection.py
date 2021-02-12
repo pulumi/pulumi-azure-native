@@ -66,7 +66,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:dbforpostgresql/v20180601:PrivateEndpointConnection',

@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['DeviceSecurityGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:DeviceSecurityGroup'.""", DeprecationWarning)
+
 
 class DeviceSecurityGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:DeviceSecurityGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThresholdCustomAlertRuleArgs']]]] threshold_rules: The list of custom alert threshold rules.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeWindowCustomAlertRuleArgs']]]] time_window_rules: The list of custom alert time-window rules.
         """
+        pulumi.log.warn("DeviceSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:DeviceSecurityGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
             __props__['time_window_rules'] = time_window_rules
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20170801preview:DeviceSecurityGroup"), pulumi.Alias(type_="azure-nextgen:security/v20190801:DeviceSecurityGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:DeviceSecurityGroup"), pulumi.Alias(type_="azure-nextgen:security/v20170801preview:DeviceSecurityGroup"), pulumi.Alias(type_="azure-nextgen:security/v20190801:DeviceSecurityGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeviceSecurityGroup, __self__).__init__(
             'azure-nextgen:security/latest:DeviceSecurityGroup',

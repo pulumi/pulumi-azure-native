@@ -108,7 +108,7 @@ export class Profile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:Profile" }, { type: "azure-nextgen:cdn/v20150601:Profile" }, { type: "azure-nextgen:cdn/v20160402:Profile" }, { type: "azure-nextgen:cdn/v20161002:Profile" }, { type: "azure-nextgen:cdn/v20170402:Profile" }, { type: "azure-nextgen:cdn/v20171012:Profile" }, { type: "azure-nextgen:cdn/v20190415:Profile" }, { type: "azure-nextgen:cdn/v20190615:Profile" }, { type: "azure-nextgen:cdn/v20190615preview:Profile" }, { type: "azure-nextgen:cdn/v20200331:Profile" }, { type: "azure-nextgen:cdn/v20200415:Profile" }, { type: "azure-nextgen:cdn/v20200901:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:Profile" }, { type: "azure-nextgen:cdn/latest:Profile" }, { type: "azure-nextgen:cdn/v20150601:Profile" }, { type: "azure-nextgen:cdn/v20160402:Profile" }, { type: "azure-nextgen:cdn/v20161002:Profile" }, { type: "azure-nextgen:cdn/v20170402:Profile" }, { type: "azure-nextgen:cdn/v20171012:Profile" }, { type: "azure-nextgen:cdn/v20190415:Profile" }, { type: "azure-nextgen:cdn/v20190615:Profile" }, { type: "azure-nextgen:cdn/v20190615preview:Profile" }, { type: "azure-nextgen:cdn/v20200331:Profile" }, { type: "azure-nextgen:cdn/v20200415:Profile" }, { type: "azure-nextgen:cdn/v20200901:Profile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Profile.__pulumiType, name, inputs, opts);
     }

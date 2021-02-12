@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
     /// A database geo backup policy.
     /// Latest API Version: 2014-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:GeoBackupPolicy'.")]
     [AzureNextGenResourceType("azure-nextgen:sql/latest:GeoBackupPolicy")]
     public partial class GeoBackupPolicy : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:GeoBackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:GeoBackupPolicy"},
                 },
             };

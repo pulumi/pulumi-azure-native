@@ -136,7 +136,7 @@ export class FileServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batchai/latest:FileServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batchai:FileServer" }, { type: "azure-nextgen:batchai/latest:FileServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileServer.__pulumiType, name, inputs, opts);
     }

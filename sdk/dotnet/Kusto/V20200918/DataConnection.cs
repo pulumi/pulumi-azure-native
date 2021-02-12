@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190515:DataConnection"},

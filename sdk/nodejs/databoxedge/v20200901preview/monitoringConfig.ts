@@ -88,7 +88,7 @@ export class MonitoringConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/latest:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901:MonitoringConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/latest:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901:MonitoringConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MonitoringConfig.__pulumiType, name, inputs, opts);
     }

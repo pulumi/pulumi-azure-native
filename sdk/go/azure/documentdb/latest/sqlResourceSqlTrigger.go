@@ -13,6 +13,8 @@ import (
 
 // An Azure Cosmos DB trigger.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlTrigger'.
 type SqlResourceSqlTrigger struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TriggerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlTrigger"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger"),
 		},

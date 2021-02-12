@@ -66,6 +66,8 @@ class Solution(pulumi.CustomResource):
             __props__['solution_name'] = solution_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate:Solution")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Solution, __self__).__init__(
             'azure-nextgen:migrate/v20180901preview:Solution',
             resource_name,

@@ -9,3 +9,32 @@ export {
     v20190701preview,
     v20200713preview,
 };
+
+export const AuthorizationType = {
+    PersonalAccessToken: "personalAccessToken",
+} as const;
+
+/**
+ * Type of authorization.
+ */
+export type AuthorizationType = (typeof AuthorizationType)[keyof typeof AuthorizationType];
+
+export const CodeRepositoryType = {
+    GitHub: "gitHub",
+    VstsGit: "vstsGit",
+} as const;
+
+/**
+ * Type of code repository.
+ */
+export type CodeRepositoryType = (typeof CodeRepositoryType)[keyof typeof CodeRepositoryType];
+
+export const PipelineTypeEnum = {
+    GithubWorkflow: "githubWorkflow",
+    AzurePipeline: "azurePipeline",
+} as const;
+
+/**
+ * Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
+ */
+export type PipelineTypeEnum = (typeof PipelineTypeEnum)[keyof typeof PipelineTypeEnum];

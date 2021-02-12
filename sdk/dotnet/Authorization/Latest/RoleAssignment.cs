@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
     /// Role Assignments
     /// Latest API Version: 2015-07-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleAssignment'.")]
     [AzureNextGenResourceType("azure-nextgen:authorization/latest:RoleAssignment")]
     public partial class RoleAssignment : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150701:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20171001preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180101preview:RoleAssignment"},

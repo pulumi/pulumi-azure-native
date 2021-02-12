@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Assessment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:Assessment'.""", DeprecationWarning)
+
 
 class Assessment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:Assessment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: The identifier of the resource.
         :param pulumi.Input[pulumi.InputType['AssessmentStatusArgs']] status: The result of the assessment
         """
+        pulumi.log.warn("Assessment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:Assessment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class Assessment(pulumi.CustomResource):
             __props__['links'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20190101preview:Assessment"), pulumi.Alias(type_="azure-nextgen:security/v20200101:Assessment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:Assessment"), pulumi.Alias(type_="azure-nextgen:security/v20190101preview:Assessment"), pulumi.Alias(type_="azure-nextgen:security/v20200101:Assessment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Assessment, __self__).__init__(
             'azure-nextgen:security/latest:Assessment',

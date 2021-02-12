@@ -54,6 +54,9 @@ func NewScopeMap(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerregistry:ScopeMap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20190501preview:ScopeMap"),
 		},
 	})

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Api']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Api'.""", DeprecationWarning)
+
 
 class Api(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Api'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -78,6 +82,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] value: Content value when Importing an API.
         :param pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']] wsdl_selector: Criteria to limit import of WSDL to a subset of the document.
         """
+        pulumi.log.warn("Api is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Api'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -130,7 +135,7 @@ class Api(pulumi.CustomResource):
             __props__['is_online'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Api")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Api")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Api, __self__).__init__(
             'azure-nextgen:apimanagement/latest:Api',

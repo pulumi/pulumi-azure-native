@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
     /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:Peering'.")]
     [AzureNextGenResourceType("azure-nextgen:peering/latest:Peering")]
     public partial class Peering : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:peering:Peering"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20190801preview:Peering"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20190901preview:Peering"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:Peering"},

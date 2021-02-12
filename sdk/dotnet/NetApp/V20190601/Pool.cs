@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190501:Pool"},

@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:WorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:WorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:WorkloadGroup"},
                 },

@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['VirtualMachineRunCommandByVirtualMachine']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine'.""", DeprecationWarning)
+
 
 class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +59,7 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[int] timeout_in_seconds: The timeout in seconds to execute the run command.
         :param pulumi.Input[str] vm_name: The name of the virtual machine where the run command should be created or updated.
         """
+        pulumi.log.warn("VirtualMachineRunCommandByVirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -98,7 +103,7 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineRunCommandByVirtualMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineRunCommandByVirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineRunCommandByVirtualMachine, __self__).__init__(
             'azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine',

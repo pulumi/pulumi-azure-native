@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['FirewallRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:FirewallRule'.""", DeprecationWarning)
+
 
 class FirewallRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:FirewallRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] start_ip_address: The start IP address of the server firewall rule. Must be IPv4 format.
         """
+        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:FirewallRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__['start_ip_address'] = start_ip_address
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20171201:FirewallRule"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20171201preview:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql:FirewallRule"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20171201:FirewallRule"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20171201preview:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azure-nextgen:dbforpostgresql/latest:FirewallRule',

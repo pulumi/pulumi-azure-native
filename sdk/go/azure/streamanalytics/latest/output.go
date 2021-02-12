@@ -13,6 +13,8 @@ import (
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 // Latest API Version: 2016-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Output'.
 type Output struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +49,9 @@ func NewOutput(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:streamanalytics:Output"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20160301:Output"),
 		},

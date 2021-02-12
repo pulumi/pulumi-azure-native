@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Transform']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Transform'.""", DeprecationWarning)
+
 
 class Transform(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Transform'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class Transform(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] transform_name: The Transform name.
         """
+        pulumi.log.warn("Transform is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Transform'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class Transform(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180330preview:Transform"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Transform"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Transform"), pulumi.Alias(type_="azure-nextgen:media/v20200501:Transform")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:Transform"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:Transform"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Transform"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Transform"), pulumi.Alias(type_="azure-nextgen:media/v20200501:Transform")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Transform, __self__).__init__(
             'azure-nextgen:media/latest:Transform',

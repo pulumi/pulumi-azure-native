@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Deployment information.
  * Latest API Version: 2020-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtManagementGroupScope'.
  */
 export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DeploymentAtManagementGroupScope {
+        pulumi.log.warn("DeploymentAtManagementGroupScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtManagementGroupScope'.")
         return new DeploymentAtManagementGroupScope(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtManagementGroupScope'. */
     constructor(name: string, args: DeploymentAtManagementGroupScopeArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DeploymentAtManagementGroupScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtManagementGroupScope'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.deploymentName === undefined) && !(opts && opts.urn)) {
@@ -97,7 +102,7 @@ export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20190501:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20190510:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20190801:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20200801:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20201001:DeploymentAtManagementGroupScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20190501:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20190510:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20190801:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20200801:DeploymentAtManagementGroupScope" }, { type: "azure-nextgen:resources/v20201001:DeploymentAtManagementGroupScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentAtManagementGroupScope.__pulumiType, name, inputs, opts);
     }

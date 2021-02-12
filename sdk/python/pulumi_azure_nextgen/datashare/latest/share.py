@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['Share']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:Share'.""", DeprecationWarning)
+
 
 class Share(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:Share'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[str] share_name: The name of the share.
         :param pulumi.Input[str] terms: Share terms.
         """
+        pulumi.log.warn("Share is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:Share'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class Share(pulumi.CustomResource):
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:Share")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:Share")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Share, __self__).__init__(
             'azure-nextgen:datashare/latest:Share',

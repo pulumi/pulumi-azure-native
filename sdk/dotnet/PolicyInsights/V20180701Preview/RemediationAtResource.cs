@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights:RemediationAtResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/latest:RemediationAtResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20190701:RemediationAtResource"},
                 },

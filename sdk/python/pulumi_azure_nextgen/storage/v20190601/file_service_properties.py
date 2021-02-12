@@ -67,7 +67,7 @@ class FileServiceProperties(pulumi.CustomResource):
             __props__['name'] = None
             __props__['sku'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/latest:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileServiceProperties, __self__).__init__(
             'azure-nextgen:storage/v20190601:FileServiceProperties',

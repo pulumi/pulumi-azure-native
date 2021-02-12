@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// A virtual network.
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualNetwork'.")]
     [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:VirtualNetwork")]
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:VirtualNetwork"},

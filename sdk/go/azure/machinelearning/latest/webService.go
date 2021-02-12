@@ -13,6 +13,8 @@ import (
 
 // Instance of an Azure ML web service resource.
 // Latest API Version: 2017-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:WebService'.
 type WebService struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +47,9 @@ func NewWebService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WebServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:machinelearning:WebService"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearning/v20160501preview:WebService"),
 		},

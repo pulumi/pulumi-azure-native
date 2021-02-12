@@ -13,6 +13,8 @@ import (
 
 // A common class for general resource information.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkGateway'.
 type VirtualNetworkGateway struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +80,9 @@ func NewVirtualNetworkGateway(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkGatewayName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:VirtualNetworkGateway"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150615:VirtualNetworkGateway"),
 		},

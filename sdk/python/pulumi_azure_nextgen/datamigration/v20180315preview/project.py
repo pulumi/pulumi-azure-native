@@ -88,7 +88,7 @@ class Project(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration/latest:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180715preview:Project")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/latest:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180715preview:Project")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Project, __self__).__init__(
             'azure-nextgen:datamigration/v20180315preview:Project',

@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20200713Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devops:Pipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:devops/v20190701preview:Pipeline"},
                 },
             };

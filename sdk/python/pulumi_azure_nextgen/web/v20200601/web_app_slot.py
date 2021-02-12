@@ -163,7 +163,7 @@ class WebAppSlot(pulumi.CustomResource):
             __props__['traffic_manager_host_names'] = None
             __props__['type'] = None
             __props__['usage_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSlot, __self__).__init__(
             'azure-nextgen:web/v20200601:WebAppSlot',

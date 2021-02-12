@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
     /// Dataset resource type.
     /// Latest API Version: 2018-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Dataset'.")]
     [AzureNextGenResourceType("azure-nextgen:datafactory/latest:Dataset")]
     public partial class Dataset : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory:Dataset"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Dataset"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:Dataset"},
                 },

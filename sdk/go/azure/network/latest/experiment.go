@@ -13,6 +13,8 @@ import (
 
 // Defines the properties of an Experiment
 // Latest API Version: 2019-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Experiment'.
 type Experiment struct {
 	pulumi.CustomResourceState
 
@@ -57,6 +59,9 @@ func NewExperiment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:Experiment"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:Experiment"),
 		},

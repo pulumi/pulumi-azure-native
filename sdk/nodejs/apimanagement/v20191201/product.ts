@@ -124,7 +124,7 @@ export class Product extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Product" }, { type: "azure-nextgen:apimanagement/v20160707:Product" }, { type: "azure-nextgen:apimanagement/v20161010:Product" }, { type: "azure-nextgen:apimanagement/v20170301:Product" }, { type: "azure-nextgen:apimanagement/v20180101:Product" }, { type: "azure-nextgen:apimanagement/v20180601preview:Product" }, { type: "azure-nextgen:apimanagement/v20190101:Product" }, { type: "azure-nextgen:apimanagement/v20191201preview:Product" }, { type: "azure-nextgen:apimanagement/v20200601preview:Product" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:Product" }, { type: "azure-nextgen:apimanagement/latest:Product" }, { type: "azure-nextgen:apimanagement/v20160707:Product" }, { type: "azure-nextgen:apimanagement/v20161010:Product" }, { type: "azure-nextgen:apimanagement/v20170301:Product" }, { type: "azure-nextgen:apimanagement/v20180101:Product" }, { type: "azure-nextgen:apimanagement/v20180601preview:Product" }, { type: "azure-nextgen:apimanagement/v20190101:Product" }, { type: "azure-nextgen:apimanagement/v20191201preview:Product" }, { type: "azure-nextgen:apimanagement/v20200601preview:Product" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Product.__pulumiType, name, inputs, opts);
     }

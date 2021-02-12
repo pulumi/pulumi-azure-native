@@ -105,7 +105,7 @@ export class DiskAccess extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:DiskAccess" }, { type: "azure-nextgen:compute/v20200630:DiskAccess" }, { type: "azure-nextgen:compute/v20200930:DiskAccess" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DiskAccess" }, { type: "azure-nextgen:compute/latest:DiskAccess" }, { type: "azure-nextgen:compute/v20200630:DiskAccess" }, { type: "azure-nextgen:compute/v20200930:DiskAccess" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskAccess.__pulumiType, name, inputs, opts);
     }

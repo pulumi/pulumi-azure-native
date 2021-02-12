@@ -72,7 +72,7 @@ class Extension(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:visualstudio/v20140401preview:Extension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:visualstudio:Extension"), pulumi.Alias(type_="azure-nextgen:visualstudio/v20140401preview:Extension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Extension, __self__).__init__(
             'azure-nextgen:visualstudio/v20171101preview:Extension',

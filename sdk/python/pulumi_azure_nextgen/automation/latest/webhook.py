@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Webhook']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Webhook'.""", DeprecationWarning)
+
 
 class Webhook(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Webhook'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +51,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] uri: Gets or sets the uri.
         :param pulumi.Input[str] webhook_name: The webhook name.
         """
+        pulumi.log.warn("Webhook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Webhook'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -88,7 +93,7 @@ class Webhook(pulumi.CustomResource):
             __props__['last_modified_by'] = None
             __props__['last_modified_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Webhook")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:Webhook"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Webhook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Webhook, __self__).__init__(
             'azure-nextgen:automation/latest:Webhook',

@@ -13,6 +13,8 @@ import (
 
 // The iSCSI server.
 // Latest API Version: 2016-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiServer'.
 type IscsiServer struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +60,9 @@ func NewIscsiServer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StorageDomainId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storsimple:IscsiServer"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:IscsiServer"),
 		},

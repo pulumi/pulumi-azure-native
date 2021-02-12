@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
     /// The managed api definition.
     /// Latest API Version: 2019-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi'.")]
     [AzureNextGenResourceType("azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi")]
     public partial class IntegrationServiceEnvironmentManagedApi : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi"},
                 },
             };

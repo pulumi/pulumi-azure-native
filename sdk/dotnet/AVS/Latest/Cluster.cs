@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
     /// A cluster resource
     /// Latest API Version: 2020-03-20.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Cluster'.")]
     [AzureNextGenResourceType("azure-nextgen:avs/latest:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:avs:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:Cluster"},
                 },

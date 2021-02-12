@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
     /// The streaming endpoint.
     /// Latest API Version: 2020-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingEndpoint'.")]
     [AzureNextGenResourceType("azure-nextgen:media/latest:StreamingEndpoint")]
     public partial class StreamingEndpoint : Pulumi.CustomResource
     {
@@ -167,6 +168,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:StreamingEndpoint"},

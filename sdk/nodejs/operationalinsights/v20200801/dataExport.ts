@@ -126,7 +126,7 @@ export class DataExport extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/latest:DataExport" }, { type: "azure-nextgen:operationalinsights/v20190801preview:DataExport" }, { type: "azure-nextgen:operationalinsights/v20200301preview:DataExport" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:DataExport" }, { type: "azure-nextgen:operationalinsights/latest:DataExport" }, { type: "azure-nextgen:operationalinsights/v20190801preview:DataExport" }, { type: "azure-nextgen:operationalinsights/v20200301preview:DataExport" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataExport.__pulumiType, name, inputs, opts);
     }

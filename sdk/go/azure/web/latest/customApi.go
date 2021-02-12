@@ -13,6 +13,8 @@ import (
 
 // A custom API
 // Latest API Version: 2016-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CustomApi'.
 type CustomApi struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewCustomApi(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:CustomApi"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160601:CustomApi"),
 		},

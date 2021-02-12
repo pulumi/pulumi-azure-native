@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['DefaultRollout']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:DefaultRollout'.""", DeprecationWarning)
+
 
 class DefaultRollout(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:DefaultRollout'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -30,6 +34,7 @@ class DefaultRollout(pulumi.CustomResource):
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[str] rollout_name: The rollout name.
         """
+        pulumi.log.warn("DefaultRollout is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:DefaultRollout'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -58,7 +63,7 @@ class DefaultRollout(pulumi.CustomResource):
             __props__['specification'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:DefaultRollout")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub:DefaultRollout"), pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:DefaultRollout")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefaultRollout, __self__).__init__(
             'azure-nextgen:providerhub/latest:DefaultRollout',

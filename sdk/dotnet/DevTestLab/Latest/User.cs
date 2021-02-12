@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// Profile of a lab user.
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:User'.")]
     [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:User")]
     public partial class User : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:User"},
                 },

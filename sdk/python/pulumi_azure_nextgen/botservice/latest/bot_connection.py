@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['BotConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:BotConnection'.""", DeprecationWarning)
+
 
 class BotConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:BotConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class BotConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets the SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
+        pulumi.log.warn("BotConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:BotConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class BotConnection(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:botservice/v20171201:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/v20180712:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/v20200602:BotConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:botservice:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/v20171201:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/v20180712:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/v20200602:BotConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BotConnection, __self__).__init__(
             'azure-nextgen:botservice/latest:BotConnection',

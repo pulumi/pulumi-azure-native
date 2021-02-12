@@ -49,6 +49,9 @@ func NewPipelineRun(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerregistry:PipelineRun"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:PipelineRun"),
 		},
 	})

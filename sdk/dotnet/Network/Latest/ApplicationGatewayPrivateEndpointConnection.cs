@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Private Endpoint connection on an application gateway.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:ApplicationGatewayPrivateEndpointConnection")]
     public partial class ApplicationGatewayPrivateEndpointConnection : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection"},

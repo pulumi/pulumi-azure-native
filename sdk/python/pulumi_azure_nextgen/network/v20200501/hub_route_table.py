@@ -75,7 +75,7 @@ class HubRouteTable(pulumi.CustomResource):
             __props__['propagating_connections'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200401:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200601:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200701:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200801:HubRouteTable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/latest:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200401:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200601:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200701:HubRouteTable"), pulumi.Alias(type_="azure-nextgen:network/v20200801:HubRouteTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HubRouteTable, __self__).__init__(
             'azure-nextgen:network/v20200501:HubRouteTable',

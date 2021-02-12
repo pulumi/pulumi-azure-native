@@ -115,6 +115,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20171001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/latest:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20170801preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20171201preview:ContainerGroup"},

@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:RedisFirewallRule"},

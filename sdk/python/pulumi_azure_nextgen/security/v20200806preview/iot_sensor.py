@@ -67,6 +67,8 @@ class IotSensor(pulumi.CustomResource):
             __props__['ti_status'] = None
             __props__['ti_version'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:IotSensor")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotSensor, __self__).__init__(
             'azure-nextgen:security/v20200806preview:IotSensor',
             resource_name,

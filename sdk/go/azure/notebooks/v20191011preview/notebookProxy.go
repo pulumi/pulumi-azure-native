@@ -38,6 +38,12 @@ func NewNotebookProxy(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:notebooks:NotebookProxy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NotebookProxy
 	err := ctx.RegisterResource("azure-nextgen:notebooks/v20191011preview:NotebookProxy", name, args, &resource, opts...)
 	if err != nil {

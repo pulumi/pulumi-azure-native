@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:ConsumerGroup"},

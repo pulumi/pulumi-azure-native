@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:DisasterRecoveryConfig"},
                 },

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     /// The top level Workspace resource container.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:Workspace'.")]
     [AzureNextGenResourceType("azure-nextgen:operationalinsights/latest:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
@@ -125,6 +126,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:Workspace"},

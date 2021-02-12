@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// A formula for creating a VM, specifying an image base and other parameters
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Formula'.")]
     [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:Formula")]
     public partial class Formula : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Formula"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:Formula"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Formula"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Formula"},

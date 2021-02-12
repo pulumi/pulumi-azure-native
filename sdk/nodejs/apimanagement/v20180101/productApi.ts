@@ -179,7 +179,7 @@ export class ProductApi extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ProductApi" }, { type: "azure-nextgen:apimanagement/v20170301:ProductApi" }, { type: "azure-nextgen:apimanagement/v20180601preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20190101:ProductApi" }, { type: "azure-nextgen:apimanagement/v20191201:ProductApi" }, { type: "azure-nextgen:apimanagement/v20191201preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20200601preview:ProductApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ProductApi" }, { type: "azure-nextgen:apimanagement/latest:ProductApi" }, { type: "azure-nextgen:apimanagement/v20170301:ProductApi" }, { type: "azure-nextgen:apimanagement/v20180601preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20190101:ProductApi" }, { type: "azure-nextgen:apimanagement/v20191201:ProductApi" }, { type: "azure-nextgen:apimanagement/v20191201preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20200601preview:ProductApi" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProductApi.__pulumiType, name, inputs, opts);
     }

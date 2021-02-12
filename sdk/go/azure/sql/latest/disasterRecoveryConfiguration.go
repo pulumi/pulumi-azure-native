@@ -13,6 +13,8 @@ import (
 
 // Represents a disaster recovery configuration.
 // Latest API Version: 2014-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DisasterRecoveryConfiguration'.
 type DisasterRecoveryConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +57,9 @@ func NewDisasterRecoveryConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql:DisasterRecoveryConfiguration"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration"),
 		},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
     /// Data Lake Analytics firewall rule information.
     /// Latest API Version: 2016-11-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:FirewallRule'.")]
     [AzureNextGenResourceType("azure-nextgen:datalakeanalytics/latest:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20151001preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20161101:FirewallRule"},
                 },

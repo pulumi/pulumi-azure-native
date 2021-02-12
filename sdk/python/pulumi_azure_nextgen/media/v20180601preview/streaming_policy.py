@@ -77,7 +77,7 @@ class StreamingPolicy(pulumi.CustomResource):
             __props__['created'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/latest:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingPolicy, __self__).__init__(
             'azure-nextgen:media/v20180601preview:StreamingPolicy',

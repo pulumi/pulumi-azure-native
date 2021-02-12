@@ -43,6 +43,12 @@ func NewPrivateAtlase(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:maps:PrivateAtlase"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateAtlase
 	err := ctx.RegisterResource("azure-nextgen:maps/v20200201preview:PrivateAtlase", name, args, &resource, opts...)
 	if err != nil {

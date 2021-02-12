@@ -63,6 +63,9 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:automation:SoftwareUpdateConfigurationByName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName"),
 		},
 		{

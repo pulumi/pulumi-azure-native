@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Describes a DNS zone.
     /// Latest API Version: 2018-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Zone'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:Zone")]
     public partial class Zone : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:Zone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150504preview:Zone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160401:Zone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:Zone"},

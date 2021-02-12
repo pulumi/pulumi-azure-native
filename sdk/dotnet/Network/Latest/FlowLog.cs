@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// A flow log resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FlowLog'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:FlowLog")]
     public partial class FlowLog : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:FlowLog"},

@@ -142,6 +142,7 @@ namespace Pulumi.AzureNextGen.Network.V20180401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:ExpressRouteCrossConnectionPeering"},

@@ -62,6 +62,12 @@ func NewOrchestratorInstanceServiceDetails(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource OrchestratorInstanceServiceDetails
 	err := ctx.RegisterResource("azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails", name, args, &resource, opts...)
 	if err != nil {

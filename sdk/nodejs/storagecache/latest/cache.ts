@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
  * Latest API Version: 2020-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:Cache'.
  */
 export class Cache extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Cache extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cache {
+        pulumi.log.warn("Cache is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:Cache'.")
         return new Cache(name, undefined as any, { ...opts, id: id });
     }
 
@@ -112,7 +115,9 @@ export class Cache extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:Cache'. */
     constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Cache is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagecache:Cache'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.cacheName === undefined) && !(opts && opts.urn)) {
@@ -166,7 +171,7 @@ export class Cache extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagecache/v20190801preview:Cache" }, { type: "azure-nextgen:storagecache/v20191101:Cache" }, { type: "azure-nextgen:storagecache/v20200301:Cache" }, { type: "azure-nextgen:storagecache/v20201001:Cache" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagecache:Cache" }, { type: "azure-nextgen:storagecache/v20190801preview:Cache" }, { type: "azure-nextgen:storagecache/v20191101:Cache" }, { type: "azure-nextgen:storagecache/v20200301:Cache" }, { type: "azure-nextgen:storagecache/v20201001:Cache" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cache.__pulumiType, name, inputs, opts);
     }

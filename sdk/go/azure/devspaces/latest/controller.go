@@ -12,6 +12,8 @@ import (
 )
 
 // Latest API Version: 2019-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devspaces:Controller'.
 type Controller struct {
 	pulumi.CustomResourceState
 
@@ -62,6 +64,9 @@ func NewController(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TargetContainerHostResourceId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devspaces:Controller"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:devspaces/v20190401:Controller"),
 		},

@@ -88,7 +88,7 @@ class SqlServerInstance(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['type'] = None
             __props__['update_time'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azuredata/v20190724preview:SqlServerInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azuredata:SqlServerInstance"), pulumi.Alias(type_="azure-nextgen:azuredata/v20190724preview:SqlServerInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlServerInstance, __self__).__init__(
             'azure-nextgen:azuredata/v20200908preview:SqlServerInstance',

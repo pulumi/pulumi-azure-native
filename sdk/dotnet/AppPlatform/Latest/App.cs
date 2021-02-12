@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest
     /// App resource payload
     /// Latest API Version: 2020-07-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:App'.")]
     [AzureNextGenResourceType("azure-nextgen:appplatform/latest:App")]
     public partial class App : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:App"},

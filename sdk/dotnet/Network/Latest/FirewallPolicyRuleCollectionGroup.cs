@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Rule Collection Group resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicyRuleCollectionGroup'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:FirewallPolicyRuleCollectionGroup")]
     public partial class FirewallPolicyRuleCollectionGroup : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:FirewallPolicyRuleCollectionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:FirewallPolicyRuleCollectionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:FirewallPolicyRuleCollectionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:FirewallPolicyRuleCollectionGroup"},

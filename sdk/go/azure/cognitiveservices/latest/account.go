@@ -13,6 +13,8 @@ import (
 
 // Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
 // Latest API Version: 2017-04-18.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cognitiveservices:Account'.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewAccount(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cognitiveservices:Account"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cognitiveservices/v20160201preview:Account"),
 		},

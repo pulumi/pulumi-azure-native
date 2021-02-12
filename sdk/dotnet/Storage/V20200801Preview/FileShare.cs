@@ -142,6 +142,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:FileShare"},

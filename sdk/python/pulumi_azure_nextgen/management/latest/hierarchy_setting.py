@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['HierarchySetting']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:HierarchySetting'.""", DeprecationWarning)
+
 
 class HierarchySetting(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:HierarchySetting'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -31,6 +35,7 @@ class HierarchySetting(pulumi.CustomResource):
         :param pulumi.Input[str] group_id: Management Group ID.
         :param pulumi.Input[bool] require_authorization_for_group_creation: Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
         """
+        pulumi.log.warn("HierarchySetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:HierarchySetting'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -56,7 +61,7 @@ class HierarchySetting(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:management/v20200201:HierarchySetting"), pulumi.Alias(type_="azure-nextgen:management/v20200501:HierarchySetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:management:HierarchySetting"), pulumi.Alias(type_="azure-nextgen:management/v20200201:HierarchySetting"), pulumi.Alias(type_="azure-nextgen:management/v20200501:HierarchySetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HierarchySetting, __self__).__init__(
             'azure-nextgen:management/latest:HierarchySetting',

@@ -116,7 +116,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20190301:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20190701:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20200930:GalleryApplicationVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/latest:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20190301:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20190701:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20200930:GalleryApplicationVersion" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryApplicationVersion.__pulumiType, name, inputs, opts);
     }

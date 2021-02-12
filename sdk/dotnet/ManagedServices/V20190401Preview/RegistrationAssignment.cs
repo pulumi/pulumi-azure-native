@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20190401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/latest:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20180601preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190601:RegistrationAssignment"},

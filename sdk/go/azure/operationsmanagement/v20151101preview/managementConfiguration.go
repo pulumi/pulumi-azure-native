@@ -38,6 +38,12 @@ func NewManagementConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:operationsmanagement:ManagementConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagementConfiguration
 	err := ctx.RegisterResource("azure-nextgen:operationsmanagement/v20151101preview:ManagementConfiguration", name, args, &resource, opts...)
 	if err != nil {

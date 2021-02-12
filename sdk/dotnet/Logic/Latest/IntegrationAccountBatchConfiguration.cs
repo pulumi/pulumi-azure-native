@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
     /// The batch configuration resource definition.
     /// Latest API Version: 2019-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountBatchConfiguration'.")]
     [AzureNextGenResourceType("azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration")]
     public partial class IntegrationAccountBatchConfiguration : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationAccountBatchConfiguration"},

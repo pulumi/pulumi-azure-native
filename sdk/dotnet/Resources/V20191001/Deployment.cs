@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Resources.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/latest:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20151101:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20160201:Deployment"},

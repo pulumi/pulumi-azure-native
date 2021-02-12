@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
     /// Dedicated cloud node model
     /// Latest API Version: 2019-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:DedicatedCloudNode'.")]
     [AzureNextGenResourceType("azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode")]
     public partial class DedicatedCloudNode : Pulumi.CustomResource
     {
@@ -149,6 +150,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple:DedicatedCloudNode"},
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode"},
                 },
             };

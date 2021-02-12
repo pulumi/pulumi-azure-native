@@ -55,6 +55,9 @@ func NewPublicIPAddress(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:PublicIPAddress"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:PublicIPAddress"),
 		},
 		{

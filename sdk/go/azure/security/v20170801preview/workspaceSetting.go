@@ -41,6 +41,12 @@ func NewWorkspaceSetting(ctx *pulumi.Context,
 	if args.WorkspaceSettingName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceSettingName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:security:WorkspaceSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WorkspaceSetting
 	err := ctx.RegisterResource("azure-nextgen:security/v20170801preview:WorkspaceSetting", name, args, &resource, opts...)
 	if err != nil {

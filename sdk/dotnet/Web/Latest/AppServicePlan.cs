@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// App Service plan.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServicePlan'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:AppServicePlan")]
     public partial class AppServicePlan : Pulumi.CustomResource
     {
@@ -198,6 +199,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:AppServicePlan"},

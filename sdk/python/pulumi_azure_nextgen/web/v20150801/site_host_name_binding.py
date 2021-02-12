@@ -90,7 +90,7 @@ class SiteHostNameBinding(pulumi.CustomResource):
             __props__['site_name'] = site_name
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteHostNameBinding")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/latest:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteHostNameBinding")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteHostNameBinding, __self__).__init__(
             'azure-nextgen:web/v20150801:SiteHostNameBinding',

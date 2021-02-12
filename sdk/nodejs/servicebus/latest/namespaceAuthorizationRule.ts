@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of a namespace authorization rule.
  * Latest API Version: 2017-04-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:NamespaceAuthorizationRule'.
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NamespaceAuthorizationRule {
+        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:NamespaceAuthorizationRule'.")
         return new NamespaceAuthorizationRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -56,7 +59,9 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:NamespaceAuthorizationRule'. */
     constructor(name: string, args: NamespaceAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:NamespaceAuthorizationRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.authorizationRuleName === undefined) && !(opts && opts.urn)) {
@@ -89,7 +94,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/v20140901:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20150801:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20170401:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20180101preview:NamespaceAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20140901:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20150801:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20170401:NamespaceAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20180101preview:NamespaceAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NamespaceAuthorizationRule.__pulumiType, name, inputs, opts);
     }

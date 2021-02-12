@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppFunction"},

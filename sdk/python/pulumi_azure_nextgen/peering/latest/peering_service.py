@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['PeeringService']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeeringService'.""", DeprecationWarning)
+
 
 class PeeringService(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeeringService'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class PeeringService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PeeringServiceSkuArgs']] sku: The SKU that defines the type of the peering service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        pulumi.log.warn("PeeringService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeeringService'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class PeeringService(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering/v20190801preview:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20190901preview:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20200401:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20201001:PeeringService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20190801preview:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20190901preview:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20200401:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20201001:PeeringService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PeeringService, __self__).__init__(
             'azure-nextgen:peering/latest:PeeringService',

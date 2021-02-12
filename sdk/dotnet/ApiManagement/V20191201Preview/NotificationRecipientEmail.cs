@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:NotificationRecipientEmail"},

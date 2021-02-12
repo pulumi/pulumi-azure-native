@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['AFDOrigin']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOrigin'.""", DeprecationWarning)
+
 
 class AFDOrigin(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOrigin'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +58,7 @@ class AFDOrigin(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]]] shared_private_link_resource: The properties of the private link resource for private origin.
         :param pulumi.Input[int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
+        pulumi.log.warn("AFDOrigin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOrigin'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -99,7 +104,7 @@ class AFDOrigin(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20200901:AFDOrigin")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:AFDOrigin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:AFDOrigin")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AFDOrigin, __self__).__init__(
             'azure-nextgen:cdn/latest:AFDOrigin',

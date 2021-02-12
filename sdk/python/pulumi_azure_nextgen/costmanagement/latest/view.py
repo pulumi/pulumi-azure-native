@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['View']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:View'.""", DeprecationWarning)
+
 
 class View(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:View'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +58,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ReportType']] type: The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
         :param pulumi.Input[str] view_name: View name
         """
+        pulumi.log.warn("View is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:View'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -93,7 +98,7 @@ class View(pulumi.CustomResource):
             __props__['created_on'] = None
             __props__['modified_on'] = None
             __props__['name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20200601:View")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement:View"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20200601:View")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(View, __self__).__init__(
             'azure-nextgen:costmanagement/latest:View',

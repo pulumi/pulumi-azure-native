@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Wrapper resource for tags API requests and responses.
  * Latest API Version: 2020-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:TagAtScope'.
  */
 export class TagAtScope extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class TagAtScope extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TagAtScope {
+        pulumi.log.warn("TagAtScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:TagAtScope'.")
         return new TagAtScope(name, undefined as any, { ...opts, id: id });
     }
 
@@ -56,7 +59,9 @@ export class TagAtScope extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:TagAtScope'. */
     constructor(name: string, args: TagAtScopeArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("TagAtScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:TagAtScope'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
@@ -81,7 +86,7 @@ export class TagAtScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20191001:TagAtScope" }, { type: "azure-nextgen:resources/v20200601:TagAtScope" }, { type: "azure-nextgen:resources/v20200801:TagAtScope" }, { type: "azure-nextgen:resources/v20201001:TagAtScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources:TagAtScope" }, { type: "azure-nextgen:resources/v20191001:TagAtScope" }, { type: "azure-nextgen:resources/v20200601:TagAtScope" }, { type: "azure-nextgen:resources/v20200801:TagAtScope" }, { type: "azure-nextgen:resources/v20201001:TagAtScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagAtScope.__pulumiType, name, inputs, opts);
     }

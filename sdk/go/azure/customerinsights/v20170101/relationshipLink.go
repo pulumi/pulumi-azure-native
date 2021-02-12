@@ -73,6 +73,9 @@ func NewRelationshipLink(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:customerinsights:RelationshipLink"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/latest:RelationshipLink"),
 		},
 		{

@@ -63,6 +63,9 @@ func NewPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:netapp:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/latest:Pool"),
 		},
 		{

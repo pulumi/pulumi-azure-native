@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:TableServiceProperties"},
                 },

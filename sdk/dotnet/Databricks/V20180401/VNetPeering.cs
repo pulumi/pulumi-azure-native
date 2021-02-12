@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.Databricks.V20180401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databricks:vNetPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks/latest:vNetPeering"},
                 },
             };

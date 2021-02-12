@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory:DataFlow"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:DataFlow"},
                 },
             };

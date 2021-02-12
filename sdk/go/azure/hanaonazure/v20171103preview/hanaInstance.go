@@ -58,6 +58,12 @@ func NewHanaInstance(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:hanaonazure:HanaInstance"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HanaInstance
 	err := ctx.RegisterResource("azure-nextgen:hanaonazure/v20171103preview:HanaInstance", name, args, &resource, opts...)
 	if err != nil {

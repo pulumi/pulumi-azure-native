@@ -142,7 +142,7 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20150801:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20160801:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20180201:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20181101:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20200601:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20200901:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20201001:WebAppHostNameBindingSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/latest:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20150801:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20160801:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20180201:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20181101:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20200601:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20200901:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20201001:WebAppHostNameBindingSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppHostNameBindingSlot.__pulumiType, name, inputs, opts);
     }

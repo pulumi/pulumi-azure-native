@@ -13,6 +13,8 @@ import (
 
 // Attestation service response message.
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:attestation:AttestationProvider'.
 type AttestationProvider struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewAttestationProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:attestation:AttestationProvider"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:attestation/v20180901preview:AttestationProvider"),
 		},

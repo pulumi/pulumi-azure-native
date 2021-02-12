@@ -13,6 +13,8 @@ import (
 
 // Recovery plan details.
 // Latest API Version: 2018-07-10.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryPlan'.
 type ReplicationRecoveryPlan struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationRecoveryPlan"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan"),
 		},

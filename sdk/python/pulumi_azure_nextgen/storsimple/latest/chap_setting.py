@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ChapSetting']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:ChapSetting'.""", DeprecationWarning)
+
 
 class ChapSetting(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:ChapSetting'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class ChapSetting(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] password: The chap password.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
+        pulumi.log.warn("ChapSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:ChapSetting'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class ChapSetting(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:ChapSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:ChapSetting"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:ChapSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ChapSetting, __self__).__init__(
             'azure-nextgen:storsimple/latest:ChapSetting',

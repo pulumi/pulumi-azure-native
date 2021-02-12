@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Azure Firewall resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:AzureFirewall'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:AzureFirewall")]
     public partial class AzureFirewall : Pulumi.CustomResource
     {
@@ -155,6 +156,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:AzureFirewall"},

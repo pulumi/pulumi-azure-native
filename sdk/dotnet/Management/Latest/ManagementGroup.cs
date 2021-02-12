@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Management.Latest
     /// The management group details.
     /// Latest API Version: 2020-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroup'.")]
     [AzureNextGenResourceType("azure-nextgen:management/latest:ManagementGroup")]
     public partial class ManagementGroup : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.Management.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:management:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20171101preview:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20180101preview:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20180301preview:ManagementGroup"},

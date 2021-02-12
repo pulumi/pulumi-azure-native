@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Environment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:Environment'.""", DeprecationWarning)
+
 
 class Environment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:Environment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         """
+        pulumi.log.warn("Environment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:Environment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class Environment(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20170228preview:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20171115:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20180815preview:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20200515:Environment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:timeseriesinsights:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20170228preview:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20171115:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20180815preview:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20200515:Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Environment, __self__).__init__(
             'azure-nextgen:timeseriesinsights/latest:Environment',

@@ -73,6 +73,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection"},

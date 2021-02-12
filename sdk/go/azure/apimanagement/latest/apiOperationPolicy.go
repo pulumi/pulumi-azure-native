@@ -13,6 +13,8 @@ import (
 
 // Policy Contract details.
 // Latest API Version: 2019-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiOperationPolicy'.
 type ApiOperationPolicy struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +57,9 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 		args.Format = pulumi.StringPtr("xml")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement:ApiOperationPolicy"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiOperationPolicy"),
 		},

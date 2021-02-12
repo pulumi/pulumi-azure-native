@@ -71,7 +71,7 @@ class Addon(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/latest:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Addon")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/latest:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Addon")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Addon, __self__).__init__(
             'azure-nextgen:databoxedge/v20200901preview:Addon',

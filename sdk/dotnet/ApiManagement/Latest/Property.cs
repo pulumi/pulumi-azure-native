@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Property details.
     /// Latest API Version: 2019-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Property'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:Property")]
     public partial class Property : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Property"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Property"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Property"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Property"},

@@ -66,7 +66,7 @@ class ManagedInstancePrivateEndpointConnection(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ManagedInstancePrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ManagedInstancePrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstancePrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection',

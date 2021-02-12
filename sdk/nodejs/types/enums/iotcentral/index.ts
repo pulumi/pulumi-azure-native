@@ -11,3 +11,16 @@ export {
     v20170701privatepreview,
     v20180901,
 };
+
+export const AppSku = {
+    F1: "F1",
+    S1: "S1",
+    ST0: "ST0",
+    ST1: "ST1",
+    ST2: "ST2",
+} as const;
+
+/**
+ * The name of the SKU.
+ */
+export type AppSku = (typeof AppSku)[keyof typeof AppSku];

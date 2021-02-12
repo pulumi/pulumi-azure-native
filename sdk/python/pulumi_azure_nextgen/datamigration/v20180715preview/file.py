@@ -71,6 +71,8 @@ class File(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration:File")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(File, __self__).__init__(
             'azure-nextgen:datamigration/v20180715preview:File',
             resource_name,

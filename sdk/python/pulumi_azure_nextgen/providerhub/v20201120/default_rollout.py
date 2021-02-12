@@ -57,7 +57,7 @@ class DefaultRollout(pulumi.CustomResource):
             __props__['specification'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub/latest:DefaultRollout")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub:DefaultRollout"), pulumi.Alias(type_="azure-nextgen:providerhub/latest:DefaultRollout")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefaultRollout, __self__).__init__(
             'azure-nextgen:providerhub/v20201120:DefaultRollout',

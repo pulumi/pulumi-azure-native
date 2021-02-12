@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Cassandra keyspace.
  * Latest API Version: 2016-03-31.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace'.
  */
 export class DatabaseAccountCassandraKeyspace extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DatabaseAccountCassandraKeyspace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountCassandraKeyspace {
+        pulumi.log.warn("DatabaseAccountCassandraKeyspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace'.")
         return new DatabaseAccountCassandraKeyspace(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class DatabaseAccountCassandraKeyspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace'. */
     constructor(name: string, args: DatabaseAccountCassandraKeyspaceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DatabaseAccountCassandraKeyspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -100,7 +105,7 @@ export class DatabaseAccountCassandraKeyspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraKeyspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraKeyspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountCassandraKeyspace.__pulumiType, name, inputs, opts);
     }

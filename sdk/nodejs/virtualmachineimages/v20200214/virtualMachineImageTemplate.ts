@@ -150,7 +150,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineImageTemplate.__pulumiType, name, inputs, opts);
     }

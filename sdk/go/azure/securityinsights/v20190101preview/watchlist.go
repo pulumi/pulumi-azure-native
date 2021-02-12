@@ -91,6 +91,12 @@ func NewWatchlist(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights:Watchlist"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Watchlist
 	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:Watchlist", name, args, &resource, opts...)
 	if err != nil {

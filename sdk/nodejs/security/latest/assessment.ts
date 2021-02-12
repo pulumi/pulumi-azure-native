@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Security assessment on a resource
  * Latest API Version: 2020-01-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:Assessment'.
  */
 export class Assessment extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Assessment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Assessment {
+        pulumi.log.warn("Assessment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:Assessment'.")
         return new Assessment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class Assessment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:Assessment'. */
     constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Assessment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:Assessment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.assessmentName === undefined) && !(opts && opts.urn)) {
@@ -124,7 +129,7 @@ export class Assessment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/v20190101preview:Assessment" }, { type: "azure-nextgen:security/v20200101:Assessment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:Assessment" }, { type: "azure-nextgen:security/v20190101preview:Assessment" }, { type: "azure-nextgen:security/v20200101:Assessment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Assessment.__pulumiType, name, inputs, opts);
     }

@@ -50,6 +50,9 @@ func NewRouteTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:RouteTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:RouteTable"),
 		},
 		{

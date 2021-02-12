@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['ApiIssueComment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueComment'.""", DeprecationWarning)
+
 
 class ApiIssueComment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueComment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class ApiIssueComment(pulumi.CustomResource):
         :param pulumi.Input[str] text: Comment text.
         :param pulumi.Input[str] user_id: A resource identifier for the user who left the comment.
         """
+        pulumi.log.warn("ApiIssueComment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueComment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -82,7 +87,7 @@ class ApiIssueComment(pulumi.CustomResource):
             __props__['user_id'] = user_id
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiIssueComment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiIssueComment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssueComment, __self__).__init__(
             'azure-nextgen:apimanagement/latest:ApiIssueComment',

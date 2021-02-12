@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['FrontDoor']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FrontDoor'.""", DeprecationWarning)
+
 
 class FrontDoor(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FrontDoor'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class FrontDoor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingRuleArgs']]]] routing_rules: Routing rules associated with this Front Door.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("FrontDoor is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FrontDoor'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -92,7 +97,7 @@ class FrontDoor(pulumi.CustomResource):
             __props__['resource_state'] = None
             __props__['rules_engines'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20190401:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20190501:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20200101:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FrontDoor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20180801:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20190401:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20190501:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20200101:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FrontDoor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FrontDoor, __self__).__init__(
             'azure-nextgen:network/latest:FrontDoor',

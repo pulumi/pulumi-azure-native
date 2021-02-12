@@ -45,6 +45,9 @@ func NewWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:WebAppSwiftVirtualNetworkConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{

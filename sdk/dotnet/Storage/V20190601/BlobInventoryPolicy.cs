@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage:BlobInventoryPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:BlobInventoryPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobInventoryPolicy"},
                 },

@@ -13,6 +13,8 @@ import (
 
 // The application resource.
 // Latest API Version: 2020-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Application'.
 type Application struct {
 	pulumi.CustomResourceState
 
@@ -70,6 +72,9 @@ func NewApplication(ctx *pulumi.Context,
 		args.MaximumNodes = pulumi.Float64Ptr(0)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:servicefabric:Application"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20170701preview:Application"),
 		},

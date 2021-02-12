@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['ServerAzureADAdministrator']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerAzureADAdministrator'.""", DeprecationWarning)
+
 
 class ServerAzureADAdministrator(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerAzureADAdministrator'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
         :param pulumi.Input[str] sid: The server administrator Sid (Secure ID).
         :param pulumi.Input[str] tenant_id: The server Active Directory Administrator tenant id.
         """
+        pulumi.log.warn("ServerAzureADAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerAzureADAdministrator'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
             __props__['tenant_id'] = tenant_id
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20140401:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerAzureADAdministrator, __self__).__init__(
             'azure-nextgen:sql/latest:ServerAzureADAdministrator',

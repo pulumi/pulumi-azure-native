@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
     /// Class representing a Kusto database.
     /// Latest API Version: 2020-09-18.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Database'.")]
     [AzureNextGenResourceType("azure-nextgen:kusto/latest:Database")]
     public partial class Database : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20180907preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:Database"},

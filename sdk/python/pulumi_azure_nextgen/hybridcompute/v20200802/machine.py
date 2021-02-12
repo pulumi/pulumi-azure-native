@@ -87,7 +87,7 @@ class Machine(pulumi.CustomResource):
             __props__['status'] = None
             __props__['type'] = None
             __props__['vm_uuid'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridcompute/latest:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20190318preview:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20190802preview:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20191212:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200730preview:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:Machine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridcompute:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/latest:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20190318preview:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20190802preview:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20191212:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200730preview:Machine"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:Machine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Machine, __self__).__init__(
             'azure-nextgen:hybridcompute/v20200802:Machine',

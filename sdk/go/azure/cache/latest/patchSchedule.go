@@ -13,6 +13,8 @@ import (
 
 // Response to put/get patch schedules for Redis cache.
 // Latest API Version: 2020-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:PatchSchedule'.
 type PatchSchedule struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewPatchSchedule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ScheduleEntries'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cache:PatchSchedule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20171001:PatchSchedule"),
 		},

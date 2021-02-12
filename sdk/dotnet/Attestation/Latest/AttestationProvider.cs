@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Attestation.Latest
     /// Attestation service response message.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:attestation:AttestationProvider'.")]
     [AzureNextGenResourceType("azure-nextgen:attestation/latest:AttestationProvider")]
     public partial class AttestationProvider : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.Attestation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:attestation:AttestationProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:attestation/v20180901preview:AttestationProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:attestation/v20201001:AttestationProvider"},
                 },

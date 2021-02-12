@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['VirtualMachineSchedule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachineSchedule'.""", DeprecationWarning)
+
 
 class VirtualMachineSchedule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachineSchedule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +60,7 @@ class VirtualMachineSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine.
         :param pulumi.Input[pulumi.InputType['WeekDetailsArgs']] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
+        pulumi.log.warn("VirtualMachineSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachineSchedule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -99,7 +104,7 @@ class VirtualMachineSchedule(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:VirtualMachineSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineSchedule, __self__).__init__(
             'azure-nextgen:devtestlab/latest:VirtualMachineSchedule',

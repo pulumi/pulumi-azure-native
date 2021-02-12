@@ -13,6 +13,8 @@ import (
 
 // Class representing a Traffic Manager endpoint.
 // Latest API Version: 2018-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Endpoint'.
 type Endpoint struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +66,9 @@ func NewEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:Endpoint"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20151101:Endpoint"),
 		},

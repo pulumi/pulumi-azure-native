@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Job']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databox:Job'.""", DeprecationWarning)
+
 
 class Job(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databox:Job'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
         :param pulumi.Input[Union[str, 'TransferType']] transfer_type: Type of the data transfer.
         """
+        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databox:Job'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -94,7 +99,7 @@ class Job(pulumi.CustomResource):
             __props__['start_time'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databox/v20180101:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20190901:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20200401:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20201101:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databox:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20180101:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20190901:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20200401:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20201101:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-nextgen:databox/latest:Job',

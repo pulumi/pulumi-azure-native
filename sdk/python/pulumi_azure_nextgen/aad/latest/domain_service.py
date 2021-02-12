@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['DomainService']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aad:DomainService'.""", DeprecationWarning)
+
 
 class DomainService(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aad:DomainService'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +60,7 @@ class DomainService(pulumi.CustomResource):
         :param pulumi.Input[str] sku: Sku Type
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("DomainService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aad:DomainService'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -99,7 +104,7 @@ class DomainService(pulumi.CustomResource):
             __props__['tenant_id'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aad/v20170101:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20170601:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20200101:DomainService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aad:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20170101:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20170601:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20200101:DomainService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DomainService, __self__).__init__(
             'azure-nextgen:aad/latest:DomainService',

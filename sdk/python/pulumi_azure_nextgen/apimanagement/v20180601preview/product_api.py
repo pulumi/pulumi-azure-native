@@ -81,7 +81,7 @@ class ProductApi(pulumi.CustomResource):
             __props__['subscription_key_parameter_names'] = None
             __props__['subscription_required'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ProductApi")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ProductApi"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ProductApi")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProductApi, __self__).__init__(
             'azure-nextgen:apimanagement/v20180601preview:ProductApi',

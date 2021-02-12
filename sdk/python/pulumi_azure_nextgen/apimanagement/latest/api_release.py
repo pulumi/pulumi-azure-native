@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['ApiRelease']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiRelease'.""", DeprecationWarning)
+
 
 class ApiRelease(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiRelease'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class ApiRelease(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
+        pulumi.log.warn("ApiRelease is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiRelease'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class ApiRelease(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['updated_date_time'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiRelease")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiRelease")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiRelease, __self__).__init__(
             'azure-nextgen:apimanagement/latest:ApiRelease',

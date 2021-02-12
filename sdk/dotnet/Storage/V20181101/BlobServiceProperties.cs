@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Storage.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180701:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:BlobServiceProperties"},

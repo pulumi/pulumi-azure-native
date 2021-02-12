@@ -17,3 +17,85 @@ export {
     v20200801,
     v20200801preview,
 };
+
+export const HostingMode = {
+    Default: "default",
+    HighDensity: "highDensity",
+} as const;
+
+/**
+ * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+ */
+export type HostingMode = (typeof HostingMode)[keyof typeof HostingMode];
+
+export const IdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+export const PrivateLinkServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+ */
+export type PrivateLinkServiceConnectionStatus = (typeof PrivateLinkServiceConnectionStatus)[keyof typeof PrivateLinkServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const SharedPrivateLinkResourceProvisioningState = {
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Failed: "Failed",
+    Succeeded: "Succeeded",
+    Incomplete: "Incomplete",
+} as const;
+
+/**
+ * The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
+ */
+export type SharedPrivateLinkResourceProvisioningState = (typeof SharedPrivateLinkResourceProvisioningState)[keyof typeof SharedPrivateLinkResourceProvisioningState];
+
+export const SharedPrivateLinkResourceStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
+ */
+export type SharedPrivateLinkResourceStatus = (typeof SharedPrivateLinkResourceStatus)[keyof typeof SharedPrivateLinkResourceStatus];
+
+export const SkuName = {
+    Free: "free",
+    Basic: "basic",
+    Standard: "standard",
+    Standard2: "standard2",
+    Standard3: "standard3",
+    Storage_optimized_l1: "storage_optimized_l1",
+    Storage_optimized_l2: "storage_optimized_l2",
+} as const;
+
+/**
+ * The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];

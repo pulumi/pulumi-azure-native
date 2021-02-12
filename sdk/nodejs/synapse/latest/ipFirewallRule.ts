@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * IP firewall rule
  * Latest API Version: 2020-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IpFirewallRule'.
  */
 export class IpFirewallRule extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class IpFirewallRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IpFirewallRule {
+        pulumi.log.warn("IpFirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IpFirewallRule'.")
         return new IpFirewallRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,7 +66,9 @@ export class IpFirewallRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IpFirewallRule'. */
     constructor(name: string, args: IpFirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IpFirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IpFirewallRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -97,7 +102,7 @@ export class IpFirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/v20190601preview:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20201201:IpFirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20190601preview:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20201201:IpFirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IpFirewallRule.__pulumiType, name, inputs, opts);
     }

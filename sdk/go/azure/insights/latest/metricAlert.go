@@ -13,6 +13,8 @@ import (
 
 // The metric alert resource.
 // Latest API Version: 2018-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:MetricAlert'.
 type MetricAlert struct {
 	pulumi.CustomResourceState
 
@@ -84,6 +86,9 @@ func NewMetricAlert(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WindowSize'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:MetricAlert"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20180301:MetricAlert"),
 		},

@@ -190,7 +190,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20160707:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20161010:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20180101:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20190101:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20191201:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20191201preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20200601preview:AuthorizationServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/latest:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20160707:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20161010:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20180101:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20190101:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20191201:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20191201preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20200601preview:AuthorizationServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AuthorizationServer.__pulumiType, name, inputs, opts);
     }

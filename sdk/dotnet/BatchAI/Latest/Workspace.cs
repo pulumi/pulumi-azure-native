@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
     /// Batch AI Workspace information.
     /// Latest API Version: 2018-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Workspace'.")]
     [AzureNextGenResourceType("azure-nextgen:batchai/latest:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Workspace"},
                 },
             };

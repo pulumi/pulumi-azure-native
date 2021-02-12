@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * ExpressRouteConnection resource.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteConnection'.
  */
 export class ExpressRouteConnection extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ExpressRouteConnection {
+        pulumi.log.warn("ExpressRouteConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteConnection'.")
         return new ExpressRouteConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteConnection'. */
     constructor(name: string, args: ExpressRouteConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ExpressRouteConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
@@ -123,7 +128,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180801:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181001:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181101:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190401:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190601:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190701:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190801:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190901:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20191101:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20191201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200301:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200401:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200501:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200601:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200701:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200801:ExpressRouteConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20180801:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181001:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181101:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190401:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190601:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190701:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190801:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190901:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20191101:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20191201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200301:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200401:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200501:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200601:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200701:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200801:ExpressRouteConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ExpressRouteConnection.__pulumiType, name, inputs, opts);
     }

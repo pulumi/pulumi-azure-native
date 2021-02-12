@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// VpnSite Resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VpnSite'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:VpnSite")]
     public partial class VpnSite : Pulumi.CustomResource
     {
@@ -131,6 +132,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VpnSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VpnSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:VpnSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:VpnSite"},

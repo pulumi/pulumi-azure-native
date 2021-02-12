@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// SSL certificate for an app.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Certificate'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
@@ -197,6 +198,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160301:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:Certificate"},

@@ -13,6 +13,8 @@ import (
 
 // Registration definition.
 // Latest API Version: 2019-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationDefinition'.
 type RegistrationDefinition struct {
 	pulumi.CustomResourceState
 
@@ -40,6 +42,9 @@ func NewRegistrationDefinition(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:managedservices:RegistrationDefinition"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:managedservices/v20180601preview:RegistrationDefinition"),
 		},

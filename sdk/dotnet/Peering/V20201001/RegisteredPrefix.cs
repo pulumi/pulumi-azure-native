@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Peering.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:peering:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/latest:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:RegisteredPrefix"},

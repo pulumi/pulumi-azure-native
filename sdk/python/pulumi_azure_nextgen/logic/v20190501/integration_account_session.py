@@ -69,7 +69,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/latest:IntegrationAccountSession"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountSession"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountSession")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationAccountSession"), pulumi.Alias(type_="azure-nextgen:logic/latest:IntegrationAccountSession"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountSession"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountSession")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountSession, __self__).__init__(
             'azure-nextgen:logic/v20190501:IntegrationAccountSession',

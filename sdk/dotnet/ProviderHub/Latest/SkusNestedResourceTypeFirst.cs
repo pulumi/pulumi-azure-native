@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
     /// <summary>
     /// Latest API Version: 2020-11-20.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeFirst'.")]
     [AzureNextGenResourceType("azure-nextgen:providerhub/latest:SkusNestedResourceTypeFirst")]
     public partial class SkusNestedResourceTypeFirst : Pulumi.CustomResource
     {
@@ -55,6 +56,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub:SkusNestedResourceTypeFirst"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeFirst"},
                 },
             };
