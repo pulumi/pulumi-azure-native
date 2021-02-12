@@ -42,8 +42,8 @@ func (e BackupPolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulu
 type CompositePathSortOrder pulumi.String
 
 const (
-	CompositePathSortOrderAscending  = CompositePathSortOrder("Ascending")
-	CompositePathSortOrderDescending = CompositePathSortOrder("Descending")
+	CompositePathSortOrderAscending  = CompositePathSortOrder("ascending")
+	CompositePathSortOrderDescending = CompositePathSortOrder("descending")
 )
 
 func (CompositePathSortOrder) ElementType() reflect.Type {
@@ -273,9 +273,9 @@ func (e IndexKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 type IndexingMode pulumi.String
 
 const (
-	IndexingModeConsistent = IndexingMode("Consistent")
-	IndexingModeLazy       = IndexingMode("Lazy")
-	IndexingModeNone       = IndexingMode("None")
+	IndexingModeConsistent = IndexingMode("consistent")
+	IndexingModeLazy       = IndexingMode("lazy")
+	IndexingModeNone       = IndexingMode("none")
 )
 
 func (IndexingMode) ElementType() reflect.Type {
@@ -298,12 +298,41 @@ func (e IndexingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Indicates the kind of algorithm used for partitioning
+// Indicates what services are allowed to bypass firewall checks.
+type NetworkAclBypass pulumi.String
+
+const (
+	NetworkAclBypassNone          = NetworkAclBypass("None")
+	NetworkAclBypassAzureServices = NetworkAclBypass("AzureServices")
+)
+
+func (NetworkAclBypass) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e NetworkAclBypass) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkAclBypass) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkAclBypass) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkAclBypass) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
 type PartitionKind pulumi.String
 
 const (
-	PartitionKindHash  = PartitionKind("Hash")
-	PartitionKindRange = PartitionKind("Range")
+	PartitionKindHash      = PartitionKind("Hash")
+	PartitionKindRange     = PartitionKind("Range")
+	PartitionKindMultiHash = PartitionKind("MultiHash")
 )
 
 func (PartitionKind) ElementType() reflect.Type {
@@ -323,6 +352,36 @@ func (e PartitionKind) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e PartitionKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+type ResourceIdentityType pulumi.String
+
+const (
+	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeUserAssigned                 = ResourceIdentityType("UserAssigned")
+	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned,UserAssigned")
+	ResourceIdentityTypeNone                         = ResourceIdentityType("None")
+)
+
+func (ResourceIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ResourceIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -360,6 +419,7 @@ type ServerVersion pulumi.String
 const (
 	ServerVersion_3_2 = ServerVersion("3.2")
 	ServerVersion_3_6 = ServerVersion("3.6")
+	ServerVersion_4_0 = ServerVersion("4.0")
 )
 
 func (ServerVersion) ElementType() reflect.Type {

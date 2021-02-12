@@ -31,7 +31,7 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
                  __opts__=None):
         """
         An Azure Cosmos DB container.
-        API Version: 2020-09-01.
+        API Version: 2021-01-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,7 +81,7 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlContainer"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:SqlResourceSqlContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlResourceSqlContainer, __self__).__init__(
             'azure-nextgen:documentdb:SqlResourceSqlContainer',

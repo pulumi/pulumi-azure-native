@@ -99,6 +99,10 @@ export interface GetDatabaseAccountResult {
      */
     readonly id: string;
     /**
+     * Identity for the resource.
+     */
+    readonly identity?: outputs.documentdb.ManagedServiceIdentityResponse;
+    /**
      * List of IpRules.
      */
     readonly ipRules?: outputs.documentdb.IpAddressOrRangeResponse[];
@@ -126,6 +130,14 @@ export interface GetDatabaseAccountResult {
      * The name of the ARM resource.
      */
     readonly name: string;
+    /**
+     * Indicates what services are allowed to bypass firewall checks.
+     */
+    readonly networkAclBypass?: string;
+    /**
+     * An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+     */
+    readonly networkAclBypassResourceIds?: string[];
     /**
      * List of Private Endpoint Connections configured for the Cosmos DB account.
      */

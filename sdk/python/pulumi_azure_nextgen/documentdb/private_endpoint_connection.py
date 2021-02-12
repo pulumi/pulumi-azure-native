@@ -29,7 +29,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         A private endpoint connection
-        API Version: 2019-08-01-preview.
+        API Version: 2021-01-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,7 +73,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:documentdb:PrivateEndpointConnection',

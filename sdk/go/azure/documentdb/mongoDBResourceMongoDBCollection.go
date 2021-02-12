@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB MongoDB collection.
-// API Version: 2020-09-01.
+// API Version: 2021-01-15.
 type MongoDBResourceMongoDBCollection struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +71,9 @@ func NewMongoDBResourceMongoDBCollection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBCollection"),
 		},
 	})
 	opts = append(opts, aliases)

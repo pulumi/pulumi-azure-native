@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB SQL database.
-// API Version: 2020-09-01.
+// API Version: 2021-01-15.
 type SqlResourceSqlDatabase struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +68,9 @@ func NewSqlResourceSqlDatabase(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlDatabase"),
 		},
 	})
 	opts = append(opts, aliases)

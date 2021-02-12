@@ -20,7 +20,7 @@ class GetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
     """
-    def __init__(__self__, api_properties=None, backup_policy=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, id=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+    def __init__(__self__, api_properties=None, backup_policy=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, id=None, identity=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, network_acl_bypass=None, network_acl_bypass_resource_ids=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
         if api_properties and not isinstance(api_properties, dict):
             raise TypeError("Expected argument 'api_properties' to be a dict")
         pulumi.set(__self__, "api_properties", api_properties)
@@ -69,6 +69,9 @@ class GetDatabaseAccountResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if ip_rules and not isinstance(ip_rules, list):
             raise TypeError("Expected argument 'ip_rules' to be a list")
         pulumi.set(__self__, "ip_rules", ip_rules)
@@ -90,6 +93,12 @@ class GetDatabaseAccountResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_acl_bypass and not isinstance(network_acl_bypass, str):
+            raise TypeError("Expected argument 'network_acl_bypass' to be a str")
+        pulumi.set(__self__, "network_acl_bypass", network_acl_bypass)
+        if network_acl_bypass_resource_ids and not isinstance(network_acl_bypass_resource_ids, list):
+            raise TypeError("Expected argument 'network_acl_bypass_resource_ids' to be a list")
+        pulumi.set(__self__, "network_acl_bypass_resource_ids", network_acl_bypass_resource_ids)
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
@@ -244,6 +253,14 @@ class GetDatabaseAccountResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> Optional[Sequence['outputs.IpAddressOrRangeResponse']]:
         """
@@ -298,6 +315,22 @@ class GetDatabaseAccountResult:
         The name of the ARM resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAclBypass")
+    def network_acl_bypass(self) -> Optional[str]:
+        """
+        Indicates what services are allowed to bypass firewall checks.
+        """
+        return pulumi.get(self, "network_acl_bypass")
+
+    @property
+    @pulumi.getter(name="networkAclBypassResourceIds")
+    def network_acl_bypass_resource_ids(self) -> Optional[Sequence[str]]:
+        """
+        An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+        """
+        return pulumi.get(self, "network_acl_bypass_resource_ids")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
@@ -386,6 +419,7 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             enable_multiple_write_locations=self.enable_multiple_write_locations,
             failover_policies=self.failover_policies,
             id=self.id,
+            identity=self.identity,
             ip_rules=self.ip_rules,
             is_virtual_network_filter_enabled=self.is_virtual_network_filter_enabled,
             key_vault_key_uri=self.key_vault_key_uri,
@@ -393,6 +427,8 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             location=self.location,
             locations=self.locations,
             name=self.name,
+            network_acl_bypass=self.network_acl_bypass,
+            network_acl_bypass_resource_ids=self.network_acl_bypass_resource_ids,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
@@ -438,6 +474,7 @@ def get_database_account(account_name: Optional[str] = None,
         enable_multiple_write_locations=__ret__.enable_multiple_write_locations,
         failover_policies=__ret__.failover_policies,
         id=__ret__.id,
+        identity=__ret__.identity,
         ip_rules=__ret__.ip_rules,
         is_virtual_network_filter_enabled=__ret__.is_virtual_network_filter_enabled,
         key_vault_key_uri=__ret__.key_vault_key_uri,
@@ -445,6 +482,8 @@ def get_database_account(account_name: Optional[str] = None,
         location=__ret__.location,
         locations=__ret__.locations,
         name=__ret__.name,
+        network_acl_bypass=__ret__.network_acl_bypass,
+        network_acl_bypass_resource_ids=__ret__.network_acl_bypass_resource_ids,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,

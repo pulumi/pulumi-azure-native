@@ -31,7 +31,7 @@ class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
                  __opts__=None):
         """
         An Azure Cosmos DB userDefinedFunction.
-        API Version: 2020-09-01.
+        API Version: 2021-01-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -85,7 +85,7 @@ class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
             __props__['user_defined_function_name'] = user_defined_function_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:SqlResourceSqlUserDefinedFunction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlResourceSqlUserDefinedFunction, __self__).__init__(
             'azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction',

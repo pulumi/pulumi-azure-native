@@ -72,7 +72,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection',

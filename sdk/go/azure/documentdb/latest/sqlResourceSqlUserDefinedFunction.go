@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB userDefinedFunction.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2021-01-15.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction'.
 type SqlResourceSqlUserDefinedFunction struct {
@@ -75,6 +75,9 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlUserDefinedFunction"),
 		},
 	})
 	opts = append(opts, aliases)

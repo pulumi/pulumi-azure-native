@@ -40,6 +40,8 @@ __all__ = [
     'IndexingPolicyResponse',
     'IpAddressOrRangeResponse',
     'LocationResponse',
+    'ManagedServiceIdentityResponse',
+    'ManagedServiceIdentityResponseUserAssignedIdentities',
     'MongoDBCollectionGetPropertiesResponseOptions',
     'MongoDBCollectionGetPropertiesResponseResource',
     'MongoDBDatabaseGetPropertiesResponseOptions',
@@ -643,15 +645,18 @@ class ContainerPartitionKeyResponse(dict):
     The configuration of the partition key to be used for partitioning data into multiple partitions
     """
     def __init__(__self__, *,
+                 system_key: bool,
                  kind: Optional[str] = None,
                  paths: Optional[Sequence[str]] = None,
                  version: Optional[int] = None):
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
-        :param str kind: Indicates the kind of algorithm used for partitioning
+        :param bool system_key: Indicates if the container is using a system generated partition key
+        :param str kind: Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
         :param Sequence[str] paths: List of paths using which data within the container can be partitioned
         :param int version: Indicates the version of the partition key definition
         """
+        pulumi.set(__self__, "system_key", system_key)
         if kind is None:
             kind = 'Hash'
         if kind is not None:
@@ -662,10 +667,18 @@ class ContainerPartitionKeyResponse(dict):
             pulumi.set(__self__, "version", version)
 
     @property
+    @pulumi.getter(name="systemKey")
+    def system_key(self) -> bool:
+        """
+        Indicates if the container is using a system generated partition key
+        """
+        return pulumi.get(self, "system_key")
+
+    @property
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Indicates the kind of algorithm used for partitioning
+        Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
         """
         return pulumi.get(self, "kind")
 
@@ -1251,7 +1264,7 @@ class IndexingPolicyResponse(dict):
         if included_paths is not None:
             pulumi.set(__self__, "included_paths", included_paths)
         if indexing_mode is None:
-            indexing_mode = 'Consistent'
+            indexing_mode = 'consistent'
         if indexing_mode is not None:
             pulumi.set(__self__, "indexing_mode", indexing_mode)
         if spatial_indexes is not None:
@@ -1413,6 +1426,98 @@ class LocationResponse(dict):
         The name of the region.
         """
         return pulumi.get(self, "location_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']]:
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1856,23 +1961,31 @@ class PrivateEndpointConnectionResponse(dict):
                  id: str,
                  name: str,
                  type: str,
+                 group_id: Optional[str] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
-                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None):
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None,
+                 provisioning_state: Optional[str] = None):
         """
         A private endpoint connection
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param str group_id: Group id of the private endpoint.
         :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
         :param 'PrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
+        :param str provisioning_state: Provisioning state of the private endpoint.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter
@@ -1899,6 +2012,14 @@ class PrivateEndpointConnectionResponse(dict):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[str]:
+        """
+        Group id of the private endpoint.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyResponse']:
         """
@@ -1913,6 +2034,14 @@ class PrivateEndpointConnectionResponse(dict):
         Connection State of the Private Endpoint Connection.
         """
         return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Provisioning state of the private endpoint.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

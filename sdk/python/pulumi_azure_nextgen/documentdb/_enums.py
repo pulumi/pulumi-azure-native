@@ -15,7 +15,9 @@ __all__ = [
     'DefaultConsistencyLevel',
     'IndexKind',
     'IndexingMode',
+    'NetworkAclBypass',
     'PartitionKind',
+    'ResourceIdentityType',
     'RoleDefinitionType',
     'ServerVersion',
     'SpatialType',
@@ -36,8 +38,8 @@ class CompositePathSortOrder(str, Enum):
     """
     Sort order for composite paths.
     """
-    ASCENDING = "Ascending"
-    DESCENDING = "Descending"
+    ASCENDING = "ascending"
+    DESCENDING = "descending"
 
 
 class ConflictResolutionMode(str, Enum):
@@ -107,17 +109,36 @@ class IndexingMode(str, Enum):
     """
     Indicates the indexing mode.
     """
-    CONSISTENT = "Consistent"
-    LAZY = "Lazy"
+    CONSISTENT = "consistent"
+    LAZY = "lazy"
+    NONE = "none"
+
+
+class NetworkAclBypass(str, Enum):
+    """
+    Indicates what services are allowed to bypass firewall checks.
+    """
     NONE = "None"
+    AZURE_SERVICES = "AzureServices"
 
 
 class PartitionKind(str, Enum):
     """
-    Indicates the kind of algorithm used for partitioning
+    Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
     """
     HASH = "Hash"
     RANGE = "Range"
+    MULTI_HASH = "MultiHash"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+    NONE = "None"
 
 
 class RoleDefinitionType(str, Enum):
@@ -134,6 +155,7 @@ class ServerVersion(str, Enum):
     """
     SERVER_VERSION_3_2 = "3.2"
     SERVER_VERSION_3_6 = "3.6"
+    SERVER_VERSION_4_0 = "4.0"
 
 
 class SpatialType(str, Enum):

@@ -31,7 +31,7 @@ class SqlResourceSqlStoredProcedure(pulumi.CustomResource):
                  __opts__=None):
         """
         An Azure Cosmos DB storedProcedure.
-        API Version: 2020-09-01.
+        API Version: 2021-01-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -85,7 +85,7 @@ class SqlResourceSqlStoredProcedure(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlStoredProcedure")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlStoredProcedure"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:SqlResourceSqlStoredProcedure")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlResourceSqlStoredProcedure, __self__).__init__(
             'azure-nextgen:documentdb:SqlResourceSqlStoredProcedure',

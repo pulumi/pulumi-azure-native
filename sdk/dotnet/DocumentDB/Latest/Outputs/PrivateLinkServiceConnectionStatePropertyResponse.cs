@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
         /// </summary>
         public readonly string ActionsRequired;
         /// <summary>
+        /// The private link service connection description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The private link service connection status.
         /// </summary>
         public readonly string? Status;
@@ -26,9 +30,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
         private PrivateLinkServiceConnectionStatePropertyResponse(
             string actionsRequired,
 
+            string? description,
+
             string? status)
         {
             ActionsRequired = actionsRequired;
+            Description = description;
             Status = status;
         }
     }

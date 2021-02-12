@@ -34,6 +34,7 @@ __all__ = [
     'IndexingPolicyArgs',
     'IpAddressOrRangeArgs',
     'LocationArgs',
+    'ManagedServiceIdentityArgs',
     'MongoDBCollectionResourceArgs',
     'MongoDBDatabaseResourceArgs',
     'MongoIndexArgs',
@@ -524,7 +525,7 @@ class ContainerPartitionKeyArgs:
                  version: Optional[pulumi.Input[int]] = None):
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
-        :param pulumi.Input[Union[str, 'PartitionKind']] kind: Indicates the kind of algorithm used for partitioning
+        :param pulumi.Input[Union[str, 'PartitionKind']] kind: Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
         :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: List of paths using which data within the container can be partitioned
         :param pulumi.Input[int] version: Indicates the version of the partition key definition
         """
@@ -541,7 +542,7 @@ class ContainerPartitionKeyArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[Union[str, 'PartitionKind']]]:
         """
-        Indicates the kind of algorithm used for partitioning
+        Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
         """
         return pulumi.get(self, "kind")
 
@@ -1002,7 +1003,7 @@ class IndexingPolicyArgs:
         if included_paths is not None:
             pulumi.set(__self__, "included_paths", included_paths)
         if indexing_mode is None:
-            indexing_mode = 'Consistent'
+            indexing_mode = 'consistent'
         if indexing_mode is not None:
             pulumi.set(__self__, "indexing_mode", indexing_mode)
         if spatial_indexes is not None:
@@ -1159,6 +1160,46 @@ class LocationArgs:
     @location_name.setter
     def location_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location_name", value)
+
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        Identity for the resource.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type

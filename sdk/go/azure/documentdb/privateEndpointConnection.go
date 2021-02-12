@@ -12,7 +12,7 @@ import (
 )
 
 // A private endpoint connection
-// API Version: 2019-08-01-preview.
+// API Version: 2021-01-15.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -48,7 +48,13 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb/latest:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB database account.
-// API Version: 2020-09-01.
+// API Version: 2021-01-15.
 type DatabaseAccount struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +46,8 @@ type DatabaseAccount struct {
 	EnableMultipleWriteLocations pulumi.BoolPtrOutput `pulumi:"enableMultipleWriteLocations"`
 	// An array that contains the regions ordered by their failover priorities.
 	FailoverPolicies FailoverPolicyResponseArrayOutput `pulumi:"failoverPolicies"`
+	// Identity for the resource.
+	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// List of IpRules.
 	IpRules IpAddressOrRangeResponseArrayOutput `pulumi:"ipRules"`
 	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -60,6 +62,10 @@ type DatabaseAccount struct {
 	Locations LocationResponseArrayOutput `pulumi:"locations"`
 	// The name of the ARM resource.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Indicates what services are allowed to bypass firewall checks.
+	NetworkAclBypass pulumi.StringPtrOutput `pulumi:"networkAclBypass"`
+	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+	NetworkAclBypassResourceIds pulumi.StringArrayOutput `pulumi:"networkAclBypassResourceIds"`
 	// List of Private Endpoint Connections configured for the Cosmos DB account.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
@@ -134,6 +140,9 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:DatabaseAccount"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:DatabaseAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccount
@@ -188,6 +197,8 @@ type databaseAccountState struct {
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// An array that contains the regions ordered by their failover priorities.
 	FailoverPolicies []FailoverPolicyResponse `pulumi:"failoverPolicies"`
+	// Identity for the resource.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// List of IpRules.
 	IpRules []IpAddressOrRangeResponse `pulumi:"ipRules"`
 	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -202,6 +213,10 @@ type databaseAccountState struct {
 	Locations []LocationResponse `pulumi:"locations"`
 	// The name of the ARM resource.
 	Name *string `pulumi:"name"`
+	// Indicates what services are allowed to bypass firewall checks.
+	NetworkAclBypass *string `pulumi:"networkAclBypass"`
+	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+	NetworkAclBypassResourceIds []string `pulumi:"networkAclBypassResourceIds"`
 	// List of Private Endpoint Connections configured for the Cosmos DB account.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
@@ -251,6 +266,8 @@ type DatabaseAccountState struct {
 	EnableMultipleWriteLocations pulumi.BoolPtrInput
 	// An array that contains the regions ordered by their failover priorities.
 	FailoverPolicies FailoverPolicyResponseArrayInput
+	// Identity for the resource.
+	Identity ManagedServiceIdentityResponsePtrInput
 	// List of IpRules.
 	IpRules IpAddressOrRangeResponseArrayInput
 	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -265,6 +282,10 @@ type DatabaseAccountState struct {
 	Locations LocationResponseArrayInput
 	// The name of the ARM resource.
 	Name pulumi.StringPtrInput
+	// Indicates what services are allowed to bypass firewall checks.
+	NetworkAclBypass pulumi.StringPtrInput
+	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+	NetworkAclBypassResourceIds pulumi.StringArrayInput
 	// List of Private Endpoint Connections configured for the Cosmos DB account.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
@@ -316,6 +337,8 @@ type databaseAccountArgs struct {
 	EnableFreeTier *bool `pulumi:"enableFreeTier"`
 	// Enables the account to write in multiple locations
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
+	// Identity for the resource.
+	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// List of IpRules.
 	IpRules []IpAddressOrRange `pulumi:"ipRules"`
 	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -328,6 +351,10 @@ type databaseAccountArgs struct {
 	Location *string `pulumi:"location"`
 	// An array that contains the georeplication locations enabled for the Cosmos DB account.
 	Locations []Location `pulumi:"locations"`
+	// Indicates what services are allowed to bypass firewall checks.
+	NetworkAclBypass *string `pulumi:"networkAclBypass"`
+	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+	NetworkAclBypassResourceIds []string `pulumi:"networkAclBypassResourceIds"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -366,6 +393,8 @@ type DatabaseAccountArgs struct {
 	EnableFreeTier pulumi.BoolPtrInput
 	// Enables the account to write in multiple locations
 	EnableMultipleWriteLocations pulumi.BoolPtrInput
+	// Identity for the resource.
+	Identity ManagedServiceIdentityPtrInput
 	// List of IpRules.
 	IpRules IpAddressOrRangeArrayInput
 	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -378,6 +407,10 @@ type DatabaseAccountArgs struct {
 	Location pulumi.StringPtrInput
 	// An array that contains the georeplication locations enabled for the Cosmos DB account.
 	Locations LocationArrayInput
+	// Indicates what services are allowed to bypass firewall checks.
+	NetworkAclBypass *NetworkAclBypass
+	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+	NetworkAclBypassResourceIds pulumi.StringArrayInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".

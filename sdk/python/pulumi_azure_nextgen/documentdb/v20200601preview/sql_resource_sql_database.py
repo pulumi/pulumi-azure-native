@@ -80,7 +80,7 @@ class SqlResourceSqlDatabase(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:SqlResourceSqlDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlResourceSqlDatabase, __self__).__init__(
             'azure-nextgen:documentdb/v20200601preview:SqlResourceSqlDatabase',

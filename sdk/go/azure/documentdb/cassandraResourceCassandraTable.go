@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB Cassandra table.
-// API Version: 2020-09-01.
+// API Version: 2021-01-15.
 type CassandraResourceCassandraTable struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +71,9 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:CassandraResourceCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:CassandraResourceCassandraTable"),
 		},
 	})
 	opts = append(opts, aliases)

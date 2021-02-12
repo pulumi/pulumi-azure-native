@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB Table.
- * API Version: 2020-09-01.
+ * API Version: 2021-01-15.
  */
 export class TableResourceTable extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class TableResourceTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20190801:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20191212:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200301:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200401:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200901:TableResourceTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20190801:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20191212:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200301:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200401:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200901:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20210115:TableResourceTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TableResourceTable.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB container.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2021-01-15.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlContainer'.
  */
@@ -110,7 +110,7 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20210115:SqlResourceSqlContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlContainer.__pulumiType, name, inputs, opts);
     }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB container.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-01-15.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:documentdb:SqlResourceSqlContainer")]
     public partial class SqlResourceSqlContainer : Pulumi.CustomResource
@@ -78,6 +78,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:SqlResourceSqlContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

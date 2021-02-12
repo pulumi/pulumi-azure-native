@@ -57,6 +57,8 @@ type LookupDatabaseAccountResult struct {
 	FailoverPolicies []FailoverPolicyResponse `pulumi:"failoverPolicies"`
 	// The unique resource identifier of the ARM resource.
 	Id string `pulumi:"id"`
+	// Identity for the resource.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// List of IpRules.
 	IpRules []IpAddressOrRangeResponse `pulumi:"ipRules"`
 	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -71,6 +73,10 @@ type LookupDatabaseAccountResult struct {
 	Locations []LocationResponse `pulumi:"locations"`
 	// The name of the ARM resource.
 	Name string `pulumi:"name"`
+	// Indicates what services are allowed to bypass firewall checks.
+	NetworkAclBypass *string `pulumi:"networkAclBypass"`
+	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+	NetworkAclBypassResourceIds []string `pulumi:"networkAclBypassResourceIds"`
 	// List of Private Endpoint Connections configured for the Cosmos DB account.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.

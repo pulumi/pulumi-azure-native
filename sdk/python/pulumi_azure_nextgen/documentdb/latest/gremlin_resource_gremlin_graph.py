@@ -35,7 +35,7 @@ class GremlinResourceGremlinGraph(pulumi.CustomResource):
                  __opts__=None):
         """
         An Azure Cosmos DB Gremlin graph.
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2021-01-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -86,7 +86,7 @@ class GremlinResourceGremlinGraph(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:GremlinResourceGremlinGraph")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GremlinResourceGremlinGraph, __self__).__init__(
             'azure-nextgen:documentdb/latest:GremlinResourceGremlinGraph',

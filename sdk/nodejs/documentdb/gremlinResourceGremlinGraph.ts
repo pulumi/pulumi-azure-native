@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB Gremlin graph.
- * API Version: 2020-09-01.
+ * API Version: 2021-01-15.
  */
 export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20191212:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200301:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200401:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20191212:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200301:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200401:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinGraph" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GremlinResourceGremlinGraph.__pulumiType, name, inputs, opts);
     }

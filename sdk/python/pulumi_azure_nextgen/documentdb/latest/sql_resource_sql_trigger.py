@@ -36,7 +36,7 @@ class SqlResourceSqlTrigger(pulumi.CustomResource):
                  __opts__=None):
         """
         An Azure Cosmos DB trigger.
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2021-01-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -91,7 +91,7 @@ class SqlResourceSqlTrigger(pulumi.CustomResource):
             __props__['trigger_name'] = trigger_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlTrigger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:SqlResourceSqlTrigger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlResourceSqlTrigger, __self__).__init__(
             'azure-nextgen:documentdb/latest:SqlResourceSqlTrigger',

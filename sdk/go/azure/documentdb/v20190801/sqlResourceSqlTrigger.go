@@ -76,6 +76,9 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:SqlResourceSqlTrigger"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlTrigger"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlResourceSqlTrigger

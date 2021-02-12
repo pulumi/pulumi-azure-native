@@ -60,7 +60,7 @@ class NotebookWorkspace(pulumi.CustomResource):
             __props__['notebook_server_endpoint'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:NotebookWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:NotebookWorkspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:NotebookWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotebookWorkspace, __self__).__init__(
             'azure-nextgen:documentdb/v20200401:NotebookWorkspace',
