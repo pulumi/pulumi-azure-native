@@ -44,7 +44,7 @@ async function main() {
             privateEndpointNetworkPolicies: "Enabled",
             privateLinkServiceNetworkPolicies: "Disabled", // It's "Enabled" in the imported resource. We are testing `ignoreChanges` here.
         }],
-    }, { import: vnetId, ignoreChanges: ["subnets[0].privateLinkServiceNetworkPolicies"] });
+    }, { import: vnetId, ignoreChanges: ["subnets[0].privateLinkServiceNetworkPolicies", "enableVmProtection"] });
 }
 
 module.exports = main();
