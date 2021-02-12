@@ -58,7 +58,7 @@ class RegistrationAssignment(pulumi.CustomResource):
             __props__['scope'] = scope
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:managedservices/latest:RegistrationAssignment"), pulumi.Alias(type_="azure-nextgen:managedservices/v20180601preview:RegistrationAssignment"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190401preview:RegistrationAssignment"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190601:RegistrationAssignment"), pulumi.Alias(type_="azure-nextgen:managedservices/v20200201preview:RegistrationAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:managedservices:RegistrationAssignment"), pulumi.Alias(type_="azure-nextgen:managedservices/latest:RegistrationAssignment"), pulumi.Alias(type_="azure-nextgen:managedservices/v20180601preview:RegistrationAssignment"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190401preview:RegistrationAssignment"), pulumi.Alias(type_="azure-nextgen:managedservices/v20190601:RegistrationAssignment"), pulumi.Alias(type_="azure-nextgen:managedservices/v20200201preview:RegistrationAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegistrationAssignment, __self__).__init__(
             'azure-nextgen:managedservices/v20190901:RegistrationAssignment',

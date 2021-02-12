@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Domain']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:Domain'.""", DeprecationWarning)
+
 
 class Domain(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:Domain'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -59,6 +63,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['DnsType'] target_dns_type: Target DNS type (would be used for migration)
         """
+        pulumi.log.warn("Domain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:Domain'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -120,7 +125,7 @@ class Domain(pulumi.CustomResource):
             __props__['registration_status'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:domainregistration/v20150401:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20180201:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20190801:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200601:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200901:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20201001:Domain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:domainregistration:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20150401:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20180201:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20190801:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200601:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200901:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20201001:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Domain, __self__).__init__(
             'azure-nextgen:domainregistration/latest:Domain',

@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Service']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Service'.""", DeprecationWarning)
+
 
 class Service(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Service'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Sku of the Service resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
         """
+        pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Service'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class Service(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform/v20190501preview:Service"), pulumi.Alias(type_="azure-nextgen:appplatform/v20200701:Service"), pulumi.Alias(type_="azure-nextgen:appplatform/v20201101preview:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform:Service"), pulumi.Alias(type_="azure-nextgen:appplatform/v20190501preview:Service"), pulumi.Alias(type_="azure-nextgen:appplatform/v20200701:Service"), pulumi.Alias(type_="azure-nextgen:appplatform/v20201101preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-nextgen:appplatform/latest:Service',

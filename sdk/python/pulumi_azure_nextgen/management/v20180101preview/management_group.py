@@ -61,7 +61,7 @@ class ManagementGroup(pulumi.CustomResource):
             __props__['roles'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:management/latest:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20171101preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20180301preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20191101:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20200201:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20200501:ManagementGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:management:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/latest:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20171101preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20180301preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20191101:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20200201:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20200501:ManagementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementGroup, __self__).__init__(
             'azure-nextgen:management/v20180101preview:ManagementGroup',

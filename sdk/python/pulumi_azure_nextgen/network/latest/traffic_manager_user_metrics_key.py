@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['TrafficManagerUserMetricsKey']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:TrafficManagerUserMetricsKey'.""", DeprecationWarning)
+
 
 class TrafficManagerUserMetricsKey(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:TrafficManagerUserMetricsKey'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -25,6 +29,7 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
+        pulumi.log.warn("TrafficManagerUserMetricsKey is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:TrafficManagerUserMetricsKey'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -45,7 +50,7 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
             __props__['key'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:TrafficManagerUserMetricsKey"), pulumi.Alias(type_="azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TrafficManagerUserMetricsKey, __self__).__init__(
             'azure-nextgen:network/latest:TrafficManagerUserMetricsKey',

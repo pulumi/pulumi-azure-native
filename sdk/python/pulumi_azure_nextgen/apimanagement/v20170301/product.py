@@ -82,7 +82,7 @@ class Product(pulumi.CustomResource):
             __props__['terms'] = terms
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Product")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Product")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Product, __self__).__init__(
             'azure-nextgen:apimanagement/v20170301:Product',

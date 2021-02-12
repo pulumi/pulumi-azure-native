@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Pool']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Pool'.""", DeprecationWarning)
+
 
 class Pool(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Pool'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +69,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[int] task_slots_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
         :param pulumi.Input[str] vm_size: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
+        pulumi.log.warn("Pool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Pool'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -120,7 +125,7 @@ class Pool(pulumi.CustomResource):
             __props__['provisioning_state_transition_time'] = None
             __props__['resize_operation_status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20170901:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20210101:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20170901:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20210101:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-nextgen:batch/latest:Pool',

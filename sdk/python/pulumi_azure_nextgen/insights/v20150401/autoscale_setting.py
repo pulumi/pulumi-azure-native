@@ -80,7 +80,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['target_resource_uri'] = target_resource_uri
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/latest:AutoscaleSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:AutoscaleSetting"), pulumi.Alias(type_="azure-nextgen:insights/latest:AutoscaleSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutoscaleSetting, __self__).__init__(
             'azure-nextgen:insights/v20150401:AutoscaleSetting',

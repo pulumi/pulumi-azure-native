@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ObjectReplicationPolicy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ObjectReplicationPolicy'.""", DeprecationWarning)
+
 
 class ObjectReplicationPolicy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ObjectReplicationPolicy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]] rules: The storage account object replication rules.
         :param pulumi.Input[str] source_account: Required. Source account name.
         """
+        pulumi.log.warn("ObjectReplicationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ObjectReplicationPolicy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,7 +81,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['policy_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20190601:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ObjectReplicationPolicy, __self__).__init__(
             'azure-nextgen:storage/latest:ObjectReplicationPolicy',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Rule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Rule'.""", DeprecationWarning)
+
 
 class Rule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Rule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] subscription_name: The subscription name.
         :param pulumi.Input[str] topic_name: The topic name.
         """
+        pulumi.log.warn("Rule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Rule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -84,7 +89,7 @@ class Rule(pulumi.CustomResource):
             __props__['topic_name'] = topic_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:Rule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:Rule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus:Rule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:Rule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:Rule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Rule, __self__).__init__(
             'azure-nextgen:servicebus/latest:Rule',

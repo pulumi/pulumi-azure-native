@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Job']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:importexport:Job'.""", DeprecationWarning)
+
 
 class Job(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:importexport:Job'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
         :param Any tags: Specifies the tags that will be assigned to the job.
         """
+        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:importexport:Job'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class Job(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:importexport/v20161101:Job"), pulumi.Alias(type_="azure-nextgen:importexport/v20200801:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:importexport:Job"), pulumi.Alias(type_="azure-nextgen:importexport/v20161101:Job"), pulumi.Alias(type_="azure-nextgen:importexport/v20200801:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-nextgen:importexport/latest:Job',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['InboundNatRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InboundNatRule'.""", DeprecationWarning)
+
 
 class InboundNatRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InboundNatRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class InboundNatRule(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'TransportProtocol']] protocol: The reference to the transport protocol used by the load balancing rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        pulumi.log.warn("InboundNatRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InboundNatRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -91,7 +96,7 @@ class InboundNatRule(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20170601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20170801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20170901:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20171001:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20171101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180401:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180701:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20181001:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20181101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20181201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190401:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190701:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190901:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20191101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20191201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200301:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200401:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200501:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200701:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200801:InboundNatRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20170601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20170801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20170901:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20171001:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20171101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180401:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180701:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20181001:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20181101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20181201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190401:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190701:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190901:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20191101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20191201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200301:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200401:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200501:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200701:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200801:InboundNatRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InboundNatRule, __self__).__init__(
             'azure-nextgen:network/latest:InboundNatRule',

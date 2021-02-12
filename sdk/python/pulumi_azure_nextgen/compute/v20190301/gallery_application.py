@@ -85,7 +85,7 @@ class GalleryApplication(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:GalleryApplication")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/latest:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:GalleryApplication"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:GalleryApplication")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryApplication, __self__).__init__(
             'azure-nextgen:compute/v20190301:GalleryApplication',

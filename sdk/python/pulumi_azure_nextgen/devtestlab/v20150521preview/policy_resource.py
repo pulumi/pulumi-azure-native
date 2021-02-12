@@ -95,7 +95,7 @@ class PolicyResource(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['threshold'] = threshold
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/latest:PolicyResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:PolicyResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:PolicyResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:PolicyResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/latest:PolicyResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:PolicyResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:PolicyResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyResource, __self__).__init__(
             'azure-nextgen:devtestlab/v20150521preview:PolicyResource',

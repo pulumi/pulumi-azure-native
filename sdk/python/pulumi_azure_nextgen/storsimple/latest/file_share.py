@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['FileShare']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:FileShare'.""", DeprecationWarning)
+
 
 class FileShare(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:FileShare'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class FileShare(pulumi.CustomResource):
         :param pulumi.Input[str] share_name: The file share name.
         :param pulumi.Input['ShareStatus'] share_status: The Share Status
         """
+        pulumi.log.warn("FileShare is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:FileShare'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,7 +105,7 @@ class FileShare(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['used_capacity_in_bytes'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:FileShare")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:FileShare"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:FileShare")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileShare, __self__).__init__(
             'azure-nextgen:storsimple/latest:FileShare',

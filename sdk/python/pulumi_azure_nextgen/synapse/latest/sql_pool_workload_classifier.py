@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['SqlPoolWorkloadClassifier']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadClassifier'.""", DeprecationWarning)
+
 
 class SqlPoolWorkloadClassifier(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadClassifier'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +51,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         :param pulumi.Input[str] workload_group_name: The name of the workload group.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
+        pulumi.log.warn("SqlPoolWorkloadClassifier is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadClassifier'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,7 +94,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse:SqlPoolWorkloadClassifier"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlPoolWorkloadClassifier, __self__).__init__(
             'azure-nextgen:synapse/latest:SqlPoolWorkloadClassifier',

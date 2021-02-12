@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['MoveResource']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveResource'.""", DeprecationWarning)
+
 
 class MoveResource(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveResource'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class MoveResource(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MoveResourcePropertiesArgs']] properties: Defines the move resource properties.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
         """
+        pulumi.log.warn("MoveResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveResource'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -65,7 +70,7 @@ class MoveResource(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate/v20191001preview:MoveResource"), pulumi.Alias(type_="azure-nextgen:migrate/v20210101:MoveResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate:MoveResource"), pulumi.Alias(type_="azure-nextgen:migrate/v20191001preview:MoveResource"), pulumi.Alias(type_="azure-nextgen:migrate/v20210101:MoveResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MoveResource, __self__).__init__(
             'azure-nextgen:migrate/latest:MoveResource',

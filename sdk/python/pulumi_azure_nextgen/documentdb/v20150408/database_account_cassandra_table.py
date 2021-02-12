@@ -79,7 +79,7 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
             __props__['schema'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraTable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccountCassandraTable"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountCassandraTable, __self__).__init__(
             'azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraTable',

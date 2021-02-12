@@ -67,7 +67,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
             __props__['time_window_rules'] = time_window_rules
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/latest:DeviceSecurityGroup"), pulumi.Alias(type_="azure-nextgen:security/v20170801preview:DeviceSecurityGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:DeviceSecurityGroup"), pulumi.Alias(type_="azure-nextgen:security/latest:DeviceSecurityGroup"), pulumi.Alias(type_="azure-nextgen:security/v20170801preview:DeviceSecurityGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeviceSecurityGroup, __self__).__init__(
             'azure-nextgen:security/v20190801:DeviceSecurityGroup',

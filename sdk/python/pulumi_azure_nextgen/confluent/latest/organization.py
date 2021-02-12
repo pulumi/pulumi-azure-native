@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Organization']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:confluent:Organization'.""", DeprecationWarning)
+
 
 class Organization(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:confluent:Organization'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class Organization(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Organization resource tags
         :param pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesUserDetailArgs']] user_detail: Subscriber detail
         """
+        pulumi.log.warn("Organization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:confluent:Organization'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class Organization(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['sso_url'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20200301preview:Organization")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:confluent:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20200301preview:Organization")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Organization, __self__).__init__(
             'azure-nextgen:confluent/latest:Organization',

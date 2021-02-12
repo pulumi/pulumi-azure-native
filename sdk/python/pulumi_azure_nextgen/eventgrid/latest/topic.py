@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Topic']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:Topic'.""", DeprecationWarning)
+
 
 class Topic(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:Topic'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         :param pulumi.Input[str] topic_name: Name of the topic.
         """
+        pulumi.log.warn("Topic is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:Topic'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,7 +88,7 @@ class Topic(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid/v20170615preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20170915preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180101:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180501preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180915preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190101:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190201preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190601:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200101preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200601:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:Topic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20170615preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20170915preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180101:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180501preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180915preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190101:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190201preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190601:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200101preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200601:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:Topic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Topic, __self__).__init__(
             'azure-nextgen:eventgrid/latest:Topic',

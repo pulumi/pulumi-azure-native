@@ -67,7 +67,7 @@ class PartnerNamespace(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:PartnerNamespace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid:PartnerNamespace"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:PartnerNamespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PartnerNamespace, __self__).__init__(
             'azure-nextgen:eventgrid/v20201015preview:PartnerNamespace',

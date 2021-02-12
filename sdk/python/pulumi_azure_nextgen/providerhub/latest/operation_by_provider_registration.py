@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['OperationByProviderRegistration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:OperationByProviderRegistration'.""", DeprecationWarning)
+
 
 class OperationByProviderRegistration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:OperationByProviderRegistration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -27,6 +31,7 @@ class OperationByProviderRegistration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
+        pulumi.log.warn("OperationByProviderRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:OperationByProviderRegistration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -54,7 +59,7 @@ class OperationByProviderRegistration(pulumi.CustomResource):
             __props__['origin'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:OperationByProviderRegistration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub:OperationByProviderRegistration"), pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:OperationByProviderRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OperationByProviderRegistration, __self__).__init__(
             'azure-nextgen:providerhub/latest:OperationByProviderRegistration',

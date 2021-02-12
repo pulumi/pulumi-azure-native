@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['SqlPoolSensitivityLabel']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolSensitivityLabel'.""", DeprecationWarning)
+
 
 class SqlPoolSensitivityLabel(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolSensitivityLabel'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +53,7 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
         :param pulumi.Input[str] table_name: The name of the table.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
+        pulumi.log.warn("SqlPoolSensitivityLabel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolSensitivityLabel'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,7 +101,7 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
             __props__['managed_by'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPoolSensitivityLabel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse:SqlPoolSensitivityLabel"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPoolSensitivityLabel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlPoolSensitivityLabel, __self__).__init__(
             'azure-nextgen:synapse/latest:SqlPoolSensitivityLabel',

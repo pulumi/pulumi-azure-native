@@ -69,7 +69,7 @@ class TransparentDataEncryption(pulumi.CustomResource):
             __props__['tde_name'] = tde_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/latest:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:TransparentDataEncryption")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/latest:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:TransparentDataEncryption")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TransparentDataEncryption, __self__).__init__(
             'azure-nextgen:sql/v20200801preview:TransparentDataEncryption',

@@ -98,7 +98,7 @@ class Certificate(pulumi.CustomResource):
             __props__['thumbprint'] = None
             __props__['type'] = None
             __props__['valid'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20150801:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20160301:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20180201:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20181101:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200601:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200901:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20201001:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:Certificate"), pulumi.Alias(type_="azure-nextgen:web/latest:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20150801:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20160301:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20180201:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20181101:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200601:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200901:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20201001:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-nextgen:web/v20190801:Certificate',

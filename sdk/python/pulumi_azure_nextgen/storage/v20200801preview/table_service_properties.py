@@ -63,7 +63,7 @@ class TableServiceProperties(pulumi.CustomResource):
             __props__['table_service_name'] = table_service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:TableServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:TableServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:TableServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/latest:TableServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:TableServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TableServiceProperties, __self__).__init__(
             'azure-nextgen:storage/v20200801preview:TableServiceProperties',

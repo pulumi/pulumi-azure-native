@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['GuestConfigurationAssignment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:guestconfiguration:GuestConfigurationAssignment'.""", DeprecationWarning)
+
 
 class GuestConfigurationAssignment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:guestconfiguration:GuestConfigurationAssignment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] vm_name: The name of the virtual machine.
         """
+        pulumi.log.warn("GuestConfigurationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:guestconfiguration:GuestConfigurationAssignment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vm_name'")
             __props__['vm_name'] = vm_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:guestconfiguration:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestConfigurationAssignment, __self__).__init__(
             'azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment',

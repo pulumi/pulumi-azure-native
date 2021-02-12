@@ -82,7 +82,7 @@ class Peering(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering/latest:Peering"), pulumi.Alias(type_="azure-nextgen:peering/v20190801preview:Peering"), pulumi.Alias(type_="azure-nextgen:peering/v20190901preview:Peering"), pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:Peering"), pulumi.Alias(type_="azure-nextgen:peering/v20200401:Peering")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering:Peering"), pulumi.Alias(type_="azure-nextgen:peering/latest:Peering"), pulumi.Alias(type_="azure-nextgen:peering/v20190801preview:Peering"), pulumi.Alias(type_="azure-nextgen:peering/v20190901preview:Peering"), pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:Peering"), pulumi.Alias(type_="azure-nextgen:peering/v20200401:Peering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Peering, __self__).__init__(
             'azure-nextgen:peering/v20201001:Peering',

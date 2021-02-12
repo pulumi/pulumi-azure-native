@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Input']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Input'.""", DeprecationWarning)
+
 
 class Input(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Input'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class Input(pulumi.CustomResource):
         :param pulumi.Input[Union[pulumi.InputType['ReferenceInputPropertiesArgs'], pulumi.InputType['StreamInputPropertiesArgs']]] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         """
+        pulumi.log.warn("Input is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Input'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -67,7 +72,7 @@ class Input(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:Input"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:Input")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics:Input"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:Input"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:Input")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Input, __self__).__init__(
             'azure-nextgen:streamanalytics/latest:Input',

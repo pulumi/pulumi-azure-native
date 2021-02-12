@@ -97,7 +97,7 @@ class Schedule(pulumi.CustomResource):
             __props__['next_run_offset_minutes'] = None
             __props__['start_time_offset_minutes'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/latest:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Schedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/latest:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Schedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schedule, __self__).__init__(
             'azure-nextgen:automation/v20151031:Schedule',

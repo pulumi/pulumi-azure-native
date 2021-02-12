@@ -68,7 +68,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__['storage_account_id'] = storage_account_id
             __props__['workspace_id'] = workspace_id
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aadiam/latest:DiagnosticSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aadiam:DiagnosticSetting"), pulumi.Alias(type_="azure-nextgen:aadiam/latest:DiagnosticSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiagnosticSetting, __self__).__init__(
             'azure-nextgen:aadiam/v20170401:DiagnosticSetting',

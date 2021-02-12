@@ -130,7 +130,7 @@ class VirtualMachineResource(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['user_name'] = user_name
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/latest:VirtualMachineResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualMachineResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:VirtualMachineResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:VirtualMachineResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/latest:VirtualMachineResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualMachineResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:VirtualMachineResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineResource, __self__).__init__(
             'azure-nextgen:devtestlab/v20150521preview:VirtualMachineResource',

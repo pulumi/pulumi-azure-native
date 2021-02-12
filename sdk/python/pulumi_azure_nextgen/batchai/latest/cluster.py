@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Cluster']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Cluster'.""", DeprecationWarning)
+
 
 class Cluster(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Cluster'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] vm_size: The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         """
+        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Cluster'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -97,7 +102,7 @@ class Cluster(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai/v20180501:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai:Cluster"), pulumi.Alias(type_="azure-nextgen:batchai/v20180501:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-nextgen:batchai/latest:Cluster',

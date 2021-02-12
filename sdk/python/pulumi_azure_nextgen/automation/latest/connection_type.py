@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ConnectionType']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:ConnectionType'.""", DeprecationWarning)
+
 
 class ConnectionType(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:ConnectionType'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class ConnectionType(pulumi.CustomResource):
         :param pulumi.Input[str] name: Gets or sets the name of the connection type.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         """
+        pulumi.log.warn("ConnectionType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:ConnectionType'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,7 +81,7 @@ class ConnectionType(pulumi.CustomResource):
             __props__['description'] = None
             __props__['last_modified_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:ConnectionType"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:ConnectionType"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:ConnectionType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:ConnectionType"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:ConnectionType"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:ConnectionType"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:ConnectionType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectionType, __self__).__init__(
             'azure-nextgen:automation/latest:ConnectionType',

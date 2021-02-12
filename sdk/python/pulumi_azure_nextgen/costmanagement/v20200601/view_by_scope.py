@@ -94,7 +94,7 @@ class ViewByScope(pulumi.CustomResource):
             __props__['created_on'] = None
             __props__['modified_on'] = None
             __props__['name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement/latest:ViewByScope"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190401preview:ViewByScope"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:ViewByScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement:ViewByScope"), pulumi.Alias(type_="azure-nextgen:costmanagement/latest:ViewByScope"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190401preview:ViewByScope"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:ViewByScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ViewByScope, __self__).__init__(
             'azure-nextgen:costmanagement/v20200601:ViewByScope',

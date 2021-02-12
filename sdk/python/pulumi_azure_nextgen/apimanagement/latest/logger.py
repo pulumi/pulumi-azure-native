@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['Logger']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Logger'.""", DeprecationWarning)
+
 
 class Logger(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Logger'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +47,7 @@ class Logger(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
+        pulumi.log.warn("Logger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Logger'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class Logger(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Logger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Logger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Logger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Logger, __self__).__init__(
             'azure-nextgen:apimanagement/latest:Logger',

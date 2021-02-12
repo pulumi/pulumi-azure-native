@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['RegisteredAsn']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredAsn'.""", DeprecationWarning)
+
 
 class RegisteredAsn(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredAsn'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +37,7 @@ class RegisteredAsn(pulumi.CustomResource):
         :param pulumi.Input[str] registered_asn_name: The name of the ASN.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        pulumi.log.warn("RegisteredAsn is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredAsn'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -64,7 +69,7 @@ class RegisteredAsn(pulumi.CustomResource):
             __props__['peering_service_prefix_key'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:RegisteredAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20200401:RegisteredAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20201001:RegisteredAsn")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering:RegisteredAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:RegisteredAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20200401:RegisteredAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20201001:RegisteredAsn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegisteredAsn, __self__).__init__(
             'azure-nextgen:peering/latest:RegisteredAsn',

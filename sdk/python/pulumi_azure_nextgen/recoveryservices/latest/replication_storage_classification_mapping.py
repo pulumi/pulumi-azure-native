@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ReplicationStorageClassificationMapping']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping'.""", DeprecationWarning)
+
 
 class ReplicationStorageClassificationMapping(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
         :param pulumi.Input[str] storage_classification_mapping_name: Storage classification mapping name.
         :param pulumi.Input[str] storage_classification_name: Storage classification name.
         """
+        pulumi.log.warn("ReplicationStorageClassificationMapping is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationStorageClassificationMapping")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationStorageClassificationMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationStorageClassificationMapping, __self__).__init__(
             'azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping',

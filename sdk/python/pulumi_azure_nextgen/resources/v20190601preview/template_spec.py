@@ -68,6 +68,8 @@ class TemplateSpec(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['type'] = None
             __props__['versions'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources:TemplateSpec")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TemplateSpec, __self__).__init__(
             'azure-nextgen:resources/v20190601preview:TemplateSpec',
             resource_name,

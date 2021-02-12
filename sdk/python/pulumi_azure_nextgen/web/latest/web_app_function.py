@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppFunction']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppFunction'.""", DeprecationWarning)
+
 
 class WebAppFunction(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppFunction'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +64,7 @@ class WebAppFunction(pulumi.CustomResource):
         :param pulumi.Input[str] test_data: Test data used when testing via the Azure Portal.
         :param pulumi.Input[str] test_data_href: Test data URI.
         """
+        pulumi.log.warn("WebAppFunction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppFunction'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,7 +107,7 @@ class WebAppFunction(pulumi.CustomResource):
             __props__['test_data_href'] = test_data_href
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppFunction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppFunction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppFunction, __self__).__init__(
             'azure-nextgen:web/latest:WebAppFunction',

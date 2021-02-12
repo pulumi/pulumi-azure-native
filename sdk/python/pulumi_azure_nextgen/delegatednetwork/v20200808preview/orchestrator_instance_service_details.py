@@ -89,6 +89,8 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrchestratorInstanceServiceDetails, __self__).__init__(
             'azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails',
             resource_name,

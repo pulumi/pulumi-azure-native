@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Cluster']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Cluster'.""", DeprecationWarning)
+
 
 class Cluster(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Cluster'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -83,6 +87,7 @@ class Cluster(pulumi.CustomResource):
                  - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         :param pulumi.Input[str] vm_image: The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
         """
+        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Cluster'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -139,7 +144,7 @@ class Cluster(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric/v20160901:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20170701preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20180201:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190601preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20191101preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200301:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20160901:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20170701preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20180201:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190601preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20191101preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200301:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-nextgen:servicefabric/latest:Cluster',

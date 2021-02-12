@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['DomainTopic']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:DomainTopic'.""", DeprecationWarning)
+
 
 class DomainTopic(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:DomainTopic'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -31,6 +35,7 @@ class DomainTopic(pulumi.CustomResource):
         :param pulumi.Input[str] domain_topic_name: Name of the domain topic.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         """
+        pulumi.log.warn("DomainTopic is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:DomainTopic'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -60,7 +65,7 @@ class DomainTopic(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid/v20190201preview:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190601:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200101preview:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200601:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:DomainTopic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190201preview:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190601:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200101preview:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200601:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:DomainTopic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DomainTopic, __self__).__init__(
             'azure-nextgen:eventgrid/latest:DomainTopic',

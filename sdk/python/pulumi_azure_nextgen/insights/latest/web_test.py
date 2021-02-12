@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['WebTest']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:WebTest'.""", DeprecationWarning)
+
 
 class WebTest(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:WebTest'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +60,7 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input['WebTestKind'] web_test_kind: The kind of web test this is, valid choices are ping and multistep.
         :param pulumi.Input[str] web_test_name: User defined name if this WebTest.
         """
+        pulumi.log.warn("WebTest is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:WebTest'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -108,7 +113,7 @@ class WebTest(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:WebTest"), pulumi.Alias(type_="azure-nextgen:insights/v20201005preview:WebTest")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:WebTest"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:WebTest"), pulumi.Alias(type_="azure-nextgen:insights/v20201005preview:WebTest")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebTest, __self__).__init__(
             'azure-nextgen:insights/latest:WebTest',

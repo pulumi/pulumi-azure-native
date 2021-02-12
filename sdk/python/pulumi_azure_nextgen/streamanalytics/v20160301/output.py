@@ -71,7 +71,7 @@ class Output(pulumi.CustomResource):
             __props__['diagnostics'] = None
             __props__['etag'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics/latest:Output"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:Output")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics:Output"), pulumi.Alias(type_="azure-nextgen:streamanalytics/latest:Output"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:Output")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Output, __self__).__init__(
             'azure-nextgen:streamanalytics/v20160301:Output',

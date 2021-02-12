@@ -75,7 +75,7 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:ReplicationProtectionContainerMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160810:ReplicationProtectionContainerMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationProtectionContainerMapping")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices:ReplicationProtectionContainerMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:ReplicationProtectionContainerMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160810:ReplicationProtectionContainerMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationProtectionContainerMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationProtectionContainerMapping, __self__).__init__(
             'azure-nextgen:recoveryservices/v20180110:ReplicationProtectionContainerMapping',

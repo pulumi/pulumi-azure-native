@@ -89,7 +89,7 @@ class WebAppDeployment(pulumi.CustomResource):
             __props__['status'] = status
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppDeployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppDeployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppDeployment, __self__).__init__(
             'azure-nextgen:web/v20200901:WebAppDeployment',

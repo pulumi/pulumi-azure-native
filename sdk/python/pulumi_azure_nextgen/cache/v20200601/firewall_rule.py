@@ -68,7 +68,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__['start_ip'] = start_ip
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/latest:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20160401:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20170201:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/latest:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20160401:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20170201:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azure-nextgen:cache/v20200601:FirewallRule',

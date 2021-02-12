@@ -70,7 +70,7 @@ class Hub(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['web_endpoint'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/latest:Hub"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Hub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:Hub"), pulumi.Alias(type_="azure-nextgen:customerinsights/latest:Hub"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Hub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Hub, __self__).__init__(
             'azure-nextgen:customerinsights/v20170101:Hub',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['NatGateway']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NatGateway'.""", DeprecationWarning)
+
 
 class NatGateway(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NatGateway'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the zone in which Nat Gateway should be deployed.
         """
+        pulumi.log.warn("NatGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NatGateway'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -85,7 +90,7 @@ class NatGateway(pulumi.CustomResource):
             __props__['resource_guid'] = None
             __props__['subnets'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190201:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190701:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190801:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200701:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NatGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190201:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190701:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190801:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200701:NatGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NatGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NatGateway, __self__).__init__(
             'azure-nextgen:network/latest:NatGateway',

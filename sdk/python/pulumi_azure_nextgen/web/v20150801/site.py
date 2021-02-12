@@ -139,7 +139,7 @@ class Site(pulumi.CustomResource):
             __props__['target_swap_slot'] = None
             __props__['traffic_manager_host_names'] = None
             __props__['usage_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:Site"), pulumi.Alias(type_="azure-nextgen:web/v20160801:Site"), pulumi.Alias(type_="azure-nextgen:web/v20180201:Site"), pulumi.Alias(type_="azure-nextgen:web/v20181101:Site"), pulumi.Alias(type_="azure-nextgen:web/v20190801:Site"), pulumi.Alias(type_="azure-nextgen:web/v20200601:Site"), pulumi.Alias(type_="azure-nextgen:web/v20200901:Site"), pulumi.Alias(type_="azure-nextgen:web/v20201001:Site")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:Site"), pulumi.Alias(type_="azure-nextgen:web/latest:Site"), pulumi.Alias(type_="azure-nextgen:web/v20160801:Site"), pulumi.Alias(type_="azure-nextgen:web/v20180201:Site"), pulumi.Alias(type_="azure-nextgen:web/v20181101:Site"), pulumi.Alias(type_="azure-nextgen:web/v20190801:Site"), pulumi.Alias(type_="azure-nextgen:web/v20200601:Site"), pulumi.Alias(type_="azure-nextgen:web/v20200901:Site"), pulumi.Alias(type_="azure-nextgen:web/v20201001:Site")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Site, __self__).__init__(
             'azure-nextgen:web/v20150801:Site',

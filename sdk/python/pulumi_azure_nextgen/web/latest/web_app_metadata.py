@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppMetadata']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppMetadata'.""", DeprecationWarning)
+
 
 class WebAppMetadata(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppMetadata'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +38,7 @@ class WebAppMetadata(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Settings.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
+        pulumi.log.warn("WebAppMetadata is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppMetadata'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -61,7 +66,7 @@ class WebAppMetadata(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppMetadata")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppMetadata"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppMetadata")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppMetadata, __self__).__init__(
             'azure-nextgen:web/latest:WebAppMetadata',

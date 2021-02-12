@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['ApiDiagnosticLogger']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiDiagnosticLogger'.""", DeprecationWarning)
+
 
 class ApiDiagnosticLogger(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiDiagnosticLogger'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
+        pulumi.log.warn("ApiDiagnosticLogger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiDiagnosticLogger'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
             __props__['logger_type'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiDiagnosticLogger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiDiagnosticLogger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ApiDiagnosticLogger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiDiagnosticLogger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiDiagnosticLogger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiDiagnosticLogger, __self__).__init__(
             'azure-nextgen:apimanagement/latest:ApiDiagnosticLogger',

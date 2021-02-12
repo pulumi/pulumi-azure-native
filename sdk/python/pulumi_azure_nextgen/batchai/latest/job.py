@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Job']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Job'.""", DeprecationWarning)
+
 
 class Job(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Job'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -78,6 +82,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TensorFlowSettingsArgs']] tensor_flow_settings: Settings for Tensor Flow job.
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         """
+        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Job'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -146,7 +151,7 @@ class Job(pulumi.CustomResource):
             __props__['provisioning_state_transition_time'] = None
             __props__['tool_type'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai/v20180501:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai:Job"), pulumi.Alias(type_="azure-nextgen:batchai/v20180501:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-nextgen:batchai/latest:Job',

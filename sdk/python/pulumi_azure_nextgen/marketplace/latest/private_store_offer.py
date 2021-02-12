@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['PrivateStoreOffer']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:marketplace:PrivateStoreOffer'.""", DeprecationWarning)
+
 
 class PrivateStoreOffer(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:marketplace:PrivateStoreOffer'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] specific_plan_ids_limitation: Plan ids limitation for this offer
         :param pulumi.Input[bool] update_suppressed_due_idempotence: Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         """
+        pulumi.log.warn("PrivateStoreOffer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:marketplace:PrivateStoreOffer'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -77,7 +82,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
             __props__['publisher_display_name'] = None
             __props__['type'] = None
             __props__['unique_offer_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:marketplace/v20200101:PrivateStoreOffer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:marketplace:PrivateStoreOffer"), pulumi.Alias(type_="azure-nextgen:marketplace/v20200101:PrivateStoreOffer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateStoreOffer, __self__).__init__(
             'azure-nextgen:marketplace/latest:PrivateStoreOffer',

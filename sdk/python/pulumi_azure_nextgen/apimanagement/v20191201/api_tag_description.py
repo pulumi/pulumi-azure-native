@@ -74,7 +74,7 @@ class ApiTagDescription(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tag_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiTagDescription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiTagDescription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiTagDescription, __self__).__init__(
             'azure-nextgen:apimanagement/v20191201:ApiTagDescription',

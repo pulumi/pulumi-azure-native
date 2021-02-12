@@ -63,7 +63,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
             __props__['swift_supported'] = swift_supported
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSwiftVirtualNetworkConnection, __self__).__init__(
             'azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnection',

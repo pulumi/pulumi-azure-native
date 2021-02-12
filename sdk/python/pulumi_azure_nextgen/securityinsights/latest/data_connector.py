@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['DataConnector']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:DataConnector'.""", DeprecationWarning)
+
 
 class DataConnector(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:DataConnector'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class DataConnector(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        pulumi.log.warn("DataConnector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:DataConnector'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class DataConnector(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:DataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:DataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:DataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataConnector, __self__).__init__(
             'azure-nextgen:securityinsights/latest:DataConnector',

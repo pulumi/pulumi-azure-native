@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['IntegrationAccountSchema']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountSchema'.""", DeprecationWarning)
+
 
 class IntegrationAccountSchema(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountSchema'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +55,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] target_namespace: The target namespace of the schema.
         """
+        pulumi.log.warn("IntegrationAccountSchema is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountSchema'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -93,7 +98,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountSchema"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountSchema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationAccountSchema"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountSchema"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountSchema, __self__).__init__(
             'azure-nextgen:logic/latest:IntegrationAccountSchema',

@@ -76,7 +76,7 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
             __props__['ts'] = None
             __props__['type'] = None
             __props__['users'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountSqlDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountSqlDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountSqlDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountSqlDatabase, __self__).__init__(
             'azure-nextgen:documentdb/v20150408:DatabaseAccountSqlDatabase',

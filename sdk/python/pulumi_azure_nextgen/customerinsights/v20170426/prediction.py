@@ -116,7 +116,7 @@ class Prediction(pulumi.CustomResource):
             __props__['system_generated_entities'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/latest:Prediction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:Prediction"), pulumi.Alias(type_="azure-nextgen:customerinsights/latest:Prediction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Prediction, __self__).__init__(
             'azure-nextgen:customerinsights/v20170426:Prediction',

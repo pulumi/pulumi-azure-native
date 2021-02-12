@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['CapacityDetails']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbidedicated:CapacityDetails'.""", DeprecationWarning)
+
 
 class CapacityDetails(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbidedicated:CapacityDetails'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class CapacityDetails(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The SKU of the PowerBI Dedicated resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
+        pulumi.log.warn("CapacityDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbidedicated:CapacityDetails'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class CapacityDetails(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:powerbidedicated/v20171001:CapacityDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:powerbidedicated:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated/v20171001:CapacityDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CapacityDetails, __self__).__init__(
             'azure-nextgen:powerbidedicated/latest:CapacityDetails',

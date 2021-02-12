@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['Pool']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Pool'.""", DeprecationWarning)
+
 
 class Pool(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Pool'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[float] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("Pool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Pool'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class Pool(pulumi.CustomResource):
             __props__['total_throughput_mibps'] = None
             __props__['type'] = None
             __props__['utilized_throughput_mibps'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Pool"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-nextgen:netapp/latest:Pool',

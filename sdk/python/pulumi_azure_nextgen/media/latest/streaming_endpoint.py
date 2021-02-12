@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['StreamingEndpoint']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingEndpoint'.""", DeprecationWarning)
+
 
 class StreamingEndpoint(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingEndpoint'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -59,6 +63,7 @@ class StreamingEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] streaming_endpoint_name: The name of the streaming endpoint, maximum length is 24.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("StreamingEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingEndpoint'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -109,7 +114,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             __props__['resource_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingEndpoint, __self__).__init__(
             'azure-nextgen:media/latest:StreamingEndpoint',

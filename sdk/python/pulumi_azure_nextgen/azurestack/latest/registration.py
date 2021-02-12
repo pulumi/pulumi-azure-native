@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['Registration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:Registration'.""", DeprecationWarning)
+
 
 class Registration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:Registration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +38,7 @@ class Registration(pulumi.CustomResource):
         :param pulumi.Input[str] registration_token: The token identifying registered Azure Stack
         :param pulumi.Input[str] resource_group: Name of the resource group.
         """
+        pulumi.log.warn("Registration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:Registration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class Registration(pulumi.CustomResource):
             __props__['object_id'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azurestack/v20170601:Registration"), pulumi.Alias(type_="azure-nextgen:azurestack/v20200601preview:Registration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azurestack:Registration"), pulumi.Alias(type_="azure-nextgen:azurestack/v20170601:Registration"), pulumi.Alias(type_="azure-nextgen:azurestack/v20200601preview:Registration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Registration, __self__).__init__(
             'azure-nextgen:azurestack/latest:Registration',

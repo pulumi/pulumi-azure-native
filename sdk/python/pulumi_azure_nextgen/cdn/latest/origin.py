@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['Origin']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Origin'.""", DeprecationWarning)
+
 
 class Origin(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Origin'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +60,7 @@ class Origin(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
+        pulumi.log.warn("Origin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Origin'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -104,7 +109,7 @@ class Origin(pulumi.CustomResource):
             __props__['resource_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Origin")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Origin")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Origin, __self__).__init__(
             'azure-nextgen:cdn/latest:Origin',

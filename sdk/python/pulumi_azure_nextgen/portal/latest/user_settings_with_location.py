@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['UserSettingsWithLocation']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:UserSettingsWithLocation'.""", DeprecationWarning)
+
 
 class UserSettingsWithLocation(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:UserSettingsWithLocation'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +38,7 @@ class UserSettingsWithLocation(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserPropertiesArgs']] properties: The cloud shell user settings properties.
         :param pulumi.Input[str] user_settings_name: The name of the user settings
         """
+        pulumi.log.warn("UserSettingsWithLocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:UserSettingsWithLocation'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -60,7 +65,7 @@ class UserSettingsWithLocation(pulumi.CustomResource):
             if user_settings_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_settings_name'")
             __props__['user_settings_name'] = user_settings_name
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal/v20181001:UserSettingsWithLocation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal:UserSettingsWithLocation"), pulumi.Alias(type_="azure-nextgen:portal/v20181001:UserSettingsWithLocation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(UserSettingsWithLocation, __self__).__init__(
             'azure-nextgen:portal/latest:UserSettingsWithLocation',

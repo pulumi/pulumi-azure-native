@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['VirtualMachineImageTemplate']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate'.""", DeprecationWarning)
+
 
 class VirtualMachineImageTemplate(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['ImageTemplateVmProfileArgs']] vm_profile: Describes how virtual machine is set up to build images
         """
+        pulumi.log.warn("VirtualMachineImageTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -90,7 +95,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             __props__['provisioning_error'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineImageTemplate, __self__).__init__(
             'azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate',

@@ -11,8 +11,12 @@ from ._inputs import *
 
 __all__ = ['DatabaseAccountMongoDBDatabase']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase'.""", DeprecationWarning)
+
 
 class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MongoDBDatabaseResourceArgs']] resource: The standard JSON format of a MongoDB database
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         """
+        pulumi.log.warn("DatabaseAccountMongoDBDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountMongoDBDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountMongoDBDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountMongoDBDatabase, __self__).__init__(
             'azure-nextgen:documentdb/latest:DatabaseAccountMongoDBDatabase',

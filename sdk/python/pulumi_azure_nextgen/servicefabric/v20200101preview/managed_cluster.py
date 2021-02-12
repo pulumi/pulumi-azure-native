@@ -112,6 +112,8 @@ class ManagedCluster(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric:ManagedCluster")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedCluster, __self__).__init__(
             'azure-nextgen:servicefabric/v20200101preview:ManagedCluster',
             resource_name,

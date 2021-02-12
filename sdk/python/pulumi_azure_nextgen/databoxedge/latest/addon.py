@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['Addon']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Addon'.""", DeprecationWarning)
+
 
 class Addon(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Addon'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] role_name: The role name.
         """
+        pulumi.log.warn("Addon is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Addon'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class Addon(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Addon")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Addon")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Addon, __self__).__init__(
             'azure-nextgen:databoxedge/latest:Addon',

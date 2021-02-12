@@ -66,7 +66,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__['server_name'] = server_name
             __props__['start_ip_address'] = start_ip_address
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/latest:FirewallRule"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:FirewallRule"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:FirewallRule"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:FirewallRule"), pulumi.Alias(type_="azure-nextgen:sql/latest:FirewallRule"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:FirewallRule"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:FirewallRule"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azure-nextgen:sql/v20200801preview:FirewallRule',

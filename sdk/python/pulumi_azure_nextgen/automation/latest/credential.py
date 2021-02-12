@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Credential']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Credential'.""", DeprecationWarning)
+
 
 class Credential(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Credential'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class Credential(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] user_name: Gets or sets the user name of the credential.
         """
+        pulumi.log.warn("Credential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Credential'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class Credential(pulumi.CustomResource):
             __props__['creation_time'] = None
             __props__['last_modified_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Credential"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Credential"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Credential")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:Credential"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Credential"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Credential"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Credential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Credential, __self__).__init__(
             'azure-nextgen:automation/latest:Credential',

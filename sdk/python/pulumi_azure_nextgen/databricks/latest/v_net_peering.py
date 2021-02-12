@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['VNetPeering']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:vNetPeering'.""", DeprecationWarning)
+
 
 class VNetPeering(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:vNetPeering'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +53,7 @@ class VNetPeering(pulumi.CustomResource):
         :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        pulumi.log.warn("VNetPeering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:vNetPeering'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,7 +94,7 @@ class VNetPeering(pulumi.CustomResource):
             __props__['peering_state'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databricks/v20180401:vNetPeering")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databricks:vNetPeering"), pulumi.Alias(type_="azure-nextgen:databricks/v20180401:vNetPeering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VNetPeering, __self__).__init__(
             'azure-nextgen:databricks/latest:vNetPeering',

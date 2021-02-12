@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ViewByScope']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ViewByScope'.""", DeprecationWarning)
+
 
 class ViewByScope(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ViewByScope'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +58,7 @@ class ViewByScope(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ReportType']] type: The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
         :param pulumi.Input[str] view_name: View name
         """
+        pulumi.log.warn("ViewByScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ViewByScope'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -95,7 +100,7 @@ class ViewByScope(pulumi.CustomResource):
             __props__['created_on'] = None
             __props__['modified_on'] = None
             __props__['name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement/v20190401preview:ViewByScope"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:ViewByScope"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20200601:ViewByScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement:ViewByScope"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190401preview:ViewByScope"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:ViewByScope"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20200601:ViewByScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ViewByScope, __self__).__init__(
             'azure-nextgen:costmanagement/latest:ViewByScope',

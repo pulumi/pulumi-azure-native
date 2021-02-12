@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['DataSet']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:DataSet'.""", DeprecationWarning)
+
 
 class DataSet(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:DataSet'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
         """
+        pulumi.log.warn("DataSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:DataSet'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class DataSet(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:DataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:DataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:DataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:DataSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare:DataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:DataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:DataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:DataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:DataSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataSet, __self__).__init__(
             'azure-nextgen:datashare/latest:DataSet',

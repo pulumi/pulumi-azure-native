@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['LogProfile']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:LogProfile'.""", DeprecationWarning)
+
 
 class LogProfile(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:LogProfile'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +47,7 @@ class LogProfile(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: the resource id of the storage account to which you would like to send the Activity Log.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("LogProfile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:LogProfile'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class LogProfile(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20160301:LogProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:LogProfile"), pulumi.Alias(type_="azure-nextgen:insights/v20160301:LogProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LogProfile, __self__).__init__(
             'azure-nextgen:insights/latest:LogProfile',

@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['ResourceGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:ResourceGroup'.""", DeprecationWarning)
+
 
 class ResourceGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:ResourceGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +38,7 @@ class ResourceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags attached to the resource group.
         """
+        pulumi.log.warn("ResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:ResourceGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -60,7 +65,7 @@ class ResourceGroup(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources/v20151101:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20160201:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20160701:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20160901:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20170510:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20180201:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20180501:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20190301:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20190501:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20190510:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20190701:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20190801:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20191001:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20200601:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20200801:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20201001:ResourceGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20151101:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20160201:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20160701:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20160901:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20170510:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20180201:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20180501:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20190301:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20190501:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20190510:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20190701:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20190801:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20191001:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20200601:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20200801:ResourceGroup"), pulumi.Alias(type_="azure-nextgen:resources/v20201001:ResourceGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ResourceGroup, __self__).__init__(
             'azure-nextgen:resources/latest:ResourceGroup',

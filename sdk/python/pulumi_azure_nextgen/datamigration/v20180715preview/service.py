@@ -82,7 +82,7 @@ class Service(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration/latest:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180315preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/latest:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180315preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-nextgen:datamigration/v20180715preview:Service',

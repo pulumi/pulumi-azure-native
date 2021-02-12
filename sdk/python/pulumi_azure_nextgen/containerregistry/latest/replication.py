@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['Replication']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Replication'.""", DeprecationWarning)
+
 
 class Replication(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Replication'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class Replication(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
+        pulumi.log.warn("Replication is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Replication'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class Replication(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/v20170601preview:Replication"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20171001:Replication"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190501:Replication"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20191201preview:Replication"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:Replication")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry:Replication"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20170601preview:Replication"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20171001:Replication"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190501:Replication"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20191201preview:Replication"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:Replication")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Replication, __self__).__init__(
             'azure-nextgen:containerregistry/latest:Replication',

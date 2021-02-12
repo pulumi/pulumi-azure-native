@@ -11,8 +11,12 @@ from ._inputs import *
 
 __all__ = ['DatabaseAccountTable']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountTable'.""", DeprecationWarning)
+
 
 class DatabaseAccountTable(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountTable'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class DatabaseAccountTable(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[str] table_name: Cosmos DB table name.
         """
+        pulumi.log.warn("DatabaseAccountTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountTable'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class DatabaseAccountTable(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountTable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccountTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccountTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountTable, __self__).__init__(
             'azure-nextgen:documentdb/latest:DatabaseAccountTable',

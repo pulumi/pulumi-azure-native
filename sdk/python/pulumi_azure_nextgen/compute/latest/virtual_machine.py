@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['VirtualMachine']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachine'.""", DeprecationWarning)
+
 
 class VirtualMachine(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachine'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -80,6 +84,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] vm_name: The name of the virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine zones.
         """
+        pulumi.log.warn("VirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachine'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -133,7 +138,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['resources'] = None
             __props__['type'] = None
             __props__['vm_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachine, __self__).__init__(
             'azure-nextgen:compute/latest:VirtualMachine',

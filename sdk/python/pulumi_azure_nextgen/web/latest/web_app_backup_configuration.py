@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['WebAppBackupConfiguration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfiguration'.""", DeprecationWarning)
+
 
 class WebAppBackupConfiguration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfiguration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] storage_account_url: SAS URL to the container.
         """
+        pulumi.log.warn("WebAppBackupConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfiguration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -77,7 +82,7 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
             __props__['storage_account_url'] = storage_account_url
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppBackupConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppBackupConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppBackupConfiguration, __self__).__init__(
             'azure-nextgen:web/latest:WebAppBackupConfiguration',

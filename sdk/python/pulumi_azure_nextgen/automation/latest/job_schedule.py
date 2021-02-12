@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['JobSchedule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:JobSchedule'.""", DeprecationWarning)
+
 
 class JobSchedule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:JobSchedule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']] runbook: Gets or sets the runbook.
         :param pulumi.Input[pulumi.InputType['ScheduleAssociationPropertyArgs']] schedule: Gets or sets the schedule.
         """
+        pulumi.log.warn("JobSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:JobSchedule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -77,7 +82,7 @@ class JobSchedule(pulumi.CustomResource):
             __props__['schedule'] = schedule
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:JobSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:JobSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobSchedule, __self__).__init__(
             'azure-nextgen:automation/latest:JobSchedule',

@@ -70,6 +70,8 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
             __props__['storage_account_id'] = storage_account_id
             __props__['workspace_id'] = workspace_id
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:SubscriptionDiagnosticSetting")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SubscriptionDiagnosticSetting, __self__).__init__(
             'azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting',
             resource_name,

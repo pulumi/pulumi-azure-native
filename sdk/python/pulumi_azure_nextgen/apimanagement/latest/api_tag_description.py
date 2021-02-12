@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['ApiTagDescription']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiTagDescription'.""", DeprecationWarning)
+
 
 class ApiTagDescription(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiTagDescription'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class ApiTagDescription(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] tag_description_id: Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
         """
+        pulumi.log.warn("ApiTagDescription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiTagDescription'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class ApiTagDescription(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tag_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiTagDescription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiTagDescription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiTagDescription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiTagDescription, __self__).__init__(
             'azure-nextgen:apimanagement/latest:ApiTagDescription',

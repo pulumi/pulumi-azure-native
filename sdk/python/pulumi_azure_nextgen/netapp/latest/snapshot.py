@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Snapshot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Snapshot'.""", DeprecationWarning)
+
 
 class Snapshot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Snapshot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_name: The name of the mount target
         :param pulumi.Input[str] volume_name: The name of the volume
         """
+        pulumi.log.warn("Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Snapshot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class Snapshot(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['snapshot_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Snapshot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Snapshot"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Snapshot, __self__).__init__(
             'azure-nextgen:netapp/latest:Snapshot',

@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['WebAppAuthSettingsSlot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettingsSlot'.""", DeprecationWarning)
+
 
 class WebAppAuthSettingsSlot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettingsSlot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -160,6 +164,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         :param pulumi.Input['UnauthenticatedClientAction'] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app.
         :param pulumi.Input[bool] validate_issuer: Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
         """
+        pulumi.log.warn("WebAppAuthSettingsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettingsSlot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -226,7 +231,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
             __props__['validate_issuer'] = validate_issuer
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAuthSettingsSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAuthSettingsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAuthSettingsSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppAuthSettingsSlot',

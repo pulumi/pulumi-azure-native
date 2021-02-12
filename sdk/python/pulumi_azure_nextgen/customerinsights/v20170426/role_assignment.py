@@ -118,7 +118,7 @@ class RoleAssignment(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/latest:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:RoleAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:customerinsights/latest:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:RoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleAssignment, __self__).__init__(
             'azure-nextgen:customerinsights/v20170426:RoleAssignment',

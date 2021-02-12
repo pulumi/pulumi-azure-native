@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['WebApp']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebApp'.""", DeprecationWarning)
+
 
 class WebApp(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebApp'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -85,6 +89,7 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SiteConfigArgs']] site_config: Configuration of the app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("WebApp is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebApp'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -160,7 +165,7 @@ class WebApp(pulumi.CustomResource):
             __props__['traffic_manager_host_names'] = None
             __props__['type'] = None
             __props__['usage_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebApp")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebApp")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebApp, __self__).__init__(
             'azure-nextgen:web/latest:WebApp',

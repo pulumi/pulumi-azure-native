@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['IotDpsResource']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResource'.""", DeprecationWarning)
+
 
 class IotDpsResource(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResource'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class IotDpsResource(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IotDpsSkuInfoArgs']] sku: Sku info for a provisioning Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        pulumi.log.warn("IotDpsResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResource'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,7 +81,7 @@ class IotDpsResource(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices/v20170821preview:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20171115:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200101:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200901preview:IotDpsResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20170821preview:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20171115:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200101:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:IotDpsResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200901preview:IotDpsResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotDpsResource, __self__).__init__(
             'azure-nextgen:devices/latest:IotDpsResource',

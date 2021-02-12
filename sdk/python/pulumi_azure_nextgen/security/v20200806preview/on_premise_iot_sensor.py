@@ -48,6 +48,8 @@ class OnPremiseIotSensor(pulumi.CustomResource):
             __props__['on_premise_iot_sensor_name'] = on_premise_iot_sensor_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:OnPremiseIotSensor")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OnPremiseIotSensor, __self__).__init__(
             'azure-nextgen:security/v20200806preview:OnPremiseIotSensor',
             resource_name,

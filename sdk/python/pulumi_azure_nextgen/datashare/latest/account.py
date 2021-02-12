@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Account']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:Account'.""", DeprecationWarning)
+
 
 class Account(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:Account'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags on the azure resource.
         """
+        pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:Account'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class Account(pulumi.CustomResource):
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-nextgen:datashare/latest:Account',

@@ -77,7 +77,7 @@ class Key(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault/latest:Key")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault:Key"), pulumi.Alias(type_="azure-nextgen:keyvault/latest:Key")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Key, __self__).__init__(
             'azure-nextgen:keyvault/v20190901:Key',

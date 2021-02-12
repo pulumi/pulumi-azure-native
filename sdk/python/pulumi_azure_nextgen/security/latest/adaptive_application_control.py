@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['AdaptiveApplicationControl']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:AdaptiveApplicationControl'.""", DeprecationWarning)
+
 
 class AdaptiveApplicationControl(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:AdaptiveApplicationControl'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
         :param pulumi.Input[str] group_name: Name of an application control machine group
         :param pulumi.Input[pulumi.InputType['ProtectionModeArgs']] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         """
+        pulumi.log.warn("AdaptiveApplicationControl is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:AdaptiveApplicationControl'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
             __props__['recommendation_status'] = None
             __props__['source_system'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20150601preview:AdaptiveApplicationControl"), pulumi.Alias(type_="azure-nextgen:security/v20200101:AdaptiveApplicationControl")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:AdaptiveApplicationControl"), pulumi.Alias(type_="azure-nextgen:security/v20150601preview:AdaptiveApplicationControl"), pulumi.Alias(type_="azure-nextgen:security/v20200101:AdaptiveApplicationControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AdaptiveApplicationControl, __self__).__init__(
             'azure-nextgen:security/latest:AdaptiveApplicationControl',

@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['DataSource']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataSource'.""", DeprecationWarning)
+
 
 class DataSource(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataSource'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        pulumi.log.warn("DataSource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataSource'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,7 +81,7 @@ class DataSource(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/v20151101preview:DataSource"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:DataSource"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:DataSource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights:DataSource"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20151101preview:DataSource"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:DataSource"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:DataSource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataSource, __self__).__init__(
             'azure-nextgen:operationalinsights/latest:DataSource',

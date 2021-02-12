@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Service']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Service'.""", DeprecationWarning)
+
 
 class Service(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Service'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +49,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_subnet_id: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """
+        pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Service'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class Service(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180315preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180715preview:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180315preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180715preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-nextgen:datamigration/latest:Service',

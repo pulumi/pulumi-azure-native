@@ -74,7 +74,7 @@ class ProductPolicy(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ProductPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ProductPolicy"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ProductPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProductPolicy, __self__).__init__(
             'azure-nextgen:apimanagement/v20180101:ProductPolicy',

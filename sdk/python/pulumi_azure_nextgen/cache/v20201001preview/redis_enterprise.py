@@ -78,7 +78,7 @@ class RedisEnterprise(pulumi.CustomResource):
             __props__['redis_version'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/v20210301:RedisEnterprise")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache:RedisEnterprise"), pulumi.Alias(type_="azure-nextgen:cache/v20210301:RedisEnterprise")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RedisEnterprise, __self__).__init__(
             'azure-nextgen:cache/v20201001preview:RedisEnterprise',

@@ -82,7 +82,7 @@ class Policy(pulumi.CustomResource):
             __props__['routing_rule_links'] = None
             __props__['security_policy_links'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20190301:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20191001:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:Policy"), pulumi.Alias(type_="azure-nextgen:network/latest:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20190301:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20191001:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azure-nextgen:network/v20201101:Policy',

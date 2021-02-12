@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['IscsiDisk']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiDisk'.""", DeprecationWarning)
+
 
 class IscsiDisk(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiDisk'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class IscsiDisk(pulumi.CustomResource):
         :param pulumi.Input[float] provisioned_capacity_in_bytes: The provisioned capacity in bytes.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
+        pulumi.log.warn("IscsiDisk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiDisk'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,7 +105,7 @@ class IscsiDisk(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['used_capacity_in_bytes'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:IscsiDisk")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:IscsiDisk"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:IscsiDisk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IscsiDisk, __self__).__init__(
             'azure-nextgen:storsimple/latest:IscsiDisk',

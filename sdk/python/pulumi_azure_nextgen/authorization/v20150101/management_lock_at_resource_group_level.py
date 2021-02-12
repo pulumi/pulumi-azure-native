@@ -62,7 +62,7 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockAtResourceGroupLevel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockAtResourceGroupLevel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLockAtResourceGroupLevel, __self__).__init__(
             'azure-nextgen:authorization/v20150101:ManagementLockAtResourceGroupLevel',

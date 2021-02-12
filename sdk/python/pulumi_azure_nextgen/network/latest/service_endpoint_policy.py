@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ServiceEndpointPolicy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ServiceEndpointPolicy'.""", DeprecationWarning)
+
 
 class ServiceEndpointPolicy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ServiceEndpointPolicy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] service_endpoint_policy_name: The name of the service endpoint policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("ServiceEndpointPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ServiceEndpointPolicy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
             __props__['resource_guid'] = None
             __props__['subnets'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180701:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200801:ServiceEndpointPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20180701:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ServiceEndpointPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200801:ServiceEndpointPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceEndpointPolicy, __self__).__init__(
             'azure-nextgen:network/latest:ServiceEndpointPolicy',

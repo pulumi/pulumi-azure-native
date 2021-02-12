@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Channel']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Channel'.""", DeprecationWarning)
+
 
 class Channel(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Channel'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets the SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
+        pulumi.log.warn("Channel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Channel'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class Channel(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:botservice/v20171201:Channel"), pulumi.Alias(type_="azure-nextgen:botservice/v20180712:Channel"), pulumi.Alias(type_="azure-nextgen:botservice/v20200602:Channel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:botservice:Channel"), pulumi.Alias(type_="azure-nextgen:botservice/v20171201:Channel"), pulumi.Alias(type_="azure-nextgen:botservice/v20180712:Channel"), pulumi.Alias(type_="azure-nextgen:botservice/v20200602:Channel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Channel, __self__).__init__(
             'azure-nextgen:botservice/latest:Channel',

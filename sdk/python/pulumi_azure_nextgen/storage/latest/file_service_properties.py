@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['FileServiceProperties']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileServiceProperties'.""", DeprecationWarning)
+
 
 class FileServiceProperties(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileServiceProperties'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class FileServiceProperties(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']] share_delete_retention_policy: The file service properties for share soft delete.
         """
+        pulumi.log.warn("FileServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileServiceProperties'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class FileServiceProperties(pulumi.CustomResource):
             __props__['name'] = None
             __props__['sku'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileServiceProperties, __self__).__init__(
             'azure-nextgen:storage/latest:FileServiceProperties',

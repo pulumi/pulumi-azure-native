@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Controller']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devspaces:Controller'.""", DeprecationWarning)
+
 
 class Controller(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devspaces:Controller'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class Controller(pulumi.CustomResource):
         :param pulumi.Input[str] target_container_host_credentials_base64: Credentials of the target container host (base64).
         :param pulumi.Input[str] target_container_host_resource_id: Resource ID of the target container host
         """
+        pulumi.log.warn("Controller is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devspaces:Controller'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class Controller(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['target_container_host_api_server_fqdn'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devspaces/v20190401:Controller")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devspaces:Controller"), pulumi.Alias(type_="azure-nextgen:devspaces/v20190401:Controller")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Controller, __self__).__init__(
             'azure-nextgen:devspaces/latest:Controller',

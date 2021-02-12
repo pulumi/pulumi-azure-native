@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Order']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Order'.""", DeprecationWarning)
+
 
 class Order(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Order'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class Order(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ShipmentType']] shipment_type: ShipmentType of the order
         :param pulumi.Input[pulumi.InputType['AddressArgs']] shipping_address: The shipping address.
         """
+        pulumi.log.warn("Order is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Order'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class Order(pulumi.CustomResource):
             __props__['return_tracking_info'] = None
             __props__['serial_number'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Order")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Order")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Order, __self__).__init__(
             'azure-nextgen:databoxedge/latest:Order',

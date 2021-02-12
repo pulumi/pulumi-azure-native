@@ -103,7 +103,7 @@ class DomainService(pulumi.CustomResource):
             __props__['type'] = None
             __props__['version'] = None
             __props__['vnet_site_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aad/latest:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20170101:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20200101:DomainService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aad:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/latest:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20170101:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20200101:DomainService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DomainService, __self__).__init__(
             'azure-nextgen:aad/v20170601:DomainService',

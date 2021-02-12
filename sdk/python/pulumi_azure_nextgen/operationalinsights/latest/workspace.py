@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Workspace']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:Workspace'.""", DeprecationWarning)
+
 
 class Workspace(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:Workspace'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']] workspace_capping: The daily volume cap for ingestion.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:Workspace'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,7 +94,7 @@ class Workspace(pulumi.CustomResource):
             __props__['name'] = None
             __props__['private_link_scoped_resources'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/v20151101preview:Workspace"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:Workspace"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:Workspace"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20201001:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights:Workspace"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20151101preview:Workspace"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:Workspace"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:Workspace"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20201001:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-nextgen:operationalinsights/latest:Workspace',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['RemoteRenderingAccount']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:mixedreality:RemoteRenderingAccount'.""", DeprecationWarning)
+
 
 class RemoteRenderingAccount(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:mixedreality:RemoteRenderingAccount'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class RemoteRenderingAccount(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_name: The name of the storage account associated with this accountId
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("RemoteRenderingAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:mixedreality:RemoteRenderingAccount'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class RemoteRenderingAccount(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount"), pulumi.Alias(type_="azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount"), pulumi.Alias(type_="azure-nextgen:mixedreality/v20210101:RemoteRenderingAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:mixedreality:RemoteRenderingAccount"), pulumi.Alias(type_="azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount"), pulumi.Alias(type_="azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount"), pulumi.Alias(type_="azure-nextgen:mixedreality/v20210101:RemoteRenderingAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RemoteRenderingAccount, __self__).__init__(
             'azure-nextgen:mixedreality/latest:RemoteRenderingAccount',

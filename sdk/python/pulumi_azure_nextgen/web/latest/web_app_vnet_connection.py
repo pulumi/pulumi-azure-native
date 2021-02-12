@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppVnetConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppVnetConnection'.""", DeprecationWarning)
+
 
 class WebAppVnetConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppVnetConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +47,7 @@ class WebAppVnetConnection(pulumi.CustomResource):
         :param pulumi.Input[str] vnet_name: Name of an existing Virtual Network.
         :param pulumi.Input[str] vnet_resource_id: The Virtual Network's resource ID.
         """
+        pulumi.log.warn("WebAppVnetConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppVnetConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -79,7 +84,7 @@ class WebAppVnetConnection(pulumi.CustomResource):
             __props__['routes'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppVnetConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppVnetConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppVnetConnection, __self__).__init__(
             'azure-nextgen:web/latest:WebAppVnetConnection',

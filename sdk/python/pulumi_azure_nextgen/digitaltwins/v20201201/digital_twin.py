@@ -74,7 +74,7 @@ class DigitalTwin(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:digitaltwins/latest:DigitalTwin"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20200301preview:DigitalTwin"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201031:DigitalTwin")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:digitaltwins:DigitalTwin"), pulumi.Alias(type_="azure-nextgen:digitaltwins/latest:DigitalTwin"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20200301preview:DigitalTwin"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201031:DigitalTwin")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DigitalTwin, __self__).__init__(
             'azure-nextgen:digitaltwins/v20201201:DigitalTwin',

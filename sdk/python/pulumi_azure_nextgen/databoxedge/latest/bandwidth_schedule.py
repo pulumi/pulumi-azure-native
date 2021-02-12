@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['BandwidthSchedule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:BandwidthSchedule'.""", DeprecationWarning)
+
 
 class BandwidthSchedule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:BandwidthSchedule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class BandwidthSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] start: The start time of the schedule in UTC.
         :param pulumi.Input[str] stop: The stop time of the schedule in UTC.
         """
+        pulumi.log.warn("BandwidthSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:BandwidthSchedule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class BandwidthSchedule(pulumi.CustomResource):
             __props__['stop'] = stop
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BandwidthSchedule, __self__).__init__(
             'azure-nextgen:databoxedge/latest:BandwidthSchedule',

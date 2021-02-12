@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['AuthorizationServer']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:AuthorizationServer'.""", DeprecationWarning)
+
 
 class AuthorizationServer(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:AuthorizationServer'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -66,6 +70,7 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TokenBodyParameterContractArgs']]]] token_body_parameters: Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
         :param pulumi.Input[str] token_endpoint: OAuth token endpoint. Contains absolute URI to entity being referenced.
         """
+        pulumi.log.warn("AuthorizationServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:AuthorizationServer'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -120,7 +125,7 @@ class AuthorizationServer(pulumi.CustomResource):
             __props__['token_endpoint'] = token_endpoint
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:AuthorizationServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:AuthorizationServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AuthorizationServer, __self__).__init__(
             'azure-nextgen:apimanagement/latest:AuthorizationServer',

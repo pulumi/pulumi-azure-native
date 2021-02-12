@@ -83,7 +83,7 @@ class Environment(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:timeseriesinsights/latest:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20170228preview:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20180815preview:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20200515:Environment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:timeseriesinsights:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/latest:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20170228preview:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20180815preview:Environment"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20200515:Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Environment, __self__).__init__(
             'azure-nextgen:timeseriesinsights/v20171115:Environment',

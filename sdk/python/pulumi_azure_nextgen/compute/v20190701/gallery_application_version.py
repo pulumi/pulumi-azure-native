@@ -79,7 +79,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['replication_status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:GalleryApplicationVersion"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:GalleryApplicationVersion"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:GalleryApplicationVersion"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:GalleryApplicationVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:GalleryApplicationVersion"), pulumi.Alias(type_="azure-nextgen:compute/latest:GalleryApplicationVersion"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:GalleryApplicationVersion"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:GalleryApplicationVersion"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:GalleryApplicationVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryApplicationVersion, __self__).__init__(
             'azure-nextgen:compute/v20190701:GalleryApplicationVersion',

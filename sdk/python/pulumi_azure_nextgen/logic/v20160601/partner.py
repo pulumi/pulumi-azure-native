@@ -82,7 +82,7 @@ class Partner(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/latest:Partner"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:Partner"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:Partner"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:Partner")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:Partner"), pulumi.Alias(type_="azure-nextgen:logic/latest:Partner"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:Partner"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:Partner"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:Partner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Partner, __self__).__init__(
             'azure-nextgen:logic/v20160601:Partner',

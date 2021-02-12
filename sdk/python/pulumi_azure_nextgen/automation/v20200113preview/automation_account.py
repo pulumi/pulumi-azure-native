@@ -81,7 +81,7 @@ class AutomationAccount(pulumi.CustomResource):
             __props__['public_network_access'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/latest:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:AutomationAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/latest:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:AutomationAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutomationAccount, __self__).__init__(
             'azure-nextgen:automation/v20200113preview:AutomationAccount',

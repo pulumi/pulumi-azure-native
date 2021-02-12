@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Rule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Rule'.""", DeprecationWarning)
+
 
 class Rule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Rule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: Name of the delivery rule which is unique within the endpoint.
         :param pulumi.Input[str] rule_set_name: Name of the rule set under the profile.
         """
+        pulumi.log.warn("Rule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Rule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -86,7 +91,7 @@ class Rule(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Rule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:Rule"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Rule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Rule, __self__).__init__(
             'azure-nextgen:cdn/latest:Rule',

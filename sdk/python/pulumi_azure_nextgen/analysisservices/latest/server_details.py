@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ServerDetails']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:analysisservices:ServerDetails'.""", DeprecationWarning)
+
 
 class ServerDetails(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:analysisservices:ServerDetails'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class ServerDetails(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The SKU of the Analysis Services resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
+        pulumi.log.warn("ServerDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:analysisservices:ServerDetails'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -98,7 +103,7 @@ class ServerDetails(pulumi.CustomResource):
             __props__['server_full_name'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:analysisservices/v20160516:ServerDetails"), pulumi.Alias(type_="azure-nextgen:analysisservices/v20170714:ServerDetails"), pulumi.Alias(type_="azure-nextgen:analysisservices/v20170801:ServerDetails"), pulumi.Alias(type_="azure-nextgen:analysisservices/v20170801beta:ServerDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:analysisservices:ServerDetails"), pulumi.Alias(type_="azure-nextgen:analysisservices/v20160516:ServerDetails"), pulumi.Alias(type_="azure-nextgen:analysisservices/v20170714:ServerDetails"), pulumi.Alias(type_="azure-nextgen:analysisservices/v20170801:ServerDetails"), pulumi.Alias(type_="azure-nextgen:analysisservices/v20170801beta:ServerDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerDetails, __self__).__init__(
             'azure-nextgen:analysisservices/latest:ServerDetails',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['WebAppAzureStorageAccountsSlot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAzureStorageAccountsSlot'.""", DeprecationWarning)
+
 
 class WebAppAzureStorageAccountsSlot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAzureStorageAccountsSlot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class WebAppAzureStorageAccountsSlot(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will update the Azure storage account configurations for the production slot.
         """
+        pulumi.log.warn("WebAppAzureStorageAccountsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAzureStorageAccountsSlot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class WebAppAzureStorageAccountsSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAzureStorageAccountsSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAzureStorageAccountsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAzureStorageAccountsSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppAzureStorageAccountsSlot',

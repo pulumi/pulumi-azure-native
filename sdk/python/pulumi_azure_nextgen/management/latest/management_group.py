@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ManagementGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroup'.""", DeprecationWarning)
+
 
 class ManagementGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class ManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] group_id: Management Group ID.
         :param pulumi.Input[str] name: The name of the management group. For example, 00000000-0000-0000-0000-000000000000
         """
+        pulumi.log.warn("ManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -62,7 +67,7 @@ class ManagementGroup(pulumi.CustomResource):
             __props__['path'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:management/v20171101preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20180101preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20180301preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20191101:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20200201:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20200501:ManagementGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:management:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20171101preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20180101preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20180301preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20191101:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20200201:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20200501:ManagementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementGroup, __self__).__init__(
             'azure-nextgen:management/latest:ManagementGroup',

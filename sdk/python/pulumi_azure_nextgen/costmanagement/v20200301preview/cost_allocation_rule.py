@@ -59,6 +59,8 @@ class CostAllocationRule(pulumi.CustomResource):
             __props__['rule_name'] = rule_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement:CostAllocationRule")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CostAllocationRule, __self__).__init__(
             'azure-nextgen:costmanagement/v20200301preview:CostAllocationRule',
             resource_name,

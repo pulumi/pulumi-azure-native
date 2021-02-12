@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['DscpConfiguration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DscpConfiguration'.""", DeprecationWarning)
+
 
 class DscpConfiguration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DscpConfiguration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class DscpConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosPortRangeArgs']]]] source_port_ranges: Sources port ranges.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("DscpConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DscpConfiguration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,7 +94,7 @@ class DscpConfiguration(pulumi.CustomResource):
             __props__['qos_collection_id'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200601:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200701:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200801:DscpConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200601:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200701:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200801:DscpConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DscpConfiguration, __self__).__init__(
             'azure-nextgen:network/latest:DscpConfiguration',

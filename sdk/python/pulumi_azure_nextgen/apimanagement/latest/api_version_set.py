@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['ApiVersionSet']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiVersionSet'.""", DeprecationWarning)
+
 
 class ApiVersionSet(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiVersionSet'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class ApiVersionSet(pulumi.CustomResource):
         :param pulumi.Input[str] version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[Union[str, 'VersioningScheme']] versioning_scheme: An value that determines where the API Version identifer will be located in a HTTP request.
         """
+        pulumi.log.warn("ApiVersionSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiVersionSet'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -79,7 +84,7 @@ class ApiVersionSet(pulumi.CustomResource):
             __props__['versioning_scheme'] = versioning_scheme
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiVersionSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiVersionSet"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiVersionSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiVersionSet, __self__).__init__(
             'azure-nextgen:apimanagement/latest:ApiVersionSet',

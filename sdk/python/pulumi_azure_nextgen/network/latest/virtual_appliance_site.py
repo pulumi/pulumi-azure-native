@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['VirtualApplianceSite']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualApplianceSite'.""", DeprecationWarning)
+
 
 class VirtualApplianceSite(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualApplianceSite'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] site_name: The name of the site.
         """
+        pulumi.log.warn("VirtualApplianceSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualApplianceSite'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -74,7 +79,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualApplianceSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualApplianceSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualApplianceSite, __self__).__init__(
             'azure-nextgen:network/latest:VirtualApplianceSite',

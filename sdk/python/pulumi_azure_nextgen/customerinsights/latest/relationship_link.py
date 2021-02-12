@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['RelationshipLink']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RelationshipLink'.""", DeprecationWarning)
+
 
 class RelationshipLink(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RelationshipLink'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class RelationshipLink(pulumi.CustomResource):
         :param pulumi.Input[str] relationship_name: The Relationship associated with the Link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        pulumi.log.warn("RelationshipLink is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RelationshipLink'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -95,7 +100,7 @@ class RelationshipLink(pulumi.CustomResource):
             __props__['relationship_guid_id'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:RelationshipLink"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:RelationshipLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:RelationshipLink"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:RelationshipLink"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:RelationshipLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RelationshipLink, __self__).__init__(
             'azure-nextgen:customerinsights/latest:RelationshipLink',

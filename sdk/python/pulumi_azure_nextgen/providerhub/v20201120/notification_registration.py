@@ -55,7 +55,7 @@ class NotificationRegistration(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub/latest:NotificationRegistration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub:NotificationRegistration"), pulumi.Alias(type_="azure-nextgen:providerhub/latest:NotificationRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotificationRegistration, __self__).__init__(
             'azure-nextgen:providerhub/v20201120:NotificationRegistration',

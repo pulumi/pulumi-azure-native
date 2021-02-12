@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Diagnostic']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Diagnostic'.""", DeprecationWarning)
+
 
 class Diagnostic(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Diagnostic'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Union[str, 'Verbosity']] verbosity: The verbosity level applied to traces emitted by trace policies.
         """
+        pulumi.log.warn("Diagnostic is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Diagnostic'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -88,7 +93,7 @@ class Diagnostic(pulumi.CustomResource):
             __props__['verbosity'] = verbosity
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Diagnostic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Diagnostic"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Diagnostic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Diagnostic, __self__).__init__(
             'azure-nextgen:apimanagement/latest:Diagnostic',

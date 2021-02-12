@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['IotHubResource']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotHubResource'.""", DeprecationWarning)
+
 
 class IotHubResource(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotHubResource'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class IotHubResource(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IotHubSkuInfoArgs']] sku: IotHub SKU info
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        pulumi.log.warn("IotHubResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotHubResource'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -74,7 +79,7 @@ class IotHubResource(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices/v20160203:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20170119:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20170701:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20180401:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20181201preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20190322:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20190322preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20190701preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20191104:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200401:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200615:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200710preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200801:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200831:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200831preview:IotHubResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20160203:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20170119:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20170701:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20180401:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20181201preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20190322:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20190322preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20190701preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20191104:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200401:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200615:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200710preview:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200801:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200831:IotHubResource"), pulumi.Alias(type_="azure-nextgen:devices/v20200831preview:IotHubResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotHubResource, __self__).__init__(
             'azure-nextgen:devices/latest:IotHubResource',

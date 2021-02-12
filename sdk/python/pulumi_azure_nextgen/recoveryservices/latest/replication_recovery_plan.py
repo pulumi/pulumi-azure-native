@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ReplicationRecoveryPlan']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryPlan'.""", DeprecationWarning)
+
 
 class ReplicationRecoveryPlan(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryPlan'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
         """
+        pulumi.log.warn("ReplicationRecoveryPlan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryPlan'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryPlan"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryPlan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices:ReplicationRecoveryPlan"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryPlan"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryPlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationRecoveryPlan, __self__).__init__(
             'azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan',

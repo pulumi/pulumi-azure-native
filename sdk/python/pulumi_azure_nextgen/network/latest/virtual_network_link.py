@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['VirtualNetworkLink']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkLink'.""", DeprecationWarning)
+
 
 class VirtualNetworkLink(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkLink'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +47,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_network: The reference of the virtual network.
         :param pulumi.Input[str] virtual_network_link_name: The name of the virtual network link.
         """
+        pulumi.log.warn("VirtualNetworkLink is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkLink'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['virtual_network_link_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180901:VirtualNetworkLink"), pulumi.Alias(type_="azure-nextgen:network/v20200101:VirtualNetworkLink"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetworkLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:VirtualNetworkLink"), pulumi.Alias(type_="azure-nextgen:network/v20180901:VirtualNetworkLink"), pulumi.Alias(type_="azure-nextgen:network/v20200101:VirtualNetworkLink"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetworkLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkLink, __self__).__init__(
             'azure-nextgen:network/latest:VirtualNetworkLink',

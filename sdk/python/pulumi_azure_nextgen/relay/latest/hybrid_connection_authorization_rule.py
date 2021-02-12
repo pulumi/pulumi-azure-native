@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['HybridConnectionAuthorizationRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnectionAuthorizationRule'.""", DeprecationWarning)
+
 
 class HybridConnectionAuthorizationRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnectionAuthorizationRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
         """
+        pulumi.log.warn("HybridConnectionAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnectionAuthorizationRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
             __props__['rights'] = rights
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:relay/v20160701:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:relay:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:relay/v20160701:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HybridConnectionAuthorizationRule, __self__).__init__(
             'azure-nextgen:relay/latest:HybridConnectionAuthorizationRule',

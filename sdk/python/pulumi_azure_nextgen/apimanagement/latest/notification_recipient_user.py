@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['NotificationRecipientUser']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:NotificationRecipientUser'.""", DeprecationWarning)
+
 
 class NotificationRecipientUser(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:NotificationRecipientUser'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +37,7 @@ class NotificationRecipientUser(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] user_id: User identifier. Must be unique in the current API Management service instance.
         """
+        pulumi.log.warn("NotificationRecipientUser is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:NotificationRecipientUser'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -64,7 +69,7 @@ class NotificationRecipientUser(pulumi.CustomResource):
             __props__['user_id'] = user_id
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:NotificationRecipientUser")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:NotificationRecipientUser")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotificationRecipientUser, __self__).__init__(
             'azure-nextgen:apimanagement/latest:NotificationRecipientUser',

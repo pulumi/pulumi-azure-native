@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['FirewallRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:FirewallRule'.""", DeprecationWarning)
+
 
 class FirewallRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:FirewallRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: The name of the firewall rule.
         :param pulumi.Input[str] start_ip: lowest IP address included in the range
         """
+        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:FirewallRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__['start_ip'] = start_ip
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/v20160401:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20170201:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20200601:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20160401:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20170201:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:FirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20200601:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azure-nextgen:cache/latest:FirewallRule',

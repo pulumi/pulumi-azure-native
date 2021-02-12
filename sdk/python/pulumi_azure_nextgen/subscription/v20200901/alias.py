@@ -56,7 +56,7 @@ class Alias(pulumi.CustomResource):
             __props__['properties'] = properties
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:subscription/latest:Alias"), pulumi.Alias(type_="azure-nextgen:subscription/v20191001preview:Alias")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:subscription:Alias"), pulumi.Alias(type_="azure-nextgen:subscription/latest:Alias"), pulumi.Alias(type_="azure-nextgen:subscription/v20191001preview:Alias")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Alias, __self__).__init__(
             'azure-nextgen:subscription/v20200901:Alias',

@@ -49,7 +49,7 @@ class ProviderRegistration(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub/latest:ProviderRegistration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub:ProviderRegistration"), pulumi.Alias(type_="azure-nextgen:providerhub/latest:ProviderRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProviderRegistration, __self__).__init__(
             'azure-nextgen:providerhub/v20201120:ProviderRegistration',

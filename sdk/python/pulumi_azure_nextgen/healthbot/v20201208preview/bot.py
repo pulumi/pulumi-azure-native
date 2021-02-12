@@ -67,7 +67,7 @@ class Bot(pulumi.CustomResource):
             __props__['properties'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthbot/latest:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201020:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201020preview:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201208:Bot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthbot:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/latest:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201020:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201020preview:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201208:Bot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Bot, __self__).__init__(
             'azure-nextgen:healthbot/v20201208preview:Bot',

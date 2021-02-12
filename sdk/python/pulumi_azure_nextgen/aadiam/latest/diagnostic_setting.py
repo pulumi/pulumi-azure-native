@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['DiagnosticSetting']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aadiam:DiagnosticSetting'.""", DeprecationWarning)
+
 
 class DiagnosticSetting(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aadiam:DiagnosticSetting'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account to which you would like to send Diagnostic Logs.
         :param pulumi.Input[str] workspace_id: The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
         """
+        pulumi.log.warn("DiagnosticSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aadiam:DiagnosticSetting'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__['storage_account_id'] = storage_account_id
             __props__['workspace_id'] = workspace_id
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aadiam/v20170401:DiagnosticSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aadiam:DiagnosticSetting"), pulumi.Alias(type_="azure-nextgen:aadiam/v20170401:DiagnosticSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiagnosticSetting, __self__).__init__(
             'azure-nextgen:aadiam/latest:DiagnosticSetting',

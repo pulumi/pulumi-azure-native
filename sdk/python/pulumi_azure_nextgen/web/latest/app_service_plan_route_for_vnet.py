@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['AppServicePlanRouteForVnet']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServicePlanRouteForVnet'.""", DeprecationWarning)
+
 
 class AppServicePlanRouteForVnet(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServicePlanRouteForVnet'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         :param pulumi.Input[str] start_address: The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
         :param pulumi.Input[str] vnet_name: Name of the Virtual Network.
         """
+        pulumi.log.warn("AppServicePlanRouteForVnet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServicePlanRouteForVnet'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,7 +88,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
             __props__['vnet_name'] = vnet_name
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20201001:AppServicePlanRouteForVnet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20201001:AppServicePlanRouteForVnet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServicePlanRouteForVnet, __self__).__init__(
             'azure-nextgen:web/latest:AppServicePlanRouteForVnet',

@@ -78,7 +78,7 @@ class ServerKey(pulumi.CustomResource):
             __props__['name'] = None
             __props__['subregion'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ServerKey"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ServerKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:ServerKey"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ServerKey"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ServerKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerKey, __self__).__init__(
             'azure-nextgen:sql/v20150501preview:ServerKey',

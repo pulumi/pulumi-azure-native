@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['Lab']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:Lab'.""", DeprecationWarning)
+
 
 class Lab(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:Lab'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +51,7 @@ class Lab(pulumi.CustomResource):
         :param pulumi.Input[str] usage_quota: Maximum duration a user can use an environment for in the lab.
         :param pulumi.Input[Union[str, 'LabUserAccessMode']] user_access_mode: Lab user access mode (open to all vs. restricted to those listed on the lab).
         """
+        pulumi.log.warn("Lab is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:Lab'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -88,7 +93,7 @@ class Lab(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['user_quota'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices/v20181015:Lab")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices:Lab"), pulumi.Alias(type_="azure-nextgen:labservices/v20181015:Lab")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Lab, __self__).__init__(
             'azure-nextgen:labservices/latest:Lab',

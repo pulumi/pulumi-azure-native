@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['WCFRelay']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:WCFRelay'.""", DeprecationWarning)
+
 
 class WCFRelay(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:WCFRelay'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class WCFRelay(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
+        pulumi.log.warn("WCFRelay is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:WCFRelay'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,7 +81,7 @@ class WCFRelay(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['updated_at'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:relay/v20160701:WCFRelay"), pulumi.Alias(type_="azure-nextgen:relay/v20170401:WCFRelay")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:relay:WCFRelay"), pulumi.Alias(type_="azure-nextgen:relay/v20160701:WCFRelay"), pulumi.Alias(type_="azure-nextgen:relay/v20170401:WCFRelay")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WCFRelay, __self__).__init__(
             'azure-nextgen:relay/latest:WCFRelay',

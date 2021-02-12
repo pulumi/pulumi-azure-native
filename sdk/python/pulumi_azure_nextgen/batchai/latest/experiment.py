@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Experiment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Experiment'.""", DeprecationWarning)
+
 
 class Experiment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Experiment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -31,6 +35,7 @@ class Experiment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         """
+        pulumi.log.warn("Experiment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Experiment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -62,7 +67,7 @@ class Experiment(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai/v20180501:Experiment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai:Experiment"), pulumi.Alias(type_="azure-nextgen:batchai/v20180501:Experiment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Experiment, __self__).__init__(
             'azure-nextgen:batchai/latest:Experiment',

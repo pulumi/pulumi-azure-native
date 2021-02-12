@@ -72,6 +72,8 @@ class B2CTenant(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azureactivedirectory:B2CTenant")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(B2CTenant, __self__).__init__(
             'azure-nextgen:azureactivedirectory/v20190101preview:B2CTenant',
             resource_name,

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['PrivateEndpoint']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateEndpoint'.""", DeprecationWarning)
+
 
 class PrivateEndpoint(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateEndpoint'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class PrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("PrivateEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateEndpoint'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -84,7 +89,7 @@ class PrivateEndpoint(pulumi.CustomResource):
             __props__['network_interfaces'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190401:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PrivateEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PrivateEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpoint, __self__).__init__(
             'azure-nextgen:network/latest:PrivateEndpoint',

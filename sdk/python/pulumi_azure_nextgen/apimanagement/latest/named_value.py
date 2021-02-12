@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['NamedValue']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:NamedValue'.""", DeprecationWarning)
+
 
 class NamedValue(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:NamedValue'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class NamedValue(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Optional tags that when provided can be used to filter the NamedValue list.
         :param pulumi.Input[str] value: Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         """
+        pulumi.log.warn("NamedValue is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:NamedValue'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class NamedValue(pulumi.CustomResource):
             __props__['value'] = value
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:NamedValue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:NamedValue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:NamedValue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:NamedValue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:NamedValue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:NamedValue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:NamedValue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamedValue, __self__).__init__(
             'azure-nextgen:apimanagement/latest:NamedValue',

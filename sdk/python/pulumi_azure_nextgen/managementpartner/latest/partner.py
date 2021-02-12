@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Partner']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managementpartner:Partner'.""", DeprecationWarning)
+
 
 class Partner(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managementpartner:Partner'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -27,6 +31,7 @@ class Partner(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] partner_id: Id of the Partner
         """
+        pulumi.log.warn("Partner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managementpartner:Partner'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -56,7 +61,7 @@ class Partner(pulumi.CustomResource):
             __props__['type'] = None
             __props__['updated_time'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:managementpartner/v20180201:Partner")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:managementpartner:Partner"), pulumi.Alias(type_="azure-nextgen:managementpartner/v20180201:Partner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Partner, __self__).__init__(
             'azure-nextgen:managementpartner/latest:Partner',

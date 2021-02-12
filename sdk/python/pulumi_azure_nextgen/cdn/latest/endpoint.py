@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Endpoint']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Endpoint'.""", DeprecationWarning)
+
 
 class Endpoint(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Endpoint'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -70,6 +74,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UrlSigningKeyArgs']]]] url_signing_keys: List of keys used to validate the signed URL hashes.
         :param pulumi.Input[pulumi.InputType['EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs']] web_application_firewall_policy_link: Defines the Web Application Firewall policy for the endpoint (if applicable)
         """
+        pulumi.log.warn("Endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Endpoint'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -122,7 +127,7 @@ class Endpoint(pulumi.CustomResource):
             __props__['resource_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20170402:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Endpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20170402:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Endpoint"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
             'azure-nextgen:cdn/latest:Endpoint',

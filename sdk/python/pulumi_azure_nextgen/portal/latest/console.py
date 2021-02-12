@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Console']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:Console'.""", DeprecationWarning)
+
 
 class Console(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:Console'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +36,7 @@ class Console(pulumi.CustomResource):
         :param pulumi.Input[str] console_name: The name of the console
         :param pulumi.Input[pulumi.InputType['ConsoleCreatePropertiesArgs']] properties: Cloud shell properties for creating a console.
         """
+        pulumi.log.warn("Console is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:Console'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -55,7 +60,7 @@ class Console(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal/v20181001:Console")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal:Console"), pulumi.Alias(type_="azure-nextgen:portal/v20181001:Console")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Console, __self__).__init__(
             'azure-nextgen:portal/latest:Console',

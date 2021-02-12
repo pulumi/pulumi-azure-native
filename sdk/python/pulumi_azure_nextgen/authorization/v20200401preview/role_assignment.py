@@ -84,7 +84,7 @@ class RoleAssignment(pulumi.CustomResource):
             __props__['type'] = None
             __props__['updated_by'] = None
             __props__['updated_on'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/latest:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20150701:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20171001preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180101preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180901preview:RoleAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/latest:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20150701:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20171001preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180101preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180901preview:RoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleAssignment, __self__).__init__(
             'azure-nextgen:authorization/v20200401preview:RoleAssignment',

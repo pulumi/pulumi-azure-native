@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['SiteInstanceDeployment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeployment'.""", DeprecationWarning)
+
 
 class SiteInstanceDeployment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeployment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -59,6 +63,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         """
+        pulumi.log.warn("SiteInstanceDeployment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeployment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -101,7 +106,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
             __props__['status'] = status
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:SiteInstanceDeployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:SiteInstanceDeployment"), pulumi.Alias(type_="azure-nextgen:web/v20150801:SiteInstanceDeployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteInstanceDeployment, __self__).__init__(
             'azure-nextgen:web/latest:SiteInstanceDeployment',

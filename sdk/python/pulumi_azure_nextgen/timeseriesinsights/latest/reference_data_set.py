@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ReferenceDataSet']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:ReferenceDataSet'.""", DeprecationWarning)
+
 
 class ReferenceDataSet(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:ReferenceDataSet'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class ReferenceDataSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         """
+        pulumi.log.warn("ReferenceDataSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:ReferenceDataSet'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class ReferenceDataSet(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20171115:ReferenceDataSet"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:timeseriesinsights:ReferenceDataSet"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20171115:ReferenceDataSet"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReferenceDataSet, __self__).__init__(
             'azure-nextgen:timeseriesinsights/latest:ReferenceDataSet',

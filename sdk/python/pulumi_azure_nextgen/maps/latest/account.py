@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Account']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maps:Account'.""", DeprecationWarning)
+
 
 class Account(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maps:Account'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of this account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
         """
+        pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maps:Account'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class Account(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:maps/v20170101preview:Account"), pulumi.Alias(type_="azure-nextgen:maps/v20180501:Account"), pulumi.Alias(type_="azure-nextgen:maps/v20200201preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:maps:Account"), pulumi.Alias(type_="azure-nextgen:maps/v20170101preview:Account"), pulumi.Alias(type_="azure-nextgen:maps/v20180501:Account"), pulumi.Alias(type_="azure-nextgen:maps/v20200201preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-nextgen:maps/latest:Account',

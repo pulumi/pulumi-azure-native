@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Secret']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Secret'.""", DeprecationWarning)
+
 
 class Secret(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Secret'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the secret. 
         :param pulumi.Input[str] vault_name: Name of the vault
         """
+        pulumi.log.warn("Secret is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Secret'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class Secret(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault/v20161001:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214preview:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20190901:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:Secret")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20161001:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214preview:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20190901:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:Secret")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Secret, __self__).__init__(
             'azure-nextgen:keyvault/latest:Secret',

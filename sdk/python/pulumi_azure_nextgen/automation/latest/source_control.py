@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['SourceControl']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SourceControl'.""", DeprecationWarning)
+
 
 class SourceControl(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SourceControl'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +53,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[str] source_control_name: The source control name.
         :param pulumi.Input[Union[str, 'SourceType']] source_type: The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
         """
+        pulumi.log.warn("SourceControl is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SourceControl'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class SourceControl(pulumi.CustomResource):
             __props__['last_modified_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20170515preview:SourceControl"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:SourceControl"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:SourceControl")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:SourceControl"), pulumi.Alias(type_="azure-nextgen:automation/v20170515preview:SourceControl"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:SourceControl"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:SourceControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SourceControl, __self__).__init__(
             'azure-nextgen:automation/latest:SourceControl',

@@ -74,7 +74,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/latest:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/latest:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TopicAuthorizationRule, __self__).__init__(
             'azure-nextgen:servicebus/v20150801:TopicAuthorizationRule',

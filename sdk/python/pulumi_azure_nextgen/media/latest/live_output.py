@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['LiveOutput']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:LiveOutput'.""", DeprecationWarning)
+
 
 class LiveOutput(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:LiveOutput'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +51,7 @@ class LiveOutput(pulumi.CustomResource):
         :param pulumi.Input[float] output_snap_time: The initial timestamp that the live output will start at, any content before this value will not be archived.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         """
+        pulumi.log.warn("LiveOutput is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:LiveOutput'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -92,7 +97,7 @@ class LiveOutput(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180330preview:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20180701:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20200501:LiveOutput")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20180701:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:LiveOutput"), pulumi.Alias(type_="azure-nextgen:media/v20200501:LiveOutput")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LiveOutput, __self__).__init__(
             'azure-nextgen:media/latest:LiveOutput',

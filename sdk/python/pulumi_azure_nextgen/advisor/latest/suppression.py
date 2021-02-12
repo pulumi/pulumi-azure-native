@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Suppression']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:advisor:Suppression'.""", DeprecationWarning)
+
 
 class Suppression(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:advisor:Suppression'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class Suppression(pulumi.CustomResource):
         :param pulumi.Input[str] suppression_id: The GUID of the suppression.
         :param pulumi.Input[str] ttl: The duration for which the suppression is valid.
         """
+        pulumi.log.warn("Suppression is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:advisor:Suppression'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -65,7 +70,7 @@ class Suppression(pulumi.CustomResource):
             __props__['ttl'] = ttl
             __props__['expiration_time_stamp'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:advisor/v20160712preview:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20170419:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20200101:Suppression")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:advisor:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20160712preview:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20170419:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20200101:Suppression")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Suppression, __self__).__init__(
             'azure-nextgen:advisor/latest:Suppression',

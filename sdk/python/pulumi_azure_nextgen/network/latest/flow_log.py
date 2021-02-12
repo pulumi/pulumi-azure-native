@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['FlowLog']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FlowLog'.""", DeprecationWarning)
+
 
 class FlowLog(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FlowLog'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] target_resource_id: ID of network security group to which flow log will be applied.
         """
+        pulumi.log.warn("FlowLog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FlowLog'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,7 +101,7 @@ class FlowLog(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['target_resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20191101:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20191201:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200301:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200601:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200701:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200801:FlowLog")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20191101:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20191201:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200301:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200601:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200701:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200801:FlowLog")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FlowLog, __self__).__init__(
             'azure-nextgen:network/latest:FlowLog',

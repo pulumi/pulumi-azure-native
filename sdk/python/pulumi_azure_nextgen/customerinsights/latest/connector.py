@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['Connector']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Connector'.""", DeprecationWarning)
+
 
 class Connector(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Connector'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[bool] is_internal: If this is an internal connector.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        pulumi.log.warn("Connector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Connector'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -84,7 +89,7 @@ class Connector(pulumi.CustomResource):
             __props__['state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:Connector"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Connector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:Connector"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:Connector"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Connector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connector, __self__).__init__(
             'azure-nextgen:customerinsights/latest:Connector',

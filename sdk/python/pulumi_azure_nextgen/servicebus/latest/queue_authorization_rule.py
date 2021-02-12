@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['QueueAuthorizationRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:QueueAuthorizationRule'.""", DeprecationWarning)
+
 
 class QueueAuthorizationRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:QueueAuthorizationRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
         """
+        pulumi.log.warn("QueueAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:QueueAuthorizationRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
             __props__['rights'] = rights
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:QueueAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:QueueAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:QueueAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(QueueAuthorizationRule, __self__).__init__(
             'azure-nextgen:servicebus/latest:QueueAuthorizationRule',

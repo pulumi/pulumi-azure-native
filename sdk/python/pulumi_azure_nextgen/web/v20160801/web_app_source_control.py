@@ -70,7 +70,7 @@ class WebAppSourceControl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSourceControl")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSourceControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSourceControl, __self__).__init__(
             'azure-nextgen:web/v20160801:WebAppSourceControl',

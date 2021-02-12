@@ -74,7 +74,7 @@ class Property(pulumi.CustomResource):
             __props__['value'] = value
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Property")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Property"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Property")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Property, __self__).__init__(
             'azure-nextgen:apimanagement/v20170301:Property',

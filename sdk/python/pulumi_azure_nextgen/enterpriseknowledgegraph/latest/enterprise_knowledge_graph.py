@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['EnterpriseKnowledgeGraph']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph'.""", DeprecationWarning)
+
 
 class EnterpriseKnowledgeGraph(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class EnterpriseKnowledgeGraph(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets the SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
+        pulumi.log.warn("EnterpriseKnowledgeGraph is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class EnterpriseKnowledgeGraph(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"), pulumi.Alias(type_="azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EnterpriseKnowledgeGraph, __self__).__init__(
             'azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph',

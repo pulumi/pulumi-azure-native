@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['PublicIPPrefix']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PublicIPPrefix'.""", DeprecationWarning)
+
 
 class PublicIPPrefix(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PublicIPPrefix'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class PublicIPPrefix(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
+        pulumi.log.warn("PublicIPPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PublicIPPrefix'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -93,7 +98,7 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__['public_ip_addresses'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20180801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181001:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PublicIPPrefix")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20180701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20180801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181001:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PublicIPPrefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PublicIPPrefix, __self__).__init__(
             'azure-nextgen:network/latest:PublicIPPrefix',

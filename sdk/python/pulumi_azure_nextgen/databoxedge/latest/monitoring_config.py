@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['MonitoringConfig']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:MonitoringConfig'.""", DeprecationWarning)
+
 
 class MonitoringConfig(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:MonitoringConfig'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class MonitoringConfig(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] role_name: The role name.
         """
+        pulumi.log.warn("MonitoringConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:MonitoringConfig'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -66,7 +71,7 @@ class MonitoringConfig(pulumi.CustomResource):
             __props__['role_name'] = role_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:MonitoringConfig"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:MonitoringConfig")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:MonitoringConfig"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:MonitoringConfig"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:MonitoringConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MonitoringConfig, __self__).__init__(
             'azure-nextgen:databoxedge/latest:MonitoringConfig',

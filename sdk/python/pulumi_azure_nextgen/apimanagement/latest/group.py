@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['Group']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Group'.""", DeprecationWarning)
+
 
 class Group(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Group'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input['GroupType'] type: Group type.
         """
+        pulumi.log.warn("Group is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Group'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -74,7 +79,7 @@ class Group(pulumi.CustomResource):
             __props__['type'] = type
             __props__['built_in'] = None
             __props__['name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Group")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Group"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Group")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Group, __self__).__init__(
             'azure-nextgen:apimanagement/latest:Group',

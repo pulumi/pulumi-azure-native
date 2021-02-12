@@ -86,7 +86,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
             __props__['subscription_key_parameter_names'] = None
             __props__['subscription_required'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayApiEntityTag, __self__).__init__(
             'azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag',

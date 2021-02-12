@@ -84,7 +84,7 @@ class NatRule(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['ingress_vpn_site_link_connections'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:NatRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:NatRule"), pulumi.Alias(type_="azure-nextgen:network/latest:NatRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NatRule, __self__).__init__(
             'azure-nextgen:network/v20200801:NatRule',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['IntegrationAccountMap']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountMap'.""", DeprecationWarning)
+
 
 class IntegrationAccountMap(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountMap'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        pulumi.log.warn("IntegrationAccountMap is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountMap'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -88,7 +93,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:IntegrationAccountMap"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountMap"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountMap"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountMap")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationAccountMap"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:IntegrationAccountMap"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountMap"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountMap"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountMap")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountMap, __self__).__init__(
             'azure-nextgen:logic/latest:IntegrationAccountMap',

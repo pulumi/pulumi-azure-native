@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['AccessControlRecord']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:AccessControlRecord'.""", DeprecationWarning)
+
 
 class AccessControlRecord(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:AccessControlRecord'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class AccessControlRecord(pulumi.CustomResource):
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
+        pulumi.log.warn("AccessControlRecord is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:AccessControlRecord'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class AccessControlRecord(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['volume_count'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:AccessControlRecord"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:AccessControlRecord")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:AccessControlRecord"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:AccessControlRecord"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:AccessControlRecord")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessControlRecord, __self__).__init__(
             'azure-nextgen:storsimple/latest:AccessControlRecord',

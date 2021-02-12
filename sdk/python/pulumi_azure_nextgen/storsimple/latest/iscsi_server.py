@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['IscsiServer']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiServer'.""", DeprecationWarning)
+
 
 class IscsiServer(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiServer'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +47,7 @@ class IscsiServer(pulumi.CustomResource):
         :param pulumi.Input[str] reverse_chap_id: The reverse chap id.
         :param pulumi.Input[str] storage_domain_id: The storage domain id.
         """
+        pulumi.log.warn("IscsiServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiServer'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,7 +88,7 @@ class IscsiServer(pulumi.CustomResource):
             __props__['storage_domain_id'] = storage_domain_id
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:IscsiServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:IscsiServer"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:IscsiServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IscsiServer, __self__).__init__(
             'azure-nextgen:storsimple/latest:IscsiServer',

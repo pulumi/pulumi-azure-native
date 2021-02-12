@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['DataStore']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataStore'.""", DeprecationWarning)
+
 
 class DataStore(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataStore'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class DataStore(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
         :param pulumi.Input['State'] state: State of the data source.
         """
+        pulumi.log.warn("DataStore is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataStore'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class DataStore(pulumi.CustomResource):
             __props__['state'] = state
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybriddata/v20160601:DataStore"), pulumi.Alias(type_="azure-nextgen:hybriddata/v20190601:DataStore")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybriddata:DataStore"), pulumi.Alias(type_="azure-nextgen:hybriddata/v20160601:DataStore"), pulumi.Alias(type_="azure-nextgen:hybriddata/v20190601:DataStore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataStore, __self__).__init__(
             'azure-nextgen:hybriddata/latest:DataStore',

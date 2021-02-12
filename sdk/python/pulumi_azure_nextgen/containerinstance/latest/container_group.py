@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ContainerGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerinstance:ContainerGroup'.""", DeprecationWarning)
+
 
 class ContainerGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerinstance:ContainerGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +69,7 @@ class ContainerGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeArgs']]]] volumes: The list of volumes that can be mounted by containers in this container group.
         """
+        pulumi.log.warn("ContainerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerinstance:ContainerGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,7 +116,7 @@ class ContainerGroup(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerinstance/v20170801preview:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20171001preview:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20171201preview:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20180201preview:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20180401:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20180601:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20180901:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20181001:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20191201:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20201101:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20210301:ContainerGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerinstance:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20170801preview:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20171001preview:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20171201preview:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20180201preview:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20180401:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20180601:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20180901:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20181001:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20191201:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20201101:ContainerGroup"), pulumi.Alias(type_="azure-nextgen:containerinstance/v20210301:ContainerGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContainerGroup, __self__).__init__(
             'azure-nextgen:containerinstance/latest:ContainerGroup',

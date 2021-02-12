@@ -73,7 +73,7 @@ class Export(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement/latest:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190101:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191001:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20200601:Export")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/latest:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190101:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191001:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20200601:Export")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Export, __self__).__init__(
             'azure-nextgen:costmanagement/v20190901:Export',

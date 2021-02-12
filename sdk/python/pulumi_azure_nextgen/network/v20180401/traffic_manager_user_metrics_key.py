@@ -44,7 +44,7 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
             __props__['key'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:TrafficManagerUserMetricsKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:TrafficManagerUserMetricsKey"), pulumi.Alias(type_="azure-nextgen:network/latest:TrafficManagerUserMetricsKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TrafficManagerUserMetricsKey, __self__).__init__(
             'azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey',

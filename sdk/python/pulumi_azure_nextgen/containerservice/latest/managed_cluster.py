@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ManagedCluster']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ManagedCluster'.""", DeprecationWarning)
+
 
 class ManagedCluster(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ManagedCluster'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -76,6 +80,7 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']] windows_profile: Profile for Windows VMs in the container service cluster.
         """
+        pulumi.log.warn("ManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ManagedCluster'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -128,7 +133,7 @@ class ManagedCluster(pulumi.CustomResource):
             __props__['private_fqdn'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/v20170831:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20180331:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20180801preview:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201101:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201201:ManagedCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20170831:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20180331:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20180801preview:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201101:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201201:ManagedCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedCluster, __self__).__init__(
             'azure-nextgen:containerservice/latest:ManagedCluster',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['GuestConfigurationHCRPAssignment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment'.""", DeprecationWarning)
+
 
 class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GuestConfigurationAssignmentPropertiesArgs']] properties: Properties of the Guest configuration assignment.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
+        pulumi.log.warn("GuestConfigurationHCRPAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"), pulumi.Alias(type_="azure-nextgen:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestConfigurationHCRPAssignment, __self__).__init__(
             'azure-nextgen:guestconfiguration/latest:GuestConfigurationHCRPAssignment',

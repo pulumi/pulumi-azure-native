@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Certificate']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:Certificate'.""", DeprecationWarning)
+
 
 class Certificate(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:Certificate'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub.
         :param pulumi.Input[str] resource_name_: The name of the IoT hub.
         """
+        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:Certificate'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -65,7 +70,7 @@ class Certificate(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices/v20170701:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20180401:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20181201preview:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20190322:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20190322preview:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20190701preview:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20191104:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200401:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200615:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200710preview:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200801:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200831:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200831preview:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20170701:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20180122:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20180401:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20181201preview:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20190322:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20190322preview:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20190701preview:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20191104:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200401:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200615:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200710preview:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200801:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200831:Certificate"), pulumi.Alias(type_="azure-nextgen:devices/v20200831preview:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-nextgen:devices/latest:Certificate',

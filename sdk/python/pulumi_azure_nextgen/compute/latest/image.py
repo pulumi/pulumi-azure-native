@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Image']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Image'.""", DeprecationWarning)
+
 
 class Image(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Image'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ImageStorageProfileArgs']] storage_profile: Specifies the storage settings for the virtual machine disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("Image is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Image'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,7 +81,7 @@ class Image(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:Image")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:Image")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Image, __self__).__init__(
             'azure-nextgen:compute/latest:Image',

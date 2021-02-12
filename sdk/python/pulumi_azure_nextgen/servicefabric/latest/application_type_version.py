@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['ApplicationTypeVersion']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationTypeVersion'.""", DeprecationWarning)
+
 
 class ApplicationTypeVersion(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationTypeVersion'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[str] version: The application type version.
         """
+        pulumi.log.warn("ApplicationTypeVersion is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationTypeVersion'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric/v20170701preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190601preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20191101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200301:ApplicationTypeVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20170701preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190601preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20191101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200301:ApplicationTypeVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationTypeVersion, __self__).__init__(
             'azure-nextgen:servicefabric/latest:ApplicationTypeVersion',

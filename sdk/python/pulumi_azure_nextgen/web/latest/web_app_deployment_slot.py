@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebAppDeploymentSlot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDeploymentSlot'.""", DeprecationWarning)
+
 
 class WebAppDeploymentSlot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDeploymentSlot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +58,7 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
         :param pulumi.Input[str] start_time: Start time.
         :param pulumi.Input[int] status: Deployment status.
         """
+        pulumi.log.warn("WebAppDeploymentSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDeploymentSlot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -95,7 +100,7 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
             __props__['status'] = status
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppDeploymentSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppDeploymentSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppDeploymentSlot, __self__).__init__(
             'azure-nextgen:web/latest:WebAppDeploymentSlot',

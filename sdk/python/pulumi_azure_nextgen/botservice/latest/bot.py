@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Bot']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Bot'.""", DeprecationWarning)
+
 
 class Bot(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Bot'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class Bot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets the SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
+        pulumi.log.warn("Bot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Bot'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class Bot(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:botservice/v20171201:Bot"), pulumi.Alias(type_="azure-nextgen:botservice/v20180712:Bot"), pulumi.Alias(type_="azure-nextgen:botservice/v20200602:Bot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:botservice:Bot"), pulumi.Alias(type_="azure-nextgen:botservice/v20171201:Bot"), pulumi.Alias(type_="azure-nextgen:botservice/v20180712:Bot"), pulumi.Alias(type_="azure-nextgen:botservice/v20200602:Bot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Bot, __self__).__init__(
             'azure-nextgen:botservice/latest:Bot',

@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['ServerCommunicationLink']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerCommunicationLink'.""", DeprecationWarning)
+
 
 class ServerCommunicationLink(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerCommunicationLink'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +37,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         """
+        pulumi.log.warn("ServerCommunicationLink is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerCommunicationLink'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -67,7 +72,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
             __props__['name'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20140401:ServerCommunicationLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:ServerCommunicationLink"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:ServerCommunicationLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerCommunicationLink, __self__).__init__(
             'azure-nextgen:sql/latest:ServerCommunicationLink',

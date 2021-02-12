@@ -105,7 +105,7 @@ class Workspace(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['workspace_uid'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/latest:Workspace"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse:Workspace"), pulumi.Alias(type_="azure-nextgen:synapse/latest:Workspace"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-nextgen:synapse/v20201201:Workspace',

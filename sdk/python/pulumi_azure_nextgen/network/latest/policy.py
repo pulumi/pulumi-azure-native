@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Policy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Policy'.""", DeprecationWarning)
+
 
 class Policy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Policy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("Policy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Policy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,7 +88,7 @@ class Policy(pulumi.CustomResource):
             __props__['routing_rule_links'] = None
             __props__['security_policy_links'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20190301:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20191001:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20201101:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20190301:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20191001:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20201101:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azure-nextgen:network/latest:Policy',

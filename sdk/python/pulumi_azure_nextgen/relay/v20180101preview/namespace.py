@@ -70,7 +70,7 @@ class Namespace(pulumi.CustomResource):
             __props__['service_bus_endpoint'] = None
             __props__['type'] = None
             __props__['updated_at'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:relay/latest:Namespace"), pulumi.Alias(type_="azure-nextgen:relay/v20160701:Namespace"), pulumi.Alias(type_="azure-nextgen:relay/v20170401:Namespace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:relay:Namespace"), pulumi.Alias(type_="azure-nextgen:relay/latest:Namespace"), pulumi.Alias(type_="azure-nextgen:relay/v20160701:Namespace"), pulumi.Alias(type_="azure-nextgen:relay/v20170401:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Namespace, __self__).__init__(
             'azure-nextgen:relay/v20180101preview:Namespace',

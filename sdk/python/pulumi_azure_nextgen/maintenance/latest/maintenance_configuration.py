@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['MaintenanceConfiguration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maintenance:MaintenanceConfiguration'.""", DeprecationWarning)
+
 
 class MaintenanceConfiguration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maintenance:MaintenanceConfiguration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: Resource Identifier
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets tags of the resource
         """
+        pulumi.log.warn("MaintenanceConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maintenance:MaintenanceConfiguration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:maintenance/v20200401:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:maintenance:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:maintenance/v20200401:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MaintenanceConfiguration, __self__).__init__(
             'azure-nextgen:maintenance/latest:MaintenanceConfiguration',

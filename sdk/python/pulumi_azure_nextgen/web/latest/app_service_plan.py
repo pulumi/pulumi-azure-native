@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['AppServicePlan']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServicePlan'.""", DeprecationWarning)
+
 
 class AppServicePlan(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServicePlan'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +68,7 @@ class AppServicePlan(pulumi.CustomResource):
         :param pulumi.Input[int] target_worker_size_id: Scaling worker size ID.
         :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service plan.
         """
+        pulumi.log.warn("AppServicePlan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServicePlan'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -120,7 +125,7 @@ class AppServicePlan(pulumi.CustomResource):
             __props__['subscription'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20201001:AppServicePlan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20201001:AppServicePlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServicePlan, __self__).__init__(
             'azure-nextgen:web/latest:AppServicePlan',

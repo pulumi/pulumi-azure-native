@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Queue']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Queue'.""", DeprecationWarning)
+
 
 class Queue(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Queue'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +36,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] queue_name: A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
+        pulumi.log.warn("Queue is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Queue'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -62,7 +67,7 @@ class Queue(pulumi.CustomResource):
             __props__['approximate_message_count'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20190601:Queue"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:Queue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:Queue"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:Queue"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:Queue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Queue, __self__).__init__(
             'azure-nextgen:storage/latest:Queue',

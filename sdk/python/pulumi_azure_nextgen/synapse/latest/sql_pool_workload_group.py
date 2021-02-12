@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['SqlPoolWorkloadGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadGroup'.""", DeprecationWarning)
+
 
 class SqlPoolWorkloadGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +49,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         :param pulumi.Input[str] workload_group_name: The name of the workload group.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
+        pulumi.log.warn("SqlPoolWorkloadGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -88,7 +93,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlPoolWorkloadGroup, __self__).__init__(
             'azure-nextgen:synapse/latest:SqlPoolWorkloadGroup',

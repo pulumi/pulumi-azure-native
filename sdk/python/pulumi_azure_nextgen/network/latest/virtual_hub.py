@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['VirtualHub']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHub'.""", DeprecationWarning)
+
 
 class VirtualHub(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHub'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +69,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the VirtualHub belongs.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] vpn_gateway: The VpnGateway associated with this VirtualHub.
         """
+        pulumi.log.warn("VirtualHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHub'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -112,7 +117,7 @@ class VirtualHub(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['routing_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualHub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHub, __self__).__init__(
             'azure-nextgen:network/latest:VirtualHub',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['CustomImage']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:CustomImage'.""", DeprecationWarning)
+
 
 class CustomImage(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:CustomImage'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +60,7 @@ class CustomImage(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']] vhd: The VHD from which the image is to be created.
         :param pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']] vm: The virtual machine from which the image is to be created.
         """
+        pulumi.log.warn("CustomImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:CustomImage'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -97,7 +102,7 @@ class CustomImage(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:CustomImage"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:CustomImage"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:CustomImage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:CustomImage"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:CustomImage"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:CustomImage"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:CustomImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomImage, __self__).__init__(
             'azure-nextgen:devtestlab/latest:CustomImage',

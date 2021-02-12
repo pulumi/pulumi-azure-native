@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ActionGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActionGroup'.""", DeprecationWarning)
+
 
 class ActionGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActionGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -59,6 +63,7 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceReceiverArgs']]]] voice_receivers: The list of voice receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookReceiverArgs']]]] webhook_receivers: The list of webhook receivers that are part of this action group.
         """
+        pulumi.log.warn("ActionGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActionGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -104,7 +109,7 @@ class ActionGroup(pulumi.CustomResource):
             __props__['webhook_receivers'] = webhook_receivers
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20170401:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20180301:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20180901:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20190301:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20190601:ActionGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20170401:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20180301:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20180901:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20190301:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20190601:ActionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ActionGroup, __self__).__init__(
             'azure-nextgen:insights/latest:ActionGroup',

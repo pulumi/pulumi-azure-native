@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['SqlPoolTransparentDataEncryption']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolTransparentDataEncryption'.""", DeprecationWarning)
+
 
 class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolTransparentDataEncryption'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.Input[str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
+        pulumi.log.warn("SqlPoolTransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolTransparentDataEncryption'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPoolTransparentDataEncryption")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse:SqlPoolTransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPoolTransparentDataEncryption")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlPoolTransparentDataEncryption, __self__).__init__(
             'azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption',

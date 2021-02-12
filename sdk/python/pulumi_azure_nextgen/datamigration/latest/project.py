@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Project']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Project'.""", DeprecationWarning)
+
 
 class Project(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Project'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]] target_connection_info: Information for connecting to target
         :param pulumi.Input[Union[str, 'ProjectTargetPlatform']] target_platform: Target platform for the project
         """
+        pulumi.log.warn("Project is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Project'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,7 +94,7 @@ class Project(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180315preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180715preview:Project")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180315preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180715preview:Project")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Project, __self__).__init__(
             'azure-nextgen:datamigration/latest:Project',

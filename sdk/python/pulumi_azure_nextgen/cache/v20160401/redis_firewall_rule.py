@@ -68,7 +68,7 @@ class RedisFirewallRule(pulumi.CustomResource):
             __props__['start_ip'] = start_ip
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/latest:RedisFirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20170201:RedisFirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:RedisFirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:RedisFirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:RedisFirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20200601:RedisFirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache:RedisFirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/latest:RedisFirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20170201:RedisFirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:RedisFirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:RedisFirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:RedisFirewallRule"), pulumi.Alias(type_="azure-nextgen:cache/v20200601:RedisFirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RedisFirewallRule, __self__).__init__(
             'azure-nextgen:cache/v20160401:RedisFirewallRule',

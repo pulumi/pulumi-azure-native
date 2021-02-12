@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['PrivateEndpointConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:PrivateEndpointConnection'.""", DeprecationWarning)
+
 
 class PrivateEndpointConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:PrivateEndpointConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the key vault.
         :param pulumi.Input[str] vault_name: The name of the key vault.
         """
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:PrivateEndpointConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault/v20180214:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:keyvault/v20190901:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:keyvault/v20190901:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:keyvault/latest:PrivateEndpointConnection',

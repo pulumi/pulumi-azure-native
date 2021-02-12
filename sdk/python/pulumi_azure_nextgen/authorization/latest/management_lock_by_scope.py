@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ManagementLockByScope']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockByScope'.""", DeprecationWarning)
+
 
 class ManagementLockByScope(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockByScope'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class ManagementLockByScope(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]] owners: The owners of the lock.
         :param pulumi.Input[str] scope: The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
         """
+        pulumi.log.warn("ManagementLockByScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockByScope'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -68,7 +73,7 @@ class ManagementLockByScope(pulumi.CustomResource):
             __props__['scope'] = scope
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockByScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:ManagementLockByScope"), pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockByScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLockByScope, __self__).__init__(
             'azure-nextgen:authorization/latest:ManagementLockByScope',

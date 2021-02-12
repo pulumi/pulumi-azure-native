@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['IntegrationServiceEnvironmentManagedApi']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi'.""", DeprecationWarning)
+
 
 class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +36,7 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
         :param pulumi.Input[str] integration_service_environment_name: The integration service environment name.
         :param pulumi.Input[str] resource_group: The resource group name.
         """
+        pulumi.log.warn("IntegrationServiceEnvironmentManagedApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -63,7 +68,7 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
             __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationServiceEnvironmentManagedApi, __self__).__init__(
             'azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Service']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthcareapis:Service'.""", DeprecationWarning)
+
 
 class Service(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthcareapis:Service'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: The name of the service instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthcareapis:Service'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class Service(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthcareapis/v20180820preview:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20190916:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20200315:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20200330:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20210111:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthcareapis:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20180820preview:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20190916:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20200315:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20200330:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20210111:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-nextgen:healthcareapis/latest:Service',

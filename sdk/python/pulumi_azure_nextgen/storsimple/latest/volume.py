@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['Volume']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:Volume'.""", DeprecationWarning)
+
 
 class Volume(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:Volume'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input['VolumeStatus'] volume_status: The volume status.
         :param pulumi.Input['VolumeType'] volume_type: The type of the volume.
         """
+        pulumi.log.warn("Volume is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:Volume'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,7 +107,7 @@ class Volume(pulumi.CustomResource):
             __props__['operation_status'] = None
             __props__['type'] = None
             __props__['volume_container_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:Volume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:Volume"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azure-nextgen:storsimple/latest:Volume',

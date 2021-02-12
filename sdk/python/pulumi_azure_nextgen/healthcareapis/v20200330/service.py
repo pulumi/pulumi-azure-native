@@ -76,7 +76,7 @@ class Service(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthcareapis/latest:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20180820preview:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20190916:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20200315:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20210111:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthcareapis:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/latest:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20180820preview:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20190916:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20200315:Service"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20210111:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-nextgen:healthcareapis/v20200330:Service',

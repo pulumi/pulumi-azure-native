@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['IpFirewallRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IpFirewallRule'.""", DeprecationWarning)
+
 
 class IpFirewallRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IpFirewallRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class IpFirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] start_ip_address: The start IP address of the firewall rule. Must be IPv4 format
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
+        pulumi.log.warn("IpFirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IpFirewallRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -66,7 +71,7 @@ class IpFirewallRule(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:IpFirewallRule"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:IpFirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse:IpFirewallRule"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:IpFirewallRule"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:IpFirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IpFirewallRule, __self__).__init__(
             'azure-nextgen:synapse/latest:IpFirewallRule',

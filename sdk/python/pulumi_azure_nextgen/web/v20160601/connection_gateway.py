@@ -69,7 +69,7 @@ class ConnectionGateway(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:ConnectionGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:ConnectionGateway"), pulumi.Alias(type_="azure-nextgen:web/latest:ConnectionGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectionGateway, __self__).__init__(
             'azure-nextgen:web/v20160601:ConnectionGateway',

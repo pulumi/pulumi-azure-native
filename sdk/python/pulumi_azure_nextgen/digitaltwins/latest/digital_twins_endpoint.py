@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['DigitalTwinsEndpoint']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:DigitalTwinsEndpoint'.""", DeprecationWarning)
+
 
 class DigitalTwinsEndpoint(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:DigitalTwinsEndpoint'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
         :param pulumi.Input[str] resource_name_: The name of the DigitalTwinsInstance.
         """
+        pulumi.log.warn("DigitalTwinsEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:DigitalTwinsEndpoint'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -67,7 +72,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:digitaltwins:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DigitalTwinsEndpoint, __self__).__init__(
             'azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint',

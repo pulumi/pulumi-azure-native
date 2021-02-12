@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['VirtualRouter']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualRouter'.""", DeprecationWarning)
+
 
 class VirtualRouter(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualRouter'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +49,7 @@ class VirtualRouter(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: VirtualRouter IPs.
         :param pulumi.Input[str] virtual_router_name: The name of the Virtual Router.
         """
+        pulumi.log.warn("VirtualRouter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualRouter'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class VirtualRouter(pulumi.CustomResource):
             __props__['peerings'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualRouter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualRouter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualRouter, __self__).__init__(
             'azure-nextgen:network/latest:VirtualRouter',

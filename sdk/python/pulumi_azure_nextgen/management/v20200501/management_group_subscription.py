@@ -56,7 +56,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
             __props__['state'] = None
             __props__['tenant'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:management/latest:ManagementGroupSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:management:ManagementGroupSubscription"), pulumi.Alias(type_="azure-nextgen:management/latest:ManagementGroupSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementGroupSubscription, __self__).__init__(
             'azure-nextgen:management/v20200501:ManagementGroupSubscription',

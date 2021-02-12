@@ -71,7 +71,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/latest:IntegrationAccountAssembly"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountAssembly"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountAssembly")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationAccountAssembly"), pulumi.Alias(type_="azure-nextgen:logic/latest:IntegrationAccountAssembly"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountAssembly"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountAssembly")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountAssembly, __self__).__init__(
             'azure-nextgen:logic/v20180701preview:IntegrationAccountAssembly',

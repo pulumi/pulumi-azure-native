@@ -72,7 +72,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHubBgpConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/latest:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHubBgpConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHubBgpConnection, __self__).__init__(
             'azure-nextgen:network/v20200801:VirtualHubBgpConnection',

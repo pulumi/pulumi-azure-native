@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['MediaService']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:MediaService'.""", DeprecationWarning)
+
 
 class MediaService(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:MediaService'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +47,7 @@ class MediaService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]] storage_accounts: The storage accounts for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("MediaService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:MediaService'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,7 +81,7 @@ class MediaService(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20151001:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20180701:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20200501:MediaService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20151001:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20180701:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20200501:MediaService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MediaService, __self__).__init__(
             'azure-nextgen:media/latest:MediaService',

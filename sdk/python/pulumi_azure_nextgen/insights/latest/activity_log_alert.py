@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ActivityLogAlert']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActivityLogAlert'.""", DeprecationWarning)
+
 
 class ActivityLogAlert(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActivityLogAlert'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +49,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
+        pulumi.log.warn("ActivityLogAlert is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActivityLogAlert'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class ActivityLogAlert(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20170401:ActivityLogAlert"), pulumi.Alias(type_="azure-nextgen:insights/v20201001:ActivityLogAlert")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:ActivityLogAlert"), pulumi.Alias(type_="azure-nextgen:insights/v20170401:ActivityLogAlert"), pulumi.Alias(type_="azure-nextgen:insights/v20201001:ActivityLogAlert")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ActivityLogAlert, __self__).__init__(
             'azure-nextgen:insights/latest:ActivityLogAlert',

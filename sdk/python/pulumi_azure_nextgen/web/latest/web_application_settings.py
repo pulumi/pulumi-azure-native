@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['WebApplicationSettings']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebApplicationSettings'.""", DeprecationWarning)
+
 
 class WebApplicationSettings(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebApplicationSettings'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -34,6 +38,7 @@ class WebApplicationSettings(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Settings.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
+        pulumi.log.warn("WebApplicationSettings is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebApplicationSettings'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -61,7 +66,7 @@ class WebApplicationSettings(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebApplicationSettings")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebApplicationSettings"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebApplicationSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebApplicationSettings, __self__).__init__(
             'azure-nextgen:web/latest:WebApplicationSettings',

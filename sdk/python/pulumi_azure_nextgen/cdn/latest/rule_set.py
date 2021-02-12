@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['RuleSet']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:RuleSet'.""", DeprecationWarning)
+
 
 class RuleSet(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:RuleSet'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,6 +36,7 @@ class RuleSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] rule_set_name: Name of the rule set under the profile which is unique globally
         """
+        pulumi.log.warn("RuleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:RuleSet'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -63,7 +68,7 @@ class RuleSet(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20200901:RuleSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:RuleSet"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:RuleSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RuleSet, __self__).__init__(
             'azure-nextgen:cdn/latest:RuleSet',

@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['MachineExtension']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:MachineExtension'.""", DeprecationWarning)
+
 
 class MachineExtension(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:MachineExtension'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class MachineExtension(pulumi.CustomResource):
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         """
+        pulumi.log.warn("MachineExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:MachineExtension'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class MachineExtension(pulumi.CustomResource):
             __props__['type_handler_version'] = type_handler_version
             __props__['instance_view'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridcompute/v20190802preview:MachineExtension"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20191212:MachineExtension"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200730preview:MachineExtension"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200802:MachineExtension"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:MachineExtension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridcompute:MachineExtension"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20190802preview:MachineExtension"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20191212:MachineExtension"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200730preview:MachineExtension"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200802:MachineExtension"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:MachineExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineExtension, __self__).__init__(
             'azure-nextgen:hybridcompute/latest:MachineExtension',

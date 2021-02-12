@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['ConsumerGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:ConsumerGroup'.""", DeprecationWarning)
+
 
 class ConsumerGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:ConsumerGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class ConsumerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[str] user_metadata: User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
         """
+        pulumi.log.warn("ConsumerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:ConsumerGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class ConsumerGroup(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['updated_at'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:ConsumerGroup"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:ConsumerGroup"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:ConsumerGroup"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:ConsumerGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub:ConsumerGroup"), pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:ConsumerGroup"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:ConsumerGroup"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:ConsumerGroup"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:ConsumerGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConsumerGroup, __self__).__init__(
             'azure-nextgen:eventhub/latest:ConsumerGroup',

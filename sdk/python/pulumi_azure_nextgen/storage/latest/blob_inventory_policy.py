@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['BlobInventoryPolicy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobInventoryPolicy'.""", DeprecationWarning)
+
 
 class BlobInventoryPolicy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobInventoryPolicy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['BlobInventoryPolicySchemaArgs']] policy: The storage account blob inventory policy object. It is composed of policy rules.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
+        pulumi.log.warn("BlobInventoryPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobInventoryPolicy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobInventoryPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobInventoryPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobInventoryPolicy, __self__).__init__(
             'azure-nextgen:storage/latest:BlobInventoryPolicy',

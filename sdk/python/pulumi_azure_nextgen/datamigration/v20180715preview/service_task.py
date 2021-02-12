@@ -67,6 +67,8 @@ class ServiceTask(pulumi.CustomResource):
             __props__['task_name'] = task_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration:ServiceTask")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceTask, __self__).__init__(
             'azure-nextgen:datamigration/v20180715preview:ServiceTask',
             resource_name,

@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ComponentCurrentBillingFeature']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ComponentCurrentBillingFeature'.""", DeprecationWarning)
+
 
 class ComponentCurrentBillingFeature(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ComponentCurrentBillingFeature'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         """
+        pulumi.log.warn("ComponentCurrentBillingFeature is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ComponentCurrentBillingFeature'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -60,7 +65,7 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:ComponentCurrentBillingFeature"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ComponentCurrentBillingFeature, __self__).__init__(
             'azure-nextgen:insights/latest:ComponentCurrentBillingFeature',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Workflow']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:Workflow'.""", DeprecationWarning)
+
 
 class Workflow(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:Workflow'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] workflow_name: The workflow name.
         """
+        pulumi.log.warn("Workflow is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:Workflow'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -90,7 +95,7 @@ class Workflow(pulumi.CustomResource):
             __props__['sku'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/v20150201preview:Workflow"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:Workflow"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:Workflow"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:Workflow")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:Workflow"), pulumi.Alias(type_="azure-nextgen:logic/v20150201preview:Workflow"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:Workflow"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:Workflow"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:Workflow")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workflow, __self__).__init__(
             'azure-nextgen:logic/latest:Workflow',

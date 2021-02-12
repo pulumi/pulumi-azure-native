@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['AccessPolicy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:AccessPolicy'.""", DeprecationWarning)
+
 
 class AccessPolicy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:AccessPolicy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class AccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessPolicyRole']]]] roles: The list of roles the principal is assigned on the environment.
         """
+        pulumi.log.warn("AccessPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:AccessPolicy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class AccessPolicy(pulumi.CustomResource):
             __props__['roles'] = roles
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20171115:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20200515:AccessPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:timeseriesinsights:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20171115:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20200515:AccessPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessPolicy, __self__).__init__(
             'azure-nextgen:timeseriesinsights/latest:AccessPolicy',

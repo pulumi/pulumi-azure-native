@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['GatewayHostnameConfiguration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayHostnameConfiguration'.""", DeprecationWarning)
+
 
 class GatewayHostnameConfiguration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayHostnameConfiguration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
+        pulumi.log.warn("GatewayHostnameConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayHostnameConfiguration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayHostnameConfiguration, __self__).__init__(
             'azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration',

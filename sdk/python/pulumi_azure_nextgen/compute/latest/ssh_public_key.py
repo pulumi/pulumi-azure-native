@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['SshPublicKey']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:SshPublicKey'.""", DeprecationWarning)
+
 
 class SshPublicKey(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:SshPublicKey'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class SshPublicKey(pulumi.CustomResource):
         :param pulumi.Input[str] ssh_public_key_name: The name of the SSH public key.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("SshPublicKey is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:SshPublicKey'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -63,7 +68,7 @@ class SshPublicKey(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20191201:SshPublicKey"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:SshPublicKey"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:SshPublicKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:SshPublicKey"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:SshPublicKey"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:SshPublicKey"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:SshPublicKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SshPublicKey, __self__).__init__(
             'azure-nextgen:compute/latest:SshPublicKey',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['StorageDomain']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageDomain'.""", DeprecationWarning)
+
 
 class StorageDomain(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageDomain'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class StorageDomain(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_credential_ids: The storage account credentials.
         :param pulumi.Input[str] storage_domain_name: The storage domain name.
         """
+        pulumi.log.warn("StorageDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageDomain'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class StorageDomain(pulumi.CustomResource):
             __props__['storage_domain_name'] = storage_domain_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:StorageDomain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:StorageDomain"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:StorageDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageDomain, __self__).__init__(
             'azure-nextgen:storsimple/latest:StorageDomain',

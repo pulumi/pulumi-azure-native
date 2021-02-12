@@ -162,7 +162,7 @@ class HostingEnvironment(pulumi.CustomResource):
             __props__['vnet_resource_group_name'] = vnet_resource_group_name
             __props__['vnet_subnet_name'] = vnet_subnet_name
             __props__['worker_pools'] = worker_pools
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20160901:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20180201:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20190801:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20200601:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20200901:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20201001:HostingEnvironment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/latest:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20160901:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20180201:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20190801:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20200601:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20200901:HostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20201001:HostingEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HostingEnvironment, __self__).__init__(
             'azure-nextgen:web/v20150801:HostingEnvironment',

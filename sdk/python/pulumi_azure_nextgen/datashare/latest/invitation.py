@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['Invitation']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:Invitation'.""", DeprecationWarning)
+
 
 class Invitation(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:Invitation'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class Invitation(pulumi.CustomResource):
                Must be specified along TargetActiveDirectoryId. This enables sending
                invitations to specific users or applications in an AD tenant.
         """
+        pulumi.log.warn("Invitation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:Invitation'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -86,7 +91,7 @@ class Invitation(pulumi.CustomResource):
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:Invitation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:Invitation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Invitation, __self__).__init__(
             'azure-nextgen:datashare/latest:Invitation',

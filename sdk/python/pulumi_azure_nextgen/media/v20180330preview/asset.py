@@ -74,7 +74,7 @@ class Asset(pulumi.CustomResource):
             __props__['name'] = None
             __props__['storage_encryption_format'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:Asset"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Asset"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Asset"), pulumi.Alias(type_="azure-nextgen:media/v20200501:Asset")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:Asset"), pulumi.Alias(type_="azure-nextgen:media/latest:Asset"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Asset"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Asset"), pulumi.Alias(type_="azure-nextgen:media/v20200501:Asset")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Asset, __self__).__init__(
             'azure-nextgen:media/v20180330preview:Asset',

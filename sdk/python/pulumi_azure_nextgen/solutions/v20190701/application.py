@@ -102,7 +102,7 @@ class Application(pulumi.CustomResource):
             __props__['support_urls'] = None
             __props__['type'] = None
             __props__['updated_by'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:solutions/latest:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20170901:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20180601:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20200821preview:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:solutions:Application"), pulumi.Alias(type_="azure-nextgen:solutions/latest:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20170901:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20180601:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20200821preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azure-nextgen:solutions/v20190701:Application',

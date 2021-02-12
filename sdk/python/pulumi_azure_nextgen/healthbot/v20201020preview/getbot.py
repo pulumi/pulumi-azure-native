@@ -67,7 +67,7 @@ class Getbot(pulumi.CustomResource):
             __props__['properties'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthbot/latest:getbot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201020:getbot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201208:getbot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201208preview:getbot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthbot:getbot"), pulumi.Alias(type_="azure-nextgen:healthbot/latest:getbot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201020:getbot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201208:getbot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201208preview:getbot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Getbot, __self__).__init__(
             'azure-nextgen:healthbot/v20201020preview:getbot',

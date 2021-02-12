@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['SerialPort']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:serialconsole:SerialPort'.""", DeprecationWarning)
+
 
 class SerialPort(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:serialconsole:SerialPort'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class SerialPort(pulumi.CustomResource):
         :param pulumi.Input[str] serial_port: The name of the serial port to create.
         :param pulumi.Input['SerialPortState'] state: Specifies whether the port is enabled for a serial console connection.
         """
+        pulumi.log.warn("SerialPort is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:serialconsole:SerialPort'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class SerialPort(pulumi.CustomResource):
             __props__['state'] = state
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:serialconsole/v20180501:SerialPort")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:serialconsole:SerialPort"), pulumi.Alias(type_="azure-nextgen:serialconsole/v20180501:SerialPort")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SerialPort, __self__).__init__(
             'azure-nextgen:serialconsole/latest:SerialPort',

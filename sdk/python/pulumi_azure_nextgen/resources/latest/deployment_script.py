@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['DeploymentScript']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentScript'.""", DeprecationWarning)
+
 
 class DeploymentScript(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentScript'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class DeploymentScript(pulumi.CustomResource):
         :param pulumi.Input[str] script_name: Name of the deployment script.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("DeploymentScript is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentScript'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class DeploymentScript(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources/v20191001preview:DeploymentScript"), pulumi.Alias(type_="azure-nextgen:resources/v20201001:DeploymentScript")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources:DeploymentScript"), pulumi.Alias(type_="azure-nextgen:resources/v20191001preview:DeploymentScript"), pulumi.Alias(type_="azure-nextgen:resources/v20201001:DeploymentScript")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentScript, __self__).__init__(
             'azure-nextgen:resources/latest:DeploymentScript',

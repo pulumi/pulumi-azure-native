@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['JitRequest']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:JitRequest'.""", DeprecationWarning)
+
 
 class JitRequest(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:JitRequest'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class JitRequest(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("JitRequest is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:JitRequest'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -82,7 +87,7 @@ class JitRequest(pulumi.CustomResource):
             __props__['publisher_tenant_id'] = None
             __props__['type'] = None
             __props__['updated_by'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:solutions/v20190701:JitRequest"), pulumi.Alias(type_="azure-nextgen:solutions/v20200821preview:JitRequest")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:solutions:JitRequest"), pulumi.Alias(type_="azure-nextgen:solutions/v20190701:JitRequest"), pulumi.Alias(type_="azure-nextgen:solutions/v20200821preview:JitRequest")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JitRequest, __self__).__init__(
             'azure-nextgen:solutions/latest:JitRequest',

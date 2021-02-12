@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['PolicyAssignment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyAssignment'.""", DeprecationWarning)
+
 
 class PolicyAssignment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyAssignment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class PolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition being assigned.
         :param pulumi.Input[str] scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         """
+        pulumi.log.warn("PolicyAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyAssignment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,7 +94,7 @@ class PolicyAssignment(pulumi.CustomResource):
             __props__['scope'] = scope
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20151001preview:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20160401:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20161201:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20170601preview:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180301:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180501:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20190101:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20190601:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20190901:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200301:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200901:PolicyAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20151001preview:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20160401:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20161201:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20170601preview:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180301:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180501:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20190101:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20190601:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20190901:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200301:PolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200901:PolicyAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyAssignment, __self__).__init__(
             'azure-nextgen:authorization/latest:PolicyAssignment',

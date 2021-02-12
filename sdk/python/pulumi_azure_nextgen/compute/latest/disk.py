@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Disk']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Disk'.""", DeprecationWarning)
+
 
 class Disk(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Disk'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -74,6 +78,7 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[str] tier: Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Logical zone list for Disk.
         """
+        pulumi.log.warn("Disk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Disk'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -130,7 +135,7 @@ class Disk(pulumi.CustomResource):
             __props__['time_created'] = None
             __props__['type'] = None
             __props__['unique_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Disk")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Disk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Disk, __self__).__init__(
             'azure-nextgen:compute/latest:Disk',

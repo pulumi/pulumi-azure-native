@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Cache']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Cache'.""", DeprecationWarning)
+
 
 class Cache(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Cache'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: Original uri of entity in external system cache points to
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
+        pulumi.log.warn("Cache is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Cache'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class Cache(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Cache")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Cache")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cache, __self__).__init__(
             'azure-nextgen:apimanagement/latest:Cache',

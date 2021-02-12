@@ -67,7 +67,7 @@ class Trigger(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datafactory/latest:Trigger"), pulumi.Alias(type_="azure-nextgen:datafactory/v20180601:Trigger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datafactory:Trigger"), pulumi.Alias(type_="azure-nextgen:datafactory/latest:Trigger"), pulumi.Alias(type_="azure-nextgen:datafactory/v20180601:Trigger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Trigger, __self__).__init__(
             'azure-nextgen:datafactory/v20170901preview:Trigger',

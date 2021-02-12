@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['TopicAuthorizationRule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:TopicAuthorizationRule'.""", DeprecationWarning)
+
 
 class TopicAuthorizationRule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:TopicAuthorizationRule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
         :param pulumi.Input[str] topic_name: The topic name.
         """
+        pulumi.log.warn("TopicAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:TopicAuthorizationRule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             __props__['topic_name'] = topic_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TopicAuthorizationRule, __self__).__init__(
             'azure-nextgen:servicebus/latest:TopicAuthorizationRule',

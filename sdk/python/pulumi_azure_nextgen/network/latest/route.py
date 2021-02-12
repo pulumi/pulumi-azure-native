@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['Route']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Route'.""", DeprecationWarning)
+
 
 class Route(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Route'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] route_table_name: The name of the route table.
         :param pulumi.Input[str] type: The type of the resource.
         """
+        pulumi.log.warn("Route is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Route'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,7 +88,7 @@ class Route(pulumi.CustomResource):
             __props__['type'] = type
             __props__['etag'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20150501preview:Route"), pulumi.Alias(type_="azure-nextgen:network/v20150615:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160330:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20161201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20171001:Route"), pulumi.Alias(type_="azure-nextgen:network/v20171101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181001:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20191101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20191201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200301:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200501:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200801:Route")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:Route"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:Route"), pulumi.Alias(type_="azure-nextgen:network/v20150615:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160330:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20161201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20171001:Route"), pulumi.Alias(type_="azure-nextgen:network/v20171101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181001:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20191101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20191201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200301:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200501:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200801:Route")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Route, __self__).__init__(
             'azure-nextgen:network/latest:Route',

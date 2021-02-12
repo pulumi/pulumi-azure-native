@@ -66,6 +66,8 @@ class PrivateAtlase(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:maps:PrivateAtlase")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateAtlase, __self__).__init__(
             'azure-nextgen:maps/v20200201preview:PrivateAtlase',
             resource_name,

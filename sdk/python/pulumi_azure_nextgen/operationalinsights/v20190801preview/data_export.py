@@ -83,7 +83,7 @@ class DataExport(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/latest:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:DataExport")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/latest:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:DataExport")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataExport, __self__).__init__(
             'azure-nextgen:operationalinsights/v20190801preview:DataExport',

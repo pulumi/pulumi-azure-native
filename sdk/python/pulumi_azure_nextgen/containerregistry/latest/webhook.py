@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['Webhook']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Webhook'.""", DeprecationWarning)
+
 
 class Webhook(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Webhook'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the webhook.
         :param pulumi.Input[str] webhook_name: The name of the webhook.
         """
+        pulumi.log.warn("Webhook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Webhook'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -86,7 +91,7 @@ class Webhook(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/v20170601preview:Webhook"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20171001:Webhook"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190501:Webhook"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20191201preview:Webhook"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:Webhook")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry:Webhook"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20170601preview:Webhook"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20171001:Webhook"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190501:Webhook"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20191201preview:Webhook"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:Webhook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Webhook, __self__).__init__(
             'azure-nextgen:containerregistry/latest:Webhook',

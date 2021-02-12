@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['DataExport']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataExport'.""", DeprecationWarning)
+
 
 class DataExport(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataExport'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +49,7 @@ class DataExport(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_names: An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        pulumi.log.warn("DataExport is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataExport'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -84,7 +89,7 @@ class DataExport(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/v20190801preview:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:DataExport")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20190801preview:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:DataExport")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataExport, __self__).__init__(
             'azure-nextgen:operationalinsights/latest:DataExport',

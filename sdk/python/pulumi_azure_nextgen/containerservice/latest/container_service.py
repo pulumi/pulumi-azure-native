@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ContainerService']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ContainerService'.""", DeprecationWarning)
+
 
 class ContainerService(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ContainerService'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class ContainerService(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['ContainerServiceWindowsProfileArgs']] windows_profile: Properties of Windows VMs.
         """
+        pulumi.log.warn("ContainerService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ContainerService'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -94,7 +99,7 @@ class ContainerService(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/v20151101preview:ContainerService"), pulumi.Alias(type_="azure-nextgen:containerservice/v20160330:ContainerService"), pulumi.Alias(type_="azure-nextgen:containerservice/v20160930:ContainerService"), pulumi.Alias(type_="azure-nextgen:containerservice/v20170131:ContainerService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice:ContainerService"), pulumi.Alias(type_="azure-nextgen:containerservice/v20151101preview:ContainerService"), pulumi.Alias(type_="azure-nextgen:containerservice/v20160330:ContainerService"), pulumi.Alias(type_="azure-nextgen:containerservice/v20160930:ContainerService"), pulumi.Alias(type_="azure-nextgen:containerservice/v20170131:ContainerService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContainerService, __self__).__init__(
             'azure-nextgen:containerservice/latest:ContainerService',

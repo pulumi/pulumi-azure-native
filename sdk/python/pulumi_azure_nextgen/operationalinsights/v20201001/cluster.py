@@ -86,7 +86,7 @@ class Cluster(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/latest:Cluster"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20190801preview:Cluster"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:Cluster"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights:Cluster"), pulumi.Alias(type_="azure-nextgen:operationalinsights/latest:Cluster"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20190801preview:Cluster"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:Cluster"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-nextgen:operationalinsights/v20201001:Cluster',

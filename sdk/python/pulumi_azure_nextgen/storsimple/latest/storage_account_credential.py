@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['StorageAccountCredential']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageAccountCredential'.""", DeprecationWarning)
+
 
 class StorageAccountCredential(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageAccountCredential'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class StorageAccountCredential(pulumi.CustomResource):
         :param pulumi.Input['SslStatus'] ssl_status: Signifies whether SSL needs to be enabled or not.
         :param pulumi.Input[str] storage_account_credential_name: The storage account credential name.
         """
+        pulumi.log.warn("StorageAccountCredential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageAccountCredential'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -79,7 +84,7 @@ class StorageAccountCredential(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['volumes_count'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:StorageAccountCredential")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:StorageAccountCredential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccountCredential, __self__).__init__(
             'azure-nextgen:storsimple/latest:StorageAccountCredential',

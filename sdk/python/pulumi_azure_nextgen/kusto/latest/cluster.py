@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Cluster']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Cluster'.""", DeprecationWarning)
+
 
 class Cluster(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Cluster'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +64,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']] virtual_network_configuration: Virtual network definition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The availability zones of the cluster.
         """
+        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Cluster'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -113,7 +118,7 @@ class Cluster(pulumi.CustomResource):
             __props__['state_reason'] = None
             __props__['type'] = None
             __props__['uri'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-nextgen:kusto/latest:Cluster',

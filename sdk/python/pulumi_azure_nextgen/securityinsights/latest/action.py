@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['Action']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Action'.""", DeprecationWarning)
+
 
 class Action(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Action'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class Action(pulumi.CustomResource):
         :param pulumi.Input[str] trigger_uri: Logic App Callback URL for this specific workflow.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
+        pulumi.log.warn("Action is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Action'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,7 +81,7 @@ class Action(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['workflow_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:Action")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:Action"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:Action")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Action, __self__).__init__(
             'azure-nextgen:securityinsights/latest:Action',

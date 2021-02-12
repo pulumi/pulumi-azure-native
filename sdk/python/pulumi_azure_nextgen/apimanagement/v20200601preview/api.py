@@ -129,7 +129,7 @@ class Api(pulumi.CustomResource):
             __props__['is_online'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Api")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Api"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Api")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Api, __self__).__init__(
             'azure-nextgen:apimanagement/v20200601preview:Api',

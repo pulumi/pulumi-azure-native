@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['PrivateEndpointConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:PrivateEndpointConnection'.""", DeprecationWarning)
+
 
 class PrivateEndpointConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:PrivateEndpointConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
         """
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:PrivateEndpointConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -65,7 +70,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['search_service_name'] = search_service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:search/v20191001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:search/v20200313:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:search/v20200801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:search/v20200801preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:search:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:search/v20191001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:search/v20200313:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:search/v20200801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:search/v20200801preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:search/latest:PrivateEndpointConnection',

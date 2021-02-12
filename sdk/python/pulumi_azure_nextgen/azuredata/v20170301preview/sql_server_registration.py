@@ -68,7 +68,7 @@ class SqlServerRegistration(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azuredata/v20190724preview:SqlServerRegistration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azuredata:SqlServerRegistration"), pulumi.Alias(type_="azure-nextgen:azuredata/v20190724preview:SqlServerRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlServerRegistration, __self__).__init__(
             'azure-nextgen:azuredata/v20170301preview:SqlServerRegistration',

@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['FirewallPolicy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicy'.""", DeprecationWarning)
+
 
 class FirewallPolicy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +58,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelWhitelistArgs']] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyTransportSecurityArgs']] transport_security: TLS Configuration definition.
         """
+        pulumi.log.warn("FirewallPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FirewallPolicy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -95,7 +100,7 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['rule_collection_groups'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190601:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190701:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190801:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190901:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191101:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191201:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200301:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200601:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200701:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200801:FirewallPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190601:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190701:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190801:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190901:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191101:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191201:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200301:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200601:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200701:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200801:FirewallPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicy, __self__).__init__(
             'azure-nextgen:network/latest:FirewallPolicy',

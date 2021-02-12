@@ -77,7 +77,7 @@ class CustomIPPrefix(pulumi.CustomResource):
             __props__['public_ip_prefixes'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200601:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200801:CustomIPPrefix")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/latest:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200601:CustomIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200801:CustomIPPrefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomIPPrefix, __self__).__init__(
             'azure-nextgen:network/v20200701:CustomIPPrefix',

@@ -73,6 +73,8 @@ class TransactionNode(pulumi.CustomResource):
             __props__['public_key'] = None
             __props__['type'] = None
             __props__['user_name'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:blockchain:TransactionNode")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TransactionNode, __self__).__init__(
             'azure-nextgen:blockchain/v20180601preview:TransactionNode',
             resource_name,

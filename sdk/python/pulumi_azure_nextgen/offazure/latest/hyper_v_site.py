@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['HyperVSite']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:HyperVSite'.""", DeprecationWarning)
+
 
 class HyperVSite(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:HyperVSite'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class HyperVSite(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] site_name: Site name.
         """
+        pulumi.log.warn("HyperVSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:HyperVSite'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class HyperVSite(pulumi.CustomResource):
             __props__['site_name'] = site_name
             __props__['tags'] = tags
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:offazure/v20200101:HyperVSite"), pulumi.Alias(type_="azure-nextgen:offazure/v20200707:HyperVSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:offazure:HyperVSite"), pulumi.Alias(type_="azure-nextgen:offazure/v20200101:HyperVSite"), pulumi.Alias(type_="azure-nextgen:offazure/v20200707:HyperVSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HyperVSite, __self__).__init__(
             'azure-nextgen:offazure/latest:HyperVSite',

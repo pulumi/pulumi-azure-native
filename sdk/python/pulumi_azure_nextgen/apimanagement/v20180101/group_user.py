@@ -72,7 +72,7 @@ class GroupUser(pulumi.CustomResource):
             __props__['registration_date'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:GroupUser")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:GroupUser"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:GroupUser")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GroupUser, __self__).__init__(
             'azure-nextgen:apimanagement/v20180101:GroupUser',

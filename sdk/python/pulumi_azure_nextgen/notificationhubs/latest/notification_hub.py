@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['NotificationHub']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHub'.""", DeprecationWarning)
+
 
 class NotificationHub(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHub'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +62,7 @@ class NotificationHub(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['WnsCredentialArgs']] wns_credential: The WnsCredential of the created NotificationHub
         """
+        pulumi.log.warn("NotificationHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHub'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -97,7 +102,7 @@ class NotificationHub(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['wns_credential'] = wns_credential
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notificationhubs/v20140901:NotificationHub"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20160301:NotificationHub"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20170401:NotificationHub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notificationhubs:NotificationHub"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20140901:NotificationHub"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20160301:NotificationHub"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20170401:NotificationHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotificationHub, __self__).__init__(
             'azure-nextgen:notificationhubs/latest:NotificationHub',

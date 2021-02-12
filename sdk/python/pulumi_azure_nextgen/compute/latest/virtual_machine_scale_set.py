@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['VirtualMachineScaleSet']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSet'.""", DeprecationWarning)
+
 
 class VirtualMachineScaleSet(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSet'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -72,6 +76,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] zone_balance: Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
         """
+        pulumi.log.warn("VirtualMachineScaleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSet'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -119,7 +124,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSet, __self__).__init__(
             'azure-nextgen:compute/latest:VirtualMachineScaleSet',

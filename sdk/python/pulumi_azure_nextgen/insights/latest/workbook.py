@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Workbook']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Workbook'.""", DeprecationWarning)
+
 
 class Workbook(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Workbook'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +64,7 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] type: Azure resource type
         :param pulumi.Input[str] version: Workbook version
         """
+        pulumi.log.warn("Workbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Workbook'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -105,7 +110,7 @@ class Workbook(pulumi.CustomResource):
             __props__['version'] = version
             __props__['time_modified'] = None
             __props__['user_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:Workbook"), pulumi.Alias(type_="azure-nextgen:insights/v20180617preview:Workbook"), pulumi.Alias(type_="azure-nextgen:insights/v20201020:Workbook")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:Workbook"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:Workbook"), pulumi.Alias(type_="azure-nextgen:insights/v20180617preview:Workbook"), pulumi.Alias(type_="azure-nextgen:insights/v20201020:Workbook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workbook, __self__).__init__(
             'azure-nextgen:insights/latest:Workbook',

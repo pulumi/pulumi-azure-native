@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['SkusNestedResourceTypeSecond']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeSecond'.""", DeprecationWarning)
+
 
 class SkusNestedResourceTypeSecond(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeSecond'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class SkusNestedResourceTypeSecond(pulumi.CustomResource):
         :param pulumi.Input[str] resource_type: The resource type.
         :param pulumi.Input[str] sku: The SKU.
         """
+        pulumi.log.warn("SkusNestedResourceTypeSecond is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeSecond'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -70,7 +75,7 @@ class SkusNestedResourceTypeSecond(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeSecond")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub:SkusNestedResourceTypeSecond"), pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeSecond")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SkusNestedResourceTypeSecond, __self__).__init__(
             'azure-nextgen:providerhub/latest:SkusNestedResourceTypeSecond',

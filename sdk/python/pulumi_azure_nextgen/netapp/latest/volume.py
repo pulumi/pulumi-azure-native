@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Volume']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Volume'.""", DeprecationWarning)
+
 
 class Volume(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Volume'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -75,6 +79,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] volume_type: What type of volume is this
         """
+        pulumi.log.warn("Volume is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Volume'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -152,7 +157,7 @@ class Volume(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Volume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azure-nextgen:netapp/latest:Volume',

@@ -84,7 +84,7 @@ class Certificate(pulumi.CustomResource):
             __props__['provisioning_state_transition_time'] = None
             __props__['public_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/latest:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20170901:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/latest:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20170901:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-nextgen:batch/v20210101:Certificate',

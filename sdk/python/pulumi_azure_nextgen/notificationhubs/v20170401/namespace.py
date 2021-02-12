@@ -104,7 +104,7 @@ class Namespace(pulumi.CustomResource):
             __props__['updated_at'] = updated_at
             __props__['metric_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notificationhubs/latest:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20140901:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20160301:Namespace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notificationhubs:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/latest:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20140901:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20160301:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Namespace, __self__).__init__(
             'azure-nextgen:notificationhubs/v20170401:Namespace',

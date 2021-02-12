@@ -101,7 +101,7 @@ class Volume(pulumi.CustomResource):
             __props__['operation_status'] = None
             __props__['type'] = None
             __props__['volume_container_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/latest:Volume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:Volume"), pulumi.Alias(type_="azure-nextgen:storsimple/latest:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azure-nextgen:storsimple/v20170601:Volume',

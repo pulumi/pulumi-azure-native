@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Secret']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Secret'.""", DeprecationWarning)
+
 
 class Secret(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Secret'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] secret_name: Name of the Secret under the profile.
         """
+        pulumi.log.warn("Secret is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Secret'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -67,7 +72,7 @@ class Secret(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Secret")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:Secret"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Secret")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Secret, __self__).__init__(
             'azure-nextgen:cdn/latest:Secret',

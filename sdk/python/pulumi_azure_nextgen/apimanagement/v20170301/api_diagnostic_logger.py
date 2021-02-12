@@ -74,7 +74,7 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
             __props__['name'] = None
             __props__['sampling'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ApiDiagnosticLogger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiDiagnosticLogger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:ApiDiagnosticLogger"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ApiDiagnosticLogger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiDiagnosticLogger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiDiagnosticLogger, __self__).__init__(
             'azure-nextgen:apimanagement/v20170301:ApiDiagnosticLogger',

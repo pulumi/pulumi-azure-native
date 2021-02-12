@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['TableResourceTable']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:TableResourceTable'.""", DeprecationWarning)
+
 
 class TableResourceTable(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:TableResourceTable'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +45,7 @@ class TableResourceTable(pulumi.CustomResource):
         :param pulumi.Input[str] table_name: Cosmos DB table name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
+        pulumi.log.warn("TableResourceTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:TableResourceTable'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -75,7 +80,7 @@ class TableResourceTable(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:TableResourceTable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:TableResourceTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TableResourceTable, __self__).__init__(
             'azure-nextgen:documentdb/latest:TableResourceTable',

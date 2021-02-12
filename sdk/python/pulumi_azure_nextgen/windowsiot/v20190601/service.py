@@ -75,7 +75,7 @@ class Service(pulumi.CustomResource):
             __props__['name'] = None
             __props__['start_date'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:windowsiot/latest:Service"), pulumi.Alias(type_="azure-nextgen:windowsiot/v20180216preview:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:windowsiot:Service"), pulumi.Alias(type_="azure-nextgen:windowsiot/latest:Service"), pulumi.Alias(type_="azure-nextgen:windowsiot/v20180216preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-nextgen:windowsiot/v20190601:Service',

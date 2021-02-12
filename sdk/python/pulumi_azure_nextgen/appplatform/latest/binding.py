@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Binding']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Binding'.""", DeprecationWarning)
+
 
 class Binding(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Binding'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class Binding(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] service_name: The name of the Service resource.
         """
+        pulumi.log.warn("Binding is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Binding'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class Binding(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform/v20190501preview:Binding"), pulumi.Alias(type_="azure-nextgen:appplatform/v20200701:Binding"), pulumi.Alias(type_="azure-nextgen:appplatform/v20201101preview:Binding")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform:Binding"), pulumi.Alias(type_="azure-nextgen:appplatform/v20190501preview:Binding"), pulumi.Alias(type_="azure-nextgen:appplatform/v20200701:Binding"), pulumi.Alias(type_="azure-nextgen:appplatform/v20201101preview:Binding")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Binding, __self__).__init__(
             'azure-nextgen:appplatform/latest:Binding',

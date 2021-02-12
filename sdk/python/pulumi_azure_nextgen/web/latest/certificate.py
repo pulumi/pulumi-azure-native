@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['Certificate']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Certificate'.""", DeprecationWarning)
+
 
 class Certificate(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Certificate'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Certificate'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,7 +105,7 @@ class Certificate(pulumi.CustomResource):
             __props__['thumbprint'] = None
             __props__['type'] = None
             __props__['valid'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20160301:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20180201:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20181101:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20190801:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200601:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200901:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20201001:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20150801:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20160301:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20180201:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20181101:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20190801:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200601:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200901:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20201001:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-nextgen:web/latest:Certificate',

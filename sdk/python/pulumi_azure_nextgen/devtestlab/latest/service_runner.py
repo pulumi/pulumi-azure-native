@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ServiceRunner']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceRunner'.""", DeprecationWarning)
+
 
 class ServiceRunner(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceRunner'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class ServiceRunner(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
+        pulumi.log.warn("ServiceRunner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceRunner'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class ServiceRunner(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:ServiceRunner"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:ServiceRunner")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:ServiceRunner"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:ServiceRunner"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:ServiceRunner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceRunner, __self__).__init__(
             'azure-nextgen:devtestlab/latest:ServiceRunner',

@@ -10,8 +10,12 @@ from ... import _utilities, _tables
 
 __all__ = ['DisasterRecoveryConfiguration']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DisasterRecoveryConfiguration'.""", DeprecationWarning)
+
 
 class DisasterRecoveryConfiguration(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DisasterRecoveryConfiguration'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -31,6 +35,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         """
+        pulumi.log.warn("DisasterRecoveryConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DisasterRecoveryConfiguration'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -67,7 +72,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
             __props__['role'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:DisasterRecoveryConfiguration"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DisasterRecoveryConfiguration, __self__).__init__(
             'azure-nextgen:sql/latest:DisasterRecoveryConfiguration',

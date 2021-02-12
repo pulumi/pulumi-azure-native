@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['DomainOwnershipIdentifier']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:DomainOwnershipIdentifier'.""", DeprecationWarning)
+
 
 class DomainOwnershipIdentifier(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:DomainOwnershipIdentifier'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
         :param pulumi.Input[str] ownership_id: Ownership Id.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
+        pulumi.log.warn("DomainOwnershipIdentifier is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:DomainOwnershipIdentifier'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -66,7 +71,7 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20201001:DomainOwnershipIdentifier")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:domainregistration:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20201001:DomainOwnershipIdentifier")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DomainOwnershipIdentifier, __self__).__init__(
             'azure-nextgen:domainregistration/latest:DomainOwnershipIdentifier',

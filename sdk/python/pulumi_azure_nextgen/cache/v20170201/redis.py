@@ -91,7 +91,7 @@ class Redis(pulumi.CustomResource):
             __props__['redis_version'] = None
             __props__['ssl_port'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/latest:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20150801:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20160401:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20200601:Redis")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache:Redis"), pulumi.Alias(type_="azure-nextgen:cache/latest:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20150801:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20160401:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20200601:Redis")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Redis, __self__).__init__(
             'azure-nextgen:cache/v20170201:Redis',

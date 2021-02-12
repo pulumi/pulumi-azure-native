@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['ElasticPool']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ElasticPool'.""", DeprecationWarning)
+
 
 class ElasticPool(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ElasticPool'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +52,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
+        pulumi.log.warn("ElasticPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ElasticPool'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class ElasticPool(pulumi.CustomResource):
             __props__['name'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20140401:ElasticPool"), pulumi.Alias(type_="azure-nextgen:sql/v20171001preview:ElasticPool"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ElasticPool"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ElasticPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:ElasticPool"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:ElasticPool"), pulumi.Alias(type_="azure-nextgen:sql/v20171001preview:ElasticPool"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ElasticPool"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ElasticPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ElasticPool, __self__).__init__(
             'azure-nextgen:sql/latest:ElasticPool',

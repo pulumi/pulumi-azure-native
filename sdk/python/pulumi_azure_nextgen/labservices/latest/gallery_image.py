@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['GalleryImage']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:GalleryImage'.""", DeprecationWarning)
+
 
 class GalleryImage(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:GalleryImage'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class GalleryImage(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         """
+        pulumi.log.warn("GalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:GalleryImage'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -88,7 +93,7 @@ class GalleryImage(pulumi.CustomResource):
             __props__['name'] = None
             __props__['plan_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices/v20181015:GalleryImage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices:GalleryImage"), pulumi.Alias(type_="azure-nextgen:labservices/v20181015:GalleryImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImage, __self__).__init__(
             'azure-nextgen:labservices/latest:GalleryImage',

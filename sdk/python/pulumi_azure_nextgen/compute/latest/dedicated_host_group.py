@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['DedicatedHostGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHostGroup'.""", DeprecationWarning)
+
 
 class DedicatedHostGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHostGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
         """
+        pulumi.log.warn("DedicatedHostGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHostGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -74,7 +79,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
             __props__['instance_view'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20190301:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:DedicatedHostGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:DedicatedHostGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedHostGroup, __self__).__init__(
             'azure-nextgen:compute/latest:DedicatedHostGroup',

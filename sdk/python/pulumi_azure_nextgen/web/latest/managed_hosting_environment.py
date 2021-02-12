@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ManagedHostingEnvironment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:ManagedHostingEnvironment'.""", DeprecationWarning)
+
 
 class ManagedHostingEnvironment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:ManagedHostingEnvironment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -103,6 +107,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] vnet_subnet_name: Subnet of the hostingEnvironment's (App Service Environment) virtual network
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]] worker_pools: Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
         """
+        pulumi.log.warn("ManagedHostingEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:ManagedHostingEnvironment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -163,7 +168,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
             __props__['vnet_resource_group_name'] = vnet_resource_group_name
             __props__['vnet_subnet_name'] = vnet_subnet_name
             __props__['worker_pools'] = worker_pools
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:ManagedHostingEnvironment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:ManagedHostingEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20150801:ManagedHostingEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedHostingEnvironment, __self__).__init__(
             'azure-nextgen:web/latest:ManagedHostingEnvironment',

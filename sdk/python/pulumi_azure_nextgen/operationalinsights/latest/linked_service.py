@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['LinkedService']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedService'.""", DeprecationWarning)
+
 
 class LinkedService(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedService'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class LinkedService(pulumi.CustomResource):
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] write_access_resource_id: The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
         """
+        pulumi.log.warn("LinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedService'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class LinkedService(pulumi.CustomResource):
             __props__['write_access_resource_id'] = write_access_resource_id
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/v20151101preview:LinkedService"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20190801preview:LinkedService"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:LinkedService"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:LinkedService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights:LinkedService"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20151101preview:LinkedService"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20190801preview:LinkedService"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:LinkedService"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:LinkedService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedService, __self__).__init__(
             'azure-nextgen:operationalinsights/latest:LinkedService',

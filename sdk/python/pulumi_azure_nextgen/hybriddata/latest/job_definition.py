@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['JobDefinition']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:JobDefinition'.""", DeprecationWarning)
+
 
 class JobDefinition(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:JobDefinition'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +58,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input['State'] state: State of the job definition.
         :param pulumi.Input['UserConfirmation'] user_confirmation: Enum to detect if user confirmation is required. If not passed will default to NotRequired.
         """
+        pulumi.log.warn("JobDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:JobDefinition'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,7 +107,7 @@ class JobDefinition(pulumi.CustomResource):
             __props__['user_confirmation'] = user_confirmation
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybriddata/v20160601:JobDefinition"), pulumi.Alias(type_="azure-nextgen:hybriddata/v20190601:JobDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybriddata:JobDefinition"), pulumi.Alias(type_="azure-nextgen:hybriddata/v20160601:JobDefinition"), pulumi.Alias(type_="azure-nextgen:hybriddata/v20190601:JobDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobDefinition, __self__).__init__(
             'azure-nextgen:hybriddata/latest:JobDefinition',

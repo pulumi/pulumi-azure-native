@@ -65,7 +65,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             __props__['virtual_network_rules'] = virtual_network_rules
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceNetworkRuleSet, __self__).__init__(
             'azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet',

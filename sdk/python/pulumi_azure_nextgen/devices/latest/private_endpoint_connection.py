@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['PrivateEndpointConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:PrivateEndpointConnection'.""", DeprecationWarning)
+
 
 class PrivateEndpointConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:PrivateEndpointConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub.
         :param pulumi.Input[str] resource_name_: The name of the IoT hub.
         """
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:PrivateEndpointConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -67,7 +72,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices/v20200301:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200615:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200710preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200831:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200831preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devices:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200301:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200615:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200710preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200831:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:devices/v20200831preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:devices/latest:PrivateEndpointConnection',

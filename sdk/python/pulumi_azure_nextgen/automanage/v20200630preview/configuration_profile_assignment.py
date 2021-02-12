@@ -64,6 +64,8 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
             __props__['vm_name'] = vm_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automanage:ConfigurationProfileAssignment")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationProfileAssignment, __self__).__init__(
             'azure-nextgen:automanage/v20200630preview:ConfigurationProfileAssignment',
             resource_name,

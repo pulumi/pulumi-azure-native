@@ -74,7 +74,7 @@ class SecurityPartnerProvider(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200301:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200401:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200501:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200601:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200701:SecurityPartnerProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/latest:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200301:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200401:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200501:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200601:SecurityPartnerProvider"), pulumi.Alias(type_="azure-nextgen:network/v20200701:SecurityPartnerProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityPartnerProvider, __self__).__init__(
             'azure-nextgen:network/v20200801:SecurityPartnerProvider',

@@ -69,7 +69,7 @@ class Secret(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault/latest:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20161001:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214preview:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20190901:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:Secret")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/latest:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20161001:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214preview:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20190901:Secret"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:Secret")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Secret, __self__).__init__(
             'azure-nextgen:keyvault/v20180214:Secret',

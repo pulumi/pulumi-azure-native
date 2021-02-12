@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['RulesEngine']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'.""", DeprecationWarning)
+
 
 class RulesEngine(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class RulesEngine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]] rules: A list of rules that define a particular Rules Engine Configuration.
         :param pulumi.Input[str] rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
         """
+        pulumi.log.warn("RulesEngine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -66,7 +71,7 @@ class RulesEngine(pulumi.CustomResource):
             __props__['name'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200101:RulesEngine"), pulumi.Alias(type_="azure-nextgen:network/v20200401:RulesEngine"), pulumi.Alias(type_="azure-nextgen:network/v20200501:RulesEngine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:RulesEngine"), pulumi.Alias(type_="azure-nextgen:network/v20200101:RulesEngine"), pulumi.Alias(type_="azure-nextgen:network/v20200401:RulesEngine"), pulumi.Alias(type_="azure-nextgen:network/v20200501:RulesEngine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RulesEngine, __self__).__init__(
             'azure-nextgen:network/latest:RulesEngine',

@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['Database']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'.""", DeprecationWarning)
+
 
 class Database(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -103,6 +107,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
+        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -160,7 +165,7 @@ class Database(pulumi.CustomResource):
             __props__['status'] = None
             __props__['transparent_data_encryption'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20140401:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20170301preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20171001preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:Database")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20170301preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20171001preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure-nextgen:sql/latest:Database',

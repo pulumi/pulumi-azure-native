@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['ArtifactSource']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ArtifactSource'.""", DeprecationWarning)
+
 
 class ArtifactSource(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ArtifactSource'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class ArtifactSource(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] uri: The artifact source's URI.
         """
+        pulumi.log.warn("ArtifactSource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ArtifactSource'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -92,7 +97,7 @@ class ArtifactSource(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:ArtifactSource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:ArtifactSource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:ArtifactSource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:ArtifactSource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:ArtifactSource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:ArtifactSource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:ArtifactSource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ArtifactSource, __self__).__init__(
             'azure-nextgen:devtestlab/latest:ArtifactSource',

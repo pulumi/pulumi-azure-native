@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['EventSubscription']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:EventSubscription'.""", DeprecationWarning)
+
 
 class EventSubscription(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:EventSubscription'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RetryPolicyArgs']] retry_policy: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         :param pulumi.Input[str] scope: The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
         """
+        pulumi.log.warn("EventSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:EventSubscription'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class EventSubscription(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['topic'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid/v20170615preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20170915preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180101:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180501preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180915preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190101:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190201preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190601:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200101preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200601:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:EventSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20170615preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20170915preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180101:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180501preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180915preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190101:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190201preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190601:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200101preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200601:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:EventSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventSubscription, __self__).__init__(
             'azure-nextgen:eventgrid/latest:EventSubscription',

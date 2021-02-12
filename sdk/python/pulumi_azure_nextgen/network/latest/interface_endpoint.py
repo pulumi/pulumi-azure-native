@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['InterfaceEndpoint']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InterfaceEndpoint'.""", DeprecationWarning)
+
 
 class InterfaceEndpoint(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InterfaceEndpoint'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("InterfaceEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InterfaceEndpoint'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
             __props__['owner'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20181001:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20181101:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20181201:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190201:InterfaceEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180801:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20181001:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20181101:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20181201:InterfaceEndpoint"), pulumi.Alias(type_="azure-nextgen:network/v20190201:InterfaceEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InterfaceEndpoint, __self__).__init__(
             'azure-nextgen:network/latest:InterfaceEndpoint',

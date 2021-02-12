@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['DedicatedHost']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHost'.""", DeprecationWarning)
+
 
 class DedicatedHost(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHost'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +50,7 @@ class DedicatedHost(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("DedicatedHost is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHost'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,7 +92,7 @@ class DedicatedHost(pulumi.CustomResource):
             __props__['provisioning_time'] = None
             __props__['type'] = None
             __props__['virtual_machines'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20190301:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:DedicatedHost")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:DedicatedHost")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedHost, __self__).__init__(
             'azure-nextgen:compute/latest:DedicatedHost',

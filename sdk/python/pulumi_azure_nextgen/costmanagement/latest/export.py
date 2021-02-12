@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Export']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:Export'.""", DeprecationWarning)
+
 
 class Export(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:Export'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +46,7 @@ class Export(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ExportScheduleArgs']] schedule: Has schedule information for the export.
         :param pulumi.Input[str] scope: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
         """
+        pulumi.log.warn("Export is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:Export'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class Export(pulumi.CustomResource):
             __props__['next_run_time_estimate'] = None
             __props__['run_history'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement/v20190101:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190901:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191001:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20200601:Export")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190101:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190901:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191001:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:Export"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20200601:Export")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Export, __self__).__init__(
             'azure-nextgen:costmanagement/latest:Export',

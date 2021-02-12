@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['BackupScheduleGroup']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupScheduleGroup'.""", DeprecationWarning)
+
 
 class BackupScheduleGroup(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupScheduleGroup'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -37,6 +41,7 @@ class BackupScheduleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] schedule_group_name: The name of the schedule group.
         :param pulumi.Input[pulumi.InputType['TimeArgs']] start_time: The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
         """
+        pulumi.log.warn("BackupScheduleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupScheduleGroup'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -71,7 +76,7 @@ class BackupScheduleGroup(pulumi.CustomResource):
             __props__['start_time'] = start_time
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:BackupScheduleGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:BackupScheduleGroup"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:BackupScheduleGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupScheduleGroup, __self__).__init__(
             'azure-nextgen:storsimple/latest:BackupScheduleGroup',

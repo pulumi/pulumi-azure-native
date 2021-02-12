@@ -79,6 +79,8 @@ class BookmarkRelation(pulumi.CustomResource):
             __props__['related_resource_name'] = None
             __props__['related_resource_type'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:BookmarkRelation")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BookmarkRelation, __self__).__init__(
             'azure-nextgen:securityinsights/v20190101preview:BookmarkRelation',
             resource_name,

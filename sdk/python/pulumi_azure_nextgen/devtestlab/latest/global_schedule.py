@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['GlobalSchedule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:GlobalSchedule'.""", DeprecationWarning)
+
 
 class GlobalSchedule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:GlobalSchedule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class GlobalSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
         :param pulumi.Input[pulumi.InputType['WeekDetailsArgs']] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
+        pulumi.log.warn("GlobalSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:GlobalSchedule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,7 +94,7 @@ class GlobalSchedule(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:GlobalSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:GlobalSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:GlobalSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:GlobalSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:GlobalSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GlobalSchedule, __self__).__init__(
             'azure-nextgen:devtestlab/latest:GlobalSchedule',

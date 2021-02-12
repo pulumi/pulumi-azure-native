@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Kpi']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Kpi'.""", DeprecationWarning)
+
 
 class Kpi(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Kpi'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +66,7 @@ class Kpi(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KpiThresholdsArgs']] thres_holds: The KPI thresholds.
         :param pulumi.Input[str] unit: The unit of measurement for the KPI.
         """
+        pulumi.log.warn("Kpi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Kpi'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -118,7 +123,7 @@ class Kpi(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:Kpi"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Kpi")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:Kpi"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:Kpi"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Kpi")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Kpi, __self__).__init__(
             'azure-nextgen:customerinsights/latest:Kpi',

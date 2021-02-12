@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Environment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Environment'.""", DeprecationWarning)
+
 
 class Environment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Environment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +47,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_name: The name of the user profile.
         """
+        pulumi.log.warn("Environment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Environment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class Environment(pulumi.CustomResource):
             __props__['resource_group_id'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Environment"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:Environment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:Environment"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Environment"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Environment, __self__).__init__(
             'azure-nextgen:devtestlab/latest:Environment',

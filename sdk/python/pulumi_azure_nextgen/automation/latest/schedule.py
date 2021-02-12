@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Schedule']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Schedule'.""", DeprecationWarning)
+
 
 class Schedule(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Schedule'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +54,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] start_time: Gets or sets the start time of the schedule.
         :param pulumi.Input[str] time_zone: Gets or sets the time zone of the schedule.
         """
+        pulumi.log.warn("Schedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Schedule'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -98,7 +103,7 @@ class Schedule(pulumi.CustomResource):
             __props__['next_run_offset_minutes'] = None
             __props__['start_time_offset_minutes'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Schedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Schedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schedule, __self__).__init__(
             'azure-nextgen:automation/latest:Schedule',

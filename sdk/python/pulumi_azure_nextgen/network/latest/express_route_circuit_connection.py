@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ExpressRouteCircuitConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteCircuitConnection'.""", DeprecationWarning)
+
 
 class ExpressRouteCircuitConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteCircuitConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +53,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         :param pulumi.Input[str] peering_name: The name of the peering.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        pulumi.log.warn("ExpressRouteCircuitConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteCircuitConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,7 +94,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180201:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180401:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180601:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180701:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:ExpressRouteCircuitConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180201:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180401:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180601:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180701:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ExpressRouteCircuitConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:ExpressRouteCircuitConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExpressRouteCircuitConnection, __self__).__init__(
             'azure-nextgen:network/latest:ExpressRouteCircuitConnection',

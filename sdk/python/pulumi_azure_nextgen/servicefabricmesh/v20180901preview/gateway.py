@@ -85,6 +85,8 @@ class Gateway(pulumi.CustomResource):
             __props__['status'] = None
             __props__['status_details'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabricmesh:Gateway")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gateway, __self__).__init__(
             'azure-nextgen:servicefabricmesh/v20180901preview:Gateway',
             resource_name,

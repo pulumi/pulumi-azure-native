@@ -11,8 +11,12 @@ from . import outputs
 
 __all__ = ['VirtualWan']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualWan'.""", DeprecationWarning)
+
 
 class VirtualWan(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualWan'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class VirtualWan(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of the VirtualWAN.
         :param pulumi.Input[str] virtual_wan_name: The name of the VirtualWAN being created or updated.
         """
+        pulumi.log.warn("VirtualWan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualWan'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,7 +85,7 @@ class VirtualWan(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['virtual_hubs'] = None
             __props__['vpn_sites'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualWan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualWan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualWan, __self__).__init__(
             'azure-nextgen:network/latest:VirtualWan',

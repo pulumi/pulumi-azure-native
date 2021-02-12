@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['ApplicationGatewayPrivateEndpointConnection']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection'.""", DeprecationWarning)
+
 
 class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +43,7 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
+        pulumi.log.warn("ApplicationGatewayPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,7 +78,7 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
             __props__['private_endpoint'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:ApplicationGatewayPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:ApplicationGatewayPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationGatewayPrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:network/latest:ApplicationGatewayPrivateEndpointConnection',

@@ -81,7 +81,7 @@ class SiteLogsConfig(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteLogsConfig")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/latest:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteLogsConfig"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteLogsConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteLogsConfig, __self__).__init__(
             'azure-nextgen:web/v20150801:SiteLogsConfig',

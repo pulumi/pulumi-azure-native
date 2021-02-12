@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['BlobServiceProperties']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobServiceProperties'.""", DeprecationWarning)
+
 
 class BlobServiceProperties(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobServiceProperties'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class BlobServiceProperties(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['RestorePolicyPropertiesArgs']] restore_policy: The blob service properties for blob restore policy.
         """
+        pulumi.log.warn("BlobServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobServiceProperties'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -90,7 +95,7 @@ class BlobServiceProperties(pulumi.CustomResource):
             __props__['name'] = None
             __props__['sku'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20180701:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobServiceProperties, __self__).__init__(
             'azure-nextgen:storage/latest:BlobServiceProperties',

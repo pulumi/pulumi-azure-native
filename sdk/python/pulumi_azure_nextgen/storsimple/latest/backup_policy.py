@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['BackupPolicy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupPolicy'.""", DeprecationWarning)
+
 
 class BackupPolicy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupPolicy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[Sequence[pulumi.Input[str]]] volume_ids: The path IDs of the volumes which are part of the backup policy.
         """
+        pulumi.log.warn("BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupPolicy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -79,7 +84,7 @@ class BackupPolicy(pulumi.CustomResource):
             __props__['schedules_count'] = None
             __props__['ssm_host_name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:BackupPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupPolicy, __self__).__init__(
             'azure-nextgen:storsimple/latest:BackupPolicy',

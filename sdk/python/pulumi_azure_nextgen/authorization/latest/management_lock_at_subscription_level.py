@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ManagementLockAtSubscriptionLevel']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtSubscriptionLevel'.""", DeprecationWarning)
+
 
 class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtSubscriptionLevel'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +40,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
         :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]] owners: The owners of the lock.
         """
+        pulumi.log.warn("ManagementLockAtSubscriptionLevel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtSubscriptionLevel'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -63,7 +68,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
             __props__['owners'] = owners
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:ManagementLockAtSubscriptionLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLockAtSubscriptionLevel, __self__).__init__(
             'azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel',

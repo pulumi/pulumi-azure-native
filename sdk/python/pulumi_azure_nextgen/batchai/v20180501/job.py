@@ -145,7 +145,7 @@ class Job(pulumi.CustomResource):
             __props__['provisioning_state_transition_time'] = None
             __props__['tool_type'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai/latest:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai:Job"), pulumi.Alias(type_="azure-nextgen:batchai/latest:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-nextgen:batchai/v20180501:Job',

@@ -82,7 +82,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SoftwareUpdateConfigurationByName, __self__).__init__(
             'azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName',

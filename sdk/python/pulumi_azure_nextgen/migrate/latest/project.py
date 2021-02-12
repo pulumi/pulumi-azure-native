@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Project']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Project'.""", DeprecationWarning)
+
 
 class Project(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Project'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param Any tags: Tags provided by Azure Tagging service.
         """
+        pulumi.log.warn("Project is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Project'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -69,7 +74,7 @@ class Project(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate/v20191001:Project")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate:Project"), pulumi.Alias(type_="azure-nextgen:migrate/v20191001:Project")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Project, __self__).__init__(
             'azure-nextgen:migrate/latest:Project',

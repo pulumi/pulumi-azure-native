@@ -83,7 +83,7 @@ class AnalyticsItem(pulumi.CustomResource):
             __props__['time_created'] = None
             __props__['time_modified'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/latest:AnalyticsItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:AnalyticsItem"), pulumi.Alias(type_="azure-nextgen:insights/latest:AnalyticsItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AnalyticsItem, __self__).__init__(
             'azure-nextgen:insights/v20150501:AnalyticsItem',

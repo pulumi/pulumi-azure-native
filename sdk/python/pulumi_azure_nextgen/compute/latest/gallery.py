@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Gallery']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Gallery'.""", DeprecationWarning)
+
 
 class Gallery(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Gallery'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class Gallery(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SharingProfileArgs']] sharing_profile: Profile for gallery sharing to subscription or tenant
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.log.warn("Gallery is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Gallery'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -71,7 +76,7 @@ class Gallery(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20180601:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Gallery")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:Gallery"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Gallery")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gallery, __self__).__init__(
             'azure-nextgen:compute/latest:Gallery',

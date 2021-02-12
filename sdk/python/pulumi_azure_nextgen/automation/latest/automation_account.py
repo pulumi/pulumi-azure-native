@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['AutomationAccount']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:AutomationAccount'.""", DeprecationWarning)
+
 
 class AutomationAccount(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:AutomationAccount'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +44,7 @@ class AutomationAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets account SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
+        pulumi.log.warn("AutomationAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:AutomationAccount'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -74,7 +79,7 @@ class AutomationAccount(pulumi.CustomResource):
             __props__['last_modified_time'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:AutomationAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:AutomationAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutomationAccount, __self__).__init__(
             'azure-nextgen:automation/latest:AutomationAccount',

@@ -11,8 +11,12 @@ from ._enums import *
 
 __all__ = ['DatabaseThreatDetectionPolicy']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DatabaseThreatDetectionPolicy'.""", DeprecationWarning)
+
 
 class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DatabaseThreatDetectionPolicy'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +56,7 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
         :param pulumi.Input[Union[str, 'SecurityAlertPolicyUseServerDefault']] use_server_default: Specifies whether to use the default server policy.
         """
+        pulumi.log.warn("DatabaseThreatDetectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DatabaseThreatDetectionPolicy'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -95,7 +100,7 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
             __props__['kind'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20140401:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:DatabaseThreatDetectionPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:DatabaseThreatDetectionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseThreatDetectionPolicy, __self__).__init__(
             'azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy',

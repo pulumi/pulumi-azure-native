@@ -12,8 +12,12 @@ from ._enums import *
 
 __all__ = ['Role']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Role'.""", DeprecationWarning)
+
 
 class Role(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Role'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,6 +39,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] name: The role name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
+        pulumi.log.warn("Role is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Role'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -66,7 +71,7 @@ class Role(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Role")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Role")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Role, __self__).__init__(
             'azure-nextgen:databoxedge/latest:Role',

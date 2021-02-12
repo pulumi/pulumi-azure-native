@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['IntegrationAccountCertificate']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountCertificate'.""", DeprecationWarning)
+
 
 class IntegrationAccountCertificate(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountCertificate'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +47,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
+        pulumi.log.warn("IntegrationAccountCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountCertificate'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -78,7 +83,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:IntegrationAccountCertificate"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountCertificate"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountCertificate"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationAccountCertificate"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:IntegrationAccountCertificate"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountCertificate"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountCertificate"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountCertificate, __self__).__init__(
             'azure-nextgen:logic/latest:IntegrationAccountCertificate',

@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Environment']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:Environment'.""", DeprecationWarning)
+
 
 class Environment(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:Environment'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +51,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         """
+        pulumi.log.warn("Environment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:Environment'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -95,7 +100,7 @@ class Environment(pulumi.CustomResource):
             __props__['password_last_reset'] = None
             __props__['total_usage'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices/v20181015:Environment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices:Environment"), pulumi.Alias(type_="azure-nextgen:labservices/v20181015:Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Environment, __self__).__init__(
             'azure-nextgen:labservices/latest:Environment',

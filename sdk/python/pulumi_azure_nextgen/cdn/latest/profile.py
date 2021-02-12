@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['Profile']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Profile'.""", DeprecationWarning)
+
 
 class Profile(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Profile'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,6 +42,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.log.warn("Profile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Profile'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -72,7 +77,7 @@ class Profile(pulumi.CustomResource):
             __props__['resource_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20170402:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Profile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20170402:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Profile"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
             'azure-nextgen:cdn/latest:Profile',

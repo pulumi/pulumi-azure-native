@@ -13,8 +13,12 @@ from ._inputs import *
 
 __all__ = ['ConfigurationStore']
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appconfiguration:ConfigurationStore'.""", DeprecationWarning)
+
 
 class ConfigurationStore(pulumi.CustomResource):
+    warnings.warn("""The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appconfiguration:ConfigurationStore'.""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +48,7 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the configuration store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
+        pulumi.log.warn("ConfigurationStore is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appconfiguration:ConfigurationStore'.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,7 +86,7 @@ class ConfigurationStore(pulumi.CustomResource):
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20191001:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20200601:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appconfiguration:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20191001:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20200601:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationStore, __self__).__init__(
             'azure-nextgen:appconfiguration/latest:ConfigurationStore',
