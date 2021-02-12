@@ -43,6 +43,9 @@ func NewSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:offazure:Site"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:offazure/latest:Site"),
 		},
 		{

@@ -13,6 +13,8 @@ import (
 
 // An Azure resource which represents access to a suite of Maps REST APIs.
 // Latest API Version: 2018-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maps:Account'.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +49,9 @@ func NewAccount(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:maps:Account"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:maps/v20170101preview:Account"),
 		},

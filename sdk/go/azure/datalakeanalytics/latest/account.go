@@ -13,6 +13,8 @@ import (
 
 // A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
 // Latest API Version: 2016-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:Account'.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +107,9 @@ func NewAccount(ctx *pulumi.Context,
 		args.QueryStoreRetention = pulumi.IntPtr(30)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datalakeanalytics:Account"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20151001preview:Account"),
 		},

@@ -51,6 +51,12 @@ func NewTransactionNode(ctx *pulumi.Context,
 	if args.TransactionNodeName == nil {
 		return nil, errors.New("invalid value for required argument 'TransactionNodeName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:blockchain:TransactionNode"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TransactionNode
 	err := ctx.RegisterResource("azure-nextgen:blockchain/v20180601preview:TransactionNode", name, args, &resource, opts...)
 	if err != nil {

@@ -71,6 +71,9 @@ func NewTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerregistry:Task"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/latest:Task"),
 		},
 		{

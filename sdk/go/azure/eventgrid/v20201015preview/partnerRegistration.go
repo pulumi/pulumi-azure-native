@@ -76,6 +76,9 @@ func NewPartnerRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:eventgrid:PartnerRegistration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:PartnerRegistration"),
 		},
 	})

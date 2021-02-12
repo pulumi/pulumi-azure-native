@@ -44,6 +44,9 @@ func NewCustomApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:CustomApi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:CustomApi"),
 		},
 	})

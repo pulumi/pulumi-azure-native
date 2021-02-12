@@ -102,6 +102,9 @@ func NewSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:Site"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:Site"),
 		},
 		{

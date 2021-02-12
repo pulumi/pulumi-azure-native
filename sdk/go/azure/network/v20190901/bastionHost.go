@@ -48,6 +48,9 @@ func NewBastionHost(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:BastionHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:BastionHost"),
 		},
 		{

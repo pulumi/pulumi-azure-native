@@ -54,6 +54,9 @@ func NewCertificateCsr(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:CertificateCsr"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:CertificateCsr"),
 		},
 	})

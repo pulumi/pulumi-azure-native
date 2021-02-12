@@ -13,6 +13,8 @@ import (
 
 // Job Definition.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:JobDefinition'.
 type JobDefinition struct {
 	pulumi.CustomResourceState
 
@@ -70,6 +72,9 @@ func NewJobDefinition(ctx *pulumi.Context,
 		args.UserConfirmation = &e
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:hybriddata:JobDefinition"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:hybriddata/v20160601:JobDefinition"),
 		},

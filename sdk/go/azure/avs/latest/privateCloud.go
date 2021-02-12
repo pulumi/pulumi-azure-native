@@ -13,6 +13,8 @@ import (
 
 // A private cloud resource
 // Latest API Version: 2020-03-20.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:PrivateCloud'.
 type PrivateCloud struct {
 	pulumi.CustomResourceState
 
@@ -82,6 +84,9 @@ func NewPrivateCloud(ctx *pulumi.Context,
 		args.Internet = pulumi.StringPtr("Disabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:avs:PrivateCloud"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200320:PrivateCloud"),
 		},

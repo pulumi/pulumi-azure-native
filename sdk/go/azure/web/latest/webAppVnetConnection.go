@@ -13,6 +13,8 @@ import (
 
 // Virtual Network information contract.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppVnetConnection'.
 type WebAppVnetConnection struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +60,9 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VnetName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:WebAppVnetConnection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppVnetConnection"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // SecurityPolicy association for AzureFrontDoor profile
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:SecurityPolicy'.
 type SecurityPolicy struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewSecurityPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SecurityPolicyName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cdn:SecurityPolicy"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:SecurityPolicy"),
 		},

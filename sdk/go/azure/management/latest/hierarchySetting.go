@@ -13,6 +13,8 @@ import (
 
 // Settings defined at the Management Group scope.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:HierarchySetting'.
 type HierarchySetting struct {
 	pulumi.CustomResourceState
 
@@ -39,6 +41,9 @@ func NewHierarchySetting(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'GroupId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:management:HierarchySetting"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:management/v20200201:HierarchySetting"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // The private endpoint connection of a provisioning service
 // Latest API Version: 2020-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection'.
 type IotDpsResourcePrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection"),
 		},

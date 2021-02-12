@@ -94,6 +94,9 @@ func NewPrediction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:customerinsights:Prediction"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/latest:Prediction"),
 		},
 	})

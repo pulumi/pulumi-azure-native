@@ -40,6 +40,9 @@ func NewWebApplicationSettings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:WebApplicationSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebApplicationSettings"),
 		},
 		{

@@ -13,6 +13,8 @@ import (
 
 // A Media Services account.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:MediaService'.
 type MediaService struct {
 	pulumi.CustomResourceState
 
@@ -51,6 +53,9 @@ func NewMediaService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:media:MediaService"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20151001:MediaService"),
 		},

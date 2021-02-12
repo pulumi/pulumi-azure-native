@@ -57,6 +57,12 @@ func NewKeyValue(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:appconfiguration:KeyValue"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource KeyValue
 	err := ctx.RegisterResource("azure-nextgen:appconfiguration/v20200701preview:KeyValue", name, args, &resource, opts...)
 	if err != nil {

@@ -42,6 +42,9 @@ func NewManagementLockAtSubscriptionLevel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:authorization:ManagementLockAtSubscriptionLevel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel"),
 		},
 		{

@@ -61,6 +61,9 @@ func NewVirtualMachineExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute:VirtualMachineExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:VirtualMachineExtension"),
 		},
 		{

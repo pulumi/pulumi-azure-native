@@ -53,6 +53,12 @@ func NewPublishedBlueprint(ctx *pulumi.Context,
 	if args.VersionId == nil {
 		return nil, errors.New("invalid value for required argument 'VersionId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:blueprint:PublishedBlueprint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PublishedBlueprint
 	err := ctx.RegisterResource("azure-nextgen:blueprint/v20181101preview:PublishedBlueprint", name, args, &resource, opts...)
 	if err != nil {

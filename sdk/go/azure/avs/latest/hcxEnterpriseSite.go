@@ -13,6 +13,8 @@ import (
 
 // An HCX Enterprise Site resource
 // Latest API Version: 2020-03-20.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:HcxEnterpriseSite'.
 type HcxEnterpriseSite struct {
 	pulumi.CustomResourceState
 
@@ -43,6 +45,9 @@ func NewHcxEnterpriseSite(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:avs:HcxEnterpriseSite"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200320:HcxEnterpriseSite"),
 		},

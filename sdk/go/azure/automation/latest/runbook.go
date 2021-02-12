@@ -13,6 +13,8 @@ import (
 
 // Definition of the runbook type.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Runbook'.
 type Runbook struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +80,9 @@ func NewRunbook(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RunbookType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:automation:Runbook"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Runbook"),
 		},

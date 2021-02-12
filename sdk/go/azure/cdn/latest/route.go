@@ -13,6 +13,8 @@ import (
 
 // Friendly Routes name mapping to the any Routes or secret related information.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Route'.
 type Route struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +76,9 @@ func NewRoute(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RouteName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cdn:Route"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:Route"),
 		},

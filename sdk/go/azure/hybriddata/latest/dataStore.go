@@ -13,6 +13,8 @@ import (
 
 // Data store.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataStore'.
 type DataStore struct {
 	pulumi.CustomResourceState
 
@@ -52,6 +54,9 @@ func NewDataStore(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:hybriddata:DataStore"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:hybriddata/v20160601:DataStore"),
 		},

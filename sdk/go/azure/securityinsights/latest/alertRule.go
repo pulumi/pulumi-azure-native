@@ -13,6 +13,8 @@ import (
 
 // Alert rule.
 // Latest API Version: 2020-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:AlertRule'.
 type AlertRule struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewAlertRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights:AlertRule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:AlertRule"),
 		},

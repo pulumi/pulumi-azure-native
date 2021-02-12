@@ -13,6 +13,8 @@ import (
 
 // The private endpoint connection of an IotHub
 // Latest API Version: 2020-08-31.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devices:PrivateEndpointConnection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200301:PrivateEndpointConnection"),
 		},

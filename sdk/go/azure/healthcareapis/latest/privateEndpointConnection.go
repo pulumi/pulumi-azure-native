@@ -13,6 +13,8 @@ import (
 
 // The Private Endpoint Connection resource.
 // Latest API Version: 2021-01-11.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthcareapis:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:healthcareapis:PrivateEndpointConnection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20200330:PrivateEndpointConnection"),
 		},

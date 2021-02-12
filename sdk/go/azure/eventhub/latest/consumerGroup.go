@@ -13,6 +13,8 @@ import (
 
 // Single item in List or Get Consumer group operation
 // Latest API Version: 2017-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:ConsumerGroup'.
 type ConsumerGroup struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewConsumerGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:eventhub:ConsumerGroup"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20140901:ConsumerGroup"),
 		},

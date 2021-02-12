@@ -13,6 +13,8 @@ import (
 
 // A virtual network.
 // Latest API Version: 2018-09-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualNetwork'.
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab:VirtualNetwork"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:VirtualNetwork"),
 		},

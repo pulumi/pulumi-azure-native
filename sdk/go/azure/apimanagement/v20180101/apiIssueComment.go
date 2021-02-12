@@ -57,6 +57,9 @@ func NewApiIssueComment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:ApiIssueComment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiIssueComment"),
 		},
 		{

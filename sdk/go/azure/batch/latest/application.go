@@ -13,6 +13,8 @@ import (
 
 // Contains information about an application in a Batch account.
 // Latest API Version: 2021-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Application'.
 type Application struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +49,9 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:batch:Application"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20151201:Application"),
 		},

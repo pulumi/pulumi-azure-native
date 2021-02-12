@@ -13,6 +13,8 @@ import (
 
 // Network profile resource.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkProfile'.
 type NetworkProfile struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewNetworkProfile(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:NetworkProfile"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:NetworkProfile"),
 		},

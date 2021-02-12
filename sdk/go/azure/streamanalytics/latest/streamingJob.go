@@ -13,6 +13,8 @@ import (
 
 // A streaming job object, containing all information associated with the named streaming job.
 // Latest API Version: 2016-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:StreamingJob'.
 type StreamingJob struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +80,9 @@ func NewStreamingJob(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:streamanalytics:StreamingJob"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20160301:StreamingJob"),
 		},

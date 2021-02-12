@@ -12,6 +12,8 @@ import (
 )
 
 // Latest API Version: 2016-01-29.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbi:WorkspaceCollection'.
 type WorkspaceCollection struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +43,9 @@ func NewWorkspaceCollection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceCollectionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:powerbi:WorkspaceCollection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:powerbi/v20160129:WorkspaceCollection"),
 		},

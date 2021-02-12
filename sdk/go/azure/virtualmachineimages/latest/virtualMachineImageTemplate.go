@@ -13,6 +13,8 @@ import (
 
 // Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
 // Latest API Version: 2020-02-14.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate'.
 type VirtualMachineImageTemplate struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +69,9 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"),
 		},

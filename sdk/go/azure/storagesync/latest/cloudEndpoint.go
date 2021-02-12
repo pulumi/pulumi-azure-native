@@ -13,6 +13,8 @@ import (
 
 // Cloud Endpoint object.
 // Latest API Version: 2020-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:CloudEndpoint'.
 type CloudEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -60,6 +62,9 @@ func NewCloudEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SyncGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storagesync:CloudEndpoint"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20170605preview:CloudEndpoint"),
 		},

@@ -14,6 +14,8 @@ import (
 // The cluster resource
 //
 // Latest API Version: 2020-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Cluster'.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -117,6 +119,9 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:servicefabric:Cluster"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20160901:Cluster"),
 		},

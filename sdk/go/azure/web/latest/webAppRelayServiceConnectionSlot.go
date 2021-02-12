@@ -13,6 +13,8 @@ import (
 
 // Hybrid Connection for an App Service app.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppRelayServiceConnectionSlot'.
 type WebAppRelayServiceConnectionSlot struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewWebAppRelayServiceConnectionSlot(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:WebAppRelayServiceConnectionSlot"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppRelayServiceConnectionSlot"),
 		},

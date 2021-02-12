@@ -78,6 +78,9 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:search:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:search/latest:Service"),
 		},
 		{

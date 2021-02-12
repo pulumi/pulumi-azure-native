@@ -42,6 +42,12 @@ func NewLedger(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:confidentialledger:Ledger"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Ledger
 	err := ctx.RegisterResource("azure-nextgen:confidentialledger/v20201201preview:Ledger", name, args, &resource, opts...)
 	if err != nil {

@@ -13,6 +13,8 @@ import (
 
 // The lock information.
 // Latest API Version: 2016-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockByScope'.
 type ManagementLockByScope struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +47,9 @@ func NewManagementLockByScope(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:authorization:ManagementLockByScope"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20160901:ManagementLockByScope"),
 		},

@@ -55,6 +55,9 @@ func NewObjectReplicationPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storage:ObjectReplicationPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/latest:ObjectReplicationPolicy"),
 		},
 		{

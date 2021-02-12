@@ -13,6 +13,8 @@ import (
 
 // An action group resource.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActionGroup'.
 type ActionGroup struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +75,9 @@ func NewActionGroup(ctx *pulumi.Context,
 		args.Enabled = pulumi.Bool(true)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:ActionGroup"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20170401:ActionGroup"),
 		},

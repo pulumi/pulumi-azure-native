@@ -13,6 +13,8 @@ import (
 
 // The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Image'.
 type Image struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewImage(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:compute:Image"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20160430preview:Image"),
 		},

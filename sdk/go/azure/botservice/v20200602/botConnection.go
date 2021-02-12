@@ -51,6 +51,9 @@ func NewBotConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:botservice:BotConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice/latest:BotConnection"),
 		},
 		{

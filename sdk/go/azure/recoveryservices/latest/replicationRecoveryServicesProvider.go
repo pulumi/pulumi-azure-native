@@ -13,6 +13,8 @@ import (
 
 // Provider details.
 // Latest API Version: 2018-07-10.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider'.
 type ReplicationRecoveryServicesProvider struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"),
 		},

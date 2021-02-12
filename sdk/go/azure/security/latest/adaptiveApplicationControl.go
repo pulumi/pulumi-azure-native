@@ -12,6 +12,8 @@ import (
 )
 
 // Latest API Version: 2020-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:AdaptiveApplicationControl'.
 type AdaptiveApplicationControl struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'GroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:security:AdaptiveApplicationControl"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20150601preview:AdaptiveApplicationControl"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // The remediation definition.
 // Latest API Version: 2019-07-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtSubscription'.
 type RemediationAtSubscription struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewRemediationAtSubscription(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RemediationName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:policyinsights:RemediationAtSubscription"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription"),
 		},

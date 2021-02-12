@@ -46,6 +46,12 @@ func NewChannel(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:engagementfabric:Channel"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Channel
 	err := ctx.RegisterResource("azure-nextgen:engagementfabric/v20180901preview:Channel", name, args, &resource, opts...)
 	if err != nil {

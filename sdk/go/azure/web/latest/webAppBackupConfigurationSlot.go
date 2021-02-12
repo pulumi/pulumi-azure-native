@@ -13,6 +13,8 @@ import (
 
 // Description of a backup which will be performed.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfigurationSlot'.
 type WebAppBackupConfigurationSlot struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +58,9 @@ func NewWebAppBackupConfigurationSlot(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StorageAccountUrl'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:WebAppBackupConfigurationSlot"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppBackupConfigurationSlot"),
 		},

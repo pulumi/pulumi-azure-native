@@ -13,6 +13,8 @@ import (
 
 // An application package which represents a particular version of an application.
 // Latest API Version: 2021-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:ApplicationPackage'.
 type ApplicationPackage struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +56,9 @@ func NewApplicationPackage(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VersionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:batch:ApplicationPackage"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20151201:ApplicationPackage"),
 		},

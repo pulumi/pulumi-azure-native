@@ -13,6 +13,8 @@ import (
 
 // Trigger resource type.
 // Latest API Version: 2018-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Trigger'.
 type Trigger struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewTrigger(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TriggerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datafactory:Trigger"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:Trigger"),
 		},

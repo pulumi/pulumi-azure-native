@@ -13,6 +13,8 @@ import (
 
 // CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Profile'.
 type Profile struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewProfile(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cdn:Profile"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20150601:Profile"),
 		},

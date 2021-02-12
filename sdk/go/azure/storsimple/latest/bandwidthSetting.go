@@ -13,6 +13,8 @@ import (
 
 // The bandwidth setting.
 // Latest API Version: 2017-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BandwidthSetting'.
 type BandwidthSetting struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Schedules'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storsimple:BandwidthSetting"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20170601:BandwidthSetting"),
 		},

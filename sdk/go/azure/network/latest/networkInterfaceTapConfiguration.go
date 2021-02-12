@@ -13,6 +13,8 @@ import (
 
 // Tap configuration in a Network Interface.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkInterfaceTapConfiguration'.
 type NetworkInterfaceTapConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +47,9 @@ func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TapConfigurationName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:NetworkInterfaceTapConfiguration"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:NetworkInterfaceTapConfiguration"),
 		},

@@ -60,6 +60,9 @@ func NewServerFarmRouteForVnet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:ServerFarmRouteForVnet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:ServerFarmRouteForVnet"),
 		},
 		{

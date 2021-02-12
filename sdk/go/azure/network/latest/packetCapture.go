@@ -13,6 +13,8 @@ import (
 
 // Information about packet capture session.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PacketCapture'.
 type PacketCapture struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +70,9 @@ func NewPacketCapture(ctx *pulumi.Context,
 		args.TotalBytesPerSession = pulumi.Float64Ptr(1073741824)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:PacketCapture"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20160901:PacketCapture"),
 		},

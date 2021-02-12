@@ -13,6 +13,8 @@ import (
 
 // Data Lake Analytics firewall rule information.
 // Latest API Version: 2016-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:FirewallRule'.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StartIpAddress'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datalakeanalytics:FirewallRule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20151001preview:FirewallRule"),
 		},

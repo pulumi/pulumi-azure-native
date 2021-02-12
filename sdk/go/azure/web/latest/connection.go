@@ -13,6 +13,8 @@ import (
 
 // API connection
 // Latest API Version: 2016-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:Connection'.
 type Connection struct {
 	pulumi.CustomResourceState
 
@@ -43,6 +45,9 @@ func NewConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:Connection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801preview:Connection"),
 		},

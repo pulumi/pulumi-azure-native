@@ -55,6 +55,9 @@ func NewAsset(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:media:Asset"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/latest:Asset"),
 		},
 		{

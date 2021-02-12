@@ -13,6 +13,8 @@ import (
 
 // ExpressRoute Circuit Authorization
 // Latest API Version: 2020-03-20.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'.
 type Authorization struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +47,9 @@ func NewAuthorization(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:avs:Authorization"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200320:Authorization"),
 		},

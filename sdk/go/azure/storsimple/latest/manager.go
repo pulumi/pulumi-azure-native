@@ -13,6 +13,8 @@ import (
 
 // The StorSimple Manager.
 // Latest API Version: 2017-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:Manager'.
 type Manager struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewManager(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storsimple:Manager"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:Manager"),
 		},

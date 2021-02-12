@@ -13,6 +13,8 @@ import (
 
 // The batch configuration resource definition.
 // Latest API Version: 2019-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountBatchConfiguration'.
 type IntegrationAccountBatchConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountBatchConfiguration"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration"),
 		},

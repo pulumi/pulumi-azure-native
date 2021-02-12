@@ -13,6 +13,8 @@ import (
 
 // Information about the connection monitor.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ConnectionMonitor'.
 type ConnectionMonitor struct {
 	pulumi.CustomResourceState
 
@@ -77,6 +79,9 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 		args.MonitoringIntervalInSeconds = pulumi.IntPtr(60)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:ConnectionMonitor"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20171001:ConnectionMonitor"),
 		},

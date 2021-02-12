@@ -41,6 +41,12 @@ func NewServiceTask(ctx *pulumi.Context,
 	if args.TaskName == nil {
 		return nil, errors.New("invalid value for required argument 'TaskName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datamigration:ServiceTask"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServiceTask
 	err := ctx.RegisterResource("azure-nextgen:datamigration/v20180715preview:ServiceTask", name, args, &resource, opts...)
 	if err != nil {

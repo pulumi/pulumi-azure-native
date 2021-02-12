@@ -13,6 +13,8 @@ import (
 
 // Represents a bookmark in Azure Security Insights.
 // Latest API Version: 2020-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Bookmark'.
 type Bookmark struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +75,9 @@ func NewBookmark(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights:Bookmark"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:Bookmark"),
 		},

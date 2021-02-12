@@ -13,6 +13,8 @@ import (
 
 // The device security group resource
 // Latest API Version: 2019-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:DeviceSecurityGroup'.
 type DeviceSecurityGroup struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewDeviceSecurityGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:security:DeviceSecurityGroup"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20170801preview:DeviceSecurityGroup"),
 		},

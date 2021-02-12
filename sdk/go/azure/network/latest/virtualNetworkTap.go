@@ -13,6 +13,8 @@ import (
 
 // Virtual Network Tap resource.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkTap'.
 type VirtualNetworkTap struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +56,9 @@ func NewVirtualNetworkTap(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TapName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:VirtualNetworkTap"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:VirtualNetworkTap"),
 		},

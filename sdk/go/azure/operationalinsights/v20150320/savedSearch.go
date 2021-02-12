@@ -60,6 +60,9 @@ func NewSavedSearch(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:operationalinsights:SavedSearch"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/latest:SavedSearch"),
 		},
 		{

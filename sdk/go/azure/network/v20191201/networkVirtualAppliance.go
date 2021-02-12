@@ -58,6 +58,9 @@ func NewNetworkVirtualAppliance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:NetworkVirtualAppliance"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:NetworkVirtualAppliance"),
 		},
 		{

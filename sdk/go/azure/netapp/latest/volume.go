@@ -13,6 +13,8 @@ import (
 
 // Volume resource
 // Latest API Version: 2020-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Volume'.
 type Volume struct {
 	pulumi.CustomResourceState
 
@@ -122,6 +124,9 @@ func NewVolume(ctx *pulumi.Context,
 		args.UsageThreshold = pulumi.Float64(107374182400)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:netapp:Volume"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20170815:Volume"),
 		},

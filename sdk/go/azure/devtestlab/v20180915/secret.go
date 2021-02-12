@@ -52,6 +52,9 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:Secret"),
 		},
 		{

@@ -13,6 +13,8 @@ import (
 
 // The description of the provisioning service.
 // Latest API Version: 2020-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResource'.
 type IotDpsResource struct {
 	pulumi.CustomResourceState
 
@@ -52,6 +54,9 @@ func NewIotDpsResource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devices:IotDpsResource"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20170821preview:IotDpsResource"),
 		},

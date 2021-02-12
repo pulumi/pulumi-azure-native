@@ -86,6 +86,12 @@ func NewManagedCluster(ctx *pulumi.Context,
 	if args.HttpGatewayConnectionPort == nil {
 		args.HttpGatewayConnectionPort = pulumi.IntPtr(19080)
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:servicefabric:ManagedCluster"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagedCluster
 	err := ctx.RegisterResource("azure-nextgen:servicefabric/v20200101preview:ManagedCluster", name, args, &resource, opts...)
 	if err != nil {

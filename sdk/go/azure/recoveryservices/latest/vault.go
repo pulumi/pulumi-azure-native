@@ -13,6 +13,8 @@ import (
 
 // Resource information, as returned by the resource provider.
 // Latest API Version: 2020-02-02.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:Vault'.
 type Vault struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewVault(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices:Vault"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160601:Vault"),
 		},

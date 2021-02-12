@@ -13,6 +13,8 @@ import (
 
 // An Azure Cosmos DB userDefinedFunction.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction'.
 type SqlResourceSqlUserDefinedFunction struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserDefinedFunctionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"),
 		},

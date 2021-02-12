@@ -13,6 +13,8 @@ import (
 
 // The properties of a storage account’s Blob service.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobServiceProperties'.
 type BlobServiceProperties struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewBlobServiceProperties(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storage:BlobServiceProperties"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20180701:BlobServiceProperties"),
 		},

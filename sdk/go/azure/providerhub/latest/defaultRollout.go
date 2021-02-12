@@ -13,6 +13,8 @@ import (
 
 // Default rollout definition.
 // Latest API Version: 2020-11-20.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:DefaultRollout'.
 type DefaultRollout struct {
 	pulumi.CustomResourceState
 
@@ -39,6 +41,9 @@ func NewDefaultRollout(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RolloutName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:providerhub:DefaultRollout"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:DefaultRollout"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // Definition of the module type.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Python2Package'.
 type Python2Package struct {
 	pulumi.CustomResourceState
 
@@ -70,6 +72,9 @@ func NewPython2Package(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:automation:Python2Package"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20180630:Python2Package"),
 		},

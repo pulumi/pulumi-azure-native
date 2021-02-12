@@ -60,6 +60,9 @@ func NewInstanceFailoverGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql:InstanceFailoverGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:InstanceFailoverGroup"),
 		},
 		{

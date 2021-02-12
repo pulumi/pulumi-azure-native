@@ -13,6 +13,8 @@ import (
 
 // Peerings in a VirtualNetwork resource
 // Latest API Version: 2018-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databricks:vNetPeering'.
 type VNetPeering struct {
 	pulumi.CustomResourceState
 
@@ -62,6 +64,9 @@ func NewVNetPeering(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:databricks:vNetPeering"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:databricks/v20180401:vNetPeering"),
 		},

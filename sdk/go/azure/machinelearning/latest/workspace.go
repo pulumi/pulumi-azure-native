@@ -13,6 +13,8 @@ import (
 
 // An object that represents a machine learning workspace.
 // Latest API Version: 2016-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:Workspace'.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -62,6 +64,9 @@ func NewWorkspace(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:machinelearning:Workspace"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearning/v20160401:Workspace"),
 		},

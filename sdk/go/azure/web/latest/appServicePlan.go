@@ -13,6 +13,8 @@ import (
 
 // App Service plan.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServicePlan'.
 type AppServicePlan struct {
 	pulumi.CustomResourceState
 
@@ -97,6 +99,9 @@ func NewAppServicePlan(ctx *pulumi.Context,
 		args.Reserved = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:AppServicePlan"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:AppServicePlan"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // OpenShift Managed cluster.
 // Latest API Version: 2019-04-30.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:OpenShiftManagedCluster'.
 type OpenShiftManagedCluster struct {
 	pulumi.CustomResourceState
 
@@ -65,6 +67,9 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerservice:OpenShiftManagedCluster"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20180930preview:OpenShiftManagedCluster"),
 		},

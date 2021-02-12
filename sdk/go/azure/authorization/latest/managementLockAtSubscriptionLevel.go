@@ -13,6 +13,8 @@ import (
 
 // The lock information.
 // Latest API Version: 2016-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtSubscriptionLevel'.
 type ManagementLockAtSubscriptionLevel struct {
 	pulumi.CustomResourceState
 
@@ -42,6 +44,9 @@ func NewManagementLockAtSubscriptionLevel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'LockName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:authorization:ManagementLockAtSubscriptionLevel"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel"),
 		},

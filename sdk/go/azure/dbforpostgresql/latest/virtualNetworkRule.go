@@ -13,6 +13,8 @@ import (
 
 // A virtual network rule.
 // Latest API Version: 2017-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:VirtualNetworkRule'.
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkSubnetId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:dbforpostgresql:VirtualNetworkRule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201:VirtualNetworkRule"),
 		},

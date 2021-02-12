@@ -57,6 +57,9 @@ func NewFormulaResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab:FormulaResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:FormulaResource"),
 		},
 		{

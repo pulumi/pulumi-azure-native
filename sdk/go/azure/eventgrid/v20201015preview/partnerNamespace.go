@@ -49,6 +49,9 @@ func NewPartnerNamespace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:eventgrid:PartnerNamespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:PartnerNamespace"),
 		},
 	})

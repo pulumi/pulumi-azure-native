@@ -13,6 +13,8 @@ import (
 
 // Custom IP prefix resource.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:CustomIPPrefix'.
 type CustomIPPrefix struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +58,9 @@ func NewCustomIPPrefix(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:CustomIPPrefix"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:CustomIPPrefix"),
 		},

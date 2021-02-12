@@ -48,6 +48,9 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:keyvault:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/latest:Secret"),
 		},
 		{

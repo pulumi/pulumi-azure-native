@@ -13,6 +13,8 @@ import (
 
 // States and configurations of Cost Analysis.
 // Latest API Version: 2020-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:View'.
 type View struct {
 	pulumi.CustomResourceState
 
@@ -65,6 +67,9 @@ func NewView(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ViewName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:costmanagement:View"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20190401preview:View"),
 		},

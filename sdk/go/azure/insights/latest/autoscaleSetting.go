@@ -13,6 +13,8 @@ import (
 
 // The autoscale setting resource.
 // Latest API Version: 2015-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AutoscaleSetting'.
 type AutoscaleSetting struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +56,9 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 		args.Enabled = pulumi.BoolPtr(true)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:AutoscaleSetting"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150401:AutoscaleSetting"),
 		},

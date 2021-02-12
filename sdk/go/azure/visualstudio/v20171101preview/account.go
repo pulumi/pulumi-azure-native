@@ -42,6 +42,9 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:visualstudio:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:visualstudio/v20140401preview:Account"),
 		},
 	})

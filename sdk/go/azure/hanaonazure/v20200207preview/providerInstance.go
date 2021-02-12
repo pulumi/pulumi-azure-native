@@ -43,6 +43,12 @@ func NewProviderInstance(ctx *pulumi.Context,
 	if args.SapMonitorName == nil {
 		return nil, errors.New("invalid value for required argument 'SapMonitorName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:hanaonazure:ProviderInstance"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ProviderInstance
 	err := ctx.RegisterResource("azure-nextgen:hanaonazure/v20200207preview:ProviderInstance", name, args, &resource, opts...)
 	if err != nil {

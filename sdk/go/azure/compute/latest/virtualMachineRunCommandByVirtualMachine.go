@@ -13,6 +13,8 @@ import (
 
 // Describes a Virtual Machine run command.
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine'.
 type VirtualMachineRunCommandByVirtualMachine struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +70,9 @@ func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 		args.AsyncExecution = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"),
 		},

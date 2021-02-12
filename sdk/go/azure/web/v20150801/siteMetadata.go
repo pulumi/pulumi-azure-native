@@ -44,6 +44,9 @@ func NewSiteMetadata(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:SiteMetadata"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteMetadata"),
 		},
 		{

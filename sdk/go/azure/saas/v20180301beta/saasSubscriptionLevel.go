@@ -38,6 +38,12 @@ func NewSaasSubscriptionLevel(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:saas:SaasSubscriptionLevel"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SaasSubscriptionLevel
 	err := ctx.RegisterResource("azure-nextgen:saas/v20180301beta:SaasSubscriptionLevel", name, args, &resource, opts...)
 	if err != nil {

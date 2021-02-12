@@ -53,6 +53,9 @@ func NewTableResourceTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb:TableResourceTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:TableResourceTable"),
 		},
 		{

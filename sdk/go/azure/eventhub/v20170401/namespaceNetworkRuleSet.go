@@ -42,6 +42,9 @@ func NewNamespaceNetworkRuleSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:eventhub:NamespaceNetworkRuleSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet"),
 		},
 		{

@@ -65,6 +65,9 @@ func NewMyWorkbook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights:MyWorkbook"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:MyWorkbook"),
 		},
 		{

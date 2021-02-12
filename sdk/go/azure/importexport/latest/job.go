@@ -13,6 +13,8 @@ import (
 
 // Contains the job information.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:importexport:Job'.
 type Job struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewJob(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:importexport:Job"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:importexport/v20161101:Job"),
 		},

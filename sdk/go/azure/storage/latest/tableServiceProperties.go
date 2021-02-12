@@ -13,6 +13,8 @@ import (
 
 // The properties of a storage account’s Table service.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:TableServiceProperties'.
 type TableServiceProperties struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +43,9 @@ func NewTableServiceProperties(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TableServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storage:TableServiceProperties"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:TableServiceProperties"),
 		},

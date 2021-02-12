@@ -67,6 +67,12 @@ func NewConnectedRegistry(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry:ConnectedRegistry"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConnectedRegistry
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20201101preview:ConnectedRegistry", name, args, &resource, opts...)
 	if err != nil {

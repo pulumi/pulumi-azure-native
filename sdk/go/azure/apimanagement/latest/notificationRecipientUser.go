@@ -13,6 +13,8 @@ import (
 
 // Recipient User details.
 // Latest API Version: 2019-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:NotificationRecipientUser'.
 type NotificationRecipientUser struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewNotificationRecipientUser(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement:NotificationRecipientUser"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:NotificationRecipientUser"),
 		},

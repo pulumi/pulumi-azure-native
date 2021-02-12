@@ -13,6 +13,8 @@ import (
 
 // The live event.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:LiveEvent'.
 type LiveEvent struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +76,9 @@ func NewLiveEvent(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:media:LiveEvent"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:LiveEvent"),
 		},

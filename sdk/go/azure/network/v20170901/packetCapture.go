@@ -66,6 +66,9 @@ func NewPacketCapture(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:PacketCapture"),
 		},
 		{

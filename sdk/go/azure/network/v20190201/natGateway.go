@@ -56,6 +56,9 @@ func NewNatGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:NatGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:NatGateway"),
 		},
 		{

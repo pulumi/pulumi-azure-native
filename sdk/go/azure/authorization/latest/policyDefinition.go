@@ -13,6 +13,8 @@ import (
 
 // The policy definition.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyDefinition'.
 type PolicyDefinition struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewPolicyDefinition(ctx *pulumi.Context,
 		args.Mode = pulumi.StringPtr("Indexed")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:authorization:PolicyDefinition"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20151001preview:PolicyDefinition"),
 		},

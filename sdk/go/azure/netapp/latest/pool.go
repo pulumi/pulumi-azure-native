@@ -13,6 +13,8 @@ import (
 
 // Capacity pool resource
 // Latest API Version: 2020-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Pool'.
 type Pool struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +71,9 @@ func NewPool(ctx *pulumi.Context,
 		args.ServiceLevel = pulumi.String("Premium")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:netapp:Pool"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20170815:Pool"),
 		},

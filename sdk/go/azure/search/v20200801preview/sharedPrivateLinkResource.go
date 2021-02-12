@@ -41,6 +41,9 @@ func NewSharedPrivateLinkResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:search:SharedPrivateLinkResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:search/latest:SharedPrivateLinkResource"),
 		},
 		{

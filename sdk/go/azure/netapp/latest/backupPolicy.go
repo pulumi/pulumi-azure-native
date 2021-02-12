@@ -13,6 +13,8 @@ import (
 
 // Backup policy information
 // Latest API Version: 2020-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:BackupPolicy'.
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewBackupPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:netapp:BackupPolicy"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200501:BackupPolicy"),
 		},

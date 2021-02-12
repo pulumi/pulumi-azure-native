@@ -54,6 +54,9 @@ func NewAFDOriginGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cdn:AFDOriginGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:AFDOriginGroup"),
 		},
 	})

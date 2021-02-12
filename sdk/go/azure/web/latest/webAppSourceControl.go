@@ -13,6 +13,8 @@ import (
 
 // Source control configuration for an app.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSourceControl'.
 type WebAppSourceControl struct {
 	pulumi.CustomResourceState
 
@@ -52,6 +54,9 @@ func NewWebAppSourceControl(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:WebAppSourceControl"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppSourceControl"),
 		},

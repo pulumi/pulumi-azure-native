@@ -13,6 +13,8 @@ import (
 
 // A private endpoint connection
 // Latest API Version: 2018-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +47,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:dbformysql:PrivateEndpointConnection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20180601:PrivateEndpointConnection"),
 		},

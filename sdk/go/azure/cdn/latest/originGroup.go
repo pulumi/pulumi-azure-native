@@ -13,6 +13,8 @@ import (
 
 // Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:OriginGroup'.
 type OriginGroup struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewOriginGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cdn:OriginGroup"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20191231:OriginGroup"),
 		},

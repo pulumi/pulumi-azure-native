@@ -65,6 +65,9 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:kusto:DatabasePrincipalAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/latest:DatabasePrincipalAssignment"),
 		},
 		{

@@ -47,6 +47,9 @@ func NewSuppression(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:advisor:Suppression"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:advisor/latest:Suppression"),
 		},
 		{

@@ -13,6 +13,8 @@ import (
 
 // A Database Migration Service resource
 // Latest API Version: 2018-04-19.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Service'.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +57,9 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VirtualSubnetId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datamigration:Service"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20171115preview:Service"),
 		},

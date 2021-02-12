@@ -13,6 +13,8 @@ import (
 
 // Class representing a Traffic Manager profile.
 // Latest API Version: 2018-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Profile'.
 type Profile struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +56,9 @@ func NewProfile(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:Profile"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20151101:Profile"),
 		},

@@ -48,6 +48,9 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute:ProximityPlacementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:ProximityPlacementGroup"),
 		},
 		{

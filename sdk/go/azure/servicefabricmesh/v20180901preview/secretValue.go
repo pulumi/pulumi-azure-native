@@ -45,6 +45,12 @@ func NewSecretValue(ctx *pulumi.Context,
 	if args.SecretValueResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'SecretValueResourceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:servicefabricmesh:SecretValue"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SecretValue
 	err := ctx.RegisterResource("azure-nextgen:servicefabricmesh/v20180901preview:SecretValue", name, args, &resource, opts...)
 	if err != nil {

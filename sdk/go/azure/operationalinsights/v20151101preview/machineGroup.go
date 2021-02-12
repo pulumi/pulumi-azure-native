@@ -57,6 +57,12 @@ func NewMachineGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	args.Kind = pulumi.String("machineGroup")
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:operationalinsights:MachineGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MachineGroup
 	err := ctx.RegisterResource("azure-nextgen:operationalinsights/v20151101preview:MachineGroup", name, args, &resource, opts...)
 	if err != nil {

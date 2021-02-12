@@ -48,6 +48,12 @@ func NewDataPool(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:autonomousdevelopmentplatform:DataPool"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DataPool
 	err := ctx.RegisterResource("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool", name, args, &resource, opts...)
 	if err != nil {

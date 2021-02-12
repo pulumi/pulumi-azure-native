@@ -55,6 +55,9 @@ func NewConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:automation:Connection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Connection"),
 		},
 		{

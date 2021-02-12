@@ -68,6 +68,9 @@ func NewViewByScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:costmanagement:ViewByScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/latest:ViewByScope"),
 		},
 		{

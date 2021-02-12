@@ -13,6 +13,8 @@ import (
 
 // The status of the Canonical support plan.
 // Latest API Version: 2018-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:addons:SupportPlanType'.
 type SupportPlanType struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +40,9 @@ func NewSupportPlanType(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ProviderName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:addons:SupportPlanType"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:addons/v20170515:SupportPlanType"),
 		},

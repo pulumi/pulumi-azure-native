@@ -13,6 +13,8 @@ import (
 
 // Bastion Host resource.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:BastionHost'.
 type BastionHost struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewBastionHost(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:BastionHost"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:BastionHost"),
 		},

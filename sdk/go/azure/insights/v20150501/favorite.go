@@ -57,6 +57,9 @@ func NewFavorite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights:Favorite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:Favorite"),
 		},
 	})

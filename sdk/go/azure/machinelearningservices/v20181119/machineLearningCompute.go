@@ -47,6 +47,9 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/latest:MachineLearningCompute"),
 		},
 		{

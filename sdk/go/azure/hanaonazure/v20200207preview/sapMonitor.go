@@ -54,6 +54,12 @@ func NewSapMonitor(ctx *pulumi.Context,
 	if args.SapMonitorName == nil {
 		return nil, errors.New("invalid value for required argument 'SapMonitorName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:hanaonazure:SapMonitor"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SapMonitor
 	err := ctx.RegisterResource("azure-nextgen:hanaonazure/v20200207preview:SapMonitor", name, args, &resource, opts...)
 	if err != nil {

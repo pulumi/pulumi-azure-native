@@ -63,6 +63,12 @@ func NewCloudConnector(ctx *pulumi.Context,
 	if args.ConnectorName == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectorName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:costmanagement:CloudConnector"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CloudConnector
 	err := ctx.RegisterResource("azure-nextgen:costmanagement/v20190301preview:CloudConnector", name, args, &resource, opts...)
 	if err != nil {

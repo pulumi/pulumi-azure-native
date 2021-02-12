@@ -13,6 +13,8 @@ import (
 
 // Definition of the connection type.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:ConnectionType'.
 type ConnectionType struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +57,9 @@ func NewConnectionType(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:automation:ConnectionType"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:ConnectionType"),
 		},

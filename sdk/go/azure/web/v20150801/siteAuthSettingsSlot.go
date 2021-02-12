@@ -125,6 +125,9 @@ func NewSiteAuthSettingsSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:SiteAuthSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteAuthSettingsSlot"),
 		},
 		{

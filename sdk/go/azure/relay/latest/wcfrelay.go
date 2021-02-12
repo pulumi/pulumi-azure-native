@@ -13,6 +13,8 @@ import (
 
 // Description of the WCF relay resource.
 // Latest API Version: 2017-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:WCFRelay'.
 type WCFRelay struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +57,9 @@ func NewWCFRelay(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:relay:WCFRelay"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:relay/v20160701:WCFRelay"),
 		},

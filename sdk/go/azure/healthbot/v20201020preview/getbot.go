@@ -46,6 +46,9 @@ func NewGetbot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:healthbot:getbot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthbot/latest:getbot"),
 		},
 		{

@@ -13,6 +13,8 @@ import (
 
 // An Asset Filter.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:AssetFilter'.
 type AssetFilter struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewAssetFilter(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:media:AssetFilter"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:AssetFilter"),
 		},

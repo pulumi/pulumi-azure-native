@@ -13,6 +13,8 @@ import (
 
 // A report config resource.
 // Latest API Version: 2018-05-31.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ReportConfigByResourceGroupName'.
 type ReportConfigByResourceGroupName struct {
 	pulumi.CustomResourceState
 
@@ -52,6 +54,9 @@ func NewReportConfigByResourceGroupName(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:costmanagement:ReportConfigByResourceGroupName"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20180531:ReportConfigByResourceGroupName"),
 		},

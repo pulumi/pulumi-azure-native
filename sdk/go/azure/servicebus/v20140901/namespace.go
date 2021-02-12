@@ -56,6 +56,9 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:servicebus:Namespace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/latest:Namespace"),
 		},
 		{

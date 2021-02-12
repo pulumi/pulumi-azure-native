@@ -50,6 +50,9 @@ func NewNetworkProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:NetworkProfile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:NetworkProfile"),
 		},
 		{

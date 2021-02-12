@@ -13,6 +13,8 @@ import (
 
 // Maintenance configuration record type
 // Latest API Version: 2020-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maintenance:MaintenanceConfiguration'.
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:maintenance:MaintenanceConfiguration"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration"),
 		},

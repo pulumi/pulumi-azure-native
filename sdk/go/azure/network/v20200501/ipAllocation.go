@@ -59,6 +59,9 @@ func NewIpAllocation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:IpAllocation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:IpAllocation"),
 		},
 		{

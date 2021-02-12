@@ -53,6 +53,12 @@ func NewDedicatedHsm(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:hardwaresecuritymodules:DedicatedHsm"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DedicatedHsm
 	err := ctx.RegisterResource("azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm", name, args, &resource, opts...)
 	if err != nil {

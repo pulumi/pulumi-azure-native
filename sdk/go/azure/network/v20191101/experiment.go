@@ -57,6 +57,9 @@ func NewExperiment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:Experiment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:Experiment"),
 		},
 	})

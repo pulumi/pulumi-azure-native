@@ -13,6 +13,8 @@ import (
 
 // Deployment script object.
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentScript'.
 type DeploymentScript struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewDeploymentScript(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ScriptName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:resources:DeploymentScript"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001preview:DeploymentScript"),
 		},

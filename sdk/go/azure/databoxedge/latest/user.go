@@ -13,6 +13,8 @@ import (
 
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:User'.
 type User struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +49,9 @@ func NewUser(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge:User"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:User"),
 		},

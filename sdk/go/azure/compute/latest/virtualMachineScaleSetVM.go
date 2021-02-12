@@ -13,6 +13,8 @@ import (
 
 // Describes a virtual machine scale set virtual machine.
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVM'.
 type VirtualMachineScaleSetVM struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +87,9 @@ func NewVirtualMachineScaleSetVM(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VmScaleSetName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:compute:VirtualMachineScaleSetVM"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM"),
 		},

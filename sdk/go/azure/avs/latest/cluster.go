@@ -13,6 +13,8 @@ import (
 
 // A cluster resource
 // Latest API Version: 2020-03-20.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Cluster'.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +57,9 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:avs:Cluster"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200320:Cluster"),
 		},

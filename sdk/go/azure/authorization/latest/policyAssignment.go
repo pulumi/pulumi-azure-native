@@ -13,6 +13,8 @@ import (
 
 // The policy assignment.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyAssignment'.
 type PolicyAssignment struct {
 	pulumi.CustomResourceState
 
@@ -61,6 +63,9 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 		args.EnforcementMode = pulumi.StringPtr("Default")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:authorization:PolicyAssignment"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20151001preview:PolicyAssignment"),
 		},

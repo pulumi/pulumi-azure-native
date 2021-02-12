@@ -13,6 +13,8 @@ import (
 
 // Fabric definition.
 // Latest API Version: 2018-07-10.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationFabric'.
 type ReplicationFabric struct {
 	pulumi.CustomResourceState
 
@@ -43,6 +45,9 @@ func NewReplicationFabric(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationFabric"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationFabric"),
 		},

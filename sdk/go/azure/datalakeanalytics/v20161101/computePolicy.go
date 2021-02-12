@@ -53,6 +53,9 @@ func NewComputePolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datalakeanalytics:ComputePolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/latest:ComputePolicy"),
 		},
 		{

@@ -13,6 +13,8 @@ import (
 
 // Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
 // Latest API Version: 2018-07-10.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationNetworkMapping'.
 type ReplicationNetworkMapping struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationNetworkMapping"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationNetworkMapping"),
 		},

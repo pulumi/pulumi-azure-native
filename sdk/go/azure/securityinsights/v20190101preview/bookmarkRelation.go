@@ -56,6 +56,12 @@ func NewBookmarkRelation(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights:BookmarkRelation"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BookmarkRelation
 	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:BookmarkRelation", name, args, &resource, opts...)
 	if err != nil {

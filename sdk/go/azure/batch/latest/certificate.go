@@ -13,6 +13,8 @@ import (
 
 // Contains information about a certificate.
 // Latest API Version: 2021-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Certificate'.
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:batch:Certificate"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20170901:Certificate"),
 		},

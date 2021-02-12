@@ -13,6 +13,8 @@ import (
 
 // SpatialAnchorsAccount Response.
 // Latest API Version: 2021-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:mixedreality:SpatialAnchorsAccount'.
 type SpatialAnchorsAccount struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +58,9 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:mixedreality:SpatialAnchorsAccount"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20190228preview:SpatialAnchorsAccount"),
 		},

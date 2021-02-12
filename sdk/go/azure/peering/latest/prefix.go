@@ -13,6 +13,8 @@ import (
 
 // The peering service prefix class.
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:Prefix'.
 type Prefix struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewPrefix(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:peering:Prefix"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20190801preview:Prefix"),
 		},

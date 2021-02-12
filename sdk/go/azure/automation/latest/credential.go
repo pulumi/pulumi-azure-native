@@ -13,6 +13,8 @@ import (
 
 // Definition of the credential.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Credential'.
 type Credential struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +58,9 @@ func NewCredential(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:automation:Credential"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Credential"),
 		},

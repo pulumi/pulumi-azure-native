@@ -49,6 +49,12 @@ func NewB2CTenant(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:azureactivedirectory:B2CTenant"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource B2CTenant
 	err := ctx.RegisterResource("azure-nextgen:azureactivedirectory/v20190101preview:B2CTenant", name, args, &resource, opts...)
 	if err != nil {

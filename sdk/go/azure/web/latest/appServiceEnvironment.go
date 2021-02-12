@@ -13,6 +13,8 @@ import (
 
 // App Service Environment ARM resource.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServiceEnvironment'.
 type AppServiceEnvironment struct {
 	pulumi.CustomResourceState
 
@@ -126,6 +128,9 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkerPools'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:AppServiceEnvironment"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:AppServiceEnvironment"),
 		},

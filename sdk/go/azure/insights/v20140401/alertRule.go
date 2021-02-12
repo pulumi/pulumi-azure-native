@@ -63,6 +63,9 @@ func NewAlertRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights:AlertRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:AlertRule"),
 		},
 		{

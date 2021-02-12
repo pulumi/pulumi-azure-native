@@ -54,6 +54,9 @@ func NewRegistry(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerregistry:Registry"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/latest:Registry"),
 		},
 		{

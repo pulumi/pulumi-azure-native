@@ -13,6 +13,8 @@ import (
 
 // Information about a Cluster.
 // Latest API Version: 2018-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Cluster'.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +81,9 @@ func NewCluster(ctx *pulumi.Context,
 		args.VmPriority = &e
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:batchai:Cluster"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:batchai/v20180501:Cluster"),
 		},

@@ -50,6 +50,9 @@ func NewHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:customerinsights:Hub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/latest:Hub"),
 		},
 		{

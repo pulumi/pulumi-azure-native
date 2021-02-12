@@ -45,6 +45,9 @@ func NewNetwork(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:servicefabricmesh:Network"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabricmesh/v20180701preview:Network"),
 		},
 	})

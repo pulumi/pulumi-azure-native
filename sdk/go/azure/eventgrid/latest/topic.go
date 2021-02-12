@@ -13,6 +13,8 @@ import (
 
 // EventGrid Topic
 // Latest API Version: 2020-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:Topic'.
 type Topic struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewTopic(ctx *pulumi.Context,
 		args.InputSchema = pulumi.StringPtr("EventGridSchema")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:eventgrid:Topic"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20170615preview:Topic"),
 		},

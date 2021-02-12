@@ -13,6 +13,8 @@ import (
 
 // Public certificate object
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPublicCertificate'.
 type WebAppPublicCertificate struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewWebAppPublicCertificate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:WebAppPublicCertificate"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppPublicCertificate"),
 		},

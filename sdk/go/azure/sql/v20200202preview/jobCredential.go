@@ -52,6 +52,9 @@ func NewJobCredential(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql:JobCredential"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20170301preview:JobCredential"),
 		},
 		{

@@ -53,6 +53,9 @@ func NewEventHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:eventhub:EventHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/latest:EventHub"),
 		},
 		{

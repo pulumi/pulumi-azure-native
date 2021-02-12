@@ -13,6 +13,8 @@ import (
 
 // Base class for backup policy. Workload-specific backup policies are derived from this class.
 // Latest API Version: 2021-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionPolicy'.
 type ProtectionPolicy struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +49,9 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices:ProtectionPolicy"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160601:ProtectionPolicy"),
 		},

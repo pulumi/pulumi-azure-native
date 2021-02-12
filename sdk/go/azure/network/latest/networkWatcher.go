@@ -13,6 +13,8 @@ import (
 
 // Network watcher in a resource group.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkWatcher'.
 type NetworkWatcher struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:NetworkWatcher"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20160901:NetworkWatcher"),
 		},

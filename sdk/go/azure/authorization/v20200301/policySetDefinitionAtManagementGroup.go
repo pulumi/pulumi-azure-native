@@ -53,6 +53,9 @@ func NewPolicySetDefinitionAtManagementGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:authorization:PolicySetDefinitionAtManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/latest:PolicySetDefinitionAtManagementGroup"),
 		},
 		{

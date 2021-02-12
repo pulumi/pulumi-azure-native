@@ -13,6 +13,8 @@ import (
 
 // Datasources under OMS Workspace.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataSource'.
 type DataSource struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewDataSource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:operationalinsights:DataSource"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20151101preview:DataSource"),
 		},

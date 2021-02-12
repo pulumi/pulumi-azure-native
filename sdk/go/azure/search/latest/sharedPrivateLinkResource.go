@@ -13,6 +13,8 @@ import (
 
 // Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:SharedPrivateLinkResource'.
 type SharedPrivateLinkResource struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +43,9 @@ func NewSharedPrivateLinkResource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SharedPrivateLinkResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:search:SharedPrivateLinkResource"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:search/v20200801:SharedPrivateLinkResource"),
 		},

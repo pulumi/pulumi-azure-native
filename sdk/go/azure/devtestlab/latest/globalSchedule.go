@@ -13,6 +13,8 @@ import (
 
 // A schedule.
 // Latest API Version: 2018-09-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:GlobalSchedule'.
 type GlobalSchedule struct {
 	pulumi.CustomResourceState
 
@@ -62,6 +64,9 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab:GlobalSchedule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:GlobalSchedule"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // Dedicated cloud node model
 // Latest API Version: 2019-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:DedicatedCloudNode'.
 type DedicatedCloudNode struct {
 	pulumi.CustomResourceState
 
@@ -86,6 +88,9 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:DedicatedCloudNode"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode"),
 		},

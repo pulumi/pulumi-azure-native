@@ -50,6 +50,12 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 	if args.ResourceUri == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceUri'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:DiagnosticSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DiagnosticSetting
 	err := ctx.RegisterResource("azure-nextgen:insights/v20170501preview:DiagnosticSetting", name, args, &resource, opts...)
 	if err != nil {

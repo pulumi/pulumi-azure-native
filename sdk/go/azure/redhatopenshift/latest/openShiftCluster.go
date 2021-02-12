@@ -13,6 +13,8 @@ import (
 
 // OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
 // Latest API Version: 2020-04-30.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:redhatopenshift:OpenShiftCluster'.
 type OpenShiftCluster struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +60,9 @@ func NewOpenShiftCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:redhatopenshift:OpenShiftCluster"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster"),
 		},

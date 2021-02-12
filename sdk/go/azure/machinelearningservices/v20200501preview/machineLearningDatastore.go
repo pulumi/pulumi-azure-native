@@ -56,6 +56,12 @@ func NewMachineLearningDatastore(ctx *pulumi.Context,
 	if args.IncludeSecret == nil {
 		args.IncludeSecret = pulumi.BoolPtr(true)
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices:MachineLearningDatastore"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MachineLearningDatastore
 	err := ctx.RegisterResource("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDatastore", name, args, &resource, opts...)
 	if err != nil {

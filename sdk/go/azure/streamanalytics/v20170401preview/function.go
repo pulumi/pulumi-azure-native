@@ -41,6 +41,9 @@ func NewFunction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:streamanalytics:Function"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/latest:Function"),
 		},
 		{

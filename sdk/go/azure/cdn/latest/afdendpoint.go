@@ -13,6 +13,8 @@ import (
 
 // CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDEndpoint'.
 type AFDEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +56,9 @@ func NewAFDEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cdn:AFDEndpoint"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:AFDEndpoint"),
 		},

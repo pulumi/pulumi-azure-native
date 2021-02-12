@@ -13,6 +13,8 @@ import (
 
 // Response to get user settings
 // Latest API Version: 2018-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:UserSettingsWithLocation'.
 type UserSettingsWithLocation struct {
 	pulumi.CustomResourceState
 
@@ -37,6 +39,9 @@ func NewUserSettingsWithLocation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserSettingsName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:portal:UserSettingsWithLocation"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:portal/v20181001:UserSettingsWithLocation"),
 		},

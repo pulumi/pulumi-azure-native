@@ -13,6 +13,8 @@ import (
 
 // Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:Peering'.
 type Peering struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +60,9 @@ func NewPeering(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:peering:Peering"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20190801preview:Peering"),
 		},

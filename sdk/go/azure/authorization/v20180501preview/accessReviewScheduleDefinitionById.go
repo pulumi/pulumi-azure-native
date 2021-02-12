@@ -81,6 +81,12 @@ func NewAccessReviewScheduleDefinitionById(ctx *pulumi.Context,
 	if args.ScheduleDefinitionId == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduleDefinitionId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:authorization:AccessReviewScheduleDefinitionById"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AccessReviewScheduleDefinitionById
 	err := ctx.RegisterResource("azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById", name, args, &resource, opts...)
 	if err != nil {

@@ -12,6 +12,8 @@ import (
 )
 
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Queue'.
 type Queue struct {
 	pulumi.CustomResourceState
 
@@ -42,6 +44,9 @@ func NewQueue(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storage:Queue"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:Queue"),
 		},

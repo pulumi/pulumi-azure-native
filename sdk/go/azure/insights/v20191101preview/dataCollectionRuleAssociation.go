@@ -45,6 +45,12 @@ func NewDataCollectionRuleAssociation(ctx *pulumi.Context,
 	if args.ResourceUri == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceUri'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:DataCollectionRuleAssociation"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DataCollectionRuleAssociation
 	err := ctx.RegisterResource("azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation", name, args, &resource, opts...)
 	if err != nil {

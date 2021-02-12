@@ -61,6 +61,9 @@ func NewMSIXPackage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization:MSIXPackage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:MSIXPackage"),
 		},
 		{

@@ -13,6 +13,8 @@ import (
 
 // The notification registration definition.
 // Latest API Version: 2020-11-20.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:NotificationRegistration'.
 type NotificationRegistration struct {
 	pulumi.CustomResourceState
 
@@ -37,6 +39,9 @@ func NewNotificationRegistration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:providerhub:NotificationRegistration"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:NotificationRegistration"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // Represents an instance of a Dedicated Capacity resource.
 // Latest API Version: 2017-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbidedicated:CapacityDetails'.
 type CapacityDetails struct {
 	pulumi.CustomResourceState
 
@@ -51,6 +53,9 @@ func NewCapacityDetails(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:powerbidedicated:CapacityDetails"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:powerbidedicated/v20171001:CapacityDetails"),
 		},

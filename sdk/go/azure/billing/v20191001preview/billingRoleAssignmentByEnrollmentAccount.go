@@ -57,6 +57,12 @@ func NewBillingRoleAssignmentByEnrollmentAccount(ctx *pulumi.Context,
 	if args.EnrollmentAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'EnrollmentAccountName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:billing:BillingRoleAssignmentByEnrollmentAccount"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BillingRoleAssignmentByEnrollmentAccount
 	err := ctx.RegisterResource("azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount", name, args, &resource, opts...)
 	if err != nil {

@@ -13,6 +13,8 @@ import (
 
 // Hub resource.
 // Latest API Version: 2017-04-26.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Hub'.
 type Hub struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewHub(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:customerinsights:Hub"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:Hub"),
 		},

@@ -44,6 +44,9 @@ func NewEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph"),
 		},
 	})

@@ -47,6 +47,12 @@ func NewReport(ctx *pulumi.Context,
 	if args.ReportName == nil {
 		return nil, errors.New("invalid value for required argument 'ReportName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:costmanagement:Report"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Report
 	err := ctx.RegisterResource("azure-nextgen:costmanagement/v20180801preview:Report", name, args, &resource, opts...)
 	if err != nil {

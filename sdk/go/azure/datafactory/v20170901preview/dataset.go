@@ -46,6 +46,9 @@ func NewDataset(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datafactory:Dataset"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/latest:Dataset"),
 		},
 		{

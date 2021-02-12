@@ -13,6 +13,8 @@ import (
 
 // User details.
 // Latest API Version: 2019-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:User'.
 type User struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +69,9 @@ func NewUser(ctx *pulumi.Context,
 		args.State = pulumi.StringPtr("active")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement:User"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:User"),
 		},

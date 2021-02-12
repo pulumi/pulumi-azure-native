@@ -13,6 +13,8 @@ import (
 
 // Represents a server.
 // Latest API Version: 2018-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:Server'.
 type Server struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +71,9 @@ func NewServer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:dbformariadb:Server"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601:Server"),
 		},

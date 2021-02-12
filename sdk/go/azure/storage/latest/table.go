@@ -13,6 +13,8 @@ import (
 
 // Properties of the table, including Id, resource name, resource type.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Table'.
 type Table struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +43,9 @@ func NewTable(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storage:Table"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:Table"),
 		},

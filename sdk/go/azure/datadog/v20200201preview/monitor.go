@@ -39,6 +39,12 @@ func NewMonitor(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datadog:Monitor"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Monitor
 	err := ctx.RegisterResource("azure-nextgen:datadog/v20200201preview:Monitor", name, args, &resource, opts...)
 	if err != nil {

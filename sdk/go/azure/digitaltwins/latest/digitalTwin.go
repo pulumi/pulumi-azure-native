@@ -13,6 +13,8 @@ import (
 
 // The description of the DigitalTwins service.
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:DigitalTwin'.
 type DigitalTwin struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewDigitalTwin(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:digitaltwins:DigitalTwin"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20200301preview:DigitalTwin"),
 		},

@@ -44,6 +44,9 @@ func NewServerAzureADOnlyAuthentication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql:ServerAzureADOnlyAuthentication"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerAzureADOnlyAuthentication"),
 		},
 	})

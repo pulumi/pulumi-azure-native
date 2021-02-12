@@ -13,6 +13,8 @@ import (
 
 // Wrapper resource for tags API requests and responses.
 // Latest API Version: 2020-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:TagAtScope'.
 type TagAtScope struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +40,9 @@ func NewTagAtScope(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:resources:TagAtScope"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001:TagAtScope"),
 		},

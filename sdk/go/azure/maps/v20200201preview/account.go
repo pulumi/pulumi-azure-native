@@ -49,6 +49,9 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:maps:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:maps/latest:Account"),
 		},
 		{

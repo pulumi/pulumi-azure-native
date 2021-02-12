@@ -51,6 +51,9 @@ func NewApiSchema(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:ApiSchema"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiSchema"),
 		},
 		{

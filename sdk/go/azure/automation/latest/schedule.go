@@ -13,6 +13,8 @@ import (
 
 // Definition of the schedule.
 // Latest API Version: 2019-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Schedule'.
 type Schedule struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +78,9 @@ func NewSchedule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StartTime'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:automation:Schedule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Schedule"),
 		},

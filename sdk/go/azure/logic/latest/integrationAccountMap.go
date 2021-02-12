@@ -13,6 +13,8 @@ import (
 
 // The integration account map.
 // Latest API Version: 2019-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountMap'.
 type IntegrationAccountMap struct {
 	pulumi.CustomResourceState
 
@@ -62,6 +64,9 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountMap"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20150801preview:IntegrationAccountMap"),
 		},

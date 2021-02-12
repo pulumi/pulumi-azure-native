@@ -13,6 +13,8 @@ import (
 
 // Snapshot policy information
 // Latest API Version: 2020-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:SnapshotPolicy'.
 type SnapshotPolicy struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +57,9 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SnapshotPolicyName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:netapp:SnapshotPolicy"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200501:SnapshotPolicy"),
 		},

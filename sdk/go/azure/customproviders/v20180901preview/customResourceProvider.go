@@ -46,6 +46,12 @@ func NewCustomResourceProvider(ctx *pulumi.Context,
 	if args.ResourceProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceProviderName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:customproviders:CustomResourceProvider"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CustomResourceProvider
 	err := ctx.RegisterResource("azure-nextgen:customproviders/v20180901preview:CustomResourceProvider", name, args, &resource, opts...)
 	if err != nil {

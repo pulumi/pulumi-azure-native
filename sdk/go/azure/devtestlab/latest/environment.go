@@ -13,6 +13,8 @@ import (
 
 // An environment, which is essentially an ARM template deployment.
 // Latest API Version: 2018-09-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Environment'.
 type Environment struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +60,9 @@ func NewEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devtestlab:Environment"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:Environment"),
 		},

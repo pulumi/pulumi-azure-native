@@ -13,6 +13,8 @@ import (
 
 // Bot channel resource definition
 // Latest API Version: 2020-06-02.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Channel'.
 type Channel struct {
 	pulumi.CustomResourceState
 
@@ -51,6 +53,9 @@ func NewChannel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:botservice:Channel"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20171201:Channel"),
 		},

@@ -53,6 +53,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/latest:FirewallRule"),
 		},
 		{

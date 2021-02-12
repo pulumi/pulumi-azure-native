@@ -55,6 +55,9 @@ func NewJobSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:automation:JobSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/latest:JobSchedule"),
 		},
 		{

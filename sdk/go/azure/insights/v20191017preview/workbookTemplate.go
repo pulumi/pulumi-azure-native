@@ -54,6 +54,12 @@ func NewWorkbookTemplate(ctx *pulumi.Context,
 	if args.TemplateData == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateData'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:WorkbookTemplate"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WorkbookTemplate
 	err := ctx.RegisterResource("azure-nextgen:insights/v20191017preview:WorkbookTemplate", name, args, &resource, opts...)
 	if err != nil {

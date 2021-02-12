@@ -89,6 +89,9 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights:ScheduledQueryRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:ScheduledQueryRule"),
 		},
 		{

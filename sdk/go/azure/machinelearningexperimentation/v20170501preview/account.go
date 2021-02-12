@@ -67,6 +67,12 @@ func NewAccount(ctx *pulumi.Context,
 	if args.VsoAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'VsoAccountId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:machinelearningexperimentation:Account"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Account
 	err := ctx.RegisterResource("azure-nextgen:machinelearningexperimentation/v20170501preview:Account", name, args, &resource, opts...)
 	if err != nil {

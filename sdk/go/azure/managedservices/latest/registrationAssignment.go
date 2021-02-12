@@ -13,6 +13,8 @@ import (
 
 // Registration assignment.
 // Latest API Version: 2019-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationAssignment'.
 type RegistrationAssignment struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +40,9 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:managedservices:RegistrationAssignment"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:managedservices/v20180601preview:RegistrationAssignment"),
 		},

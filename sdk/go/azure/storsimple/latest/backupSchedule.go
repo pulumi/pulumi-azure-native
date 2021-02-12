@@ -13,6 +13,8 @@ import (
 
 // The backup schedule.
 // Latest API Version: 2017-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupSchedule'.
 type BackupSchedule struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +70,9 @@ func NewBackupSchedule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StartTime'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storsimple:BackupSchedule"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20170601:BackupSchedule"),
 		},

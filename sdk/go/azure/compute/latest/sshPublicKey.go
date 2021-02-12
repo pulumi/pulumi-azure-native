@@ -13,6 +13,8 @@ import (
 
 // Specifies information about the SSH public key.
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:SshPublicKey'.
 type SshPublicKey struct {
 	pulumi.CustomResourceState
 
@@ -42,6 +44,9 @@ func NewSshPublicKey(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SshPublicKeyName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:compute:SshPublicKey"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:SshPublicKey"),
 		},

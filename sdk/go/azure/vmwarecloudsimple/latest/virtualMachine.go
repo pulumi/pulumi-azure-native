@@ -13,6 +13,8 @@ import (
 
 // Virtual machine model
 // Latest API Version: 2019-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:VirtualMachine'.
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 
@@ -93,6 +95,9 @@ func NewVirtualMachine(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VirtualMachineName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:VirtualMachine"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine"),
 		},

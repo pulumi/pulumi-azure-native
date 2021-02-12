@@ -13,6 +13,8 @@ import (
 
 // The iSCSI disk.
 // Latest API Version: 2016-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiDisk'.
 type IscsiDisk struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +69,9 @@ func NewIscsiDisk(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storsimple:IscsiDisk"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:IscsiDisk"),
 		},

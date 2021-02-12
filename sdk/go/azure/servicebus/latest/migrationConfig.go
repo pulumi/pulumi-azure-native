@@ -13,6 +13,8 @@ import (
 
 // Single item in List or Get Migration Config operation
 // Latest API Version: 2017-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:MigrationConfig'.
 type MigrationConfig struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +57,9 @@ func NewMigrationConfig(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TargetNamespace'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:servicebus:MigrationConfig"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:MigrationConfig"),
 		},

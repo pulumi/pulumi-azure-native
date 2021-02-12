@@ -13,6 +13,8 @@ import (
 
 // Tag Contract details.
 // Latest API Version: 2019-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Tag'.
 type Tag struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewTag(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TagId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement:Tag"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Tag"),
 		},

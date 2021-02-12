@@ -51,6 +51,9 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:VirtualHubIpConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualHubIpConfiguration"),
 		},
 		{

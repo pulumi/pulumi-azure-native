@@ -13,6 +13,8 @@ import (
 
 // EventGrid Domain.
 // Latest API Version: 2020-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:Domain'.
 type Domain struct {
 	pulumi.CustomResourceState
 
@@ -60,6 +62,9 @@ func NewDomain(ctx *pulumi.Context,
 		args.InputSchema = pulumi.StringPtr("EventGridSchema")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:eventgrid:Domain"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20180915preview:Domain"),
 		},

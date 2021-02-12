@@ -13,6 +13,8 @@ import (
 
 // The description of the IoT hub.
 // Latest API Version: 2020-08-31.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotHubResource'.
 type IotHubResource struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewIotHubResource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:devices:IotHubResource"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20160203:IotHubResource"),
 		},

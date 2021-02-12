@@ -13,6 +13,8 @@ import (
 
 // Information about managed application definition.
 // Latest API Version: 2019-07-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:ApplicationDefinition'.
 type ApplicationDefinition struct {
 	pulumi.CustomResourceState
 
@@ -72,6 +74,9 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:solutions:ApplicationDefinition"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:solutions/v20170901:ApplicationDefinition"),
 		},

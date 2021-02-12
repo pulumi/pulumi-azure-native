@@ -13,6 +13,8 @@ import (
 
 // Represents a container on the  Data Box Edge/Gateway device.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Container'.
 type Container struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +57,9 @@ func NewContainer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge:Container"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Container"),
 		},

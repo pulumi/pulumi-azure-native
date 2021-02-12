@@ -49,6 +49,9 @@ func NewSession(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:logic:Session"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/latest:Session"),
 		},
 		{

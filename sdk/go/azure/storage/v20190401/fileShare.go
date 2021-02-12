@@ -47,6 +47,9 @@ func NewFileShare(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storage:FileShare"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/latest:FileShare"),
 		},
 		{

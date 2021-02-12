@@ -45,6 +45,9 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:VirtualHubRouteTableV2"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualHubRouteTableV2"),
 		},
 		{

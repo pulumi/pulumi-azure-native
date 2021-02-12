@@ -59,6 +59,12 @@ func NewHealthAlert(ctx *pulumi.Context,
 	if args.RuleName == nil {
 		return nil, errors.New("invalid value for required argument 'RuleName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:alertsmanagement:HealthAlert"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HealthAlert
 	err := ctx.RegisterResource("azure-nextgen:alertsmanagement/v20200804preview:HealthAlert", name, args, &resource, opts...)
 	if err != nil {

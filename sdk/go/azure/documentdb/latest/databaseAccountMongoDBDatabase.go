@@ -13,6 +13,8 @@ import (
 
 // An Azure Cosmos DB MongoDB database.
 // Latest API Version: 2016-03-31.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase'.
 type DatabaseAccountMongoDBDatabase struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewDatabaseAccountMongoDBDatabase(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBDatabase"),
 		},

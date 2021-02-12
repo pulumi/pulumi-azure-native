@@ -13,6 +13,8 @@ import (
 
 // Represents an image from the Azure Marketplace
 // Latest API Version: 2018-10-15.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:GalleryImage'.
 type GalleryImage struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +69,9 @@ func NewGalleryImage(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:labservices:GalleryImage"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:labservices/v20181015:GalleryImage"),
 		},

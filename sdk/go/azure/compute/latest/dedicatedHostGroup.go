@@ -13,6 +13,8 @@ import (
 
 // Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHostGroup'.
 type DedicatedHostGroup struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:compute:DedicatedHostGroup"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:DedicatedHostGroup"),
 		},

@@ -45,6 +45,9 @@ func NewCustomerSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:azurestack:CustomerSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azurestack/latest:CustomerSubscription"),
 		},
 		{

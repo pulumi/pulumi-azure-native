@@ -13,6 +13,8 @@ import (
 
 // CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOrigin'.
 type AFDOrigin struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +70,9 @@ func NewAFDOrigin(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cdn:AFDOrigin"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:AFDOrigin"),
 		},

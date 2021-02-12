@@ -13,6 +13,8 @@ import (
 
 // The policy set definition.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicySetDefinition'.
 type PolicySetDefinition struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PolicySetDefinitionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:authorization:PolicySetDefinition"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20170601preview:PolicySetDefinition"),
 		},

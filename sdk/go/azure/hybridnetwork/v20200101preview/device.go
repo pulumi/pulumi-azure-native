@@ -51,6 +51,12 @@ func NewDevice(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:hybridnetwork:Device"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Device
 	err := ctx.RegisterResource("azure-nextgen:hybridnetwork/v20200101preview:Device", name, args, &resource, opts...)
 	if err != nil {

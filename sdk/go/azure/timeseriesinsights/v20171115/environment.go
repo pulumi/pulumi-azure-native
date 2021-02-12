@@ -64,6 +64,9 @@ func NewEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:timeseriesinsights:Environment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/latest:Environment"),
 		},
 		{

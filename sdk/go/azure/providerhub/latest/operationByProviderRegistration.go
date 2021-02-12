@@ -12,6 +12,8 @@ import (
 )
 
 // Latest API Version: 2020-11-20.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:OperationByProviderRegistration'.
 type OperationByProviderRegistration struct {
 	pulumi.CustomResourceState
 
@@ -39,6 +41,9 @@ func NewOperationByProviderRegistration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:providerhub:OperationByProviderRegistration"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:OperationByProviderRegistration"),
 		},

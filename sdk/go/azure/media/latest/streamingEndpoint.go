@@ -13,6 +13,8 @@ import (
 
 // The streaming endpoint.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingEndpoint'.
 type StreamingEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -80,6 +82,9 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StreamingEndpointName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:media:StreamingEndpoint"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:StreamingEndpoint"),
 		},

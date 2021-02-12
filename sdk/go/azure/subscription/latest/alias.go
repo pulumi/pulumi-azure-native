@@ -13,6 +13,8 @@ import (
 
 // Subscription Information with the alias.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:subscription:Alias'.
 type Alias struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +40,9 @@ func NewAlias(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:subscription:Alias"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:subscription/v20191001preview:Alias"),
 		},

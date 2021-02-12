@@ -13,6 +13,8 @@ import (
 
 // A budget resource.
 // Latest API Version: 2019-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:Budget'.
 type Budget struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +66,9 @@ func NewBudget(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TimePeriod'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:consumption:Budget"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:consumption/v20190101:Budget"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // A Content Key Policy resource.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:ContentKeyPolicy'.
 type ContentKeyPolicy struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +56,9 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:media:ContentKeyPolicy"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:ContentKeyPolicy"),
 		},

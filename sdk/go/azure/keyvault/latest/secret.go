@@ -13,6 +13,8 @@ import (
 
 // Resource information with extended details.
 // Latest API Version: 2019-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Secret'.
 type Secret struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +50,9 @@ func NewSecret(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:keyvault:Secret"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20161001:Secret"),
 		},

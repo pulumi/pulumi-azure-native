@@ -13,6 +13,8 @@ import (
 
 // An Application Insights component definition.
 // Latest API Version: 2015-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Component'.
 type Component struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +101,9 @@ func NewComponent(ctx *pulumi.Context,
 		args.RetentionInDays = pulumi.IntPtr(90)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:insights:Component"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:Component"),
 		},

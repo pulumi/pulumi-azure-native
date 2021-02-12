@@ -53,6 +53,9 @@ func NewDiagnosticLogger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:DiagnosticLogger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:DiagnosticLogger"),
 		},
 		{

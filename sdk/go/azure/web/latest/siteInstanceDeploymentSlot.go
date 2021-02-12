@@ -13,6 +13,8 @@ import (
 
 // Represents user credentials used for publishing activity
 // Latest API Version: 2015-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeploymentSlot'.
 type SiteInstanceDeploymentSlot struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +71,9 @@ func NewSiteInstanceDeploymentSlot(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:SiteInstanceDeploymentSlot"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot"),
 		},

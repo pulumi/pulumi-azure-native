@@ -13,6 +13,8 @@ import (
 
 // Route Filter Resource.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RouteFilter'.
 type RouteFilter struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewRouteFilter(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RouteFilterName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:RouteFilter"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20161201:RouteFilter"),
 		},

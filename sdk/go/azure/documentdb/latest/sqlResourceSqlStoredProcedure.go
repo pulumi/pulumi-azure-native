@@ -13,6 +13,8 @@ import (
 
 // An Azure Cosmos DB storedProcedure.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlStoredProcedure'.
 type SqlResourceSqlStoredProcedure struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StoredProcedureName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlStoredProcedure"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:SqlResourceSqlStoredProcedure"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // maintenance configuration.
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:MaintenanceConfiguration'.
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +47,9 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerservice:MaintenanceConfiguration"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20201201:MaintenanceConfiguration"),
 		},

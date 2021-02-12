@@ -31,6 +31,12 @@ func NewOnPremiseIotSensor(ctx *pulumi.Context,
 	if args.OnPremiseIotSensorName == nil {
 		return nil, errors.New("invalid value for required argument 'OnPremiseIotSensorName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:security:OnPremiseIotSensor"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource OnPremiseIotSensor
 	err := ctx.RegisterResource("azure-nextgen:security/v20200806preview:OnPremiseIotSensor", name, args, &resource, opts...)
 	if err != nil {

@@ -38,6 +38,9 @@ func NewSupportPlanType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:addons:SupportPlanType"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:addons/latest:SupportPlanType"),
 		},
 		{

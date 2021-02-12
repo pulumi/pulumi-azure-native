@@ -12,6 +12,8 @@ import (
 )
 
 // Latest API Version: 2016-03-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:JobCollection'.
 type JobCollection struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +43,9 @@ func NewJobCollection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:scheduler:JobCollection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:scheduler/v20140801preview:JobCollection"),
 		},

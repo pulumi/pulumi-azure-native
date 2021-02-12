@@ -70,6 +70,9 @@ func NewApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:Api"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:Api"),
 		},
 		{

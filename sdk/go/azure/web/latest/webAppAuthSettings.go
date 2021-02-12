@@ -13,6 +13,8 @@ import (
 
 // Configuration settings for the Azure App Service Authentication / Authorization feature.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettings'.
 type WebAppAuthSettings struct {
 	pulumi.CustomResourceState
 
@@ -165,6 +167,9 @@ func NewWebAppAuthSettings(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:WebAppAuthSettings"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppAuthSettings"),
 		},

@@ -56,6 +56,9 @@ func NewPrivateZone(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:PrivateZone"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:PrivateZone"),
 		},
 		{

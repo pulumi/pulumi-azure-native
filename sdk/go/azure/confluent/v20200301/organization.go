@@ -52,6 +52,9 @@ func NewOrganization(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:confluent:Organization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:confluent/latest:Organization"),
 		},
 		{

@@ -13,6 +13,8 @@ import (
 
 // Contract details.
 // Latest API Version: 2019-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Group'.
 type Group struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement:Group"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Group"),
 		},

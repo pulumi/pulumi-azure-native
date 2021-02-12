@@ -48,6 +48,9 @@ func NewIntegrationAccountAssembly(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountAssembly"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationAccountAssembly"),
 		},
 		{

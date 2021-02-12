@@ -13,6 +13,8 @@ import (
 
 // Defines web application firewall policy for Azure CDN.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Policy'.
 type Policy struct {
 	pulumi.CustomResourceState
 
@@ -62,6 +64,9 @@ func NewPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cdn:Policy"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20190615:Policy"),
 		},

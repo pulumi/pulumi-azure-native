@@ -49,6 +49,9 @@ func NewDataConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:kusto:DataConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/latest:DataConnection"),
 		},
 		{

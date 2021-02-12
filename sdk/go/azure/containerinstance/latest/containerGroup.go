@@ -13,6 +13,8 @@ import (
 
 // A container group.
 // Latest API Version: 2020-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerinstance:ContainerGroup'.
 type ContainerGroup struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +81,9 @@ func NewContainerGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerinstance:ContainerGroup"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:containerinstance/v20170801preview:ContainerGroup"),
 		},

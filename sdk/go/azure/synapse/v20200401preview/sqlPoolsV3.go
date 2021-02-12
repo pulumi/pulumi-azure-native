@@ -57,6 +57,9 @@ func NewSqlPoolsV3(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:synapse:SqlPoolsV3"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPoolsV3"),
 		},
 		{

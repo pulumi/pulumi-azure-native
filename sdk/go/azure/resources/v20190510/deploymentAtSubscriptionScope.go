@@ -40,6 +40,9 @@ func NewDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:resources:DeploymentAtSubscriptionScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/latest:DeploymentAtSubscriptionScope"),
 		},
 		{

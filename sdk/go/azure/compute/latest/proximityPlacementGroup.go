@@ -13,6 +13,8 @@ import (
 
 // Specifies information about the proximity placement group.
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:ProximityPlacementGroup'.
 type ProximityPlacementGroup struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:compute:ProximityPlacementGroup"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180401:ProximityPlacementGroup"),
 		},

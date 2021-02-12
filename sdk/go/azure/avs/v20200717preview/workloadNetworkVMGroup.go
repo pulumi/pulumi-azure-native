@@ -47,6 +47,12 @@ func NewWorkloadNetworkVMGroup(ctx *pulumi.Context,
 	if args.VmGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'VmGroupId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:avs:WorkloadNetworkVMGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WorkloadNetworkVMGroup
 	err := ctx.RegisterResource("azure-nextgen:avs/v20200717preview:WorkloadNetworkVMGroup", name, args, &resource, opts...)
 	if err != nil {

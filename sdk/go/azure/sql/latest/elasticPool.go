@@ -13,6 +13,8 @@ import (
 
 // Represents a database elastic pool.
 // Latest API Version: 2014-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ElasticPool'.
 type ElasticPool struct {
 	pulumi.CustomResourceState
 
@@ -61,6 +63,9 @@ func NewElasticPool(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql:ElasticPool"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:ElasticPool"),
 		},

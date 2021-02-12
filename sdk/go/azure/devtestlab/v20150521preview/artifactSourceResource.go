@@ -59,6 +59,9 @@ func NewArtifactSourceResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab:ArtifactSourceResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:ArtifactSourceResource"),
 		},
 		{

@@ -44,6 +44,9 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:relay:NamespaceAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay/latest:NamespaceAuthorizationRule"),
 		},
 		{

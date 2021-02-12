@@ -42,6 +42,12 @@ func NewArtifact(ctx *pulumi.Context,
 	if args.ResourceScope == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceScope'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:blueprint:Artifact"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Artifact
 	err := ctx.RegisterResource("azure-nextgen:blueprint/v20181101preview:Artifact", name, args, &resource, opts...)
 	if err != nil {

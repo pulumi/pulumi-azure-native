@@ -13,6 +13,8 @@ import (
 
 // A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Job'.
 type Job struct {
 	pulumi.CustomResourceState
 
@@ -70,6 +72,9 @@ func NewJob(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TransformName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:media:Job"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:Job"),
 		},

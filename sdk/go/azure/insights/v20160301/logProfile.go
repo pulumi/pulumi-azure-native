@@ -56,6 +56,9 @@ func NewLogProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights:LogProfile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:LogProfile"),
 		},
 	})

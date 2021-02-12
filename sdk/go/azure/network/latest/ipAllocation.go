@@ -13,6 +13,8 @@ import (
 
 // IpAllocation resource.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpAllocation'.
 type IpAllocation struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewIpAllocation(ctx *pulumi.Context,
 		args.PrefixLength = pulumi.IntPtr(0)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:IpAllocation"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:IpAllocation"),
 		},

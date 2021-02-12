@@ -48,6 +48,9 @@ func NewRouteFilter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:RouteFilter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:RouteFilter"),
 		},
 		{

@@ -13,6 +13,8 @@ import (
 
 // Description of NetworkRuleSet resource.
 // Latest API Version: 2017-04-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceNetworkRuleSet'.
 type NamespaceNetworkRuleSet struct {
 	pulumi.CustomResourceState
 
@@ -42,6 +44,9 @@ func NewNamespaceNetworkRuleSet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:eventhub:NamespaceNetworkRuleSet"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet"),
 		},

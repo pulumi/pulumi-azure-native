@@ -13,6 +13,8 @@ import (
 
 // Describes a Private DNS zone.
 // Latest API Version: 2020-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateZone'.
 type PrivateZone struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +60,9 @@ func NewPrivateZone(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:PrivateZone"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180901:PrivateZone"),
 		},

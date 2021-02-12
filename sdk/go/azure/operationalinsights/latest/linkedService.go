@@ -13,6 +13,8 @@ import (
 
 // The top level Linked service resource container.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedService'.
 type LinkedService struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +49,9 @@ func NewLinkedService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:operationalinsights:LinkedService"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20151101preview:LinkedService"),
 		},

@@ -72,6 +72,9 @@ func NewWebAppInstanceFunctionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:WebAppInstanceFunctionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppInstanceFunctionSlot"),
 		},
 		{

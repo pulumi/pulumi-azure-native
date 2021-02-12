@@ -13,6 +13,8 @@ import (
 
 // The private endpoint connection of a Digital Twin.
 // Latest API Version: 2020-12-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -43,6 +45,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:digitaltwins:PrivateEndpointConnection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20201201:PrivateEndpointConnection"),
 		},

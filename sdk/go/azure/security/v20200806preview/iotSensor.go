@@ -54,6 +54,12 @@ func NewIotSensor(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:security:IotSensor"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IotSensor
 	err := ctx.RegisterResource("azure-nextgen:security/v20200806preview:IotSensor", name, args, &resource, opts...)
 	if err != nil {

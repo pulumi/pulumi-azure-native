@@ -53,6 +53,9 @@ func NewVirtualNetworkResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab:VirtualNetworkResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:VirtualNetworkResource"),
 		},
 		{

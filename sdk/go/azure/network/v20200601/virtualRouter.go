@@ -54,6 +54,9 @@ func NewVirtualRouter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:VirtualRouter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualRouter"),
 		},
 		{

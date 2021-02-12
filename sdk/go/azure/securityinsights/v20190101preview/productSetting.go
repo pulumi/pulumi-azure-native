@@ -47,6 +47,12 @@ func NewProductSetting(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights:ProductSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ProductSetting
 	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:ProductSetting", name, args, &resource, opts...)
 	if err != nil {

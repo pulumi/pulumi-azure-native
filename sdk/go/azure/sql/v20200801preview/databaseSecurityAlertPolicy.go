@@ -46,6 +46,9 @@ func NewDatabaseSecurityAlertPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql:DatabaseSecurityAlertPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy"),
 		},
 		{

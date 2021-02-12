@@ -41,6 +41,12 @@ func NewSolution(ctx *pulumi.Context,
 	if args.SolutionName == nil {
 		return nil, errors.New("invalid value for required argument 'SolutionName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:migrate:Solution"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Solution
 	err := ctx.RegisterResource("azure-nextgen:migrate/v20180901preview:Solution", name, args, &resource, opts...)
 	if err != nil {

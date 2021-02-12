@@ -13,6 +13,8 @@ import (
 
 // Factory resource type.
 // Latest API Version: 2018-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Factory'.
 type Factory struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +60,9 @@ func NewFactory(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:datafactory:Factory"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:Factory"),
 		},

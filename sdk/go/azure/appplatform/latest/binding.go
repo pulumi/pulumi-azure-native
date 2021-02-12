@@ -13,6 +13,8 @@ import (
 
 // Binding resource payload
 // Latest API Version: 2020-07-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Binding'.
 type Binding struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewBinding(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:appplatform:Binding"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20190501preview:Binding"),
 		},

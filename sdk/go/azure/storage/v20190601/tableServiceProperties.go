@@ -41,6 +41,9 @@ func NewTableServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storage:TableServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/latest:TableServiceProperties"),
 		},
 		{

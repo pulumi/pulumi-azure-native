@@ -13,6 +13,8 @@ import (
 
 // Class representing an data connection.
 // Latest API Version: 2020-09-18.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:DataConnection'.
 type DataConnection struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewDataConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:kusto:DataConnection"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190121:DataConnection"),
 		},

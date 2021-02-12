@@ -13,6 +13,8 @@ import (
 
 // The profile resource format.
 // Latest API Version: 2017-04-26.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Profile'.
 type Profile struct {
 	pulumi.CustomResourceState
 
@@ -75,6 +77,9 @@ func NewProfile(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:customerinsights:Profile"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:Profile"),
 		},

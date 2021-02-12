@@ -58,6 +58,9 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:marketplace:PrivateStoreOffer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:marketplace/latest:PrivateStoreOffer"),
 		},
 	})

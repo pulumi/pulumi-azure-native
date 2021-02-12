@@ -13,6 +13,8 @@ import (
 
 // vCenter definition.
 // Latest API Version: 2018-07-10.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationvCenter'.
 type ReplicationvCenter struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +48,9 @@ func NewReplicationvCenter(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VCenterName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationvCenter"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationvCenter"),
 		},

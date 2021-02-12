@@ -13,6 +13,8 @@ import (
 
 // Definition of the webhook type.
 // Latest API Version: 2015-10-31.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Webhook'.
 type Webhook struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +66,9 @@ func NewWebhook(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WebhookName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:automation:Webhook"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Webhook"),
 		},

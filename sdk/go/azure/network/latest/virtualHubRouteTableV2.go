@@ -13,6 +13,8 @@ import (
 
 // VirtualHubRouteTableV2 Resource.
 // Latest API Version: 2020-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHubRouteTableV2'.
 type VirtualHubRouteTableV2 struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +47,9 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VirtualHubName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:VirtualHubRouteTableV2"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:VirtualHubRouteTableV2"),
 		},

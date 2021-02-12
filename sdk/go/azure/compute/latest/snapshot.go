@@ -13,6 +13,8 @@ import (
 
 // Snapshot resource.
 // Latest API Version: 2020-09-30.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Snapshot'.
 type Snapshot struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +81,9 @@ func NewSnapshot(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SnapshotName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:compute:Snapshot"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20160430preview:Snapshot"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // An object that represents a webhook for a container registry.
 // Latest API Version: 2019-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Webhook'.
 type Webhook struct {
 	pulumi.CustomResourceState
 
@@ -57,6 +59,9 @@ func NewWebhook(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WebhookName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry:Webhook"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20170601preview:Webhook"),
 		},

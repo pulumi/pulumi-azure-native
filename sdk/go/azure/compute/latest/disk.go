@@ -13,6 +13,8 @@ import (
 
 // Disk resource.
 // Latest API Version: 2020-09-30.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Disk'.
 type Disk struct {
 	pulumi.CustomResourceState
 
@@ -97,6 +99,9 @@ func NewDisk(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:compute:Disk"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20160430preview:Disk"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // The integration account RosettaNet process configuration.
 // Latest API Version: 2016-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:RosettaNetProcessConfiguration'.
 type RosettaNetProcessConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +83,9 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RosettaNetProcessConfigurationName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:logic:RosettaNetProcessConfiguration"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration"),
 		},

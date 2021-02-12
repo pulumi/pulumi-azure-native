@@ -13,6 +13,8 @@ import (
 
 // The integration account schema.
 // Latest API Version: 2019-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountSchema'.
 type IntegrationAccountSchema struct {
 	pulumi.CustomResourceState
 
@@ -66,6 +68,9 @@ func NewIntegrationAccountSchema(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SchemaType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountSchema"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20150801preview:IntegrationAccountSchema"),
 		},

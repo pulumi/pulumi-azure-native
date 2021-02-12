@@ -13,6 +13,8 @@ import (
 
 // The description of the service.
 // Latest API Version: 2021-01-11.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthcareapis:Service'.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +52,9 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:healthcareapis:Service"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20180820preview:Service"),
 		},

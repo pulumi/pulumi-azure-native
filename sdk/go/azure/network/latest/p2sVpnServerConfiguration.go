@@ -13,6 +13,8 @@ import (
 
 // P2SVpnServerConfiguration Resource.
 // Latest API Version: 2019-07-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnServerConfiguration'.
 type P2sVpnServerConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewP2sVpnServerConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VirtualWanName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:P2sVpnServerConfiguration"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:P2sVpnServerConfiguration"),
 		},

@@ -13,6 +13,8 @@ import (
 
 // Key Vault container ARM resource for a certificate that is purchased through Azure.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate'.
 type AppServiceCertificateOrderCertificate struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewAppServiceCertificateOrderCertificate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"),
 		},

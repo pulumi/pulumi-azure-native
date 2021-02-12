@@ -41,6 +41,9 @@ func NewQueueServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storage:QueueServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/latest:QueueServiceProperties"),
 		},
 		{

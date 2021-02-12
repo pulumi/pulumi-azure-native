@@ -13,6 +13,8 @@ import (
 
 // Guest configuration assignment is an association between a machine and guest configuration.
 // Latest API Version: 2020-06-25.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:guestconfiguration:GuestConfigurationAssignment'.
 type GuestConfigurationAssignment struct {
 	pulumi.CustomResourceState
 
@@ -43,6 +45,9 @@ func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VmName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:guestconfiguration:GuestConfigurationAssignment"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment"),
 		},

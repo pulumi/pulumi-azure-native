@@ -13,6 +13,8 @@ import (
 
 // EnterpriseKnowledgeGraph resource definition
 // Latest API Version: 2018-12-03.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph'.
 type EnterpriseKnowledgeGraph struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"),
 		},

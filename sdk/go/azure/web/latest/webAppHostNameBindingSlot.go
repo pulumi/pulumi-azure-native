@@ -13,6 +13,8 @@ import (
 
 // A hostname binding object.
 // Latest API Version: 2020-09-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHostNameBindingSlot'.
 type WebAppHostNameBindingSlot struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +66,9 @@ func NewWebAppHostNameBindingSlot(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:web:WebAppHostNameBindingSlot"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppHostNameBindingSlot"),
 		},

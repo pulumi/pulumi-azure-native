@@ -13,6 +13,8 @@ import (
 
 // The integration service environment.
 // Latest API Version: 2019-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironment'.
 type IntegrationServiceEnvironment struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +46,9 @@ func NewIntegrationServiceEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroup'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:logic:IntegrationServiceEnvironment"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationServiceEnvironment"),
 		},

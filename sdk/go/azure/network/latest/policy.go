@@ -13,6 +13,8 @@ import (
 
 // Defines web application firewall policy.
 // Latest API Version: 2020-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Policy'.
 type Policy struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network:Policy"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:Policy"),
 		},

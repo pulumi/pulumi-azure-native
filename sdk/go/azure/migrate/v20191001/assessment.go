@@ -49,6 +49,9 @@ func NewAssessment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:migrate:Assessment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate/latest:Assessment"),
 		},
 	})

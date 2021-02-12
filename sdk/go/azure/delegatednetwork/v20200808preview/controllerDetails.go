@@ -48,6 +48,12 @@ func NewControllerDetails(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:delegatednetwork:ControllerDetails"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ControllerDetails
 	err := ctx.RegisterResource("azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails", name, args, &resource, opts...)
 	if err != nil {

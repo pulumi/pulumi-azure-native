@@ -13,6 +13,8 @@ import (
 
 // An export resource.
 // Latest API Version: 2020-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:Export'.
 type Export struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +58,9 @@ func NewExport(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:costmanagement:Export"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20190101:Export"),
 		},

@@ -42,6 +42,9 @@ func NewServiceTopology(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:deploymentmanager:ServiceTopology"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager/v20191101preview:ServiceTopology"),
 		},
 	})

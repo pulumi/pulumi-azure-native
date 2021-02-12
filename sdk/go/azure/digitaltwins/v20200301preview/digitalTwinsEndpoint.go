@@ -41,6 +41,9 @@ func NewDigitalTwinsEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:digitaltwins:DigitalTwinsEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint"),
 		},
 		{

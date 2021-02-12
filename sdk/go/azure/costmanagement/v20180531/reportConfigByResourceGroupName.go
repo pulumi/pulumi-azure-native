@@ -52,6 +52,9 @@ func NewReportConfigByResourceGroupName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:costmanagement:ReportConfigByResourceGroupName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName"),
 		},
 	})

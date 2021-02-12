@@ -13,6 +13,8 @@ import (
 
 // An Asset.
 // Latest API Version: 2020-05-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Asset'.
 type Asset struct {
 	pulumi.CustomResourceState
 
@@ -57,6 +59,9 @@ func NewAsset(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:media:Asset"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:Asset"),
 		},

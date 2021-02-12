@@ -75,6 +75,9 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:ExpressRouteCircuitPeering"),
 		},
 		{

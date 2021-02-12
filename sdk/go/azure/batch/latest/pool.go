@@ -13,6 +13,8 @@ import (
 
 // Contains information about a pool.
 // Latest API Version: 2021-01-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Pool'.
 type Pool struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +87,9 @@ func NewPool(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:batch:Pool"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20170901:Pool"),
 		},

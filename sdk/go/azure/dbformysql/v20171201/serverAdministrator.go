@@ -56,6 +56,9 @@ func NewServerAdministrator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:dbformysql:ServerAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformysql/latest:ServerAdministrator"),
 		},
 		{
