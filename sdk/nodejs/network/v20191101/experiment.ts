@@ -133,7 +133,7 @@ export class Experiment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:Experiment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Experiment" }, { type: "azure-nextgen:network/latest:Experiment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Experiment.__pulumiType, name, inputs, opts);
     }

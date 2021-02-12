@@ -167,7 +167,7 @@ export class WebTest extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/latest:WebTest" }, { type: "azure-nextgen:insights/v20201005preview:WebTest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:WebTest" }, { type: "azure-nextgen:insights/latest:WebTest" }, { type: "azure-nextgen:insights/v20201005preview:WebTest" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebTest.__pulumiType, name, inputs, opts);
     }

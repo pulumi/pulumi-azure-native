@@ -129,7 +129,7 @@ export class ScalingPlan extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization/v20210114preview:ScalingPlan" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:ScalingPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization:ScalingPlan" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:ScalingPlan" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:ScalingPlan" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ScalingPlan.__pulumiType, name, inputs, opts);
     }

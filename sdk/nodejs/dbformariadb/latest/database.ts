@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a Database.
  * Latest API Version: 2018-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:Database'.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Database extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Database {
+        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:Database'.")
         return new Database(name, undefined as any, { ...opts, id: id });
     }
 
@@ -59,7 +62,9 @@ export class Database extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:Database'. */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:Database'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
@@ -91,7 +96,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb/v20180601:Database" }, { type: "azure-nextgen:dbformariadb/v20180601preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb:Database" }, { type: "azure-nextgen:dbformariadb/v20180601:Database" }, { type: "azure-nextgen:dbformariadb/v20180601preview:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

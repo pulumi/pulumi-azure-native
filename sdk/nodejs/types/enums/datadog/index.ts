@@ -7,3 +7,27 @@ import * as v20200201preview from "./v20200201preview";
 export {
     v20200201preview,
 };
+
+export const ManagedIdentityTypes = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * Identity type
+ */
+export type ManagedIdentityTypes = (typeof ManagedIdentityTypes)[keyof typeof ManagedIdentityTypes];
+
+export const ProvisioningState = {
+    Accepted: "Accepted",
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Canceled: "Canceled",
+    Deleted: "Deleted",
+    NotSpecified: "NotSpecified",
+} as const;
+
+export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];

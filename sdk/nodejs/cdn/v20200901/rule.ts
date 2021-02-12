@@ -128,7 +128,7 @@ export class Rule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:Rule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:Rule" }, { type: "azure-nextgen:cdn/latest:Rule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Rule.__pulumiType, name, inputs, opts);
     }

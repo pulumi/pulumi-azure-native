@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The gateway definition
  * Latest API Version: 2016-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:ConnectionGateway'.
  */
 export class ConnectionGateway extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ConnectionGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConnectionGateway {
+        pulumi.log.warn("ConnectionGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:ConnectionGateway'.")
         return new ConnectionGateway(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,7 +68,9 @@ export class ConnectionGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:ConnectionGateway'. */
     constructor(name: string, args: ConnectionGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ConnectionGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:ConnectionGateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.connectionGatewayName === undefined) && !(opts && opts.urn)) {
@@ -98,7 +103,7 @@ export class ConnectionGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160601:ConnectionGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:ConnectionGateway" }, { type: "azure-nextgen:web/v20160601:ConnectionGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConnectionGateway.__pulumiType, name, inputs, opts);
     }

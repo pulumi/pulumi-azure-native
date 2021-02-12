@@ -108,7 +108,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20190301:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20191201:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20200601:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20201201:DedicatedHostGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DedicatedHostGroup" }, { type: "azure-nextgen:compute/latest:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20190301:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20191201:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20200601:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20201201:DedicatedHostGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DedicatedHostGroup.__pulumiType, name, inputs, opts);
     }

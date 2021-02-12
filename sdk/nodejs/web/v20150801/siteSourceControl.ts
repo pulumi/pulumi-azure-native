@@ -122,7 +122,7 @@ export class SiteSourceControl extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteSourceControl" }, { type: "azure-nextgen:web/v20160801:SiteSourceControl" }, { type: "azure-nextgen:web/v20180201:SiteSourceControl" }, { type: "azure-nextgen:web/v20181101:SiteSourceControl" }, { type: "azure-nextgen:web/v20190801:SiteSourceControl" }, { type: "azure-nextgen:web/v20200601:SiteSourceControl" }, { type: "azure-nextgen:web/v20200901:SiteSourceControl" }, { type: "azure-nextgen:web/v20201001:SiteSourceControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteSourceControl" }, { type: "azure-nextgen:web/latest:SiteSourceControl" }, { type: "azure-nextgen:web/v20160801:SiteSourceControl" }, { type: "azure-nextgen:web/v20180201:SiteSourceControl" }, { type: "azure-nextgen:web/v20181101:SiteSourceControl" }, { type: "azure-nextgen:web/v20190801:SiteSourceControl" }, { type: "azure-nextgen:web/v20200601:SiteSourceControl" }, { type: "azure-nextgen:web/v20200901:SiteSourceControl" }, { type: "azure-nextgen:web/v20201001:SiteSourceControl" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteSourceControl.__pulumiType, name, inputs, opts);
     }

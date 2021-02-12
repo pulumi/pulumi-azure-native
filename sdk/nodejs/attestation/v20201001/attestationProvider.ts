@@ -121,7 +121,7 @@ export class AttestationProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:attestation/latest:AttestationProvider" }, { type: "azure-nextgen:attestation/v20180901preview:AttestationProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:attestation:AttestationProvider" }, { type: "azure-nextgen:attestation/latest:AttestationProvider" }, { type: "azure-nextgen:attestation/v20180901preview:AttestationProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AttestationProvider.__pulumiType, name, inputs, opts);
     }

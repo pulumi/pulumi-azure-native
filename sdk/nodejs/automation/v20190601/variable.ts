@@ -111,7 +111,7 @@ export class Variable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/latest:Variable" }, { type: "azure-nextgen:automation/v20151031:Variable" }, { type: "azure-nextgen:automation/v20200113preview:Variable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:Variable" }, { type: "azure-nextgen:automation/latest:Variable" }, { type: "azure-nextgen:automation/v20151031:Variable" }, { type: "azure-nextgen:automation/v20200113preview:Variable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Variable.__pulumiType, name, inputs, opts);
     }

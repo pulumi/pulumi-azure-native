@@ -102,7 +102,7 @@ export class ApplicationType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric/latest:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20170701preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190301preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190601preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20191101preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20200301:ApplicationType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric:ApplicationType" }, { type: "azure-nextgen:servicefabric/latest:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20170701preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190301preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190601preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20191101preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20200301:ApplicationType" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationType.__pulumiType, name, inputs, opts);
     }

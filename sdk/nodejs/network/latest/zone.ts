@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a DNS zone.
  * Latest API Version: 2018-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Zone'.
  */
 export class Zone extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Zone extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Zone {
+        pulumi.log.warn("Zone is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Zone'.")
         return new Zone(name, undefined as any, { ...opts, id: id });
     }
 
@@ -92,7 +95,9 @@ export class Zone extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Zone'. */
     constructor(name: string, args: ZoneArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Zone is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Zone'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -136,7 +141,7 @@ export class Zone extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150504preview:Zone" }, { type: "azure-nextgen:network/v20160401:Zone" }, { type: "azure-nextgen:network/v20170901:Zone" }, { type: "azure-nextgen:network/v20171001:Zone" }, { type: "azure-nextgen:network/v20180301preview:Zone" }, { type: "azure-nextgen:network/v20180501:Zone" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Zone" }, { type: "azure-nextgen:network/v20150504preview:Zone" }, { type: "azure-nextgen:network/v20160401:Zone" }, { type: "azure-nextgen:network/v20170901:Zone" }, { type: "azure-nextgen:network/v20171001:Zone" }, { type: "azure-nextgen:network/v20180301preview:Zone" }, { type: "azure-nextgen:network/v20180501:Zone" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Zone.__pulumiType, name, inputs, opts);
     }

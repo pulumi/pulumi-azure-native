@@ -328,7 +328,7 @@ export class WebAppSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSlot" }, { type: "azure-nextgen:web/v20150801:WebAppSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppSlot" }, { type: "azure-nextgen:web/latest:WebAppSlot" }, { type: "azure-nextgen:web/v20150801:WebAppSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSlot.__pulumiType, name, inputs, opts);
     }

@@ -162,7 +162,7 @@ export class Volume extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:Volume" }, { type: "azure-nextgen:storsimple/latest:Volume" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Volume.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a link to virtual network for a Private DNS zone.
  * Latest API Version: 2020-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkLink'.
  */
 export class VirtualNetworkLink extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetworkLink {
+        pulumi.log.warn("VirtualNetworkLink is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkLink'.")
         return new VirtualNetworkLink(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkLink'. */
     constructor(name: string, args: VirtualNetworkLinkArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualNetworkLink is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkLink'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.privateZoneName === undefined) && !(opts && opts.urn)) {
@@ -122,7 +127,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180901:VirtualNetworkLink" }, { type: "azure-nextgen:network/v20200101:VirtualNetworkLink" }, { type: "azure-nextgen:network/v20200601:VirtualNetworkLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:VirtualNetworkLink" }, { type: "azure-nextgen:network/v20180901:VirtualNetworkLink" }, { type: "azure-nextgen:network/v20200101:VirtualNetworkLink" }, { type: "azure-nextgen:network/v20200601:VirtualNetworkLink" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkLink.__pulumiType, name, inputs, opts);
     }

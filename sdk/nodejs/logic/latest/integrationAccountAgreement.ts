@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The integration account agreement.
  * Latest API Version: 2019-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAgreement'.
  */
 export class IntegrationAccountAgreement extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationAccountAgreement {
+        pulumi.log.warn("IntegrationAccountAgreement is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAgreement'.")
         return new IntegrationAccountAgreement(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,7 +99,9 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAgreement'. */
     constructor(name: string, args: IntegrationAccountAgreementArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IntegrationAccountAgreement is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAgreement'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.agreementName === undefined) && !(opts && opts.urn)) {
@@ -164,7 +169,7 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountAgreement" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountAgreement" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountAgreement.__pulumiType, name, inputs, opts);
     }

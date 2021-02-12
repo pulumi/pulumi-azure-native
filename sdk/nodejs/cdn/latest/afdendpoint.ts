@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDEndpoint'.
  */
 export class AFDEndpoint extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class AFDEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AFDEndpoint {
+        pulumi.log.warn("AFDEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDEndpoint'.")
         return new AFDEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
@@ -81,7 +84,9 @@ export class AFDEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDEndpoint'. */
     constructor(name: string, args: AFDEndpointArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AFDEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDEndpoint'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
@@ -125,7 +130,7 @@ export class AFDEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20200901:AFDEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:AFDEndpoint" }, { type: "azure-nextgen:cdn/v20200901:AFDEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AFDEndpoint.__pulumiType, name, inputs, opts);
     }

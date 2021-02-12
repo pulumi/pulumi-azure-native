@@ -142,7 +142,7 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20160801:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20181101:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20200901:WebAppHybridConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppHybridConnection" }, { type: "azure-nextgen:web/latest:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20160801:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20181101:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20200901:WebAppHybridConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppHybridConnection.__pulumiType, name, inputs, opts);
     }

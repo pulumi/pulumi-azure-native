@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The iSCSI server.
  * Latest API Version: 2016-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiServer'.
  */
 export class IscsiServer extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class IscsiServer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IscsiServer {
+        pulumi.log.warn("IscsiServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiServer'.")
         return new IscsiServer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -71,7 +74,9 @@ export class IscsiServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiServer'. */
     constructor(name: string, args: IscsiServerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IscsiServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiServer'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.backupScheduleGroupId === undefined) && !(opts && opts.urn)) {
@@ -119,7 +124,7 @@ export class IscsiServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20161001:IscsiServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:IscsiServer" }, { type: "azure-nextgen:storsimple/v20161001:IscsiServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IscsiServer.__pulumiType, name, inputs, opts);
     }

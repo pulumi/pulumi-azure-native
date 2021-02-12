@@ -87,7 +87,7 @@ export class Queue extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:Queue" }, { type: "azure-nextgen:storage/v20190601:Queue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:Queue" }, { type: "azure-nextgen:storage/latest:Queue" }, { type: "azure-nextgen:storage/v20190601:Queue" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Queue.__pulumiType, name, inputs, opts);
     }

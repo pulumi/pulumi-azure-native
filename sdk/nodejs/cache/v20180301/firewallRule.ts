@@ -96,7 +96,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:FirewallRule" }, { type: "azure-nextgen:cache/v20160401:FirewallRule" }, { type: "azure-nextgen:cache/v20170201:FirewallRule" }, { type: "azure-nextgen:cache/v20171001:FirewallRule" }, { type: "azure-nextgen:cache/v20190701:FirewallRule" }, { type: "azure-nextgen:cache/v20200601:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache:FirewallRule" }, { type: "azure-nextgen:cache/latest:FirewallRule" }, { type: "azure-nextgen:cache/v20160401:FirewallRule" }, { type: "azure-nextgen:cache/v20170201:FirewallRule" }, { type: "azure-nextgen:cache/v20171001:FirewallRule" }, { type: "azure-nextgen:cache/v20190701:FirewallRule" }, { type: "azure-nextgen:cache/v20200601:FirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

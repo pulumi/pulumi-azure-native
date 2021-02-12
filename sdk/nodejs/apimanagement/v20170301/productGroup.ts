@@ -106,7 +106,7 @@ export class ProductGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20180101:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20180601preview:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20190101:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20191201:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20191201preview:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20200601preview:ProductGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ProductGroup" }, { type: "azure-nextgen:apimanagement/latest:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20180101:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20180601preview:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20190101:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20191201:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20191201preview:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20200601preview:ProductGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProductGroup.__pulumiType, name, inputs, opts);
     }

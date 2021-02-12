@@ -150,7 +150,7 @@ export class ContainerService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/latest:ContainerService" }, { type: "azure-nextgen:containerservice/v20151101preview:ContainerService" }, { type: "azure-nextgen:containerservice/v20160330:ContainerService" }, { type: "azure-nextgen:containerservice/v20160930:ContainerService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice:ContainerService" }, { type: "azure-nextgen:containerservice/latest:ContainerService" }, { type: "azure-nextgen:containerservice/v20151101preview:ContainerService" }, { type: "azure-nextgen:containerservice/v20160330:ContainerService" }, { type: "azure-nextgen:containerservice/v20160930:ContainerService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContainerService.__pulumiType, name, inputs, opts);
     }

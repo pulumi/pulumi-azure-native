@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A custom API
  * Latest API Version: 2016-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CustomApi'.
  */
 export class CustomApi extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class CustomApi extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomApi {
+        pulumi.log.warn("CustomApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CustomApi'.")
         return new CustomApi(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class CustomApi extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CustomApi'. */
     constructor(name: string, args: CustomApiArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CustomApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CustomApi'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.apiName === undefined) && !(opts && opts.urn)) {
@@ -101,7 +106,7 @@ export class CustomApi extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160601:CustomApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:CustomApi" }, { type: "azure-nextgen:web/v20160601:CustomApi" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomApi.__pulumiType, name, inputs, opts);
     }

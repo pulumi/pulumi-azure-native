@@ -139,7 +139,7 @@ export class BackupPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200501:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200601:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200701:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200801:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200901:BackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:BackupPolicy" }, { type: "azure-nextgen:netapp/latest:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200501:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200601:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200701:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200801:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200901:BackupPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BackupPolicy.__pulumiType, name, inputs, opts);
     }

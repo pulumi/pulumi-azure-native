@@ -98,7 +98,7 @@ export class Domain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid/latest:Domain" }, { type: "azure-nextgen:eventgrid/v20180915preview:Domain" }, { type: "azure-nextgen:eventgrid/v20190201preview:Domain" }, { type: "azure-nextgen:eventgrid/v20200101preview:Domain" }, { type: "azure-nextgen:eventgrid/v20200401preview:Domain" }, { type: "azure-nextgen:eventgrid/v20200601:Domain" }, { type: "azure-nextgen:eventgrid/v20201015preview:Domain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid:Domain" }, { type: "azure-nextgen:eventgrid/latest:Domain" }, { type: "azure-nextgen:eventgrid/v20180915preview:Domain" }, { type: "azure-nextgen:eventgrid/v20190201preview:Domain" }, { type: "azure-nextgen:eventgrid/v20200101preview:Domain" }, { type: "azure-nextgen:eventgrid/v20200401preview:Domain" }, { type: "azure-nextgen:eventgrid/v20200601:Domain" }, { type: "azure-nextgen:eventgrid/v20201015preview:Domain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Domain.__pulumiType, name, inputs, opts);
     }

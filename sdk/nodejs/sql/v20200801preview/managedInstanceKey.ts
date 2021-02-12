@@ -112,7 +112,7 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20171001preview:ManagedInstanceKey" }, { type: "azure-nextgen:sql/v20200202preview:ManagedInstanceKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ManagedInstanceKey" }, { type: "azure-nextgen:sql/v20171001preview:ManagedInstanceKey" }, { type: "azure-nextgen:sql/v20200202preview:ManagedInstanceKey" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedInstanceKey.__pulumiType, name, inputs, opts);
     }

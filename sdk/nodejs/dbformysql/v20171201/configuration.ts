@@ -114,7 +114,7 @@ export class Configuration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/latest:Configuration" }, { type: "azure-nextgen:dbformysql/v20171201preview:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql:Configuration" }, { type: "azure-nextgen:dbformysql/latest:Configuration" }, { type: "azure-nextgen:dbformysql/v20171201preview:Configuration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Configuration.__pulumiType, name, inputs, opts);
     }

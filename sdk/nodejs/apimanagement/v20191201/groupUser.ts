@@ -131,7 +131,7 @@ export class GroupUser extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:GroupUser" }, { type: "azure-nextgen:apimanagement/v20170301:GroupUser" }, { type: "azure-nextgen:apimanagement/v20180101:GroupUser" }, { type: "azure-nextgen:apimanagement/v20180601preview:GroupUser" }, { type: "azure-nextgen:apimanagement/v20190101:GroupUser" }, { type: "azure-nextgen:apimanagement/v20191201preview:GroupUser" }, { type: "azure-nextgen:apimanagement/v20200601preview:GroupUser" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:GroupUser" }, { type: "azure-nextgen:apimanagement/latest:GroupUser" }, { type: "azure-nextgen:apimanagement/v20170301:GroupUser" }, { type: "azure-nextgen:apimanagement/v20180101:GroupUser" }, { type: "azure-nextgen:apimanagement/v20180601preview:GroupUser" }, { type: "azure-nextgen:apimanagement/v20190101:GroupUser" }, { type: "azure-nextgen:apimanagement/v20191201preview:GroupUser" }, { type: "azure-nextgen:apimanagement/v20200601preview:GroupUser" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GroupUser.__pulumiType, name, inputs, opts);
     }

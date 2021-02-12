@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a Kusto cluster.
  * Latest API Version: 2020-09-18.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Cluster'.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cluster {
+        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Cluster'.")
         return new Cluster(name, undefined as any, { ...opts, id: id });
     }
 
@@ -132,7 +135,9 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Cluster'. */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Cluster'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
@@ -199,7 +204,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/v20170907privatepreview:Cluster" }, { type: "azure-nextgen:kusto/v20180907preview:Cluster" }, { type: "azure-nextgen:kusto/v20190121:Cluster" }, { type: "azure-nextgen:kusto/v20190515:Cluster" }, { type: "azure-nextgen:kusto/v20190907:Cluster" }, { type: "azure-nextgen:kusto/v20191109:Cluster" }, { type: "azure-nextgen:kusto/v20200215:Cluster" }, { type: "azure-nextgen:kusto/v20200614:Cluster" }, { type: "azure-nextgen:kusto/v20200918:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:Cluster" }, { type: "azure-nextgen:kusto/v20170907privatepreview:Cluster" }, { type: "azure-nextgen:kusto/v20180907preview:Cluster" }, { type: "azure-nextgen:kusto/v20190121:Cluster" }, { type: "azure-nextgen:kusto/v20190515:Cluster" }, { type: "azure-nextgen:kusto/v20190907:Cluster" }, { type: "azure-nextgen:kusto/v20191109:Cluster" }, { type: "azure-nextgen:kusto/v20200215:Cluster" }, { type: "azure-nextgen:kusto/v20200614:Cluster" }, { type: "azure-nextgen:kusto/v20200918:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

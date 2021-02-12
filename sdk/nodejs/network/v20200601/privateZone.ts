@@ -140,7 +140,7 @@ export class PrivateZone extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:PrivateZone" }, { type: "azure-nextgen:network/v20180901:PrivateZone" }, { type: "azure-nextgen:network/v20200101:PrivateZone" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:PrivateZone" }, { type: "azure-nextgen:network/latest:PrivateZone" }, { type: "azure-nextgen:network/v20180901:PrivateZone" }, { type: "azure-nextgen:network/v20200101:PrivateZone" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateZone.__pulumiType, name, inputs, opts);
     }

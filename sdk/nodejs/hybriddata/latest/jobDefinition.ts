@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Job Definition.
  * Latest API Version: 2019-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:JobDefinition'.
  */
 export class JobDefinition extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): JobDefinition {
+        pulumi.log.warn("JobDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:JobDefinition'.")
         return new JobDefinition(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,7 +91,9 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:JobDefinition'. */
     constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("JobDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:JobDefinition'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.dataManagerName === undefined) && !(opts && opts.urn)) {
@@ -147,7 +152,7 @@ export class JobDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybriddata/v20160601:JobDefinition" }, { type: "azure-nextgen:hybriddata/v20190601:JobDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybriddata:JobDefinition" }, { type: "azure-nextgen:hybriddata/v20160601:JobDefinition" }, { type: "azure-nextgen:hybriddata/v20190601:JobDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobDefinition.__pulumiType, name, inputs, opts);
     }

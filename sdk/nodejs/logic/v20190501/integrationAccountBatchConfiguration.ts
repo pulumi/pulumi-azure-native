@@ -100,7 +100,7 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountBatchConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountBatchConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountBatchConfiguration.__pulumiType, name, inputs, opts);
     }

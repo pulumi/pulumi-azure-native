@@ -126,7 +126,7 @@ export class Volume extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabricmesh/v20180701preview:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabricmesh:Volume" }, { type: "azure-nextgen:servicefabricmesh/v20180701preview:Volume" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Volume.__pulumiType, name, inputs, opts);
     }

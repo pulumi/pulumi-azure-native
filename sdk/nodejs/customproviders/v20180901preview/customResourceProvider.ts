@@ -111,6 +111,8 @@ export class CustomResourceProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customproviders:CustomResourceProvider" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomResourceProvider.__pulumiType, name, inputs, opts);
     }
 }

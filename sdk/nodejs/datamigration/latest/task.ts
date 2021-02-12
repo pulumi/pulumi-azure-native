@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A task resource
  * Latest API Version: 2018-04-19.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Task'.
  */
 export class Task extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Task extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Task {
+        pulumi.log.warn("Task is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Task'.")
         return new Task(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class Task extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Task'. */
     constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Task is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Task'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
@@ -96,7 +101,7 @@ export class Task extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datamigration/v20171115preview:Task" }, { type: "azure-nextgen:datamigration/v20180315preview:Task" }, { type: "azure-nextgen:datamigration/v20180331preview:Task" }, { type: "azure-nextgen:datamigration/v20180419:Task" }, { type: "azure-nextgen:datamigration/v20180715preview:Task" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datamigration:Task" }, { type: "azure-nextgen:datamigration/v20171115preview:Task" }, { type: "azure-nextgen:datamigration/v20180315preview:Task" }, { type: "azure-nextgen:datamigration/v20180331preview:Task" }, { type: "azure-nextgen:datamigration/v20180419:Task" }, { type: "azure-nextgen:datamigration/v20180715preview:Task" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Task.__pulumiType, name, inputs, opts);
     }

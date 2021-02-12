@@ -17,3 +17,94 @@ export {
     v20200401,
     v20201001,
 };
+
+export const DirectPeeringType = {
+    Edge: "Edge",
+    Transit: "Transit",
+    Cdn: "Cdn",
+    Internal: "Internal",
+    Ix: "Ix",
+    IxRs: "IxRs",
+} as const;
+
+/**
+ * The type of direct peering.
+ */
+export type DirectPeeringType = (typeof DirectPeeringType)[keyof typeof DirectPeeringType];
+
+export const Family = {
+    Direct: "Direct",
+    Exchange: "Exchange",
+} as const;
+
+/**
+ * The family of the peering SKU.
+ */
+export type Family = (typeof Family)[keyof typeof Family];
+
+export const Kind = {
+    Direct: "Direct",
+    Exchange: "Exchange",
+} as const;
+
+/**
+ * The kind of the peering.
+ */
+export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const Role = {
+    Noc: "Noc",
+    Policy: "Policy",
+    Technical: "Technical",
+    Service: "Service",
+    Escalation: "Escalation",
+    Other: "Other",
+} as const;
+
+/**
+ * The role of the contact.
+ */
+export type Role = (typeof Role)[keyof typeof Role];
+
+export const SessionAddressProvider = {
+    Microsoft: "Microsoft",
+    Peer: "Peer",
+} as const;
+
+/**
+ * The field indicating if Microsoft provides session ip addresses.
+ */
+export type SessionAddressProvider = (typeof SessionAddressProvider)[keyof typeof SessionAddressProvider];
+
+export const Size = {
+    Free: "Free",
+    Metered: "Metered",
+    Unlimited: "Unlimited",
+} as const;
+
+/**
+ * The size of the peering SKU.
+ */
+export type Size = (typeof Size)[keyof typeof Size];
+
+export const Tier = {
+    Basic: "Basic",
+    Premium: "Premium",
+} as const;
+
+/**
+ * The tier of the peering SKU.
+ */
+export type Tier = (typeof Tier)[keyof typeof Tier];
+
+export const ValidationState = {
+    None: "None",
+    Pending: "Pending",
+    Approved: "Approved",
+    Failed: "Failed",
+} as const;
+
+/**
+ * The validation state of the ASN associated with the peer.
+ */
+export type ValidationState = (typeof ValidationState)[keyof typeof ValidationState];

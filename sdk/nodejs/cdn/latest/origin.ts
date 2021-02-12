@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Origin'.
  */
 export class Origin extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Origin extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Origin {
+        pulumi.log.warn("Origin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Origin'.")
         return new Origin(name, undefined as any, { ...opts, id: id });
     }
 
@@ -112,7 +115,9 @@ export class Origin extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Origin'. */
     constructor(name: string, args: OriginArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Origin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Origin'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
@@ -177,7 +182,7 @@ export class Origin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20150601:Origin" }, { type: "azure-nextgen:cdn/v20160402:Origin" }, { type: "azure-nextgen:cdn/v20191231:Origin" }, { type: "azure-nextgen:cdn/v20200331:Origin" }, { type: "azure-nextgen:cdn/v20200415:Origin" }, { type: "azure-nextgen:cdn/v20200901:Origin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:Origin" }, { type: "azure-nextgen:cdn/v20150601:Origin" }, { type: "azure-nextgen:cdn/v20160402:Origin" }, { type: "azure-nextgen:cdn/v20191231:Origin" }, { type: "azure-nextgen:cdn/v20200331:Origin" }, { type: "azure-nextgen:cdn/v20200415:Origin" }, { type: "azure-nextgen:cdn/v20200901:Origin" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Origin.__pulumiType, name, inputs, opts);
     }

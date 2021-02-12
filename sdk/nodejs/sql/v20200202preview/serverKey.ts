@@ -124,7 +124,7 @@ export class ServerKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20150501preview:ServerKey" }, { type: "azure-nextgen:sql/v20200801preview:ServerKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ServerKey" }, { type: "azure-nextgen:sql/v20150501preview:ServerKey" }, { type: "azure-nextgen:sql/v20200801preview:ServerKey" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerKey.__pulumiType, name, inputs, opts);
     }

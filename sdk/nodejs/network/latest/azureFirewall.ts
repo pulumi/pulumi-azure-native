@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Azure Firewall resource.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:AzureFirewall'.
  */
 export class AzureFirewall extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class AzureFirewall extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AzureFirewall {
+        pulumi.log.warn("AzureFirewall is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:AzureFirewall'.")
         return new AzureFirewall(name, undefined as any, { ...opts, id: id });
     }
 
@@ -120,7 +123,9 @@ export class AzureFirewall extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:AzureFirewall'. */
     constructor(name: string, args: AzureFirewallArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AzureFirewall is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:AzureFirewall'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.azureFirewallName === undefined) && !(opts && opts.urn)) {
@@ -179,7 +184,7 @@ export class AzureFirewall extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180401:AzureFirewall" }, { type: "azure-nextgen:network/v20180601:AzureFirewall" }, { type: "azure-nextgen:network/v20180701:AzureFirewall" }, { type: "azure-nextgen:network/v20180801:AzureFirewall" }, { type: "azure-nextgen:network/v20181001:AzureFirewall" }, { type: "azure-nextgen:network/v20181101:AzureFirewall" }, { type: "azure-nextgen:network/v20181201:AzureFirewall" }, { type: "azure-nextgen:network/v20190201:AzureFirewall" }, { type: "azure-nextgen:network/v20190401:AzureFirewall" }, { type: "azure-nextgen:network/v20190601:AzureFirewall" }, { type: "azure-nextgen:network/v20190701:AzureFirewall" }, { type: "azure-nextgen:network/v20190801:AzureFirewall" }, { type: "azure-nextgen:network/v20190901:AzureFirewall" }, { type: "azure-nextgen:network/v20191101:AzureFirewall" }, { type: "azure-nextgen:network/v20191201:AzureFirewall" }, { type: "azure-nextgen:network/v20200301:AzureFirewall" }, { type: "azure-nextgen:network/v20200401:AzureFirewall" }, { type: "azure-nextgen:network/v20200501:AzureFirewall" }, { type: "azure-nextgen:network/v20200601:AzureFirewall" }, { type: "azure-nextgen:network/v20200701:AzureFirewall" }, { type: "azure-nextgen:network/v20200801:AzureFirewall" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:AzureFirewall" }, { type: "azure-nextgen:network/v20180401:AzureFirewall" }, { type: "azure-nextgen:network/v20180601:AzureFirewall" }, { type: "azure-nextgen:network/v20180701:AzureFirewall" }, { type: "azure-nextgen:network/v20180801:AzureFirewall" }, { type: "azure-nextgen:network/v20181001:AzureFirewall" }, { type: "azure-nextgen:network/v20181101:AzureFirewall" }, { type: "azure-nextgen:network/v20181201:AzureFirewall" }, { type: "azure-nextgen:network/v20190201:AzureFirewall" }, { type: "azure-nextgen:network/v20190401:AzureFirewall" }, { type: "azure-nextgen:network/v20190601:AzureFirewall" }, { type: "azure-nextgen:network/v20190701:AzureFirewall" }, { type: "azure-nextgen:network/v20190801:AzureFirewall" }, { type: "azure-nextgen:network/v20190901:AzureFirewall" }, { type: "azure-nextgen:network/v20191101:AzureFirewall" }, { type: "azure-nextgen:network/v20191201:AzureFirewall" }, { type: "azure-nextgen:network/v20200301:AzureFirewall" }, { type: "azure-nextgen:network/v20200401:AzureFirewall" }, { type: "azure-nextgen:network/v20200501:AzureFirewall" }, { type: "azure-nextgen:network/v20200601:AzureFirewall" }, { type: "azure-nextgen:network/v20200701:AzureFirewall" }, { type: "azure-nextgen:network/v20200801:AzureFirewall" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AzureFirewall.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Base class for container with backup items. Containers with specific workloads are derived from this class.
  * Latest API Version: 2021-01-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionContainer'.
  */
 export class ProtectionContainer extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProtectionContainer {
+        pulumi.log.warn("ProtectionContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionContainer'.")
         return new ProtectionContainer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class ProtectionContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionContainer'. */
     constructor(name: string, args: ProtectionContainerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ProtectionContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionContainer'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
@@ -108,7 +113,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20161201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectionContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20161201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectionContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionContainer.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Provider details.
  * Latest API Version: 2018-07-10.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider'.
  */
 export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReplicationRecoveryServicesProvider {
+        pulumi.log.warn("ReplicationRecoveryServicesProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider'.")
         return new ReplicationRecoveryServicesProvider(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider'. */
     constructor(name: string, args: ReplicationRecoveryServicesProviderArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ReplicationRecoveryServicesProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
@@ -99,7 +104,7 @@ export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationRecoveryServicesProvider.__pulumiType, name, inputs, opts);
     }

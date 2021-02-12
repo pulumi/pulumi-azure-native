@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * DSCP Configuration in a resource group.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DscpConfiguration'.
  */
 export class DscpConfiguration extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DscpConfiguration {
+        pulumi.log.warn("DscpConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DscpConfiguration'.")
         return new DscpConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -104,7 +107,9 @@ export class DscpConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DscpConfiguration'. */
     constructor(name: string, args: DscpConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DscpConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DscpConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.dscpConfigurationName === undefined) && !(opts && opts.urn)) {
@@ -155,7 +160,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200601:DscpConfiguration" }, { type: "azure-nextgen:network/v20200701:DscpConfiguration" }, { type: "azure-nextgen:network/v20200801:DscpConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:DscpConfiguration" }, { type: "azure-nextgen:network/v20200601:DscpConfiguration" }, { type: "azure-nextgen:network/v20200701:DscpConfiguration" }, { type: "azure-nextgen:network/v20200801:DscpConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DscpConfiguration.__pulumiType, name, inputs, opts);
     }

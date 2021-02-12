@@ -192,7 +192,7 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/latest:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GatewayApiEntityTag.__pulumiType, name, inputs, opts);
     }

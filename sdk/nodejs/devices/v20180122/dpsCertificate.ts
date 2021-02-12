@@ -92,7 +92,7 @@ export class DpsCertificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/latest:DpsCertificate" }, { type: "azure-nextgen:devices/v20170821preview:DpsCertificate" }, { type: "azure-nextgen:devices/v20171115:DpsCertificate" }, { type: "azure-nextgen:devices/v20200101:DpsCertificate" }, { type: "azure-nextgen:devices/v20200301:DpsCertificate" }, { type: "azure-nextgen:devices/v20200901preview:DpsCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices:DpsCertificate" }, { type: "azure-nextgen:devices/latest:DpsCertificate" }, { type: "azure-nextgen:devices/v20170821preview:DpsCertificate" }, { type: "azure-nextgen:devices/v20171115:DpsCertificate" }, { type: "azure-nextgen:devices/v20200101:DpsCertificate" }, { type: "azure-nextgen:devices/v20200301:DpsCertificate" }, { type: "azure-nextgen:devices/v20200901preview:DpsCertificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DpsCertificate.__pulumiType, name, inputs, opts);
     }

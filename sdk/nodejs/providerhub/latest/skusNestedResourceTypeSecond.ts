@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Latest API Version: 2020-11-20.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeSecond'.
  */
 export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SkusNestedResourceTypeSecond {
+        pulumi.log.warn("SkusNestedResourceTypeSecond is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeSecond'.")
         return new SkusNestedResourceTypeSecond(name, undefined as any, { ...opts, id: id });
     }
 
@@ -52,7 +55,9 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeSecond'. */
     constructor(name: string, args: SkusNestedResourceTypeSecondArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SkusNestedResourceTypeSecond is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeSecond'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.nestedResourceTypeFirst === undefined) && !(opts && opts.urn)) {
@@ -90,7 +95,7 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeSecond" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub:SkusNestedResourceTypeSecond" }, { type: "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeSecond" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SkusNestedResourceTypeSecond.__pulumiType, name, inputs, opts);
     }

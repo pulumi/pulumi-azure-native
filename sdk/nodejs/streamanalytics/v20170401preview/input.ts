@@ -85,7 +85,7 @@ export class Input extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics/latest:Input" }, { type: "azure-nextgen:streamanalytics/v20160301:Input" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics:Input" }, { type: "azure-nextgen:streamanalytics/latest:Input" }, { type: "azure-nextgen:streamanalytics/v20160301:Input" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Input.__pulumiType, name, inputs, opts);
     }

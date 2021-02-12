@@ -95,7 +95,7 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSwiftVirtualNetworkConnectionSlot.__pulumiType, name, inputs, opts);
     }

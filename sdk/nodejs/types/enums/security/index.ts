@@ -19,3 +19,467 @@ export {
     v20200101,
     v20200101preview,
 };
+
+export const ActionType = {
+    LogicApp: "LogicApp",
+    EventHub: "EventHub",
+    Workspace: "Workspace",
+} as const;
+
+/**
+ * The type of the action that will be triggered by the Automation
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+export const AdditionalWorkspaceDataType = {
+    Alerts: "Alerts",
+    RawEvents: "RawEvents",
+} as const;
+
+/**
+ * Data types sent to workspace.
+ */
+export type AdditionalWorkspaceDataType = (typeof AdditionalWorkspaceDataType)[keyof typeof AdditionalWorkspaceDataType];
+
+export const AdditionalWorkspaceType = {
+    Sentinel: "Sentinel",
+} as const;
+
+/**
+ * Workspace type.
+ */
+export type AdditionalWorkspaceType = (typeof AdditionalWorkspaceType)[keyof typeof AdditionalWorkspaceType];
+
+export const AssessmentStatusCode = {
+    /**
+     * The resource is healthy
+     */
+    Healthy: "Healthy",
+    /**
+     * The resource has a security issue that needs to be addressed
+     */
+    Unhealthy: "Unhealthy",
+    /**
+     * Assessment for this resource did not happen
+     */
+    NotApplicable: "NotApplicable",
+} as const;
+
+/**
+ * Programmatic code for the status of the assessment
+ */
+export type AssessmentStatusCode = (typeof AssessmentStatusCode)[keyof typeof AssessmentStatusCode];
+
+export const AssessmentType = {
+    /**
+     * Azure Security Center managed assessments
+     */
+    BuiltIn: "BuiltIn",
+    /**
+     * User defined policies that are automatically ingested from Azure Policy to Azure Security Center
+     */
+    CustomPolicy: "CustomPolicy",
+    /**
+     * User assessments pushed directly by the user or other third party to Azure Security Center
+     */
+    CustomerManaged: "CustomerManaged",
+    /**
+     * An assessment that was created by a verified 3rd party if the user connected it to ASC
+     */
+    VerifiedPartner: "VerifiedPartner",
+} as const;
+
+/**
+ * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+ */
+export type AssessmentType = (typeof AssessmentType)[keyof typeof AssessmentType];
+
+export const AuthenticationType = {
+    /**
+     * AWS cloud account connector user credentials authentication
+     */
+    AwsCreds: "awsCreds",
+    /**
+     * AWS account connector assume role authentication
+     */
+    AwsAssumeRole: "awsAssumeRole",
+    /**
+     * GCP account connector service to service authentication
+     */
+    GcpCredentials: "gcpCredentials",
+} as const;
+
+/**
+ * Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
+export const AutoProvision = {
+    /**
+     * Install missing Azure Arc agents on machines automatically
+     */
+    On: "On",
+    /**
+     * Do not install Azure Arc agent on the machines automatically
+     */
+    Off: "Off",
+} as const;
+
+/**
+ * Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+ */
+export type AutoProvision = (typeof AutoProvision)[keyof typeof AutoProvision];
+
+export const Category = {
+    Compute: "Compute",
+    Networking: "Networking",
+    Data: "Data",
+    IdentityAndAccess: "IdentityAndAccess",
+    IoT: "IoT",
+} as const;
+
+/**
+ * The category of resource that is at risk when the assessment is unhealthy
+ */
+export type Category = (typeof Category)[keyof typeof Category];
+
+export const DataSource = {
+    /**
+     * Devices twin data
+     */
+    TwinData: "TwinData",
+} as const;
+
+export type DataSource = (typeof DataSource)[keyof typeof DataSource];
+
+export const EventSource = {
+    Assessments: "Assessments",
+    SubAssessments: "SubAssessments",
+    Alerts: "Alerts",
+    SecureScores: "SecureScores",
+    SecureScoresSnapshot: "SecureScoresSnapshot",
+    SecureScoreControls: "SecureScoreControls",
+    SecureScoreControlsSnapshot: "SecureScoreControlsSnapshot",
+    RegulatoryComplianceAssessment: "RegulatoryComplianceAssessment",
+    RegulatoryComplianceAssessmentSnapshot: "RegulatoryComplianceAssessmentSnapshot",
+} as const;
+
+/**
+ * A valid event source type.
+ */
+export type EventSource = (typeof EventSource)[keyof typeof EventSource];
+
+export const ExportData = {
+    /**
+     * Agent raw events
+     */
+    RawEvents: "RawEvents",
+} as const;
+
+export type ExportData = (typeof ExportData)[keyof typeof ExportData];
+
+export const ImplementationEffort = {
+    Low: "Low",
+    Moderate: "Moderate",
+    High: "High",
+} as const;
+
+/**
+ * The implementation effort required to remediate this assessment
+ */
+export type ImplementationEffort = (typeof ImplementationEffort)[keyof typeof ImplementationEffort];
+
+export const MinimalSeverity = {
+    /**
+     * Get notifications on new alerts with High severity
+     */
+    High: "High",
+    /**
+     * Get notifications on new alerts with medium or high severity
+     */
+    Medium: "Medium",
+    /**
+     * Don't get notifications on new alerts with low, medium or high severity
+     */
+    Low: "Low",
+} as const;
+
+/**
+ * Defines the minimal alert severity which will be sent as email notifications
+ */
+export type MinimalSeverity = (typeof MinimalSeverity)[keyof typeof MinimalSeverity];
+
+export const Operator = {
+    Equals: "Equals",
+    GreaterThan: "GreaterThan",
+    GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
+    LesserThan: "LesserThan",
+    LesserThanOrEqualTo: "LesserThanOrEqualTo",
+    NotEquals: "NotEquals",
+    Contains: "Contains",
+    StartsWith: "StartsWith",
+    EndsWith: "EndsWith",
+} as const;
+
+/**
+ * A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
+
+export const PropertyType = {
+    String: "String",
+    Integer: "Integer",
+    Number: "Number",
+    Boolean: "Boolean",
+} as const;
+
+/**
+ * The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+ */
+export type PropertyType = (typeof PropertyType)[keyof typeof PropertyType];
+
+export const Protocol = {
+    TCP: "TCP",
+    UDP: "UDP",
+    All: "*",
+} as const;
+
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+
+export const RecommendationConfigStatus = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Recommendation status. When the recommendation status is disabled recommendations are not generated.
+ */
+export type RecommendationConfigStatus = (typeof RecommendationConfigStatus)[keyof typeof RecommendationConfigStatus];
+
+export const RecommendationType = {
+    /**
+     * Authentication schema used for pull an edge module from an ACR repository does not use Service Principal Authentication.
+     */
+    IoT_ACRAuthentication: "IoT_ACRAuthentication",
+    /**
+     * IoT agent message size capacity is currently underutilized, causing an increase in the number of sent messages. Adjust message intervals for better utilization.
+     */
+    IoT_AgentSendsUnutilizedMessages: "IoT_AgentSendsUnutilizedMessages",
+    /**
+     * Identified security related system configuration issues.
+     */
+    IoT_Baseline: "IoT_Baseline",
+    /**
+     * You can optimize Edge Hub memory usage by turning off protocol heads for any protocols not used by Edge modules in your solution.
+     */
+    IoT_EdgeHubMemOptimize: "IoT_EdgeHubMemOptimize",
+    /**
+     * Logging is disabled for this edge module.
+     */
+    IoT_EdgeLoggingOptions: "IoT_EdgeLoggingOptions",
+    /**
+     * A minority within a device security group has inconsistent Edge Module settings with the rest of their group.
+     */
+    IoT_InconsistentModuleSettings: "IoT_InconsistentModuleSettings",
+    /**
+     * Install the Azure Security of Things Agent.
+     */
+    IoT_InstallAgent: "IoT_InstallAgent",
+    /**
+     * IP Filter Configuration should have rules defined for allowed traffic and should deny all other traffic by default.
+     */
+    IoT_IPFilter_DenyAll: "IoT_IPFilter_DenyAll",
+    /**
+     * An Allow IP Filter rules source IP range is too large. Overly permissive rules might expose your IoT hub to malicious intenders.
+     */
+    IoT_IPFilter_PermissiveRule: "IoT_IPFilter_PermissiveRule",
+    /**
+     * A listening endpoint was found on the device.
+     */
+    IoT_OpenPorts: "IoT_OpenPorts",
+    /**
+     * An Allowed firewall policy was found (INPUT/OUTPUT). The policy should Deny all traffic by default and define rules to allow necessary communication to/from the device.
+     */
+    IoT_PermissiveFirewallPolicy: "IoT_PermissiveFirewallPolicy",
+    /**
+     * A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or Ports.
+     */
+    IoT_PermissiveInputFirewallRules: "IoT_PermissiveInputFirewallRules",
+    /**
+     * A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or Ports.
+     */
+    IoT_PermissiveOutputFirewallRules: "IoT_PermissiveOutputFirewallRules",
+    /**
+     * Edge module is configured to run in privileged mode, with extensive Linux capabilities or with host-level network access (send/receive data to host machine).
+     */
+    IoT_PrivilegedDockerOptions: "IoT_PrivilegedDockerOptions",
+    /**
+     * Same authentication credentials to the IoT Hub used by multiple devices. This could indicate an illegitimate device impersonating a legitimate device. It also exposes the risk of device impersonation by an attacker.
+     */
+    IoT_SharedCredentials: "IoT_SharedCredentials",
+    /**
+     * Insecure TLS configurations detected. Immediate upgrade recommended.
+     */
+    IoT_VulnerableTLSCipherSuite: "IoT_VulnerableTLSCipherSuite",
+} as const;
+
+/**
+ * The type of IoT Security recommendation.
+ */
+export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
+
+export const Roles = {
+    /**
+     * If enabled, send notification on new alerts to the account admins
+     */
+    AccountAdmin: "AccountAdmin",
+    /**
+     * If enabled, send notification on new alerts to the service admins
+     */
+    ServiceAdmin: "ServiceAdmin",
+    /**
+     * If enabled, send notification on new alerts to the subscription owners
+     */
+    Owner: "Owner",
+    /**
+     * If enabled, send notification on new alerts to the subscription contributors
+     */
+    Contributor: "Contributor",
+} as const;
+
+/**
+ * A possible role to configure sending security notification alerts to
+ */
+export type Roles = (typeof Roles)[keyof typeof Roles];
+
+export const RuleState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    Expired: "Expired",
+} as const;
+
+/**
+ * Possible states of the rule
+ */
+export type RuleState = (typeof RuleState)[keyof typeof RuleState];
+
+export const SecuritySolutionStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Status of the IoT Security solution.
+ */
+export type SecuritySolutionStatus = (typeof SecuritySolutionStatus)[keyof typeof SecuritySolutionStatus];
+
+export const Severity = {
+    Low: "Low",
+    Medium: "Medium",
+    High: "High",
+} as const;
+
+/**
+ * The severity level of the assessment
+ */
+export type Severity = (typeof Severity)[keyof typeof Severity];
+
+export const Source = {
+    /**
+     * Resource is in Azure
+     */
+    Azure: "Azure",
+    /**
+     * Resource in an on premise machine connected to Azure cloud
+     */
+    OnPremise: "OnPremise",
+    /**
+     * SQL Resource in an on premise machine connected to Azure cloud
+     */
+    OnPremiseSql: "OnPremiseSql",
+} as const;
+
+/**
+ * The platform where the assessed resource resides
+ */
+export type Source = (typeof Source)[keyof typeof Source];
+
+export const State = {
+    /**
+     * Send notification on new alerts to the subscription's admins
+     */
+    On: "On",
+    /**
+     * Don't send notification on new alerts to the subscription's admins
+     */
+    Off: "Off",
+} as const;
+
+/**
+ * Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+ */
+export type State = (typeof State)[keyof typeof State];
+
+export const Status = {
+    Revoked: "Revoked",
+    Initiated: "Initiated",
+} as const;
+
+/**
+ * The status of the port
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+export const StatusReason = {
+    Expired: "Expired",
+    UserRequested: "UserRequested",
+    NewerRequestInitiated: "NewerRequestInitiated",
+} as const;
+
+/**
+ * A description of why the `status` has its value
+ */
+export type StatusReason = (typeof StatusReason)[keyof typeof StatusReason];
+
+export const Threats = {
+    AccountBreach: "accountBreach",
+    DataExfiltration: "dataExfiltration",
+    DataSpillage: "dataSpillage",
+    MaliciousInsider: "maliciousInsider",
+    ElevationOfPrivilege: "elevationOfPrivilege",
+    ThreatResistance: "threatResistance",
+    MissingCoverage: "missingCoverage",
+    DenialOfService: "denialOfService",
+} as const;
+
+/**
+ * Threats impact of the assessment
+ */
+export type Threats = (typeof Threats)[keyof typeof Threats];
+
+export const UnmaskedIpLoggingStatus = {
+    /**
+     * Unmasked IP logging is disabled
+     */
+    Disabled: "Disabled",
+    /**
+     * Unmasked IP logging is enabled
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Unmasked IP address logging status
+ */
+export type UnmaskedIpLoggingStatus = (typeof UnmaskedIpLoggingStatus)[keyof typeof UnmaskedIpLoggingStatus];
+
+export const UserImpact = {
+    Low: "Low",
+    Moderate: "Moderate",
+    High: "High",
+} as const;
+
+/**
+ * The user impact of the assessment
+ */
+export type UserImpact = (typeof UserImpact)[keyof typeof UserImpact];

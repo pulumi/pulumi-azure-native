@@ -134,7 +134,7 @@ export class DatabaseSecurityAlertPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseSecurityAlertPolicy.__pulumiType, name, inputs, opts);
     }

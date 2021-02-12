@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A schedule.
  * Latest API Version: 2018-09-15.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabricSchedule'.
  */
 export class ServiceFabricSchedule extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServiceFabricSchedule {
+        pulumi.log.warn("ServiceFabricSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabricSchedule'.")
         return new ServiceFabricSchedule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -104,7 +107,9 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabricSchedule'. */
     constructor(name: string, args: ServiceFabricScheduleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ServiceFabricSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabricSchedule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -165,7 +170,7 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:ServiceFabricSchedule" }, { type: "azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceFabricSchedule.__pulumiType, name, inputs, opts);
     }

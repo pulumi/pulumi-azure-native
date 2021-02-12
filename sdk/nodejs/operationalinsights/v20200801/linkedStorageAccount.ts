@@ -89,7 +89,7 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/latest:LinkedStorageAccount" }, { type: "azure-nextgen:operationalinsights/v20190801preview:LinkedStorageAccount" }, { type: "azure-nextgen:operationalinsights/v20200301preview:LinkedStorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:LinkedStorageAccount" }, { type: "azure-nextgen:operationalinsights/latest:LinkedStorageAccount" }, { type: "azure-nextgen:operationalinsights/v20190801preview:LinkedStorageAccount" }, { type: "azure-nextgen:operationalinsights/v20200301preview:LinkedStorageAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedStorageAccount.__pulumiType, name, inputs, opts);
     }

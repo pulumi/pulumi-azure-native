@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Logger details.
  * Latest API Version: 2019-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Logger'.
  */
 export class Logger extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Logger extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Logger {
+        pulumi.log.warn("Logger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Logger'.")
         return new Logger(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class Logger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Logger'. */
     constructor(name: string, args: LoggerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Logger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Logger'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.credentials === undefined) && !(opts && opts.urn)) {
@@ -117,7 +122,7 @@ export class Logger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20160707:Logger" }, { type: "azure-nextgen:apimanagement/v20161010:Logger" }, { type: "azure-nextgen:apimanagement/v20170301:Logger" }, { type: "azure-nextgen:apimanagement/v20180101:Logger" }, { type: "azure-nextgen:apimanagement/v20180601preview:Logger" }, { type: "azure-nextgen:apimanagement/v20190101:Logger" }, { type: "azure-nextgen:apimanagement/v20191201:Logger" }, { type: "azure-nextgen:apimanagement/v20191201preview:Logger" }, { type: "azure-nextgen:apimanagement/v20200601preview:Logger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:Logger" }, { type: "azure-nextgen:apimanagement/v20160707:Logger" }, { type: "azure-nextgen:apimanagement/v20161010:Logger" }, { type: "azure-nextgen:apimanagement/v20170301:Logger" }, { type: "azure-nextgen:apimanagement/v20180101:Logger" }, { type: "azure-nextgen:apimanagement/v20180601preview:Logger" }, { type: "azure-nextgen:apimanagement/v20190101:Logger" }, { type: "azure-nextgen:apimanagement/v20191201:Logger" }, { type: "azure-nextgen:apimanagement/v20191201preview:Logger" }, { type: "azure-nextgen:apimanagement/v20200601preview:Logger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Logger.__pulumiType, name, inputs, opts);
     }

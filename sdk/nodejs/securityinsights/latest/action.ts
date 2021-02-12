@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Action for alert rule.
  * Latest API Version: 2020-01-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Action'.
  */
 export class Action extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Action extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Action {
+        pulumi.log.warn("Action is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Action'.")
         return new Action(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,7 +66,9 @@ export class Action extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Action'. */
     constructor(name: string, args: ActionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Action is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Action'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.actionId === undefined) && !(opts && opts.urn)) {
@@ -105,7 +110,7 @@ export class Action extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20200101:Action" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:Action" }, { type: "azure-nextgen:securityinsights/v20200101:Action" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Action.__pulumiType, name, inputs, opts);
     }

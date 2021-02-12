@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the gallery Application Version that you want to create or update.
  * Latest API Version: 2020-09-30.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryApplicationVersion'.
  */
 export class GalleryApplicationVersion extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GalleryApplicationVersion {
+        pulumi.log.warn("GalleryApplicationVersion is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryApplicationVersion'.")
         return new GalleryApplicationVersion(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,7 +75,9 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryApplicationVersion'. */
     constructor(name: string, args: GalleryApplicationVersionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("GalleryApplicationVersion is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryApplicationVersion'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.galleryApplicationName === undefined) && !(opts && opts.urn)) {
@@ -117,7 +122,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20190301:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20190701:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20191201:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20200930:GalleryApplicationVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20190301:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20190701:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20191201:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20200930:GalleryApplicationVersion" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryApplicationVersion.__pulumiType, name, inputs, opts);
     }

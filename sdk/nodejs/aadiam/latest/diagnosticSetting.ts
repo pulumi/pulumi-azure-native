@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The diagnostic setting resource.
  * Latest API Version: 2017-04-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aadiam:DiagnosticSetting'.
  */
 export class DiagnosticSetting extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DiagnosticSetting {
+        pulumi.log.warn("DiagnosticSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aadiam:DiagnosticSetting'.")
         return new DiagnosticSetting(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aadiam:DiagnosticSetting'. */
     constructor(name: string, args: DiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DiagnosticSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aadiam:DiagnosticSetting'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -107,7 +112,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:aadiam/v20170401:DiagnosticSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:aadiam:DiagnosticSetting" }, { type: "azure-nextgen:aadiam/v20170401:DiagnosticSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiagnosticSetting.__pulumiType, name, inputs, opts);
     }

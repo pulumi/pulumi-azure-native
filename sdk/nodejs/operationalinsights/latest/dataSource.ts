@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Datasources under OMS Workspace.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataSource'.
  */
 export class DataSource extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DataSource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataSource {
+        pulumi.log.warn("DataSource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataSource'.")
         return new DataSource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class DataSource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataSource'. */
     constructor(name: string, args: DataSourceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DataSource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataSource'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.dataSourceName === undefined) && !(opts && opts.urn)) {
@@ -110,7 +115,7 @@ export class DataSource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20151101preview:DataSource" }, { type: "azure-nextgen:operationalinsights/v20200301preview:DataSource" }, { type: "azure-nextgen:operationalinsights/v20200801:DataSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:DataSource" }, { type: "azure-nextgen:operationalinsights/v20151101preview:DataSource" }, { type: "azure-nextgen:operationalinsights/v20200301preview:DataSource" }, { type: "azure-nextgen:operationalinsights/v20200801:DataSource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataSource.__pulumiType, name, inputs, opts);
     }

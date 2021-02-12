@@ -136,7 +136,7 @@ export class SavedSearch extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/latest:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20150320:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20200301preview:SavedSearch" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:SavedSearch" }, { type: "azure-nextgen:operationalinsights/latest:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20150320:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20200301preview:SavedSearch" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SavedSearch.__pulumiType, name, inputs, opts);
     }

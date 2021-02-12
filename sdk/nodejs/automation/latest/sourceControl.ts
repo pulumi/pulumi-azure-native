@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the source control.
  * Latest API Version: 2019-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SourceControl'.
  */
 export class SourceControl extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class SourceControl extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SourceControl {
+        pulumi.log.warn("SourceControl is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SourceControl'.")
         return new SourceControl(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,7 +91,9 @@ export class SourceControl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SourceControl'. */
     constructor(name: string, args: SourceControlArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SourceControl is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SourceControl'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
@@ -135,7 +140,7 @@ export class SourceControl extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20170515preview:SourceControl" }, { type: "azure-nextgen:automation/v20190601:SourceControl" }, { type: "azure-nextgen:automation/v20200113preview:SourceControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:SourceControl" }, { type: "azure-nextgen:automation/v20170515preview:SourceControl" }, { type: "azure-nextgen:automation/v20190601:SourceControl" }, { type: "azure-nextgen:automation/v20200113preview:SourceControl" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SourceControl.__pulumiType, name, inputs, opts);
     }

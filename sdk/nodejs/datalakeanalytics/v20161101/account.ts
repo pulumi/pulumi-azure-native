@@ -243,7 +243,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics/latest:Account" }, { type: "azure-nextgen:datalakeanalytics/v20151001preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics:Account" }, { type: "azure-nextgen:datalakeanalytics/latest:Account" }, { type: "azure-nextgen:datalakeanalytics/v20151001preview:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

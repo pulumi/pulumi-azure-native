@@ -13,3 +13,56 @@ export {
     v20180301,
     v20180501,
 };
+
+export const CachingType = {
+    None: "none",
+    Readonly: "readonly",
+    Readwrite: "readwrite",
+} as const;
+
+/**
+ * Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
+ */
+export type CachingType = (typeof CachingType)[keyof typeof CachingType];
+
+export const DeallocationOption = {
+    Requeue: "requeue",
+    Terminate: "terminate",
+    Waitforjobcompletion: "waitforjobcompletion",
+} as const;
+
+/**
+ * An action to be performed when the cluster size is decreasing. The default value is requeue.
+ */
+export type DeallocationOption = (typeof DeallocationOption)[keyof typeof DeallocationOption];
+
+export const JobPriority = {
+    Low: "low",
+    Normal: "normal",
+    High: "high",
+} as const;
+
+/**
+ * Scheduling priority associated with the job. Possible values: low, normal, high.
+ */
+export type JobPriority = (typeof JobPriority)[keyof typeof JobPriority];
+
+export const StorageAccountType = {
+    Standard_LRS: "Standard_LRS",
+    Premium_LRS: "Premium_LRS",
+} as const;
+
+/**
+ * Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
+ */
+export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
+
+export const VmPriority = {
+    Dedicated: "dedicated",
+    Lowpriority: "lowpriority",
+} as const;
+
+/**
+ * VM priority. Allowed values are: dedicated (default) and lowpriority.
+ */
+export type VmPriority = (typeof VmPriority)[keyof typeof VmPriority];

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Trigger details.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Trigger'.
  */
 export class Trigger extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Trigger extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Trigger {
+        pulumi.log.warn("Trigger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Trigger'.")
         return new Trigger(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class Trigger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Trigger'. */
     constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Trigger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Trigger'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
@@ -94,7 +99,7 @@ export class Trigger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:Trigger" }, { type: "azure-nextgen:databoxedge/v20190701:Trigger" }, { type: "azure-nextgen:databoxedge/v20190801:Trigger" }, { type: "azure-nextgen:databoxedge/v20200501preview:Trigger" }, { type: "azure-nextgen:databoxedge/v20200901:Trigger" }, { type: "azure-nextgen:databoxedge/v20200901preview:Trigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Trigger" }, { type: "azure-nextgen:databoxedge/v20190301:Trigger" }, { type: "azure-nextgen:databoxedge/v20190701:Trigger" }, { type: "azure-nextgen:databoxedge/v20190801:Trigger" }, { type: "azure-nextgen:databoxedge/v20200501preview:Trigger" }, { type: "azure-nextgen:databoxedge/v20200901:Trigger" }, { type: "azure-nextgen:databoxedge/v20200901preview:Trigger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Trigger.__pulumiType, name, inputs, opts);
     }

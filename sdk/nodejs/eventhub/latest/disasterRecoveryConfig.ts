@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
  * Latest API Version: 2017-04-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:DisasterRecoveryConfig'.
  */
 export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DisasterRecoveryConfig {
+        pulumi.log.warn("DisasterRecoveryConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:DisasterRecoveryConfig'.")
         return new DisasterRecoveryConfig(name, undefined as any, { ...opts, id: id });
     }
 
@@ -71,7 +74,9 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:DisasterRecoveryConfig'. */
     constructor(name: string, args: DisasterRecoveryConfigArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DisasterRecoveryConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:DisasterRecoveryConfig'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.alias === undefined) && !(opts && opts.urn)) {
@@ -109,7 +114,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/v20170401:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20180101preview:DisasterRecoveryConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20170401:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20180101preview:DisasterRecoveryConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DisasterRecoveryConfig.__pulumiType, name, inputs, opts);
     }

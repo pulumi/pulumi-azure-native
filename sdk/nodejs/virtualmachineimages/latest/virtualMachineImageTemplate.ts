@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
  * Latest API Version: 2020-02-14.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate'.
  */
 export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineImageTemplate {
+        pulumi.log.warn("VirtualMachineImageTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate'.")
         return new VirtualMachineImageTemplate(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,7 +99,9 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate'. */
     constructor(name: string, args: VirtualMachineImageTemplateArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualMachineImageTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.distribute === undefined) && !(opts && opts.urn)) {
@@ -151,7 +156,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineImageTemplate.__pulumiType, name, inputs, opts);
     }

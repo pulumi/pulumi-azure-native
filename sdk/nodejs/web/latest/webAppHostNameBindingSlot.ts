@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A hostname binding object.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHostNameBindingSlot'.
  */
 export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppHostNameBindingSlot {
+        pulumi.log.warn("WebAppHostNameBindingSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHostNameBindingSlot'.")
         return new WebAppHostNameBindingSlot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,7 +99,9 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHostNameBindingSlot'. */
     constructor(name: string, args: WebAppHostNameBindingSlotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppHostNameBindingSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHostNameBindingSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
@@ -149,7 +154,7 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20160801:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20180201:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20181101:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20190801:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20200601:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20200901:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20201001:WebAppHostNameBindingSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20150801:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20160801:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20180201:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20181101:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20190801:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20200601:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20200901:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20201001:WebAppHostNameBindingSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppHostNameBindingSlot.__pulumiType, name, inputs, opts);
     }

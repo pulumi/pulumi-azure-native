@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A project resource
  * Latest API Version: 2018-04-19.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Project'.
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Project extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Project {
+        pulumi.log.warn("Project is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Project'.")
         return new Project(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,7 +91,9 @@ export class Project extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Project'. */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Project is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Project'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
@@ -140,7 +145,7 @@ export class Project extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datamigration/v20171115preview:Project" }, { type: "azure-nextgen:datamigration/v20180315preview:Project" }, { type: "azure-nextgen:datamigration/v20180331preview:Project" }, { type: "azure-nextgen:datamigration/v20180419:Project" }, { type: "azure-nextgen:datamigration/v20180715preview:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datamigration:Project" }, { type: "azure-nextgen:datamigration/v20171115preview:Project" }, { type: "azure-nextgen:datamigration/v20180315preview:Project" }, { type: "azure-nextgen:datamigration/v20180331preview:Project" }, { type: "azure-nextgen:datamigration/v20180419:Project" }, { type: "azure-nextgen:datamigration/v20180715preview:Project" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Project.__pulumiType, name, inputs, opts);
     }

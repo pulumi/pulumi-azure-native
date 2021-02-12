@@ -138,7 +138,7 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20150801:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20180201:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20181101:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20190801:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20200601:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20200901:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20201001:WebAppHostNameBinding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppHostNameBinding" }, { type: "azure-nextgen:web/latest:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20150801:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20180201:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20181101:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20190801:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20200601:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20200901:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20201001:WebAppHostNameBinding" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppHostNameBinding.__pulumiType, name, inputs, opts);
     }

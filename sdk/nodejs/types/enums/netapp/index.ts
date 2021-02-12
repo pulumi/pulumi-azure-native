@@ -37,3 +37,82 @@ export {
     v20200901,
     v20201101,
 };
+
+export const EndpointType = {
+    Src: "src",
+    Dst: "dst",
+} as const;
+
+/**
+ * Indicates whether the local volume is the source or destination for the Volume Replication
+ */
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
+export const KeySource = {
+    /**
+     * The service manages the keys.
+     */
+    Microsoft_NetApp: "Microsoft.NetApp",
+} as const;
+
+/**
+ * Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+ */
+export type KeySource = (typeof KeySource)[keyof typeof KeySource];
+
+export const QosType = {
+    /**
+     * qos type Auto
+     */
+    Auto: "Auto",
+    /**
+     * qos type Manual
+     */
+    Manual: "Manual",
+} as const;
+
+/**
+ * The qos type of the pool
+ */
+export type QosType = (typeof QosType)[keyof typeof QosType];
+
+export const ReplicationSchedule = {
+    ReplicationSchedule_10minutely: "_10minutely",
+    Hourly: "hourly",
+    Daily: "daily",
+} as const;
+
+/**
+ * Schedule
+ */
+export type ReplicationSchedule = (typeof ReplicationSchedule)[keyof typeof ReplicationSchedule];
+
+export const SecurityStyle = {
+    Ntfs: "ntfs",
+    Unix: "unix",
+} as const;
+
+/**
+ * The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
+ */
+export type SecurityStyle = (typeof SecurityStyle)[keyof typeof SecurityStyle];
+
+export const ServiceLevel = {
+    /**
+     * Standard service level
+     */
+    Standard: "Standard",
+    /**
+     * Premium service level
+     */
+    Premium: "Premium",
+    /**
+     * Ultra service level
+     */
+    Ultra: "Ultra",
+} as const;
+
+/**
+ * The service level of the file system
+ */
+export type ServiceLevel = (typeof ServiceLevel)[keyof typeof ServiceLevel];

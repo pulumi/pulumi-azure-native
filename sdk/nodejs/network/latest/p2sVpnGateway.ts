@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * P2SVpnGateway Resource.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnGateway'.
  */
 export class P2sVpnGateway extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class P2sVpnGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): P2sVpnGateway {
+        pulumi.log.warn("P2sVpnGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnGateway'.")
         return new P2sVpnGateway(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,7 +99,9 @@ export class P2sVpnGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnGateway'. */
     constructor(name: string, args: P2sVpnGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("P2sVpnGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnGateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
@@ -143,7 +148,7 @@ export class P2sVpnGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180801:P2sVpnGateway" }, { type: "azure-nextgen:network/v20181001:P2sVpnGateway" }, { type: "azure-nextgen:network/v20181101:P2sVpnGateway" }, { type: "azure-nextgen:network/v20181201:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190201:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190401:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190601:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190701:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190801:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190901:P2sVpnGateway" }, { type: "azure-nextgen:network/v20191101:P2sVpnGateway" }, { type: "azure-nextgen:network/v20191201:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200301:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200401:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200501:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200601:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200701:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200801:P2sVpnGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:P2sVpnGateway" }, { type: "azure-nextgen:network/v20180801:P2sVpnGateway" }, { type: "azure-nextgen:network/v20181001:P2sVpnGateway" }, { type: "azure-nextgen:network/v20181101:P2sVpnGateway" }, { type: "azure-nextgen:network/v20181201:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190201:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190401:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190601:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190701:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190801:P2sVpnGateway" }, { type: "azure-nextgen:network/v20190901:P2sVpnGateway" }, { type: "azure-nextgen:network/v20191101:P2sVpnGateway" }, { type: "azure-nextgen:network/v20191201:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200301:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200401:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200501:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200601:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200701:P2sVpnGateway" }, { type: "azure-nextgen:network/v20200801:P2sVpnGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(P2sVpnGateway.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Registration information.
  * Latest API Version: 2017-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:Registration'.
  */
 export class Registration extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Registration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Registration {
+        pulumi.log.warn("Registration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:Registration'.")
         return new Registration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class Registration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:Registration'. */
     constructor(name: string, args: RegistrationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Registration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:Registration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.registrationName === undefined) && !(opts && opts.urn)) {
@@ -116,7 +121,7 @@ export class Registration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurestack/v20170601:Registration" }, { type: "azure-nextgen:azurestack/v20200601preview:Registration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurestack:Registration" }, { type: "azure-nextgen:azurestack/v20170601:Registration" }, { type: "azure-nextgen:azurestack/v20200601preview:Registration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Registration.__pulumiType, name, inputs, opts);
     }

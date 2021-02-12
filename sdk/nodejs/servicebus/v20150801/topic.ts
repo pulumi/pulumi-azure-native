@@ -202,7 +202,7 @@ export class Topic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/latest:Topic" }, { type: "azure-nextgen:servicebus/v20140901:Topic" }, { type: "azure-nextgen:servicebus/v20170401:Topic" }, { type: "azure-nextgen:servicebus/v20180101preview:Topic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus:Topic" }, { type: "azure-nextgen:servicebus/latest:Topic" }, { type: "azure-nextgen:servicebus/v20140901:Topic" }, { type: "azure-nextgen:servicebus/v20170401:Topic" }, { type: "azure-nextgen:servicebus/v20180101preview:Topic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Topic.__pulumiType, name, inputs, opts);
     }

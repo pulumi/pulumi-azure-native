@@ -98,7 +98,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/latest:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20140901:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/latest:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20140901:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TopicAuthorizationRule.__pulumiType, name, inputs, opts);
     }

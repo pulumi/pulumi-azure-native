@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
  * Latest API Version: 2020-05-15.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:AccessPolicy'.
  */
 export class AccessPolicy extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class AccessPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AccessPolicy {
+        pulumi.log.warn("AccessPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:AccessPolicy'.")
         return new AccessPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class AccessPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:AccessPolicy'. */
     constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AccessPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:AccessPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accessPolicyName === undefined) && !(opts && opts.urn)) {
@@ -98,7 +103,7 @@ export class AccessPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20200515:AccessPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:timeseriesinsights:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20200515:AccessPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AccessPolicy.__pulumiType, name, inputs, opts);
     }

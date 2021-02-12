@@ -87,7 +87,7 @@ export class Role extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/latest:Role" }, { type: "azure-nextgen:databoxedge/v20190301:Role" }, { type: "azure-nextgen:databoxedge/v20190701:Role" }, { type: "azure-nextgen:databoxedge/v20190801:Role" }, { type: "azure-nextgen:databoxedge/v20200901:Role" }, { type: "azure-nextgen:databoxedge/v20200901preview:Role" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Role" }, { type: "azure-nextgen:databoxedge/latest:Role" }, { type: "azure-nextgen:databoxedge/v20190301:Role" }, { type: "azure-nextgen:databoxedge/v20190701:Role" }, { type: "azure-nextgen:databoxedge/v20190801:Role" }, { type: "azure-nextgen:databoxedge/v20200901:Role" }, { type: "azure-nextgen:databoxedge/v20200901preview:Role" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Role.__pulumiType, name, inputs, opts);
     }

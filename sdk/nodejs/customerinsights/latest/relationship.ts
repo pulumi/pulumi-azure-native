@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The relationship resource format.
  * Latest API Version: 2017-04-26.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Relationship'.
  */
 export class Relationship extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Relationship extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Relationship {
+        pulumi.log.warn("Relationship is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Relationship'.")
         return new Relationship(name, undefined as any, { ...opts, id: id });
     }
 
@@ -100,7 +103,9 @@ export class Relationship extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Relationship'. */
     constructor(name: string, args: RelationshipArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Relationship is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Relationship'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
@@ -157,7 +162,7 @@ export class Relationship extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170101:Relationship" }, { type: "azure-nextgen:customerinsights/v20170426:Relationship" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights:Relationship" }, { type: "azure-nextgen:customerinsights/v20170101:Relationship" }, { type: "azure-nextgen:customerinsights/v20170426:Relationship" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Relationship.__pulumiType, name, inputs, opts);
     }

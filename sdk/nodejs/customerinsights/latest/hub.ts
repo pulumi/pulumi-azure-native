@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Hub resource.
  * Latest API Version: 2017-04-26.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Hub'.
  */
 export class Hub extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Hub extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Hub {
+        pulumi.log.warn("Hub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Hub'.")
         return new Hub(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class Hub extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Hub'. */
     constructor(name: string, args: HubArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Hub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Hub'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
@@ -118,7 +123,7 @@ export class Hub extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170101:Hub" }, { type: "azure-nextgen:customerinsights/v20170426:Hub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights:Hub" }, { type: "azure-nextgen:customerinsights/v20170101:Hub" }, { type: "azure-nextgen:customerinsights/v20170426:Hub" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Hub.__pulumiType, name, inputs, opts);
     }

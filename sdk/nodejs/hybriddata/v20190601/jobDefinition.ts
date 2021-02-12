@@ -146,7 +146,7 @@ export class JobDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybriddata/latest:JobDefinition" }, { type: "azure-nextgen:hybriddata/v20160601:JobDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybriddata:JobDefinition" }, { type: "azure-nextgen:hybriddata/latest:JobDefinition" }, { type: "azure-nextgen:hybriddata/v20160601:JobDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobDefinition.__pulumiType, name, inputs, opts);
     }

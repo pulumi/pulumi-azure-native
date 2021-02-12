@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * ExpressRoute Circuit Authorization
  * Latest API Version: 2020-03-20.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'.
  */
 export class Authorization extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Authorization extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Authorization {
+        pulumi.log.warn("Authorization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'.")
         return new Authorization(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,7 +66,9 @@ export class Authorization extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'. */
     constructor(name: string, args: AuthorizationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Authorization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.authorizationName === undefined) && !(opts && opts.urn)) {
@@ -97,7 +102,7 @@ export class Authorization extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20200320:Authorization" }, { type: "azure-nextgen:avs/v20200717preview:Authorization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:Authorization" }, { type: "azure-nextgen:avs/v20200320:Authorization" }, { type: "azure-nextgen:avs/v20200717preview:Authorization" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Authorization.__pulumiType, name, inputs, opts);
     }

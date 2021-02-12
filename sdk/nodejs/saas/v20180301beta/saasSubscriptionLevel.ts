@@ -87,6 +87,8 @@ export class SaasSubscriptionLevel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:saas:SaasSubscriptionLevel" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SaasSubscriptionLevel.__pulumiType, name, inputs, opts);
     }
 }

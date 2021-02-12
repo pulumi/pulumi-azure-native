@@ -90,7 +90,7 @@ export class StorageAccountManagementPolicies extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20181101:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20190401:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20190601:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20200801preview:StorageAccountManagementPolicies" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/latest:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20181101:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20190401:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20190601:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20200801preview:StorageAccountManagementPolicies" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccountManagementPolicies.__pulumiType, name, inputs, opts);
     }

@@ -11,3 +11,12 @@ export {
     v20170601,
     v20200601preview,
 };
+
+export const Location = {
+    Global: "global",
+} as const;
+
+/**
+ * Location of the resource.
+ */
+export type Location = (typeof Location)[keyof typeof Location];

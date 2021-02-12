@@ -99,7 +99,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/latest:VirtualNetworkRule" }, { type: "azure-nextgen:dbforpostgresql/v20171201:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql:VirtualNetworkRule" }, { type: "azure-nextgen:dbforpostgresql/latest:VirtualNetworkRule" }, { type: "azure-nextgen:dbforpostgresql/v20171201:VirtualNetworkRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
     }

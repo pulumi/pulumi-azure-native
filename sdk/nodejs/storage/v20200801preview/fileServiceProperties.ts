@@ -103,7 +103,7 @@ export class FileServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190401:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190601:FileServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:FileServiceProperties" }, { type: "azure-nextgen:storage/latest:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190401:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190601:FileServiceProperties" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileServiceProperties.__pulumiType, name, inputs, opts);
     }

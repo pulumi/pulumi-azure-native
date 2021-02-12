@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Response to get user settings
  * Latest API Version: 2018-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:UserSettingsWithLocation'.
  */
 export class UserSettingsWithLocation extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): UserSettingsWithLocation {
+        pulumi.log.warn("UserSettingsWithLocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:UserSettingsWithLocation'.")
         return new UserSettingsWithLocation(name, undefined as any, { ...opts, id: id });
     }
 
@@ -48,7 +51,9 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:UserSettingsWithLocation'. */
     constructor(name: string, args: UserSettingsWithLocationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("UserSettingsWithLocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:UserSettingsWithLocation'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.location === undefined) && !(opts && opts.urn)) {
@@ -73,7 +78,7 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal/v20181001:UserSettingsWithLocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal:UserSettingsWithLocation" }, { type: "azure-nextgen:portal/v20181001:UserSettingsWithLocation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(UserSettingsWithLocation.__pulumiType, name, inputs, opts);
     }

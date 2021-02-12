@@ -85,7 +85,7 @@ export class TableServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:TableServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:TableServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:TableServiceProperties" }, { type: "azure-nextgen:storage/latest:TableServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:TableServiceProperties" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TableServiceProperties.__pulumiType, name, inputs, opts);
     }

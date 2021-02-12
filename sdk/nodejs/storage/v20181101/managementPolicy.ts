@@ -94,7 +94,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:ManagementPolicy" }, { type: "azure-nextgen:storage/v20180301preview:ManagementPolicy" }, { type: "azure-nextgen:storage/v20190401:ManagementPolicy" }, { type: "azure-nextgen:storage/v20190601:ManagementPolicy" }, { type: "azure-nextgen:storage/v20200801preview:ManagementPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:ManagementPolicy" }, { type: "azure-nextgen:storage/latest:ManagementPolicy" }, { type: "azure-nextgen:storage/v20180301preview:ManagementPolicy" }, { type: "azure-nextgen:storage/v20190401:ManagementPolicy" }, { type: "azure-nextgen:storage/v20190601:ManagementPolicy" }, { type: "azure-nextgen:storage/v20200801preview:ManagementPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementPolicy.__pulumiType, name, inputs, opts);
     }

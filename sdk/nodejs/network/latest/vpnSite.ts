@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * VpnSite Resource.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VpnSite'.
  */
 export class VpnSite extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class VpnSite extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VpnSite {
+        pulumi.log.warn("VpnSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VpnSite'.")
         return new VpnSite(name, undefined as any, { ...opts, id: id });
     }
 
@@ -104,7 +107,9 @@ export class VpnSite extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VpnSite'. */
     constructor(name: string, args: VpnSiteArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VpnSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VpnSite'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -155,7 +160,7 @@ export class VpnSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180401:VpnSite" }, { type: "azure-nextgen:network/v20180601:VpnSite" }, { type: "azure-nextgen:network/v20180701:VpnSite" }, { type: "azure-nextgen:network/v20180801:VpnSite" }, { type: "azure-nextgen:network/v20181001:VpnSite" }, { type: "azure-nextgen:network/v20181101:VpnSite" }, { type: "azure-nextgen:network/v20181201:VpnSite" }, { type: "azure-nextgen:network/v20190201:VpnSite" }, { type: "azure-nextgen:network/v20190401:VpnSite" }, { type: "azure-nextgen:network/v20190601:VpnSite" }, { type: "azure-nextgen:network/v20190701:VpnSite" }, { type: "azure-nextgen:network/v20190801:VpnSite" }, { type: "azure-nextgen:network/v20190901:VpnSite" }, { type: "azure-nextgen:network/v20191101:VpnSite" }, { type: "azure-nextgen:network/v20191201:VpnSite" }, { type: "azure-nextgen:network/v20200301:VpnSite" }, { type: "azure-nextgen:network/v20200401:VpnSite" }, { type: "azure-nextgen:network/v20200501:VpnSite" }, { type: "azure-nextgen:network/v20200601:VpnSite" }, { type: "azure-nextgen:network/v20200701:VpnSite" }, { type: "azure-nextgen:network/v20200801:VpnSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:VpnSite" }, { type: "azure-nextgen:network/v20180401:VpnSite" }, { type: "azure-nextgen:network/v20180601:VpnSite" }, { type: "azure-nextgen:network/v20180701:VpnSite" }, { type: "azure-nextgen:network/v20180801:VpnSite" }, { type: "azure-nextgen:network/v20181001:VpnSite" }, { type: "azure-nextgen:network/v20181101:VpnSite" }, { type: "azure-nextgen:network/v20181201:VpnSite" }, { type: "azure-nextgen:network/v20190201:VpnSite" }, { type: "azure-nextgen:network/v20190401:VpnSite" }, { type: "azure-nextgen:network/v20190601:VpnSite" }, { type: "azure-nextgen:network/v20190701:VpnSite" }, { type: "azure-nextgen:network/v20190801:VpnSite" }, { type: "azure-nextgen:network/v20190901:VpnSite" }, { type: "azure-nextgen:network/v20191101:VpnSite" }, { type: "azure-nextgen:network/v20191201:VpnSite" }, { type: "azure-nextgen:network/v20200301:VpnSite" }, { type: "azure-nextgen:network/v20200401:VpnSite" }, { type: "azure-nextgen:network/v20200501:VpnSite" }, { type: "azure-nextgen:network/v20200601:VpnSite" }, { type: "azure-nextgen:network/v20200701:VpnSite" }, { type: "azure-nextgen:network/v20200801:VpnSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VpnSite.__pulumiType, name, inputs, opts);
     }

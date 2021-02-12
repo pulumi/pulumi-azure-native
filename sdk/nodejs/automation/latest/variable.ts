@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the variable.
  * Latest API Version: 2019-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Variable'.
  */
 export class Variable extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Variable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Variable {
+        pulumi.log.warn("Variable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Variable'.")
         return new Variable(name, undefined as any, { ...opts, id: id });
     }
 
@@ -71,7 +74,9 @@ export class Variable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Variable'. */
     constructor(name: string, args: VariableArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Variable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Variable'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
@@ -112,7 +117,7 @@ export class Variable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Variable" }, { type: "azure-nextgen:automation/v20190601:Variable" }, { type: "azure-nextgen:automation/v20200113preview:Variable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:Variable" }, { type: "azure-nextgen:automation/v20151031:Variable" }, { type: "azure-nextgen:automation/v20190601:Variable" }, { type: "azure-nextgen:automation/v20200113preview:Variable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Variable.__pulumiType, name, inputs, opts);
     }

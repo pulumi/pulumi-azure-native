@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Tag Contract details.
  * Latest API Version: 2019-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:TagByProduct'.
  */
 export class TagByProduct extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class TagByProduct extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TagByProduct {
+        pulumi.log.warn("TagByProduct is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:TagByProduct'.")
         return new TagByProduct(name, undefined as any, { ...opts, id: id });
     }
 
@@ -55,7 +58,9 @@ export class TagByProduct extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:TagByProduct'. */
     constructor(name: string, args: TagByProductArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("TagByProduct is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:TagByProduct'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.productId === undefined) && !(opts && opts.urn)) {
@@ -89,7 +94,7 @@ export class TagByProduct extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20170301:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20180101:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20180601preview:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20190101:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20191201:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20191201preview:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20200601preview:TagByProduct" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20170301:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20180101:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20180601preview:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20190101:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20191201:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20191201preview:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20200601preview:TagByProduct" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagByProduct.__pulumiType, name, inputs, opts);
     }

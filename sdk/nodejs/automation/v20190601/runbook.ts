@@ -190,7 +190,7 @@ export class Runbook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/latest:Runbook" }, { type: "azure-nextgen:automation/v20151031:Runbook" }, { type: "azure-nextgen:automation/v20180630:Runbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:Runbook" }, { type: "azure-nextgen:automation/latest:Runbook" }, { type: "azure-nextgen:automation/v20151031:Runbook" }, { type: "azure-nextgen:automation/v20180630:Runbook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Runbook.__pulumiType, name, inputs, opts);
     }

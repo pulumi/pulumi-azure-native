@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Data Lake Analytics firewall rule information.
  * Latest API Version: 2016-11-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:FirewallRule'.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class FirewallRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FirewallRule {
+        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:FirewallRule'.")
         return new FirewallRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -59,7 +62,9 @@ export class FirewallRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:FirewallRule'. */
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:FirewallRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -97,7 +102,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics/v20151001preview:FirewallRule" }, { type: "azure-nextgen:datalakeanalytics/v20161101:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics:FirewallRule" }, { type: "azure-nextgen:datalakeanalytics/v20151001preview:FirewallRule" }, { type: "azure-nextgen:datalakeanalytics/v20161101:FirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

@@ -109,6 +109,8 @@ export class B2CTenant extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:azureactivedirectory:B2CTenant" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(B2CTenant.__pulumiType, name, inputs, opts);
     }
 }

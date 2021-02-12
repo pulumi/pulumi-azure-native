@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Friendly RuleSet name mapping to the any RuleSet or secret related information.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:RuleSet'.
  */
 export class RuleSet extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class RuleSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RuleSet {
+        pulumi.log.warn("RuleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:RuleSet'.")
         return new RuleSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,7 +64,9 @@ export class RuleSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:RuleSet'. */
     constructor(name: string, args: RuleSetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("RuleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:RuleSet'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
@@ -95,7 +100,7 @@ export class RuleSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20200901:RuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:RuleSet" }, { type: "azure-nextgen:cdn/v20200901:RuleSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RuleSet.__pulumiType, name, inputs, opts);
     }

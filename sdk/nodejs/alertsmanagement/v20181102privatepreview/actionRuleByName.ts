@@ -93,7 +93,7 @@ export class ActionRuleByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:alertsmanagement/v20190505preview:ActionRuleByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:alertsmanagement:ActionRuleByName" }, { type: "azure-nextgen:alertsmanagement/v20190505preview:ActionRuleByName" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ActionRuleByName.__pulumiType, name, inputs, opts);
     }

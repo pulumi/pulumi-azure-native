@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Subscription Information with the alias.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:subscription:Alias'.
  */
 export class Alias extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Alias extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Alias {
+        pulumi.log.warn("Alias is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:subscription:Alias'.")
         return new Alias(name, undefined as any, { ...opts, id: id });
     }
 
@@ -56,7 +59,9 @@ export class Alias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:subscription:Alias'. */
     constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Alias is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:subscription:Alias'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.aliasName === undefined) && !(opts && opts.urn)) {
@@ -81,7 +86,7 @@ export class Alias extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:subscription/v20191001preview:Alias" }, { type: "azure-nextgen:subscription/v20200901:Alias" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:subscription:Alias" }, { type: "azure-nextgen:subscription/v20191001preview:Alias" }, { type: "azure-nextgen:subscription/v20200901:Alias" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Alias.__pulumiType, name, inputs, opts);
     }

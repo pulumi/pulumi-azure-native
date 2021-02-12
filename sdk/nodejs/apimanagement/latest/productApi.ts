@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Api details.
  * Latest API Version: 2019-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ProductApi'.
  */
 export class ProductApi extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ProductApi extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProductApi {
+        pulumi.log.warn("ProductApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ProductApi'.")
         return new ProductApi(name, undefined as any, { ...opts, id: id });
     }
 
@@ -124,7 +127,9 @@ export class ProductApi extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ProductApi'. */
     constructor(name: string, args: ProductApiArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ProductApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ProductApi'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
@@ -192,7 +197,7 @@ export class ProductApi extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20170301:ProductApi" }, { type: "azure-nextgen:apimanagement/v20180101:ProductApi" }, { type: "azure-nextgen:apimanagement/v20180601preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20190101:ProductApi" }, { type: "azure-nextgen:apimanagement/v20191201:ProductApi" }, { type: "azure-nextgen:apimanagement/v20191201preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20200601preview:ProductApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ProductApi" }, { type: "azure-nextgen:apimanagement/v20170301:ProductApi" }, { type: "azure-nextgen:apimanagement/v20180101:ProductApi" }, { type: "azure-nextgen:apimanagement/v20180601preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20190101:ProductApi" }, { type: "azure-nextgen:apimanagement/v20191201:ProductApi" }, { type: "azure-nextgen:apimanagement/v20191201preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20200601preview:ProductApi" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProductApi.__pulumiType, name, inputs, opts);
     }

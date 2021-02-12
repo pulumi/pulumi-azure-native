@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The application type name resource
  * Latest API Version: 2020-03-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationType'.
  */
 export class ApplicationType extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class ApplicationType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationType {
+        pulumi.log.warn("ApplicationType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationType'.")
         return new ApplicationType(name, undefined as any, { ...opts, id: id });
     }
 
@@ -67,7 +70,9 @@ export class ApplicationType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationType'. */
     constructor(name: string, args: ApplicationTypeArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ApplicationType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationType'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.applicationTypeName === undefined) && !(opts && opts.urn)) {
@@ -103,7 +108,7 @@ export class ApplicationType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric/v20170701preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190301:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190301preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190601preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20191101preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20200301:ApplicationType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20170701preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190301:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190301preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190601preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20191101preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20200301:ApplicationType" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationType.__pulumiType, name, inputs, opts);
     }

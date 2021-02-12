@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * this is the management partner operations response
  * Latest API Version: 2018-02-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managementpartner:Partner'.
  */
 export class Partner extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Partner extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Partner {
+        pulumi.log.warn("Partner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managementpartner:Partner'.")
         return new Partner(name, undefined as any, { ...opts, id: id });
     }
 
@@ -83,7 +86,9 @@ export class Partner extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managementpartner:Partner'. */
     constructor(name: string, args: PartnerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Partner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managementpartner:Partner'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.partnerId === undefined) && !(opts && opts.urn)) {
@@ -118,7 +123,7 @@ export class Partner extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managementpartner/v20180201:Partner" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:managementpartner:Partner" }, { type: "azure-nextgen:managementpartner/v20180201:Partner" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Partner.__pulumiType, name, inputs, opts);
     }

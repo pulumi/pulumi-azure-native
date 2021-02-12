@@ -138,7 +138,7 @@ export class ServerDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:analysisservices/latest:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170714:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170801:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170801beta:ServerDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:analysisservices:ServerDetails" }, { type: "azure-nextgen:analysisservices/latest:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170714:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170801:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170801beta:ServerDetails" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerDetails.__pulumiType, name, inputs, opts);
     }

@@ -91,7 +91,7 @@ export class ReplicationPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:ReplicationPolicy" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationPolicy" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationPolicy" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationPolicy" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationPolicy" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationPolicy.__pulumiType, name, inputs, opts);
     }

@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The description of the Windows IoT Device Service.
  * Latest API Version: 2019-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:windowsiot:Service'.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Service extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Service {
+        pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:windowsiot:Service'.")
         return new Service(name, undefined as any, { ...opts, id: id });
     }
 
@@ -83,7 +86,9 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:windowsiot:Service'. */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:windowsiot:Service'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
@@ -123,7 +128,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:windowsiot/v20180216preview:Service" }, { type: "azure-nextgen:windowsiot/v20190601:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:windowsiot:Service" }, { type: "azure-nextgen:windowsiot/v20180216preview:Service" }, { type: "azure-nextgen:windowsiot/v20190601:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }

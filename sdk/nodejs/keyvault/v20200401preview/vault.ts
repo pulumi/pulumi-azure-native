@@ -96,7 +96,7 @@ export class Vault extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:keyvault/latest:Vault" }, { type: "azure-nextgen:keyvault/v20150601:Vault" }, { type: "azure-nextgen:keyvault/v20161001:Vault" }, { type: "azure-nextgen:keyvault/v20180214:Vault" }, { type: "azure-nextgen:keyvault/v20180214preview:Vault" }, { type: "azure-nextgen:keyvault/v20190901:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:keyvault:Vault" }, { type: "azure-nextgen:keyvault/latest:Vault" }, { type: "azure-nextgen:keyvault/v20150601:Vault" }, { type: "azure-nextgen:keyvault/v20161001:Vault" }, { type: "azure-nextgen:keyvault/v20180214:Vault" }, { type: "azure-nextgen:keyvault/v20180214preview:Vault" }, { type: "azure-nextgen:keyvault/v20190901:Vault" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Vault.__pulumiType, name, inputs, opts);
     }

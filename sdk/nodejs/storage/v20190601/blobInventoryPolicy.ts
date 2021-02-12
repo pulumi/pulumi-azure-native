@@ -100,7 +100,7 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20200801preview:BlobInventoryPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/latest:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20200801preview:BlobInventoryPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobInventoryPolicy.__pulumiType, name, inputs, opts);
     }

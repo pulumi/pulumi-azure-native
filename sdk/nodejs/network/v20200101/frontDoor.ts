@@ -165,7 +165,7 @@ export class FrontDoor extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:FrontDoor" }, { type: "azure-nextgen:network/v20180801:FrontDoor" }, { type: "azure-nextgen:network/v20190401:FrontDoor" }, { type: "azure-nextgen:network/v20190501:FrontDoor" }, { type: "azure-nextgen:network/v20200401:FrontDoor" }, { type: "azure-nextgen:network/v20200501:FrontDoor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:FrontDoor" }, { type: "azure-nextgen:network/latest:FrontDoor" }, { type: "azure-nextgen:network/v20180801:FrontDoor" }, { type: "azure-nextgen:network/v20190401:FrontDoor" }, { type: "azure-nextgen:network/v20190501:FrontDoor" }, { type: "azure-nextgen:network/v20200401:FrontDoor" }, { type: "azure-nextgen:network/v20200501:FrontDoor" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FrontDoor.__pulumiType, name, inputs, opts);
     }

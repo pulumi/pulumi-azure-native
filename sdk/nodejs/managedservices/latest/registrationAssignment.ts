@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Registration assignment.
  * Latest API Version: 2019-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationAssignment'.
  */
 export class RegistrationAssignment extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegistrationAssignment {
+        pulumi.log.warn("RegistrationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationAssignment'.")
         return new RegistrationAssignment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -56,7 +59,9 @@ export class RegistrationAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationAssignment'. */
     constructor(name: string, args: RegistrationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("RegistrationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationAssignment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.registrationAssignmentId === undefined) && !(opts && opts.urn)) {
@@ -82,7 +87,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedservices/v20180601preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190901:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20200201preview:RegistrationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedservices:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20180601preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190901:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20200201preview:RegistrationAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegistrationAssignment.__pulumiType, name, inputs, opts);
     }

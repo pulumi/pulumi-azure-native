@@ -102,7 +102,7 @@ export class SiteMetadataSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20160801:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20180201:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20181101:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20190801:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20200601:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20200901:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20201001:SiteMetadataSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteMetadataSlot" }, { type: "azure-nextgen:web/latest:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20160801:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20180201:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20181101:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20190801:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20200601:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20200901:SiteMetadataSlot" }, { type: "azure-nextgen:web/v20201001:SiteMetadataSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteMetadataSlot.__pulumiType, name, inputs, opts);
     }

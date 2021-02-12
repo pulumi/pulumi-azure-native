@@ -13,3 +13,37 @@ export {
     v20200701,
     v20201101preview,
 };
+
+export const ManagedIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of the managed identity
+ */
+export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
+
+export const RuntimeVersion = {
+    Java_8: "Java_8",
+    Java_11: "Java_11",
+    NetCore_31: "NetCore_31",
+} as const;
+
+/**
+ * Runtime version
+ */
+export type RuntimeVersion = (typeof RuntimeVersion)[keyof typeof RuntimeVersion];
+
+export const UserSourceType = {
+    Jar: "Jar",
+    NetCoreZip: "NetCoreZip",
+    Source: "Source",
+} as const;
+
+/**
+ * Type of the source uploaded
+ */
+export type UserSourceType = (typeof UserSourceType)[keyof typeof UserSourceType];

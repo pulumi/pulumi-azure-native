@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Azure Migrate Project.
  * Latest API Version: 2019-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Project'.
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Project extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Project {
+        pulumi.log.warn("Project is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Project'.")
         return new Project(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class Project extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Project'. */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Project is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Project'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
@@ -100,7 +105,7 @@ export class Project extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate/v20191001:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate:Project" }, { type: "azure-nextgen:migrate/v20191001:Project" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Project.__pulumiType, name, inputs, opts);
     }

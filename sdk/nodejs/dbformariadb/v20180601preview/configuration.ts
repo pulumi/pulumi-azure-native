@@ -114,7 +114,7 @@ export class Configuration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb/latest:Configuration" }, { type: "azure-nextgen:dbformariadb/v20180601:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb:Configuration" }, { type: "azure-nextgen:dbformariadb/latest:Configuration" }, { type: "azure-nextgen:dbformariadb/v20180601:Configuration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Configuration.__pulumiType, name, inputs, opts);
     }

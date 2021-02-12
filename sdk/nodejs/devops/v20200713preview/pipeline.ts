@@ -117,7 +117,7 @@ export class Pipeline extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devops/v20190701preview:Pipeline" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devops:Pipeline" }, { type: "azure-nextgen:devops/v20190701preview:Pipeline" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Pipeline.__pulumiType, name, inputs, opts);
     }

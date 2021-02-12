@@ -15,3 +15,15 @@ export {
     v20200701preview,
     v20210401preview,
 };
+
+export const MaintenanceScope = {
+    All: "All",
+    Host: "Host",
+    Resource: "Resource",
+    InResource: "InResource",
+} as const;
+
+/**
+ * Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+ */
+export type MaintenanceScope = (typeof MaintenanceScope)[keyof typeof MaintenanceScope];

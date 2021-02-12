@@ -13,3 +13,51 @@ export {
     v20170401,
     v20180101preview,
 };
+
+export const AccessRights = {
+    Manage: "Manage",
+    Send: "Send",
+    Listen: "Listen",
+} as const;
+
+export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const Relaytype = {
+    NetTcp: "NetTcp",
+    Http: "Http",
+} as const;
+
+/**
+ * WCF relay type.
+ */
+export type Relaytype = (typeof Relaytype)[keyof typeof Relaytype];
+
+export const SkuName = {
+    Standard: "Standard",
+} as const;
+
+/**
+ * Name of this SKU.
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const SkuTier = {
+    Standard: "Standard",
+} as const;
+
+/**
+ * The tier of this SKU.
+ */
+export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];

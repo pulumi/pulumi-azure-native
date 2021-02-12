@@ -91,7 +91,7 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:guestconfiguration:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GuestConfigurationAssignment.__pulumiType, name, inputs, opts);
     }

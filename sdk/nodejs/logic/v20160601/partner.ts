@@ -127,7 +127,7 @@ export class Partner extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/latest:Partner" }, { type: "azure-nextgen:logic/v20150801preview:Partner" }, { type: "azure-nextgen:logic/v20180701preview:Partner" }, { type: "azure-nextgen:logic/v20190501:Partner" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:Partner" }, { type: "azure-nextgen:logic/latest:Partner" }, { type: "azure-nextgen:logic/v20150801preview:Partner" }, { type: "azure-nextgen:logic/v20180701preview:Partner" }, { type: "azure-nextgen:logic/v20190501:Partner" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Partner.__pulumiType, name, inputs, opts);
     }

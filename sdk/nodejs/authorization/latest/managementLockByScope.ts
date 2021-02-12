@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The lock information.
  * Latest API Version: 2016-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockByScope'.
  */
 export class ManagementLockByScope extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ManagementLockByScope extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagementLockByScope {
+        pulumi.log.warn("ManagementLockByScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockByScope'.")
         return new ManagementLockByScope(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class ManagementLockByScope extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockByScope'. */
     constructor(name: string, args: ManagementLockByScopeArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ManagementLockByScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockByScope'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.level === undefined) && !(opts && opts.urn)) {
@@ -97,7 +102,7 @@ export class ManagementLockByScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20160901:ManagementLockByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:ManagementLockByScope" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockByScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementLockByScope.__pulumiType, name, inputs, opts);
     }

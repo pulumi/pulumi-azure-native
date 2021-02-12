@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
  * Latest API Version: 2016-03-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Input'.
  */
 export class Input extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Input extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Input {
+        pulumi.log.warn("Input is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Input'.")
         return new Input(name, undefined as any, { ...opts, id: id });
     }
 
@@ -56,7 +59,9 @@ export class Input extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Input'. */
     constructor(name: string, args: InputArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Input is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Input'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.inputName === undefined) && !(opts && opts.urn)) {
@@ -86,7 +91,7 @@ export class Input extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics/v20160301:Input" }, { type: "azure-nextgen:streamanalytics/v20170401preview:Input" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics:Input" }, { type: "azure-nextgen:streamanalytics/v20160301:Input" }, { type: "azure-nextgen:streamanalytics/v20170401preview:Input" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Input.__pulumiType, name, inputs, opts);
     }

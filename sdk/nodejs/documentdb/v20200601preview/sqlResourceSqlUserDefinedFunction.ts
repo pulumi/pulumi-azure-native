@@ -115,7 +115,7 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlUserDefinedFunction.__pulumiType, name, inputs, opts);
     }

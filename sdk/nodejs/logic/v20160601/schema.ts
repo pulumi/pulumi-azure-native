@@ -154,7 +154,7 @@ export class Schema extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/latest:Schema" }, { type: "azure-nextgen:logic/v20150801preview:Schema" }, { type: "azure-nextgen:logic/v20180701preview:Schema" }, { type: "azure-nextgen:logic/v20190501:Schema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:Schema" }, { type: "azure-nextgen:logic/latest:Schema" }, { type: "azure-nextgen:logic/v20150801preview:Schema" }, { type: "azure-nextgen:logic/v20180701preview:Schema" }, { type: "azure-nextgen:logic/v20190501:Schema" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Schema.__pulumiType, name, inputs, opts);
     }

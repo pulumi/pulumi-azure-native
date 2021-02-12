@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the Dedicated host.
  * Latest API Version: 2020-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHost'.
  */
 export class DedicatedHost extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DedicatedHost extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DedicatedHost {
+        pulumi.log.warn("DedicatedHost is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHost'.")
         return new DedicatedHost(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,7 +99,9 @@ export class DedicatedHost extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHost'. */
     constructor(name: string, args: DedicatedHostArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DedicatedHost is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHost'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.hostGroupName === undefined) && !(opts && opts.urn)) {
@@ -149,7 +154,7 @@ export class DedicatedHost extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20190301:DedicatedHost" }, { type: "azure-nextgen:compute/v20190701:DedicatedHost" }, { type: "azure-nextgen:compute/v20191201:DedicatedHost" }, { type: "azure-nextgen:compute/v20200601:DedicatedHost" }, { type: "azure-nextgen:compute/v20201201:DedicatedHost" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DedicatedHost" }, { type: "azure-nextgen:compute/v20190301:DedicatedHost" }, { type: "azure-nextgen:compute/v20190701:DedicatedHost" }, { type: "azure-nextgen:compute/v20191201:DedicatedHost" }, { type: "azure-nextgen:compute/v20200601:DedicatedHost" }, { type: "azure-nextgen:compute/v20201201:DedicatedHost" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DedicatedHost.__pulumiType, name, inputs, opts);
     }

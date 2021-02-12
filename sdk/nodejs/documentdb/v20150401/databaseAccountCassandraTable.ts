@@ -115,7 +115,7 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountCassandraTable.__pulumiType, name, inputs, opts);
     }

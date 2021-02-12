@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
  * Latest API Version: 2016-11-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:Account'.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Account extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Account {
+        pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:Account'.")
         return new Account(name, undefined as any, { ...opts, id: id });
     }
 
@@ -160,7 +163,9 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:Account'. */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:Account'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -244,7 +249,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics/v20151001preview:Account" }, { type: "azure-nextgen:datalakeanalytics/v20161101:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics:Account" }, { type: "azure-nextgen:datalakeanalytics/v20151001preview:Account" }, { type: "azure-nextgen:datalakeanalytics/v20161101:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

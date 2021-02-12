@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The description of the DigitalTwins service.
  * Latest API Version: 2020-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:DigitalTwin'.
  */
 export class DigitalTwin extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DigitalTwin extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DigitalTwin {
+        pulumi.log.warn("DigitalTwin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:DigitalTwin'.")
         return new DigitalTwin(name, undefined as any, { ...opts, id: id });
     }
 
@@ -85,7 +88,9 @@ export class DigitalTwin extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:DigitalTwin'. */
     constructor(name: string, args: DigitalTwinArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DigitalTwin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:DigitalTwin'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -127,7 +132,7 @@ export class DigitalTwin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:digitaltwins/v20200301preview:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201031:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201201:DigitalTwin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:digitaltwins:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20200301preview:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201031:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201201:DigitalTwin" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DigitalTwin.__pulumiType, name, inputs, opts);
     }

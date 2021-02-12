@@ -111,7 +111,7 @@ export class Image extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:Image" }, { type: "azure-nextgen:compute/v20160430preview:Image" }, { type: "azure-nextgen:compute/v20170330:Image" }, { type: "azure-nextgen:compute/v20171201:Image" }, { type: "azure-nextgen:compute/v20180401:Image" }, { type: "azure-nextgen:compute/v20180601:Image" }, { type: "azure-nextgen:compute/v20181001:Image" }, { type: "azure-nextgen:compute/v20190701:Image" }, { type: "azure-nextgen:compute/v20191201:Image" }, { type: "azure-nextgen:compute/v20200601:Image" }, { type: "azure-nextgen:compute/v20201201:Image" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:Image" }, { type: "azure-nextgen:compute/latest:Image" }, { type: "azure-nextgen:compute/v20160430preview:Image" }, { type: "azure-nextgen:compute/v20170330:Image" }, { type: "azure-nextgen:compute/v20171201:Image" }, { type: "azure-nextgen:compute/v20180401:Image" }, { type: "azure-nextgen:compute/v20180601:Image" }, { type: "azure-nextgen:compute/v20181001:Image" }, { type: "azure-nextgen:compute/v20190701:Image" }, { type: "azure-nextgen:compute/v20191201:Image" }, { type: "azure-nextgen:compute/v20200601:Image" }, { type: "azure-nextgen:compute/v20201201:Image" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Image.__pulumiType, name, inputs, opts);
     }

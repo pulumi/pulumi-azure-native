@@ -112,7 +112,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/latest:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20140901:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20170401:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20180101preview:ConsumerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:ConsumerGroup" }, { type: "azure-nextgen:eventhub/latest:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20140901:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20170401:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20180101preview:ConsumerGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConsumerGroup.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An server Active Directory Administrator.
  * Latest API Version: 2014-04-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerAzureADAdministrator'.
  */
 export class ServerAzureADAdministrator extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerAzureADAdministrator {
+        pulumi.log.warn("ServerAzureADAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerAzureADAdministrator'.")
         return new ServerAzureADAdministrator(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerAzureADAdministrator'. */
     constructor(name: string, args: ServerAzureADAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ServerAzureADAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerAzureADAdministrator'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.administratorName === undefined) && !(opts && opts.urn)) {
@@ -116,7 +121,7 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20140401:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20140401:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerAzureADAdministrator.__pulumiType, name, inputs, opts);
     }

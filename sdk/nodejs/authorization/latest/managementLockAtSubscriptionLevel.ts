@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The lock information.
  * Latest API Version: 2016-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtSubscriptionLevel'.
  */
 export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagementLockAtSubscriptionLevel {
+        pulumi.log.warn("ManagementLockAtSubscriptionLevel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtSubscriptionLevel'.")
         return new ManagementLockAtSubscriptionLevel(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtSubscriptionLevel'. */
     constructor(name: string, args: ManagementLockAtSubscriptionLevelArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ManagementLockAtSubscriptionLevel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtSubscriptionLevel'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.level === undefined) && !(opts && opts.urn)) {
@@ -93,7 +98,7 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementLockAtSubscriptionLevel.__pulumiType, name, inputs, opts);
     }

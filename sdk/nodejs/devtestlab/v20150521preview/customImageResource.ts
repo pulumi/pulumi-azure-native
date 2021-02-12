@@ -133,7 +133,7 @@ export class CustomImageResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:CustomImageResource" }, { type: "azure-nextgen:devtestlab/v20160515:CustomImageResource" }, { type: "azure-nextgen:devtestlab/v20180915:CustomImageResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:CustomImageResource" }, { type: "azure-nextgen:devtestlab/latest:CustomImageResource" }, { type: "azure-nextgen:devtestlab/v20160515:CustomImageResource" }, { type: "azure-nextgen:devtestlab/v20180915:CustomImageResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomImageResource.__pulumiType, name, inputs, opts);
     }

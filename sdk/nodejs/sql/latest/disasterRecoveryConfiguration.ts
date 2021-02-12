@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a disaster recovery configuration.
  * Latest API Version: 2014-04-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DisasterRecoveryConfiguration'.
  */
 export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DisasterRecoveryConfiguration {
+        pulumi.log.warn("DisasterRecoveryConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DisasterRecoveryConfiguration'.")
         return new DisasterRecoveryConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -83,7 +86,9 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DisasterRecoveryConfiguration'. */
     constructor(name: string, args: DisasterRecoveryConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DisasterRecoveryConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DisasterRecoveryConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.disasterRecoveryConfigurationName === undefined) && !(opts && opts.urn)) {
@@ -127,7 +132,7 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:DisasterRecoveryConfiguration" }, { type: "azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DisasterRecoveryConfiguration.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * IpConfigurations.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHubIpConfiguration'.
  */
 export class VirtualHubIpConfiguration extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualHubIpConfiguration {
+        pulumi.log.warn("VirtualHubIpConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHubIpConfiguration'.")
         return new VirtualHubIpConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHubIpConfiguration'. */
     constructor(name: string, args: VirtualHubIpConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualHubIpConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHubIpConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.ipConfigName === undefined) && !(opts && opts.urn)) {
@@ -117,7 +122,7 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200501:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200601:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200701:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200801:VirtualHubIpConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200501:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200601:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200701:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200801:VirtualHubIpConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualHubIpConfiguration.__pulumiType, name, inputs, opts);
     }

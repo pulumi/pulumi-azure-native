@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Server communication link.
  * Latest API Version: 2014-04-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerCommunicationLink'.
  */
 export class ServerCommunicationLink extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerCommunicationLink {
+        pulumi.log.warn("ServerCommunicationLink is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerCommunicationLink'.")
         return new ServerCommunicationLink(name, undefined as any, { ...opts, id: id });
     }
 
@@ -67,7 +70,9 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerCommunicationLink'. */
     constructor(name: string, args: ServerCommunicationLinkArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ServerCommunicationLink is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerCommunicationLink'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.communicationLinkName === undefined) && !(opts && opts.urn)) {
@@ -106,7 +111,7 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20140401:ServerCommunicationLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ServerCommunicationLink" }, { type: "azure-nextgen:sql/v20140401:ServerCommunicationLink" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerCommunicationLink.__pulumiType, name, inputs, opts);
     }

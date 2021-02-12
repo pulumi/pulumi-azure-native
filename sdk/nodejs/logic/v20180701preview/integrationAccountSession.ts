@@ -108,7 +108,7 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/latest:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountSession" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationAccountSession" }, { type: "azure-nextgen:logic/latest:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountSession" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountSession.__pulumiType, name, inputs, opts);
     }

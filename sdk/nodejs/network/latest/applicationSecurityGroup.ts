@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * An application security group in a resource group.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationSecurityGroup'.
  */
 export class ApplicationSecurityGroup extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationSecurityGroup {
+        pulumi.log.warn("ApplicationSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationSecurityGroup'.")
         return new ApplicationSecurityGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -71,7 +74,9 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationSecurityGroup'. */
     constructor(name: string, args: ApplicationSecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ApplicationSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationSecurityGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.applicationSecurityGroupName === undefined) && !(opts && opts.urn)) {
@@ -106,7 +111,7 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20170901:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20171001:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20171101:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20180101:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20180201:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20180401:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20180601:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20180701:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20180801:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20181001:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20181101:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20181201:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20190201:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20190401:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20190601:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20190701:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20190801:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20190901:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20191101:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20191201:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20200301:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20200401:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20200501:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20200601:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20200701:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20200801:ApplicationSecurityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20170901:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20171001:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20171101:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20180101:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20180201:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20180401:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20180601:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20180701:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20180801:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20181001:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20181101:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20181201:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20190201:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20190401:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20190601:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20190701:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20190801:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20190901:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20191101:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20191201:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20200301:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20200401:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20200501:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20200601:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20200701:ApplicationSecurityGroup" }, { type: "azure-nextgen:network/v20200801:ApplicationSecurityGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationSecurityGroup.__pulumiType, name, inputs, opts);
     }

@@ -117,7 +117,7 @@ export class DigitalTwin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:digitaltwins/latest:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201031:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201201:DigitalTwin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:digitaltwins:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/latest:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201031:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201201:DigitalTwin" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DigitalTwin.__pulumiType, name, inputs, opts);
     }

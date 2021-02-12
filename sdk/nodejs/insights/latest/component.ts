@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An Application Insights component definition.
  * Latest API Version: 2015-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Component'.
  */
 export class Component extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Component extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Component {
+        pulumi.log.warn("Component is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Component'.")
         return new Component(name, undefined as any, { ...opts, id: id });
     }
 
@@ -136,7 +139,9 @@ export class Component extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Component'. */
     constructor(name: string, args: ComponentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Component is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Component'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.applicationType === undefined) && !(opts && opts.urn)) {
@@ -208,7 +213,7 @@ export class Component extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20150501:Component" }, { type: "azure-nextgen:insights/v20180501preview:Component" }, { type: "azure-nextgen:insights/v20200202preview:Component" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:Component" }, { type: "azure-nextgen:insights/v20150501:Component" }, { type: "azure-nextgen:insights/v20180501preview:Component" }, { type: "azure-nextgen:insights/v20200202preview:Component" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Component.__pulumiType, name, inputs, opts);
     }

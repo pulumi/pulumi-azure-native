@@ -122,7 +122,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/latest:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LoadBalancerBackendAddressPool.__pulumiType, name, inputs, opts);
     }

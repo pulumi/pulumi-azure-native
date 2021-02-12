@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Information about a domain.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:Domain'.
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Domain extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Domain {
+        pulumi.log.warn("Domain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:Domain'.")
         return new Domain(name, undefined as any, { ...opts, id: id });
     }
 
@@ -146,7 +149,9 @@ export class Domain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:Domain'. */
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Domain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:Domain'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.consent === undefined) && !(opts && opts.urn)) {
@@ -233,7 +238,7 @@ export class Domain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:domainregistration/v20150401:Domain" }, { type: "azure-nextgen:domainregistration/v20180201:Domain" }, { type: "azure-nextgen:domainregistration/v20190801:Domain" }, { type: "azure-nextgen:domainregistration/v20200601:Domain" }, { type: "azure-nextgen:domainregistration/v20200901:Domain" }, { type: "azure-nextgen:domainregistration/v20201001:Domain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:domainregistration:Domain" }, { type: "azure-nextgen:domainregistration/v20150401:Domain" }, { type: "azure-nextgen:domainregistration/v20180201:Domain" }, { type: "azure-nextgen:domainregistration/v20190801:Domain" }, { type: "azure-nextgen:domainregistration/v20200601:Domain" }, { type: "azure-nextgen:domainregistration/v20200901:Domain" }, { type: "azure-nextgen:domainregistration/v20201001:Domain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Domain.__pulumiType, name, inputs, opts);
     }

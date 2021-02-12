@@ -201,7 +201,7 @@ export class Prediction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/latest:Prediction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights:Prediction" }, { type: "azure-nextgen:customerinsights/latest:Prediction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Prediction.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Pool of backend IP addresses.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LoadBalancerBackendAddressPool'.
  */
 export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LoadBalancerBackendAddressPool {
+        pulumi.log.warn("LoadBalancerBackendAddressPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LoadBalancerBackendAddressPool'.")
         return new LoadBalancerBackendAddressPool(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,7 +87,9 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LoadBalancerBackendAddressPool'. */
     constructor(name: string, args: LoadBalancerBackendAddressPoolArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("LoadBalancerBackendAddressPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LoadBalancerBackendAddressPool'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.backendAddressPoolName === undefined) && !(opts && opts.urn)) {
@@ -129,7 +134,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LoadBalancerBackendAddressPool.__pulumiType, name, inputs, opts);
     }

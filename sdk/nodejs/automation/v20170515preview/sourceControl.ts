@@ -134,7 +134,7 @@ export class SourceControl extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/latest:SourceControl" }, { type: "azure-nextgen:automation/v20190601:SourceControl" }, { type: "azure-nextgen:automation/v20200113preview:SourceControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:SourceControl" }, { type: "azure-nextgen:automation/latest:SourceControl" }, { type: "azure-nextgen:automation/v20190601:SourceControl" }, { type: "azure-nextgen:automation/v20200113preview:SourceControl" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SourceControl.__pulumiType, name, inputs, opts);
     }

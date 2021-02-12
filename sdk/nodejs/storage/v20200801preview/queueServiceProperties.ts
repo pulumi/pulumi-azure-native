@@ -85,7 +85,7 @@ export class QueueServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20190601:QueueServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:QueueServiceProperties" }, { type: "azure-nextgen:storage/latest:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20190601:QueueServiceProperties" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(QueueServiceProperties.__pulumiType, name, inputs, opts);
     }

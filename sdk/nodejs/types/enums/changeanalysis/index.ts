@@ -7,3 +7,24 @@ import * as v20200401preview from "./v20200401preview";
 export {
     v20200401preview,
 };
+
+export const ManagedIdentityTypes = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+ */
+export type ManagedIdentityTypes = (typeof ManagedIdentityTypes)[keyof typeof ManagedIdentityTypes];
+
+export const NotificationsState = {
+    None: "None",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The state of notifications feature.
+ */
+export type NotificationsState = (typeof NotificationsState)[keyof typeof NotificationsState];

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An object that represents a webhook for a container registry.
  * Latest API Version: 2019-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Webhook'.
  */
 export class Webhook extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Webhook extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Webhook {
+        pulumi.log.warn("Webhook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Webhook'.")
         return new Webhook(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class Webhook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Webhook'. */
     constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Webhook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Webhook'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
@@ -124,7 +129,7 @@ export class Webhook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20170601preview:Webhook" }, { type: "azure-nextgen:containerregistry/v20171001:Webhook" }, { type: "azure-nextgen:containerregistry/v20190501:Webhook" }, { type: "azure-nextgen:containerregistry/v20191201preview:Webhook" }, { type: "azure-nextgen:containerregistry/v20201101preview:Webhook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:Webhook" }, { type: "azure-nextgen:containerregistry/v20170601preview:Webhook" }, { type: "azure-nextgen:containerregistry/v20171001:Webhook" }, { type: "azure-nextgen:containerregistry/v20190501:Webhook" }, { type: "azure-nextgen:containerregistry/v20191201preview:Webhook" }, { type: "azure-nextgen:containerregistry/v20201101preview:Webhook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Webhook.__pulumiType, name, inputs, opts);
     }

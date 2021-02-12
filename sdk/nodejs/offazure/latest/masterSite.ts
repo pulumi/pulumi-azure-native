@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Site REST Resource.
  * Latest API Version: 2020-07-07.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:MasterSite'.
  */
 export class MasterSite extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class MasterSite extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MasterSite {
+        pulumi.log.warn("MasterSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:MasterSite'.")
         return new MasterSite(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class MasterSite extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:MasterSite'. */
     constructor(name: string, args: MasterSiteArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MasterSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:MasterSite'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -94,7 +99,7 @@ export class MasterSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:offazure/v20200707:MasterSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:offazure:MasterSite" }, { type: "azure-nextgen:offazure/v20200707:MasterSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MasterSite.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Resource group information.
  * Latest API Version: 2020-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:ResourceGroup'.
  */
 export class ResourceGroup extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ResourceGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ResourceGroup {
+        pulumi.log.warn("ResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:ResourceGroup'.")
         return new ResourceGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class ResourceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:ResourceGroup'. */
     constructor(name: string, args: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:ResourceGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -96,7 +101,7 @@ export class ResourceGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20151101:ResourceGroup" }, { type: "azure-nextgen:resources/v20160201:ResourceGroup" }, { type: "azure-nextgen:resources/v20160701:ResourceGroup" }, { type: "azure-nextgen:resources/v20160901:ResourceGroup" }, { type: "azure-nextgen:resources/v20170510:ResourceGroup" }, { type: "azure-nextgen:resources/v20180201:ResourceGroup" }, { type: "azure-nextgen:resources/v20180501:ResourceGroup" }, { type: "azure-nextgen:resources/v20190301:ResourceGroup" }, { type: "azure-nextgen:resources/v20190501:ResourceGroup" }, { type: "azure-nextgen:resources/v20190510:ResourceGroup" }, { type: "azure-nextgen:resources/v20190701:ResourceGroup" }, { type: "azure-nextgen:resources/v20190801:ResourceGroup" }, { type: "azure-nextgen:resources/v20191001:ResourceGroup" }, { type: "azure-nextgen:resources/v20200601:ResourceGroup" }, { type: "azure-nextgen:resources/v20200801:ResourceGroup" }, { type: "azure-nextgen:resources/v20201001:ResourceGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources:ResourceGroup" }, { type: "azure-nextgen:resources/v20151101:ResourceGroup" }, { type: "azure-nextgen:resources/v20160201:ResourceGroup" }, { type: "azure-nextgen:resources/v20160701:ResourceGroup" }, { type: "azure-nextgen:resources/v20160901:ResourceGroup" }, { type: "azure-nextgen:resources/v20170510:ResourceGroup" }, { type: "azure-nextgen:resources/v20180201:ResourceGroup" }, { type: "azure-nextgen:resources/v20180501:ResourceGroup" }, { type: "azure-nextgen:resources/v20190301:ResourceGroup" }, { type: "azure-nextgen:resources/v20190501:ResourceGroup" }, { type: "azure-nextgen:resources/v20190510:ResourceGroup" }, { type: "azure-nextgen:resources/v20190701:ResourceGroup" }, { type: "azure-nextgen:resources/v20190801:ResourceGroup" }, { type: "azure-nextgen:resources/v20191001:ResourceGroup" }, { type: "azure-nextgen:resources/v20200601:ResourceGroup" }, { type: "azure-nextgen:resources/v20200801:ResourceGroup" }, { type: "azure-nextgen:resources/v20201001:ResourceGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ResourceGroup.__pulumiType, name, inputs, opts);
     }

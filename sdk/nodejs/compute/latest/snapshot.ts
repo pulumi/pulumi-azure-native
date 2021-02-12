@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Snapshot resource.
  * Latest API Version: 2020-09-30.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Snapshot'.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Snapshot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Snapshot {
+        pulumi.log.warn("Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Snapshot'.")
         return new Snapshot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -132,7 +135,9 @@ export class Snapshot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Snapshot'. */
     constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Snapshot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.creationData === undefined) && !(opts && opts.urn)) {
@@ -199,7 +204,7 @@ export class Snapshot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20160430preview:Snapshot" }, { type: "azure-nextgen:compute/v20170330:Snapshot" }, { type: "azure-nextgen:compute/v20180401:Snapshot" }, { type: "azure-nextgen:compute/v20180601:Snapshot" }, { type: "azure-nextgen:compute/v20180930:Snapshot" }, { type: "azure-nextgen:compute/v20190301:Snapshot" }, { type: "azure-nextgen:compute/v20190701:Snapshot" }, { type: "azure-nextgen:compute/v20191101:Snapshot" }, { type: "azure-nextgen:compute/v20200501:Snapshot" }, { type: "azure-nextgen:compute/v20200630:Snapshot" }, { type: "azure-nextgen:compute/v20200930:Snapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:Snapshot" }, { type: "azure-nextgen:compute/v20160430preview:Snapshot" }, { type: "azure-nextgen:compute/v20170330:Snapshot" }, { type: "azure-nextgen:compute/v20180401:Snapshot" }, { type: "azure-nextgen:compute/v20180601:Snapshot" }, { type: "azure-nextgen:compute/v20180930:Snapshot" }, { type: "azure-nextgen:compute/v20190301:Snapshot" }, { type: "azure-nextgen:compute/v20190701:Snapshot" }, { type: "azure-nextgen:compute/v20191101:Snapshot" }, { type: "azure-nextgen:compute/v20200501:Snapshot" }, { type: "azure-nextgen:compute/v20200630:Snapshot" }, { type: "azure-nextgen:compute/v20200930:Snapshot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Snapshot.__pulumiType, name, inputs, opts);
     }

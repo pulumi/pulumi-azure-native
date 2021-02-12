@@ -133,7 +133,7 @@ export class StreamingLocator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/latest:StreamingLocator" }, { type: "azure-nextgen:media/v20180601preview:StreamingLocator" }, { type: "azure-nextgen:media/v20180701:StreamingLocator" }, { type: "azure-nextgen:media/v20200501:StreamingLocator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media:StreamingLocator" }, { type: "azure-nextgen:media/latest:StreamingLocator" }, { type: "azure-nextgen:media/v20180601preview:StreamingLocator" }, { type: "azure-nextgen:media/v20180701:StreamingLocator" }, { type: "azure-nextgen:media/v20200501:StreamingLocator" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StreamingLocator.__pulumiType, name, inputs, opts);
     }

@@ -116,7 +116,7 @@ export class HubRouteTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:HubRouteTable" }, { type: "azure-nextgen:network/v20200401:HubRouteTable" }, { type: "azure-nextgen:network/v20200501:HubRouteTable" }, { type: "azure-nextgen:network/v20200701:HubRouteTable" }, { type: "azure-nextgen:network/v20200801:HubRouteTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:HubRouteTable" }, { type: "azure-nextgen:network/latest:HubRouteTable" }, { type: "azure-nextgen:network/v20200401:HubRouteTable" }, { type: "azure-nextgen:network/v20200501:HubRouteTable" }, { type: "azure-nextgen:network/v20200701:HubRouteTable" }, { type: "azure-nextgen:network/v20200801:HubRouteTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HubRouteTable.__pulumiType, name, inputs, opts);
     }

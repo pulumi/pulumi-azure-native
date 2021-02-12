@@ -111,7 +111,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20190701:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200501:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200630:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200930:DiskEncryptionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DiskEncryptionSet" }, { type: "azure-nextgen:compute/latest:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20190701:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200501:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200630:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200930:DiskEncryptionSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskEncryptionSet.__pulumiType, name, inputs, opts);
     }

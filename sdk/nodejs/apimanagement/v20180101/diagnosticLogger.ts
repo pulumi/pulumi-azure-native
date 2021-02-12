@@ -107,7 +107,7 @@ export class DiagnosticLogger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20170301:DiagnosticLogger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/latest:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20170301:DiagnosticLogger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiagnosticLogger.__pulumiType, name, inputs, opts);
     }

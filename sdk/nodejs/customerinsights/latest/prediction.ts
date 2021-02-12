@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The prediction resource format.
  * Latest API Version: 2017-04-26.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Prediction'.
  */
 export class Prediction extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Prediction extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Prediction {
+        pulumi.log.warn("Prediction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Prediction'.")
         return new Prediction(name, undefined as any, { ...opts, id: id });
     }
 
@@ -120,7 +123,9 @@ export class Prediction extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Prediction'. */
     constructor(name: string, args: PredictionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Prediction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Prediction'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.autoAnalyze === undefined) && !(opts && opts.urn)) {
@@ -202,7 +207,7 @@ export class Prediction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170426:Prediction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights:Prediction" }, { type: "azure-nextgen:customerinsights/v20170426:Prediction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Prediction.__pulumiType, name, inputs, opts);
     }

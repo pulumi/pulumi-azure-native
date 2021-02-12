@@ -153,7 +153,7 @@ export class AutomationAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/latest:AutomationAccount" }, { type: "azure-nextgen:automation/v20151031:AutomationAccount" }, { type: "azure-nextgen:automation/v20190601:AutomationAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:AutomationAccount" }, { type: "azure-nextgen:automation/latest:AutomationAccount" }, { type: "azure-nextgen:automation/v20151031:AutomationAccount" }, { type: "azure-nextgen:automation/v20190601:AutomationAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AutomationAccount.__pulumiType, name, inputs, opts);
     }

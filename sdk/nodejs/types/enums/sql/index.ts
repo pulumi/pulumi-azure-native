@@ -23,3 +23,494 @@ export {
     v20200202preview,
     v20200801preview,
 };
+
+export const AdministratorType = {
+    ActiveDirectory: "ActiveDirectory",
+} as const;
+
+/**
+ * The type of administrator.
+ */
+export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
+
+export const CatalogCollationType = {
+    DATABASE_DEFAULT: "DATABASE_DEFAULT",
+    SQL_Latin1_General_CP1_CI_AS: "SQL_Latin1_General_CP1_CI_AS",
+} as const;
+
+/**
+ * Collation of the metadata catalog.
+ */
+export type CatalogCollationType = (typeof CatalogCollationType)[keyof typeof CatalogCollationType];
+
+export const CreateMode = {
+    Copy: "Copy",
+    Default: "Default",
+    NonReadableSecondary: "NonReadableSecondary",
+    OnlineSecondary: "OnlineSecondary",
+    PointInTimeRestore: "PointInTimeRestore",
+    Recovery: "Recovery",
+    Restore: "Restore",
+    RestoreLongTermRetentionBackup: "RestoreLongTermRetentionBackup",
+} as const;
+
+/**
+ * Specifies the mode of database creation.
+ *
+ * Default: regular database creation.
+ *
+ * Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
+ *
+ * OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+ *
+ * PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
+ *
+ * Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
+ *
+ * Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
+ *
+ * RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
+ *
+ * Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+ */
+export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
+
+export const DatabaseEdition = {
+    Web: "Web",
+    Business: "Business",
+    Basic: "Basic",
+    Standard: "Standard",
+    Premium: "Premium",
+    PremiumRS: "PremiumRS",
+    Free: "Free",
+    Stretch: "Stretch",
+    DataWarehouse: "DataWarehouse",
+    System: "System",
+    System2: "System2",
+    GeneralPurpose: "GeneralPurpose",
+    BusinessCritical: "BusinessCritical",
+    Hyperscale: "Hyperscale",
+} as const;
+
+/**
+ * The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
+ * 
+ * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
+ * 
+ * ```azurecli
+ * az sql db list-editions -l <location> -o table
+ * ````
+ * 
+ * ```powershell
+ * Get-AzSqlServerServiceObjective -Location <location>
+ * ````
+ */
+export type DatabaseEdition = (typeof DatabaseEdition)[keyof typeof DatabaseEdition];
+
+export const ElasticPoolEdition = {
+    Basic: "Basic",
+    Standard: "Standard",
+    Premium: "Premium",
+    GeneralPurpose: "GeneralPurpose",
+    BusinessCritical: "BusinessCritical",
+} as const;
+
+/**
+ * The edition of the elastic pool.
+ */
+export type ElasticPoolEdition = (typeof ElasticPoolEdition)[keyof typeof ElasticPoolEdition];
+
+export const GeoBackupPolicyState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * The state of the geo backup policy.
+ */
+export type GeoBackupPolicyState = (typeof GeoBackupPolicyState)[keyof typeof GeoBackupPolicyState];
+
+export const IdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+export const InstancePoolLicenseType = {
+    LicenseIncluded: "LicenseIncluded",
+    BasePrice: "BasePrice",
+} as const;
+
+/**
+ * The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
+ */
+export type InstancePoolLicenseType = (typeof InstancePoolLicenseType)[keyof typeof InstancePoolLicenseType];
+
+export const JobScheduleType = {
+    Once: "Once",
+    Recurring: "Recurring",
+} as const;
+
+/**
+ * Schedule interval type
+ */
+export type JobScheduleType = (typeof JobScheduleType)[keyof typeof JobScheduleType];
+
+export const JobStepActionSource = {
+    Inline: "Inline",
+} as const;
+
+/**
+ * The source of the action to execute.
+ */
+export type JobStepActionSource = (typeof JobStepActionSource)[keyof typeof JobStepActionSource];
+
+export const JobStepActionType = {
+    TSql: "TSql",
+} as const;
+
+/**
+ * Type of action being executed by the job step.
+ */
+export type JobStepActionType = (typeof JobStepActionType)[keyof typeof JobStepActionType];
+
+export const JobStepOutputType = {
+    SqlDatabase: "SqlDatabase",
+} as const;
+
+/**
+ * The output destination type.
+ */
+export type JobStepOutputType = (typeof JobStepOutputType)[keyof typeof JobStepOutputType];
+
+export const JobTargetGroupMembershipType = {
+    Include: "Include",
+    Exclude: "Exclude",
+} as const;
+
+/**
+ * Whether the target is included or excluded from the group.
+ */
+export type JobTargetGroupMembershipType = (typeof JobTargetGroupMembershipType)[keyof typeof JobTargetGroupMembershipType];
+
+export const JobTargetType = {
+    TargetGroup: "TargetGroup",
+    SqlDatabase: "SqlDatabase",
+    SqlElasticPool: "SqlElasticPool",
+    SqlShardMap: "SqlShardMap",
+    SqlServer: "SqlServer",
+} as const;
+
+/**
+ * The target type.
+ */
+export type JobTargetType = (typeof JobTargetType)[keyof typeof JobTargetType];
+
+export const ManagedDatabaseCreateMode = {
+    Default: "Default",
+    RestoreExternalBackup: "RestoreExternalBackup",
+    PointInTimeRestore: "PointInTimeRestore",
+    Recovery: "Recovery",
+    RestoreLongTermRetentionBackup: "RestoreLongTermRetentionBackup",
+} as const;
+
+/**
+ * Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
+ */
+export type ManagedDatabaseCreateMode = (typeof ManagedDatabaseCreateMode)[keyof typeof ManagedDatabaseCreateMode];
+
+export const ManagedInstanceAdministratorType = {
+    ActiveDirectory: "ActiveDirectory",
+} as const;
+
+/**
+ * Type of the managed instance administrator.
+ */
+export type ManagedInstanceAdministratorType = (typeof ManagedInstanceAdministratorType)[keyof typeof ManagedInstanceAdministratorType];
+
+export const ManagedInstanceLicenseType = {
+    LicenseIncluded: "LicenseIncluded",
+    BasePrice: "BasePrice",
+} as const;
+
+/**
+ * The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
+ */
+export type ManagedInstanceLicenseType = (typeof ManagedInstanceLicenseType)[keyof typeof ManagedInstanceLicenseType];
+
+export const ManagedInstanceProxyOverride = {
+    Proxy: "Proxy",
+    Redirect: "Redirect",
+    Default: "Default",
+} as const;
+
+/**
+ * Connection type used for connecting to the instance.
+ */
+export type ManagedInstanceProxyOverride = (typeof ManagedInstanceProxyOverride)[keyof typeof ManagedInstanceProxyOverride];
+
+export const ManagedServerCreateMode = {
+    Default: "Default",
+    PointInTimeRestore: "PointInTimeRestore",
+} as const;
+
+/**
+ * Specifies the mode of database creation.
+ * 
+ * Default: Regular instance creation.
+ * 
+ * Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
+ */
+export type ManagedServerCreateMode = (typeof ManagedServerCreateMode)[keyof typeof ManagedServerCreateMode];
+
+export const PrivateLinkServiceConnectionStateStatus = {
+    Approved: "Approved",
+    Pending: "Pending",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * The private link service connection status.
+ */
+export type PrivateLinkServiceConnectionStateStatus = (typeof PrivateLinkServiceConnectionStateStatus)[keyof typeof PrivateLinkServiceConnectionStateStatus];
+
+export const ReadOnlyEndpointFailoverPolicy = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Failover policy of the read-only endpoint for the failover group.
+ */
+export type ReadOnlyEndpointFailoverPolicy = (typeof ReadOnlyEndpointFailoverPolicy)[keyof typeof ReadOnlyEndpointFailoverPolicy];
+
+export const ReadScale = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+ */
+export type ReadScale = (typeof ReadScale)[keyof typeof ReadScale];
+
+export const ReadWriteEndpointFailoverPolicy = {
+    Manual: "Manual",
+    Automatic: "Automatic",
+} as const;
+
+/**
+ * Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+ */
+export type ReadWriteEndpointFailoverPolicy = (typeof ReadWriteEndpointFailoverPolicy)[keyof typeof ReadWriteEndpointFailoverPolicy];
+
+export const SampleName = {
+    AdventureWorksLT: "AdventureWorksLT",
+} as const;
+
+/**
+ * Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
+ */
+export type SampleName = (typeof SampleName)[keyof typeof SampleName];
+
+export const SecurityAlertPolicyEmailAccountAdmins = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies that the alert is sent to the account administrators.
+ */
+export type SecurityAlertPolicyEmailAccountAdmins = (typeof SecurityAlertPolicyEmailAccountAdmins)[keyof typeof SecurityAlertPolicyEmailAccountAdmins];
+
+export const SecurityAlertPolicyState = {
+    New: "New",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+ */
+export type SecurityAlertPolicyState = (typeof SecurityAlertPolicyState)[keyof typeof SecurityAlertPolicyState];
+
+export const SecurityAlertPolicyUseServerDefault = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies whether to use the default server policy.
+ */
+export type SecurityAlertPolicyUseServerDefault = (typeof SecurityAlertPolicyUseServerDefault)[keyof typeof SecurityAlertPolicyUseServerDefault];
+
+export const SensitivityLabelRank = {
+    None: "None",
+    Low: "Low",
+    Medium: "Medium",
+    High: "High",
+    Critical: "Critical",
+} as const;
+
+export type SensitivityLabelRank = (typeof SensitivityLabelRank)[keyof typeof SensitivityLabelRank];
+
+export const ServerKeyType = {
+    ServiceManaged: "ServiceManaged",
+    AzureKeyVault: "AzureKeyVault",
+} as const;
+
+/**
+ * The server key type like 'ServiceManaged', 'AzureKeyVault'.
+ */
+export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
+
+export const ServerVersion = {
+    ServerVersion_2_0: "2.0",
+    ServerVersion_12_0: "12.0",
+} as const;
+
+/**
+ * The version of the server.
+ */
+export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
+
+export const ServiceObjectiveName = {
+    System: "System",
+    System0: "System0",
+    System1: "System1",
+    System2: "System2",
+    System3: "System3",
+    System4: "System4",
+    System2L: "System2L",
+    System3L: "System3L",
+    System4L: "System4L",
+    Free: "Free",
+    Basic: "Basic",
+    S0: "S0",
+    S1: "S1",
+    S2: "S2",
+    S3: "S3",
+    S4: "S4",
+    S6: "S6",
+    S7: "S7",
+    S9: "S9",
+    S12: "S12",
+    P1: "P1",
+    P2: "P2",
+    P3: "P3",
+    P4: "P4",
+    P6: "P6",
+    P11: "P11",
+    P15: "P15",
+    PRS1: "PRS1",
+    PRS2: "PRS2",
+    PRS4: "PRS4",
+    PRS6: "PRS6",
+    DW100: "DW100",
+    DW200: "DW200",
+    DW300: "DW300",
+    DW400: "DW400",
+    DW500: "DW500",
+    DW600: "DW600",
+    DW1000: "DW1000",
+    DW1200: "DW1200",
+    DW1000c: "DW1000c",
+    DW1500: "DW1500",
+    DW1500c: "DW1500c",
+    DW2000: "DW2000",
+    DW2000c: "DW2000c",
+    DW3000: "DW3000",
+    DW2500c: "DW2500c",
+    DW3000c: "DW3000c",
+    DW6000: "DW6000",
+    DW5000c: "DW5000c",
+    DW6000c: "DW6000c",
+    DW7500c: "DW7500c",
+    DW10000c: "DW10000c",
+    DW15000c: "DW15000c",
+    DW30000c: "DW30000c",
+    DS100: "DS100",
+    DS200: "DS200",
+    DS300: "DS300",
+    DS400: "DS400",
+    DS500: "DS500",
+    DS600: "DS600",
+    DS1000: "DS1000",
+    DS1200: "DS1200",
+    DS1500: "DS1500",
+    DS2000: "DS2000",
+    ElasticPool: "ElasticPool",
+} as const;
+
+/**
+ * The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
+ * 
+ * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
+ * 
+ * ```azurecli
+ * az sql db list-editions -l <location> -o table
+ * ````
+ * 
+ * ```powershell
+ * Get-AzSqlServerServiceObjective -Location <location>
+ * ````
+ */
+export type ServiceObjectiveName = (typeof ServiceObjectiveName)[keyof typeof ServiceObjectiveName];
+
+export const StorageAccountType = {
+    GRS: "GRS",
+    LRS: "LRS",
+    ZRS: "ZRS",
+} as const;
+
+/**
+ * The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
+ */
+export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
+
+export const SyncConflictResolutionPolicy = {
+    HubWin: "HubWin",
+    MemberWin: "MemberWin",
+} as const;
+
+/**
+ * Conflict resolution policy of the sync group.
+ */
+export type SyncConflictResolutionPolicy = (typeof SyncConflictResolutionPolicy)[keyof typeof SyncConflictResolutionPolicy];
+
+export const SyncDirection = {
+    Bidirectional: "Bidirectional",
+    OneWayMemberToHub: "OneWayMemberToHub",
+    OneWayHubToMember: "OneWayHubToMember",
+} as const;
+
+/**
+ * Sync direction of the sync member.
+ */
+export type SyncDirection = (typeof SyncDirection)[keyof typeof SyncDirection];
+
+export const SyncMemberDbType = {
+    AzureSqlDatabase: "AzureSqlDatabase",
+    SqlServerDatabase: "SqlServerDatabase",
+} as const;
+
+/**
+ * Database type of the sync member.
+ */
+export type SyncMemberDbType = (typeof SyncMemberDbType)[keyof typeof SyncMemberDbType];
+
+export const TransparentDataEncryptionStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The status of the database transparent data encryption.
+ */
+export type TransparentDataEncryptionStatus = (typeof TransparentDataEncryptionStatus)[keyof typeof TransparentDataEncryptionStatus];

@@ -137,7 +137,7 @@ export class WebAppDeployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppDeployment" }, { type: "azure-nextgen:web/v20150801:WebAppDeployment" }, { type: "azure-nextgen:web/v20160801:WebAppDeployment" }, { type: "azure-nextgen:web/v20180201:WebAppDeployment" }, { type: "azure-nextgen:web/v20181101:WebAppDeployment" }, { type: "azure-nextgen:web/v20200601:WebAppDeployment" }, { type: "azure-nextgen:web/v20200901:WebAppDeployment" }, { type: "azure-nextgen:web/v20201001:WebAppDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppDeployment" }, { type: "azure-nextgen:web/latest:WebAppDeployment" }, { type: "azure-nextgen:web/v20150801:WebAppDeployment" }, { type: "azure-nextgen:web/v20160801:WebAppDeployment" }, { type: "azure-nextgen:web/v20180201:WebAppDeployment" }, { type: "azure-nextgen:web/v20181101:WebAppDeployment" }, { type: "azure-nextgen:web/v20200601:WebAppDeployment" }, { type: "azure-nextgen:web/v20200901:WebAppDeployment" }, { type: "azure-nextgen:web/v20201001:WebAppDeployment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDeployment.__pulumiType, name, inputs, opts);
     }

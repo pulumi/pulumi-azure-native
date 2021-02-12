@@ -138,7 +138,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appconfiguration/latest:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20191001:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20200601:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appconfiguration:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/latest:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20191001:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20200601:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConfigurationStore.__pulumiType, name, inputs, opts);
     }

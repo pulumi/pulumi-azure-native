@@ -92,7 +92,7 @@ export class JobTargetGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20170301preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20200801preview:JobTargetGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:JobTargetGroup" }, { type: "azure-nextgen:sql/v20170301preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20200801preview:JobTargetGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobTargetGroup.__pulumiType, name, inputs, opts);
     }

@@ -95,7 +95,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:visualstudio/v20171101preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:visualstudio:Account" }, { type: "azure-nextgen:visualstudio/v20171101preview:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

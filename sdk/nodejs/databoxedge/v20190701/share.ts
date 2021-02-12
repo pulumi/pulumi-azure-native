@@ -147,7 +147,7 @@ export class Share extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/latest:Share" }, { type: "azure-nextgen:databoxedge/v20190301:Share" }, { type: "azure-nextgen:databoxedge/v20190801:Share" }, { type: "azure-nextgen:databoxedge/v20200501preview:Share" }, { type: "azure-nextgen:databoxedge/v20200901:Share" }, { type: "azure-nextgen:databoxedge/v20200901preview:Share" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Share" }, { type: "azure-nextgen:databoxedge/latest:Share" }, { type: "azure-nextgen:databoxedge/v20190301:Share" }, { type: "azure-nextgen:databoxedge/v20190801:Share" }, { type: "azure-nextgen:databoxedge/v20200501preview:Share" }, { type: "azure-nextgen:databoxedge/v20200901:Share" }, { type: "azure-nextgen:databoxedge/v20200901preview:Share" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Share.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Friendly Routes name mapping to the any Routes or secret related information.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Route'.
  */
 export class Route extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Route extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Route {
+        pulumi.log.warn("Route is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Route'.")
         return new Route(name, undefined as any, { ...opts, id: id });
     }
 
@@ -109,7 +112,9 @@ export class Route extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Route'. */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Route is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Route'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
@@ -174,7 +179,7 @@ export class Route extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20200901:Route" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:Route" }, { type: "azure-nextgen:cdn/v20200901:Route" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Route.__pulumiType, name, inputs, opts);
     }

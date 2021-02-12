@@ -181,7 +181,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20180601preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20190601preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20200202preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20200801preview:ManagedDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ManagedDatabase" }, { type: "azure-nextgen:sql/v20180601preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20190601preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20200202preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20200801preview:ManagedDatabase" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedDatabase.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The top level Linked service resource container.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedService'.
  */
 export class LinkedService extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class LinkedService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LinkedService {
+        pulumi.log.warn("LinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedService'.")
         return new LinkedService(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class LinkedService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedService'. */
     constructor(name: string, args: LinkedServiceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("LinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedService'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.linkedServiceName === undefined) && !(opts && opts.urn)) {
@@ -104,7 +109,7 @@ export class LinkedService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20200801:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20200801:LinkedService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedService.__pulumiType, name, inputs, opts);
     }

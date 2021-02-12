@@ -94,7 +94,7 @@ export class LinkedService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory/latest:LinkedService" }, { type: "azure-nextgen:datafactory/v20180601:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory:LinkedService" }, { type: "azure-nextgen:datafactory/latest:LinkedService" }, { type: "azure-nextgen:datafactory/v20180601:LinkedService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedService.__pulumiType, name, inputs, opts);
     }

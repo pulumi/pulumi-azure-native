@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
  * Latest API Version: 2020-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'.
  */
 export class RulesEngine extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class RulesEngine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RulesEngine {
+        pulumi.log.warn("RulesEngine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'.")
         return new RulesEngine(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class RulesEngine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'. */
     constructor(name: string, args: RulesEngineArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("RulesEngine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.frontDoorName === undefined) && !(opts && opts.urn)) {
@@ -92,7 +97,7 @@ export class RulesEngine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200101:RulesEngine" }, { type: "azure-nextgen:network/v20200401:RulesEngine" }, { type: "azure-nextgen:network/v20200501:RulesEngine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:RulesEngine" }, { type: "azure-nextgen:network/v20200101:RulesEngine" }, { type: "azure-nextgen:network/v20200401:RulesEngine" }, { type: "azure-nextgen:network/v20200501:RulesEngine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RulesEngine.__pulumiType, name, inputs, opts);
     }

@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Logger details.
  * Latest API Version: 2018-01-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiDiagnosticLogger'.
  */
 export class ApiDiagnosticLogger extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class ApiDiagnosticLogger extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiDiagnosticLogger {
+        pulumi.log.warn("ApiDiagnosticLogger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiDiagnosticLogger'.")
         return new ApiDiagnosticLogger(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class ApiDiagnosticLogger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiDiagnosticLogger'. */
     constructor(name: string, args: ApiDiagnosticLoggerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ApiDiagnosticLogger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiDiagnosticLogger'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
@@ -112,7 +117,7 @@ export class ApiDiagnosticLogger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20170301:ApiDiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20180101:ApiDiagnosticLogger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ApiDiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20170301:ApiDiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20180101:ApiDiagnosticLogger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiDiagnosticLogger.__pulumiType, name, inputs, opts);
     }

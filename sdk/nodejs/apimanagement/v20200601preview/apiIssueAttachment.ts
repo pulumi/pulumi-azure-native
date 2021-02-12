@@ -113,7 +113,7 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20170301:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20180101:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20190101:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20191201:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/latest:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20170301:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20180101:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20190101:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20191201:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiIssueAttachment.__pulumiType, name, inputs, opts);
     }

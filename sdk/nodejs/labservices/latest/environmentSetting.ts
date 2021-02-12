@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents settings of an environment, from which environment instances would be created
  * Latest API Version: 2018-10-15.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:EnvironmentSetting'.
  */
 export class EnvironmentSetting extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class EnvironmentSetting extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EnvironmentSetting {
+        pulumi.log.warn("EnvironmentSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:EnvironmentSetting'.")
         return new EnvironmentSetting(name, undefined as any, { ...opts, id: id });
     }
 
@@ -100,7 +103,9 @@ export class EnvironmentSetting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:EnvironmentSetting'. */
     constructor(name: string, args: EnvironmentSettingArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("EnvironmentSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:EnvironmentSetting'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.environmentSettingName === undefined) && !(opts && opts.urn)) {
@@ -159,7 +164,7 @@ export class EnvironmentSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices/v20181015:EnvironmentSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices:EnvironmentSetting" }, { type: "azure-nextgen:labservices/v20181015:EnvironmentSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EnvironmentSetting.__pulumiType, name, inputs, opts);
     }

@@ -177,7 +177,7 @@ export class Device extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/latest:Device" }, { type: "azure-nextgen:databoxedge/v20190701:Device" }, { type: "azure-nextgen:databoxedge/v20190801:Device" }, { type: "azure-nextgen:databoxedge/v20200501preview:Device" }, { type: "azure-nextgen:databoxedge/v20200901:Device" }, { type: "azure-nextgen:databoxedge/v20200901preview:Device" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Device" }, { type: "azure-nextgen:databoxedge/latest:Device" }, { type: "azure-nextgen:databoxedge/v20190701:Device" }, { type: "azure-nextgen:databoxedge/v20190801:Device" }, { type: "azure-nextgen:databoxedge/v20200501preview:Device" }, { type: "azure-nextgen:databoxedge/v20200901:Device" }, { type: "azure-nextgen:databoxedge/v20200901preview:Device" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Device.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Peerings in a virtual network resource.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkPeering'.
  */
 export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetworkPeering {
+        pulumi.log.warn("VirtualNetworkPeering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkPeering'.")
         return new VirtualNetworkPeering(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,7 +91,9 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkPeering'. */
     constructor(name: string, args: VirtualNetworkPeeringArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualNetworkPeering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkPeering'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -135,7 +140,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20160601:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20160901:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20161201:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20170301:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20170601:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20170801:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20170901:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20171001:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20171101:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20180101:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20180201:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20180401:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20180601:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20180701:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20180801:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20181001:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20181101:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20181201:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20190201:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20190401:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20190601:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20190701:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20190801:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20190901:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20191101:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20191201:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20200301:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20200401:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20200501:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20200601:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20200701:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20200801:VirtualNetworkPeering" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20160601:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20160901:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20161201:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20170301:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20170601:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20170801:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20170901:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20171001:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20171101:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20180101:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20180201:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20180401:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20180601:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20180701:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20180801:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20181001:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20181101:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20181201:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20190201:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20190401:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20190601:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20190701:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20190801:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20190901:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20191101:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20191201:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20200301:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20200401:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20200501:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20200601:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20200701:VirtualNetworkPeering" }, { type: "azure-nextgen:network/v20200801:VirtualNetworkPeering" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkPeering.__pulumiType, name, inputs, opts);
     }

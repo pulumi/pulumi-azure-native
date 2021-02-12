@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB trigger.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlTrigger'.
  */
 export class SqlResourceSqlTrigger extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlResourceSqlTrigger {
+        pulumi.log.warn("SqlResourceSqlTrigger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlTrigger'.")
         return new SqlResourceSqlTrigger(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,7 +64,9 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlTrigger'. */
     constructor(name: string, args: SqlResourceSqlTriggerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SqlResourceSqlTrigger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlTrigger'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -107,7 +112,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlTrigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlTrigger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlTrigger.__pulumiType, name, inputs, opts);
     }

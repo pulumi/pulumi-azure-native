@@ -87,7 +87,7 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20170301:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20180101:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20180601preview:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20190101:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20191201:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20200601preview:NotificationRecipientUser" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/latest:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20170301:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20180101:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20180601preview:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20190101:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20191201:NotificationRecipientUser" }, { type: "azure-nextgen:apimanagement/v20200601preview:NotificationRecipientUser" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotificationRecipientUser.__pulumiType, name, inputs, opts);
     }

@@ -89,7 +89,7 @@ export class Binding extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/latest:Binding" }, { type: "azure-nextgen:appplatform/v20200701:Binding" }, { type: "azure-nextgen:appplatform/v20201101preview:Binding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform:Binding" }, { type: "azure-nextgen:appplatform/latest:Binding" }, { type: "azure-nextgen:appplatform/v20200701:Binding" }, { type: "azure-nextgen:appplatform/v20201101preview:Binding" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Binding.__pulumiType, name, inputs, opts);
     }

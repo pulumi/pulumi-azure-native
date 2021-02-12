@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents an image from the Azure Marketplace
  * Latest API Version: 2018-10-15.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:GalleryImage'.
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class GalleryImage extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GalleryImage {
+        pulumi.log.warn("GalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:GalleryImage'.")
         return new GalleryImage(name, undefined as any, { ...opts, id: id });
     }
 
@@ -108,7 +111,9 @@ export class GalleryImage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:GalleryImage'. */
     constructor(name: string, args: GalleryImageArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("GalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:GalleryImage'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.galleryImageName === undefined) && !(opts && opts.urn)) {
@@ -164,7 +169,7 @@ export class GalleryImage extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices/v20181015:GalleryImage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices:GalleryImage" }, { type: "azure-nextgen:labservices/v20181015:GalleryImage" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryImage.__pulumiType, name, inputs, opts);
     }

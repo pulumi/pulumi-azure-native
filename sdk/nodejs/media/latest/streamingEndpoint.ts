@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The streaming endpoint.
  * Latest API Version: 2020-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingEndpoint'.
  */
 export class StreamingEndpoint extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StreamingEndpoint {
+        pulumi.log.warn("StreamingEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingEndpoint'.")
         return new StreamingEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
@@ -128,7 +131,9 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingEndpoint'. */
     constructor(name: string, args: StreamingEndpointArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("StreamingEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingEndpoint'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -198,7 +203,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20180330preview:StreamingEndpoint" }, { type: "azure-nextgen:media/v20180601preview:StreamingEndpoint" }, { type: "azure-nextgen:media/v20180701:StreamingEndpoint" }, { type: "azure-nextgen:media/v20190501preview:StreamingEndpoint" }, { type: "azure-nextgen:media/v20200501:StreamingEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media:StreamingEndpoint" }, { type: "azure-nextgen:media/v20180330preview:StreamingEndpoint" }, { type: "azure-nextgen:media/v20180601preview:StreamingEndpoint" }, { type: "azure-nextgen:media/v20180701:StreamingEndpoint" }, { type: "azure-nextgen:media/v20190501preview:StreamingEndpoint" }, { type: "azure-nextgen:media/v20200501:StreamingEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StreamingEndpoint.__pulumiType, name, inputs, opts);
     }

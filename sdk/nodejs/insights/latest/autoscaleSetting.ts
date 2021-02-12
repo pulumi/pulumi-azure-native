@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The autoscale setting resource.
  * Latest API Version: 2015-04-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AutoscaleSetting'.
  */
 export class AutoscaleSetting extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AutoscaleSetting {
+        pulumi.log.warn("AutoscaleSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AutoscaleSetting'.")
         return new AutoscaleSetting(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class AutoscaleSetting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AutoscaleSetting'. */
     constructor(name: string, args: AutoscaleSettingArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AutoscaleSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AutoscaleSetting'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.autoscaleSettingName === undefined) && !(opts && opts.urn)) {
@@ -115,7 +120,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20150401:AutoscaleSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:AutoscaleSetting" }, { type: "azure-nextgen:insights/v20150401:AutoscaleSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AutoscaleSetting.__pulumiType, name, inputs, opts);
     }

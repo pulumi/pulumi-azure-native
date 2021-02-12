@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettings'.
  */
 export class WebAppAuthSettings extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppAuthSettings {
+        pulumi.log.warn("WebAppAuthSettings is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettings'.")
         return new WebAppAuthSettings(name, undefined as any, { ...opts, id: id });
     }
 
@@ -259,7 +262,9 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettings'. */
     constructor(name: string, args: WebAppAuthSettingsArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppAuthSettings is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettings'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -360,7 +365,7 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20160801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20180201:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20181101:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20190801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20150801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20160801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20180201:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20181101:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20190801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettings" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppAuthSettings.__pulumiType, name, inputs, opts);
     }

@@ -97,7 +97,7 @@ export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResou
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ManagedInstancePrivateEndpointConnection" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedInstancePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

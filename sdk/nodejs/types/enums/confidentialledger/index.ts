@@ -7,3 +7,14 @@ import * as v20201201preview from "./v20201201preview";
 export {
     v20201201preview,
 };
+
+export const LedgerType = {
+    Unknown: "Unknown",
+    Public: "Public",
+    Private: "Private",
+} as const;
+
+/**
+ * Type of Confidential Ledger
+ */
+export type LedgerType = (typeof LedgerType)[keyof typeof LedgerType];

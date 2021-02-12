@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * The peering service prefix class.
  * Latest API Version: 2020-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:Prefix'.
  */
 export class Prefix extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Prefix extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Prefix {
+        pulumi.log.warn("Prefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:Prefix'.")
         return new Prefix(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class Prefix extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:Prefix'. */
     constructor(name: string, args: PrefixArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Prefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:Prefix'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.peeringServiceName === undefined) && !(opts && opts.urn)) {
@@ -122,7 +127,7 @@ export class Prefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering/v20190801preview:Prefix" }, { type: "azure-nextgen:peering/v20190901preview:Prefix" }, { type: "azure-nextgen:peering/v20200101preview:Prefix" }, { type: "azure-nextgen:peering/v20200401:Prefix" }, { type: "azure-nextgen:peering/v20201001:Prefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering:Prefix" }, { type: "azure-nextgen:peering/v20190801preview:Prefix" }, { type: "azure-nextgen:peering/v20190901preview:Prefix" }, { type: "azure-nextgen:peering/v20200101preview:Prefix" }, { type: "azure-nextgen:peering/v20200401:Prefix" }, { type: "azure-nextgen:peering/v20201001:Prefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Prefix.__pulumiType, name, inputs, opts);
     }

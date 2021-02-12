@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A class represent a SignalR service resource.
  * Latest API Version: 2020-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:signalrservice:SignalR'.
  */
 export class SignalR extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class SignalR extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SignalR {
+        pulumi.log.warn("SignalR is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:signalrservice:SignalR'.")
         return new SignalR(name, undefined as any, { ...opts, id: id });
     }
 
@@ -122,7 +125,9 @@ export class SignalR extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:signalrservice:SignalR'. */
     constructor(name: string, args: SignalRArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SignalR is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:signalrservice:SignalR'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -178,7 +183,7 @@ export class SignalR extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:signalrservice/v20180301preview:SignalR" }, { type: "azure-nextgen:signalrservice/v20181001:SignalR" }, { type: "azure-nextgen:signalrservice/v20200501:SignalR" }, { type: "azure-nextgen:signalrservice/v20200701preview:SignalR" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:signalrservice:SignalR" }, { type: "azure-nextgen:signalrservice/v20180301preview:SignalR" }, { type: "azure-nextgen:signalrservice/v20181001:SignalR" }, { type: "azure-nextgen:signalrservice/v20200501:SignalR" }, { type: "azure-nextgen:signalrservice/v20200701preview:SignalR" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SignalR.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A Content Key Policy resource.
  * Latest API Version: 2020-05-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:ContentKeyPolicy'.
  */
 export class ContentKeyPolicy extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ContentKeyPolicy {
+        pulumi.log.warn("ContentKeyPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:ContentKeyPolicy'.")
         return new ContentKeyPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:ContentKeyPolicy'. */
     constructor(name: string, args: ContentKeyPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ContentKeyPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:ContentKeyPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -119,7 +124,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20180330preview:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180601preview:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180701:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20200501:ContentKeyPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180330preview:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180601preview:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180701:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20200501:ContentKeyPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContentKeyPolicy.__pulumiType, name, inputs, opts);
     }

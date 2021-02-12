@@ -123,7 +123,7 @@ export class Assessment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/latest:Assessment" }, { type: "azure-nextgen:security/v20190101preview:Assessment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:Assessment" }, { type: "azure-nextgen:security/latest:Assessment" }, { type: "azure-nextgen:security/v20190101preview:Assessment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Assessment.__pulumiType, name, inputs, opts);
     }

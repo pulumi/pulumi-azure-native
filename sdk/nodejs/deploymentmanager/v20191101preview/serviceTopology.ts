@@ -92,7 +92,7 @@ export class ServiceTopology extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:deploymentmanager/v20180901preview:ServiceTopology" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:deploymentmanager:ServiceTopology" }, { type: "azure-nextgen:deploymentmanager/v20180901preview:ServiceTopology" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceTopology.__pulumiType, name, inputs, opts);
     }

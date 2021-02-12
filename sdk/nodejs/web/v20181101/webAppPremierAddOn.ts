@@ -125,7 +125,7 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20150801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20160801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20180201:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20190801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20200601:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20200901:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20201001:WebAppPremierAddOn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppPremierAddOn" }, { type: "azure-nextgen:web/latest:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20150801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20160801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20180201:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20190801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20200601:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20200901:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20201001:WebAppPremierAddOn" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPremierAddOn.__pulumiType, name, inputs, opts);
     }

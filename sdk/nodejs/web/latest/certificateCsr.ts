@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Certificate signing request object
  * Latest API Version: 2015-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CertificateCsr'.
  */
 export class CertificateCsr extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class CertificateCsr extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CertificateCsr {
+        pulumi.log.warn("CertificateCsr is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CertificateCsr'.")
         return new CertificateCsr(name, undefined as any, { ...opts, id: id });
     }
 
@@ -87,7 +90,9 @@ export class CertificateCsr extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CertificateCsr'. */
     constructor(name: string, args: CertificateCsrArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CertificateCsr is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CertificateCsr'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -129,7 +134,7 @@ export class CertificateCsr extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:CertificateCsr" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:CertificateCsr" }, { type: "azure-nextgen:web/v20150801:CertificateCsr" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CertificateCsr.__pulumiType, name, inputs, opts);
     }

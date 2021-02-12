@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Bot resource definition
  * Latest API Version: 2020-06-02.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Bot'.
  */
 export class Bot extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Bot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Bot {
+        pulumi.log.warn("Bot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Bot'.")
         return new Bot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class Bot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Bot'. */
     constructor(name: string, args: BotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Bot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Bot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -112,7 +117,7 @@ export class Bot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice/v20171201:Bot" }, { type: "azure-nextgen:botservice/v20180712:Bot" }, { type: "azure-nextgen:botservice/v20200602:Bot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice:Bot" }, { type: "azure-nextgen:botservice/v20171201:Bot" }, { type: "azure-nextgen:botservice/v20180712:Bot" }, { type: "azure-nextgen:botservice/v20200602:Bot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Bot.__pulumiType, name, inputs, opts);
     }

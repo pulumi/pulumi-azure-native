@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the certificate.
  * Latest API Version: 2019-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Certificate'.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Certificate {
+        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Certificate'.")
         return new Certificate(name, undefined as any, { ...opts, id: id });
     }
 
@@ -75,7 +78,9 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Certificate'. */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Certificate'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
@@ -122,7 +127,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Certificate" }, { type: "azure-nextgen:automation/v20190601:Certificate" }, { type: "azure-nextgen:automation/v20200113preview:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:Certificate" }, { type: "azure-nextgen:automation/v20151031:Certificate" }, { type: "azure-nextgen:automation/v20190601:Certificate" }, { type: "azure-nextgen:automation/v20200113preview:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

@@ -99,7 +99,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NamespaceNetworkRuleSet.__pulumiType, name, inputs, opts);
     }

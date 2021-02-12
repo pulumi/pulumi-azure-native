@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Latest API Version: 2019-10-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:HyperVCollector'.
  */
 export class HyperVCollector extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class HyperVCollector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HyperVCollector {
+        pulumi.log.warn("HyperVCollector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:HyperVCollector'.")
         return new HyperVCollector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -47,7 +50,9 @@ export class HyperVCollector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:HyperVCollector'. */
     constructor(name: string, args: HyperVCollectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("HyperVCollector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:HyperVCollector'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.hyperVCollectorName === undefined) && !(opts && opts.urn)) {
@@ -79,7 +84,7 @@ export class HyperVCollector extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate/v20191001:HyperVCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate:HyperVCollector" }, { type: "azure-nextgen:migrate/v20191001:HyperVCollector" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HyperVCollector.__pulumiType, name, inputs, opts);
     }

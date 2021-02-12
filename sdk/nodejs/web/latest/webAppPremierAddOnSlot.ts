@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Premier add-on.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPremierAddOnSlot'.
  */
 export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppPremierAddOnSlot {
+        pulumi.log.warn("WebAppPremierAddOnSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPremierAddOnSlot'.")
         return new WebAppPremierAddOnSlot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,7 +91,9 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPremierAddOnSlot'. */
     constructor(name: string, args: WebAppPremierAddOnSlotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppPremierAddOnSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPremierAddOnSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -137,7 +142,7 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20160801:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20180201:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20181101:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20190801:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20200601:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20200901:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20201001:WebAppPremierAddOnSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20150801:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20160801:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20180201:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20181101:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20190801:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20200601:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20200901:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20201001:WebAppPremierAddOnSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPremierAddOnSlot.__pulumiType, name, inputs, opts);
     }

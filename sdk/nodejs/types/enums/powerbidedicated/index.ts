@@ -9,3 +9,12 @@ export {
     latest,
     v20171001,
 };
+
+export const SkuTier = {
+    PBIE_Azure: "PBIE_Azure",
+} as const;
+
+/**
+ * The name of the Azure pricing tier to which the SKU applies.
+ */
+export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];

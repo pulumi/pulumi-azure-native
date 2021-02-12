@@ -161,7 +161,7 @@ export class SyncGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20150501preview:SyncGroup" }, { type: "azure-nextgen:sql/v20190601preview:SyncGroup" }, { type: "azure-nextgen:sql/v20200202preview:SyncGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:SyncGroup" }, { type: "azure-nextgen:sql/v20150501preview:SyncGroup" }, { type: "azure-nextgen:sql/v20190601preview:SyncGroup" }, { type: "azure-nextgen:sql/v20200202preview:SyncGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SyncGroup.__pulumiType, name, inputs, opts);
     }

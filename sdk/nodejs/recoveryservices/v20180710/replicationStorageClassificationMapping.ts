@@ -99,7 +99,7 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationStorageClassificationMapping.__pulumiType, name, inputs, opts);
     }

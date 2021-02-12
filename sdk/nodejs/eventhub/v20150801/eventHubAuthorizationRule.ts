@@ -98,7 +98,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/latest:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/latest:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EventHubAuthorizationRule.__pulumiType, name, inputs, opts);
     }

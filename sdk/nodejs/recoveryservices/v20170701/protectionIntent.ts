@@ -107,7 +107,7 @@ export class ProtectionIntent extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:ProtectionIntent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ProtectionIntent" }, { type: "azure-nextgen:recoveryservices/latest:ProtectionIntent" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionIntent.__pulumiType, name, inputs, opts);
     }

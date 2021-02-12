@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A common class for general resource information.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LocalNetworkGateway'.
  */
 export class LocalNetworkGateway extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LocalNetworkGateway {
+        pulumi.log.warn("LocalNetworkGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LocalNetworkGateway'.")
         return new LocalNetworkGateway(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,7 +91,9 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LocalNetworkGateway'. */
     constructor(name: string, args: LocalNetworkGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("LocalNetworkGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LocalNetworkGateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.localNetworkGatewayName === undefined) && !(opts && opts.urn)) {
@@ -131,7 +136,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20150615:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20160330:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20160601:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20160901:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20161201:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20170301:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20170601:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20170801:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20170901:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20171001:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20171101:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20180101:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20180201:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20180401:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20180601:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20180701:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20180801:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20181001:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20181101:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20181201:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20190201:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20190401:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20190601:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20190701:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20190801:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20190901:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20191101:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20191201:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20200301:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20200401:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20200501:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20200601:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20200701:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20200801:LocalNetworkGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20150615:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20160330:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20160601:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20160901:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20161201:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20170301:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20170601:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20170801:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20170901:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20171001:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20171101:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20180101:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20180201:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20180401:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20180601:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20180701:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20180801:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20181001:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20181101:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20181201:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20190201:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20190401:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20190601:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20190701:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20190801:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20190901:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20191101:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20191201:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20200301:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20200401:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20200501:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20200601:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20200701:LocalNetworkGateway" }, { type: "azure-nextgen:network/v20200801:LocalNetworkGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LocalNetworkGateway.__pulumiType, name, inputs, opts);
     }

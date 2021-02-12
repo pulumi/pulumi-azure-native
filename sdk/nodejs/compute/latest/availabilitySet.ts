@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
  * Latest API Version: 2020-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:AvailabilitySet'.
  */
 export class AvailabilitySet extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AvailabilitySet {
+        pulumi.log.warn("AvailabilitySet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:AvailabilitySet'.")
         return new AvailabilitySet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,7 +87,9 @@ export class AvailabilitySet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:AvailabilitySet'. */
     constructor(name: string, args: AvailabilitySetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AvailabilitySet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:AvailabilitySet'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.availabilitySetName === undefined) && !(opts && opts.urn)) {
@@ -124,7 +129,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20150615:AvailabilitySet" }, { type: "azure-nextgen:compute/v20160330:AvailabilitySet" }, { type: "azure-nextgen:compute/v20160430preview:AvailabilitySet" }, { type: "azure-nextgen:compute/v20170330:AvailabilitySet" }, { type: "azure-nextgen:compute/v20171201:AvailabilitySet" }, { type: "azure-nextgen:compute/v20180401:AvailabilitySet" }, { type: "azure-nextgen:compute/v20180601:AvailabilitySet" }, { type: "azure-nextgen:compute/v20181001:AvailabilitySet" }, { type: "azure-nextgen:compute/v20190301:AvailabilitySet" }, { type: "azure-nextgen:compute/v20190701:AvailabilitySet" }, { type: "azure-nextgen:compute/v20191201:AvailabilitySet" }, { type: "azure-nextgen:compute/v20200601:AvailabilitySet" }, { type: "azure-nextgen:compute/v20201201:AvailabilitySet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:AvailabilitySet" }, { type: "azure-nextgen:compute/v20150615:AvailabilitySet" }, { type: "azure-nextgen:compute/v20160330:AvailabilitySet" }, { type: "azure-nextgen:compute/v20160430preview:AvailabilitySet" }, { type: "azure-nextgen:compute/v20170330:AvailabilitySet" }, { type: "azure-nextgen:compute/v20171201:AvailabilitySet" }, { type: "azure-nextgen:compute/v20180401:AvailabilitySet" }, { type: "azure-nextgen:compute/v20180601:AvailabilitySet" }, { type: "azure-nextgen:compute/v20181001:AvailabilitySet" }, { type: "azure-nextgen:compute/v20190301:AvailabilitySet" }, { type: "azure-nextgen:compute/v20190701:AvailabilitySet" }, { type: "azure-nextgen:compute/v20191201:AvailabilitySet" }, { type: "azure-nextgen:compute/v20200601:AvailabilitySet" }, { type: "azure-nextgen:compute/v20201201:AvailabilitySet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AvailabilitySet.__pulumiType, name, inputs, opts);
     }

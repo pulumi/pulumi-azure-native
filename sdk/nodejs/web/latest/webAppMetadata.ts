@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * String dictionary resource.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppMetadata'.
  */
 export class WebAppMetadata extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebAppMetadata extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppMetadata {
+        pulumi.log.warn("WebAppMetadata is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppMetadata'.")
         return new WebAppMetadata(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class WebAppMetadata extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppMetadata'. */
     constructor(name: string, args: WebAppMetadataArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppMetadata is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppMetadata'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -93,7 +98,7 @@ export class WebAppMetadata extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppMetadata" }, { type: "azure-nextgen:web/v20160801:WebAppMetadata" }, { type: "azure-nextgen:web/v20180201:WebAppMetadata" }, { type: "azure-nextgen:web/v20181101:WebAppMetadata" }, { type: "azure-nextgen:web/v20190801:WebAppMetadata" }, { type: "azure-nextgen:web/v20200601:WebAppMetadata" }, { type: "azure-nextgen:web/v20200901:WebAppMetadata" }, { type: "azure-nextgen:web/v20201001:WebAppMetadata" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppMetadata" }, { type: "azure-nextgen:web/v20150801:WebAppMetadata" }, { type: "azure-nextgen:web/v20160801:WebAppMetadata" }, { type: "azure-nextgen:web/v20180201:WebAppMetadata" }, { type: "azure-nextgen:web/v20181101:WebAppMetadata" }, { type: "azure-nextgen:web/v20190801:WebAppMetadata" }, { type: "azure-nextgen:web/v20200601:WebAppMetadata" }, { type: "azure-nextgen:web/v20200901:WebAppMetadata" }, { type: "azure-nextgen:web/v20201001:WebAppMetadata" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppMetadata.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A Service Fabric.
  * Latest API Version: 2018-09-15.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabric'.
  */
 export class ServiceFabric extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ServiceFabric extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServiceFabric {
+        pulumi.log.warn("ServiceFabric is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabric'.")
         return new ServiceFabric(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class ServiceFabric extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabric'. */
     constructor(name: string, args: ServiceFabricArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ServiceFabric is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabric'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -125,7 +130,7 @@ export class ServiceFabric extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20180915:ServiceFabric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:ServiceFabric" }, { type: "azure-nextgen:devtestlab/v20180915:ServiceFabric" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceFabric.__pulumiType, name, inputs, opts);
     }

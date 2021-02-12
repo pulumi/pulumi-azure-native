@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * A flow log resource.
  * Latest API Version: 2020-08-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FlowLog'.
  */
 export class FlowLog extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class FlowLog extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FlowLog {
+        pulumi.log.warn("FlowLog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FlowLog'.")
         return new FlowLog(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,7 +99,9 @@ export class FlowLog extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FlowLog'. */
     constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("FlowLog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FlowLog'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.flowLogName === undefined) && !(opts && opts.urn)) {
@@ -153,7 +158,7 @@ export class FlowLog extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20191101:FlowLog" }, { type: "azure-nextgen:network/v20191201:FlowLog" }, { type: "azure-nextgen:network/v20200301:FlowLog" }, { type: "azure-nextgen:network/v20200401:FlowLog" }, { type: "azure-nextgen:network/v20200501:FlowLog" }, { type: "azure-nextgen:network/v20200601:FlowLog" }, { type: "azure-nextgen:network/v20200701:FlowLog" }, { type: "azure-nextgen:network/v20200801:FlowLog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:FlowLog" }, { type: "azure-nextgen:network/v20191101:FlowLog" }, { type: "azure-nextgen:network/v20191201:FlowLog" }, { type: "azure-nextgen:network/v20200301:FlowLog" }, { type: "azure-nextgen:network/v20200401:FlowLog" }, { type: "azure-nextgen:network/v20200501:FlowLog" }, { type: "azure-nextgen:network/v20200601:FlowLog" }, { type: "azure-nextgen:network/v20200701:FlowLog" }, { type: "azure-nextgen:network/v20200801:FlowLog" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FlowLog.__pulumiType, name, inputs, opts);
     }

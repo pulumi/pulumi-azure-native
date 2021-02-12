@@ -7,3 +7,99 @@ import * as v20201201preview from "./v20201201preview";
 export {
     v20201201preview,
 };
+
+export const AddressType = {
+    /**
+     * Address type not known.
+     */
+    None: "None",
+    /**
+     * Residential Address.
+     */
+    Residential: "Residential",
+    /**
+     * Commercial Address.
+     */
+    Commercial: "Commercial",
+} as const;
+
+/**
+ * Type of address.
+ */
+export type AddressType = (typeof AddressType)[keyof typeof AddressType];
+
+export const NotificationStageName = {
+    /**
+     * Notification at device prepared stage.
+     */
+    DevicePrepared: "DevicePrepared",
+    /**
+     * Notification at device dispatched stage.
+     */
+    Dispatched: "Dispatched",
+    /**
+     * Notification at device delivered stage.
+     */
+    Delivered: "Delivered",
+    /**
+     * Notification at device picked up from user stage.
+     */
+    PickedUp: "PickedUp",
+    /**
+     * Notification at device received at Azure datacenter stage.
+     */
+    AtAzureDC: "AtAzureDC",
+    /**
+     * Notification at data copy started stage.
+     */
+    DataCopy: "DataCopy",
+} as const;
+
+/**
+ * Name of the stage.
+ */
+export type NotificationStageName = (typeof NotificationStageName)[keyof typeof NotificationStageName];
+
+export const OrderType = {
+    /**
+     * Purchase Order.
+     */
+    Purchase: "Purchase",
+    /**
+     * Rental Order.
+     */
+    Rental: "Rental",
+} as const;
+
+/**
+ * Order type.
+ */
+export type OrderType = (typeof OrderType)[keyof typeof OrderType];
+
+export const SupportedFilterTypes = {
+    /**
+     * Ship to country
+     */
+    ShipToCountries: "ShipToCountries",
+} as const;
+
+/**
+ * Type of product filter.
+ */
+export type SupportedFilterTypes = (typeof SupportedFilterTypes)[keyof typeof SupportedFilterTypes];
+
+export const TransportShipmentTypes = {
+    /**
+     * Shipment Logistics is handled by the customer.
+     */
+    CustomerManaged: "CustomerManaged",
+    /**
+     * Shipment Logistics is handled by Microsoft.
+     */
+    MicrosoftManaged: "MicrosoftManaged",
+} as const;
+
+/**
+ * Indicates Shipment Logistics type that the customer preferred.
+ */
+export type TransportShipmentTypes = (typeof TransportShipmentTypes)[keyof typeof TransportShipmentTypes];

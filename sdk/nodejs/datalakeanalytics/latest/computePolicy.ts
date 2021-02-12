@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Data Lake Analytics compute policy information.
  * Latest API Version: 2016-11-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:ComputePolicy'.
  */
 export class ComputePolicy extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ComputePolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ComputePolicy {
+        pulumi.log.warn("ComputePolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:ComputePolicy'.")
         return new ComputePolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,7 +71,9 @@ export class ComputePolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:ComputePolicy'. */
     constructor(name: string, args: ComputePolicyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ComputePolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:ComputePolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -110,7 +115,7 @@ export class ComputePolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy" }, { type: "azure-nextgen:datalakeanalytics/v20161101:ComputePolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics:ComputePolicy" }, { type: "azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy" }, { type: "azure-nextgen:datalakeanalytics/v20161101:ComputePolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ComputePolicy.__pulumiType, name, inputs, opts);
     }

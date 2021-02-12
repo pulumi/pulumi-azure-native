@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Contract details.
  * Latest API Version: 2019-12-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiTagDescription'.
  */
 export class ApiTagDescription extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class ApiTagDescription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiTagDescription {
+        pulumi.log.warn("ApiTagDescription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiTagDescription'.")
         return new ApiTagDescription(name, undefined as any, { ...opts, id: id });
     }
 
@@ -71,7 +74,9 @@ export class ApiTagDescription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiTagDescription'. */
     constructor(name: string, args: ApiTagDescriptionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ApiTagDescription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiTagDescription'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
@@ -113,7 +118,7 @@ export class ApiTagDescription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20170301:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20180101:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20190101:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20191201:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiTagDescription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20170301:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20180101:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20190101:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20191201:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiTagDescription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiTagDescription.__pulumiType, name, inputs, opts);
     }

@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Configuration of App Service site logs.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDiagnosticLogsConfiguration'.
  */
 export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppDiagnosticLogsConfiguration {
+        pulumi.log.warn("WebAppDiagnosticLogsConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDiagnosticLogsConfiguration'.")
         return new WebAppDiagnosticLogsConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDiagnosticLogsConfiguration'. */
     constructor(name: string, args: WebAppDiagnosticLogsConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebAppDiagnosticLogsConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDiagnosticLogsConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -111,7 +116,7 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20160801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20180201:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20181101:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20190801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20200601:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20200901:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20201001:WebAppDiagnosticLogsConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20150801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20160801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20180201:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20181101:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20190801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20200601:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20200901:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20201001:WebAppDiagnosticLogsConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDiagnosticLogsConfiguration.__pulumiType, name, inputs, opts);
     }

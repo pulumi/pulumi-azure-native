@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * An action group resource.
  * Latest API Version: 2019-06-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActionGroup'.
  */
 export class ActionGroup extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class ActionGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ActionGroup {
+        pulumi.log.warn("ActionGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActionGroup'.")
         return new ActionGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -108,7 +111,9 @@ export class ActionGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActionGroup'. */
     constructor(name: string, args: ActionGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ActionGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActionGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.actionGroupName === undefined) && !(opts && opts.urn)) {
@@ -166,7 +171,7 @@ export class ActionGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20170401:ActionGroup" }, { type: "azure-nextgen:insights/v20180301:ActionGroup" }, { type: "azure-nextgen:insights/v20180901:ActionGroup" }, { type: "azure-nextgen:insights/v20190301:ActionGroup" }, { type: "azure-nextgen:insights/v20190601:ActionGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:ActionGroup" }, { type: "azure-nextgen:insights/v20170401:ActionGroup" }, { type: "azure-nextgen:insights/v20180301:ActionGroup" }, { type: "azure-nextgen:insights/v20180901:ActionGroup" }, { type: "azure-nextgen:insights/v20190301:ActionGroup" }, { type: "azure-nextgen:insights/v20190601:ActionGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ActionGroup.__pulumiType, name, inputs, opts);
     }

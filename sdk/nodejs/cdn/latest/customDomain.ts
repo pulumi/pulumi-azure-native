@@ -8,6 +8,8 @@ import * as utilities from "../../utilities";
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
  * Latest API Version: 2020-09-01.
+ *
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:CustomDomain'.
  */
 export class CustomDomain extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class CustomDomain extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomDomain {
+        pulumi.log.warn("CustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:CustomDomain'.")
         return new CustomDomain(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,7 +83,9 @@ export class CustomDomain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:CustomDomain'. */
     constructor(name: string, args: CustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:CustomDomain'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.customDomainName === undefined) && !(opts && opts.urn)) {
@@ -129,7 +134,7 @@ export class CustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20150601:CustomDomain" }, { type: "azure-nextgen:cdn/v20160402:CustomDomain" }, { type: "azure-nextgen:cdn/v20161002:CustomDomain" }, { type: "azure-nextgen:cdn/v20170402:CustomDomain" }, { type: "azure-nextgen:cdn/v20171012:CustomDomain" }, { type: "azure-nextgen:cdn/v20190415:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615preview:CustomDomain" }, { type: "azure-nextgen:cdn/v20191231:CustomDomain" }, { type: "azure-nextgen:cdn/v20200331:CustomDomain" }, { type: "azure-nextgen:cdn/v20200415:CustomDomain" }, { type: "azure-nextgen:cdn/v20200901:CustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:CustomDomain" }, { type: "azure-nextgen:cdn/v20150601:CustomDomain" }, { type: "azure-nextgen:cdn/v20160402:CustomDomain" }, { type: "azure-nextgen:cdn/v20161002:CustomDomain" }, { type: "azure-nextgen:cdn/v20170402:CustomDomain" }, { type: "azure-nextgen:cdn/v20171012:CustomDomain" }, { type: "azure-nextgen:cdn/v20190415:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615preview:CustomDomain" }, { type: "azure-nextgen:cdn/v20191231:CustomDomain" }, { type: "azure-nextgen:cdn/v20200331:CustomDomain" }, { type: "azure-nextgen:cdn/v20200415:CustomDomain" }, { type: "azure-nextgen:cdn/v20200901:CustomDomain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomDomain.__pulumiType, name, inputs, opts);
     }
