@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Network information contract.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-10-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppVnetConnectionSlot'.
  */

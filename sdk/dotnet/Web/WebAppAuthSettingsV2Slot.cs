@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Web
 {
     /// <summary>
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:web:WebAppAuthSettingsV2Slot")]
     public partial class WebAppAuthSettingsV2Slot : Pulumi.CustomResource

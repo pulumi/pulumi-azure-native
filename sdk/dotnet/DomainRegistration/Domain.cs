@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration
 {
     /// <summary>
     /// Information about a domain.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:domainregistration:Domain")]
     public partial class Domain : Pulumi.CustomResource

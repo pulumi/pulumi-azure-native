@@ -60,6 +60,9 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20210101:SpatialAnchorsAccount"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:mixedreality/v20210301preview:SpatialAnchorsAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SpatialAnchorsAccount

@@ -87,6 +87,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20190228preview:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20191202preview:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20210101:SpatialAnchorsAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20210301preview:SpatialAnchorsAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

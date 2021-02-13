@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A domain specific resource identifier.
- * API Version: 2020-09-01.
+ * API Version: 2020-10-01.
  */
 export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
     /**

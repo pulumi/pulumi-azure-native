@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebApp'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebApp")]
@@ -251,6 +251,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// Checks if Customer provided storage account is required
+        /// </summary>
+        [Output("storageAccountRequired")]
+        public Output<bool?> StorageAccountRequired { get; private set; } = null!;
 
         /// <summary>
         /// App suspended till in case memory-time quota is exceeded.
@@ -511,6 +517,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.SiteConfigArgs>? SiteConfig { get; set; }
+
+        /// <summary>
+        /// Checks if Customer provided storage account is required
+        /// </summary>
+        [Input("storageAccountRequired")]
+        public Input<bool>? StorageAccountRequired { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

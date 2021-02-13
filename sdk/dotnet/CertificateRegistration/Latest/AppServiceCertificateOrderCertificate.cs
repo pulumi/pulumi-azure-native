@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.Latest
 {
     /// <summary>
     /// Key Vault container ARM resource for a certificate that is purchased through Azure.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate'.")]
     [AzureNextGenResourceType("azure-nextgen:certificateregistration/latest:AppServiceCertificateOrderCertificate")]

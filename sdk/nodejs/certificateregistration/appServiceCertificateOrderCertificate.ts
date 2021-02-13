@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Key Vault container ARM resource for a certificate that is purchased through Azure.
- * API Version: 2020-09-01.
+ * API Version: 2020-10-01.
  */
 export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource {
     /**

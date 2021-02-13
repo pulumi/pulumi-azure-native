@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Web
 {
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:web:WebAppSlot")]
     public partial class WebAppSlot : Pulumi.CustomResource
@@ -250,6 +250,12 @@ namespace Pulumi.AzureNextGen.Web
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// Checks if Customer provided storage account is required
+        /// </summary>
+        [Output("storageAccountRequired")]
+        public Output<bool?> StorageAccountRequired { get; private set; } = null!;
 
         /// <summary>
         /// App suspended till in case memory-time quota is exceeded.
@@ -516,6 +522,12 @@ namespace Pulumi.AzureNextGen.Web
         /// </summary>
         [Input("slot", required: true)]
         public Input<string> Slot { get; set; } = null!;
+
+        /// <summary>
+        /// Checks if Customer provided storage account is required
+        /// </summary>
+        [Input("storageAccountRequired")]
+        public Input<bool>? StorageAccountRequired { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

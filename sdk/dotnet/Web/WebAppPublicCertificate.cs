@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Web
 {
     /// <summary>
     /// Public certificate object
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:web:WebAppPublicCertificate")]
     public partial class WebAppPublicCertificate : Pulumi.CustomResource

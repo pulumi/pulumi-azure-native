@@ -112,6 +112,8 @@ type LookupWebAppSlotResult struct {
 	SlotSwapStatus SlotSwapStatusResponse `pulumi:"slotSwapStatus"`
 	// Current state of the app.
 	State string `pulumi:"state"`
+	// Checks if Customer provided storage account is required
+	StorageAccountRequired *bool `pulumi:"storageAccountRequired"`
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill string `pulumi:"suspendedTill"`
 	// The system metadata relating to this resource.

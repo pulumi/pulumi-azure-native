@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
- * API Version: 2020-09-01.
+ * API Version: 2020-10-01.
  */
 export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResource {
     /**

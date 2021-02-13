@@ -116,6 +116,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20210101
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/latest:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20210301preview:RemoteRenderingAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

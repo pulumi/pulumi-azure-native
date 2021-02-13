@@ -12,7 +12,7 @@ import (
 )
 
 // A domain specific resource identifier.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-10-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifier'.
 type WebAppDomainOwnershipIdentifier struct {

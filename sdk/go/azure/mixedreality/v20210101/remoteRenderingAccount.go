@@ -67,6 +67,9 @@ func NewRemoteRenderingAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:mixedreality/v20210301preview:RemoteRenderingAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RemoteRenderingAccount

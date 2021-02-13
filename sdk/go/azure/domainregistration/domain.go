@@ -12,7 +12,7 @@ import (
 )
 
 // Information about a domain.
-// API Version: 2020-09-01.
+// API Version: 2020-10-01.
 type Domain struct {
 	pulumi.CustomResourceState
 

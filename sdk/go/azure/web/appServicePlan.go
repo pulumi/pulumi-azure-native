@@ -12,7 +12,7 @@ import (
 )
 
 // App Service plan.
-// API Version: 2020-09-01.
+// API Version: 2020-10-01.
 type AppServicePlan struct {
 	pulumi.CustomResourceState
 

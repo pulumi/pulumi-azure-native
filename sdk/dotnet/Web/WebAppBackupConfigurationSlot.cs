@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Web
 {
     /// <summary>
     /// Description of a backup which will be performed.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:web:WebAppBackupConfigurationSlot")]
     public partial class WebAppBackupConfigurationSlot : Pulumi.CustomResource

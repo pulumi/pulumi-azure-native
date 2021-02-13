@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * String dictionary resource.
- * API Version: 2020-09-01.
+ * API Version: 2020-10-01.
  */
 export class WebAppMetadataSlot extends pulumi.CustomResource {
     /**
