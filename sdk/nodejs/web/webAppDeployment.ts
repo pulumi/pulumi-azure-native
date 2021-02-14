@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * User credentials used for publishing activity.
- * API Version: 2020-09-01.
+ * API Version: 2020-10-01.
  */
 export class WebAppDeployment extends pulumi.CustomResource {
     /**

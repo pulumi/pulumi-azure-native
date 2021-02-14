@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A web app, a mobile app backend, or an API app.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-10-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebApp'.
  */
@@ -199,6 +199,10 @@ export class WebApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
+     * Checks if Customer provided storage account is required
+     */
+    public readonly storageAccountRequired!: pulumi.Output<boolean | undefined>;
+    /**
      * App suspended till in case memory-time quota is exceeded.
      */
     public /*out*/ readonly suspendedTill!: pulumi.Output<string>;
@@ -270,6 +274,7 @@ export class WebApp extends pulumi.CustomResource {
             inputs["scmSiteAlsoStopped"] = (args ? args.scmSiteAlsoStopped : undefined) || false;
             inputs["serverFarmId"] = args ? args.serverFarmId : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
+            inputs["storageAccountRequired"] = args ? args.storageAccountRequired : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["availabilityState"] = undefined /*out*/;
             inputs["defaultHostName"] = undefined /*out*/;
@@ -330,6 +335,7 @@ export class WebApp extends pulumi.CustomResource {
             inputs["siteConfig"] = undefined /*out*/;
             inputs["slotSwapStatus"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["storageAccountRequired"] = undefined /*out*/;
             inputs["suspendedTill"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -460,6 +466,10 @@ export interface WebAppArgs {
      * Configuration of the app.
      */
     readonly siteConfig?: pulumi.Input<inputs.web.latest.SiteConfig>;
+    /**
+     * Checks if Customer provided storage account is required
+     */
+    readonly storageAccountRequired?: pulumi.Input<boolean>;
     /**
      * Resource tags.
      */

@@ -12,7 +12,7 @@ import (
 )
 
 // SSL certificate for an app.
-// API Version: 2020-09-01.
+// API Version: 2020-10-01.
 type Certificate struct {
 	pulumi.CustomResourceState
 

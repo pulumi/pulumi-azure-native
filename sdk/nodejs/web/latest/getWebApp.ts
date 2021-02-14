@@ -198,6 +198,10 @@ export interface GetWebAppResult {
      */
     readonly state: string;
     /**
+     * Checks if Customer provided storage account is required
+     */
+    readonly storageAccountRequired?: boolean;
+    /**
      * App suspended till in case memory-time quota is exceeded.
      */
     readonly suspendedTill: string;

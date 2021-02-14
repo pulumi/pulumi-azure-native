@@ -12,7 +12,7 @@ import (
 )
 
 // Hybrid Connection for an App Service app.
-// API Version: 2020-09-01.
+// API Version: 2020-10-01.
 type WebAppRelayServiceConnection struct {
 	pulumi.CustomResourceState
 

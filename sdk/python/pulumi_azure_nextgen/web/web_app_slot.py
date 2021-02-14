@@ -44,13 +44,14 @@ class WebAppSlot(pulumi.CustomResource):
                  server_farm_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['SiteConfigArgs']]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
+                 storage_account_required: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         A web app, a mobile app backend, or an API app.
-        API Version: 2020-09-01.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -85,6 +86,7 @@ class WebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         :param pulumi.Input[pulumi.InputType['SiteConfigArgs']] site_config: Configuration of the app.
         :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+        :param pulumi.Input[bool] storage_account_required: Checks if Customer provided storage account is required
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -144,6 +146,7 @@ class WebAppSlot(pulumi.CustomResource):
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
+            __props__['storage_account_required'] = storage_account_required
             __props__['tags'] = tags
             __props__['availability_state'] = None
             __props__['default_host_name'] = None
@@ -501,6 +504,14 @@ class WebAppSlot(pulumi.CustomResource):
         Current state of the app.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="storageAccountRequired")
+    def storage_account_required(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Checks if Customer provided storage account is required
+        """
+        return pulumi.get(self, "storage_account_required")
 
     @property
     @pulumi.getter(name="suspendedTill")

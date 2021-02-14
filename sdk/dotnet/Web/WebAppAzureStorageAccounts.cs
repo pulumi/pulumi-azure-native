@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Web
 {
     /// <summary>
     /// AzureStorageInfo dictionary resource.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:web:WebAppAzureStorageAccounts")]
     public partial class WebAppAzureStorageAccounts : Pulumi.CustomResource

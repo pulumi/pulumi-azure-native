@@ -12,7 +12,7 @@ import (
 )
 
 // Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-10-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSwiftVirtualNetworkConnection'.
 type WebAppSwiftVirtualNetworkConnection struct {

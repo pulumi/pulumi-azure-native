@@ -12,7 +12,7 @@ import (
 )
 
 // Slot Config names azure resource.
-// API Version: 2020-09-01.
+// API Version: 2020-10-01.
 type WebAppSlotConfigurationNames struct {
 	pulumi.CustomResourceState
 

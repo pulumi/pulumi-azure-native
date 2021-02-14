@@ -12,7 +12,7 @@ import (
 )
 
 // A web app, a mobile app backend, or an API app.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-10-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSlot'.
 type WebAppSlot struct {
@@ -101,6 +101,8 @@ type WebAppSlot struct {
 	SlotSwapStatus SlotSwapStatusResponseOutput `pulumi:"slotSwapStatus"`
 	// Current state of the app.
 	State pulumi.StringOutput `pulumi:"state"`
+	// Checks if Customer provided storage account is required
+	StorageAccountRequired pulumi.BoolPtrOutput `pulumi:"storageAccountRequired"`
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill pulumi.StringOutput `pulumi:"suspendedTill"`
 	// The system metadata relating to this resource.
@@ -280,6 +282,8 @@ type webAppSlotState struct {
 	SlotSwapStatus *SlotSwapStatusResponse `pulumi:"slotSwapStatus"`
 	// Current state of the app.
 	State *string `pulumi:"state"`
+	// Checks if Customer provided storage account is required
+	StorageAccountRequired *bool `pulumi:"storageAccountRequired"`
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill *string `pulumi:"suspendedTill"`
 	// The system metadata relating to this resource.
@@ -380,6 +384,8 @@ type WebAppSlotState struct {
 	SlotSwapStatus SlotSwapStatusResponsePtrInput
 	// Current state of the app.
 	State pulumi.StringPtrInput
+	// Checks if Customer provided storage account is required
+	StorageAccountRequired pulumi.BoolPtrInput
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill pulumi.StringPtrInput
 	// The system metadata relating to this resource.
@@ -458,6 +464,8 @@ type webAppSlotArgs struct {
 	SiteConfig *SiteConfig `pulumi:"siteConfig"`
 	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
 	Slot string `pulumi:"slot"`
+	// Checks if Customer provided storage account is required
+	StorageAccountRequired *bool `pulumi:"storageAccountRequired"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -521,6 +529,8 @@ type WebAppSlotArgs struct {
 	SiteConfig SiteConfigPtrInput
 	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
 	Slot pulumi.StringInput
+	// Checks if Customer provided storage account is required
+	StorageAccountRequired pulumi.BoolPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

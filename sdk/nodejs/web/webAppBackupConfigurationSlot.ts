@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of a backup which will be performed.
- * API Version: 2020-09-01.
+ * API Version: 2020-10-01.
  */
 export class WebAppBackupConfigurationSlot extends pulumi.CustomResource {
     /**

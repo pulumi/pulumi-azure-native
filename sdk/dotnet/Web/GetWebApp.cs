@@ -203,6 +203,10 @@ namespace Pulumi.AzureNextGen.Web
         /// </summary>
         public readonly string State;
         /// <summary>
+        /// Checks if Customer provided storage account is required
+        /// </summary>
+        public readonly bool? StorageAccountRequired;
+        /// <summary>
         /// App suspended till in case memory-time quota is exceeded.
         /// </summary>
         public readonly string SuspendedTill;
@@ -311,6 +315,8 @@ namespace Pulumi.AzureNextGen.Web
 
             string state,
 
+            bool? storageAccountRequired,
+
             string suspendedTill,
 
             Outputs.SystemDataResponse systemData,
@@ -364,6 +370,7 @@ namespace Pulumi.AzureNextGen.Web
             SiteConfig = siteConfig;
             SlotSwapStatus = slotSwapStatus;
             State = state;
+            StorageAccountRequired = storageAccountRequired;
             SuspendedTill = suspendedTill;
             SystemData = systemData;
             Tags = tags;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration
 {
     /// <summary>
     /// Domain ownership Identifier.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:domainregistration:DomainOwnershipIdentifier")]
     public partial class DomainOwnershipIdentifier : Pulumi.CustomResource

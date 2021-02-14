@@ -32,7 +32,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
                  __opts__=None):
         """
         Premier add-on.
-        API Version: 2020-09-01.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

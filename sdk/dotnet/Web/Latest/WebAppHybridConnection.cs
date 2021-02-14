@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHybridConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppHybridConnection")]

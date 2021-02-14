@@ -47,13 +47,14 @@ class WebApp(pulumi.CustomResource):
                  scm_site_also_stopped: Optional[pulumi.Input[bool]] = None,
                  server_farm_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['SiteConfigArgs']]] = None,
+                 storage_account_required: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         A web app, a mobile app backend, or an API app.
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,6 +88,7 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[bool] scm_site_also_stopped: <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         :param pulumi.Input[pulumi.InputType['SiteConfigArgs']] site_config: Configuration of the app.
+        :param pulumi.Input[bool] storage_account_required: Checks if Customer provided storage account is required
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.log.warn("WebApp is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebApp'.")
@@ -144,6 +146,7 @@ class WebApp(pulumi.CustomResource):
             __props__['scm_site_also_stopped'] = scm_site_also_stopped
             __props__['server_farm_id'] = server_farm_id
             __props__['site_config'] = site_config
+            __props__['storage_account_required'] = storage_account_required
             __props__['tags'] = tags
             __props__['availability_state'] = None
             __props__['default_host_name'] = None
@@ -501,6 +504,14 @@ class WebApp(pulumi.CustomResource):
         Current state of the app.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="storageAccountRequired")
+    def storage_account_required(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Checks if Customer provided storage account is required
+        """
+        return pulumi.get(self, "storage_account_required")
 
     @property
     @pulumi.getter(name="suspendedTill")

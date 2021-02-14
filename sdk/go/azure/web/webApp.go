@@ -12,7 +12,7 @@ import (
 )
 
 // A web app, a mobile app backend, or an API app.
-// API Version: 2020-09-01.
+// API Version: 2020-10-01.
 type WebApp struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +99,8 @@ type WebApp struct {
 	SlotSwapStatus SlotSwapStatusResponseOutput `pulumi:"slotSwapStatus"`
 	// Current state of the app.
 	State pulumi.StringOutput `pulumi:"state"`
+	// Checks if Customer provided storage account is required
+	StorageAccountRequired pulumi.BoolPtrOutput `pulumi:"storageAccountRequired"`
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill pulumi.StringOutput `pulumi:"suspendedTill"`
 	// The system metadata relating to this resource.
@@ -275,6 +277,8 @@ type webAppState struct {
 	SlotSwapStatus *SlotSwapStatusResponse `pulumi:"slotSwapStatus"`
 	// Current state of the app.
 	State *string `pulumi:"state"`
+	// Checks if Customer provided storage account is required
+	StorageAccountRequired *bool `pulumi:"storageAccountRequired"`
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill *string `pulumi:"suspendedTill"`
 	// The system metadata relating to this resource.
@@ -375,6 +379,8 @@ type WebAppState struct {
 	SlotSwapStatus SlotSwapStatusResponsePtrInput
 	// Current state of the app.
 	State pulumi.StringPtrInput
+	// Checks if Customer provided storage account is required
+	StorageAccountRequired pulumi.BoolPtrInput
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill pulumi.StringPtrInput
 	// The system metadata relating to this resource.
@@ -451,6 +457,8 @@ type webAppArgs struct {
 	ServerFarmId *string `pulumi:"serverFarmId"`
 	// Configuration of the app.
 	SiteConfig *SiteConfig `pulumi:"siteConfig"`
+	// Checks if Customer provided storage account is required
+	StorageAccountRequired *bool `pulumi:"storageAccountRequired"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -512,6 +520,8 @@ type WebAppArgs struct {
 	ServerFarmId pulumi.StringPtrInput
 	// Configuration of the app.
 	SiteConfig SiteConfigPtrInput
+	// Checks if Customer provided storage account is required
+	StorageAccountRequired pulumi.BoolPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

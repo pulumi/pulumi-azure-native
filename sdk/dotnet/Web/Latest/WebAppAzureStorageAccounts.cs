@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// AzureStorageInfo dictionary resource.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAzureStorageAccounts'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppAzureStorageAccounts")]

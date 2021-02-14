@@ -12,7 +12,7 @@ import (
 )
 
 // Key Vault container ARM resource for a certificate that is purchased through Azure.
-// API Version: 2020-09-01.
+// API Version: 2020-10-01.
 type AppServiceCertificateOrderCertificate struct {
 	pulumi.CustomResourceState
 

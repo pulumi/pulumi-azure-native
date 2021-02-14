@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// API Version: 2020-09-01.
+// API Version: 2020-10-01.
 type WebAppAuthSettingsV2Slot struct {
 	pulumi.CustomResourceState
 
