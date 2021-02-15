@@ -1,20 +1,10 @@
-import * as random from "@pulumi/random";
 import * as dbforpostgresql from "@pulumi/azure-nextgen/dbforpostgresql";
 import * as resources from "@pulumi/azure-nextgen/resources";
 
-const randomString = new random.RandomString("random", {
-    length: 12,
-    special: false,
-    upper: false,
-});
-
-const resourceGroup = new resources.ResourceGroup("rg", {
-    resourceGroupName: randomString.result,
-});
+const resourceGroup = new resources.ResourceGroup("rg");
 
 const server = new dbforpostgresql.Server("server", {
     resourceGroupName: resourceGroup.name,
-    serverName: randomString.result,
     location: resourceGroup.location,
     properties: {
         administratorLogin: "cloudsa",
@@ -39,6 +29,5 @@ const server = new dbforpostgresql.Server("server", {
 new dbforpostgresql.Configuration("backslash_quote", {
     resourceGroupName: resourceGroup.name,
     serverName: server.name,
-    configurationName: "backslash_quote",
     value: "on",
 });

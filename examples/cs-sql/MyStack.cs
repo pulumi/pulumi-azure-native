@@ -4,27 +4,15 @@ using Pulumi.AzureNextGen.Network.Inputs;
 using SubnetArgs = Pulumi.AzureNextGen.Network.Inputs.SubnetArgs;
 using Pulumi.AzureNextGen.Resources;
 using Pulumi.AzureNextGen.Sql;
-using Pulumi.Random;
 
 class MyStack : Stack
 {
     public MyStack()
     {
-        var randomString = new RandomString("random", new RandomStringArgs
-        {
-            Length = 12,
-            Special = false,
-            Upper = false,
-        });
-
-        var resourceGroup = new ResourceGroup("resourceGroup", new ResourceGroupArgs
-        {
-            ResourceGroupName = randomString.Result
-        });
+        var resourceGroup = new ResourceGroup("resourceGroup");
 
         var server = new Server("server", new ServerArgs
         {
-            ServerName = randomString.Result,
             ResourceGroupName = resourceGroup.Name,
             Location = resourceGroup.Location,
             AdministratorLogin = "dummylogin",
@@ -44,7 +32,6 @@ class MyStack : Stack
         var vnet = new VirtualNetwork("vnet", new VirtualNetworkArgs
         {
             ResourceGroupName = resourceGroup.Name,
-            VirtualNetworkName = randomString.Result,
             Location = resourceGroup.Location,
             AddressSpace = new AddressSpaceArgs { AddressPrefixes = {"10.1.0.0/16"} },
             Subnets = 
@@ -61,7 +48,6 @@ class MyStack : Stack
         var privateEndpoint = new PrivateEndpoint("endpoint", new PrivateEndpointArgs
         {
             ResourceGroupName = resourceGroup.Name,
-            PrivateEndpointName = randomString.Result,
             Location = resourceGroup.Location,
             PrivateLinkServiceConnections =
             {
@@ -78,7 +64,6 @@ class MyStack : Stack
         var privateDnsZone = new PrivateDnsZoneGroup("zoneGroup", new PrivateDnsZoneGroupArgs
         {
             ResourceGroupName = resourceGroup.Name,
-            PrivateDnsZoneGroupName = randomString.Result,
             PrivateEndpointName = privateEndpoint.Name,
         });
     }

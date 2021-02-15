@@ -1,19 +1,11 @@
-import * as random from "@pulumi/random";
 import * as resources from "@pulumi/azure-nextgen/resources";
 import * as cosmosdb from "./component";
 
-const randomString = new random.RandomString("random", {
-    length: 12,
-    special: false,
-    upper: false,
-});
-
 const resourceGroup = new resources.ResourceGroup("rg", {
-    resourceGroupName: randomString.result,
     location: "westeurope",
 });
 
-export const cosmosdbAccount = new cosmosdb.DatabaseAccount(randomString.result, {
+export const cosmosdbAccount = new cosmosdb.DatabaseAccount("da", {
     resourceGroup,
     api: "Sql",
     consisencyPolicy: { defaultConsistencyLevel: "Session" },

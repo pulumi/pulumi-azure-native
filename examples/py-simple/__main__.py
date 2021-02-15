@@ -1,20 +1,12 @@
 import pulumi
-import pulumi_random
 from pulumi_azure_nextgen import storage
 from pulumi_azure_nextgen import resources
 
-random_string = pulumi_random.RandomString('random',
-    length=12,
-    special=False,
-    upper=False)
-
 # Create an Azure Resource Group
-resource_group = resources.ResourceGroup('resource_group',
-    resource_group_name=random_string.result)
+resource_group = resources.ResourceGroup('resource_group')
 
 # Create an Azure resource (Storage Account)
 account = storage.StorageAccount('sa',
-    account_name=random_string.result,
     resource_group_name=resource_group.name,
     location=resource_group.location,
     sku=storage.SkuArgs(
