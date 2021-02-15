@@ -185,15 +185,29 @@ func ResourceName(operationID string) string {
 	// Sometimes, name or its part is included in the operation name. We want to eliminate obvious duplication
 	// in the resulting resource name.
 	nameParts := splitCamelCase(name)
+	subNameParts := splitCamelCase(inflector.Singularize(subName))
 	for i := 0; i < len(nameParts); i++ {
-		namePrefix := strings.Join(nameParts[:i], "")
-		nameSuffix := strings.Join(nameParts[i:], "")
-		if strings.HasPrefix(subName, nameSuffix) {
+		if sliceHasPrefix(subNameParts, nameParts[i:]) {
+			namePrefix := strings.Join(nameParts[:i], "")
 			return namePrefix + subName
 		}
 	}
 
 	return name + subName
+}
+
+func sliceHasPrefix(slice, subSlice []string) bool {
+	if len(subSlice) > len(slice) {
+		return false
+	}
+
+	for i := range subSlice {
+		if slice[i] != subSlice[i] {
+			return false
+		}
+	}
+
+	return true
 }
 
 func splitCamelCase(s string) (entries []string) {

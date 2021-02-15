@@ -30,6 +30,8 @@ from .get_web_app_source_control import *
 from .get_web_app_source_control_slot import *
 from .get_web_app_vnet_connection import *
 from .get_web_app_vnet_connection_slot import *
+from .list_web_app_application_settings import *
+from .list_web_app_application_settings_slot import *
 from .list_web_app_auth_settings import *
 from .list_web_app_auth_settings_slot import *
 from .list_web_app_backup_configuration import *
@@ -50,9 +52,9 @@ from .list_web_app_site_push_settings import *
 from .list_web_app_site_push_settings_slot import *
 from .list_web_app_sync_function_triggers import *
 from .list_web_app_sync_function_triggers_slot import *
-from .list_web_application_settings import *
-from .list_web_application_settings_slot import *
 from .web_app import *
+from .web_app_application_settings import *
+from .web_app_application_settings_slot import *
 from .web_app_auth_settings import *
 from .web_app_auth_settings_slot import *
 from .web_app_backup_configuration import *
@@ -88,8 +90,6 @@ from .web_app_source_control import *
 from .web_app_source_control_slot import *
 from .web_app_vnet_connection import *
 from .web_app_vnet_connection_slot import *
-from .web_application_settings import *
-from .web_application_settings_slot import *
 from ._inputs import *
 from . import outputs
 
@@ -107,6 +107,10 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-nextgen:web/v20160801:WebApp":
                 return WebApp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20160801:WebAppApplicationSettings":
+                return WebAppApplicationSettings(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20160801:WebAppApplicationSettingsSlot":
+                return WebAppApplicationSettingsSlot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20160801:WebAppAuthSettings":
                 return WebAppAuthSettings(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20160801:WebAppAuthSettingsSlot":
@@ -177,10 +181,6 @@ def _register_module():
                 return WebAppVnetConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20160801:WebAppVnetConnectionSlot":
                 return WebAppVnetConnectionSlot(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:web/v20160801:WebApplicationSettings":
-                return WebApplicationSettings(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:web/v20160801:WebApplicationSettingsSlot":
-                return WebApplicationSettingsSlot(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
