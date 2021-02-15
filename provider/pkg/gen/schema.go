@@ -486,6 +486,18 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	delete(resourceResponse.specs, "id")
 	resourceResponse.requiredSpecs.Delete("id")
 
+	// Check each parameter for auto-naming.
+	for _, p := range resourceRequest.parameters {
+		if kind, ok := resources.AutoName(p.Name, resource.Path); ok {
+			p.Value.AutoName = kind
+			sdkName := p.Name
+			if p.Value.SdkName != "" {
+				sdkName = p.Value.SdkName
+			}
+			resourceRequest.requiredSpecs.Delete(sdkName)
+		}
+	}
+
 	// Add an alias for each API version that has the same path in it.
 	var aliases []pschema.AliasSpec
 	for _, version := range resource.CompatibleVersions {
