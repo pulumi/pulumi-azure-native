@@ -562,7 +562,7 @@ func (r *blob) read(ctx context.Context, properties resource.PropertyMap) (map[s
 	input := blobs.GetPropertiesInput{}
 	props, err := blobsClient.GetProperties(ctx, acc, container, name, input)
 	if err != nil {
-		if props.Response.StatusCode == http.StatusNotFound {
+		if props.Response.Response != nil && props.Response.Response.StatusCode == http.StatusNotFound {
 			return nil, false, nil
 		}
 
