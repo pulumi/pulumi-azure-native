@@ -33,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewStaticSite(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20190801:WebApp":
 		r, err = NewWebApp(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20190801:WebAppApplicationSettings":
+		r, err = NewWebAppApplicationSettings(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20190801:WebAppApplicationSettingsSlot":
+		r, err = NewWebAppApplicationSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20190801:WebAppAuthSettings":
 		r, err = NewWebAppAuthSettings(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20190801:WebAppAuthSettingsSlot":
@@ -113,10 +117,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewWebAppVnetConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20190801:WebAppVnetConnectionSlot":
 		r, err = NewWebAppVnetConnectionSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20190801:WebApplicationSettings":
-		r, err = NewWebApplicationSettings(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20190801:WebApplicationSettingsSlot":
-		r, err = NewWebApplicationSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
