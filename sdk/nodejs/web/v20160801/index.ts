@@ -31,6 +31,8 @@ export * from "./getWebAppSourceControl";
 export * from "./getWebAppSourceControlSlot";
 export * from "./getWebAppVnetConnection";
 export * from "./getWebAppVnetConnectionSlot";
+export * from "./listWebAppApplicationSettings";
+export * from "./listWebAppApplicationSettingsSlot";
 export * from "./listWebAppAuthSettings";
 export * from "./listWebAppAuthSettingsSlot";
 export * from "./listWebAppBackupConfiguration";
@@ -51,9 +53,9 @@ export * from "./listWebAppSitePushSettings";
 export * from "./listWebAppSitePushSettingsSlot";
 export * from "./listWebAppSyncFunctionTriggers";
 export * from "./listWebAppSyncFunctionTriggersSlot";
-export * from "./listWebApplicationSettings";
-export * from "./listWebApplicationSettingsSlot";
 export * from "./webApp";
+export * from "./webAppApplicationSettings";
+export * from "./webAppApplicationSettingsSlot";
 export * from "./webAppAuthSettings";
 export * from "./webAppAuthSettingsSlot";
 export * from "./webAppBackupConfiguration";
@@ -89,14 +91,14 @@ export * from "./webAppSourceControl";
 export * from "./webAppSourceControlSlot";
 export * from "./webAppVnetConnection";
 export * from "./webAppVnetConnectionSlot";
-export * from "./webApplicationSettings";
-export * from "./webApplicationSettingsSlot";
 
 // Export enums:
 export * from "../../types/enums/web/v20160801";
 
 // Import resources to register:
 import { WebApp } from "./webApp";
+import { WebAppApplicationSettings } from "./webAppApplicationSettings";
+import { WebAppApplicationSettingsSlot } from "./webAppApplicationSettingsSlot";
 import { WebAppAuthSettings } from "./webAppAuthSettings";
 import { WebAppAuthSettingsSlot } from "./webAppAuthSettingsSlot";
 import { WebAppBackupConfiguration } from "./webAppBackupConfiguration";
@@ -132,8 +134,6 @@ import { WebAppSourceControl } from "./webAppSourceControl";
 import { WebAppSourceControlSlot } from "./webAppSourceControlSlot";
 import { WebAppVnetConnection } from "./webAppVnetConnection";
 import { WebAppVnetConnectionSlot } from "./webAppVnetConnectionSlot";
-import { WebApplicationSettings } from "./webApplicationSettings";
-import { WebApplicationSettingsSlot } from "./webApplicationSettingsSlot";
 
 const _module = {
     version: utilities.getVersion(),
@@ -141,6 +141,10 @@ const _module = {
         switch (type) {
             case "azure-nextgen:web/v20160801:WebApp":
                 return new WebApp(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebAppApplicationSettings":
+                return new WebAppApplicationSettings(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebAppApplicationSettingsSlot":
+                return new WebAppApplicationSettingsSlot(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20160801:WebAppAuthSettings":
                 return new WebAppAuthSettings(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20160801:WebAppAuthSettingsSlot":
@@ -211,10 +215,6 @@ const _module = {
                 return new WebAppVnetConnection(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20160801:WebAppVnetConnectionSlot":
                 return new WebAppVnetConnectionSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20160801:WebApplicationSettings":
-                return new WebApplicationSettings(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20160801:WebApplicationSettingsSlot":
-                return new WebApplicationSettingsSlot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

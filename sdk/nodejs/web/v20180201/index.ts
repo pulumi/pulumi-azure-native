@@ -42,6 +42,8 @@ export * from "./getWebAppVnetConnection";
 export * from "./getWebAppVnetConnectionSlot";
 export * from "./listAppServicePlanHybridConnectionKeys";
 export * from "./listSiteIdentifiersAssignedToHostName";
+export * from "./listWebAppApplicationSettings";
+export * from "./listWebAppApplicationSettingsSlot";
 export * from "./listWebAppAuthSettings";
 export * from "./listWebAppAuthSettingsSlot";
 export * from "./listWebAppAzureStorageAccounts";
@@ -68,9 +70,9 @@ export * from "./listWebAppSitePushSettings";
 export * from "./listWebAppSitePushSettingsSlot";
 export * from "./listWebAppSyncFunctionTriggers";
 export * from "./listWebAppSyncFunctionTriggersSlot";
-export * from "./listWebApplicationSettings";
-export * from "./listWebApplicationSettingsSlot";
 export * from "./webApp";
+export * from "./webAppApplicationSettings";
+export * from "./webAppApplicationSettingsSlot";
 export * from "./webAppAuthSettings";
 export * from "./webAppAuthSettingsSlot";
 export * from "./webAppAzureStorageAccounts";
@@ -110,8 +112,6 @@ export * from "./webAppSwiftVirtualNetworkConnection";
 export * from "./webAppSwiftVirtualNetworkConnectionSlot";
 export * from "./webAppVnetConnection";
 export * from "./webAppVnetConnectionSlot";
-export * from "./webApplicationSettings";
-export * from "./webApplicationSettingsSlot";
 
 // Export enums:
 export * from "../../types/enums/web/v20180201";
@@ -122,6 +122,8 @@ import { AppServicePlan } from "./appServicePlan";
 import { AppServicePlanRouteForVnet } from "./appServicePlanRouteForVnet";
 import { Certificate } from "./certificate";
 import { WebApp } from "./webApp";
+import { WebAppApplicationSettings } from "./webAppApplicationSettings";
+import { WebAppApplicationSettingsSlot } from "./webAppApplicationSettingsSlot";
 import { WebAppAuthSettings } from "./webAppAuthSettings";
 import { WebAppAuthSettingsSlot } from "./webAppAuthSettingsSlot";
 import { WebAppAzureStorageAccounts } from "./webAppAzureStorageAccounts";
@@ -161,8 +163,6 @@ import { WebAppSwiftVirtualNetworkConnection } from "./webAppSwiftVirtualNetwork
 import { WebAppSwiftVirtualNetworkConnectionSlot } from "./webAppSwiftVirtualNetworkConnectionSlot";
 import { WebAppVnetConnection } from "./webAppVnetConnection";
 import { WebAppVnetConnectionSlot } from "./webAppVnetConnectionSlot";
-import { WebApplicationSettings } from "./webApplicationSettings";
-import { WebApplicationSettingsSlot } from "./webApplicationSettingsSlot";
 
 const _module = {
     version: utilities.getVersion(),
@@ -178,6 +178,10 @@ const _module = {
                 return new Certificate(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20180201:WebApp":
                 return new WebApp(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20180201:WebAppApplicationSettings":
+                return new WebAppApplicationSettings(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20180201:WebAppApplicationSettingsSlot":
+                return new WebAppApplicationSettingsSlot(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20180201:WebAppAuthSettings":
                 return new WebAppAuthSettings(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20180201:WebAppAuthSettingsSlot":
@@ -256,10 +260,6 @@ const _module = {
                 return new WebAppVnetConnection(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20180201:WebAppVnetConnectionSlot":
                 return new WebAppVnetConnectionSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20180201:WebApplicationSettings":
-                return new WebApplicationSettings(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20180201:WebApplicationSettingsSlot":
-                return new WebApplicationSettingsSlot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -61,6 +61,8 @@ export * from "./listStaticSiteBuildFunctionAppSettings";
 export * from "./listStaticSiteFunctionAppSettings";
 export * from "./listStaticSiteSecrets";
 export * from "./listStaticSiteUsers";
+export * from "./listWebAppApplicationSettings";
+export * from "./listWebAppApplicationSettingsSlot";
 export * from "./listWebAppAuthSettings";
 export * from "./listWebAppAuthSettingsSlot";
 export * from "./listWebAppAzureStorageAccounts";
@@ -89,13 +91,13 @@ export * from "./listWebAppSitePushSettings";
 export * from "./listWebAppSitePushSettingsSlot";
 export * from "./listWebAppSyncFunctionTriggers";
 export * from "./listWebAppSyncFunctionTriggersSlot";
-export * from "./listWebApplicationSettings";
-export * from "./listWebApplicationSettingsSlot";
 export * from "./managedHostingEnvironment";
 export * from "./siteInstanceDeployment";
 export * from "./siteInstanceDeploymentSlot";
 export * from "./staticSite";
 export * from "./webApp";
+export * from "./webAppApplicationSettings";
+export * from "./webAppApplicationSettingsSlot";
 export * from "./webAppAuthSettings";
 export * from "./webAppAuthSettingsSlot";
 export * from "./webAppAuthSettingsV2";
@@ -138,8 +140,6 @@ export * from "./webAppSwiftVirtualNetworkConnection";
 export * from "./webAppSwiftVirtualNetworkConnectionSlot";
 export * from "./webAppVnetConnection";
 export * from "./webAppVnetConnectionSlot";
-export * from "./webApplicationSettings";
-export * from "./webApplicationSettingsSlot";
 
 // Export enums:
 export * from "../../types/enums/web/latest";
@@ -158,6 +158,8 @@ import { SiteInstanceDeployment } from "./siteInstanceDeployment";
 import { SiteInstanceDeploymentSlot } from "./siteInstanceDeploymentSlot";
 import { StaticSite } from "./staticSite";
 import { WebApp } from "./webApp";
+import { WebAppApplicationSettings } from "./webAppApplicationSettings";
+import { WebAppApplicationSettingsSlot } from "./webAppApplicationSettingsSlot";
 import { WebAppAuthSettings } from "./webAppAuthSettings";
 import { WebAppAuthSettingsSlot } from "./webAppAuthSettingsSlot";
 import { WebAppAuthSettingsV2 } from "./webAppAuthSettingsV2";
@@ -200,8 +202,6 @@ import { WebAppSwiftVirtualNetworkConnection } from "./webAppSwiftVirtualNetwork
 import { WebAppSwiftVirtualNetworkConnectionSlot } from "./webAppSwiftVirtualNetworkConnectionSlot";
 import { WebAppVnetConnection } from "./webAppVnetConnection";
 import { WebAppVnetConnectionSlot } from "./webAppVnetConnectionSlot";
-import { WebApplicationSettings } from "./webApplicationSettings";
-import { WebApplicationSettingsSlot } from "./webApplicationSettingsSlot";
 
 const _module = {
     version: utilities.getVersion(),
@@ -233,6 +233,10 @@ const _module = {
                 return new StaticSite(name, <any>undefined, { urn })
             case "azure-nextgen:web/latest:WebApp":
                 return new WebApp(name, <any>undefined, { urn })
+            case "azure-nextgen:web/latest:WebAppApplicationSettings":
+                return new WebAppApplicationSettings(name, <any>undefined, { urn })
+            case "azure-nextgen:web/latest:WebAppApplicationSettingsSlot":
+                return new WebAppApplicationSettingsSlot(name, <any>undefined, { urn })
             case "azure-nextgen:web/latest:WebAppAuthSettings":
                 return new WebAppAuthSettings(name, <any>undefined, { urn })
             case "azure-nextgen:web/latest:WebAppAuthSettingsSlot":
@@ -317,10 +321,6 @@ const _module = {
                 return new WebAppVnetConnection(name, <any>undefined, { urn })
             case "azure-nextgen:web/latest:WebAppVnetConnectionSlot":
                 return new WebAppVnetConnectionSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/latest:WebApplicationSettings":
-                return new WebApplicationSettings(name, <any>undefined, { urn })
-            case "azure-nextgen:web/latest:WebApplicationSettingsSlot":
-                return new WebApplicationSettingsSlot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
