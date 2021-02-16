@@ -237,6 +237,388 @@ func (o ModuleResponseArrayOutput) Index(i pulumi.IntInput) ModuleResponseOutput
 	}).(ModuleResponseOutput)
 }
 
+// Persistence-related configuration for the RedisEnterprise database
+type Persistence struct {
+	// Sets whether AOF is enabled.
+	AofEnabled *bool `pulumi:"aofEnabled"`
+	// Sets the frequency at which data is written to disk.
+	AofFrequency *string `pulumi:"aofFrequency"`
+	// Sets whether RDB is enabled.
+	RdbEnabled *bool `pulumi:"rdbEnabled"`
+	// Sets the frequency at which a snapshot of the database is created.
+	RdbFrequency *string `pulumi:"rdbFrequency"`
+}
+
+// PersistenceInput is an input type that accepts PersistenceArgs and PersistenceOutput values.
+// You can construct a concrete instance of `PersistenceInput` via:
+//
+//          PersistenceArgs{...}
+type PersistenceInput interface {
+	pulumi.Input
+
+	ToPersistenceOutput() PersistenceOutput
+	ToPersistenceOutputWithContext(context.Context) PersistenceOutput
+}
+
+// Persistence-related configuration for the RedisEnterprise database
+type PersistenceArgs struct {
+	// Sets whether AOF is enabled.
+	AofEnabled pulumi.BoolPtrInput `pulumi:"aofEnabled"`
+	// Sets the frequency at which data is written to disk.
+	AofFrequency pulumi.StringPtrInput `pulumi:"aofFrequency"`
+	// Sets whether RDB is enabled.
+	RdbEnabled pulumi.BoolPtrInput `pulumi:"rdbEnabled"`
+	// Sets the frequency at which a snapshot of the database is created.
+	RdbFrequency pulumi.StringPtrInput `pulumi:"rdbFrequency"`
+}
+
+func (PersistenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Persistence)(nil)).Elem()
+}
+
+func (i PersistenceArgs) ToPersistenceOutput() PersistenceOutput {
+	return i.ToPersistenceOutputWithContext(context.Background())
+}
+
+func (i PersistenceArgs) ToPersistenceOutputWithContext(ctx context.Context) PersistenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceOutput)
+}
+
+func (i PersistenceArgs) ToPersistencePtrOutput() PersistencePtrOutput {
+	return i.ToPersistencePtrOutputWithContext(context.Background())
+}
+
+func (i PersistenceArgs) ToPersistencePtrOutputWithContext(ctx context.Context) PersistencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceOutput).ToPersistencePtrOutputWithContext(ctx)
+}
+
+// PersistencePtrInput is an input type that accepts PersistenceArgs, PersistencePtr and PersistencePtrOutput values.
+// You can construct a concrete instance of `PersistencePtrInput` via:
+//
+//          PersistenceArgs{...}
+//
+//  or:
+//
+//          nil
+type PersistencePtrInput interface {
+	pulumi.Input
+
+	ToPersistencePtrOutput() PersistencePtrOutput
+	ToPersistencePtrOutputWithContext(context.Context) PersistencePtrOutput
+}
+
+type persistencePtrType PersistenceArgs
+
+func PersistencePtr(v *PersistenceArgs) PersistencePtrInput {
+	return (*persistencePtrType)(v)
+}
+
+func (*persistencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Persistence)(nil)).Elem()
+}
+
+func (i *persistencePtrType) ToPersistencePtrOutput() PersistencePtrOutput {
+	return i.ToPersistencePtrOutputWithContext(context.Background())
+}
+
+func (i *persistencePtrType) ToPersistencePtrOutputWithContext(ctx context.Context) PersistencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistencePtrOutput)
+}
+
+// Persistence-related configuration for the RedisEnterprise database
+type PersistenceOutput struct{ *pulumi.OutputState }
+
+func (PersistenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Persistence)(nil)).Elem()
+}
+
+func (o PersistenceOutput) ToPersistenceOutput() PersistenceOutput {
+	return o
+}
+
+func (o PersistenceOutput) ToPersistenceOutputWithContext(ctx context.Context) PersistenceOutput {
+	return o
+}
+
+func (o PersistenceOutput) ToPersistencePtrOutput() PersistencePtrOutput {
+	return o.ToPersistencePtrOutputWithContext(context.Background())
+}
+
+func (o PersistenceOutput) ToPersistencePtrOutputWithContext(ctx context.Context) PersistencePtrOutput {
+	return o.ApplyT(func(v Persistence) *Persistence {
+		return &v
+	}).(PersistencePtrOutput)
+}
+
+// Sets whether AOF is enabled.
+func (o PersistenceOutput) AofEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Persistence) *bool { return v.AofEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which data is written to disk.
+func (o PersistenceOutput) AofFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Persistence) *string { return v.AofFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Sets whether RDB is enabled.
+func (o PersistenceOutput) RdbEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Persistence) *bool { return v.RdbEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which a snapshot of the database is created.
+func (o PersistenceOutput) RdbFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Persistence) *string { return v.RdbFrequency }).(pulumi.StringPtrOutput)
+}
+
+type PersistencePtrOutput struct{ *pulumi.OutputState }
+
+func (PersistencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Persistence)(nil)).Elem()
+}
+
+func (o PersistencePtrOutput) ToPersistencePtrOutput() PersistencePtrOutput {
+	return o
+}
+
+func (o PersistencePtrOutput) ToPersistencePtrOutputWithContext(ctx context.Context) PersistencePtrOutput {
+	return o
+}
+
+func (o PersistencePtrOutput) Elem() PersistenceOutput {
+	return o.ApplyT(func(v *Persistence) Persistence { return *v }).(PersistenceOutput)
+}
+
+// Sets whether AOF is enabled.
+func (o PersistencePtrOutput) AofEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Persistence) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AofEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which data is written to disk.
+func (o PersistencePtrOutput) AofFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Persistence) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets whether RDB is enabled.
+func (o PersistencePtrOutput) RdbEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Persistence) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RdbEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which a snapshot of the database is created.
+func (o PersistencePtrOutput) RdbFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Persistence) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Persistence-related configuration for the RedisEnterprise database
+type PersistenceResponse struct {
+	// Sets whether AOF is enabled.
+	AofEnabled *bool `pulumi:"aofEnabled"`
+	// Sets the frequency at which data is written to disk.
+	AofFrequency *string `pulumi:"aofFrequency"`
+	// Sets whether RDB is enabled.
+	RdbEnabled *bool `pulumi:"rdbEnabled"`
+	// Sets the frequency at which a snapshot of the database is created.
+	RdbFrequency *string `pulumi:"rdbFrequency"`
+}
+
+// PersistenceResponseInput is an input type that accepts PersistenceResponseArgs and PersistenceResponseOutput values.
+// You can construct a concrete instance of `PersistenceResponseInput` via:
+//
+//          PersistenceResponseArgs{...}
+type PersistenceResponseInput interface {
+	pulumi.Input
+
+	ToPersistenceResponseOutput() PersistenceResponseOutput
+	ToPersistenceResponseOutputWithContext(context.Context) PersistenceResponseOutput
+}
+
+// Persistence-related configuration for the RedisEnterprise database
+type PersistenceResponseArgs struct {
+	// Sets whether AOF is enabled.
+	AofEnabled pulumi.BoolPtrInput `pulumi:"aofEnabled"`
+	// Sets the frequency at which data is written to disk.
+	AofFrequency pulumi.StringPtrInput `pulumi:"aofFrequency"`
+	// Sets whether RDB is enabled.
+	RdbEnabled pulumi.BoolPtrInput `pulumi:"rdbEnabled"`
+	// Sets the frequency at which a snapshot of the database is created.
+	RdbFrequency pulumi.StringPtrInput `pulumi:"rdbFrequency"`
+}
+
+func (PersistenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistenceResponse)(nil)).Elem()
+}
+
+func (i PersistenceResponseArgs) ToPersistenceResponseOutput() PersistenceResponseOutput {
+	return i.ToPersistenceResponseOutputWithContext(context.Background())
+}
+
+func (i PersistenceResponseArgs) ToPersistenceResponseOutputWithContext(ctx context.Context) PersistenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceResponseOutput)
+}
+
+func (i PersistenceResponseArgs) ToPersistenceResponsePtrOutput() PersistenceResponsePtrOutput {
+	return i.ToPersistenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PersistenceResponseArgs) ToPersistenceResponsePtrOutputWithContext(ctx context.Context) PersistenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceResponseOutput).ToPersistenceResponsePtrOutputWithContext(ctx)
+}
+
+// PersistenceResponsePtrInput is an input type that accepts PersistenceResponseArgs, PersistenceResponsePtr and PersistenceResponsePtrOutput values.
+// You can construct a concrete instance of `PersistenceResponsePtrInput` via:
+//
+//          PersistenceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PersistenceResponsePtrInput interface {
+	pulumi.Input
+
+	ToPersistenceResponsePtrOutput() PersistenceResponsePtrOutput
+	ToPersistenceResponsePtrOutputWithContext(context.Context) PersistenceResponsePtrOutput
+}
+
+type persistenceResponsePtrType PersistenceResponseArgs
+
+func PersistenceResponsePtr(v *PersistenceResponseArgs) PersistenceResponsePtrInput {
+	return (*persistenceResponsePtrType)(v)
+}
+
+func (*persistenceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersistenceResponse)(nil)).Elem()
+}
+
+func (i *persistenceResponsePtrType) ToPersistenceResponsePtrOutput() PersistenceResponsePtrOutput {
+	return i.ToPersistenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *persistenceResponsePtrType) ToPersistenceResponsePtrOutputWithContext(ctx context.Context) PersistenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceResponsePtrOutput)
+}
+
+// Persistence-related configuration for the RedisEnterprise database
+type PersistenceResponseOutput struct{ *pulumi.OutputState }
+
+func (PersistenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistenceResponse)(nil)).Elem()
+}
+
+func (o PersistenceResponseOutput) ToPersistenceResponseOutput() PersistenceResponseOutput {
+	return o
+}
+
+func (o PersistenceResponseOutput) ToPersistenceResponseOutputWithContext(ctx context.Context) PersistenceResponseOutput {
+	return o
+}
+
+func (o PersistenceResponseOutput) ToPersistenceResponsePtrOutput() PersistenceResponsePtrOutput {
+	return o.ToPersistenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PersistenceResponseOutput) ToPersistenceResponsePtrOutputWithContext(ctx context.Context) PersistenceResponsePtrOutput {
+	return o.ApplyT(func(v PersistenceResponse) *PersistenceResponse {
+		return &v
+	}).(PersistenceResponsePtrOutput)
+}
+
+// Sets whether AOF is enabled.
+func (o PersistenceResponseOutput) AofEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PersistenceResponse) *bool { return v.AofEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which data is written to disk.
+func (o PersistenceResponseOutput) AofFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PersistenceResponse) *string { return v.AofFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Sets whether RDB is enabled.
+func (o PersistenceResponseOutput) RdbEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PersistenceResponse) *bool { return v.RdbEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which a snapshot of the database is created.
+func (o PersistenceResponseOutput) RdbFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PersistenceResponse) *string { return v.RdbFrequency }).(pulumi.StringPtrOutput)
+}
+
+type PersistenceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PersistenceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersistenceResponse)(nil)).Elem()
+}
+
+func (o PersistenceResponsePtrOutput) ToPersistenceResponsePtrOutput() PersistenceResponsePtrOutput {
+	return o
+}
+
+func (o PersistenceResponsePtrOutput) ToPersistenceResponsePtrOutputWithContext(ctx context.Context) PersistenceResponsePtrOutput {
+	return o
+}
+
+func (o PersistenceResponsePtrOutput) Elem() PersistenceResponseOutput {
+	return o.ApplyT(func(v *PersistenceResponse) PersistenceResponse { return *v }).(PersistenceResponseOutput)
+}
+
+// Sets whether AOF is enabled.
+func (o PersistenceResponsePtrOutput) AofEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PersistenceResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AofEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which data is written to disk.
+func (o PersistenceResponsePtrOutput) AofFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PersistenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets whether RDB is enabled.
+func (o PersistenceResponsePtrOutput) RdbEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PersistenceResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RdbEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which a snapshot of the database is created.
+func (o PersistenceResponsePtrOutput) RdbFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PersistenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -1800,6 +2182,10 @@ func init() {
 	pulumi.RegisterOutputType(ModuleArrayOutput{})
 	pulumi.RegisterOutputType(ModuleResponseOutput{})
 	pulumi.RegisterOutputType(ModuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(PersistenceOutput{})
+	pulumi.RegisterOutputType(PersistencePtrOutput{})
+	pulumi.RegisterOutputType(PersistenceResponseOutput{})
+	pulumi.RegisterOutputType(PersistenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})

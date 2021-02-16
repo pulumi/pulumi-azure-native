@@ -20,7 +20,7 @@ class GetDatabaseResult:
     """
     Describes a database on the RedisEnterprise cluster
     """
-    def __init__(__self__, client_protocol=None, clustering_policy=None, eviction_policy=None, id=None, modules=None, name=None, port=None, provisioning_state=None, resource_state=None, type=None):
+    def __init__(__self__, client_protocol=None, clustering_policy=None, eviction_policy=None, id=None, modules=None, name=None, persistence=None, port=None, provisioning_state=None, resource_state=None, type=None):
         if client_protocol and not isinstance(client_protocol, str):
             raise TypeError("Expected argument 'client_protocol' to be a str")
         pulumi.set(__self__, "client_protocol", client_protocol)
@@ -39,6 +39,9 @@ class GetDatabaseResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if persistence and not isinstance(persistence, dict):
+            raise TypeError("Expected argument 'persistence' to be a dict")
+        pulumi.set(__self__, "persistence", persistence)
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
@@ -102,6 +105,14 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter
+    def persistence(self) -> Optional['outputs.PersistenceResponse']:
+        """
+        Persistence settings
+        """
+        return pulumi.get(self, "persistence")
+
+    @property
+    @pulumi.getter
     def port(self) -> Optional[int]:
         """
         TCP port of the database endpoint. Specified at create time. Defaults to an available port.
@@ -145,6 +156,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             id=self.id,
             modules=self.modules,
             name=self.name,
+            persistence=self.persistence,
             port=self.port,
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
@@ -160,7 +172,7 @@ def get_database(cluster_name: Optional[str] = None,
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
     :param str database_name: The name of the database.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -179,6 +191,7 @@ def get_database(cluster_name: Optional[str] = None,
         id=__ret__.id,
         modules=__ret__.modules,
         name=__ret__.name,
+        persistence=__ret__.persistence,
         port=__ret__.port,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,

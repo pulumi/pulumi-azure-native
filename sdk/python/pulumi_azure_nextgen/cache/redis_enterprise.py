@@ -20,7 +20,7 @@ class RedisEnterprise(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -30,17 +30,17 @@ class RedisEnterprise(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes the RedisEnterprise cluster
-        API Version: 2020-10-01-preview.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the RedisEnterprise cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU to create, which affects price, performance, and features.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The zones where this cluster will be deployed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Availability Zones where this cluster will be deployed.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,7 +79,7 @@ class RedisEnterprise(pulumi.CustomResource):
             __props__['redis_version'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/v20201001preview:RedisEnterprise"), pulumi.Alias(type_="azure-nextgen:cache/v20210301:RedisEnterprise")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/latest:RedisEnterprise"), pulumi.Alias(type_="azure-nextgen:cache/v20201001preview:RedisEnterprise"), pulumi.Alias(type_="azure-nextgen:cache/v20210301:RedisEnterprise")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RedisEnterprise, __self__).__init__(
             'azure-nextgen:cache:RedisEnterprise',
@@ -197,7 +197,7 @@ class RedisEnterprise(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The zones where this cluster will be deployed.
+        The Availability Zones where this cluster will be deployed.
         """
         return pulumi.get(self, "zones")
 

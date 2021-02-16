@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'ModuleResponse',
+    'PersistenceResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -65,6 +66,68 @@ class ModuleResponse(dict):
         Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
         """
         return pulumi.get(self, "args")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PersistenceResponse(dict):
+    """
+    Persistence-related configuration for the RedisEnterprise database
+    """
+    def __init__(__self__, *,
+                 aof_enabled: Optional[bool] = None,
+                 aof_frequency: Optional[str] = None,
+                 rdb_enabled: Optional[bool] = None,
+                 rdb_frequency: Optional[str] = None):
+        """
+        Persistence-related configuration for the RedisEnterprise database
+        :param bool aof_enabled: Sets whether AOF is enabled.
+        :param str aof_frequency: Sets the frequency at which data is written to disk.
+        :param bool rdb_enabled: Sets whether RDB is enabled.
+        :param str rdb_frequency: Sets the frequency at which a snapshot of the database is created.
+        """
+        if aof_enabled is not None:
+            pulumi.set(__self__, "aof_enabled", aof_enabled)
+        if aof_frequency is not None:
+            pulumi.set(__self__, "aof_frequency", aof_frequency)
+        if rdb_enabled is not None:
+            pulumi.set(__self__, "rdb_enabled", rdb_enabled)
+        if rdb_frequency is not None:
+            pulumi.set(__self__, "rdb_frequency", rdb_frequency)
+
+    @property
+    @pulumi.getter(name="aofEnabled")
+    def aof_enabled(self) -> Optional[bool]:
+        """
+        Sets whether AOF is enabled.
+        """
+        return pulumi.get(self, "aof_enabled")
+
+    @property
+    @pulumi.getter(name="aofFrequency")
+    def aof_frequency(self) -> Optional[str]:
+        """
+        Sets the frequency at which data is written to disk.
+        """
+        return pulumi.get(self, "aof_frequency")
+
+    @property
+    @pulumi.getter(name="rdbEnabled")
+    def rdb_enabled(self) -> Optional[bool]:
+        """
+        Sets whether RDB is enabled.
+        """
+        return pulumi.get(self, "rdb_enabled")
+
+    @property
+    @pulumi.getter(name="rdbFrequency")
+    def rdb_frequency(self) -> Optional[str]:
+        """
+        Sets the frequency at which a snapshot of the database is created.
+        """
+        return pulumi.get(self, "rdb_frequency")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -12,7 +12,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// Latest API Version: 2020-06-01.
+// Latest API Version: 2021-03-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
@@ -37,8 +37,8 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CacheName == nil {
-		return nil, errors.New("invalid value for required argument 'CacheName'")
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
 	if args.PrivateEndpointConnectionName == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
@@ -54,7 +54,10 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cache:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20200601:PrivateEndpointConnection"),
+			Type: pulumi.String("azure-nextgen:cache/v20201001preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:cache/v20210301:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -110,25 +113,25 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// The name of the Redis cache.
-	CacheName string `pulumi:"cacheName"`
+	// The name of the RedisEnterprise cluster.
+	ClusterName string `pulumi:"clusterName"`
 	// The name of the private endpoint connection associated with the Azure resource
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// The name of the Redis cache.
-	CacheName pulumi.StringInput
+	// The name of the RedisEnterprise cluster.
+	ClusterName pulumi.StringInput
 	// The name of the private endpoint connection associated with the Azure resource
 	PrivateEndpointConnectionName pulumi.StringInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }
 

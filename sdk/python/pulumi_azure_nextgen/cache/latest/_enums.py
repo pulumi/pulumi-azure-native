@@ -5,14 +5,35 @@
 from enum import Enum
 
 __all__ = [
+    'AofFrequency',
+    'ClusteringPolicy',
     'DayOfWeek',
+    'EvictionPolicy',
     'PrivateEndpointServiceConnectionStatus',
+    'Protocol',
     'PublicNetworkAccess',
+    'RdbFrequency',
     'ReplicationRole',
     'SkuFamily',
     'SkuName',
     'TlsVersion',
 ]
+
+
+class AofFrequency(str, Enum):
+    """
+    Sets the frequency at which data is written to disk.
+    """
+    AOF_FREQUENCY_1S = "1s"
+    ALWAYS = "always"
+
+
+class ClusteringPolicy(str, Enum):
+    """
+    Clustering policy - default is OSSCluster. Specified at create time.
+    """
+    ENTERPRISE_CLUSTER = "EnterpriseCluster"
+    OSS_CLUSTER = "OSSCluster"
 
 
 class DayOfWeek(str, Enum):
@@ -30,6 +51,20 @@ class DayOfWeek(str, Enum):
     WEEKEND = "Weekend"
 
 
+class EvictionPolicy(str, Enum):
+    """
+    Redis eviction policy - default is VolatileLRU
+    """
+    ALL_KEYS_LFU = "AllKeysLFU"
+    ALL_KEYS_LRU = "AllKeysLRU"
+    ALL_KEYS_RANDOM = "AllKeysRandom"
+    VOLATILE_LRU = "VolatileLRU"
+    VOLATILE_LFU = "VolatileLFU"
+    VOLATILE_TTL = "VolatileTTL"
+    VOLATILE_RANDOM = "VolatileRandom"
+    NO_EVICTION = "NoEviction"
+
+
 class PrivateEndpointServiceConnectionStatus(str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -39,12 +74,29 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     REJECTED = "Rejected"
 
 
+class Protocol(str, Enum):
+    """
+    Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
+    """
+    ENCRYPTED = "Encrypted"
+    PLAINTEXT = "Plaintext"
+
+
 class PublicNetworkAccess(str, Enum):
     """
     Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class RdbFrequency(str, Enum):
+    """
+    Sets the frequency at which a snapshot of the database is created.
+    """
+    RDB_FREQUENCY_1H = "1h"
+    RDB_FREQUENCY_6H = "6h"
+    RDB_FREQUENCY_12H = "12h"
 
 
 class ReplicationRole(str, Enum):
@@ -65,16 +117,20 @@ class SkuFamily(str, Enum):
 
 class SkuName(str, Enum):
     """
-    The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+    The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
     """
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
+    ENTERPRISE_E10 = "Enterprise_E10"
+    ENTERPRISE_E20 = "Enterprise_E20"
+    ENTERPRISE_E50 = "Enterprise_E50"
+    ENTERPRISE_E100 = "Enterprise_E100"
+    ENTERPRISE_FLASH_F300 = "EnterpriseFlash_F300"
+    ENTERPRISE_FLASH_F700 = "EnterpriseFlash_F700"
+    ENTERPRISE_FLASH_F1500 = "EnterpriseFlash_F1500"
 
 
 class TlsVersion(str, Enum):
     """
-    Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
+    The minimum TLS version for the cluster to support, e.g. '1.2'
     """
     TLS_VERSION_1_0 = "1.0"
     TLS_VERSION_1_1 = "1.1"

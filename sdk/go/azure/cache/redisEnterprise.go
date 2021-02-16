@@ -12,7 +12,7 @@ import (
 )
 
 // Describes the RedisEnterprise cluster
-// API Version: 2020-10-01-preview.
+// API Version: 2021-03-01.
 type RedisEnterprise struct {
 	pulumi.CustomResourceState
 
@@ -38,7 +38,7 @@ type RedisEnterprise struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The zones where this cluster will be deployed.
+	// The Availability Zones where this cluster will be deployed.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -59,6 +59,9 @@ func NewRedisEnterprise(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cache/latest:RedisEnterprise"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20201001preview:RedisEnterprise"),
 		},
@@ -111,7 +114,7 @@ type redisEnterpriseState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
-	// The zones where this cluster will be deployed.
+	// The Availability Zones where this cluster will be deployed.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -138,7 +141,7 @@ type RedisEnterpriseState struct {
 	Tags pulumi.StringMapInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
-	// The zones where this cluster will be deployed.
+	// The Availability Zones where this cluster will be deployed.
 	Zones pulumi.StringArrayInput
 }
 
@@ -153,13 +156,13 @@ type redisEnterpriseArgs struct {
 	Location *string `pulumi:"location"`
 	// The minimum TLS version for the cluster to support, e.g. '1.2'
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU to create, which affects price, performance, and features.
 	Sku Sku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The zones where this cluster will be deployed.
+	// The Availability Zones where this cluster will be deployed.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -171,13 +174,13 @@ type RedisEnterpriseArgs struct {
 	Location pulumi.StringPtrInput
 	// The minimum TLS version for the cluster to support, e.g. '1.2'
 	MinimumTlsVersion pulumi.StringPtrInput
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The SKU to create, which affects price, performance, and features.
 	Sku SkuInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The zones where this cluster will be deployed.
+	// The Availability Zones where this cluster will be deployed.
 	Zones pulumi.StringArrayInput
 }
 

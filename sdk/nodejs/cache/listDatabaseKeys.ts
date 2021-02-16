@@ -30,7 +30,7 @@ export interface ListDatabaseKeysArgs {
      */
     readonly databaseName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }

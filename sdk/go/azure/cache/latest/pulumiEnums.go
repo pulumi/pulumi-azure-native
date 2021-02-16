@@ -10,6 +10,62 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Sets the frequency at which data is written to disk.
+type AofFrequency pulumi.String
+
+const (
+	AofFrequency_1s    = AofFrequency("1s")
+	AofFrequencyAlways = AofFrequency("always")
+)
+
+func (AofFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AofFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AofFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AofFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AofFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Clustering policy - default is OSSCluster. Specified at create time.
+type ClusteringPolicy pulumi.String
+
+const (
+	ClusteringPolicyEnterpriseCluster = ClusteringPolicy("EnterpriseCluster")
+	ClusteringPolicyOSSCluster        = ClusteringPolicy("OSSCluster")
+)
+
+func (ClusteringPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ClusteringPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusteringPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusteringPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusteringPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Day of the week when a cache can be patched.
 type DayOfWeek pulumi.String
 
@@ -45,6 +101,40 @@ func (e DayOfWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Redis eviction policy - default is VolatileLRU
+type EvictionPolicy pulumi.String
+
+const (
+	EvictionPolicyAllKeysLFU     = EvictionPolicy("AllKeysLFU")
+	EvictionPolicyAllKeysLRU     = EvictionPolicy("AllKeysLRU")
+	EvictionPolicyAllKeysRandom  = EvictionPolicy("AllKeysRandom")
+	EvictionPolicyVolatileLRU    = EvictionPolicy("VolatileLRU")
+	EvictionPolicyVolatileLFU    = EvictionPolicy("VolatileLFU")
+	EvictionPolicyVolatileTTL    = EvictionPolicy("VolatileTTL")
+	EvictionPolicyVolatileRandom = EvictionPolicy("VolatileRandom")
+	EvictionPolicyNoEviction     = EvictionPolicy("NoEviction")
+)
+
+func (EvictionPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EvictionPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvictionPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvictionPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvictionPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus pulumi.String
 
@@ -74,6 +164,34 @@ func (e PrivateEndpointServiceConnectionStatus) ToStringPtrOutputWithContext(ctx
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
+type Protocol pulumi.String
+
+const (
+	ProtocolEncrypted = Protocol("Encrypted")
+	ProtocolPlaintext = Protocol("Plaintext")
+)
+
+func (Protocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e Protocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Protocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Protocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Protocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
 type PublicNetworkAccess pulumi.String
 
@@ -99,6 +217,35 @@ func (e PublicNetworkAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e PublicNetworkAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Sets the frequency at which a snapshot of the database is created.
+type RdbFrequency pulumi.String
+
+const (
+	RdbFrequency_1h  = RdbFrequency("1h")
+	RdbFrequency_6h  = RdbFrequency("6h")
+	RdbFrequency_12h = RdbFrequency("12h")
+)
+
+func (RdbFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e RdbFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RdbFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RdbFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RdbFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -158,13 +305,17 @@ func (e SkuFamily) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 type SkuName pulumi.String
 
 const (
-	SkuNameBasic    = SkuName("Basic")
-	SkuNameStandard = SkuName("Standard")
-	SkuNamePremium  = SkuName("Premium")
+	SkuName_Enterprise_E10        = SkuName("Enterprise_E10")
+	SkuName_Enterprise_E20        = SkuName("Enterprise_E20")
+	SkuName_Enterprise_E50        = SkuName("Enterprise_E50")
+	SkuName_Enterprise_E100       = SkuName("Enterprise_E100")
+	SkuName_EnterpriseFlash_F300  = SkuName("EnterpriseFlash_F300")
+	SkuName_EnterpriseFlash_F700  = SkuName("EnterpriseFlash_F700")
+	SkuName_EnterpriseFlash_F1500 = SkuName("EnterpriseFlash_F1500")
 )
 
 func (SkuName) ElementType() reflect.Type {
@@ -187,7 +338,7 @@ func (e SkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.String
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
+// The minimum TLS version for the cluster to support, e.g. '1.2'
 type TlsVersion pulumi.String
 
 const (

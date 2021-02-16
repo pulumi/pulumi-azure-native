@@ -161,7 +161,7 @@ class GetRedisEnterpriseResult:
     @pulumi.getter
     def zones(self) -> Optional[Sequence[str]]:
         """
-        The zones where this cluster will be deployed.
+        The Availability Zones where this cluster will be deployed.
         """
         return pulumi.get(self, "zones")
 
@@ -194,7 +194,7 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name

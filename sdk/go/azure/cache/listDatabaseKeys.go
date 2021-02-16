@@ -21,7 +21,7 @@ type ListDatabaseKeysArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the database.
 	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 

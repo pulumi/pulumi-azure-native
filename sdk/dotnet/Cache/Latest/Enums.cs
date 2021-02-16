@@ -8,6 +8,68 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.Cache.Latest
 {
     /// <summary>
+    /// Sets the frequency at which data is written to disk.
+    /// </summary>
+    [EnumType]
+    public readonly struct AofFrequency : IEquatable<AofFrequency>
+    {
+        private readonly string _value;
+
+        private AofFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AofFrequency AofFrequency_1s { get; } = new AofFrequency("1s");
+        public static AofFrequency Always { get; } = new AofFrequency("always");
+
+        public static bool operator ==(AofFrequency left, AofFrequency right) => left.Equals(right);
+        public static bool operator !=(AofFrequency left, AofFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(AofFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AofFrequency other && Equals(other);
+        public bool Equals(AofFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Clustering policy - default is OSSCluster. Specified at create time.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusteringPolicy : IEquatable<ClusteringPolicy>
+    {
+        private readonly string _value;
+
+        private ClusteringPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusteringPolicy EnterpriseCluster { get; } = new ClusteringPolicy("EnterpriseCluster");
+        public static ClusteringPolicy OSSCluster { get; } = new ClusteringPolicy("OSSCluster");
+
+        public static bool operator ==(ClusteringPolicy left, ClusteringPolicy right) => left.Equals(right);
+        public static bool operator !=(ClusteringPolicy left, ClusteringPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(ClusteringPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusteringPolicy other && Equals(other);
+        public bool Equals(ClusteringPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Day of the week when a cache can be patched.
     /// </summary>
     [EnumType]
@@ -38,6 +100,43 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
         public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Redis eviction policy - default is VolatileLRU
+    /// </summary>
+    [EnumType]
+    public readonly struct EvictionPolicy : IEquatable<EvictionPolicy>
+    {
+        private readonly string _value;
+
+        private EvictionPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvictionPolicy AllKeysLFU { get; } = new EvictionPolicy("AllKeysLFU");
+        public static EvictionPolicy AllKeysLRU { get; } = new EvictionPolicy("AllKeysLRU");
+        public static EvictionPolicy AllKeysRandom { get; } = new EvictionPolicy("AllKeysRandom");
+        public static EvictionPolicy VolatileLRU { get; } = new EvictionPolicy("VolatileLRU");
+        public static EvictionPolicy VolatileLFU { get; } = new EvictionPolicy("VolatileLFU");
+        public static EvictionPolicy VolatileTTL { get; } = new EvictionPolicy("VolatileTTL");
+        public static EvictionPolicy VolatileRandom { get; } = new EvictionPolicy("VolatileRandom");
+        public static EvictionPolicy NoEviction { get; } = new EvictionPolicy("NoEviction");
+
+        public static bool operator ==(EvictionPolicy left, EvictionPolicy right) => left.Equals(right);
+        public static bool operator !=(EvictionPolicy left, EvictionPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(EvictionPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvictionPolicy other && Equals(other);
+        public bool Equals(EvictionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -78,6 +177,37 @@ namespace Pulumi.AzureNextGen.Cache.Latest
     }
 
     /// <summary>
+    /// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
+    /// </summary>
+    [EnumType]
+    public readonly struct Protocol : IEquatable<Protocol>
+    {
+        private readonly string _value;
+
+        private Protocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Protocol Encrypted { get; } = new Protocol("Encrypted");
+        public static Protocol Plaintext { get; } = new Protocol("Plaintext");
+
+        public static bool operator ==(Protocol left, Protocol right) => left.Equals(right);
+        public static bool operator !=(Protocol left, Protocol right) => !left.Equals(right);
+
+        public static explicit operator string(Protocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Protocol other && Equals(other);
+        public bool Equals(Protocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
     /// </summary>
     [EnumType]
@@ -101,6 +231,38 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Sets the frequency at which a snapshot of the database is created.
+    /// </summary>
+    [EnumType]
+    public readonly struct RdbFrequency : IEquatable<RdbFrequency>
+    {
+        private readonly string _value;
+
+        private RdbFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RdbFrequency RdbFrequency_1h { get; } = new RdbFrequency("1h");
+        public static RdbFrequency RdbFrequency_6h { get; } = new RdbFrequency("6h");
+        public static RdbFrequency RdbFrequency_12h { get; } = new RdbFrequency("12h");
+
+        public static bool operator ==(RdbFrequency left, RdbFrequency right) => left.Equals(right);
+        public static bool operator !=(RdbFrequency left, RdbFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(RdbFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RdbFrequency other && Equals(other);
+        public bool Equals(RdbFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -171,7 +333,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
     }
 
     /// <summary>
-    /// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+    /// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
     /// </summary>
     [EnumType]
     public readonly struct SkuName : IEquatable<SkuName>
@@ -183,9 +345,13 @@ namespace Pulumi.AzureNextGen.Cache.Latest
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SkuName Basic { get; } = new SkuName("Basic");
-        public static SkuName Standard { get; } = new SkuName("Standard");
-        public static SkuName Premium { get; } = new SkuName("Premium");
+        public static SkuName Enterprise_E10 { get; } = new SkuName("Enterprise_E10");
+        public static SkuName Enterprise_E20 { get; } = new SkuName("Enterprise_E20");
+        public static SkuName Enterprise_E50 { get; } = new SkuName("Enterprise_E50");
+        public static SkuName Enterprise_E100 { get; } = new SkuName("Enterprise_E100");
+        public static SkuName EnterpriseFlash_F300 { get; } = new SkuName("EnterpriseFlash_F300");
+        public static SkuName EnterpriseFlash_F700 { get; } = new SkuName("EnterpriseFlash_F700");
+        public static SkuName EnterpriseFlash_F1500 { get; } = new SkuName("EnterpriseFlash_F1500");
 
         public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
         public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
@@ -203,7 +369,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
     }
 
     /// <summary>
-    /// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
+    /// The minimum TLS version for the cluster to support, e.g. '1.2'
     /// </summary>
     [EnumType]
     public readonly struct TlsVersion : IEquatable<TlsVersion>

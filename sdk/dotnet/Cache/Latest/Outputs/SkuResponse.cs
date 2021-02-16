@@ -14,28 +14,21 @@ namespace Pulumi.AzureNextGen.Cache.Latest.Outputs
     public sealed class SkuResponse
     {
         /// <summary>
-        /// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+        /// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
         /// </summary>
-        public readonly int Capacity;
+        public readonly int? Capacity;
         /// <summary>
-        /// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-        /// </summary>
-        public readonly string Family;
-        /// <summary>
-        /// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+        /// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
         /// </summary>
         public readonly string Name;
 
         [OutputConstructor]
         private SkuResponse(
-            int capacity,
-
-            string family,
+            int? capacity,
 
             string name)
         {
             Capacity = capacity;
-            Family = family;
             Name = name;
         }
     }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Cache
 {
     /// <summary>
     /// Describes a database on the RedisEnterprise cluster
-    /// API Version: 2020-10-01-preview.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:cache:Database")]
     public partial class Database : Pulumi.CustomResource
@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.Cache
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Persistence settings
+        /// </summary>
+        [Output("persistence")]
+        public Output<Outputs.PersistenceResponse?> Persistence { get; private set; } = null!;
 
         /// <summary>
         /// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
@@ -95,6 +101,7 @@ namespace Pulumi.AzureNextGen.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/latest:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20201001preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20210301:Database"},
                 },
@@ -163,13 +170,19 @@ namespace Pulumi.AzureNextGen.Cache
         }
 
         /// <summary>
+        /// Persistence settings
+        /// </summary>
+        [Input("persistence")]
+        public Input<Inputs.PersistenceArgs>? Persistence { get; set; }
+
+        /// <summary>
         /// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

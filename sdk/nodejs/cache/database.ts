@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a database on the RedisEnterprise cluster
- * API Version: 2020-10-01-preview.
+ * API Version: 2021-03-01.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -57,6 +57,10 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Persistence settings
+     */
+    public readonly persistence!: pulumi.Output<outputs.cache.PersistenceResponse | undefined>;
+    /**
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port.
      */
     public readonly port!: pulumi.Output<number | undefined>;
@@ -98,6 +102,7 @@ export class Database extends pulumi.CustomResource {
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             inputs["modules"] = args ? args.modules : undefined;
+            inputs["persistence"] = args ? args.persistence : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["name"] = undefined /*out*/;
@@ -110,6 +115,7 @@ export class Database extends pulumi.CustomResource {
             inputs["evictionPolicy"] = undefined /*out*/;
             inputs["modules"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["persistence"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
@@ -122,7 +128,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/v20201001preview:Database" }, { type: "azure-nextgen:cache/v20210301:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:Database" }, { type: "azure-nextgen:cache/v20201001preview:Database" }, { type: "azure-nextgen:cache/v20210301:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }
@@ -157,11 +163,15 @@ export interface DatabaseArgs {
      */
     readonly modules?: pulumi.Input<pulumi.Input<inputs.cache.Module>[]>;
     /**
+     * Persistence settings
+     */
+    readonly persistence?: pulumi.Input<inputs.cache.Persistence>;
+    /**
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port.
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
 }

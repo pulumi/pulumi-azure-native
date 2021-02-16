@@ -17,11 +17,11 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
-	// The name of the Redis cache.
-	CacheName string `pulumi:"cacheName"`
+	// The name of the RedisEnterprise cluster.
+	ClusterName string `pulumi:"clusterName"`
 	// The name of the private endpoint connection associated with the Azure resource
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 

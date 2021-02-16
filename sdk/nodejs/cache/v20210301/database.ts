@@ -127,7 +127,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache:Database" }, { type: "azure-nextgen:cache/v20201001preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache:Database" }, { type: "azure-nextgen:cache/latest:Database" }, { type: "azure-nextgen:cache/v20201001preview:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

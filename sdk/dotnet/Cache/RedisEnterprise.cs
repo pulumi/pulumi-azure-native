@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Cache
 {
     /// <summary>
     /// Describes the RedisEnterprise cluster
-    /// API Version: 2020-10-01-preview.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:cache:RedisEnterprise")]
     public partial class RedisEnterprise : Pulumi.CustomResource
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNextGen.Cache
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The zones where this cluster will be deployed.
+        /// The Availability Zones where this cluster will be deployed.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -113,6 +113,7 @@ namespace Pulumi.AzureNextGen.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/latest:RedisEnterprise"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20201001preview:RedisEnterprise"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20210301:RedisEnterprise"},
                 },
@@ -154,10 +155,10 @@ namespace Pulumi.AzureNextGen.Cache
         /// The minimum TLS version for the cluster to support, e.g. '1.2'
         /// </summary>
         [Input("minimumTlsVersion")]
-        public Input<string>? MinimumTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cache.TlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -184,7 +185,7 @@ namespace Pulumi.AzureNextGen.Cache
         private InputList<string>? _zones;
 
         /// <summary>
-        /// The zones where this cluster will be deployed.
+        /// The Availability Zones where this cluster will be deployed.
         /// </summary>
         public InputList<string> Zones
         {

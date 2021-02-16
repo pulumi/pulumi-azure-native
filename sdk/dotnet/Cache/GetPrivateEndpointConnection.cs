@@ -19,10 +19,10 @@ namespace Pulumi.AzureNextGen.Cache
     public sealed class GetPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Redis cache.
+        /// The name of the RedisEnterprise cluster.
         /// </summary>
-        [Input("cacheName", required: true)]
-        public string CacheName { get; set; } = null!;
+        [Input("clusterName", required: true)]
+        public string ClusterName { get; set; } = null!;
 
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Cache
         public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;

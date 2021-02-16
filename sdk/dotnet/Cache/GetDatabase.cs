@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Cache
         public string DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.Cache
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Persistence settings
+        /// </summary>
+        public readonly Outputs.PersistenceResponse? Persistence;
+        /// <summary>
         /// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
         /// </summary>
         public readonly int? Port;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Cache
 
             string name,
 
+            Outputs.PersistenceResponse? persistence,
+
             int? port,
 
             string provisioningState,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNextGen.Cache
             Id = id;
             Modules = modules;
             Name = name;
+            Persistence = persistence;
             Port = port;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;

@@ -5,17 +5,27 @@
 from enum import Enum
 
 __all__ = [
+    'AofFrequency',
     'ClusteringPolicy',
     'DayOfWeek',
     'EvictionPolicy',
     'PrivateEndpointServiceConnectionStatus',
     'Protocol',
     'PublicNetworkAccess',
+    'RdbFrequency',
     'ReplicationRole',
     'SkuFamily',
     'SkuName',
     'TlsVersion',
 ]
+
+
+class AofFrequency(str, Enum):
+    """
+    Sets the frequency at which data is written to disk.
+    """
+    AOF_FREQUENCY_1S = "1s"
+    ALWAYS = "always"
 
 
 class ClusteringPolicy(str, Enum):
@@ -80,6 +90,15 @@ class PublicNetworkAccess(str, Enum):
     DISABLED = "Disabled"
 
 
+class RdbFrequency(str, Enum):
+    """
+    Sets the frequency at which a snapshot of the database is created.
+    """
+    RDB_FREQUENCY_1H = "1h"
+    RDB_FREQUENCY_6H = "6h"
+    RDB_FREQUENCY_12H = "12h"
+
+
 class ReplicationRole(str, Enum):
     """
     Role of the linked server.
@@ -111,7 +130,7 @@ class SkuName(str, Enum):
 
 class TlsVersion(str, Enum):
     """
-    Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
+    The minimum TLS version for the cluster to support, e.g. '1.2'
     """
     TLS_VERSION_1_0 = "1.0"
     TLS_VERSION_1_1 = "1.1"

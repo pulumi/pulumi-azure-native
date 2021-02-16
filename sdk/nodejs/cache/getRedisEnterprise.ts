@@ -25,7 +25,7 @@ export interface GetRedisEnterpriseArgs {
      */
     readonly clusterName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }
@@ -83,7 +83,7 @@ export interface GetRedisEnterpriseResult {
      */
     readonly type: string;
     /**
-     * The zones where this cluster will be deployed.
+     * The Availability Zones where this cluster will be deployed.
      */
     readonly zones?: string[];
 }

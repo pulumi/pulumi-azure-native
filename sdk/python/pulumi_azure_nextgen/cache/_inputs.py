@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'ModuleArgs',
+    'PersistenceArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'ScheduleEntryArgs',
     'SkuArgs',
@@ -53,6 +54,78 @@ class ModuleArgs:
     @args.setter
     def args(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "args", value)
+
+
+@pulumi.input_type
+class PersistenceArgs:
+    def __init__(__self__, *,
+                 aof_enabled: Optional[pulumi.Input[bool]] = None,
+                 aof_frequency: Optional[pulumi.Input[Union[str, 'AofFrequency']]] = None,
+                 rdb_enabled: Optional[pulumi.Input[bool]] = None,
+                 rdb_frequency: Optional[pulumi.Input[Union[str, 'RdbFrequency']]] = None):
+        """
+        Persistence-related configuration for the RedisEnterprise database
+        :param pulumi.Input[bool] aof_enabled: Sets whether AOF is enabled.
+        :param pulumi.Input[Union[str, 'AofFrequency']] aof_frequency: Sets the frequency at which data is written to disk.
+        :param pulumi.Input[bool] rdb_enabled: Sets whether RDB is enabled.
+        :param pulumi.Input[Union[str, 'RdbFrequency']] rdb_frequency: Sets the frequency at which a snapshot of the database is created.
+        """
+        if aof_enabled is not None:
+            pulumi.set(__self__, "aof_enabled", aof_enabled)
+        if aof_frequency is not None:
+            pulumi.set(__self__, "aof_frequency", aof_frequency)
+        if rdb_enabled is not None:
+            pulumi.set(__self__, "rdb_enabled", rdb_enabled)
+        if rdb_frequency is not None:
+            pulumi.set(__self__, "rdb_frequency", rdb_frequency)
+
+    @property
+    @pulumi.getter(name="aofEnabled")
+    def aof_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Sets whether AOF is enabled.
+        """
+        return pulumi.get(self, "aof_enabled")
+
+    @aof_enabled.setter
+    def aof_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "aof_enabled", value)
+
+    @property
+    @pulumi.getter(name="aofFrequency")
+    def aof_frequency(self) -> Optional[pulumi.Input[Union[str, 'AofFrequency']]]:
+        """
+        Sets the frequency at which data is written to disk.
+        """
+        return pulumi.get(self, "aof_frequency")
+
+    @aof_frequency.setter
+    def aof_frequency(self, value: Optional[pulumi.Input[Union[str, 'AofFrequency']]]):
+        pulumi.set(self, "aof_frequency", value)
+
+    @property
+    @pulumi.getter(name="rdbEnabled")
+    def rdb_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Sets whether RDB is enabled.
+        """
+        return pulumi.get(self, "rdb_enabled")
+
+    @rdb_enabled.setter
+    def rdb_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rdb_enabled", value)
+
+    @property
+    @pulumi.getter(name="rdbFrequency")
+    def rdb_frequency(self) -> Optional[pulumi.Input[Union[str, 'RdbFrequency']]]:
+        """
+        Sets the frequency at which a snapshot of the database is created.
+        """
+        return pulumi.get(self, "rdb_frequency")
+
+    @rdb_frequency.setter
+    def rdb_frequency(self, value: Optional[pulumi.Input[Union[str, 'RdbFrequency']]]):
+        pulumi.set(self, "rdb_frequency", value)
 
 
 @pulumi.input_type
