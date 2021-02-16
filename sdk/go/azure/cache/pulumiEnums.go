@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Sets the frequency at which data is written to disk.
+type AofFrequency pulumi.String
+
+const (
+	AofFrequency_1s    = AofFrequency("1s")
+	AofFrequencyAlways = AofFrequency("always")
+)
+
+func (AofFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AofFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AofFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AofFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AofFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Clustering policy - default is OSSCluster. Specified at create time.
 type ClusteringPolicy pulumi.String
 
@@ -192,6 +220,35 @@ func (e PublicNetworkAccess) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Sets the frequency at which a snapshot of the database is created.
+type RdbFrequency pulumi.String
+
+const (
+	RdbFrequency_1h  = RdbFrequency("1h")
+	RdbFrequency_6h  = RdbFrequency("6h")
+	RdbFrequency_12h = RdbFrequency("12h")
+)
+
+func (RdbFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e RdbFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RdbFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RdbFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RdbFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Role of the linked server.
 type ReplicationRole pulumi.String
 
@@ -281,7 +338,7 @@ func (e SkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.String
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
+// The minimum TLS version for the cluster to support, e.g. '1.2'
 type TlsVersion pulumi.String
 
 const (

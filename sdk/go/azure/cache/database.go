@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a database on the RedisEnterprise cluster
-// API Version: 2020-10-01-preview.
+// API Version: 2021-03-01.
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -26,6 +26,8 @@ type Database struct {
 	Modules ModuleResponseArrayOutput `pulumi:"modules"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Persistence settings
+	Persistence PersistenceResponsePtrOutput `pulumi:"persistence"`
 	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Current provisioning status of the database
@@ -53,6 +55,9 @@ func NewDatabase(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cache/latest:Database"),
+		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20201001preview:Database"),
 		},
@@ -93,6 +98,8 @@ type databaseState struct {
 	Modules []ModuleResponse `pulumi:"modules"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// Persistence settings
+	Persistence *PersistenceResponse `pulumi:"persistence"`
 	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
 	Port *int `pulumi:"port"`
 	// Current provisioning status of the database
@@ -114,6 +121,8 @@ type DatabaseState struct {
 	Modules ModuleResponseArrayInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// Persistence settings
+	Persistence PersistenceResponsePtrInput
 	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
 	Port pulumi.IntPtrInput
 	// Current provisioning status of the database
@@ -141,9 +150,11 @@ type databaseArgs struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Optional set of redis modules to enable in this database - modules can only be added at creation time.
 	Modules []Module `pulumi:"modules"`
+	// Persistence settings
+	Persistence *Persistence `pulumi:"persistence"`
 	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
 	Port *int `pulumi:"port"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -161,9 +172,11 @@ type DatabaseArgs struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// Optional set of redis modules to enable in this database - modules can only be added at creation time.
 	Modules ModuleArrayInput
+	// Persistence settings
+	Persistence PersistencePtrInput
 	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
 	Port pulumi.IntPtrInput
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }
 

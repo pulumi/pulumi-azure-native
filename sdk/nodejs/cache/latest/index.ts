@@ -5,32 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./database";
 export * from "./firewallRule";
+export * from "./getDatabase";
 export * from "./getFirewallRule";
 export * from "./getLinkedServer";
 export * from "./getPatchSchedule";
 export * from "./getPrivateEndpointConnection";
 export * from "./getRedis";
+export * from "./getRedisEnterprise";
 export * from "./linkedServer";
+export * from "./listDatabaseKeys";
 export * from "./listRedisKeys";
 export * from "./patchSchedule";
 export * from "./privateEndpointConnection";
 export * from "./redis";
+export * from "./redisEnterprise";
 
 // Export enums:
 export * from "../../types/enums/cache/latest";
 
 // Import resources to register:
+import { Database } from "./database";
 import { FirewallRule } from "./firewallRule";
 import { LinkedServer } from "./linkedServer";
 import { PatchSchedule } from "./patchSchedule";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Redis } from "./redis";
+import { RedisEnterprise } from "./redisEnterprise";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:cache/latest:Database":
+                return new Database(name, <any>undefined, { urn })
             case "azure-nextgen:cache/latest:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
             case "azure-nextgen:cache/latest:LinkedServer":
@@ -41,6 +50,8 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-nextgen:cache/latest:Redis":
                 return new Redis(name, <any>undefined, { urn })
+            case "azure-nextgen:cache/latest:RedisEnterprise":
+                return new RedisEnterprise(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

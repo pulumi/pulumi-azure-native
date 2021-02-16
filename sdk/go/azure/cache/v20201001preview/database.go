@@ -56,6 +56,9 @@ func NewDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cache:Database"),
 		},
 		{
+			Type: pulumi.String("azure-nextgen:cache/latest:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20210301:Database"),
 		},
 	})

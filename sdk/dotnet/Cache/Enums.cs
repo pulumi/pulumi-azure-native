@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.Cache
 {
     /// <summary>
+    /// Sets the frequency at which data is written to disk.
+    /// </summary>
+    [EnumType]
+    public readonly struct AofFrequency : IEquatable<AofFrequency>
+    {
+        private readonly string _value;
+
+        private AofFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AofFrequency AofFrequency_1s { get; } = new AofFrequency("1s");
+        public static AofFrequency Always { get; } = new AofFrequency("always");
+
+        public static bool operator ==(AofFrequency left, AofFrequency right) => left.Equals(right);
+        public static bool operator !=(AofFrequency left, AofFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(AofFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AofFrequency other && Equals(other);
+        public bool Equals(AofFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Clustering policy - default is OSSCluster. Specified at create time.
     /// </summary>
     [EnumType]
@@ -208,6 +239,38 @@ namespace Pulumi.AzureNextGen.Cache
     }
 
     /// <summary>
+    /// Sets the frequency at which a snapshot of the database is created.
+    /// </summary>
+    [EnumType]
+    public readonly struct RdbFrequency : IEquatable<RdbFrequency>
+    {
+        private readonly string _value;
+
+        private RdbFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RdbFrequency RdbFrequency_1h { get; } = new RdbFrequency("1h");
+        public static RdbFrequency RdbFrequency_6h { get; } = new RdbFrequency("6h");
+        public static RdbFrequency RdbFrequency_12h { get; } = new RdbFrequency("12h");
+
+        public static bool operator ==(RdbFrequency left, RdbFrequency right) => left.Equals(right);
+        public static bool operator !=(RdbFrequency left, RdbFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(RdbFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RdbFrequency other && Equals(other);
+        public bool Equals(RdbFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Role of the linked server.
     /// </summary>
     [EnumType]
@@ -306,7 +369,7 @@ namespace Pulumi.AzureNextGen.Cache
     }
 
     /// <summary>
-    /// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
+    /// The minimum TLS version for the cluster to support, e.g. '1.2'
     /// </summary>
     [EnumType]
     public readonly struct TlsVersion : IEquatable<TlsVersion>

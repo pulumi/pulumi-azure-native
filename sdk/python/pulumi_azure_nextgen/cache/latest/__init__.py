@@ -4,17 +4,22 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .database import *
 from .firewall_rule import *
+from .get_database import *
 from .get_firewall_rule import *
 from .get_linked_server import *
 from .get_patch_schedule import *
 from .get_private_endpoint_connection import *
 from .get_redis import *
+from .get_redis_enterprise import *
 from .linked_server import *
+from .list_database_keys import *
 from .list_redis_keys import *
 from .patch_schedule import *
 from .private_endpoint_connection import *
 from .redis import *
+from .redis_enterprise import *
 from ._inputs import *
 from . import outputs
 
@@ -30,7 +35,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-nextgen:cache/latest:FirewallRule":
+            if typ == "azure-nextgen:cache/latest:Database":
+                return Database(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:cache/latest:FirewallRule":
                 return FirewallRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:cache/latest:LinkedServer":
                 return LinkedServer(name, pulumi.ResourceOptions(urn=urn))
@@ -40,6 +47,8 @@ def _register_module():
                 return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:cache/latest:Redis":
                 return Redis(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:cache/latest:RedisEnterprise":
+                return RedisEnterprise(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

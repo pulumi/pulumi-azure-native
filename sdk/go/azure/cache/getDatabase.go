@@ -21,7 +21,7 @@ type LookupDatabaseArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the database.
 	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -39,6 +39,8 @@ type LookupDatabaseResult struct {
 	Modules []ModuleResponse `pulumi:"modules"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// Persistence settings
+	Persistence *PersistenceResponse `pulumi:"persistence"`
 	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
 	Port *int `pulumi:"port"`
 	// Current provisioning status of the database

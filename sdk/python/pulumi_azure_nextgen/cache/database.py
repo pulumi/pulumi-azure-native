@@ -24,6 +24,7 @@ class Database(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'EvictionPolicy']]] = None,
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModuleArgs']]]]] = None,
+                 persistence: Optional[pulumi.Input[pulumi.InputType['PersistenceArgs']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -31,7 +32,7 @@ class Database(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes a database on the RedisEnterprise cluster
-        API Version: 2020-10-01-preview.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -41,8 +42,9 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[Union[str, 'EvictionPolicy']] eviction_policy: Redis eviction policy - default is VolatileLRU
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModuleArgs']]]] modules: Optional set of redis modules to enable in this database - modules can only be added at creation time.
+        :param pulumi.Input[pulumi.InputType['PersistenceArgs']] persistence: Persistence settings
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,6 +73,7 @@ class Database(pulumi.CustomResource):
             __props__['database_name'] = database_name
             __props__['eviction_policy'] = eviction_policy
             __props__['modules'] = modules
+            __props__['persistence'] = persistence
             __props__['port'] = port
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -79,7 +82,7 @@ class Database(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/v20201001preview:Database"), pulumi.Alias(type_="azure-nextgen:cache/v20210301:Database")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/latest:Database"), pulumi.Alias(type_="azure-nextgen:cache/v20201001preview:Database"), pulumi.Alias(type_="azure-nextgen:cache/v20210301:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure-nextgen:cache:Database',
@@ -144,6 +147,14 @@ class Database(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def persistence(self) -> pulumi.Output[Optional['outputs.PersistenceResponse']]:
+        """
+        Persistence settings
+        """
+        return pulumi.get(self, "persistence")
 
     @property
     @pulumi.getter

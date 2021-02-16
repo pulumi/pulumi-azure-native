@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2020-06-01.
+ * API Version: 2021-03-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -67,8 +67,8 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.cacheName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'cacheName'");
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'clusterName'");
             }
             if ((!args || args.privateEndpointConnectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateEndpointConnectionName'");
@@ -79,7 +79,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["cacheName"] = args ? args.cacheName : undefined;
+            inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -101,7 +101,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:cache/v20200601:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:cache/v20201001preview:PrivateEndpointConnection" }, { type: "azure-nextgen:cache/v20210301:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
@@ -112,9 +112,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface PrivateEndpointConnectionArgs {
     /**
-     * The name of the Redis cache.
+     * The name of the RedisEnterprise cluster.
      */
-    readonly cacheName: pulumi.Input<string>;
+    readonly clusterName: pulumi.Input<string>;
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
@@ -124,7 +124,7 @@ export interface PrivateEndpointConnectionArgs {
      */
     readonly privateLinkServiceConnectionState: pulumi.Input<inputs.cache.PrivateLinkServiceConnectionState>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
 }

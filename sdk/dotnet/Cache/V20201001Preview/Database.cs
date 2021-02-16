@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:cache:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/latest:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20210301:Database"},
                 },
             };

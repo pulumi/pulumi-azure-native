@@ -10,6 +10,615 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Specifies configuration of a redis module
+type Module struct {
+	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+	Args *string `pulumi:"args"`
+	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
+	Name string `pulumi:"name"`
+}
+
+// ModuleInput is an input type that accepts ModuleArgs and ModuleOutput values.
+// You can construct a concrete instance of `ModuleInput` via:
+//
+//          ModuleArgs{...}
+type ModuleInput interface {
+	pulumi.Input
+
+	ToModuleOutput() ModuleOutput
+	ToModuleOutputWithContext(context.Context) ModuleOutput
+}
+
+// Specifies configuration of a redis module
+type ModuleArgs struct {
+	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+	Args pulumi.StringPtrInput `pulumi:"args"`
+	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ModuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Module)(nil)).Elem()
+}
+
+func (i ModuleArgs) ToModuleOutput() ModuleOutput {
+	return i.ToModuleOutputWithContext(context.Background())
+}
+
+func (i ModuleArgs) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleOutput)
+}
+
+// ModuleArrayInput is an input type that accepts ModuleArray and ModuleArrayOutput values.
+// You can construct a concrete instance of `ModuleArrayInput` via:
+//
+//          ModuleArray{ ModuleArgs{...} }
+type ModuleArrayInput interface {
+	pulumi.Input
+
+	ToModuleArrayOutput() ModuleArrayOutput
+	ToModuleArrayOutputWithContext(context.Context) ModuleArrayOutput
+}
+
+type ModuleArray []ModuleInput
+
+func (ModuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Module)(nil)).Elem()
+}
+
+func (i ModuleArray) ToModuleArrayOutput() ModuleArrayOutput {
+	return i.ToModuleArrayOutputWithContext(context.Background())
+}
+
+func (i ModuleArray) ToModuleArrayOutputWithContext(ctx context.Context) ModuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleArrayOutput)
+}
+
+// Specifies configuration of a redis module
+type ModuleOutput struct{ *pulumi.OutputState }
+
+func (ModuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Module)(nil)).Elem()
+}
+
+func (o ModuleOutput) ToModuleOutput() ModuleOutput {
+	return o
+}
+
+func (o ModuleOutput) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
+	return o
+}
+
+// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+func (o ModuleOutput) Args() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Module) *string { return v.Args }).(pulumi.StringPtrOutput)
+}
+
+// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
+func (o ModuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Module) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ModuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ModuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Module)(nil)).Elem()
+}
+
+func (o ModuleArrayOutput) ToModuleArrayOutput() ModuleArrayOutput {
+	return o
+}
+
+func (o ModuleArrayOutput) ToModuleArrayOutputWithContext(ctx context.Context) ModuleArrayOutput {
+	return o
+}
+
+func (o ModuleArrayOutput) Index(i pulumi.IntInput) ModuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Module {
+		return vs[0].([]Module)[vs[1].(int)]
+	}).(ModuleOutput)
+}
+
+// Specifies configuration of a redis module
+type ModuleResponse struct {
+	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+	Args *string `pulumi:"args"`
+	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
+	Name string `pulumi:"name"`
+	// The version of the module, e.g. '1.0'.
+	Version string `pulumi:"version"`
+}
+
+// ModuleResponseInput is an input type that accepts ModuleResponseArgs and ModuleResponseOutput values.
+// You can construct a concrete instance of `ModuleResponseInput` via:
+//
+//          ModuleResponseArgs{...}
+type ModuleResponseInput interface {
+	pulumi.Input
+
+	ToModuleResponseOutput() ModuleResponseOutput
+	ToModuleResponseOutputWithContext(context.Context) ModuleResponseOutput
+}
+
+// Specifies configuration of a redis module
+type ModuleResponseArgs struct {
+	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+	Args pulumi.StringPtrInput `pulumi:"args"`
+	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
+	Name pulumi.StringInput `pulumi:"name"`
+	// The version of the module, e.g. '1.0'.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (ModuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleResponse)(nil)).Elem()
+}
+
+func (i ModuleResponseArgs) ToModuleResponseOutput() ModuleResponseOutput {
+	return i.ToModuleResponseOutputWithContext(context.Background())
+}
+
+func (i ModuleResponseArgs) ToModuleResponseOutputWithContext(ctx context.Context) ModuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleResponseOutput)
+}
+
+// ModuleResponseArrayInput is an input type that accepts ModuleResponseArray and ModuleResponseArrayOutput values.
+// You can construct a concrete instance of `ModuleResponseArrayInput` via:
+//
+//          ModuleResponseArray{ ModuleResponseArgs{...} }
+type ModuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToModuleResponseArrayOutput() ModuleResponseArrayOutput
+	ToModuleResponseArrayOutputWithContext(context.Context) ModuleResponseArrayOutput
+}
+
+type ModuleResponseArray []ModuleResponseInput
+
+func (ModuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModuleResponse)(nil)).Elem()
+}
+
+func (i ModuleResponseArray) ToModuleResponseArrayOutput() ModuleResponseArrayOutput {
+	return i.ToModuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ModuleResponseArray) ToModuleResponseArrayOutputWithContext(ctx context.Context) ModuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleResponseArrayOutput)
+}
+
+// Specifies configuration of a redis module
+type ModuleResponseOutput struct{ *pulumi.OutputState }
+
+func (ModuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleResponse)(nil)).Elem()
+}
+
+func (o ModuleResponseOutput) ToModuleResponseOutput() ModuleResponseOutput {
+	return o
+}
+
+func (o ModuleResponseOutput) ToModuleResponseOutputWithContext(ctx context.Context) ModuleResponseOutput {
+	return o
+}
+
+// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+func (o ModuleResponseOutput) Args() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleResponse) *string { return v.Args }).(pulumi.StringPtrOutput)
+}
+
+// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
+func (o ModuleResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ModuleResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The version of the module, e.g. '1.0'.
+func (o ModuleResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v ModuleResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type ModuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ModuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModuleResponse)(nil)).Elem()
+}
+
+func (o ModuleResponseArrayOutput) ToModuleResponseArrayOutput() ModuleResponseArrayOutput {
+	return o
+}
+
+func (o ModuleResponseArrayOutput) ToModuleResponseArrayOutputWithContext(ctx context.Context) ModuleResponseArrayOutput {
+	return o
+}
+
+func (o ModuleResponseArrayOutput) Index(i pulumi.IntInput) ModuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModuleResponse {
+		return vs[0].([]ModuleResponse)[vs[1].(int)]
+	}).(ModuleResponseOutput)
+}
+
+// Persistence-related configuration for the RedisEnterprise database
+type Persistence struct {
+	// Sets whether AOF is enabled.
+	AofEnabled *bool `pulumi:"aofEnabled"`
+	// Sets the frequency at which data is written to disk.
+	AofFrequency *string `pulumi:"aofFrequency"`
+	// Sets whether RDB is enabled.
+	RdbEnabled *bool `pulumi:"rdbEnabled"`
+	// Sets the frequency at which a snapshot of the database is created.
+	RdbFrequency *string `pulumi:"rdbFrequency"`
+}
+
+// PersistenceInput is an input type that accepts PersistenceArgs and PersistenceOutput values.
+// You can construct a concrete instance of `PersistenceInput` via:
+//
+//          PersistenceArgs{...}
+type PersistenceInput interface {
+	pulumi.Input
+
+	ToPersistenceOutput() PersistenceOutput
+	ToPersistenceOutputWithContext(context.Context) PersistenceOutput
+}
+
+// Persistence-related configuration for the RedisEnterprise database
+type PersistenceArgs struct {
+	// Sets whether AOF is enabled.
+	AofEnabled pulumi.BoolPtrInput `pulumi:"aofEnabled"`
+	// Sets the frequency at which data is written to disk.
+	AofFrequency pulumi.StringPtrInput `pulumi:"aofFrequency"`
+	// Sets whether RDB is enabled.
+	RdbEnabled pulumi.BoolPtrInput `pulumi:"rdbEnabled"`
+	// Sets the frequency at which a snapshot of the database is created.
+	RdbFrequency pulumi.StringPtrInput `pulumi:"rdbFrequency"`
+}
+
+func (PersistenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Persistence)(nil)).Elem()
+}
+
+func (i PersistenceArgs) ToPersistenceOutput() PersistenceOutput {
+	return i.ToPersistenceOutputWithContext(context.Background())
+}
+
+func (i PersistenceArgs) ToPersistenceOutputWithContext(ctx context.Context) PersistenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceOutput)
+}
+
+func (i PersistenceArgs) ToPersistencePtrOutput() PersistencePtrOutput {
+	return i.ToPersistencePtrOutputWithContext(context.Background())
+}
+
+func (i PersistenceArgs) ToPersistencePtrOutputWithContext(ctx context.Context) PersistencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceOutput).ToPersistencePtrOutputWithContext(ctx)
+}
+
+// PersistencePtrInput is an input type that accepts PersistenceArgs, PersistencePtr and PersistencePtrOutput values.
+// You can construct a concrete instance of `PersistencePtrInput` via:
+//
+//          PersistenceArgs{...}
+//
+//  or:
+//
+//          nil
+type PersistencePtrInput interface {
+	pulumi.Input
+
+	ToPersistencePtrOutput() PersistencePtrOutput
+	ToPersistencePtrOutputWithContext(context.Context) PersistencePtrOutput
+}
+
+type persistencePtrType PersistenceArgs
+
+func PersistencePtr(v *PersistenceArgs) PersistencePtrInput {
+	return (*persistencePtrType)(v)
+}
+
+func (*persistencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Persistence)(nil)).Elem()
+}
+
+func (i *persistencePtrType) ToPersistencePtrOutput() PersistencePtrOutput {
+	return i.ToPersistencePtrOutputWithContext(context.Background())
+}
+
+func (i *persistencePtrType) ToPersistencePtrOutputWithContext(ctx context.Context) PersistencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistencePtrOutput)
+}
+
+// Persistence-related configuration for the RedisEnterprise database
+type PersistenceOutput struct{ *pulumi.OutputState }
+
+func (PersistenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Persistence)(nil)).Elem()
+}
+
+func (o PersistenceOutput) ToPersistenceOutput() PersistenceOutput {
+	return o
+}
+
+func (o PersistenceOutput) ToPersistenceOutputWithContext(ctx context.Context) PersistenceOutput {
+	return o
+}
+
+func (o PersistenceOutput) ToPersistencePtrOutput() PersistencePtrOutput {
+	return o.ToPersistencePtrOutputWithContext(context.Background())
+}
+
+func (o PersistenceOutput) ToPersistencePtrOutputWithContext(ctx context.Context) PersistencePtrOutput {
+	return o.ApplyT(func(v Persistence) *Persistence {
+		return &v
+	}).(PersistencePtrOutput)
+}
+
+// Sets whether AOF is enabled.
+func (o PersistenceOutput) AofEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Persistence) *bool { return v.AofEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which data is written to disk.
+func (o PersistenceOutput) AofFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Persistence) *string { return v.AofFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Sets whether RDB is enabled.
+func (o PersistenceOutput) RdbEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Persistence) *bool { return v.RdbEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which a snapshot of the database is created.
+func (o PersistenceOutput) RdbFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Persistence) *string { return v.RdbFrequency }).(pulumi.StringPtrOutput)
+}
+
+type PersistencePtrOutput struct{ *pulumi.OutputState }
+
+func (PersistencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Persistence)(nil)).Elem()
+}
+
+func (o PersistencePtrOutput) ToPersistencePtrOutput() PersistencePtrOutput {
+	return o
+}
+
+func (o PersistencePtrOutput) ToPersistencePtrOutputWithContext(ctx context.Context) PersistencePtrOutput {
+	return o
+}
+
+func (o PersistencePtrOutput) Elem() PersistenceOutput {
+	return o.ApplyT(func(v *Persistence) Persistence { return *v }).(PersistenceOutput)
+}
+
+// Sets whether AOF is enabled.
+func (o PersistencePtrOutput) AofEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Persistence) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AofEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which data is written to disk.
+func (o PersistencePtrOutput) AofFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Persistence) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets whether RDB is enabled.
+func (o PersistencePtrOutput) RdbEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Persistence) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RdbEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which a snapshot of the database is created.
+func (o PersistencePtrOutput) RdbFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Persistence) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Persistence-related configuration for the RedisEnterprise database
+type PersistenceResponse struct {
+	// Sets whether AOF is enabled.
+	AofEnabled *bool `pulumi:"aofEnabled"`
+	// Sets the frequency at which data is written to disk.
+	AofFrequency *string `pulumi:"aofFrequency"`
+	// Sets whether RDB is enabled.
+	RdbEnabled *bool `pulumi:"rdbEnabled"`
+	// Sets the frequency at which a snapshot of the database is created.
+	RdbFrequency *string `pulumi:"rdbFrequency"`
+}
+
+// PersistenceResponseInput is an input type that accepts PersistenceResponseArgs and PersistenceResponseOutput values.
+// You can construct a concrete instance of `PersistenceResponseInput` via:
+//
+//          PersistenceResponseArgs{...}
+type PersistenceResponseInput interface {
+	pulumi.Input
+
+	ToPersistenceResponseOutput() PersistenceResponseOutput
+	ToPersistenceResponseOutputWithContext(context.Context) PersistenceResponseOutput
+}
+
+// Persistence-related configuration for the RedisEnterprise database
+type PersistenceResponseArgs struct {
+	// Sets whether AOF is enabled.
+	AofEnabled pulumi.BoolPtrInput `pulumi:"aofEnabled"`
+	// Sets the frequency at which data is written to disk.
+	AofFrequency pulumi.StringPtrInput `pulumi:"aofFrequency"`
+	// Sets whether RDB is enabled.
+	RdbEnabled pulumi.BoolPtrInput `pulumi:"rdbEnabled"`
+	// Sets the frequency at which a snapshot of the database is created.
+	RdbFrequency pulumi.StringPtrInput `pulumi:"rdbFrequency"`
+}
+
+func (PersistenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistenceResponse)(nil)).Elem()
+}
+
+func (i PersistenceResponseArgs) ToPersistenceResponseOutput() PersistenceResponseOutput {
+	return i.ToPersistenceResponseOutputWithContext(context.Background())
+}
+
+func (i PersistenceResponseArgs) ToPersistenceResponseOutputWithContext(ctx context.Context) PersistenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceResponseOutput)
+}
+
+func (i PersistenceResponseArgs) ToPersistenceResponsePtrOutput() PersistenceResponsePtrOutput {
+	return i.ToPersistenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PersistenceResponseArgs) ToPersistenceResponsePtrOutputWithContext(ctx context.Context) PersistenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceResponseOutput).ToPersistenceResponsePtrOutputWithContext(ctx)
+}
+
+// PersistenceResponsePtrInput is an input type that accepts PersistenceResponseArgs, PersistenceResponsePtr and PersistenceResponsePtrOutput values.
+// You can construct a concrete instance of `PersistenceResponsePtrInput` via:
+//
+//          PersistenceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PersistenceResponsePtrInput interface {
+	pulumi.Input
+
+	ToPersistenceResponsePtrOutput() PersistenceResponsePtrOutput
+	ToPersistenceResponsePtrOutputWithContext(context.Context) PersistenceResponsePtrOutput
+}
+
+type persistenceResponsePtrType PersistenceResponseArgs
+
+func PersistenceResponsePtr(v *PersistenceResponseArgs) PersistenceResponsePtrInput {
+	return (*persistenceResponsePtrType)(v)
+}
+
+func (*persistenceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersistenceResponse)(nil)).Elem()
+}
+
+func (i *persistenceResponsePtrType) ToPersistenceResponsePtrOutput() PersistenceResponsePtrOutput {
+	return i.ToPersistenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *persistenceResponsePtrType) ToPersistenceResponsePtrOutputWithContext(ctx context.Context) PersistenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceResponsePtrOutput)
+}
+
+// Persistence-related configuration for the RedisEnterprise database
+type PersistenceResponseOutput struct{ *pulumi.OutputState }
+
+func (PersistenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistenceResponse)(nil)).Elem()
+}
+
+func (o PersistenceResponseOutput) ToPersistenceResponseOutput() PersistenceResponseOutput {
+	return o
+}
+
+func (o PersistenceResponseOutput) ToPersistenceResponseOutputWithContext(ctx context.Context) PersistenceResponseOutput {
+	return o
+}
+
+func (o PersistenceResponseOutput) ToPersistenceResponsePtrOutput() PersistenceResponsePtrOutput {
+	return o.ToPersistenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PersistenceResponseOutput) ToPersistenceResponsePtrOutputWithContext(ctx context.Context) PersistenceResponsePtrOutput {
+	return o.ApplyT(func(v PersistenceResponse) *PersistenceResponse {
+		return &v
+	}).(PersistenceResponsePtrOutput)
+}
+
+// Sets whether AOF is enabled.
+func (o PersistenceResponseOutput) AofEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PersistenceResponse) *bool { return v.AofEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which data is written to disk.
+func (o PersistenceResponseOutput) AofFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PersistenceResponse) *string { return v.AofFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Sets whether RDB is enabled.
+func (o PersistenceResponseOutput) RdbEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PersistenceResponse) *bool { return v.RdbEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which a snapshot of the database is created.
+func (o PersistenceResponseOutput) RdbFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PersistenceResponse) *string { return v.RdbFrequency }).(pulumi.StringPtrOutput)
+}
+
+type PersistenceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PersistenceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersistenceResponse)(nil)).Elem()
+}
+
+func (o PersistenceResponsePtrOutput) ToPersistenceResponsePtrOutput() PersistenceResponsePtrOutput {
+	return o
+}
+
+func (o PersistenceResponsePtrOutput) ToPersistenceResponsePtrOutputWithContext(ctx context.Context) PersistenceResponsePtrOutput {
+	return o
+}
+
+func (o PersistenceResponsePtrOutput) Elem() PersistenceResponseOutput {
+	return o.ApplyT(func(v *PersistenceResponse) PersistenceResponse { return *v }).(PersistenceResponseOutput)
+}
+
+// Sets whether AOF is enabled.
+func (o PersistenceResponsePtrOutput) AofEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PersistenceResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AofEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which data is written to disk.
+func (o PersistenceResponsePtrOutput) AofFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PersistenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets whether RDB is enabled.
+func (o PersistenceResponsePtrOutput) RdbEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PersistenceResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RdbEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sets the frequency at which a snapshot of the database is created.
+func (o PersistenceResponsePtrOutput) RdbFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PersistenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -1262,13 +1871,11 @@ func (o ScheduleEntryResponseArrayOutput) Index(i pulumi.IntInput) ScheduleEntry
 	}).(ScheduleEntryResponseOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
+// SKU parameters supplied to the create RedisEnterprise operation.
 type Sku struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-	Capacity int `pulumi:"capacity"`
-	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-	Family string `pulumi:"family"`
-	// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+	Capacity *int `pulumi:"capacity"`
+	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 	Name string `pulumi:"name"`
 }
 
@@ -1283,13 +1890,11 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SKU parameters supplied to the create Redis operation.
+// SKU parameters supplied to the create RedisEnterprise operation.
 type SkuArgs struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-	Family pulumi.StringInput `pulumi:"family"`
-	// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1346,7 +1951,7 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
+// SKU parameters supplied to the create RedisEnterprise operation.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -1371,17 +1976,12 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-func (o SkuOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func(v Sku) int { return v.Capacity }).(pulumi.IntOutput)
+// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-func (o SkuOutput) Family() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Family }).(pulumi.StringOutput)
-}
-
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1404,27 +2004,17 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.Capacity
+		return v.Capacity
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1434,13 +2024,11 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
+// SKU parameters supplied to the create RedisEnterprise operation.
 type SkuResponse struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-	Capacity int `pulumi:"capacity"`
-	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-	Family string `pulumi:"family"`
-	// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+	Capacity *int `pulumi:"capacity"`
+	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 	Name string `pulumi:"name"`
 }
 
@@ -1455,13 +2043,11 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SKU parameters supplied to the create Redis operation.
+// SKU parameters supplied to the create RedisEnterprise operation.
 type SkuResponseArgs struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-	Family pulumi.StringInput `pulumi:"family"`
-	// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1518,7 +2104,7 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
+// SKU parameters supplied to the create RedisEnterprise operation.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1543,17 +2129,12 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-func (o SkuResponseOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func(v SkuResponse) int { return v.Capacity }).(pulumi.IntOutput)
+// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-func (o SkuResponseOutput) Family() pulumi.StringOutput {
-	return o.ApplyT(func(v SkuResponse) string { return v.Family }).(pulumi.StringOutput)
-}
-
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1576,27 +2157,17 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.Capacity
+		return v.Capacity
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1607,6 +2178,14 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ModuleOutput{})
+	pulumi.RegisterOutputType(ModuleArrayOutput{})
+	pulumi.RegisterOutputType(ModuleResponseOutput{})
+	pulumi.RegisterOutputType(ModuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(PersistenceOutput{})
+	pulumi.RegisterOutputType(PersistencePtrOutput{})
+	pulumi.RegisterOutputType(PersistenceResponseOutput{})
+	pulumi.RegisterOutputType(PersistenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})

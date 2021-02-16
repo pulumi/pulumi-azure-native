@@ -113,6 +113,7 @@ namespace Pulumi.AzureNextGen.Cache.V20210301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:cache:RedisEnterprise"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/latest:RedisEnterprise"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20201001preview:RedisEnterprise"},
                 },
             };

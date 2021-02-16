@@ -30,7 +30,7 @@ export interface GetDatabaseArgs {
      */
     readonly databaseName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }
@@ -63,6 +63,10 @@ export interface GetDatabaseResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * Persistence settings
+     */
+    readonly persistence?: outputs.cache.PersistenceResponse;
     /**
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port.
      */

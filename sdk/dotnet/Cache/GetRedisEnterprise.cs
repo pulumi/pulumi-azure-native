@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Cache
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Cache
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The zones where this cluster will be deployed.
+        /// The Availability Zones where this cluster will be deployed.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
 

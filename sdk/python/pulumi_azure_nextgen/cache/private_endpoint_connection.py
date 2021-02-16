@@ -18,7 +18,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_name: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -27,14 +27,14 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2020-06-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cache_name: The name of the Redis cache.
+        :param pulumi.Input[str] cluster_name: The name of the RedisEnterprise cluster.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,9 +53,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cache_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cache_name'")
-            __props__['cache_name'] = cache_name
+            if cluster_name is None and not opts.urn:
+                raise TypeError("Missing required property 'cluster_name'")
+            __props__['cluster_name'] = cluster_name
             if private_endpoint_connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
@@ -69,7 +69,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['private_endpoint'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:cache/v20200601:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:cache/v20201001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:cache/v20210301:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:cache:PrivateEndpointConnection',

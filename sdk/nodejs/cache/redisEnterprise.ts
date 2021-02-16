@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the RedisEnterprise cluster
- * API Version: 2020-10-01-preview.
+ * API Version: 2021-03-01.
  */
 export class RedisEnterprise extends pulumi.CustomResource {
     /**
@@ -81,7 +81,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The zones where this cluster will be deployed.
+     * The Availability Zones where this cluster will be deployed.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -139,7 +139,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/v20201001preview:RedisEnterprise" }, { type: "azure-nextgen:cache/v20210301:RedisEnterprise" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:RedisEnterprise" }, { type: "azure-nextgen:cache/v20201001preview:RedisEnterprise" }, { type: "azure-nextgen:cache/v20210301:RedisEnterprise" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RedisEnterprise.__pulumiType, name, inputs, opts);
     }
@@ -160,9 +160,9 @@ export interface RedisEnterpriseArgs {
     /**
      * The minimum TLS version for the cluster to support, e.g. '1.2'
      */
-    readonly minimumTlsVersion?: pulumi.Input<string>;
+    readonly minimumTlsVersion?: pulumi.Input<string | enums.cache.TlsVersion>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
@@ -174,7 +174,7 @@ export interface RedisEnterpriseArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The zones where this cluster will be deployed.
+     * The Availability Zones where this cluster will be deployed.
      */
     readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

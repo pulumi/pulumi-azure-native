@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Cache
         public string DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;

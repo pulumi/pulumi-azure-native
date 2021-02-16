@@ -26,6 +26,16 @@ export {
     v20210301,
 };
 
+export const AofFrequency = {
+    AofFrequency_1s: "1s",
+    Always: "always",
+} as const;
+
+/**
+ * Sets the frequency at which data is written to disk.
+ */
+export type AofFrequency = (typeof AofFrequency)[keyof typeof AofFrequency];
+
 export const ClusteringPolicy = {
     EnterpriseCluster: "EnterpriseCluster",
     OSSCluster: "OSSCluster",
@@ -100,6 +110,17 @@ export const PublicNetworkAccess = {
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
+export const RdbFrequency = {
+    RdbFrequency_1h: "1h",
+    RdbFrequency_6h: "6h",
+    RdbFrequency_12h: "12h",
+} as const;
+
+/**
+ * Sets the frequency at which a snapshot of the database is created.
+ */
+export type RdbFrequency = (typeof RdbFrequency)[keyof typeof RdbFrequency];
+
 export const ReplicationRole = {
     Primary: "Primary",
     Secondary: "Secondary",
@@ -142,6 +163,6 @@ export const TlsVersion = {
 } as const;
 
 /**
- * Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
+ * The minimum TLS version for the cluster to support, e.g. '1.2'
  */
 export type TlsVersion = (typeof TlsVersion)[keyof typeof TlsVersion];

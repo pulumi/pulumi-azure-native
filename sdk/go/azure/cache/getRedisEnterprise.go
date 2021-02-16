@@ -19,7 +19,7 @@ func LookupRedisEnterprise(ctx *pulumi.Context, args *LookupRedisEnterpriseArgs,
 type LookupRedisEnterpriseArgs struct {
 	// The name of the RedisEnterprise cluster.
 	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -49,6 +49,6 @@ type LookupRedisEnterpriseResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
-	// The zones where this cluster will be deployed.
+	// The Availability Zones where this cluster will be deployed.
 	Zones []string `pulumi:"zones"`
 }

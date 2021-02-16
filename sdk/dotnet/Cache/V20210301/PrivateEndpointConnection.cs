@@ -70,6 +70,8 @@ namespace Pulumi.AzureNextGen.Cache.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20201001preview:PrivateEndpointConnection"},
                 },
             };

@@ -14,7 +14,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azure-nextgen:cache:getPrivateEndpointConnection", {
-        "cacheName": args.cacheName,
+        "clusterName": args.clusterName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -22,15 +22,15 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
 
 export interface GetPrivateEndpointConnectionArgs {
     /**
-     * The name of the Redis cache.
+     * The name of the RedisEnterprise cluster.
      */
-    readonly cacheName: string;
+    readonly clusterName: string;
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
     readonly privateEndpointConnectionName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }

@@ -11,6 +11,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ModuleResponse',
+    'PersistenceResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -20,6 +22,116 @@ __all__ = [
     'ScheduleEntryResponse',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class ModuleResponse(dict):
+    """
+    Specifies configuration of a redis module
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 version: str,
+                 args: Optional[str] = None):
+        """
+        Specifies configuration of a redis module
+        :param str name: The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
+        :param str version: The version of the module, e.g. '1.0'.
+        :param str args: Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of the module, e.g. '1.0'.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[str]:
+        """
+        Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        """
+        return pulumi.get(self, "args")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PersistenceResponse(dict):
+    """
+    Persistence-related configuration for the RedisEnterprise database
+    """
+    def __init__(__self__, *,
+                 aof_enabled: Optional[bool] = None,
+                 aof_frequency: Optional[str] = None,
+                 rdb_enabled: Optional[bool] = None,
+                 rdb_frequency: Optional[str] = None):
+        """
+        Persistence-related configuration for the RedisEnterprise database
+        :param bool aof_enabled: Sets whether AOF is enabled.
+        :param str aof_frequency: Sets the frequency at which data is written to disk.
+        :param bool rdb_enabled: Sets whether RDB is enabled.
+        :param str rdb_frequency: Sets the frequency at which a snapshot of the database is created.
+        """
+        if aof_enabled is not None:
+            pulumi.set(__self__, "aof_enabled", aof_enabled)
+        if aof_frequency is not None:
+            pulumi.set(__self__, "aof_frequency", aof_frequency)
+        if rdb_enabled is not None:
+            pulumi.set(__self__, "rdb_enabled", rdb_enabled)
+        if rdb_frequency is not None:
+            pulumi.set(__self__, "rdb_frequency", rdb_frequency)
+
+    @property
+    @pulumi.getter(name="aofEnabled")
+    def aof_enabled(self) -> Optional[bool]:
+        """
+        Sets whether AOF is enabled.
+        """
+        return pulumi.get(self, "aof_enabled")
+
+    @property
+    @pulumi.getter(name="aofFrequency")
+    def aof_frequency(self) -> Optional[str]:
+        """
+        Sets the frequency at which data is written to disk.
+        """
+        return pulumi.get(self, "aof_frequency")
+
+    @property
+    @pulumi.getter(name="rdbEnabled")
+    def rdb_enabled(self) -> Optional[bool]:
+        """
+        Sets whether RDB is enabled.
+        """
+        return pulumi.get(self, "rdb_enabled")
+
+    @property
+    @pulumi.getter(name="rdbFrequency")
+    def rdb_frequency(self) -> Optional[str]:
+        """
+        Sets the frequency at which a snapshot of the database is created.
+        """
+        return pulumi.get(self, "rdb_frequency")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
@@ -358,45 +470,35 @@ class ScheduleEntryResponse(dict):
 @pulumi.output_type
 class SkuResponse(dict):
     """
-    SKU parameters supplied to the create Redis operation.
+    SKU parameters supplied to the create RedisEnterprise operation.
     """
     def __init__(__self__, *,
-                 capacity: int,
-                 family: str,
-                 name: str):
+                 name: str,
+                 capacity: Optional[int] = None):
         """
-        SKU parameters supplied to the create Redis operation.
-        :param int capacity: The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-        :param str family: The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-        :param str name: The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+        SKU parameters supplied to the create RedisEnterprise operation.
+        :param str name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        :param int capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "family", family)
         pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> int:
-        """
-        The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-        """
-        return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter
-    def family(self) -> str:
-        """
-        The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-        """
-        return pulumi.get(self, "family")
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
+        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        """
+        return pulumi.get(self, "capacity")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

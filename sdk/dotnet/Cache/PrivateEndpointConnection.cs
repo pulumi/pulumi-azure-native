@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Cache
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2020-06-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:cache:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
@@ -72,7 +72,8 @@ namespace Pulumi.AzureNextGen.Cache
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20201001preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20210301:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -97,10 +98,10 @@ namespace Pulumi.AzureNextGen.Cache
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Redis cache.
+        /// The name of the RedisEnterprise cluster.
         /// </summary>
-        [Input("cacheName", required: true)]
-        public Input<string> CacheName { get; set; } = null!;
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -115,7 +116,7 @@ namespace Pulumi.AzureNextGen.Cache
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
