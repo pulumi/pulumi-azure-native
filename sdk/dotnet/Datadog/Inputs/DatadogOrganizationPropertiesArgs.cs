@@ -16,6 +16,18 @@ namespace Pulumi.AzureNextGen.Datadog.Inputs
     public sealed class DatadogOrganizationPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Api key associated to the Datadog organization.
+        /// </summary>
+        [Input("apiKey")]
+        public Input<string>? ApiKey { get; set; }
+
+        /// <summary>
+        /// Application key associated to the Datadog organization.
+        /// </summary>
+        [Input("applicationKey")]
+        public Input<string>? ApplicationKey { get; set; }
+
+        /// <summary>
         /// The Id of the Enterprise App used for Single sign on.
         /// </summary>
         [Input("enterpriseAppId")]
@@ -32,6 +44,12 @@ namespace Pulumi.AzureNextGen.Datadog.Inputs
         /// </summary>
         [Input("linkingClientId")]
         public Input<string>? LinkingClientId { get; set; }
+
+        /// <summary>
+        /// The redirect uri for linking.
+        /// </summary>
+        [Input("redirectUri")]
+        public Input<string>? RedirectUri { get; set; }
 
         public DatadogOrganizationPropertiesArgs()
         {

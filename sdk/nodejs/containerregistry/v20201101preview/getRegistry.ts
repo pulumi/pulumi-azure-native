@@ -39,6 +39,10 @@ export interface GetRegistryResult {
      */
     readonly adminUserEnabled?: boolean;
     /**
+     * Enables registry-wide pull from unauthenticated clients.
+     */
+    readonly anonymousPullEnabled?: boolean;
+    /**
      * The creation date of the container registry in ISO8601 format.
      */
     readonly creationDate: string;
@@ -106,10 +110,6 @@ export interface GetRegistryResult {
      * The status of the container registry at the time the operation was called.
      */
     readonly status: outputs.containerregistry.v20201101preview.StatusResponse;
-    /**
-     * The properties of the storage account for the container registry. Only applicable to Classic SKU.
-     */
-    readonly storageAccount?: outputs.containerregistry.v20201101preview.StorageAccountPropertiesResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

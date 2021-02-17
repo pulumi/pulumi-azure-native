@@ -30,7 +30,6 @@ class Registry(pulumi.CustomResource):
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -52,7 +51,6 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the container registry.
-        :param pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']] storage_account: The properties of the storage account for the container registry. Only applicable to Classic SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
         if __name__ is not None:
@@ -96,7 +94,6 @@ class Registry(pulumi.CustomResource):
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
-            __props__['storage_account'] = storage_account
             __props__['tags'] = tags
             __props__['creation_date'] = None
             __props__['data_endpoint_host_names'] = None
@@ -268,14 +265,6 @@ class Registry(pulumi.CustomResource):
         The status of the container registry at the time the operation was called.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> pulumi.Output[Optional['outputs.StorageAccountPropertiesResponse']]:
-        """
-        The properties of the storage account for the container registry. Only applicable to Classic SKU.
-        """
-        return pulumi.get(self, "storage_account")
 
     @property
     @pulumi.getter(name="systemData")

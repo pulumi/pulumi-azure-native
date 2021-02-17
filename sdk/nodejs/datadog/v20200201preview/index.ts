@@ -5,12 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getApiKeyDefaultKey";
 export * from "./getMonitor";
-export * from "./listApiKey";
-export * from "./listHost";
-export * from "./listLinkedResource";
-export * from "./listMonitoredResource";
+export * from "./getMonitorDefaultKey";
+export * from "./listMonitorApiKeys";
+export * from "./listMonitorHosts";
+export * from "./listMonitorLinkedResources";
+export * from "./listMonitorMonitoredResources";
 export * from "./monitor";
 
 // Export enums:

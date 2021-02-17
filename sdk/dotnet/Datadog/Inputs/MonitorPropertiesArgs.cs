@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.Datadog.Inputs
         [Input("datadogOrganizationProperties")]
         public Input<Inputs.DatadogOrganizationPropertiesArgs>? DatadogOrganizationProperties { get; set; }
 
+        /// <summary>
+        /// Flag specifying if the resource monitoring is enabled or disabled.
+        /// </summary>
+        [Input("monitoringStatus")]
+        public InputUnion<string, Pulumi.AzureNextGen.Datadog.MonitoringStatus>? MonitoringStatus { get; set; }
+
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNextGen.Datadog.ProvisioningState>? ProvisioningState { get; set; }
 

@@ -249,7 +249,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * Specifies the orchestration mode for the virtual machine scale set.
      */
-    readonly orchestrationMode?: pulumi.Input<enums.compute.OrchestrationMode>;
+    readonly orchestrationMode?: pulumi.Input<string | enums.compute.OrchestrationMode>;
     /**
      * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */

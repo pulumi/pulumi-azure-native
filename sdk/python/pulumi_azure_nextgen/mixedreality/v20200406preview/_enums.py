@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ResourceIdentityType',
+    'SkuTier',
 ]
 
 
@@ -14,3 +15,13 @@ class ResourceIdentityType(str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class SkuTier(str, Enum):
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
+    FREE = "Free"
+    BASIC = "Basic"
+    STANDARD = "Standard"
+    PREMIUM = "Premium"

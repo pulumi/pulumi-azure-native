@@ -235,25 +235,37 @@ class DatadogOrganizationPropertiesResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
+                 api_key: Optional[str] = None,
+                 application_key: Optional[str] = None,
                  enterprise_app_id: Optional[str] = None,
                  linking_auth_code: Optional[str] = None,
-                 linking_client_id: Optional[str] = None):
+                 linking_client_id: Optional[str] = None,
+                 redirect_uri: Optional[str] = None):
         """
         Datadog organization properties
         :param str id: Id of the Datadog organization.
         :param str name: Name of the Datadog organization.
+        :param str api_key: Api key associated to the Datadog organization.
+        :param str application_key: Application key associated to the Datadog organization.
         :param str enterprise_app_id: The Id of the Enterprise App used for Single sign on.
         :param str linking_auth_code: The auth code used to linking to an existing datadog organization.
         :param str linking_client_id: The client_id from an existing in exchange for an auth token to link organization.
+        :param str redirect_uri: The redirect uri for linking.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if application_key is not None:
+            pulumi.set(__self__, "application_key", application_key)
         if enterprise_app_id is not None:
             pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
         if linking_auth_code is not None:
             pulumi.set(__self__, "linking_auth_code", linking_auth_code)
         if linking_client_id is not None:
             pulumi.set(__self__, "linking_client_id", linking_client_id)
+        if redirect_uri is not None:
+            pulumi.set(__self__, "redirect_uri", redirect_uri)
 
     @property
     @pulumi.getter
@@ -270,6 +282,22 @@ class DatadogOrganizationPropertiesResponse(dict):
         Name of the Datadog organization.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[str]:
+        """
+        Api key associated to the Datadog organization.
+        """
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="applicationKey")
+    def application_key(self) -> Optional[str]:
+        """
+        Application key associated to the Datadog organization.
+        """
+        return pulumi.get(self, "application_key")
 
     @property
     @pulumi.getter(name="enterpriseAppId")
@@ -294,6 +322,14 @@ class DatadogOrganizationPropertiesResponse(dict):
         The client_id from an existing in exchange for an auth token to link organization.
         """
         return pulumi.get(self, "linking_client_id")
+
+    @property
+    @pulumi.getter(name="redirectUri")
+    def redirect_uri(self) -> Optional[str]:
+        """
+        The redirect uri for linking.
+        """
+        return pulumi.get(self, "redirect_uri")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -375,24 +411,25 @@ class MonitorPropertiesResponse(dict):
                  liftr_resource_category: str,
                  liftr_resource_preference: int,
                  marketplace_subscription_status: str,
-                 monitoring_status: str,
                  datadog_organization_properties: Optional['outputs.DatadogOrganizationPropertiesResponse'] = None,
+                 monitoring_status: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
                  user_info: Optional['outputs.UserInfoResponse'] = None):
         """
         Properties specific to the monitor resource.
         :param int liftr_resource_preference: The priority of the resource.
         :param str marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-        :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param 'DatadogOrganizationPropertiesResponseArgs' datadog_organization_properties: Datadog organization properties
+        :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param 'UserInfoResponseArgs' user_info: User info
         """
         pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
         pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
         pulumi.set(__self__, "marketplace_subscription_status", marketplace_subscription_status)
-        pulumi.set(__self__, "monitoring_status", monitoring_status)
         if datadog_organization_properties is not None:
             pulumi.set(__self__, "datadog_organization_properties", datadog_organization_properties)
+        if monitoring_status is not None:
+            pulumi.set(__self__, "monitoring_status", monitoring_status)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if user_info is not None:
@@ -420,20 +457,20 @@ class MonitorPropertiesResponse(dict):
         return pulumi.get(self, "marketplace_subscription_status")
 
     @property
-    @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> str:
-        """
-        Flag specifying if the resource monitoring is enabled or disabled.
-        """
-        return pulumi.get(self, "monitoring_status")
-
-    @property
     @pulumi.getter(name="datadogOrganizationProperties")
     def datadog_organization_properties(self) -> Optional['outputs.DatadogOrganizationPropertiesResponse']:
         """
         Datadog organization properties
         """
         return pulumi.get(self, "datadog_organization_properties")
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> Optional[str]:
+        """
+        Flag specifying if the resource monitoring is enabled or disabled.
+        """
+        return pulumi.get(self, "monitoring_status")
 
     @property
     @pulumi.getter(name="provisioningState")

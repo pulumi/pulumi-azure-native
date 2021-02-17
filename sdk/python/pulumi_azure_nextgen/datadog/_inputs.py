@@ -20,21 +20,57 @@ __all__ = [
 @pulumi.input_type
 class DatadogOrganizationPropertiesArgs:
     def __init__(__self__, *,
+                 api_key: Optional[pulumi.Input[str]] = None,
+                 application_key: Optional[pulumi.Input[str]] = None,
                  enterprise_app_id: Optional[pulumi.Input[str]] = None,
                  linking_auth_code: Optional[pulumi.Input[str]] = None,
-                 linking_client_id: Optional[pulumi.Input[str]] = None):
+                 linking_client_id: Optional[pulumi.Input[str]] = None,
+                 redirect_uri: Optional[pulumi.Input[str]] = None):
         """
         Datadog organization properties
+        :param pulumi.Input[str] api_key: Api key associated to the Datadog organization.
+        :param pulumi.Input[str] application_key: Application key associated to the Datadog organization.
         :param pulumi.Input[str] enterprise_app_id: The Id of the Enterprise App used for Single sign on.
         :param pulumi.Input[str] linking_auth_code: The auth code used to linking to an existing datadog organization.
         :param pulumi.Input[str] linking_client_id: The client_id from an existing in exchange for an auth token to link organization.
+        :param pulumi.Input[str] redirect_uri: The redirect uri for linking.
         """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if application_key is not None:
+            pulumi.set(__self__, "application_key", application_key)
         if enterprise_app_id is not None:
             pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
         if linking_auth_code is not None:
             pulumi.set(__self__, "linking_auth_code", linking_auth_code)
         if linking_client_id is not None:
             pulumi.set(__self__, "linking_client_id", linking_client_id)
+        if redirect_uri is not None:
+            pulumi.set(__self__, "redirect_uri", redirect_uri)
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Api key associated to the Datadog organization.
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_key", value)
+
+    @property
+    @pulumi.getter(name="applicationKey")
+    def application_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application key associated to the Datadog organization.
+        """
+        return pulumi.get(self, "application_key")
+
+    @application_key.setter
+    def application_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_key", value)
 
     @property
     @pulumi.getter(name="enterpriseAppId")
@@ -72,6 +108,18 @@ class DatadogOrganizationPropertiesArgs:
     def linking_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "linking_client_id", value)
 
+    @property
+    @pulumi.getter(name="redirectUri")
+    def redirect_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The redirect uri for linking.
+        """
+        return pulumi.get(self, "redirect_uri")
+
+    @redirect_uri.setter
+    def redirect_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redirect_uri", value)
+
 
 @pulumi.input_type
 class IdentityPropertiesArgs:
@@ -100,15 +148,19 @@ class IdentityPropertiesArgs:
 class MonitorPropertiesArgs:
     def __init__(__self__, *,
                  datadog_organization_properties: Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']] = None,
+                 monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  user_info: Optional[pulumi.Input['UserInfoArgs']] = None):
         """
         Properties specific to the monitor resource.
         :param pulumi.Input['DatadogOrganizationPropertiesArgs'] datadog_organization_properties: Datadog organization properties
+        :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param pulumi.Input['UserInfoArgs'] user_info: User info
         """
         if datadog_organization_properties is not None:
             pulumi.set(__self__, "datadog_organization_properties", datadog_organization_properties)
+        if monitoring_status is not None:
+            pulumi.set(__self__, "monitoring_status", monitoring_status)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if user_info is not None:
@@ -125,6 +177,18 @@ class MonitorPropertiesArgs:
     @datadog_organization_properties.setter
     def datadog_organization_properties(self, value: Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']]):
         pulumi.set(self, "datadog_organization_properties", value)
+
+    @property
+    @pulumi.getter(name="monitoringStatus")
+    def monitoring_status(self) -> Optional[pulumi.Input[Union[str, 'MonitoringStatus']]]:
+        """
+        Flag specifying if the resource monitoring is enabled or disabled.
+        """
+        return pulumi.get(self, "monitoring_status")
+
+    @monitoring_status.setter
+    def monitoring_status(self, value: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]]):
+        pulumi.set(self, "monitoring_status", value)
 
     @property
     @pulumi.getter(name="provisioningState")

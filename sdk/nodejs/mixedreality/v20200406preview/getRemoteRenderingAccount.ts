@@ -46,7 +46,14 @@ export interface GetRemoteRenderingAccountResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    readonly identity?: outputs.mixedreality.v20200406preview.RemoteRenderingAccountResponseIdentity;
+    /**
+     * The identity associated with this account
+     */
+    readonly identity?: outputs.mixedreality.v20200406preview.IdentityResponse;
+    /**
+     * The kind of account, if supported
+     */
+    readonly kind?: outputs.mixedreality.v20200406preview.SkuResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -55,6 +62,22 @@ export interface GetRemoteRenderingAccountResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * The plan associated with this account
+     */
+    readonly plan?: outputs.mixedreality.v20200406preview.IdentityResponse;
+    /**
+     * The sku associated with this account
+     */
+    readonly sku?: outputs.mixedreality.v20200406preview.SkuResponse;
+    /**
+     * The name of the storage account associated with this accountId
+     */
+    readonly storageAccountName?: string;
+    /**
+     * System metadata for this account
+     */
+    readonly systemData: outputs.mixedreality.v20200406preview.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -112,10 +112,6 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// </summary>
         public readonly Outputs.StatusResponse Status;
         /// <summary>
-        /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-        /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponse? StorageAccount;
-        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -166,8 +162,6 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
             Outputs.StatusResponse status,
 
-            Outputs.StorageAccountPropertiesResponse? storageAccount,
-
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -192,7 +186,6 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
             PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             Status = status;
-            StorageAccount = storageAccount;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ManagedIdentityTypes',
+    'MonitoringStatus',
     'ProvisioningState',
 ]
 
@@ -16,6 +17,14 @@ class ManagedIdentityTypes(str, Enum):
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
+
+
+class MonitoringStatus(str, Enum):
+    """
+    Flag specifying if the resource monitoring is enabled or disabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ProvisioningState(str, Enum):

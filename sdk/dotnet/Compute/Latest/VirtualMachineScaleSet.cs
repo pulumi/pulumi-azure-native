@@ -269,7 +269,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Specifies the orchestration mode for the virtual machine scale set.
         /// </summary>
         [Input("orchestrationMode")]
-        public Input<Pulumi.AzureNextGen.Compute.Latest.OrchestrationMode>? OrchestrationMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.OrchestrationMode>? OrchestrationMode { get; set; }
 
         /// <summary>
         /// Specifies whether the Virtual Machine Scale Set should be overprovisioned.

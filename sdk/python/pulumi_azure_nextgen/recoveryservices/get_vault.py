@@ -20,10 +20,10 @@ class GetVaultResult:
     """
     Resource information, as returned by the resource provider.
     """
-    def __init__(__self__, e_tag=None, id=None, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
-        if e_tag and not isinstance(e_tag, str):
-            raise TypeError("Expected argument 'e_tag' to be a str")
-        pulumi.set(__self__, "e_tag", e_tag)
+    def __init__(__self__, etag=None, id=None, identity=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -42,6 +42,9 @@ class GetVaultResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -50,12 +53,12 @@ class GetVaultResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         Optional ETag.
         """
-        return pulumi.get(self, "e_tag")
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -106,6 +109,14 @@ class GetVaultResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -128,13 +139,14 @@ class AwaitableGetVaultResult(GetVaultResult):
         if False:
             yield self
         return GetVaultResult(
-            e_tag=self.e_tag,
+            etag=self.etag,
             id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
             properties=self.properties,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -158,12 +170,13 @@ def get_vault(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:recoveryservices:getVault', __args__, opts=opts, typ=GetVaultResult).value
 
     return AwaitableGetVaultResult(
-        e_tag=__ret__.e_tag,
+        etag=__ret__.etag,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

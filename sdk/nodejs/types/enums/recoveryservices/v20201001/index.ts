@@ -126,6 +126,16 @@ export const HealthStatus = {
  */
 export type HealthStatus = (typeof HealthStatus)[keyof typeof HealthStatus];
 
+export const InfrastructureEncryptionState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enabling/Disabling the Double Encryption state
+ */
+export type InfrastructureEncryptionState = (typeof InfrastructureEncryptionState)[keyof typeof InfrastructureEncryptionState];
+
 export const LastBackupStatus = {
     Invalid: "Invalid",
     Healthy: "Healthy",
@@ -260,6 +270,18 @@ export const ResourceHealthStatus = {
  */
 export type ResourceHealthStatus = (typeof ResourceHealthStatus)[keyof typeof ResourceHealthStatus];
 
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    None: "None",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+} as const;
+
+/**
+ * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
 export const RetentionDurationType = {
     Invalid: "Invalid",
     Days: "Days",
@@ -294,6 +316,16 @@ export const ScheduleRunType = {
  * Frequency of the schedule operation of this policy.
  */
 export type ScheduleRunType = (typeof ScheduleRunType)[keyof typeof ScheduleRunType];
+
+export const SkuName = {
+    Standard: "Standard",
+    RS0: "RS0",
+} as const;
+
+/**
+ * The Sku name.
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const WeekOfMonth = {
     First: "First",

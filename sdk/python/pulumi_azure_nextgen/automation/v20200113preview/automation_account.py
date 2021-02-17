@@ -23,6 +23,7 @@ class AutomationAccount(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -39,6 +40,7 @@ class AutomationAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Sets the identity property for automation account
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
         :param pulumi.Input[str] name: Gets or sets name of the resource.
+        :param pulumi.Input[bool] public_network_access: Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets account SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
@@ -67,6 +69,7 @@ class AutomationAccount(pulumi.CustomResource):
             __props__['identity'] = identity
             __props__['location'] = location
             __props__['name'] = name
+            __props__['public_network_access'] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -78,7 +81,6 @@ class AutomationAccount(pulumi.CustomResource):
             __props__['last_modified_by'] = None
             __props__['last_modified_time'] = None
             __props__['private_endpoint_connections'] = None
-            __props__['public_network_access'] = None
             __props__['state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/latest:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:AutomationAccount"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:AutomationAccount")])

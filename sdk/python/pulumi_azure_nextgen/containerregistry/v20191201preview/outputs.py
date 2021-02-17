@@ -43,7 +43,6 @@ __all__ = [
     'SkuResponse',
     'SourceResponseResult',
     'StatusResponse',
-    'StorageAccountPropertiesResponse',
     'SystemDataResponse',
     'TargetResponseResult',
     'TrustPolicyResponse',
@@ -1641,31 +1640,6 @@ class StatusResponse(dict):
         The timestamp when the status was changed to the current value.
         """
         return pulumi.get(self, "timestamp")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class StorageAccountPropertiesResponse(dict):
-    """
-    The properties of a storage account for a container registry. Only applicable to Classic SKU.
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        The properties of a storage account for a container registry. Only applicable to Classic SKU.
-        :param str id: The resource ID of the storage account.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The resource ID of the storage account.
-        """
-        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

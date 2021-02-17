@@ -91,6 +91,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20200202:Vault"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201001:Vault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -188,6 +188,12 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<bool>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]

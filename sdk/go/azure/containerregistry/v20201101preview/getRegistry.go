@@ -27,6 +27,8 @@ type LookupRegistryArgs struct {
 type LookupRegistryResult struct {
 	// The value that indicates whether the admin user is enabled.
 	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
+	// Enables registry-wide pull from unauthenticated clients.
+	AnonymousPullEnabled *bool `pulumi:"anonymousPullEnabled"`
 	// The creation date of the container registry in ISO8601 format.
 	CreationDate string `pulumi:"creationDate"`
 	// Enable a single data endpoint per region for serving data.
@@ -61,8 +63,6 @@ type LookupRegistryResult struct {
 	Sku SkuResponse `pulumi:"sku"`
 	// The status of the container registry at the time the operation was called.
 	Status StatusResponse `pulumi:"status"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.

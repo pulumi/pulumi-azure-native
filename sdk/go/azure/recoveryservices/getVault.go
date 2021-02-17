@@ -26,7 +26,7 @@ type LookupVaultArgs struct {
 // Resource information, as returned by the resource provider.
 type LookupVaultResult struct {
 	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
+	Etag *string `pulumi:"etag"`
 	// Resource Id represents the complete path to the resource.
 	Id string `pulumi:"id"`
 	// Identity for the resource.
@@ -39,6 +39,8 @@ type LookupVaultResult struct {
 	Properties VaultPropertiesResponse `pulumi:"properties"`
 	// Identifies the unique system identifier for each Azure resource.
 	Sku *SkuResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...

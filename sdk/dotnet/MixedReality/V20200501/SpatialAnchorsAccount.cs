@@ -34,6 +34,12 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The kind of account, if supported
+        /// </summary>
+        [Output("kind")]
+        public Output<Outputs.SkuResponse?> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -44,6 +50,30 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The plan associated with this account
+        /// </summary>
+        [Output("plan")]
+        public Output<Outputs.IdentityResponse?> Plan { get; private set; } = null!;
+
+        /// <summary>
+        /// The sku associated with this account
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the storage account associated with this accountId
+        /// </summary>
+        [Output("storageAccountName")]
+        public Output<string?> StorageAccountName { get; private set; } = null!;
+
+        /// <summary>
+        /// System metadata for this account
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -124,16 +154,40 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// The kind of account, if supported
+        /// </summary>
+        [Input("kind")]
+        public Input<Inputs.SkuArgs>? Kind { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The plan associated with this account
+        /// </summary>
+        [Input("plan")]
+        public Input<Inputs.IdentityArgs>? Plan { get; set; }
+
+        /// <summary>
         /// Name of an Azure resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The sku associated with this account
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// The name of the storage account associated with this accountId
+        /// </summary>
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

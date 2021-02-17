@@ -20,8 +20,12 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,8 +37,12 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of an Mixed Reality Account.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity associated with this account
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] kind: The kind of account, if supported
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] plan: The plan associated with this account
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku associated with this account
+        :param pulumi.Input[str] storage_account_name: The name of the storage account associated with this accountId
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -58,14 +66,19 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['identity'] = identity
+            __props__['kind'] = kind
             __props__['location'] = location
+            __props__['plan'] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sku'] = sku
+            __props__['storage_account_name'] = storage_account_name
             __props__['tags'] = tags
             __props__['account_domain'] = None
             __props__['account_id'] = None
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:mixedreality:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-nextgen:mixedreality/latest:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-nextgen:mixedreality/v20190228preview:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-nextgen:mixedreality/v20191202preview:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-nextgen:mixedreality/v20210101:SpatialAnchorsAccount"), pulumi.Alias(type_="azure-nextgen:mixedreality/v20210301preview:SpatialAnchorsAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -119,6 +132,14 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+        """
+        The kind of account, if supported
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
@@ -132,6 +153,38 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+        """
+        The plan associated with this account
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+        """
+        The sku associated with this account
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the storage account associated with this accountId
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        System metadata for this account
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

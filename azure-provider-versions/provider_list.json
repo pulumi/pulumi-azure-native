@@ -49784,6 +49784,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01-preview",
           "2020-01-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
@@ -49802,6 +49803,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01-preview",
           "2020-01-01-preview"
         ],
         "capabilities": "None",
@@ -49826,6 +49828,7 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "East Asia",
           "North Europe",
           "West Central US",
           "East US 2"
@@ -49837,6 +49840,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01-preview",
           "2020-01-01-preview"
         ],
         "capabilities": "None",
@@ -49855,6 +49859,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01-preview",
           "2020-01-01-preview"
         ],
         "capabilities": "None",
@@ -50493,6 +50498,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview",
           "2021-01-01",
           "2020-05-01",
           "2020-04-06-preview",
@@ -50510,6 +50516,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview",
           "2021-01-01",
           "2020-05-01",
           "2020-04-06-preview",
@@ -50539,6 +50546,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview",
           "2021-01-01",
           "2020-05-01",
           "2020-04-06-preview",
@@ -50590,8 +50598,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East US",
           "East US 2",
+          "East US",
           "Southeast Asia",
           "West Europe",
           "West US 2",
@@ -55277,6 +55285,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "North Europe",
+          "West Europe",
           "East US",
           "East US 2",
           "West US",
@@ -55306,6 +55316,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "North Europe",
+          "West Europe",
           "East US",
           "East US 2",
           "West US",
@@ -55335,6 +55347,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "North Europe",
+          "West Europe",
           "East US",
           "East US 2",
           "West US",
@@ -55364,6 +55378,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "North Europe",
+          "West Europe",
           "East US",
           "East US 2",
           "West US",
@@ -55393,6 +55409,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "North Europe",
+          "West Europe",
           "East US",
           "East US 2",
           "West US",
@@ -55422,6 +55440,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "North Europe",
+          "West Europe",
           "East US",
           "East US 2",
           "West US",
@@ -55451,6 +55471,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "North Europe",
+          "West Europe",
           "East US",
           "East US 2",
           "West US",
@@ -55480,6 +55502,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "North Europe",
+          "West Europe",
           "East US",
           "East US 2",
           "West US",
@@ -55509,6 +55533,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "North Europe",
+          "West Europe",
           "East US",
           "East US 2",
           "West US",
@@ -55538,6 +55564,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "North Europe",
+          "West Europe",
           "East US",
           "East US 2",
           "West US",
@@ -55567,6 +55595,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "North Europe",
+          "West Europe",
           "East US",
           "East US 2",
           "West US",
@@ -64050,6 +64080,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-11-01-privatepreview",
+          "2020-09-01-preview",
           "2020-05-01",
           "2019-10-01-preview",
           "2018-11-01-preview",
@@ -65496,6 +65528,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-02-12-preview",
           "2021-01-21-preview",
           "2020-11-30-preview",
           "2020-09-23-preview",
@@ -67300,9 +67333,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-08-20-rc",
           "2020-08-20-preview",
-          "2020-08-20-beta"
+          "2020-08-20"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -67315,13 +67347,14 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-08-20-preview"
+          "2020-08-20-preview",
+          "2020-08-20"
         ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
+        "capabilities": "SupportsTags, SupportsLocation",
+        "defaultApiVersion": "2020-08-20-preview",
         "locationMappings": null,
         "locations": [
-          "Global"
+          "global"
         ],
         "properties": null,
         "resourceType": "CommunicationServices"
@@ -67330,13 +67363,14 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-08-20-preview"
+          "2020-08-20-preview",
+          "2020-08-20"
         ],
         "capabilities": "None",
-        "defaultApiVersion": null,
+        "defaultApiVersion": "2020-08-20-preview",
         "locationMappings": null,
         "locations": [
-          "Global"
+          "global"
         ],
         "properties": null,
         "resourceType": "CommunicationServices/eventGridFilters"
@@ -67345,9 +67379,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-08-20-rc",
           "2020-08-20-preview",
-          "2020-08-20-beta"
+          "2020-08-20"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -67360,7 +67393,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-08-20-preview"
+          "2020-08-20-preview",
+          "2020-08-20"
         ],
         "capabilities": "None",
         "defaultApiVersion": "2020-08-20-preview",
@@ -67373,35 +67407,33 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-08-20-rc",
           "2020-08-20-preview",
-          "2020-08-20-beta"
+          "2020-08-20"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "West US 2",
-          "North Europe",
-          "West US"
+          "West US 2"
         ],
         "properties": null,
-        "resourceType": "Locations/OperationStatuses"
+        "resourceType": "Locations/operationStatuses"
       },
       {
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-08-20-preview"
+          "2020-08-20-preview",
+          "2020-08-20"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "Global"
+          "global"
         ],
         "properties": null,
-        "resourceType": "checkNameAvailability"
+        "resourceType": "CheckNameAvailability"
       }
     ]
   },
@@ -67551,6 +67583,74 @@
         ],
         "properties": null,
         "resourceType": "CacheNodes"
+      }
+    ]
+  },
+  {
+    "authorizations": [],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ConnectedVMwarevSphere",
+    "namespace": "Microsoft.ConnectedVMwarevSphere",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-10-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "Locations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-10-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "East US 2 EUAP",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "Locations/OperationStatuses"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-10-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "Operations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-10-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "VCenters/InventoryItems"
       }
     ]
   },
@@ -72718,7 +72818,7 @@
         "apiVersions": [
           "2017-10-01-preview"
         ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "capabilities": "SupportsTags, SupportsLocation",
         "defaultApiVersion": "2017-10-01-preview",
         "locationMappings": null,
         "locations": [
@@ -75278,9 +75378,7 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [
-          "West US"
-        ],
+        "locations": [],
         "properties": null,
         "resourceType": "Locations"
       },
@@ -80396,66 +80494,6 @@
   {
     "authorizations": [
       {
-        "applicationId": "b8ed041c-aa91-418e-8f47-20c70abc2de1",
-        "roleDefinitionId": "c8d69fc0-f0ed-43b3-bf1d-4dfdaacc6d2d"
-      }
-    ],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.VnfManager",
-    "namespace": "Microsoft.VnfManager",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-01-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "Operations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-01-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "East US"
-        ],
-        "properties": null,
-        "resourceType": "locations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-01-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "East US",
-          "North Europe",
-          "East Asia",
-          "East US 2 EUAP"
-        ],
-        "properties": null,
-        "resourceType": "locations/operationstatuses"
-      }
-    ]
-  },
-  {
-    "authorizations": [
-      {
         "applicationId": "e6c69915-bcc7-4335-b655-c62f949d691b",
         "roleDefinitionId": "9bccffcd-2d3d-4b7c-a2cb-bb26e77b4810"
       }
@@ -81115,68 +81153,6 @@
         "apiProfiles": null,
         "apiVersions": [
           "2016-08-01"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "updateCommunicationPreference"
-      }
-    ]
-  },
-  {
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/stackify.retrace",
-    "namespace": "stackify.retrace",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-01-01"
-        ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US"
-        ],
-        "properties": null,
-        "resourceType": "services"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-01-01"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "operations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-01-01"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "listCommunicationPreference"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-01-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,

@@ -718,12 +718,18 @@ func (o DatadogLogsAgentResponsePtrOutput) Transport() pulumi.StringPtrOutput {
 
 // Datadog organization properties
 type DatadogOrganizationProperties struct {
+	// Api key associated to the Datadog organization.
+	ApiKey *string `pulumi:"apiKey"`
+	// Application key associated to the Datadog organization.
+	ApplicationKey *string `pulumi:"applicationKey"`
 	// The Id of the Enterprise App used for Single sign on.
 	EnterpriseAppId *string `pulumi:"enterpriseAppId"`
 	// The auth code used to linking to an existing datadog organization.
 	LinkingAuthCode *string `pulumi:"linkingAuthCode"`
 	// The client_id from an existing in exchange for an auth token to link organization.
 	LinkingClientId *string `pulumi:"linkingClientId"`
+	// The redirect uri for linking.
+	RedirectUri *string `pulumi:"redirectUri"`
 }
 
 // DatadogOrganizationPropertiesInput is an input type that accepts DatadogOrganizationPropertiesArgs and DatadogOrganizationPropertiesOutput values.
@@ -739,12 +745,18 @@ type DatadogOrganizationPropertiesInput interface {
 
 // Datadog organization properties
 type DatadogOrganizationPropertiesArgs struct {
+	// Api key associated to the Datadog organization.
+	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// Application key associated to the Datadog organization.
+	ApplicationKey pulumi.StringPtrInput `pulumi:"applicationKey"`
 	// The Id of the Enterprise App used for Single sign on.
 	EnterpriseAppId pulumi.StringPtrInput `pulumi:"enterpriseAppId"`
 	// The auth code used to linking to an existing datadog organization.
 	LinkingAuthCode pulumi.StringPtrInput `pulumi:"linkingAuthCode"`
 	// The client_id from an existing in exchange for an auth token to link organization.
 	LinkingClientId pulumi.StringPtrInput `pulumi:"linkingClientId"`
+	// The redirect uri for linking.
+	RedirectUri pulumi.StringPtrInput `pulumi:"redirectUri"`
 }
 
 func (DatadogOrganizationPropertiesArgs) ElementType() reflect.Type {
@@ -825,6 +837,16 @@ func (o DatadogOrganizationPropertiesOutput) ToDatadogOrganizationPropertiesPtrO
 	}).(DatadogOrganizationPropertiesPtrOutput)
 }
 
+// Api key associated to the Datadog organization.
+func (o DatadogOrganizationPropertiesOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogOrganizationProperties) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
+}
+
+// Application key associated to the Datadog organization.
+func (o DatadogOrganizationPropertiesOutput) ApplicationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogOrganizationProperties) *string { return v.ApplicationKey }).(pulumi.StringPtrOutput)
+}
+
 // The Id of the Enterprise App used for Single sign on.
 func (o DatadogOrganizationPropertiesOutput) EnterpriseAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogOrganizationProperties) *string { return v.EnterpriseAppId }).(pulumi.StringPtrOutput)
@@ -838,6 +860,11 @@ func (o DatadogOrganizationPropertiesOutput) LinkingAuthCode() pulumi.StringPtrO
 // The client_id from an existing in exchange for an auth token to link organization.
 func (o DatadogOrganizationPropertiesOutput) LinkingClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogOrganizationProperties) *string { return v.LinkingClientId }).(pulumi.StringPtrOutput)
+}
+
+// The redirect uri for linking.
+func (o DatadogOrganizationPropertiesOutput) RedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogOrganizationProperties) *string { return v.RedirectUri }).(pulumi.StringPtrOutput)
 }
 
 type DatadogOrganizationPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -856,6 +883,26 @@ func (o DatadogOrganizationPropertiesPtrOutput) ToDatadogOrganizationPropertiesP
 
 func (o DatadogOrganizationPropertiesPtrOutput) Elem() DatadogOrganizationPropertiesOutput {
 	return o.ApplyT(func(v *DatadogOrganizationProperties) DatadogOrganizationProperties { return *v }).(DatadogOrganizationPropertiesOutput)
+}
+
+// Api key associated to the Datadog organization.
+func (o DatadogOrganizationPropertiesPtrOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogOrganizationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application key associated to the Datadog organization.
+func (o DatadogOrganizationPropertiesPtrOutput) ApplicationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogOrganizationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Id of the Enterprise App used for Single sign on.
@@ -888,8 +935,22 @@ func (o DatadogOrganizationPropertiesPtrOutput) LinkingClientId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The redirect uri for linking.
+func (o DatadogOrganizationPropertiesPtrOutput) RedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogOrganizationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RedirectUri
+	}).(pulumi.StringPtrOutput)
+}
+
 // Datadog organization properties
 type DatadogOrganizationPropertiesResponse struct {
+	// Api key associated to the Datadog organization.
+	ApiKey *string `pulumi:"apiKey"`
+	// Application key associated to the Datadog organization.
+	ApplicationKey *string `pulumi:"applicationKey"`
 	// The Id of the Enterprise App used for Single sign on.
 	EnterpriseAppId *string `pulumi:"enterpriseAppId"`
 	// Id of the Datadog organization.
@@ -900,6 +961,8 @@ type DatadogOrganizationPropertiesResponse struct {
 	LinkingClientId *string `pulumi:"linkingClientId"`
 	// Name of the Datadog organization.
 	Name string `pulumi:"name"`
+	// The redirect uri for linking.
+	RedirectUri *string `pulumi:"redirectUri"`
 }
 
 // DatadogOrganizationPropertiesResponseInput is an input type that accepts DatadogOrganizationPropertiesResponseArgs and DatadogOrganizationPropertiesResponseOutput values.
@@ -915,6 +978,10 @@ type DatadogOrganizationPropertiesResponseInput interface {
 
 // Datadog organization properties
 type DatadogOrganizationPropertiesResponseArgs struct {
+	// Api key associated to the Datadog organization.
+	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// Application key associated to the Datadog organization.
+	ApplicationKey pulumi.StringPtrInput `pulumi:"applicationKey"`
 	// The Id of the Enterprise App used for Single sign on.
 	EnterpriseAppId pulumi.StringPtrInput `pulumi:"enterpriseAppId"`
 	// Id of the Datadog organization.
@@ -925,6 +992,8 @@ type DatadogOrganizationPropertiesResponseArgs struct {
 	LinkingClientId pulumi.StringPtrInput `pulumi:"linkingClientId"`
 	// Name of the Datadog organization.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The redirect uri for linking.
+	RedirectUri pulumi.StringPtrInput `pulumi:"redirectUri"`
 }
 
 func (DatadogOrganizationPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1005,6 +1074,16 @@ func (o DatadogOrganizationPropertiesResponseOutput) ToDatadogOrganizationProper
 	}).(DatadogOrganizationPropertiesResponsePtrOutput)
 }
 
+// Api key associated to the Datadog organization.
+func (o DatadogOrganizationPropertiesResponseOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
+}
+
+// Application key associated to the Datadog organization.
+func (o DatadogOrganizationPropertiesResponseOutput) ApplicationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) *string { return v.ApplicationKey }).(pulumi.StringPtrOutput)
+}
+
 // The Id of the Enterprise App used for Single sign on.
 func (o DatadogOrganizationPropertiesResponseOutput) EnterpriseAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) *string { return v.EnterpriseAppId }).(pulumi.StringPtrOutput)
@@ -1030,6 +1109,11 @@ func (o DatadogOrganizationPropertiesResponseOutput) Name() pulumi.StringOutput 
 	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The redirect uri for linking.
+func (o DatadogOrganizationPropertiesResponseOutput) RedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) *string { return v.RedirectUri }).(pulumi.StringPtrOutput)
+}
+
 type DatadogOrganizationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (DatadogOrganizationPropertiesResponsePtrOutput) ElementType() reflect.Type {
@@ -1046,6 +1130,26 @@ func (o DatadogOrganizationPropertiesResponsePtrOutput) ToDatadogOrganizationPro
 
 func (o DatadogOrganizationPropertiesResponsePtrOutput) Elem() DatadogOrganizationPropertiesResponseOutput {
 	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) DatadogOrganizationPropertiesResponse { return *v }).(DatadogOrganizationPropertiesResponseOutput)
+}
+
+// Api key associated to the Datadog organization.
+func (o DatadogOrganizationPropertiesResponsePtrOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application key associated to the Datadog organization.
+func (o DatadogOrganizationPropertiesResponsePtrOutput) ApplicationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Id of the Enterprise App used for Single sign on.
@@ -1095,6 +1199,16 @@ func (o DatadogOrganizationPropertiesResponsePtrOutput) Name() pulumi.StringPtrO
 			return nil
 		}
 		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The redirect uri for linking.
+func (o DatadogOrganizationPropertiesResponsePtrOutput) RedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RedirectUri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1502,7 +1616,9 @@ func (o LinkedResourceResponseArrayOutput) Index(i pulumi.IntInput) LinkedResour
 type MonitorProperties struct {
 	// Datadog organization properties
 	DatadogOrganizationProperties *DatadogOrganizationProperties `pulumi:"datadogOrganizationProperties"`
-	ProvisioningState             *string                        `pulumi:"provisioningState"`
+	// Flag specifying if the resource monitoring is enabled or disabled.
+	MonitoringStatus  *string `pulumi:"monitoringStatus"`
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// User info
 	UserInfo *UserInfo `pulumi:"userInfo"`
 }
@@ -1522,7 +1638,9 @@ type MonitorPropertiesInput interface {
 type MonitorPropertiesArgs struct {
 	// Datadog organization properties
 	DatadogOrganizationProperties DatadogOrganizationPropertiesPtrInput `pulumi:"datadogOrganizationProperties"`
-	ProvisioningState             pulumi.StringPtrInput                 `pulumi:"provisioningState"`
+	// Flag specifying if the resource monitoring is enabled or disabled.
+	MonitoringStatus  pulumi.StringPtrInput `pulumi:"monitoringStatus"`
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// User info
 	UserInfo UserInfoPtrInput `pulumi:"userInfo"`
 }
@@ -1610,6 +1728,11 @@ func (o MonitorPropertiesOutput) DatadogOrganizationProperties() DatadogOrganiza
 	return o.ApplyT(func(v MonitorProperties) *DatadogOrganizationProperties { return v.DatadogOrganizationProperties }).(DatadogOrganizationPropertiesPtrOutput)
 }
 
+// Flag specifying if the resource monitoring is enabled or disabled.
+func (o MonitorPropertiesOutput) MonitoringStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorProperties) *string { return v.MonitoringStatus }).(pulumi.StringPtrOutput)
+}
+
 func (o MonitorPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -1647,6 +1770,16 @@ func (o MonitorPropertiesPtrOutput) DatadogOrganizationProperties() DatadogOrgan
 	}).(DatadogOrganizationPropertiesPtrOutput)
 }
 
+// Flag specifying if the resource monitoring is enabled or disabled.
+func (o MonitorPropertiesPtrOutput) MonitoringStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitorProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringStatus
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o MonitorPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorProperties) *string {
 		if v == nil {
@@ -1676,7 +1809,7 @@ type MonitorPropertiesResponse struct {
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
 	MarketplaceSubscriptionStatus string `pulumi:"marketplaceSubscriptionStatus"`
 	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  string  `pulumi:"monitoringStatus"`
+	MonitoringStatus  *string `pulumi:"monitoringStatus"`
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// User info
 	UserInfo *UserInfoResponse `pulumi:"userInfo"`
@@ -1703,7 +1836,7 @@ type MonitorPropertiesResponseArgs struct {
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
 	MarketplaceSubscriptionStatus pulumi.StringInput `pulumi:"marketplaceSubscriptionStatus"`
 	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  pulumi.StringInput    `pulumi:"monitoringStatus"`
+	MonitoringStatus  pulumi.StringPtrInput `pulumi:"monitoringStatus"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// User info
 	UserInfo UserInfoResponsePtrInput `pulumi:"userInfo"`
@@ -1809,8 +1942,8 @@ func (o MonitorPropertiesResponseOutput) MarketplaceSubscriptionStatus() pulumi.
 }
 
 // Flag specifying if the resource monitoring is enabled or disabled.
-func (o MonitorPropertiesResponseOutput) MonitoringStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v MonitorPropertiesResponse) string { return v.MonitoringStatus }).(pulumi.StringOutput)
+func (o MonitorPropertiesResponseOutput) MonitoringStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorPropertiesResponse) *string { return v.MonitoringStatus }).(pulumi.StringPtrOutput)
 }
 
 func (o MonitorPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
@@ -1885,7 +2018,7 @@ func (o MonitorPropertiesResponsePtrOutput) MonitoringStatus() pulumi.StringPtrO
 		if v == nil {
 			return nil
 		}
-		return &v.MonitoringStatus
+		return v.MonitoringStatus
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -78,7 +78,7 @@ export class AutomationAccount extends pulumi.CustomResource {
     /**
      * Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
      */
-    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<boolean | undefined>;
+    public readonly publicNetworkAccess!: pulumi.Output<boolean | undefined>;
     /**
      * Gets or sets the SKU of account.
      */
@@ -117,6 +117,7 @@ export class AutomationAccount extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -126,7 +127,6 @@ export class AutomationAccount extends pulumi.CustomResource {
             inputs["lastModifiedBy"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -183,6 +183,10 @@ export interface AutomationAccountArgs {
      * Gets or sets name of the resource.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+     */
+    readonly publicNetworkAccess?: pulumi.Input<boolean>;
     /**
      * Name of an Azure Resource group.
      */

@@ -29,7 +29,7 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Outputs
         /// <summary>
         /// Flag specifying if the resource monitoring is enabled or disabled.
         /// </summary>
-        public readonly string MonitoringStatus;
+        public readonly string? MonitoringStatus;
         public readonly string? ProvisioningState;
         /// <summary>
         /// User info
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Outputs
 
             string marketplaceSubscriptionStatus,
 
-            string monitoringStatus,
+            string? monitoringStatus,
 
             string? provisioningState,
 

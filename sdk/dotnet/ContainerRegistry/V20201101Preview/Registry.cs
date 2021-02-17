@@ -22,6 +22,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         public Output<bool?> AdminUserEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Enables registry-wide pull from unauthenticated clients.
+        /// </summary>
+        [Output("anonymousPullEnabled")]
+        public Output<bool?> AnonymousPullEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The creation date of the container registry in ISO8601 format.
         /// </summary>
         [Output("creationDate")]
@@ -118,12 +124,6 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         public Output<Outputs.StatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-        /// </summary>
-        [Output("storageAccount")]
-        public Output<Outputs.StorageAccountPropertiesResponse?> StorageAccount { get; private set; } = null!;
-
-        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
@@ -210,6 +210,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         public Input<bool>? AdminUserEnabled { get; set; }
 
         /// <summary>
+        /// Enables registry-wide pull from unauthenticated clients.
+        /// </summary>
+        [Input("anonymousPullEnabled")]
+        public Input<bool>? AnonymousPullEnabled { get; set; }
+
+        /// <summary>
         /// Enable a single data endpoint per region for serving data.
         /// </summary>
         [Input("dataEndpointEnabled")]
@@ -274,12 +280,6 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-        /// </summary>
-        [Input("storageAccount")]
-        public Input<Inputs.StorageAccountPropertiesArgs>? StorageAccount { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

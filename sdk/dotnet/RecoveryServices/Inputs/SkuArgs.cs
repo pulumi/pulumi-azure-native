@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         [Input("name", required: true)]
         public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.SkuName> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Sku tier.
+        /// </summary>
+        [Input("tier")]
+        public Input<string>? Tier { get; set; }
+
         public SkuArgs()
         {
         }

@@ -18,7 +18,7 @@ class Vault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 e_tag: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityDataArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['VaultPropertiesArgs']]] = None,
@@ -31,11 +31,11 @@ class Vault(pulumi.CustomResource):
                  __opts__=None):
         """
         Resource information, as returned by the resource provider.
-        API Version: 2020-02-02.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] e_tag: Optional ETag.
+        :param pulumi.Input[str] etag: Optional ETag.
         :param pulumi.Input[pulumi.InputType['IdentityDataArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['VaultPropertiesArgs']] properties: Properties of the vault.
@@ -61,7 +61,7 @@ class Vault(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['e_tag'] = e_tag
+            __props__['etag'] = etag
             __props__['identity'] = identity
             __props__['location'] = location
             __props__['properties'] = properties
@@ -74,8 +74,9 @@ class Vault(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160601:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20200202:Vault")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160601:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20200202:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201001:Vault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Vault, __self__).__init__(
             'azure-nextgen:recoveryservices:Vault',
@@ -102,12 +103,12 @@ class Vault(pulumi.CustomResource):
         return Vault(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="eTag")
-    def e_tag(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Optional ETag.
         """
-        return pulumi.get(self, "e_tag")
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -148,6 +149,14 @@ class Vault(pulumi.CustomResource):
         Identifies the unique system identifier for each Azure resource.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

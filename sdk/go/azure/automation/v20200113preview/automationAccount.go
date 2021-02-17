@@ -177,6 +177,8 @@ type automationAccountArgs struct {
 	Location *string `pulumi:"location"`
 	// Gets or sets name of the resource.
 	Name *string `pulumi:"name"`
+	// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+	PublicNetworkAccess *bool `pulumi:"publicNetworkAccess"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets account SKU.
@@ -197,6 +199,8 @@ type AutomationAccountArgs struct {
 	Location pulumi.StringPtrInput
 	// Gets or sets name of the resource.
 	Name pulumi.StringPtrInput
+	// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+	PublicNetworkAccess pulumi.BoolPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets account SKU.

@@ -49,8 +49,6 @@ type Registry struct {
 	Sku SkuResponseOutput `pulumi:"sku"`
 	// The status of the container registry at the time the operation was called.
 	Status StatusResponseOutput `pulumi:"status"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount StorageAccountPropertiesResponsePtrOutput `pulumi:"storageAccount"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tags of the resource.
@@ -167,8 +165,6 @@ type registryState struct {
 	Sku *SkuResponse `pulumi:"sku"`
 	// The status of the container registry at the time the operation was called.
 	Status *StatusResponse `pulumi:"status"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.
@@ -212,8 +208,6 @@ type RegistryState struct {
 	Sku SkuResponsePtrInput
 	// The status of the container registry at the time the operation was called.
 	Status StatusResponsePtrInput
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount StorageAccountPropertiesResponsePtrInput
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponsePtrInput
 	// The tags of the resource.
@@ -251,8 +245,6 @@ type registryArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the container registry.
 	Sku Sku `pulumi:"sku"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount *StorageAccountProperties `pulumi:"storageAccount"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -283,8 +275,6 @@ type RegistryArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the container registry.
 	Sku SkuInput
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount StorageAccountPropertiesPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 }

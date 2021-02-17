@@ -14,6 +14,14 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Outputs
     public sealed class DatadogOrganizationPropertiesResponse
     {
         /// <summary>
+        /// Api key associated to the Datadog organization.
+        /// </summary>
+        public readonly string? ApiKey;
+        /// <summary>
+        /// Application key associated to the Datadog organization.
+        /// </summary>
+        public readonly string? ApplicationKey;
+        /// <summary>
         /// The Id of the Enterprise App used for Single sign on.
         /// </summary>
         public readonly string? EnterpriseAppId;
@@ -33,9 +41,17 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Outputs
         /// Name of the Datadog organization.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The redirect uri for linking.
+        /// </summary>
+        public readonly string? RedirectUri;
 
         [OutputConstructor]
         private DatadogOrganizationPropertiesResponse(
+            string? apiKey,
+
+            string? applicationKey,
+
             string? enterpriseAppId,
 
             string id,
@@ -44,13 +60,18 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Outputs
 
             string? linkingClientId,
 
-            string name)
+            string name,
+
+            string? redirectUri)
         {
+            ApiKey = apiKey;
+            ApplicationKey = applicationKey;
             EnterpriseAppId = enterpriseAppId;
             Id = id;
             LinkingAuthCode = linkingAuthCode;
             LinkingClientId = linkingClientId;
             Name = name;
+            RedirectUri = redirectUri;
         }
     }
 }

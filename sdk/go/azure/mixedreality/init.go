@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-nextgen:mixedreality:ObjectAnchorsAccount":
+		r, err = NewObjectAnchorsAccount(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:mixedreality:RemoteRenderingAccount":
 		r, err = NewRemoteRenderingAccount(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:mixedreality:SpatialAnchorsAccount":
