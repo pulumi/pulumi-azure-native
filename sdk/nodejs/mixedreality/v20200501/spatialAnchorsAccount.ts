@@ -48,6 +48,10 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.mixedreality.v20200501.IdentityResponse | undefined>;
     /**
+     * The kind of account, if supported
+     */
+    public readonly kind!: pulumi.Output<outputs.mixedreality.v20200501.SkuResponse | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -55,6 +59,22 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The plan associated with this account
+     */
+    public readonly plan!: pulumi.Output<outputs.mixedreality.v20200501.IdentityResponse | undefined>;
+    /**
+     * The sku associated with this account
+     */
+    public readonly sku!: pulumi.Output<outputs.mixedreality.v20200501.SkuResponse | undefined>;
+    /**
+     * The name of the storage account associated with this accountId
+     */
+    public readonly storageAccountName!: pulumi.Output<string | undefined>;
+    /**
+     * System metadata for this account
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.mixedreality.v20200501.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -82,19 +102,29 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["plan"] = args ? args.plan : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
+            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["accountDomain"] = undefined /*out*/;
             inputs["accountId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["accountDomain"] = undefined /*out*/;
             inputs["accountId"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["plan"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["storageAccountName"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -124,13 +154,29 @@ export interface SpatialAnchorsAccountArgs {
      */
     readonly identity?: pulumi.Input<inputs.mixedreality.v20200501.Identity>;
     /**
+     * The kind of account, if supported
+     */
+    readonly kind?: pulumi.Input<inputs.mixedreality.v20200501.Sku>;
+    /**
      * The geo-location where the resource lives
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The plan associated with this account
+     */
+    readonly plan?: pulumi.Input<inputs.mixedreality.v20200501.Identity>;
+    /**
      * Name of an Azure resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The sku associated with this account
+     */
+    readonly sku?: pulumi.Input<inputs.mixedreality.v20200501.Sku>;
+    /**
+     * The name of the storage account associated with this accountId
+     */
+    readonly storageAccountName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

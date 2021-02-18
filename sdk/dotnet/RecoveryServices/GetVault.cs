@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// <summary>
         /// Optional ETag.
         /// </summary>
-        public readonly string? ETag;
+        public readonly string? Etag;
         /// <summary>
         /// Resource Id represents the complete path to the resource.
         /// </summary>
@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -78,7 +82,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices
 
         [OutputConstructor]
         private GetVaultResult(
-            string? eTag,
+            string? etag,
 
             string id,
 
@@ -92,17 +96,20 @@ namespace Pulumi.AzureNextGen.RecoveryServices
 
             Outputs.SkuResponse? sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            ETag = eTag;
+            Etag = etag;
             Id = id;
             Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

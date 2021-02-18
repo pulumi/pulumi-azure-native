@@ -17,6 +17,8 @@ type Registry struct {
 
 	// The value that indicates whether the admin user is enabled.
 	AdminUserEnabled pulumi.BoolPtrOutput `pulumi:"adminUserEnabled"`
+	// Enables registry-wide pull from unauthenticated clients.
+	AnonymousPullEnabled pulumi.BoolPtrOutput `pulumi:"anonymousPullEnabled"`
 	// The creation date of the container registry in ISO8601 format.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Enable a single data endpoint per region for serving data.
@@ -49,8 +51,6 @@ type Registry struct {
 	Sku SkuResponseOutput `pulumi:"sku"`
 	// The status of the container registry at the time the operation was called.
 	Status StatusResponseOutput `pulumi:"status"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount StorageAccountPropertiesResponsePtrOutput `pulumi:"storageAccount"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tags of the resource.
@@ -140,6 +140,8 @@ func GetRegistry(ctx *pulumi.Context,
 type registryState struct {
 	// The value that indicates whether the admin user is enabled.
 	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
+	// Enables registry-wide pull from unauthenticated clients.
+	AnonymousPullEnabled *bool `pulumi:"anonymousPullEnabled"`
 	// The creation date of the container registry in ISO8601 format.
 	CreationDate *string `pulumi:"creationDate"`
 	// Enable a single data endpoint per region for serving data.
@@ -172,8 +174,6 @@ type registryState struct {
 	Sku *SkuResponse `pulumi:"sku"`
 	// The status of the container registry at the time the operation was called.
 	Status *StatusResponse `pulumi:"status"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.
@@ -187,6 +187,8 @@ type registryState struct {
 type RegistryState struct {
 	// The value that indicates whether the admin user is enabled.
 	AdminUserEnabled pulumi.BoolPtrInput
+	// Enables registry-wide pull from unauthenticated clients.
+	AnonymousPullEnabled pulumi.BoolPtrInput
 	// The creation date of the container registry in ISO8601 format.
 	CreationDate pulumi.StringPtrInput
 	// Enable a single data endpoint per region for serving data.
@@ -219,8 +221,6 @@ type RegistryState struct {
 	Sku SkuResponsePtrInput
 	// The status of the container registry at the time the operation was called.
 	Status StatusResponsePtrInput
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount StorageAccountPropertiesResponsePtrInput
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponsePtrInput
 	// The tags of the resource.
@@ -238,6 +238,8 @@ func (RegistryState) ElementType() reflect.Type {
 type registryArgs struct {
 	// The value that indicates whether the admin user is enabled.
 	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
+	// Enables registry-wide pull from unauthenticated clients.
+	AnonymousPullEnabled *bool `pulumi:"anonymousPullEnabled"`
 	// Enable a single data endpoint per region for serving data.
 	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
 	// The encryption settings of container registry.
@@ -260,8 +262,6 @@ type registryArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the container registry.
 	Sku Sku `pulumi:"sku"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount *StorageAccountProperties `pulumi:"storageAccount"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not zone redundancy is enabled for this container registry
@@ -272,6 +272,8 @@ type registryArgs struct {
 type RegistryArgs struct {
 	// The value that indicates whether the admin user is enabled.
 	AdminUserEnabled pulumi.BoolPtrInput
+	// Enables registry-wide pull from unauthenticated clients.
+	AnonymousPullEnabled pulumi.BoolPtrInput
 	// Enable a single data endpoint per region for serving data.
 	DataEndpointEnabled pulumi.BoolPtrInput
 	// The encryption settings of container registry.
@@ -294,8 +296,6 @@ type RegistryArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the container registry.
 	Sku SkuInput
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount StorageAccountPropertiesPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// Whether or not zone redundancy is enabled for this container registry

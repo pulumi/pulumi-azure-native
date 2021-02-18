@@ -37,7 +37,7 @@ export interface GetVaultResult {
     /**
      * Optional ETag.
      */
-    readonly eTag?: string;
+    readonly etag?: string;
     /**
      * Resource Id represents the complete path to the resource.
      */
@@ -62,6 +62,10 @@ export interface GetVaultResult {
      * Identifies the unique system identifier for each Azure resource.
      */
     readonly sku?: outputs.recoveryservices.latest.SkuResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.recoveryservices.latest.SystemDataResponse;
     /**
      * Resource tags.
      */

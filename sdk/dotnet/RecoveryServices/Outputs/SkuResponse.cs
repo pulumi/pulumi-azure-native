@@ -17,11 +17,19 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Outputs
         /// The Sku name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Sku tier.
+        /// </summary>
+        public readonly string? Tier;
 
         [OutputConstructor]
-        private SkuResponse(string name)
+        private SkuResponse(
+            string name,
+
+            string? tier)
         {
             Name = name;
+            Tier = tier;
         }
     }
 }

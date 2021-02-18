@@ -104,10 +104,6 @@ export class Registry extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<outputs.containerregistry.v20191201preview.StatusResponse>;
     /**
-     * The properties of the storage account for the container registry. Only applicable to Classic SKU.
-     */
-    public readonly storageAccount!: pulumi.Output<outputs.containerregistry.v20191201preview.StorageAccountPropertiesResponse | undefined>;
-    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.v20191201preview.SystemDataResponse>;
@@ -151,7 +147,6 @@ export class Registry extends pulumi.CustomResource {
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
-            inputs["storageAccount"] = args ? args.storageAccount : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["creationDate"] = undefined /*out*/;
             inputs["dataEndpointHostNames"] = undefined /*out*/;
@@ -180,7 +175,6 @@ export class Registry extends pulumi.CustomResource {
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["storageAccount"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -250,10 +244,6 @@ export interface RegistryArgs {
      * The SKU of the container registry.
      */
     readonly sku: pulumi.Input<inputs.containerregistry.v20191201preview.Sku>;
-    /**
-     * The properties of the storage account for the container registry. Only applicable to Classic SKU.
-     */
-    readonly storageAccount?: pulumi.Input<inputs.containerregistry.v20191201preview.StorageAccountProperties>;
     /**
      * The tags of the resource.
      */

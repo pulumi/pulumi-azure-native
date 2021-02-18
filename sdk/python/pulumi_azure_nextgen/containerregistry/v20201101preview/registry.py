@@ -19,6 +19,7 @@ class Registry(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_user_enabled: Optional[pulumi.Input[bool]] = None,
+                 anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
@@ -30,7 +31,6 @@ class Registry(pulumi.CustomResource):
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundancy: Optional[pulumi.Input[Union[str, 'ZoneRedundancy']]] = None,
                  __props__=None,
@@ -42,6 +42,7 @@ class Registry(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] admin_user_enabled: The value that indicates whether the admin user is enabled.
+        :param pulumi.Input[bool] anonymous_pull_enabled: Enables registry-wide pull from unauthenticated clients.
         :param pulumi.Input[bool] data_endpoint_enabled: Enable a single data endpoint per region for serving data.
         :param pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']] encryption: The encryption settings of container registry.
         :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: The identity of the container registry.
@@ -53,7 +54,6 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the container registry.
-        :param pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']] storage_account: The properties of the storage account for the container registry. Only applicable to Classic SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[Union[str, 'ZoneRedundancy']] zone_redundancy: Whether or not zone redundancy is enabled for this container registry
         """
@@ -77,6 +77,7 @@ class Registry(pulumi.CustomResource):
             if admin_user_enabled is None:
                 admin_user_enabled = False
             __props__['admin_user_enabled'] = admin_user_enabled
+            __props__['anonymous_pull_enabled'] = anonymous_pull_enabled
             __props__['data_endpoint_enabled'] = data_endpoint_enabled
             __props__['encryption'] = encryption
             __props__['identity'] = identity
@@ -98,7 +99,6 @@ class Registry(pulumi.CustomResource):
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
-            __props__['storage_account'] = storage_account
             __props__['tags'] = tags
             if zone_redundancy is None:
                 zone_redundancy = 'Disabled'
@@ -145,6 +145,14 @@ class Registry(pulumi.CustomResource):
         The value that indicates whether the admin user is enabled.
         """
         return pulumi.get(self, "admin_user_enabled")
+
+    @property
+    @pulumi.getter(name="anonymousPullEnabled")
+    def anonymous_pull_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables registry-wide pull from unauthenticated clients.
+        """
+        return pulumi.get(self, "anonymous_pull_enabled")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -273,14 +281,6 @@ class Registry(pulumi.CustomResource):
         The status of the container registry at the time the operation was called.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> pulumi.Output[Optional['outputs.StorageAccountPropertiesResponse']]:
-        """
-        The properties of the storage account for the container registry. Only applicable to Classic SKU.
-        """
-        return pulumi.get(self, "storage_account")
 
     @property
     @pulumi.getter(name="systemData")

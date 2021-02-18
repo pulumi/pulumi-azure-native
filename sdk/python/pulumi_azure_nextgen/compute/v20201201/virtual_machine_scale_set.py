@@ -25,7 +25,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  host_group: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 orchestration_mode: Optional[pulumi.Input['OrchestrationMode']] = None,
+                 orchestration_mode: Optional[pulumi.Input[Union[str, 'OrchestrationMode']]] = None,
                  overprovision: Optional[pulumi.Input[bool]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
@@ -55,7 +55,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] host_group: Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
         :param pulumi.Input[pulumi.InputType['VirtualMachineScaleSetIdentityArgs']] identity: The identity of the virtual machine scale set, if configured.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input['OrchestrationMode'] orchestration_mode: Specifies the orchestration mode for the virtual machine scale set.
+        :param pulumi.Input[Union[str, 'OrchestrationMode']] orchestration_mode: Specifies the orchestration mode for the virtual machine scale set.
         :param pulumi.Input[bool] overprovision: Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         :param pulumi.Input[int] platform_fault_domain_count: Fault Domain count for each placement group.

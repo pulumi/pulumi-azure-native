@@ -9,10 +9,12 @@ export * from "./getPrivateEndpointConnection";
 export * from "./getProtectedItem";
 export * from "./getProtectionContainer";
 export * from "./getProtectionPolicy";
+export * from "./getVault";
 export * from "./privateEndpointConnection";
 export * from "./protectedItem";
 export * from "./protectionContainer";
 export * from "./protectionPolicy";
+export * from "./vault";
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20201001";
@@ -22,6 +24,7 @@ import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { ProtectedItem } from "./protectedItem";
 import { ProtectionContainer } from "./protectionContainer";
 import { ProtectionPolicy } from "./protectionPolicy";
+import { Vault } from "./vault";
 
 const _module = {
     version: utilities.getVersion(),
@@ -35,6 +38,8 @@ const _module = {
                 return new ProtectionContainer(name, <any>undefined, { urn })
             case "azure-nextgen:recoveryservices/v20201001:ProtectionPolicy":
                 return new ProtectionPolicy(name, <any>undefined, { urn })
+            case "azure-nextgen:recoveryservices/v20201001:Vault":
+                return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

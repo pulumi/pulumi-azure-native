@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// </summary>
         public readonly bool? AdminUserEnabled;
         /// <summary>
+        /// Enables registry-wide pull from unauthenticated clients.
+        /// </summary>
+        public readonly bool? AnonymousPullEnabled;
+        /// <summary>
         /// The creation date of the container registry in ISO8601 format.
         /// </summary>
         public readonly string CreationDate;
@@ -112,10 +116,6 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// </summary>
         public readonly Outputs.StatusResponse Status;
         /// <summary>
-        /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-        /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponse? StorageAccount;
-        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -135,6 +135,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         [OutputConstructor]
         private GetRegistryResult(
             bool? adminUserEnabled,
+
+            bool? anonymousPullEnabled,
 
             string creationDate,
 
@@ -170,8 +172,6 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             Outputs.StatusResponse status,
 
-            Outputs.StorageAccountPropertiesResponse? storageAccount,
-
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -181,6 +181,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
             string? zoneRedundancy)
         {
             AdminUserEnabled = adminUserEnabled;
+            AnonymousPullEnabled = anonymousPullEnabled;
             CreationDate = creationDate;
             DataEndpointEnabled = dataEndpointEnabled;
             DataEndpointHostNames = dataEndpointHostNames;
@@ -198,7 +199,6 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
             PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             Status = status;
-            StorageAccount = storageAccount;
             SystemData = systemData;
             Tags = tags;
             Type = type;

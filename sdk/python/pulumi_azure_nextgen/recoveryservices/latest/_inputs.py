@@ -13526,12 +13526,16 @@ class SimpleSchedulePolicyArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[Union[str, 'SkuName']]):
+                 name: pulumi.Input[Union[str, 'SkuName']],
+                 tier: Optional[pulumi.Input[str]] = None):
         """
         Identifies the unique system identifier for each Azure resource.
         :param pulumi.Input[Union[str, 'SkuName']] name: The Sku name.
+        :param pulumi.Input[str] tier: The Sku tier.
         """
         pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -13544,6 +13548,18 @@ class SkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Sku tier.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type

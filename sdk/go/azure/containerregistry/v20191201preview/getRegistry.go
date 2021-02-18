@@ -61,8 +61,6 @@ type LookupRegistryResult struct {
 	Sku SkuResponse `pulumi:"sku"`
 	// The status of the container registry at the time the operation was called.
 	Status StatusResponse `pulumi:"status"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tags of the resource.

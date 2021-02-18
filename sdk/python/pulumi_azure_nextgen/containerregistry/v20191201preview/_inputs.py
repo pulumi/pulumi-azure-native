@@ -28,7 +28,6 @@ __all__ = [
     'QuarantinePolicyArgs',
     'RetentionPolicyArgs',
     'SkuArgs',
-    'StorageAccountPropertiesArgs',
     'TrustPolicyArgs',
     'UserIdentityPropertiesArgs',
     'VirtualNetworkRuleArgs',
@@ -858,29 +857,6 @@ class SkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class StorageAccountPropertiesArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        The properties of a storage account for a container registry. Only applicable to Classic SKU.
-        :param pulumi.Input[str] id: The resource ID of the storage account.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        The resource ID of the storage account.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
     /// <summary>
     /// Resource information, as returned by the resource provider.
-    /// Latest API Version: 2020-02-02.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:Vault'.")]
     [AzureNextGenResourceType("azure-nextgen:recoveryservices/latest:Vault")]
@@ -20,8 +20,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <summary>
         /// Optional ETag.
         /// </summary>
-        [Output("eTag")]
-        public Output<string?> ETag { get; private set; } = null!;
+        [Output("etag")]
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Identity for the resource.
@@ -52,6 +52,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160601:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20200202:Vault"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201001:Vault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,8 +126,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <summary>
         /// Optional ETag.
         /// </summary>
-        [Input("eTag")]
-        public Input<string>? ETag { get; set; }
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
 
         /// <summary>
         /// Identity for the resource.

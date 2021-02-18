@@ -316,6 +316,306 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ObjectAnchorsAccountIdentity struct {
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// ObjectAnchorsAccountIdentityInput is an input type that accepts ObjectAnchorsAccountIdentityArgs and ObjectAnchorsAccountIdentityOutput values.
+// You can construct a concrete instance of `ObjectAnchorsAccountIdentityInput` via:
+//
+//          ObjectAnchorsAccountIdentityArgs{...}
+type ObjectAnchorsAccountIdentityInput interface {
+	pulumi.Input
+
+	ToObjectAnchorsAccountIdentityOutput() ObjectAnchorsAccountIdentityOutput
+	ToObjectAnchorsAccountIdentityOutputWithContext(context.Context) ObjectAnchorsAccountIdentityOutput
+}
+
+type ObjectAnchorsAccountIdentityArgs struct {
+	// The identity type.
+	Type *ResourceIdentityType `pulumi:"type"`
+}
+
+func (ObjectAnchorsAccountIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectAnchorsAccountIdentity)(nil)).Elem()
+}
+
+func (i ObjectAnchorsAccountIdentityArgs) ToObjectAnchorsAccountIdentityOutput() ObjectAnchorsAccountIdentityOutput {
+	return i.ToObjectAnchorsAccountIdentityOutputWithContext(context.Background())
+}
+
+func (i ObjectAnchorsAccountIdentityArgs) ToObjectAnchorsAccountIdentityOutputWithContext(ctx context.Context) ObjectAnchorsAccountIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectAnchorsAccountIdentityOutput)
+}
+
+func (i ObjectAnchorsAccountIdentityArgs) ToObjectAnchorsAccountIdentityPtrOutput() ObjectAnchorsAccountIdentityPtrOutput {
+	return i.ToObjectAnchorsAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ObjectAnchorsAccountIdentityArgs) ToObjectAnchorsAccountIdentityPtrOutputWithContext(ctx context.Context) ObjectAnchorsAccountIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectAnchorsAccountIdentityOutput).ToObjectAnchorsAccountIdentityPtrOutputWithContext(ctx)
+}
+
+// ObjectAnchorsAccountIdentityPtrInput is an input type that accepts ObjectAnchorsAccountIdentityArgs, ObjectAnchorsAccountIdentityPtr and ObjectAnchorsAccountIdentityPtrOutput values.
+// You can construct a concrete instance of `ObjectAnchorsAccountIdentityPtrInput` via:
+//
+//          ObjectAnchorsAccountIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ObjectAnchorsAccountIdentityPtrInput interface {
+	pulumi.Input
+
+	ToObjectAnchorsAccountIdentityPtrOutput() ObjectAnchorsAccountIdentityPtrOutput
+	ToObjectAnchorsAccountIdentityPtrOutputWithContext(context.Context) ObjectAnchorsAccountIdentityPtrOutput
+}
+
+type objectAnchorsAccountIdentityPtrType ObjectAnchorsAccountIdentityArgs
+
+func ObjectAnchorsAccountIdentityPtr(v *ObjectAnchorsAccountIdentityArgs) ObjectAnchorsAccountIdentityPtrInput {
+	return (*objectAnchorsAccountIdentityPtrType)(v)
+}
+
+func (*objectAnchorsAccountIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectAnchorsAccountIdentity)(nil)).Elem()
+}
+
+func (i *objectAnchorsAccountIdentityPtrType) ToObjectAnchorsAccountIdentityPtrOutput() ObjectAnchorsAccountIdentityPtrOutput {
+	return i.ToObjectAnchorsAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *objectAnchorsAccountIdentityPtrType) ToObjectAnchorsAccountIdentityPtrOutputWithContext(ctx context.Context) ObjectAnchorsAccountIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectAnchorsAccountIdentityPtrOutput)
+}
+
+type ObjectAnchorsAccountIdentityOutput struct{ *pulumi.OutputState }
+
+func (ObjectAnchorsAccountIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectAnchorsAccountIdentity)(nil)).Elem()
+}
+
+func (o ObjectAnchorsAccountIdentityOutput) ToObjectAnchorsAccountIdentityOutput() ObjectAnchorsAccountIdentityOutput {
+	return o
+}
+
+func (o ObjectAnchorsAccountIdentityOutput) ToObjectAnchorsAccountIdentityOutputWithContext(ctx context.Context) ObjectAnchorsAccountIdentityOutput {
+	return o
+}
+
+func (o ObjectAnchorsAccountIdentityOutput) ToObjectAnchorsAccountIdentityPtrOutput() ObjectAnchorsAccountIdentityPtrOutput {
+	return o.ToObjectAnchorsAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ObjectAnchorsAccountIdentityOutput) ToObjectAnchorsAccountIdentityPtrOutputWithContext(ctx context.Context) ObjectAnchorsAccountIdentityPtrOutput {
+	return o.ApplyT(func(v ObjectAnchorsAccountIdentity) *ObjectAnchorsAccountIdentity {
+		return &v
+	}).(ObjectAnchorsAccountIdentityPtrOutput)
+}
+
+// The identity type.
+func (o ObjectAnchorsAccountIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObjectAnchorsAccountIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ObjectAnchorsAccountIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ObjectAnchorsAccountIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectAnchorsAccountIdentity)(nil)).Elem()
+}
+
+func (o ObjectAnchorsAccountIdentityPtrOutput) ToObjectAnchorsAccountIdentityPtrOutput() ObjectAnchorsAccountIdentityPtrOutput {
+	return o
+}
+
+func (o ObjectAnchorsAccountIdentityPtrOutput) ToObjectAnchorsAccountIdentityPtrOutputWithContext(ctx context.Context) ObjectAnchorsAccountIdentityPtrOutput {
+	return o
+}
+
+func (o ObjectAnchorsAccountIdentityPtrOutput) Elem() ObjectAnchorsAccountIdentityOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccountIdentity) ObjectAnchorsAccountIdentity { return *v }).(ObjectAnchorsAccountIdentityOutput)
+}
+
+// The identity type.
+func (o ObjectAnchorsAccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObjectAnchorsAccountResponseIdentity struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// ObjectAnchorsAccountResponseIdentityInput is an input type that accepts ObjectAnchorsAccountResponseIdentityArgs and ObjectAnchorsAccountResponseIdentityOutput values.
+// You can construct a concrete instance of `ObjectAnchorsAccountResponseIdentityInput` via:
+//
+//          ObjectAnchorsAccountResponseIdentityArgs{...}
+type ObjectAnchorsAccountResponseIdentityInput interface {
+	pulumi.Input
+
+	ToObjectAnchorsAccountResponseIdentityOutput() ObjectAnchorsAccountResponseIdentityOutput
+	ToObjectAnchorsAccountResponseIdentityOutputWithContext(context.Context) ObjectAnchorsAccountResponseIdentityOutput
+}
+
+type ObjectAnchorsAccountResponseIdentityArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ObjectAnchorsAccountResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectAnchorsAccountResponseIdentity)(nil)).Elem()
+}
+
+func (i ObjectAnchorsAccountResponseIdentityArgs) ToObjectAnchorsAccountResponseIdentityOutput() ObjectAnchorsAccountResponseIdentityOutput {
+	return i.ToObjectAnchorsAccountResponseIdentityOutputWithContext(context.Background())
+}
+
+func (i ObjectAnchorsAccountResponseIdentityArgs) ToObjectAnchorsAccountResponseIdentityOutputWithContext(ctx context.Context) ObjectAnchorsAccountResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectAnchorsAccountResponseIdentityOutput)
+}
+
+func (i ObjectAnchorsAccountResponseIdentityArgs) ToObjectAnchorsAccountResponseIdentityPtrOutput() ObjectAnchorsAccountResponseIdentityPtrOutput {
+	return i.ToObjectAnchorsAccountResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ObjectAnchorsAccountResponseIdentityArgs) ToObjectAnchorsAccountResponseIdentityPtrOutputWithContext(ctx context.Context) ObjectAnchorsAccountResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectAnchorsAccountResponseIdentityOutput).ToObjectAnchorsAccountResponseIdentityPtrOutputWithContext(ctx)
+}
+
+// ObjectAnchorsAccountResponseIdentityPtrInput is an input type that accepts ObjectAnchorsAccountResponseIdentityArgs, ObjectAnchorsAccountResponseIdentityPtr and ObjectAnchorsAccountResponseIdentityPtrOutput values.
+// You can construct a concrete instance of `ObjectAnchorsAccountResponseIdentityPtrInput` via:
+//
+//          ObjectAnchorsAccountResponseIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ObjectAnchorsAccountResponseIdentityPtrInput interface {
+	pulumi.Input
+
+	ToObjectAnchorsAccountResponseIdentityPtrOutput() ObjectAnchorsAccountResponseIdentityPtrOutput
+	ToObjectAnchorsAccountResponseIdentityPtrOutputWithContext(context.Context) ObjectAnchorsAccountResponseIdentityPtrOutput
+}
+
+type objectAnchorsAccountResponseIdentityPtrType ObjectAnchorsAccountResponseIdentityArgs
+
+func ObjectAnchorsAccountResponseIdentityPtr(v *ObjectAnchorsAccountResponseIdentityArgs) ObjectAnchorsAccountResponseIdentityPtrInput {
+	return (*objectAnchorsAccountResponseIdentityPtrType)(v)
+}
+
+func (*objectAnchorsAccountResponseIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectAnchorsAccountResponseIdentity)(nil)).Elem()
+}
+
+func (i *objectAnchorsAccountResponseIdentityPtrType) ToObjectAnchorsAccountResponseIdentityPtrOutput() ObjectAnchorsAccountResponseIdentityPtrOutput {
+	return i.ToObjectAnchorsAccountResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *objectAnchorsAccountResponseIdentityPtrType) ToObjectAnchorsAccountResponseIdentityPtrOutputWithContext(ctx context.Context) ObjectAnchorsAccountResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectAnchorsAccountResponseIdentityPtrOutput)
+}
+
+type ObjectAnchorsAccountResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (ObjectAnchorsAccountResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectAnchorsAccountResponseIdentity)(nil)).Elem()
+}
+
+func (o ObjectAnchorsAccountResponseIdentityOutput) ToObjectAnchorsAccountResponseIdentityOutput() ObjectAnchorsAccountResponseIdentityOutput {
+	return o
+}
+
+func (o ObjectAnchorsAccountResponseIdentityOutput) ToObjectAnchorsAccountResponseIdentityOutputWithContext(ctx context.Context) ObjectAnchorsAccountResponseIdentityOutput {
+	return o
+}
+
+func (o ObjectAnchorsAccountResponseIdentityOutput) ToObjectAnchorsAccountResponseIdentityPtrOutput() ObjectAnchorsAccountResponseIdentityPtrOutput {
+	return o.ToObjectAnchorsAccountResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ObjectAnchorsAccountResponseIdentityOutput) ToObjectAnchorsAccountResponseIdentityPtrOutputWithContext(ctx context.Context) ObjectAnchorsAccountResponseIdentityPtrOutput {
+	return o.ApplyT(func(v ObjectAnchorsAccountResponseIdentity) *ObjectAnchorsAccountResponseIdentity {
+		return &v
+	}).(ObjectAnchorsAccountResponseIdentityPtrOutput)
+}
+
+// The principal ID of resource identity.
+func (o ObjectAnchorsAccountResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ObjectAnchorsAccountResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o ObjectAnchorsAccountResponseIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ObjectAnchorsAccountResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o ObjectAnchorsAccountResponseIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObjectAnchorsAccountResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ObjectAnchorsAccountResponseIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ObjectAnchorsAccountResponseIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectAnchorsAccountResponseIdentity)(nil)).Elem()
+}
+
+func (o ObjectAnchorsAccountResponseIdentityPtrOutput) ToObjectAnchorsAccountResponseIdentityPtrOutput() ObjectAnchorsAccountResponseIdentityPtrOutput {
+	return o
+}
+
+func (o ObjectAnchorsAccountResponseIdentityPtrOutput) ToObjectAnchorsAccountResponseIdentityPtrOutputWithContext(ctx context.Context) ObjectAnchorsAccountResponseIdentityPtrOutput {
+	return o
+}
+
+func (o ObjectAnchorsAccountResponseIdentityPtrOutput) Elem() ObjectAnchorsAccountResponseIdentityOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccountResponseIdentity) ObjectAnchorsAccountResponseIdentity { return *v }).(ObjectAnchorsAccountResponseIdentityOutput)
+}
+
+// The principal ID of resource identity.
+func (o ObjectAnchorsAccountResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccountResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of resource.
+func (o ObjectAnchorsAccountResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccountResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity type.
+func (o ObjectAnchorsAccountResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccountResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // The resource model definition representing SKU
 type Sku struct {
 	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -970,6 +1270,10 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ObjectAnchorsAccountIdentityOutput{})
+	pulumi.RegisterOutputType(ObjectAnchorsAccountIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ObjectAnchorsAccountResponseIdentityOutput{})
+	pulumi.RegisterOutputType(ObjectAnchorsAccountResponseIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

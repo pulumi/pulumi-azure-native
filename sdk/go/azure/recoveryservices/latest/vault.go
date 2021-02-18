@@ -12,14 +12,14 @@ import (
 )
 
 // Resource information, as returned by the resource provider.
-// Latest API Version: 2020-02-02.
+// Latest API Version: 2020-10-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:Vault'.
 type Vault struct {
 	pulumi.CustomResourceState
 
 	// Optional ETag.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Identity for the resource.
 	Identity IdentityDataResponsePtrOutput `pulumi:"identity"`
 	// Resource location.
@@ -30,6 +30,8 @@ type Vault struct {
 	Properties VaultPropertiesResponseOutput `pulumi:"properties"`
 	// Identifies the unique system identifier for each Azure resource.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -59,6 +61,9 @@ func NewVault(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20200202:Vault"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:Vault"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Vault
@@ -84,7 +89,7 @@ func GetVault(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Vault resources.
 type vaultState struct {
 	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
+	Etag *string `pulumi:"etag"`
 	// Identity for the resource.
 	Identity *IdentityDataResponse `pulumi:"identity"`
 	// Resource location.
@@ -95,6 +100,8 @@ type vaultState struct {
 	Properties *VaultPropertiesResponse `pulumi:"properties"`
 	// Identifies the unique system identifier for each Azure resource.
 	Sku *SkuResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -103,7 +110,7 @@ type vaultState struct {
 
 type VaultState struct {
 	// Optional ETag.
-	ETag pulumi.StringPtrInput
+	Etag pulumi.StringPtrInput
 	// Identity for the resource.
 	Identity IdentityDataResponsePtrInput
 	// Resource location.
@@ -114,6 +121,8 @@ type VaultState struct {
 	Properties VaultPropertiesResponsePtrInput
 	// Identifies the unique system identifier for each Azure resource.
 	Sku SkuResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -126,7 +135,7 @@ func (VaultState) ElementType() reflect.Type {
 
 type vaultArgs struct {
 	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
+	Etag *string `pulumi:"etag"`
 	// Identity for the resource.
 	Identity *IdentityData `pulumi:"identity"`
 	// Resource location.
@@ -146,7 +155,7 @@ type vaultArgs struct {
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
 	// Optional ETag.
-	ETag pulumi.StringPtrInput
+	Etag pulumi.StringPtrInput
 	// Identity for the resource.
 	Identity IdentityDataPtrInput
 	// Resource location.

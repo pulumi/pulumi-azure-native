@@ -107,10 +107,6 @@ export interface GetRegistryResult {
      */
     readonly status: outputs.containerregistry.v20191201preview.StatusResponse;
     /**
-     * The properties of the storage account for the container registry. Only applicable to Classic SKU.
-     */
-    readonly storageAccount?: outputs.containerregistry.v20191201preview.StorageAccountPropertiesResponse;
-    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     readonly systemData: outputs.containerregistry.v20191201preview.SystemDataResponse;

@@ -118,12 +118,6 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         public Output<Outputs.StatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-        /// </summary>
-        [Output("storageAccount")]
-        public Output<Outputs.StorageAccountPropertiesResponse?> StorageAccount { get; private set; } = null!;
-
-        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
@@ -268,12 +262,6 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-        /// </summary>
-        [Input("storageAccount")]
-        public Input<Inputs.StorageAccountPropertiesArgs>? StorageAccount { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

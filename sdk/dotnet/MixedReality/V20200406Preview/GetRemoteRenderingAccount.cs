@@ -51,7 +51,14 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200406Preview
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        public readonly Outputs.RemoteRenderingAccountResponseIdentity? Identity;
+        /// <summary>
+        /// The identity associated with this account
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
+        /// The kind of account, if supported
+        /// </summary>
+        public readonly Outputs.SkuResponse? Kind;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -60,6 +67,22 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200406Preview
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The plan associated with this account
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Plan;
+        /// <summary>
+        /// The sku associated with this account
+        /// </summary>
+        public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
+        /// The name of the storage account associated with this accountId
+        /// </summary>
+        public readonly string? StorageAccountName;
+        /// <summary>
+        /// System metadata for this account
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -77,11 +100,21 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200406Preview
 
             string id,
 
-            Outputs.RemoteRenderingAccountResponseIdentity? identity,
+            Outputs.IdentityResponse? identity,
+
+            Outputs.SkuResponse? kind,
 
             string location,
 
             string name,
+
+            Outputs.IdentityResponse? plan,
+
+            Outputs.SkuResponse? sku,
+
+            string? storageAccountName,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -91,8 +124,13 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200406Preview
             AccountId = accountId;
             Id = id;
             Identity = identity;
+            Kind = kind;
             Location = location;
             Name = name;
+            Plan = plan;
+            Sku = sku;
+            StorageAccountName = storageAccountName;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

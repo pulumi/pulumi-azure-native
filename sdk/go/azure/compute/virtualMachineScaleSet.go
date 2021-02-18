@@ -315,7 +315,7 @@ type VirtualMachineScaleSetArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Specifies the orchestration mode for the virtual machine scale set.
-	OrchestrationMode *OrchestrationMode
+	OrchestrationMode pulumi.StringPtrInput
 	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
 	Overprovision pulumi.BoolPtrInput
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.

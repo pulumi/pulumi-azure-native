@@ -40,6 +40,10 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly adminUserEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Enables registry-wide pull from unauthenticated clients.
+     */
+    public readonly anonymousPullEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The creation date of the container registry in ISO8601 format.
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
@@ -104,10 +108,6 @@ export class Registry extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<outputs.containerregistry.v20201101preview.StatusResponse>;
     /**
-     * The properties of the storage account for the container registry. Only applicable to Classic SKU.
-     */
-    public readonly storageAccount!: pulumi.Output<outputs.containerregistry.v20201101preview.StorageAccountPropertiesResponse | undefined>;
-    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.v20201101preview.SystemDataResponse>;
@@ -144,6 +144,7 @@ export class Registry extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["adminUserEnabled"] = (args ? args.adminUserEnabled : undefined) || false;
+            inputs["anonymousPullEnabled"] = args ? args.anonymousPullEnabled : undefined;
             inputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -155,7 +156,6 @@ export class Registry extends pulumi.CustomResource {
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
-            inputs["storageAccount"] = args ? args.storageAccount : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneRedundancy"] = (args ? args.zoneRedundancy : undefined) || "Disabled";
             inputs["creationDate"] = undefined /*out*/;
@@ -169,6 +169,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["adminUserEnabled"] = undefined /*out*/;
+            inputs["anonymousPullEnabled"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["dataEndpointEnabled"] = undefined /*out*/;
             inputs["dataEndpointHostNames"] = undefined /*out*/;
@@ -185,7 +186,6 @@ export class Registry extends pulumi.CustomResource {
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["storageAccount"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -212,6 +212,10 @@ export interface RegistryArgs {
      * The value that indicates whether the admin user is enabled.
      */
     readonly adminUserEnabled?: pulumi.Input<boolean>;
+    /**
+     * Enables registry-wide pull from unauthenticated clients.
+     */
+    readonly anonymousPullEnabled?: pulumi.Input<boolean>;
     /**
      * Enable a single data endpoint per region for serving data.
      */
@@ -256,10 +260,6 @@ export interface RegistryArgs {
      * The SKU of the container registry.
      */
     readonly sku: pulumi.Input<inputs.containerregistry.v20201101preview.Sku>;
-    /**
-     * The properties of the storage account for the container registry. Only applicable to Classic SKU.
-     */
-    readonly storageAccount?: pulumi.Input<inputs.containerregistry.v20201101preview.StorageAccountProperties>;
     /**
      * The tags of the resource.
      */

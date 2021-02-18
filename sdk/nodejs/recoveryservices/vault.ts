@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information, as returned by the resource provider.
- * API Version: 2020-02-02.
+ * API Version: 2020-10-01.
  */
 export class Vault extends pulumi.CustomResource {
     /**
@@ -39,7 +39,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * Optional ETag.
      */
-    public readonly eTag!: pulumi.Output<string | undefined>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Identity for the resource.
      */
@@ -60,6 +60,10 @@ export class Vault extends pulumi.CustomResource {
      * Identifies the unique system identifier for each Azure resource.
      */
     public readonly sku!: pulumi.Output<outputs.recoveryservices.SkuResponse | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.recoveryservices.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -85,7 +89,7 @@ export class Vault extends pulumi.CustomResource {
             if ((!args || args.vaultName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            inputs["eTag"] = args ? args.eTag : undefined;
+            inputs["etag"] = args ? args.etag : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -94,14 +98,16 @@ export class Vault extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["eTag"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -112,7 +118,7 @@ export class Vault extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:Vault" }, { type: "azure-nextgen:recoveryservices/v20160601:Vault" }, { type: "azure-nextgen:recoveryservices/v20200202:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:Vault" }, { type: "azure-nextgen:recoveryservices/v20160601:Vault" }, { type: "azure-nextgen:recoveryservices/v20200202:Vault" }, { type: "azure-nextgen:recoveryservices/v20201001:Vault" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Vault.__pulumiType, name, inputs, opts);
     }
@@ -125,7 +131,7 @@ export interface VaultArgs {
     /**
      * Optional ETag.
      */
-    readonly eTag?: pulumi.Input<string>;
+    readonly etag?: pulumi.Input<string>;
     /**
      * Identity for the resource.
      */

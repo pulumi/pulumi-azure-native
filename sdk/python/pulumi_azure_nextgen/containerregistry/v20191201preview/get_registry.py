@@ -20,7 +20,7 @@ class GetRegistryResult:
     """
     An object that represents a container registry.
     """
-    def __init__(__self__, admin_user_enabled=None, creation_date=None, data_endpoint_enabled=None, data_endpoint_host_names=None, encryption=None, id=None, identity=None, location=None, login_server=None, name=None, network_rule_bypass_options=None, network_rule_set=None, policies=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status=None, storage_account=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, admin_user_enabled=None, creation_date=None, data_endpoint_enabled=None, data_endpoint_host_names=None, encryption=None, id=None, identity=None, location=None, login_server=None, name=None, network_rule_bypass_options=None, network_rule_set=None, policies=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status=None, system_data=None, tags=None, type=None):
         if admin_user_enabled and not isinstance(admin_user_enabled, bool):
             raise TypeError("Expected argument 'admin_user_enabled' to be a bool")
         pulumi.set(__self__, "admin_user_enabled", admin_user_enabled)
@@ -75,9 +75,6 @@ class GetRegistryResult:
         if status and not isinstance(status, dict):
             raise TypeError("Expected argument 'status' to be a dict")
         pulumi.set(__self__, "status", status)
-        if storage_account and not isinstance(storage_account, dict):
-            raise TypeError("Expected argument 'storage_account' to be a dict")
-        pulumi.set(__self__, "storage_account", storage_account)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -233,14 +230,6 @@ class GetRegistryResult:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional['outputs.StorageAccountPropertiesResponse']:
-        """
-        The properties of the storage account for the container registry. Only applicable to Classic SKU.
-        """
-        return pulumi.get(self, "storage_account")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -289,7 +278,6 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             public_network_access=self.public_network_access,
             sku=self.sku,
             status=self.status,
-            storage_account=self.storage_account,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -332,7 +320,6 @@ def get_registry(registry_name: Optional[str] = None,
         public_network_access=__ret__.public_network_access,
         sku=__ret__.sku,
         status=__ret__.status,
-        storage_account=__ret__.storage_account,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
