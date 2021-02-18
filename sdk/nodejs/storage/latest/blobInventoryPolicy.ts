@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account blob inventory policy.
- * Latest API Version: 2019-06-01.
+ * Latest API Version: 2021-01-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobInventoryPolicy'.
  */
@@ -106,7 +106,7 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20190601:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20200801preview:BlobInventoryPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20190601:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20200801preview:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20210101:BlobInventoryPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobInventoryPolicy.__pulumiType, name, inputs, opts);
     }

@@ -52,6 +52,10 @@ export interface GetFileServicePropertiesResult {
      */
     readonly name: string;
     /**
+     * Protocol settings for file service
+     */
+    readonly protocolSettings?: outputs.storage.ProtocolSettingsResponse;
+    /**
      * The file service properties for share soft delete.
      */
     readonly shareDeleteRetentionPolicy?: outputs.storage.DeleteRetentionPolicyResponse;

@@ -26,7 +26,7 @@ class TableServiceProperties(pulumi.CustomResource):
                  __opts__=None):
         """
         The properties of a storage account’s Table service.
-        API Version: 2019-06-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -64,7 +64,7 @@ class TableServiceProperties(pulumi.CustomResource):
             __props__['table_service_name'] = table_service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:TableServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:TableServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:TableServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:TableServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:TableServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:TableServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:TableServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TableServiceProperties, __self__).__init__(
             'azure-nextgen:storage:TableServiceProperties',

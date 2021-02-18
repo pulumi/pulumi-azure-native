@@ -12,7 +12,7 @@ import (
 )
 
 // The properties of File services in storage account.
-// Latest API Version: 2019-06-01.
+// Latest API Version: 2021-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileServiceProperties'.
 type FileServiceProperties struct {
@@ -22,6 +22,8 @@ type FileServiceProperties struct {
 	Cors CorsRulesResponsePtrOutput `pulumi:"cors"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Protocol settings for file service
+	ProtocolSettings ProtocolSettingsResponsePtrOutput `pulumi:"protocolSettings"`
 	// The file service properties for share soft delete.
 	ShareDeleteRetentionPolicy DeleteRetentionPolicyResponsePtrOutput `pulumi:"shareDeleteRetentionPolicy"`
 	// Sku name and tier.
@@ -59,6 +61,9 @@ func NewFileServiceProperties(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:FileServiceProperties"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210101:FileServiceProperties"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FileServiceProperties
@@ -87,6 +92,8 @@ type fileServicePropertiesState struct {
 	Cors *CorsRulesResponse `pulumi:"cors"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// Protocol settings for file service
+	ProtocolSettings *ProtocolSettingsResponse `pulumi:"protocolSettings"`
 	// The file service properties for share soft delete.
 	ShareDeleteRetentionPolicy *DeleteRetentionPolicyResponse `pulumi:"shareDeleteRetentionPolicy"`
 	// Sku name and tier.
@@ -100,6 +107,8 @@ type FileServicePropertiesState struct {
 	Cors CorsRulesResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// Protocol settings for file service
+	ProtocolSettings ProtocolSettingsResponsePtrInput
 	// The file service properties for share soft delete.
 	ShareDeleteRetentionPolicy DeleteRetentionPolicyResponsePtrInput
 	// Sku name and tier.
@@ -119,6 +128,8 @@ type fileServicePropertiesArgs struct {
 	Cors *CorsRules `pulumi:"cors"`
 	// The name of the file Service within the specified storage account. File Service Name must be "default"
 	FileServicesName string `pulumi:"fileServicesName"`
+	// Protocol settings for file service
+	ProtocolSettings *ProtocolSettings `pulumi:"protocolSettings"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The file service properties for share soft delete.
@@ -133,6 +144,8 @@ type FileServicePropertiesArgs struct {
 	Cors CorsRulesPtrInput
 	// The name of the file Service within the specified storage account. File Service Name must be "default"
 	FileServicesName pulumi.StringInput
+	// Protocol settings for file service
+	ProtocolSettings ProtocolSettingsPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The file service properties for share soft delete.

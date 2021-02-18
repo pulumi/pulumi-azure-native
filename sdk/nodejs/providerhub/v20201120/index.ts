@@ -23,6 +23,9 @@ export * from "./skusNestedResourceTypeFirst";
 export * from "./skusNestedResourceTypeSecond";
 export * from "./skusNestedResourceTypeThird";
 
+// Export enums:
+export * from "../../types/enums/providerhub/v20201120";
+
 // Import resources to register:
 import { DefaultRollout } from "./defaultRollout";
 import { NotificationRegistration } from "./notificationRegistration";

@@ -37,6 +37,9 @@ func NewOperationByProviderRegistration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Contents == nil {
+		return nil, errors.New("invalid value for required argument 'Contents'")
+	}
 	if args.ProviderNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
 	}
@@ -103,12 +106,14 @@ func (OperationByProviderRegistrationState) ElementType() reflect.Type {
 }
 
 type operationByProviderRegistrationArgs struct {
+	Contents []OperationsDefinition `pulumi:"contents"`
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace string `pulumi:"providerNamespace"`
 }
 
 // The set of arguments for constructing a OperationByProviderRegistration resource.
 type OperationByProviderRegistrationArgs struct {
+	Contents OperationsDefinitionArrayInput
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput
 }

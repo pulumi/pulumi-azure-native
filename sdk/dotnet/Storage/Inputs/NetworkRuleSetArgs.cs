@@ -39,6 +39,18 @@ namespace Pulumi.AzureNextGen.Storage.Inputs
             set => _ipRules = value;
         }
 
+        [Input("resourceAccessRules")]
+        private InputList<Inputs.ResourceAccessRuleArgs>? _resourceAccessRules;
+
+        /// <summary>
+        /// Sets the resource access rules
+        /// </summary>
+        public InputList<Inputs.ResourceAccessRuleArgs> ResourceAccessRules
+        {
+            get => _resourceAccessRules ?? (_resourceAccessRules = new InputList<Inputs.ResourceAccessRuleArgs>());
+            set => _resourceAccessRules = value;
+        }
+
         [Input("virtualNetworkRules")]
         private InputList<Inputs.VirtualNetworkRuleArgs>? _virtualNetworkRules;
 

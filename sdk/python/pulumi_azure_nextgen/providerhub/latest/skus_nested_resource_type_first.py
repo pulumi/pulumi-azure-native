@@ -8,6 +8,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['SkusNestedResourceTypeFirst']
 
@@ -24,6 +26,7 @@ class SkusNestedResourceTypeFirst(pulumi.CustomResource):
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SkuSettingArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -67,6 +70,9 @@ class SkusNestedResourceTypeFirst(pulumi.CustomResource):
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
+            if sku_settings is None and not opts.urn:
+                raise TypeError("Missing required property 'sku_settings'")
+            __props__['sku_settings'] = sku_settings
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None

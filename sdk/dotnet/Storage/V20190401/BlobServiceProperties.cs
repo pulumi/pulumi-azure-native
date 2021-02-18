@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:BlobServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

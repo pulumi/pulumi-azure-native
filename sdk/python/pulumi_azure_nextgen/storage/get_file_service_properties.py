@@ -20,7 +20,7 @@ class GetFileServicePropertiesResult:
     """
     The properties of File services in storage account.
     """
-    def __init__(__self__, cors=None, id=None, name=None, share_delete_retention_policy=None, sku=None, type=None):
+    def __init__(__self__, cors=None, id=None, name=None, protocol_settings=None, share_delete_retention_policy=None, sku=None, type=None):
         if cors and not isinstance(cors, dict):
             raise TypeError("Expected argument 'cors' to be a dict")
         pulumi.set(__self__, "cors", cors)
@@ -30,6 +30,9 @@ class GetFileServicePropertiesResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if protocol_settings and not isinstance(protocol_settings, dict):
+            raise TypeError("Expected argument 'protocol_settings' to be a dict")
+        pulumi.set(__self__, "protocol_settings", protocol_settings)
         if share_delete_retention_policy and not isinstance(share_delete_retention_policy, dict):
             raise TypeError("Expected argument 'share_delete_retention_policy' to be a dict")
         pulumi.set(__self__, "share_delete_retention_policy", share_delete_retention_policy)
@@ -65,6 +68,14 @@ class GetFileServicePropertiesResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="protocolSettings")
+    def protocol_settings(self) -> Optional['outputs.ProtocolSettingsResponse']:
+        """
+        Protocol settings for file service
+        """
+        return pulumi.get(self, "protocol_settings")
+
+    @property
     @pulumi.getter(name="shareDeleteRetentionPolicy")
     def share_delete_retention_policy(self) -> Optional['outputs.DeleteRetentionPolicyResponse']:
         """
@@ -98,6 +109,7 @@ class AwaitableGetFileServicePropertiesResult(GetFileServicePropertiesResult):
             cors=self.cors,
             id=self.id,
             name=self.name,
+            protocol_settings=self.protocol_settings,
             share_delete_retention_policy=self.share_delete_retention_policy,
             sku=self.sku,
             type=self.type)
@@ -128,6 +140,7 @@ def get_file_service_properties(account_name: Optional[str] = None,
         cors=__ret__.cors,
         id=__ret__.id,
         name=__ret__.name,
+        protocol_settings=__ret__.protocol_settings,
         share_delete_retention_policy=__ret__.share_delete_retention_policy,
         sku=__ret__.sku,
         type=__ret__.type)

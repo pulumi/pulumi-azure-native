@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Storage.Inputs
         /// Gets the state of virtual network rule.
         /// </summary>
         [Input("state")]
-        public Input<Pulumi.AzureNextGen.Storage.State>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.State>? State { get; set; }
 
         /// <summary>
         /// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.

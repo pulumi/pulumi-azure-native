@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 {
     /// <summary>
     /// The properties of File services in storage account.
-    /// Latest API Version: 2019-06-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileServiceProperties'.")]
     [AzureNextGenResourceType("azure-nextgen:storage/latest:FileServiceProperties")]
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Protocol settings for file service
+        /// </summary>
+        [Output("protocolSettings")]
+        public Output<Outputs.ProtocolSettingsResponse?> ProtocolSettings { get; private set; } = null!;
 
         /// <summary>
         /// The file service properties for share soft delete.
@@ -76,6 +82,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:FileServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:FileServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,6 +123,12 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// </summary>
         [Input("fileServicesName", required: true)]
         public Input<string> FileServicesName { get; set; } = null!;
+
+        /// <summary>
+        /// Protocol settings for file service
+        /// </summary>
+        [Input("protocolSettings")]
+        public Input<Inputs.ProtocolSettingsArgs>? ProtocolSettings { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

@@ -78,9 +78,17 @@ namespace Pulumi.AzureNextGen.Storage
         /// </summary>
         public readonly bool? EnableHttpsTrafficOnly;
         /// <summary>
+        /// NFS 3.0 protocol support enabled if set to true.
+        /// </summary>
+        public readonly bool? EnableNfsV3;
+        /// <summary>
         /// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         /// </summary>
         public readonly Outputs.EncryptionResponse Encryption;
+        /// <summary>
+        /// The extendedLocation of the resource.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
         /// If the failover is in progress, the value will be true, otherwise, it will be null.
         /// </summary>
@@ -196,7 +204,11 @@ namespace Pulumi.AzureNextGen.Storage
 
             bool? enableHttpsTrafficOnly,
 
+            bool? enableNfsV3,
+
             Outputs.EncryptionResponse encryption,
+
+            Outputs.ExtendedLocationResponse? extendedLocation,
 
             bool failoverInProgress,
 
@@ -254,7 +266,9 @@ namespace Pulumi.AzureNextGen.Storage
             CreationTime = creationTime;
             CustomDomain = customDomain;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
+            EnableNfsV3 = enableNfsV3;
             Encryption = encryption;
+            ExtendedLocation = extendedLocation;
             FailoverInProgress = failoverInProgress;
             GeoReplicationStats = geoReplicationStats;
             Id = id;

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
     public sealed class EncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The identity to be used with service-side encryption at rest.
+        /// </summary>
+        [Input("encryptionIdentity")]
+        public Input<Inputs.EncryptionIdentityArgs>? EncryptionIdentity { get; set; }
+
+        /// <summary>
         /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         /// </summary>
         [Input("keySource", required: true)]

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
- * API Version: 2019-06-01.
+ * API Version: 2021-01-01.
  */
 export class ObjectReplicationPolicy extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20190601:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20190601:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20210101:ObjectReplicationPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ObjectReplicationPolicy.__pulumiType, name, inputs, opts);
     }

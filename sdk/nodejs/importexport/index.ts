@@ -16,11 +16,13 @@ export * from "../types/enums/importexport";
 import * as latest from "./latest";
 import * as v20161101 from "./v20161101";
 import * as v20200801 from "./v20200801";
+import * as v20210101 from "./v20210101";
 
 export {
     latest,
     v20161101,
     v20200801,
+    v20210101,
 };
 
 // Import resources to register:

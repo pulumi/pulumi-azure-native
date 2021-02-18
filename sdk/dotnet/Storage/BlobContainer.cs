@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Storage
 {
     /// <summary>
     /// Properties of the blob container, including Id, resource name, resource type, Etag.
-    /// API Version: 2019-06-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:storage:BlobContainer")]
     public partial class BlobContainer : Pulumi.CustomResource
@@ -163,6 +163,7 @@ namespace Pulumi.AzureNextGen.Storage
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:BlobContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

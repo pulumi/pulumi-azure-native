@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.Storage.Outputs
     public sealed class EncryptionResponse
     {
         /// <summary>
+        /// The identity to be used with service-side encryption at rest.
+        /// </summary>
+        public readonly Outputs.EncryptionIdentityResponse? EncryptionIdentity;
+        /// <summary>
         /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         /// </summary>
         public readonly string KeySource;
@@ -32,6 +36,8 @@ namespace Pulumi.AzureNextGen.Storage.Outputs
 
         [OutputConstructor]
         private EncryptionResponse(
+            Outputs.EncryptionIdentityResponse? encryptionIdentity,
+
             string keySource,
 
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
@@ -40,6 +46,7 @@ namespace Pulumi.AzureNextGen.Storage.Outputs
 
             Outputs.EncryptionServicesResponse? services)
         {
+            EncryptionIdentity = encryptionIdentity;
             KeySource = keySource;
             KeyVaultProperties = keyVaultProperties;
             RequireInfrastructureEncryption = requireInfrastructureEncryption;

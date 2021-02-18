@@ -20,7 +20,7 @@ class GetStorageAccountResult:
     """
     The storage account.
     """
-    def __init__(__self__, access_tier=None, allow_blob_public_access=None, allow_shared_key_access=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, enable_https_traffic_only=None, encryption=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, is_hns_enabled=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, routing_preference=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
+    def __init__(__self__, access_tier=None, allow_blob_public_access=None, allow_shared_key_access=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, enable_https_traffic_only=None, enable_nfs_v3=None, encryption=None, extended_location=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, is_hns_enabled=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, routing_preference=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -45,9 +45,15 @@ class GetStorageAccountResult:
         if enable_https_traffic_only and not isinstance(enable_https_traffic_only, bool):
             raise TypeError("Expected argument 'enable_https_traffic_only' to be a bool")
         pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
+        if enable_nfs_v3 and not isinstance(enable_nfs_v3, bool):
+            raise TypeError("Expected argument 'enable_nfs_v3' to be a bool")
+        pulumi.set(__self__, "enable_nfs_v3", enable_nfs_v3)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if failover_in_progress and not isinstance(failover_in_progress, bool):
             raise TypeError("Expected argument 'failover_in_progress' to be a bool")
         pulumi.set(__self__, "failover_in_progress", failover_in_progress)
@@ -186,12 +192,28 @@ class GetStorageAccountResult:
         return pulumi.get(self, "enable_https_traffic_only")
 
     @property
+    @pulumi.getter(name="enableNfsV3")
+    def enable_nfs_v3(self) -> Optional[bool]:
+        """
+        NFS 3.0 protocol support enabled if set to true.
+        """
+        return pulumi.get(self, "enable_nfs_v3")
+
+    @property
     @pulumi.getter
     def encryption(self) -> 'outputs.EncryptionResponse':
         """
         Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extendedLocation of the resource.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="failoverInProgress")
@@ -400,7 +422,9 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             creation_time=self.creation_time,
             custom_domain=self.custom_domain,
             enable_https_traffic_only=self.enable_https_traffic_only,
+            enable_nfs_v3=self.enable_nfs_v3,
             encryption=self.encryption,
+            extended_location=self.extended_location,
             failover_in_progress=self.failover_in_progress,
             geo_replication_stats=self.geo_replication_stats,
             id=self.id,
@@ -457,7 +481,9 @@ def get_storage_account(account_name: Optional[str] = None,
         creation_time=__ret__.creation_time,
         custom_domain=__ret__.custom_domain,
         enable_https_traffic_only=__ret__.enable_https_traffic_only,
+        enable_nfs_v3=__ret__.enable_nfs_v3,
         encryption=__ret__.encryption,
+        extended_location=__ret__.extended_location,
         failover_in_progress=__ret__.failover_in_progress,
         geo_replication_stats=__ret__.geo_replication_stats,
         id=__ret__.id,

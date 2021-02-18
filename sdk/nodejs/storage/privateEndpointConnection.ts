@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2019-06-01.
+ * API Version: 2021-01-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:storage/v20190601:PrivateEndpointConnection" }, { type: "azure-nextgen:storage/v20200801preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:storage/v20190601:PrivateEndpointConnection" }, { type: "azure-nextgen:storage/v20200801preview:PrivateEndpointConnection" }, { type: "azure-nextgen:storage/v20210101:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

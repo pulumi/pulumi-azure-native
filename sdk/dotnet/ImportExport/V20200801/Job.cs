@@ -85,6 +85,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801
                     new Pulumi.Alias { Type = "azure-nextgen:importexport:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:importexport/latest:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:importexport/v20161101:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:importexport/v20210101:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

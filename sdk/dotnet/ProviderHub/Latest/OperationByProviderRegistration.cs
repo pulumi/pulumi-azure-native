@@ -99,6 +99,14 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
 
     public sealed class OperationByProviderRegistrationArgs : Pulumi.ResourceArgs
     {
+        [Input("contents", required: true)]
+        private InputList<Inputs.OperationsDefinitionArgs>? _contents;
+        public InputList<Inputs.OperationsDefinitionArgs> Contents
+        {
+            get => _contents ?? (_contents = new InputList<Inputs.OperationsDefinitionArgs>());
+            set => _contents = value;
+        }
+
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
         /// </summary>

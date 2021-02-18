@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Storage.Latest
 {
     /// <summary>
-    /// Latest API Version: 2019-06-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Queue'.")]
     [AzureNextGenResourceType("azure-nextgen:storage/latest:Queue")]
@@ -68,6 +68,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:storage:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:Queue"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:Queue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

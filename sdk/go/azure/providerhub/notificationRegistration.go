@@ -88,7 +88,8 @@ func (NotificationRegistrationState) ElementType() reflect.Type {
 
 type notificationRegistrationArgs struct {
 	// The notification registration.
-	NotificationRegistrationName string `pulumi:"notificationRegistrationName"`
+	NotificationRegistrationName string                              `pulumi:"notificationRegistrationName"`
+	Properties                   *NotificationRegistrationProperties `pulumi:"properties"`
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace string `pulumi:"providerNamespace"`
 }
@@ -97,6 +98,7 @@ type notificationRegistrationArgs struct {
 type NotificationRegistrationArgs struct {
 	// The notification registration.
 	NotificationRegistrationName pulumi.StringInput
+	Properties                   NotificationRegistrationPropertiesPtrInput
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput
 }

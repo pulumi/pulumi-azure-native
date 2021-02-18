@@ -28648,145 +28648,7 @@
           "West Europe"
         ],
         "properties": null,
-        "resourceType": "hostingEnvironments",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Africa North",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Canada Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Brazil South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          }
-        ]
+        "resourceType": "hostingEnvironments"
       },
       {
         "aliases": null,
@@ -29398,6 +29260,7 @@
           "Japan East",
           "Brazil South",
           "Australia East",
+          "Brazil Southeast",
           "Australia Southeast",
           "South India",
           "Central India",
@@ -29465,6 +29328,7 @@
           "Japan East",
           "Brazil South",
           "Australia East",
+          "Brazil Southeast",
           "Australia Southeast",
           "South India",
           "Central India",
@@ -29561,6 +29425,7 @@
           "Brazil South",
           "Australia East",
           "Australia Southeast",
+          "Brazil Southeast",
           "South India",
           "Central India",
           "West India",
@@ -29627,6 +29492,7 @@
           "Brazil South",
           "Australia East",
           "Australia Southeast",
+          "Brazil Southeast",
           "South India",
           "Central India",
           "West India",
@@ -29693,6 +29559,7 @@
           "Japan East",
           "Brazil South",
           "Australia East",
+          "Brazil Southeast",
           "Australia Southeast",
           "South India",
           "Central India",
@@ -29760,6 +29627,7 @@
           "Brazil South",
           "Australia East",
           "Australia Southeast",
+          "Brazil Southeast",
           "South India",
           "Central India",
           "West India",
@@ -29826,6 +29694,7 @@
           "Japan East",
           "Brazil South",
           "Australia East",
+          "Brazil Southeast",
           "Australia Southeast",
           "South India",
           "Central India",
@@ -29893,6 +29762,7 @@
           "Brazil South",
           "Australia East",
           "Australia Southeast",
+          "Brazil Southeast",
           "South India",
           "Central India",
           "West India",
@@ -29959,6 +29829,7 @@
           "Brazil South",
           "Australia East",
           "Australia Southeast",
+          "Brazil Southeast",
           "South India",
           "Central India",
           "West India",
@@ -72818,7 +72689,7 @@
         "apiVersions": [
           "2017-10-01-preview"
         ],
-        "capabilities": "SupportsTags, SupportsLocation",
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": "2017-10-01-preview",
         "locationMappings": null,
         "locations": [

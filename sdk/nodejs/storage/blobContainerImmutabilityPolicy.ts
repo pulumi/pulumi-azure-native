@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
- * API Version: 2019-06-01.
+ * API Version: 2021-01-01.
  */
 export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180201:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20181101:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20190601:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainerImmutabilityPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180201:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20181101:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20190601:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20210101:BlobContainerImmutabilityPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobContainerImmutabilityPolicy.__pulumiType, name, inputs, opts);
     }

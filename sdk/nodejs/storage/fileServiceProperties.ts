@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The properties of File services in storage account.
- * API Version: 2019-06-01.
+ * API Version: 2021-01-01.
  */
 export class FileServiceProperties extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class FileServiceProperties extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Protocol settings for file service
+     */
+    public readonly protocolSettings!: pulumi.Output<outputs.storage.ProtocolSettingsResponse | undefined>;
+    /**
      * The file service properties for share soft delete.
      */
     public readonly shareDeleteRetentionPolicy!: pulumi.Output<outputs.storage.DeleteRetentionPolicyResponse | undefined>;
@@ -79,6 +83,7 @@ export class FileServiceProperties extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["cors"] = args ? args.cors : undefined;
             inputs["fileServicesName"] = args ? args.fileServicesName : undefined;
+            inputs["protocolSettings"] = args ? args.protocolSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareDeleteRetentionPolicy"] = args ? args.shareDeleteRetentionPolicy : undefined;
             inputs["name"] = undefined /*out*/;
@@ -87,6 +92,7 @@ export class FileServiceProperties extends pulumi.CustomResource {
         } else {
             inputs["cors"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["protocolSettings"] = undefined /*out*/;
             inputs["shareDeleteRetentionPolicy"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -98,7 +104,7 @@ export class FileServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190401:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190601:FileServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:FileServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190401:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190601:FileServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:FileServiceProperties" }, { type: "azure-nextgen:storage/v20210101:FileServiceProperties" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileServiceProperties.__pulumiType, name, inputs, opts);
     }
@@ -120,6 +126,10 @@ export interface FileServicePropertiesArgs {
      * The name of the file Service within the specified storage account. File Service Name must be "default"
      */
     readonly fileServicesName: pulumi.Input<string>;
+    /**
+     * Protocol settings for file service
+     */
+    readonly protocolSettings?: pulumi.Input<inputs.storage.ProtocolSettings>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

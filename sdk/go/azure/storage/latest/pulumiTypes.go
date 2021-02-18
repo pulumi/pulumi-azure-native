@@ -4159,6 +4159,8 @@ func (o DeleteRetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 
 // The encryption settings on the storage account.
 type Encryption struct {
+	// The identity to be used with service-side encryption at rest.
+	EncryptionIdentity *EncryptionIdentity `pulumi:"encryptionIdentity"`
 	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 	KeySource string `pulumi:"keySource"`
 	// Properties provided by key vault.
@@ -4182,6 +4184,8 @@ type EncryptionInput interface {
 
 // The encryption settings on the storage account.
 type EncryptionArgs struct {
+	// The identity to be used with service-side encryption at rest.
+	EncryptionIdentity EncryptionIdentityPtrInput `pulumi:"encryptionIdentity"`
 	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 	KeySource pulumi.StringInput `pulumi:"keySource"`
 	// Properties provided by key vault.
@@ -4270,6 +4274,11 @@ func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) 
 	}).(EncryptionPtrOutput)
 }
 
+// The identity to be used with service-side encryption at rest.
+func (o EncryptionOutput) EncryptionIdentity() EncryptionIdentityPtrOutput {
+	return o.ApplyT(func(v Encryption) *EncryptionIdentity { return v.EncryptionIdentity }).(EncryptionIdentityPtrOutput)
+}
+
 // The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 func (o EncryptionOutput) KeySource() pulumi.StringOutput {
 	return o.ApplyT(func(v Encryption) string { return v.KeySource }).(pulumi.StringOutput)
@@ -4306,6 +4315,16 @@ func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Contex
 
 func (o EncryptionPtrOutput) Elem() EncryptionOutput {
 	return o.ApplyT(func(v *Encryption) Encryption { return *v }).(EncryptionOutput)
+}
+
+// The identity to be used with service-side encryption at rest.
+func (o EncryptionPtrOutput) EncryptionIdentity() EncryptionIdentityPtrOutput {
+	return o.ApplyT(func(v *Encryption) *EncryptionIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionIdentity
+	}).(EncryptionIdentityPtrOutput)
 }
 
 // The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
@@ -4348,8 +4367,278 @@ func (o EncryptionPtrOutput) Services() EncryptionServicesPtrOutput {
 	}).(EncryptionServicesPtrOutput)
 }
 
+// Encryption identity for the storage account.
+type EncryptionIdentity struct {
+	// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+	EncryptionUserAssignedIdentity *string `pulumi:"encryptionUserAssignedIdentity"`
+}
+
+// EncryptionIdentityInput is an input type that accepts EncryptionIdentityArgs and EncryptionIdentityOutput values.
+// You can construct a concrete instance of `EncryptionIdentityInput` via:
+//
+//          EncryptionIdentityArgs{...}
+type EncryptionIdentityInput interface {
+	pulumi.Input
+
+	ToEncryptionIdentityOutput() EncryptionIdentityOutput
+	ToEncryptionIdentityOutputWithContext(context.Context) EncryptionIdentityOutput
+}
+
+// Encryption identity for the storage account.
+type EncryptionIdentityArgs struct {
+	// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+	EncryptionUserAssignedIdentity pulumi.StringPtrInput `pulumi:"encryptionUserAssignedIdentity"`
+}
+
+func (EncryptionIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionIdentity)(nil)).Elem()
+}
+
+func (i EncryptionIdentityArgs) ToEncryptionIdentityOutput() EncryptionIdentityOutput {
+	return i.ToEncryptionIdentityOutputWithContext(context.Background())
+}
+
+func (i EncryptionIdentityArgs) ToEncryptionIdentityOutputWithContext(ctx context.Context) EncryptionIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionIdentityOutput)
+}
+
+func (i EncryptionIdentityArgs) ToEncryptionIdentityPtrOutput() EncryptionIdentityPtrOutput {
+	return i.ToEncryptionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionIdentityArgs) ToEncryptionIdentityPtrOutputWithContext(ctx context.Context) EncryptionIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionIdentityOutput).ToEncryptionIdentityPtrOutputWithContext(ctx)
+}
+
+// EncryptionIdentityPtrInput is an input type that accepts EncryptionIdentityArgs, EncryptionIdentityPtr and EncryptionIdentityPtrOutput values.
+// You can construct a concrete instance of `EncryptionIdentityPtrInput` via:
+//
+//          EncryptionIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionIdentityPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionIdentityPtrOutput() EncryptionIdentityPtrOutput
+	ToEncryptionIdentityPtrOutputWithContext(context.Context) EncryptionIdentityPtrOutput
+}
+
+type encryptionIdentityPtrType EncryptionIdentityArgs
+
+func EncryptionIdentityPtr(v *EncryptionIdentityArgs) EncryptionIdentityPtrInput {
+	return (*encryptionIdentityPtrType)(v)
+}
+
+func (*encryptionIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionIdentity)(nil)).Elem()
+}
+
+func (i *encryptionIdentityPtrType) ToEncryptionIdentityPtrOutput() EncryptionIdentityPtrOutput {
+	return i.ToEncryptionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionIdentityPtrType) ToEncryptionIdentityPtrOutputWithContext(ctx context.Context) EncryptionIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionIdentityPtrOutput)
+}
+
+// Encryption identity for the storage account.
+type EncryptionIdentityOutput struct{ *pulumi.OutputState }
+
+func (EncryptionIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionIdentity)(nil)).Elem()
+}
+
+func (o EncryptionIdentityOutput) ToEncryptionIdentityOutput() EncryptionIdentityOutput {
+	return o
+}
+
+func (o EncryptionIdentityOutput) ToEncryptionIdentityOutputWithContext(ctx context.Context) EncryptionIdentityOutput {
+	return o
+}
+
+func (o EncryptionIdentityOutput) ToEncryptionIdentityPtrOutput() EncryptionIdentityPtrOutput {
+	return o.ToEncryptionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionIdentityOutput) ToEncryptionIdentityPtrOutputWithContext(ctx context.Context) EncryptionIdentityPtrOutput {
+	return o.ApplyT(func(v EncryptionIdentity) *EncryptionIdentity {
+		return &v
+	}).(EncryptionIdentityPtrOutput)
+}
+
+// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+func (o EncryptionIdentityOutput) EncryptionUserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionIdentity) *string { return v.EncryptionUserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionIdentity)(nil)).Elem()
+}
+
+func (o EncryptionIdentityPtrOutput) ToEncryptionIdentityPtrOutput() EncryptionIdentityPtrOutput {
+	return o
+}
+
+func (o EncryptionIdentityPtrOutput) ToEncryptionIdentityPtrOutputWithContext(ctx context.Context) EncryptionIdentityPtrOutput {
+	return o
+}
+
+func (o EncryptionIdentityPtrOutput) Elem() EncryptionIdentityOutput {
+	return o.ApplyT(func(v *EncryptionIdentity) EncryptionIdentity { return *v }).(EncryptionIdentityOutput)
+}
+
+// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+func (o EncryptionIdentityPtrOutput) EncryptionUserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionUserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Encryption identity for the storage account.
+type EncryptionIdentityResponse struct {
+	// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+	EncryptionUserAssignedIdentity *string `pulumi:"encryptionUserAssignedIdentity"`
+}
+
+// EncryptionIdentityResponseInput is an input type that accepts EncryptionIdentityResponseArgs and EncryptionIdentityResponseOutput values.
+// You can construct a concrete instance of `EncryptionIdentityResponseInput` via:
+//
+//          EncryptionIdentityResponseArgs{...}
+type EncryptionIdentityResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionIdentityResponseOutput() EncryptionIdentityResponseOutput
+	ToEncryptionIdentityResponseOutputWithContext(context.Context) EncryptionIdentityResponseOutput
+}
+
+// Encryption identity for the storage account.
+type EncryptionIdentityResponseArgs struct {
+	// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+	EncryptionUserAssignedIdentity pulumi.StringPtrInput `pulumi:"encryptionUserAssignedIdentity"`
+}
+
+func (EncryptionIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionIdentityResponse)(nil)).Elem()
+}
+
+func (i EncryptionIdentityResponseArgs) ToEncryptionIdentityResponseOutput() EncryptionIdentityResponseOutput {
+	return i.ToEncryptionIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionIdentityResponseArgs) ToEncryptionIdentityResponseOutputWithContext(ctx context.Context) EncryptionIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionIdentityResponseOutput)
+}
+
+func (i EncryptionIdentityResponseArgs) ToEncryptionIdentityResponsePtrOutput() EncryptionIdentityResponsePtrOutput {
+	return i.ToEncryptionIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionIdentityResponseArgs) ToEncryptionIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionIdentityResponseOutput).ToEncryptionIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionIdentityResponsePtrInput is an input type that accepts EncryptionIdentityResponseArgs, EncryptionIdentityResponsePtr and EncryptionIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionIdentityResponsePtrInput` via:
+//
+//          EncryptionIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionIdentityResponsePtrOutput() EncryptionIdentityResponsePtrOutput
+	ToEncryptionIdentityResponsePtrOutputWithContext(context.Context) EncryptionIdentityResponsePtrOutput
+}
+
+type encryptionIdentityResponsePtrType EncryptionIdentityResponseArgs
+
+func EncryptionIdentityResponsePtr(v *EncryptionIdentityResponseArgs) EncryptionIdentityResponsePtrInput {
+	return (*encryptionIdentityResponsePtrType)(v)
+}
+
+func (*encryptionIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionIdentityResponse)(nil)).Elem()
+}
+
+func (i *encryptionIdentityResponsePtrType) ToEncryptionIdentityResponsePtrOutput() EncryptionIdentityResponsePtrOutput {
+	return i.ToEncryptionIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionIdentityResponsePtrType) ToEncryptionIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionIdentityResponsePtrOutput)
+}
+
+// Encryption identity for the storage account.
+type EncryptionIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionIdentityResponse)(nil)).Elem()
+}
+
+func (o EncryptionIdentityResponseOutput) ToEncryptionIdentityResponseOutput() EncryptionIdentityResponseOutput {
+	return o
+}
+
+func (o EncryptionIdentityResponseOutput) ToEncryptionIdentityResponseOutputWithContext(ctx context.Context) EncryptionIdentityResponseOutput {
+	return o
+}
+
+func (o EncryptionIdentityResponseOutput) ToEncryptionIdentityResponsePtrOutput() EncryptionIdentityResponsePtrOutput {
+	return o.ToEncryptionIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionIdentityResponseOutput) ToEncryptionIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionIdentityResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionIdentityResponse) *EncryptionIdentityResponse {
+		return &v
+	}).(EncryptionIdentityResponsePtrOutput)
+}
+
+// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+func (o EncryptionIdentityResponseOutput) EncryptionUserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionIdentityResponse) *string { return v.EncryptionUserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionIdentityResponse)(nil)).Elem()
+}
+
+func (o EncryptionIdentityResponsePtrOutput) ToEncryptionIdentityResponsePtrOutput() EncryptionIdentityResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionIdentityResponsePtrOutput) ToEncryptionIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionIdentityResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionIdentityResponsePtrOutput) Elem() EncryptionIdentityResponseOutput {
+	return o.ApplyT(func(v *EncryptionIdentityResponse) EncryptionIdentityResponse { return *v }).(EncryptionIdentityResponseOutput)
+}
+
+// Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+func (o EncryptionIdentityResponsePtrOutput) EncryptionUserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionUserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
 // The encryption settings on the storage account.
 type EncryptionResponse struct {
+	// The identity to be used with service-side encryption at rest.
+	EncryptionIdentity *EncryptionIdentityResponse `pulumi:"encryptionIdentity"`
 	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 	KeySource string `pulumi:"keySource"`
 	// Properties provided by key vault.
@@ -4373,6 +4662,8 @@ type EncryptionResponseInput interface {
 
 // The encryption settings on the storage account.
 type EncryptionResponseArgs struct {
+	// The identity to be used with service-side encryption at rest.
+	EncryptionIdentity EncryptionIdentityResponsePtrInput `pulumi:"encryptionIdentity"`
 	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 	KeySource pulumi.StringInput `pulumi:"keySource"`
 	// Properties provided by key vault.
@@ -4461,6 +4752,11 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx c
 	}).(EncryptionResponsePtrOutput)
 }
 
+// The identity to be used with service-side encryption at rest.
+func (o EncryptionResponseOutput) EncryptionIdentity() EncryptionIdentityResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionResponse) *EncryptionIdentityResponse { return v.EncryptionIdentity }).(EncryptionIdentityResponsePtrOutput)
+}
+
 // The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 func (o EncryptionResponseOutput) KeySource() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionResponse) string { return v.KeySource }).(pulumi.StringOutput)
@@ -4497,6 +4793,16 @@ func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ct
 
 func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
 	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse { return *v }).(EncryptionResponseOutput)
+}
+
+// The identity to be used with service-side encryption at rest.
+func (o EncryptionResponsePtrOutput) EncryptionIdentity() EncryptionIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionResponse) *EncryptionIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionIdentity
+	}).(EncryptionIdentityResponsePtrOutput)
 }
 
 // The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
@@ -5513,6 +5819,312 @@ func (o EndpointsResponsePtrOutput) Web() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The complex type of the extended location.
+type ExtendedLocation struct {
+	// The name of the extended location.
+	Name *string `pulumi:"name"`
+	// The type of the extended location.
+	Type *string `pulumi:"type"`
+}
+
+// ExtendedLocationInput is an input type that accepts ExtendedLocationArgs and ExtendedLocationOutput values.
+// You can construct a concrete instance of `ExtendedLocationInput` via:
+//
+//          ExtendedLocationArgs{...}
+type ExtendedLocationInput interface {
+	pulumi.Input
+
+	ToExtendedLocationOutput() ExtendedLocationOutput
+	ToExtendedLocationOutputWithContext(context.Context) ExtendedLocationOutput
+}
+
+// The complex type of the extended location.
+type ExtendedLocationArgs struct {
+	// The name of the extended location.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the extended location.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ExtendedLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return i.ToExtendedLocationOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput)
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput).ToExtendedLocationPtrOutputWithContext(ctx)
+}
+
+// ExtendedLocationPtrInput is an input type that accepts ExtendedLocationArgs, ExtendedLocationPtr and ExtendedLocationPtrOutput values.
+// You can construct a concrete instance of `ExtendedLocationPtrInput` via:
+//
+//          ExtendedLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedLocationPtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput
+	ToExtendedLocationPtrOutputWithContext(context.Context) ExtendedLocationPtrOutput
+}
+
+type extendedLocationPtrType ExtendedLocationArgs
+
+func ExtendedLocationPtr(v *ExtendedLocationArgs) ExtendedLocationPtrInput {
+	return (*extendedLocationPtrType)(v)
+}
+
+func (*extendedLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationPtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *ExtendedLocation {
+		return &v
+	}).(ExtendedLocationPtrOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ExtendedLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
+	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation { return *v }).(ExtendedLocationOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationResponse struct {
+	// The name of the extended location.
+	Name *string `pulumi:"name"`
+	// The type of the extended location.
+	Type *string `pulumi:"type"`
+}
+
+// ExtendedLocationResponseInput is an input type that accepts ExtendedLocationResponseArgs and ExtendedLocationResponseOutput values.
+// You can construct a concrete instance of `ExtendedLocationResponseInput` via:
+//
+//          ExtendedLocationResponseArgs{...}
+type ExtendedLocationResponseInput interface {
+	pulumi.Input
+
+	ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput
+	ToExtendedLocationResponseOutputWithContext(context.Context) ExtendedLocationResponseOutput
+}
+
+// The complex type of the extended location.
+type ExtendedLocationResponseArgs struct {
+	// The name of the extended location.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the extended location.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ExtendedLocationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput {
+	return i.ToExtendedLocationResponseOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponseOutput)
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return i.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponseOutput).ToExtendedLocationResponsePtrOutputWithContext(ctx)
+}
+
+// ExtendedLocationResponsePtrInput is an input type that accepts ExtendedLocationResponseArgs, ExtendedLocationResponsePtr and ExtendedLocationResponsePtrOutput values.
+// You can construct a concrete instance of `ExtendedLocationResponsePtrInput` via:
+//
+//          ExtendedLocationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedLocationResponsePtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput
+	ToExtendedLocationResponsePtrOutputWithContext(context.Context) ExtendedLocationResponsePtrOutput
+}
+
+type extendedLocationResponsePtrType ExtendedLocationResponseArgs
+
+func ExtendedLocationResponsePtr(v *ExtendedLocationResponseArgs) ExtendedLocationResponsePtrInput {
+	return (*extendedLocationResponsePtrType)(v)
+}
+
+func (*extendedLocationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return i.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponsePtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationResponseOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return o.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *ExtendedLocationResponse {
+		return &v
+	}).(ExtendedLocationResponsePtrOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ExtendedLocationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse { return *v }).(ExtendedLocationResponseOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Statistics related to replication for storage account's Blob, Table, Queue and File services. It is only available when geo-redundant replication is enabled for the storage account.
 type GeoReplicationStatsResponse struct {
 	// A boolean flag which indicates whether or not account failover is supported for the account.
@@ -5907,6 +6519,8 @@ func (o IPRuleResponseArrayOutput) Index(i pulumi.IntInput) IPRuleResponseOutput
 type Identity struct {
 	// The identity type.
 	Type string `pulumi:"type"`
+	// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -5923,7 +6537,9 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type IdentityType `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
+	// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -6009,6 +6625,11 @@ func (o IdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
 type IdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityPtrOutput) ElementType() reflect.Type {
@@ -6037,6 +6658,16 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *Identity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
 // Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of resource identity.
@@ -6045,6 +6676,8 @@ type IdentityResponse struct {
 	TenantId string `pulumi:"tenantId"`
 	// The identity type.
 	Type string `pulumi:"type"`
+	// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -6066,6 +6699,8 @@ type IdentityResponseArgs struct {
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
+	// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+	UserAssignedIdentities UserAssignedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -6161,6 +6796,11 @@ func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]UserAssignedIdentityResponse { return v.UserAssignedIdentities }).(UserAssignedIdentityResponseMapOutput)
+}
+
 type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponsePtrOutput) ElementType() reflect.Type {
@@ -6207,6 +6847,16 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
 }
 
 // The properties of an ImmutabilityPolicy of a blob container.
@@ -9546,6 +10196,274 @@ func (o ManagementPolicyVersionResponsePtrOutput) TierToCool() DateAfterCreation
 	}).(DateAfterCreationResponsePtrOutput)
 }
 
+// Multichannel setting. Applies to Premium FileStorage only.
+type Multichannel struct {
+	// Indicates whether multichannel is enabled
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// MultichannelInput is an input type that accepts MultichannelArgs and MultichannelOutput values.
+// You can construct a concrete instance of `MultichannelInput` via:
+//
+//          MultichannelArgs{...}
+type MultichannelInput interface {
+	pulumi.Input
+
+	ToMultichannelOutput() MultichannelOutput
+	ToMultichannelOutputWithContext(context.Context) MultichannelOutput
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+type MultichannelArgs struct {
+	// Indicates whether multichannel is enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (MultichannelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Multichannel)(nil)).Elem()
+}
+
+func (i MultichannelArgs) ToMultichannelOutput() MultichannelOutput {
+	return i.ToMultichannelOutputWithContext(context.Background())
+}
+
+func (i MultichannelArgs) ToMultichannelOutputWithContext(ctx context.Context) MultichannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultichannelOutput)
+}
+
+func (i MultichannelArgs) ToMultichannelPtrOutput() MultichannelPtrOutput {
+	return i.ToMultichannelPtrOutputWithContext(context.Background())
+}
+
+func (i MultichannelArgs) ToMultichannelPtrOutputWithContext(ctx context.Context) MultichannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultichannelOutput).ToMultichannelPtrOutputWithContext(ctx)
+}
+
+// MultichannelPtrInput is an input type that accepts MultichannelArgs, MultichannelPtr and MultichannelPtrOutput values.
+// You can construct a concrete instance of `MultichannelPtrInput` via:
+//
+//          MultichannelArgs{...}
+//
+//  or:
+//
+//          nil
+type MultichannelPtrInput interface {
+	pulumi.Input
+
+	ToMultichannelPtrOutput() MultichannelPtrOutput
+	ToMultichannelPtrOutputWithContext(context.Context) MultichannelPtrOutput
+}
+
+type multichannelPtrType MultichannelArgs
+
+func MultichannelPtr(v *MultichannelArgs) MultichannelPtrInput {
+	return (*multichannelPtrType)(v)
+}
+
+func (*multichannelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Multichannel)(nil)).Elem()
+}
+
+func (i *multichannelPtrType) ToMultichannelPtrOutput() MultichannelPtrOutput {
+	return i.ToMultichannelPtrOutputWithContext(context.Background())
+}
+
+func (i *multichannelPtrType) ToMultichannelPtrOutputWithContext(ctx context.Context) MultichannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultichannelPtrOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+type MultichannelOutput struct{ *pulumi.OutputState }
+
+func (MultichannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Multichannel)(nil)).Elem()
+}
+
+func (o MultichannelOutput) ToMultichannelOutput() MultichannelOutput {
+	return o
+}
+
+func (o MultichannelOutput) ToMultichannelOutputWithContext(ctx context.Context) MultichannelOutput {
+	return o
+}
+
+func (o MultichannelOutput) ToMultichannelPtrOutput() MultichannelPtrOutput {
+	return o.ToMultichannelPtrOutputWithContext(context.Background())
+}
+
+func (o MultichannelOutput) ToMultichannelPtrOutputWithContext(ctx context.Context) MultichannelPtrOutput {
+	return o.ApplyT(func(v Multichannel) *Multichannel {
+		return &v
+	}).(MultichannelPtrOutput)
+}
+
+// Indicates whether multichannel is enabled
+func (o MultichannelOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Multichannel) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type MultichannelPtrOutput struct{ *pulumi.OutputState }
+
+func (MultichannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Multichannel)(nil)).Elem()
+}
+
+func (o MultichannelPtrOutput) ToMultichannelPtrOutput() MultichannelPtrOutput {
+	return o
+}
+
+func (o MultichannelPtrOutput) ToMultichannelPtrOutputWithContext(ctx context.Context) MultichannelPtrOutput {
+	return o
+}
+
+func (o MultichannelPtrOutput) Elem() MultichannelOutput {
+	return o.ApplyT(func(v *Multichannel) Multichannel { return *v }).(MultichannelOutput)
+}
+
+// Indicates whether multichannel is enabled
+func (o MultichannelPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Multichannel) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+type MultichannelResponse struct {
+	// Indicates whether multichannel is enabled
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// MultichannelResponseInput is an input type that accepts MultichannelResponseArgs and MultichannelResponseOutput values.
+// You can construct a concrete instance of `MultichannelResponseInput` via:
+//
+//          MultichannelResponseArgs{...}
+type MultichannelResponseInput interface {
+	pulumi.Input
+
+	ToMultichannelResponseOutput() MultichannelResponseOutput
+	ToMultichannelResponseOutputWithContext(context.Context) MultichannelResponseOutput
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+type MultichannelResponseArgs struct {
+	// Indicates whether multichannel is enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (MultichannelResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultichannelResponse)(nil)).Elem()
+}
+
+func (i MultichannelResponseArgs) ToMultichannelResponseOutput() MultichannelResponseOutput {
+	return i.ToMultichannelResponseOutputWithContext(context.Background())
+}
+
+func (i MultichannelResponseArgs) ToMultichannelResponseOutputWithContext(ctx context.Context) MultichannelResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultichannelResponseOutput)
+}
+
+func (i MultichannelResponseArgs) ToMultichannelResponsePtrOutput() MultichannelResponsePtrOutput {
+	return i.ToMultichannelResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MultichannelResponseArgs) ToMultichannelResponsePtrOutputWithContext(ctx context.Context) MultichannelResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultichannelResponseOutput).ToMultichannelResponsePtrOutputWithContext(ctx)
+}
+
+// MultichannelResponsePtrInput is an input type that accepts MultichannelResponseArgs, MultichannelResponsePtr and MultichannelResponsePtrOutput values.
+// You can construct a concrete instance of `MultichannelResponsePtrInput` via:
+//
+//          MultichannelResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MultichannelResponsePtrInput interface {
+	pulumi.Input
+
+	ToMultichannelResponsePtrOutput() MultichannelResponsePtrOutput
+	ToMultichannelResponsePtrOutputWithContext(context.Context) MultichannelResponsePtrOutput
+}
+
+type multichannelResponsePtrType MultichannelResponseArgs
+
+func MultichannelResponsePtr(v *MultichannelResponseArgs) MultichannelResponsePtrInput {
+	return (*multichannelResponsePtrType)(v)
+}
+
+func (*multichannelResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultichannelResponse)(nil)).Elem()
+}
+
+func (i *multichannelResponsePtrType) ToMultichannelResponsePtrOutput() MultichannelResponsePtrOutput {
+	return i.ToMultichannelResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *multichannelResponsePtrType) ToMultichannelResponsePtrOutputWithContext(ctx context.Context) MultichannelResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultichannelResponsePtrOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+type MultichannelResponseOutput struct{ *pulumi.OutputState }
+
+func (MultichannelResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultichannelResponse)(nil)).Elem()
+}
+
+func (o MultichannelResponseOutput) ToMultichannelResponseOutput() MultichannelResponseOutput {
+	return o
+}
+
+func (o MultichannelResponseOutput) ToMultichannelResponseOutputWithContext(ctx context.Context) MultichannelResponseOutput {
+	return o
+}
+
+func (o MultichannelResponseOutput) ToMultichannelResponsePtrOutput() MultichannelResponsePtrOutput {
+	return o.ToMultichannelResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MultichannelResponseOutput) ToMultichannelResponsePtrOutputWithContext(ctx context.Context) MultichannelResponsePtrOutput {
+	return o.ApplyT(func(v MultichannelResponse) *MultichannelResponse {
+		return &v
+	}).(MultichannelResponsePtrOutput)
+}
+
+// Indicates whether multichannel is enabled
+func (o MultichannelResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultichannelResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type MultichannelResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MultichannelResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultichannelResponse)(nil)).Elem()
+}
+
+func (o MultichannelResponsePtrOutput) ToMultichannelResponsePtrOutput() MultichannelResponsePtrOutput {
+	return o
+}
+
+func (o MultichannelResponsePtrOutput) ToMultichannelResponsePtrOutputWithContext(ctx context.Context) MultichannelResponsePtrOutput {
+	return o
+}
+
+func (o MultichannelResponsePtrOutput) Elem() MultichannelResponseOutput {
+	return o.ApplyT(func(v *MultichannelResponse) MultichannelResponse { return *v }).(MultichannelResponseOutput)
+}
+
+// Indicates whether multichannel is enabled
+func (o MultichannelResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultichannelResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Network rule set
 type NetworkRuleSet struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
@@ -9554,6 +10472,8 @@ type NetworkRuleSet struct {
 	DefaultAction string `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
 	IpRules []IPRule `pulumi:"ipRules"`
+	// Sets the resource access rules
+	ResourceAccessRules []ResourceAccessRule `pulumi:"resourceAccessRules"`
 	// Sets the virtual network rules
 	VirtualNetworkRules []VirtualNetworkRule `pulumi:"virtualNetworkRules"`
 }
@@ -9577,6 +10497,8 @@ type NetworkRuleSetArgs struct {
 	DefaultAction DefaultAction `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
 	IpRules IPRuleArrayInput `pulumi:"ipRules"`
+	// Sets the resource access rules
+	ResourceAccessRules ResourceAccessRuleArrayInput `pulumi:"resourceAccessRules"`
 	// Sets the virtual network rules
 	VirtualNetworkRules VirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
@@ -9674,6 +10596,11 @@ func (o NetworkRuleSetOutput) IpRules() IPRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []IPRule { return v.IpRules }).(IPRuleArrayOutput)
 }
 
+// Sets the resource access rules
+func (o NetworkRuleSetOutput) ResourceAccessRules() ResourceAccessRuleArrayOutput {
+	return o.ApplyT(func(v NetworkRuleSet) []ResourceAccessRule { return v.ResourceAccessRules }).(ResourceAccessRuleArrayOutput)
+}
+
 // Sets the virtual network rules
 func (o NetworkRuleSetOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []VirtualNetworkRule { return v.VirtualNetworkRules }).(VirtualNetworkRuleArrayOutput)
@@ -9727,6 +10654,16 @@ func (o NetworkRuleSetPtrOutput) IpRules() IPRuleArrayOutput {
 	}).(IPRuleArrayOutput)
 }
 
+// Sets the resource access rules
+func (o NetworkRuleSetPtrOutput) ResourceAccessRules() ResourceAccessRuleArrayOutput {
+	return o.ApplyT(func(v *NetworkRuleSet) []ResourceAccessRule {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAccessRules
+	}).(ResourceAccessRuleArrayOutput)
+}
+
 // Sets the virtual network rules
 func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) []VirtualNetworkRule {
@@ -9745,6 +10682,8 @@ type NetworkRuleSetResponse struct {
 	DefaultAction string `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
 	IpRules []IPRuleResponse `pulumi:"ipRules"`
+	// Sets the resource access rules
+	ResourceAccessRules []ResourceAccessRuleResponse `pulumi:"resourceAccessRules"`
 	// Sets the virtual network rules
 	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
 }
@@ -9768,6 +10707,8 @@ type NetworkRuleSetResponseArgs struct {
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
 	IpRules IPRuleResponseArrayInput `pulumi:"ipRules"`
+	// Sets the resource access rules
+	ResourceAccessRules ResourceAccessRuleResponseArrayInput `pulumi:"resourceAccessRules"`
 	// Sets the virtual network rules
 	VirtualNetworkRules VirtualNetworkRuleResponseArrayInput `pulumi:"virtualNetworkRules"`
 }
@@ -9865,6 +10806,11 @@ func (o NetworkRuleSetResponseOutput) IpRules() IPRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []IPRuleResponse { return v.IpRules }).(IPRuleResponseArrayOutput)
 }
 
+// Sets the resource access rules
+func (o NetworkRuleSetResponseOutput) ResourceAccessRules() ResourceAccessRuleResponseArrayOutput {
+	return o.ApplyT(func(v NetworkRuleSetResponse) []ResourceAccessRuleResponse { return v.ResourceAccessRules }).(ResourceAccessRuleResponseArrayOutput)
+}
+
 // Sets the virtual network rules
 func (o NetworkRuleSetResponseOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []VirtualNetworkRuleResponse { return v.VirtualNetworkRules }).(VirtualNetworkRuleResponseArrayOutput)
@@ -9916,6 +10862,16 @@ func (o NetworkRuleSetResponsePtrOutput) IpRules() IPRuleResponseArrayOutput {
 		}
 		return v.IpRules
 	}).(IPRuleResponseArrayOutput)
+}
+
+// Sets the resource access rules
+func (o NetworkRuleSetResponsePtrOutput) ResourceAccessRules() ResourceAccessRuleResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkRuleSetResponse) []ResourceAccessRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAccessRules
+	}).(ResourceAccessRuleResponseArrayOutput)
 }
 
 // Sets the virtual network rules
@@ -11115,6 +12071,492 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Protocol settings for file service
+type ProtocolSettings struct {
+	// Setting for SMB protocol
+	Smb *SmbSetting `pulumi:"smb"`
+}
+
+// ProtocolSettingsInput is an input type that accepts ProtocolSettingsArgs and ProtocolSettingsOutput values.
+// You can construct a concrete instance of `ProtocolSettingsInput` via:
+//
+//          ProtocolSettingsArgs{...}
+type ProtocolSettingsInput interface {
+	pulumi.Input
+
+	ToProtocolSettingsOutput() ProtocolSettingsOutput
+	ToProtocolSettingsOutputWithContext(context.Context) ProtocolSettingsOutput
+}
+
+// Protocol settings for file service
+type ProtocolSettingsArgs struct {
+	// Setting for SMB protocol
+	Smb SmbSettingPtrInput `pulumi:"smb"`
+}
+
+func (ProtocolSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtocolSettings)(nil)).Elem()
+}
+
+func (i ProtocolSettingsArgs) ToProtocolSettingsOutput() ProtocolSettingsOutput {
+	return i.ToProtocolSettingsOutputWithContext(context.Background())
+}
+
+func (i ProtocolSettingsArgs) ToProtocolSettingsOutputWithContext(ctx context.Context) ProtocolSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolSettingsOutput)
+}
+
+func (i ProtocolSettingsArgs) ToProtocolSettingsPtrOutput() ProtocolSettingsPtrOutput {
+	return i.ToProtocolSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ProtocolSettingsArgs) ToProtocolSettingsPtrOutputWithContext(ctx context.Context) ProtocolSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolSettingsOutput).ToProtocolSettingsPtrOutputWithContext(ctx)
+}
+
+// ProtocolSettingsPtrInput is an input type that accepts ProtocolSettingsArgs, ProtocolSettingsPtr and ProtocolSettingsPtrOutput values.
+// You can construct a concrete instance of `ProtocolSettingsPtrInput` via:
+//
+//          ProtocolSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ProtocolSettingsPtrInput interface {
+	pulumi.Input
+
+	ToProtocolSettingsPtrOutput() ProtocolSettingsPtrOutput
+	ToProtocolSettingsPtrOutputWithContext(context.Context) ProtocolSettingsPtrOutput
+}
+
+type protocolSettingsPtrType ProtocolSettingsArgs
+
+func ProtocolSettingsPtr(v *ProtocolSettingsArgs) ProtocolSettingsPtrInput {
+	return (*protocolSettingsPtrType)(v)
+}
+
+func (*protocolSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtocolSettings)(nil)).Elem()
+}
+
+func (i *protocolSettingsPtrType) ToProtocolSettingsPtrOutput() ProtocolSettingsPtrOutput {
+	return i.ToProtocolSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *protocolSettingsPtrType) ToProtocolSettingsPtrOutputWithContext(ctx context.Context) ProtocolSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolSettingsPtrOutput)
+}
+
+// Protocol settings for file service
+type ProtocolSettingsOutput struct{ *pulumi.OutputState }
+
+func (ProtocolSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtocolSettings)(nil)).Elem()
+}
+
+func (o ProtocolSettingsOutput) ToProtocolSettingsOutput() ProtocolSettingsOutput {
+	return o
+}
+
+func (o ProtocolSettingsOutput) ToProtocolSettingsOutputWithContext(ctx context.Context) ProtocolSettingsOutput {
+	return o
+}
+
+func (o ProtocolSettingsOutput) ToProtocolSettingsPtrOutput() ProtocolSettingsPtrOutput {
+	return o.ToProtocolSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolSettingsOutput) ToProtocolSettingsPtrOutputWithContext(ctx context.Context) ProtocolSettingsPtrOutput {
+	return o.ApplyT(func(v ProtocolSettings) *ProtocolSettings {
+		return &v
+	}).(ProtocolSettingsPtrOutput)
+}
+
+// Setting for SMB protocol
+func (o ProtocolSettingsOutput) Smb() SmbSettingPtrOutput {
+	return o.ApplyT(func(v ProtocolSettings) *SmbSetting { return v.Smb }).(SmbSettingPtrOutput)
+}
+
+type ProtocolSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProtocolSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtocolSettings)(nil)).Elem()
+}
+
+func (o ProtocolSettingsPtrOutput) ToProtocolSettingsPtrOutput() ProtocolSettingsPtrOutput {
+	return o
+}
+
+func (o ProtocolSettingsPtrOutput) ToProtocolSettingsPtrOutputWithContext(ctx context.Context) ProtocolSettingsPtrOutput {
+	return o
+}
+
+func (o ProtocolSettingsPtrOutput) Elem() ProtocolSettingsOutput {
+	return o.ApplyT(func(v *ProtocolSettings) ProtocolSettings { return *v }).(ProtocolSettingsOutput)
+}
+
+// Setting for SMB protocol
+func (o ProtocolSettingsPtrOutput) Smb() SmbSettingPtrOutput {
+	return o.ApplyT(func(v *ProtocolSettings) *SmbSetting {
+		if v == nil {
+			return nil
+		}
+		return v.Smb
+	}).(SmbSettingPtrOutput)
+}
+
+// Protocol settings for file service
+type ProtocolSettingsResponse struct {
+	// Setting for SMB protocol
+	Smb *SmbSettingResponse `pulumi:"smb"`
+}
+
+// ProtocolSettingsResponseInput is an input type that accepts ProtocolSettingsResponseArgs and ProtocolSettingsResponseOutput values.
+// You can construct a concrete instance of `ProtocolSettingsResponseInput` via:
+//
+//          ProtocolSettingsResponseArgs{...}
+type ProtocolSettingsResponseInput interface {
+	pulumi.Input
+
+	ToProtocolSettingsResponseOutput() ProtocolSettingsResponseOutput
+	ToProtocolSettingsResponseOutputWithContext(context.Context) ProtocolSettingsResponseOutput
+}
+
+// Protocol settings for file service
+type ProtocolSettingsResponseArgs struct {
+	// Setting for SMB protocol
+	Smb SmbSettingResponsePtrInput `pulumi:"smb"`
+}
+
+func (ProtocolSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtocolSettingsResponse)(nil)).Elem()
+}
+
+func (i ProtocolSettingsResponseArgs) ToProtocolSettingsResponseOutput() ProtocolSettingsResponseOutput {
+	return i.ToProtocolSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i ProtocolSettingsResponseArgs) ToProtocolSettingsResponseOutputWithContext(ctx context.Context) ProtocolSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolSettingsResponseOutput)
+}
+
+func (i ProtocolSettingsResponseArgs) ToProtocolSettingsResponsePtrOutput() ProtocolSettingsResponsePtrOutput {
+	return i.ToProtocolSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ProtocolSettingsResponseArgs) ToProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) ProtocolSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolSettingsResponseOutput).ToProtocolSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// ProtocolSettingsResponsePtrInput is an input type that accepts ProtocolSettingsResponseArgs, ProtocolSettingsResponsePtr and ProtocolSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `ProtocolSettingsResponsePtrInput` via:
+//
+//          ProtocolSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ProtocolSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToProtocolSettingsResponsePtrOutput() ProtocolSettingsResponsePtrOutput
+	ToProtocolSettingsResponsePtrOutputWithContext(context.Context) ProtocolSettingsResponsePtrOutput
+}
+
+type protocolSettingsResponsePtrType ProtocolSettingsResponseArgs
+
+func ProtocolSettingsResponsePtr(v *ProtocolSettingsResponseArgs) ProtocolSettingsResponsePtrInput {
+	return (*protocolSettingsResponsePtrType)(v)
+}
+
+func (*protocolSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtocolSettingsResponse)(nil)).Elem()
+}
+
+func (i *protocolSettingsResponsePtrType) ToProtocolSettingsResponsePtrOutput() ProtocolSettingsResponsePtrOutput {
+	return i.ToProtocolSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *protocolSettingsResponsePtrType) ToProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) ProtocolSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolSettingsResponsePtrOutput)
+}
+
+// Protocol settings for file service
+type ProtocolSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ProtocolSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtocolSettingsResponse)(nil)).Elem()
+}
+
+func (o ProtocolSettingsResponseOutput) ToProtocolSettingsResponseOutput() ProtocolSettingsResponseOutput {
+	return o
+}
+
+func (o ProtocolSettingsResponseOutput) ToProtocolSettingsResponseOutputWithContext(ctx context.Context) ProtocolSettingsResponseOutput {
+	return o
+}
+
+func (o ProtocolSettingsResponseOutput) ToProtocolSettingsResponsePtrOutput() ProtocolSettingsResponsePtrOutput {
+	return o.ToProtocolSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolSettingsResponseOutput) ToProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) ProtocolSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ProtocolSettingsResponse) *ProtocolSettingsResponse {
+		return &v
+	}).(ProtocolSettingsResponsePtrOutput)
+}
+
+// Setting for SMB protocol
+func (o ProtocolSettingsResponseOutput) Smb() SmbSettingResponsePtrOutput {
+	return o.ApplyT(func(v ProtocolSettingsResponse) *SmbSettingResponse { return v.Smb }).(SmbSettingResponsePtrOutput)
+}
+
+type ProtocolSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ProtocolSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtocolSettingsResponse)(nil)).Elem()
+}
+
+func (o ProtocolSettingsResponsePtrOutput) ToProtocolSettingsResponsePtrOutput() ProtocolSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ProtocolSettingsResponsePtrOutput) ToProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) ProtocolSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ProtocolSettingsResponsePtrOutput) Elem() ProtocolSettingsResponseOutput {
+	return o.ApplyT(func(v *ProtocolSettingsResponse) ProtocolSettingsResponse { return *v }).(ProtocolSettingsResponseOutput)
+}
+
+// Setting for SMB protocol
+func (o ProtocolSettingsResponsePtrOutput) Smb() SmbSettingResponsePtrOutput {
+	return o.ApplyT(func(v *ProtocolSettingsResponse) *SmbSettingResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Smb
+	}).(SmbSettingResponsePtrOutput)
+}
+
+// Resource Access Rule.
+type ResourceAccessRule struct {
+	// Resource Id
+	ResourceId *string `pulumi:"resourceId"`
+	// Tenant Id
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ResourceAccessRuleInput is an input type that accepts ResourceAccessRuleArgs and ResourceAccessRuleOutput values.
+// You can construct a concrete instance of `ResourceAccessRuleInput` via:
+//
+//          ResourceAccessRuleArgs{...}
+type ResourceAccessRuleInput interface {
+	pulumi.Input
+
+	ToResourceAccessRuleOutput() ResourceAccessRuleOutput
+	ToResourceAccessRuleOutputWithContext(context.Context) ResourceAccessRuleOutput
+}
+
+// Resource Access Rule.
+type ResourceAccessRuleArgs struct {
+	// Resource Id
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// Tenant Id
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ResourceAccessRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAccessRule)(nil)).Elem()
+}
+
+func (i ResourceAccessRuleArgs) ToResourceAccessRuleOutput() ResourceAccessRuleOutput {
+	return i.ToResourceAccessRuleOutputWithContext(context.Background())
+}
+
+func (i ResourceAccessRuleArgs) ToResourceAccessRuleOutputWithContext(ctx context.Context) ResourceAccessRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAccessRuleOutput)
+}
+
+// ResourceAccessRuleArrayInput is an input type that accepts ResourceAccessRuleArray and ResourceAccessRuleArrayOutput values.
+// You can construct a concrete instance of `ResourceAccessRuleArrayInput` via:
+//
+//          ResourceAccessRuleArray{ ResourceAccessRuleArgs{...} }
+type ResourceAccessRuleArrayInput interface {
+	pulumi.Input
+
+	ToResourceAccessRuleArrayOutput() ResourceAccessRuleArrayOutput
+	ToResourceAccessRuleArrayOutputWithContext(context.Context) ResourceAccessRuleArrayOutput
+}
+
+type ResourceAccessRuleArray []ResourceAccessRuleInput
+
+func (ResourceAccessRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceAccessRule)(nil)).Elem()
+}
+
+func (i ResourceAccessRuleArray) ToResourceAccessRuleArrayOutput() ResourceAccessRuleArrayOutput {
+	return i.ToResourceAccessRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceAccessRuleArray) ToResourceAccessRuleArrayOutputWithContext(ctx context.Context) ResourceAccessRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAccessRuleArrayOutput)
+}
+
+// Resource Access Rule.
+type ResourceAccessRuleOutput struct{ *pulumi.OutputState }
+
+func (ResourceAccessRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAccessRule)(nil)).Elem()
+}
+
+func (o ResourceAccessRuleOutput) ToResourceAccessRuleOutput() ResourceAccessRuleOutput {
+	return o
+}
+
+func (o ResourceAccessRuleOutput) ToResourceAccessRuleOutputWithContext(ctx context.Context) ResourceAccessRuleOutput {
+	return o
+}
+
+// Resource Id
+func (o ResourceAccessRuleOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceAccessRule) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Tenant Id
+func (o ResourceAccessRuleOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceAccessRule) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ResourceAccessRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceAccessRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceAccessRule)(nil)).Elem()
+}
+
+func (o ResourceAccessRuleArrayOutput) ToResourceAccessRuleArrayOutput() ResourceAccessRuleArrayOutput {
+	return o
+}
+
+func (o ResourceAccessRuleArrayOutput) ToResourceAccessRuleArrayOutputWithContext(ctx context.Context) ResourceAccessRuleArrayOutput {
+	return o
+}
+
+func (o ResourceAccessRuleArrayOutput) Index(i pulumi.IntInput) ResourceAccessRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceAccessRule {
+		return vs[0].([]ResourceAccessRule)[vs[1].(int)]
+	}).(ResourceAccessRuleOutput)
+}
+
+// Resource Access Rule.
+type ResourceAccessRuleResponse struct {
+	// Resource Id
+	ResourceId *string `pulumi:"resourceId"`
+	// Tenant Id
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ResourceAccessRuleResponseInput is an input type that accepts ResourceAccessRuleResponseArgs and ResourceAccessRuleResponseOutput values.
+// You can construct a concrete instance of `ResourceAccessRuleResponseInput` via:
+//
+//          ResourceAccessRuleResponseArgs{...}
+type ResourceAccessRuleResponseInput interface {
+	pulumi.Input
+
+	ToResourceAccessRuleResponseOutput() ResourceAccessRuleResponseOutput
+	ToResourceAccessRuleResponseOutputWithContext(context.Context) ResourceAccessRuleResponseOutput
+}
+
+// Resource Access Rule.
+type ResourceAccessRuleResponseArgs struct {
+	// Resource Id
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// Tenant Id
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ResourceAccessRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAccessRuleResponse)(nil)).Elem()
+}
+
+func (i ResourceAccessRuleResponseArgs) ToResourceAccessRuleResponseOutput() ResourceAccessRuleResponseOutput {
+	return i.ToResourceAccessRuleResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceAccessRuleResponseArgs) ToResourceAccessRuleResponseOutputWithContext(ctx context.Context) ResourceAccessRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAccessRuleResponseOutput)
+}
+
+// ResourceAccessRuleResponseArrayInput is an input type that accepts ResourceAccessRuleResponseArray and ResourceAccessRuleResponseArrayOutput values.
+// You can construct a concrete instance of `ResourceAccessRuleResponseArrayInput` via:
+//
+//          ResourceAccessRuleResponseArray{ ResourceAccessRuleResponseArgs{...} }
+type ResourceAccessRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToResourceAccessRuleResponseArrayOutput() ResourceAccessRuleResponseArrayOutput
+	ToResourceAccessRuleResponseArrayOutputWithContext(context.Context) ResourceAccessRuleResponseArrayOutput
+}
+
+type ResourceAccessRuleResponseArray []ResourceAccessRuleResponseInput
+
+func (ResourceAccessRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceAccessRuleResponse)(nil)).Elem()
+}
+
+func (i ResourceAccessRuleResponseArray) ToResourceAccessRuleResponseArrayOutput() ResourceAccessRuleResponseArrayOutput {
+	return i.ToResourceAccessRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceAccessRuleResponseArray) ToResourceAccessRuleResponseArrayOutputWithContext(ctx context.Context) ResourceAccessRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAccessRuleResponseArrayOutput)
+}
+
+// Resource Access Rule.
+type ResourceAccessRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceAccessRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAccessRuleResponse)(nil)).Elem()
+}
+
+func (o ResourceAccessRuleResponseOutput) ToResourceAccessRuleResponseOutput() ResourceAccessRuleResponseOutput {
+	return o
+}
+
+func (o ResourceAccessRuleResponseOutput) ToResourceAccessRuleResponseOutputWithContext(ctx context.Context) ResourceAccessRuleResponseOutput {
+	return o
+}
+
+// Resource Id
+func (o ResourceAccessRuleResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceAccessRuleResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Tenant Id
+func (o ResourceAccessRuleResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceAccessRuleResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ResourceAccessRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceAccessRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceAccessRuleResponse)(nil)).Elem()
+}
+
+func (o ResourceAccessRuleResponseArrayOutput) ToResourceAccessRuleResponseArrayOutput() ResourceAccessRuleResponseArrayOutput {
+	return o
+}
+
+func (o ResourceAccessRuleResponseArrayOutput) ToResourceAccessRuleResponseArrayOutputWithContext(ctx context.Context) ResourceAccessRuleResponseArrayOutput {
+	return o
+}
+
+func (o ResourceAccessRuleResponseArrayOutput) Index(i pulumi.IntInput) ResourceAccessRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceAccessRuleResponse {
+		return vs[0].([]ResourceAccessRuleResponse)[vs[1].(int)]
+	}).(ResourceAccessRuleResponseOutput)
+}
+
 // The blob service properties for blob restore policy
 type RestorePolicyProperties struct {
 	// how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
@@ -12087,6 +13529,426 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Setting for SMB protocol
+type SmbSetting struct {
+	// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+	AuthenticationMethods *string `pulumi:"authenticationMethods"`
+	// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+	ChannelEncryption *string `pulumi:"channelEncryption"`
+	// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+	KerberosTicketEncryption *string `pulumi:"kerberosTicketEncryption"`
+	// Multichannel setting. Applies to Premium FileStorage only.
+	Multichannel *Multichannel `pulumi:"multichannel"`
+	// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+	Versions *string `pulumi:"versions"`
+}
+
+// SmbSettingInput is an input type that accepts SmbSettingArgs and SmbSettingOutput values.
+// You can construct a concrete instance of `SmbSettingInput` via:
+//
+//          SmbSettingArgs{...}
+type SmbSettingInput interface {
+	pulumi.Input
+
+	ToSmbSettingOutput() SmbSettingOutput
+	ToSmbSettingOutputWithContext(context.Context) SmbSettingOutput
+}
+
+// Setting for SMB protocol
+type SmbSettingArgs struct {
+	// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+	AuthenticationMethods pulumi.StringPtrInput `pulumi:"authenticationMethods"`
+	// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+	ChannelEncryption pulumi.StringPtrInput `pulumi:"channelEncryption"`
+	// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+	KerberosTicketEncryption pulumi.StringPtrInput `pulumi:"kerberosTicketEncryption"`
+	// Multichannel setting. Applies to Premium FileStorage only.
+	Multichannel MultichannelPtrInput `pulumi:"multichannel"`
+	// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+	Versions pulumi.StringPtrInput `pulumi:"versions"`
+}
+
+func (SmbSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbSetting)(nil)).Elem()
+}
+
+func (i SmbSettingArgs) ToSmbSettingOutput() SmbSettingOutput {
+	return i.ToSmbSettingOutputWithContext(context.Background())
+}
+
+func (i SmbSettingArgs) ToSmbSettingOutputWithContext(ctx context.Context) SmbSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbSettingOutput)
+}
+
+func (i SmbSettingArgs) ToSmbSettingPtrOutput() SmbSettingPtrOutput {
+	return i.ToSmbSettingPtrOutputWithContext(context.Background())
+}
+
+func (i SmbSettingArgs) ToSmbSettingPtrOutputWithContext(ctx context.Context) SmbSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbSettingOutput).ToSmbSettingPtrOutputWithContext(ctx)
+}
+
+// SmbSettingPtrInput is an input type that accepts SmbSettingArgs, SmbSettingPtr and SmbSettingPtrOutput values.
+// You can construct a concrete instance of `SmbSettingPtrInput` via:
+//
+//          SmbSettingArgs{...}
+//
+//  or:
+//
+//          nil
+type SmbSettingPtrInput interface {
+	pulumi.Input
+
+	ToSmbSettingPtrOutput() SmbSettingPtrOutput
+	ToSmbSettingPtrOutputWithContext(context.Context) SmbSettingPtrOutput
+}
+
+type smbSettingPtrType SmbSettingArgs
+
+func SmbSettingPtr(v *SmbSettingArgs) SmbSettingPtrInput {
+	return (*smbSettingPtrType)(v)
+}
+
+func (*smbSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbSetting)(nil)).Elem()
+}
+
+func (i *smbSettingPtrType) ToSmbSettingPtrOutput() SmbSettingPtrOutput {
+	return i.ToSmbSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *smbSettingPtrType) ToSmbSettingPtrOutputWithContext(ctx context.Context) SmbSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbSettingPtrOutput)
+}
+
+// Setting for SMB protocol
+type SmbSettingOutput struct{ *pulumi.OutputState }
+
+func (SmbSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbSetting)(nil)).Elem()
+}
+
+func (o SmbSettingOutput) ToSmbSettingOutput() SmbSettingOutput {
+	return o
+}
+
+func (o SmbSettingOutput) ToSmbSettingOutputWithContext(ctx context.Context) SmbSettingOutput {
+	return o
+}
+
+func (o SmbSettingOutput) ToSmbSettingPtrOutput() SmbSettingPtrOutput {
+	return o.ToSmbSettingPtrOutputWithContext(context.Background())
+}
+
+func (o SmbSettingOutput) ToSmbSettingPtrOutputWithContext(ctx context.Context) SmbSettingPtrOutput {
+	return o.ApplyT(func(v SmbSetting) *SmbSetting {
+		return &v
+	}).(SmbSettingPtrOutput)
+}
+
+// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+func (o SmbSettingOutput) AuthenticationMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmbSetting) *string { return v.AuthenticationMethods }).(pulumi.StringPtrOutput)
+}
+
+// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+func (o SmbSettingOutput) ChannelEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmbSetting) *string { return v.ChannelEncryption }).(pulumi.StringPtrOutput)
+}
+
+// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+func (o SmbSettingOutput) KerberosTicketEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmbSetting) *string { return v.KerberosTicketEncryption }).(pulumi.StringPtrOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+func (o SmbSettingOutput) Multichannel() MultichannelPtrOutput {
+	return o.ApplyT(func(v SmbSetting) *Multichannel { return v.Multichannel }).(MultichannelPtrOutput)
+}
+
+// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+func (o SmbSettingOutput) Versions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmbSetting) *string { return v.Versions }).(pulumi.StringPtrOutput)
+}
+
+type SmbSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (SmbSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbSetting)(nil)).Elem()
+}
+
+func (o SmbSettingPtrOutput) ToSmbSettingPtrOutput() SmbSettingPtrOutput {
+	return o
+}
+
+func (o SmbSettingPtrOutput) ToSmbSettingPtrOutputWithContext(ctx context.Context) SmbSettingPtrOutput {
+	return o
+}
+
+func (o SmbSettingPtrOutput) Elem() SmbSettingOutput {
+	return o.ApplyT(func(v *SmbSetting) SmbSetting { return *v }).(SmbSettingOutput)
+}
+
+// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+func (o SmbSettingPtrOutput) AuthenticationMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmbSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMethods
+	}).(pulumi.StringPtrOutput)
+}
+
+// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+func (o SmbSettingPtrOutput) ChannelEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmbSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChannelEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+func (o SmbSettingPtrOutput) KerberosTicketEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmbSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KerberosTicketEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+func (o SmbSettingPtrOutput) Multichannel() MultichannelPtrOutput {
+	return o.ApplyT(func(v *SmbSetting) *Multichannel {
+		if v == nil {
+			return nil
+		}
+		return v.Multichannel
+	}).(MultichannelPtrOutput)
+}
+
+// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+func (o SmbSettingPtrOutput) Versions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmbSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Versions
+	}).(pulumi.StringPtrOutput)
+}
+
+// Setting for SMB protocol
+type SmbSettingResponse struct {
+	// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+	AuthenticationMethods *string `pulumi:"authenticationMethods"`
+	// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+	ChannelEncryption *string `pulumi:"channelEncryption"`
+	// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+	KerberosTicketEncryption *string `pulumi:"kerberosTicketEncryption"`
+	// Multichannel setting. Applies to Premium FileStorage only.
+	Multichannel *MultichannelResponse `pulumi:"multichannel"`
+	// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+	Versions *string `pulumi:"versions"`
+}
+
+// SmbSettingResponseInput is an input type that accepts SmbSettingResponseArgs and SmbSettingResponseOutput values.
+// You can construct a concrete instance of `SmbSettingResponseInput` via:
+//
+//          SmbSettingResponseArgs{...}
+type SmbSettingResponseInput interface {
+	pulumi.Input
+
+	ToSmbSettingResponseOutput() SmbSettingResponseOutput
+	ToSmbSettingResponseOutputWithContext(context.Context) SmbSettingResponseOutput
+}
+
+// Setting for SMB protocol
+type SmbSettingResponseArgs struct {
+	// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+	AuthenticationMethods pulumi.StringPtrInput `pulumi:"authenticationMethods"`
+	// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+	ChannelEncryption pulumi.StringPtrInput `pulumi:"channelEncryption"`
+	// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+	KerberosTicketEncryption pulumi.StringPtrInput `pulumi:"kerberosTicketEncryption"`
+	// Multichannel setting. Applies to Premium FileStorage only.
+	Multichannel MultichannelResponsePtrInput `pulumi:"multichannel"`
+	// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+	Versions pulumi.StringPtrInput `pulumi:"versions"`
+}
+
+func (SmbSettingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbSettingResponse)(nil)).Elem()
+}
+
+func (i SmbSettingResponseArgs) ToSmbSettingResponseOutput() SmbSettingResponseOutput {
+	return i.ToSmbSettingResponseOutputWithContext(context.Background())
+}
+
+func (i SmbSettingResponseArgs) ToSmbSettingResponseOutputWithContext(ctx context.Context) SmbSettingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbSettingResponseOutput)
+}
+
+func (i SmbSettingResponseArgs) ToSmbSettingResponsePtrOutput() SmbSettingResponsePtrOutput {
+	return i.ToSmbSettingResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SmbSettingResponseArgs) ToSmbSettingResponsePtrOutputWithContext(ctx context.Context) SmbSettingResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbSettingResponseOutput).ToSmbSettingResponsePtrOutputWithContext(ctx)
+}
+
+// SmbSettingResponsePtrInput is an input type that accepts SmbSettingResponseArgs, SmbSettingResponsePtr and SmbSettingResponsePtrOutput values.
+// You can construct a concrete instance of `SmbSettingResponsePtrInput` via:
+//
+//          SmbSettingResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SmbSettingResponsePtrInput interface {
+	pulumi.Input
+
+	ToSmbSettingResponsePtrOutput() SmbSettingResponsePtrOutput
+	ToSmbSettingResponsePtrOutputWithContext(context.Context) SmbSettingResponsePtrOutput
+}
+
+type smbSettingResponsePtrType SmbSettingResponseArgs
+
+func SmbSettingResponsePtr(v *SmbSettingResponseArgs) SmbSettingResponsePtrInput {
+	return (*smbSettingResponsePtrType)(v)
+}
+
+func (*smbSettingResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbSettingResponse)(nil)).Elem()
+}
+
+func (i *smbSettingResponsePtrType) ToSmbSettingResponsePtrOutput() SmbSettingResponsePtrOutput {
+	return i.ToSmbSettingResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *smbSettingResponsePtrType) ToSmbSettingResponsePtrOutputWithContext(ctx context.Context) SmbSettingResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbSettingResponsePtrOutput)
+}
+
+// Setting for SMB protocol
+type SmbSettingResponseOutput struct{ *pulumi.OutputState }
+
+func (SmbSettingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbSettingResponse)(nil)).Elem()
+}
+
+func (o SmbSettingResponseOutput) ToSmbSettingResponseOutput() SmbSettingResponseOutput {
+	return o
+}
+
+func (o SmbSettingResponseOutput) ToSmbSettingResponseOutputWithContext(ctx context.Context) SmbSettingResponseOutput {
+	return o
+}
+
+func (o SmbSettingResponseOutput) ToSmbSettingResponsePtrOutput() SmbSettingResponsePtrOutput {
+	return o.ToSmbSettingResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SmbSettingResponseOutput) ToSmbSettingResponsePtrOutputWithContext(ctx context.Context) SmbSettingResponsePtrOutput {
+	return o.ApplyT(func(v SmbSettingResponse) *SmbSettingResponse {
+		return &v
+	}).(SmbSettingResponsePtrOutput)
+}
+
+// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+func (o SmbSettingResponseOutput) AuthenticationMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmbSettingResponse) *string { return v.AuthenticationMethods }).(pulumi.StringPtrOutput)
+}
+
+// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+func (o SmbSettingResponseOutput) ChannelEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmbSettingResponse) *string { return v.ChannelEncryption }).(pulumi.StringPtrOutput)
+}
+
+// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+func (o SmbSettingResponseOutput) KerberosTicketEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmbSettingResponse) *string { return v.KerberosTicketEncryption }).(pulumi.StringPtrOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+func (o SmbSettingResponseOutput) Multichannel() MultichannelResponsePtrOutput {
+	return o.ApplyT(func(v SmbSettingResponse) *MultichannelResponse { return v.Multichannel }).(MultichannelResponsePtrOutput)
+}
+
+// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+func (o SmbSettingResponseOutput) Versions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmbSettingResponse) *string { return v.Versions }).(pulumi.StringPtrOutput)
+}
+
+type SmbSettingResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SmbSettingResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmbSettingResponse)(nil)).Elem()
+}
+
+func (o SmbSettingResponsePtrOutput) ToSmbSettingResponsePtrOutput() SmbSettingResponsePtrOutput {
+	return o
+}
+
+func (o SmbSettingResponsePtrOutput) ToSmbSettingResponsePtrOutputWithContext(ctx context.Context) SmbSettingResponsePtrOutput {
+	return o
+}
+
+func (o SmbSettingResponsePtrOutput) Elem() SmbSettingResponseOutput {
+	return o.ApplyT(func(v *SmbSettingResponse) SmbSettingResponse { return *v }).(SmbSettingResponseOutput)
+}
+
+// SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+func (o SmbSettingResponsePtrOutput) AuthenticationMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmbSettingResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMethods
+	}).(pulumi.StringPtrOutput)
+}
+
+// SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+func (o SmbSettingResponsePtrOutput) ChannelEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmbSettingResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChannelEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+func (o SmbSettingResponsePtrOutput) KerberosTicketEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmbSettingResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KerberosTicketEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+// Multichannel setting. Applies to Premium FileStorage only.
+func (o SmbSettingResponsePtrOutput) Multichannel() MultichannelResponsePtrOutput {
+	return o.ApplyT(func(v *SmbSettingResponse) *MultichannelResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Multichannel
+	}).(MultichannelResponsePtrOutput)
+}
+
+// SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+func (o SmbSettingResponsePtrOutput) Versions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmbSettingResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Versions
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13374,6 +15236,115 @@ func (o UpdateHistoryPropertyResponseArrayOutput) Index(i pulumi.IntInput) Updat
 	}).(UpdateHistoryPropertyResponseOutput)
 }
 
+// UserAssignedIdentity for the resource.
+type UserAssignedIdentityResponse struct {
+	// The client ID of the identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID of the identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// UserAssignedIdentityResponseInput is an input type that accepts UserAssignedIdentityResponseArgs and UserAssignedIdentityResponseOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityResponseInput` via:
+//
+//          UserAssignedIdentityResponseArgs{...}
+type UserAssignedIdentityResponseInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput
+	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
+}
+
+// UserAssignedIdentity for the resource.
+type UserAssignedIdentityResponseArgs struct {
+	// The client ID of the identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal ID of the identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (UserAssignedIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return i.ToUserAssignedIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseOutput)
+}
+
+// UserAssignedIdentityResponseMapInput is an input type that accepts UserAssignedIdentityResponseMap and UserAssignedIdentityResponseMapOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityResponseMapInput` via:
+//
+//          UserAssignedIdentityResponseMap{ "key": UserAssignedIdentityResponseArgs{...} }
+type UserAssignedIdentityResponseMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput
+	ToUserAssignedIdentityResponseMapOutputWithContext(context.Context) UserAssignedIdentityResponseMapOutput
+}
+
+type UserAssignedIdentityResponseMap map[string]UserAssignedIdentityResponseInput
+
+func (UserAssignedIdentityResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return i.ToUserAssignedIdentityResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
+}
+
+// UserAssignedIdentity for the resource.
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// The client ID of the identity.
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal ID of the identity.
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
 // Virtual Network rule.
 type VirtualNetworkRule struct {
 	// The action of virtual network rule.
@@ -13400,7 +15371,7 @@ type VirtualNetworkRuleArgs struct {
 	// The action of virtual network rule.
 	Action *Action `pulumi:"action"`
 	// Gets the state of virtual network rule.
-	State *State `pulumi:"state"`
+	State pulumi.StringPtrInput `pulumi:"state"`
 	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
 }
@@ -13667,6 +15638,10 @@ func init() {
 	pulumi.RegisterOutputType(DeleteRetentionPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionOutput{})
 	pulumi.RegisterOutputType(EncryptionPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionIdentityOutput{})
+	pulumi.RegisterOutputType(EncryptionIdentityPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionIdentityResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionServiceOutput{})
@@ -13679,6 +15654,10 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionServicesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationResponseOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationResponsePtrOutput{})
 	pulumi.RegisterOutputType(GeoReplicationStatsResponseOutput{})
 	pulumi.RegisterOutputType(GeoReplicationStatsResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPRuleOutput{})
@@ -13729,6 +15708,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagementPolicyVersionPtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyVersionResponseOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyVersionResponsePtrOutput{})
+	pulumi.RegisterOutputType(MultichannelOutput{})
+	pulumi.RegisterOutputType(MultichannelPtrOutput{})
+	pulumi.RegisterOutputType(MultichannelResponseOutput{})
+	pulumi.RegisterOutputType(MultichannelResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponseOutput{})
@@ -13749,6 +15732,14 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProtocolSettingsOutput{})
+	pulumi.RegisterOutputType(ProtocolSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ProtocolSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ProtocolSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceAccessRuleOutput{})
+	pulumi.RegisterOutputType(ResourceAccessRuleArrayOutput{})
+	pulumi.RegisterOutputType(ResourceAccessRuleResponseOutput{})
+	pulumi.RegisterOutputType(ResourceAccessRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(RestorePolicyPropertiesOutput{})
 	pulumi.RegisterOutputType(RestorePolicyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RestorePolicyPropertiesResponseOutput{})
@@ -13761,6 +15752,10 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SmbSettingOutput{})
+	pulumi.RegisterOutputType(SmbSettingPtrOutput{})
+	pulumi.RegisterOutputType(SmbSettingResponseOutput{})
+	pulumi.RegisterOutputType(SmbSettingResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountInternetEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInternetEndpointsResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountKeyResponseOutput{})
@@ -13777,6 +15772,8 @@ func init() {
 	pulumi.RegisterOutputType(TagPropertyResponseArrayOutput{})
 	pulumi.RegisterOutputType(UpdateHistoryPropertyResponseOutput{})
 	pulumi.RegisterOutputType(UpdateHistoryPropertyResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})

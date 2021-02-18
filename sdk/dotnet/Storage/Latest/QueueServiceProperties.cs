@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 {
     /// <summary>
     /// The properties of a storage account’s Queue service.
-    /// Latest API Version: 2019-06-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:QueueServiceProperties'.")]
     [AzureNextGenResourceType("azure-nextgen:storage/latest:QueueServiceProperties")]
@@ -63,6 +63,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:storage:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:QueueServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:QueueServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

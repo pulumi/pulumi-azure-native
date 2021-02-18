@@ -60,6 +60,9 @@ func NewStorageAccountManagementPolicies(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:StorageAccountManagementPolicies"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210101:StorageAccountManagementPolicies"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource StorageAccountManagementPolicies

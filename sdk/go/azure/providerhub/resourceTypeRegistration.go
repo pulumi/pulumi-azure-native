@@ -86,6 +86,7 @@ func (ResourceTypeRegistrationState) ElementType() reflect.Type {
 }
 
 type resourceTypeRegistrationArgs struct {
+	Properties *ResourceTypeRegistrationProperties `pulumi:"properties"`
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace string `pulumi:"providerNamespace"`
 	// The resource type.
@@ -94,6 +95,7 @@ type resourceTypeRegistrationArgs struct {
 
 // The set of arguments for constructing a ResourceTypeRegistration resource.
 type ResourceTypeRegistrationArgs struct {
+	Properties ResourceTypeRegistrationPropertiesPtrInput
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput
 	// The resource type.

@@ -24,8 +24,10 @@ __all__ = [
     'DateAfterModificationArgs',
     'DeleteRetentionPolicyArgs',
     'EncryptionArgs',
+    'EncryptionIdentityArgs',
     'EncryptionServiceArgs',
     'EncryptionServicesArgs',
+    'ExtendedLocationArgs',
     'IPRuleArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
@@ -38,13 +40,17 @@ __all__ = [
     'ManagementPolicySchemaArgs',
     'ManagementPolicySnapShotArgs',
     'ManagementPolicyVersionArgs',
+    'MultichannelArgs',
     'NetworkRuleSetArgs',
     'ObjectReplicationPolicyFilterArgs',
     'ObjectReplicationPolicyRuleArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'ProtocolSettingsArgs',
+    'ResourceAccessRuleArgs',
     'RestorePolicyPropertiesArgs',
     'RoutingPreferenceArgs',
     'SkuArgs',
+    'SmbSettingArgs',
     'TagFilterArgs',
     'VirtualNetworkRuleArgs',
 ]
@@ -694,12 +700,14 @@ class DeleteRetentionPolicyArgs:
 class EncryptionArgs:
     def __init__(__self__, *,
                  key_source: pulumi.Input[Union[str, 'KeySource']],
+                 encryption_identity: Optional[pulumi.Input['EncryptionIdentityArgs']] = None,
                  key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
                  require_infrastructure_encryption: Optional[pulumi.Input[bool]] = None,
                  services: Optional[pulumi.Input['EncryptionServicesArgs']] = None):
         """
         The encryption settings on the storage account.
         :param pulumi.Input[Union[str, 'KeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
+        :param pulumi.Input['EncryptionIdentityArgs'] encryption_identity: The identity to be used with service-side encryption at rest.
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties provided by key vault.
         :param pulumi.Input[bool] require_infrastructure_encryption: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
         :param pulumi.Input['EncryptionServicesArgs'] services: List of services which support encryption.
@@ -707,6 +715,8 @@ class EncryptionArgs:
         if key_source is None:
             key_source = 'Microsoft.Storage'
         pulumi.set(__self__, "key_source", key_source)
+        if encryption_identity is not None:
+            pulumi.set(__self__, "encryption_identity", encryption_identity)
         if key_vault_properties is not None:
             pulumi.set(__self__, "key_vault_properties", key_vault_properties)
         if require_infrastructure_encryption is not None:
@@ -725,6 +735,18 @@ class EncryptionArgs:
     @key_source.setter
     def key_source(self, value: pulumi.Input[Union[str, 'KeySource']]):
         pulumi.set(self, "key_source", value)
+
+    @property
+    @pulumi.getter(name="encryptionIdentity")
+    def encryption_identity(self) -> Optional[pulumi.Input['EncryptionIdentityArgs']]:
+        """
+        The identity to be used with service-side encryption at rest.
+        """
+        return pulumi.get(self, "encryption_identity")
+
+    @encryption_identity.setter
+    def encryption_identity(self, value: Optional[pulumi.Input['EncryptionIdentityArgs']]):
+        pulumi.set(self, "encryption_identity", value)
 
     @property
     @pulumi.getter(name="keyVaultProperties")
@@ -761,6 +783,30 @@ class EncryptionArgs:
     @services.setter
     def services(self, value: Optional[pulumi.Input['EncryptionServicesArgs']]):
         pulumi.set(self, "services", value)
+
+
+@pulumi.input_type
+class EncryptionIdentityArgs:
+    def __init__(__self__, *,
+                 encryption_user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        Encryption identity for the storage account.
+        :param pulumi.Input[str] encryption_user_assigned_identity: Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+        """
+        if encryption_user_assigned_identity is not None:
+            pulumi.set(__self__, "encryption_user_assigned_identity", encryption_user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="encryptionUserAssignedIdentity")
+    def encryption_user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+        """
+        return pulumi.get(self, "encryption_user_assigned_identity")
+
+    @encryption_user_assigned_identity.setter
+    def encryption_user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_user_assigned_identity", value)
 
 
 @pulumi.input_type
@@ -876,6 +922,46 @@ class EncryptionServicesArgs:
 
 
 @pulumi.input_type
+class ExtendedLocationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]] = None):
+        """
+        The complex type of the extended location.
+        :param pulumi.Input[str] name: The name of the extended location.
+        :param pulumi.Input[Union[str, 'ExtendedLocationTypes']] type: The type of the extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class IPRuleArgs:
     def __init__(__self__, *,
                  i_p_address_or_range: pulumi.Input[str],
@@ -919,24 +1005,40 @@ class IPRuleArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input['IdentityType']):
+                 type: pulumi.Input[Union[str, 'IdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity for the resource.
-        :param pulumi.Input['IdentityType'] type: The identity type.
+        :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
         """
         pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['IdentityType']:
+    def type(self) -> pulumi.Input[Union[str, 'IdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['IdentityType']):
+    def type(self, value: pulumi.Input[Union[str, 'IdentityType']]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
@@ -1493,17 +1595,43 @@ class ManagementPolicyVersionArgs:
 
 
 @pulumi.input_type
+class MultichannelArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Multichannel setting. Applies to Premium FileStorage only.
+        :param pulumi.Input[bool] enabled: Indicates whether multichannel is enabled
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether multichannel is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input['DefaultAction'],
                  bypass: Optional[pulumi.Input[Union[str, 'Bypass']]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
+                 resource_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRuleArgs']]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         Network rule set
         :param pulumi.Input['DefaultAction'] default_action: Specifies the default action of allow or deny when no other rules match.
         :param pulumi.Input[Union[str, 'Bypass']] bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
         :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: Sets the IP ACL rules
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceAccessRuleArgs']]] resource_access_rules: Sets the resource access rules
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: Sets the virtual network rules
         """
         if default_action is None:
@@ -1515,6 +1643,8 @@ class NetworkRuleSetArgs:
             pulumi.set(__self__, "bypass", bypass)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
+        if resource_access_rules is not None:
+            pulumi.set(__self__, "resource_access_rules", resource_access_rules)
         if virtual_network_rules is not None:
             pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
@@ -1553,6 +1683,18 @@ class NetworkRuleSetArgs:
     @ip_rules.setter
     def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
+
+    @property
+    @pulumi.getter(name="resourceAccessRules")
+    def resource_access_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRuleArgs']]]]:
+        """
+        Sets the resource access rules
+        """
+        return pulumi.get(self, "resource_access_rules")
+
+    @resource_access_rules.setter
+    def resource_access_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRuleArgs']]]]):
+        pulumi.set(self, "resource_access_rules", value)
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
@@ -1734,6 +1876,70 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 @pulumi.input_type
+class ProtocolSettingsArgs:
+    def __init__(__self__, *,
+                 smb: Optional[pulumi.Input['SmbSettingArgs']] = None):
+        """
+        Protocol settings for file service
+        :param pulumi.Input['SmbSettingArgs'] smb: Setting for SMB protocol
+        """
+        if smb is not None:
+            pulumi.set(__self__, "smb", smb)
+
+    @property
+    @pulumi.getter
+    def smb(self) -> Optional[pulumi.Input['SmbSettingArgs']]:
+        """
+        Setting for SMB protocol
+        """
+        return pulumi.get(self, "smb")
+
+    @smb.setter
+    def smb(self, value: Optional[pulumi.Input['SmbSettingArgs']]):
+        pulumi.set(self, "smb", value)
+
+
+@pulumi.input_type
+class ResourceAccessRuleArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        Resource Access Rule.
+        :param pulumi.Input[str] resource_id: Resource Id
+        :param pulumi.Input[str] tenant_id: Tenant Id
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tenant Id
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
 class RestorePolicyPropertiesArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
@@ -1852,6 +2058,94 @@ class SkuArgs:
 
 
 @pulumi.input_type
+class SmbSettingArgs:
+    def __init__(__self__, *,
+                 authentication_methods: Optional[pulumi.Input[str]] = None,
+                 channel_encryption: Optional[pulumi.Input[str]] = None,
+                 kerberos_ticket_encryption: Optional[pulumi.Input[str]] = None,
+                 multichannel: Optional[pulumi.Input['MultichannelArgs']] = None,
+                 versions: Optional[pulumi.Input[str]] = None):
+        """
+        Setting for SMB protocol
+        :param pulumi.Input[str] authentication_methods: SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+        :param pulumi.Input[str] channel_encryption: SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+        :param pulumi.Input[str] kerberos_ticket_encryption: Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+        :param pulumi.Input['MultichannelArgs'] multichannel: Multichannel setting. Applies to Premium FileStorage only.
+        :param pulumi.Input[str] versions: SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+        """
+        if authentication_methods is not None:
+            pulumi.set(__self__, "authentication_methods", authentication_methods)
+        if channel_encryption is not None:
+            pulumi.set(__self__, "channel_encryption", channel_encryption)
+        if kerberos_ticket_encryption is not None:
+            pulumi.set(__self__, "kerberos_ticket_encryption", kerberos_ticket_encryption)
+        if multichannel is not None:
+            pulumi.set(__self__, "multichannel", multichannel)
+        if versions is not None:
+            pulumi.set(__self__, "versions", versions)
+
+    @property
+    @pulumi.getter(name="authenticationMethods")
+    def authentication_methods(self) -> Optional[pulumi.Input[str]]:
+        """
+        SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+        """
+        return pulumi.get(self, "authentication_methods")
+
+    @authentication_methods.setter
+    def authentication_methods(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_methods", value)
+
+    @property
+    @pulumi.getter(name="channelEncryption")
+    def channel_encryption(self) -> Optional[pulumi.Input[str]]:
+        """
+        SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+        """
+        return pulumi.get(self, "channel_encryption")
+
+    @channel_encryption.setter
+    def channel_encryption(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "channel_encryption", value)
+
+    @property
+    @pulumi.getter(name="kerberosTicketEncryption")
+    def kerberos_ticket_encryption(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+        """
+        return pulumi.get(self, "kerberos_ticket_encryption")
+
+    @kerberos_ticket_encryption.setter
+    def kerberos_ticket_encryption(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kerberos_ticket_encryption", value)
+
+    @property
+    @pulumi.getter
+    def multichannel(self) -> Optional[pulumi.Input['MultichannelArgs']]:
+        """
+        Multichannel setting. Applies to Premium FileStorage only.
+        """
+        return pulumi.get(self, "multichannel")
+
+    @multichannel.setter
+    def multichannel(self, value: Optional[pulumi.Input['MultichannelArgs']]):
+        pulumi.set(self, "multichannel", value)
+
+    @property
+    @pulumi.getter
+    def versions(self) -> Optional[pulumi.Input[str]]:
+        """
+        SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+        """
+        return pulumi.get(self, "versions")
+
+    @versions.setter
+    def versions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "versions", value)
+
+
+@pulumi.input_type
 class TagFilterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -1909,12 +2203,12 @@ class VirtualNetworkRuleArgs:
     def __init__(__self__, *,
                  virtual_network_resource_id: pulumi.Input[str],
                  action: Optional[pulumi.Input['Action']] = None,
-                 state: Optional[pulumi.Input['State']] = None):
+                 state: Optional[pulumi.Input[Union[str, 'State']]] = None):
         """
         Virtual Network rule.
         :param pulumi.Input[str] virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
         :param pulumi.Input['Action'] action: The action of virtual network rule.
-        :param pulumi.Input['State'] state: Gets the state of virtual network rule.
+        :param pulumi.Input[Union[str, 'State']] state: Gets the state of virtual network rule.
         """
         pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
         if action is None:
@@ -1950,14 +2244,14 @@ class VirtualNetworkRuleArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['State']]:
+    def state(self) -> Optional[pulumi.Input[Union[str, 'State']]]:
         """
         Gets the state of virtual network rule.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['State']]):
+    def state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
         pulumi.set(self, "state", value)
 
 

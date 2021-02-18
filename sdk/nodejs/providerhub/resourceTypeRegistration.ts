@@ -39,7 +39,7 @@ export class ResourceTypeRegistration extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.providerhub.ResourceTypeRegistrationResponseProperties>;
+    public readonly properties!: pulumi.Output<outputs.providerhub.ResourceTypeRegistrationResponseProperties>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -61,10 +61,10 @@ export class ResourceTypeRegistration extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceType'");
             }
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
@@ -88,6 +88,7 @@ export class ResourceTypeRegistration extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourceTypeRegistration resource.
  */
 export interface ResourceTypeRegistrationArgs {
+    readonly properties?: pulumi.Input<inputs.providerhub.ResourceTypeRegistrationProperties>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */

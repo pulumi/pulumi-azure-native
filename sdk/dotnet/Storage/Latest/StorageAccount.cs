@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 {
     /// <summary>
     /// The storage account.
-    /// Latest API Version: 2019-06-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:StorageAccount'.")]
     [AzureNextGenResourceType("azure-nextgen:storage/latest:StorageAccount")]
@@ -66,10 +66,22 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         public Output<bool?> EnableHttpsTrafficOnly { get; private set; } = null!;
 
         /// <summary>
+        /// NFS 3.0 protocol support enabled if set to true.
+        /// </summary>
+        [Output("enableNfsV3")]
+        public Output<bool?> EnableNfsV3 { get; private set; } = null!;
+
+        /// <summary>
         /// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.EncryptionResponse> Encryption { get; private set; } = null!;
+
+        /// <summary>
+        /// The extendedLocation of the resource.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// If the failover is in progress, the value will be true, otherwise, it will be null.
@@ -249,6 +261,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -315,10 +328,22 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         public Input<bool>? EnableHttpsTrafficOnly { get; set; }
 
         /// <summary>
+        /// NFS 3.0 protocol support enabled if set to true.
+        /// </summary>
+        [Input("enableNfsV3")]
+        public Input<bool>? EnableNfsV3 { get; set; }
+
+        /// <summary>
         /// Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// Optional. Set the extended location of the resource. If not set, the storage account will be created in Azure main region. Otherwise it will be created in the specified extended location
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// The identity of the resource.

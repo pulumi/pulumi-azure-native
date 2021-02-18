@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./accessReviewScheduleDefinitionById";
+export * from "./denyAssignment";
 export * from "./getAccessReviewScheduleDefinitionById";
 export * from "./getClientConfig";
 export * from "./getClientToken";
+export * from "./getDenyAssignment";
 export * from "./getManagementLockAtResourceGroupLevel";
 export * from "./getManagementLockAtResourceLevel";
 export * from "./getManagementLockAtSubscriptionLevel";
@@ -56,6 +58,7 @@ import * as v20190101 from "./v20190101";
 import * as v20190601 from "./v20190601";
 import * as v20190901 from "./v20190901";
 import * as v20200301 from "./v20200301";
+import * as v20200301preview from "./v20200301preview";
 import * as v20200401preview from "./v20200401preview";
 import * as v20200701preview from "./v20200701preview";
 import * as v20200901 from "./v20200901";
@@ -80,6 +83,7 @@ export {
     v20190601,
     v20190901,
     v20200301,
+    v20200301preview,
     v20200401preview,
     v20200701preview,
     v20200901,
@@ -88,6 +92,7 @@ export {
 
 // Import resources to register:
 import { AccessReviewScheduleDefinitionById } from "./accessReviewScheduleDefinitionById";
+import { DenyAssignment } from "./denyAssignment";
 import { ManagementLockAtResourceGroupLevel } from "./managementLockAtResourceGroupLevel";
 import { ManagementLockAtResourceLevel } from "./managementLockAtResourceLevel";
 import { ManagementLockAtSubscriptionLevel } from "./managementLockAtSubscriptionLevel";
@@ -107,6 +112,8 @@ const _module = {
         switch (type) {
             case "azure-nextgen:authorization:AccessReviewScheduleDefinitionById":
                 return new AccessReviewScheduleDefinitionById(name, <any>undefined, { urn })
+            case "azure-nextgen:authorization:DenyAssignment":
+                return new DenyAssignment(name, <any>undefined, { urn })
             case "azure-nextgen:authorization:ManagementLockAtResourceGroupLevel":
                 return new ManagementLockAtResourceGroupLevel(name, <any>undefined, { urn })
             case "azure-nextgen:authorization:ManagementLockAtResourceLevel":

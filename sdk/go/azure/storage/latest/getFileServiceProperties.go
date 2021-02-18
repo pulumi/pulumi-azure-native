@@ -33,6 +33,8 @@ type LookupFileServicePropertiesResult struct {
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// Protocol settings for file service
+	ProtocolSettings *ProtocolSettingsResponse `pulumi:"protocolSettings"`
 	// The file service properties for share soft delete.
 	ShareDeleteRetentionPolicy *DeleteRetentionPolicyResponse `pulumi:"shareDeleteRetentionPolicy"`
 	// Sku name and tier.

@@ -31,7 +31,7 @@ class ManagementPolicy(pulumi.CustomResource):
                  __opts__=None):
         """
         The Get Storage Account ManagementPolicies operation response.
-        Latest API Version: 2019-06-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,7 +73,7 @@ class ManagementPolicy(pulumi.CustomResource):
             __props__['last_modified_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:ManagementPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:ManagementPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:ManagementPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementPolicy, __self__).__init__(
             'azure-nextgen:storage/latest:ManagementPolicy',

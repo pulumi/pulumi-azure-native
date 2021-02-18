@@ -78,6 +78,9 @@ func NewFileShare(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:FileShare"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210101:FileShare"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FileShare

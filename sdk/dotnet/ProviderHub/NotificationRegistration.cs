@@ -87,6 +87,9 @@ namespace Pulumi.AzureNextGen.ProviderHub
         [Input("notificationRegistrationName", required: true)]
         public Input<string> NotificationRegistrationName { get; set; } = null!;
 
+        [Input("properties")]
+        public Input<Inputs.NotificationRegistrationPropertiesArgs>? Properties { get; set; }
+
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
         /// </summary>

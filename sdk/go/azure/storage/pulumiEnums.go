@@ -242,6 +242,33 @@ func (e EnabledProtocols) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The type of the extended location.
+type ExtendedLocationTypes pulumi.String
+
+const (
+	ExtendedLocationTypesEdgeZone = ExtendedLocationTypes("EdgeZone")
+)
+
+func (ExtendedLocationTypes) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ExtendedLocationTypes) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ExtendedLocationTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ExtendedLocationTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ExtendedLocationTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The protocol permitted for a request made with the account SAS.
 type HttpProtocol pulumi.String
 
@@ -274,7 +301,10 @@ func (e HttpProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 type IdentityType pulumi.String
 
 const (
-	IdentityTypeSystemAssigned = IdentityType("SystemAssigned")
+	IdentityTypeNone                         = IdentityType("None")
+	IdentityTypeSystemAssigned               = IdentityType("SystemAssigned")
+	IdentityTypeUserAssigned                 = IdentityType("UserAssigned")
+	IdentityType_SystemAssigned_UserAssigned = IdentityType("SystemAssigned,UserAssigned")
 )
 
 func (IdentityType) ElementType() reflect.Type {

@@ -2781,6 +2781,224 @@ func (o PolicyDefinitionReferenceResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PolicyDefinitionReferenceResponseOutput)
 }
 
+// Deny assignment principal.
+type Principal struct {
+	// Object ID of the Azure AD principal (user, group, or service principal) to which the deny assignment applies. An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+	Id *string `pulumi:"id"`
+	// Type of object represented by principal id (user, group, or service principal). An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+	Type *string `pulumi:"type"`
+}
+
+// PrincipalInput is an input type that accepts PrincipalArgs and PrincipalOutput values.
+// You can construct a concrete instance of `PrincipalInput` via:
+//
+//          PrincipalArgs{...}
+type PrincipalInput interface {
+	pulumi.Input
+
+	ToPrincipalOutput() PrincipalOutput
+	ToPrincipalOutputWithContext(context.Context) PrincipalOutput
+}
+
+// Deny assignment principal.
+type PrincipalArgs struct {
+	// Object ID of the Azure AD principal (user, group, or service principal) to which the deny assignment applies. An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Type of object represented by principal id (user, group, or service principal). An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Principal)(nil)).Elem()
+}
+
+func (i PrincipalArgs) ToPrincipalOutput() PrincipalOutput {
+	return i.ToPrincipalOutputWithContext(context.Background())
+}
+
+func (i PrincipalArgs) ToPrincipalOutputWithContext(ctx context.Context) PrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalOutput)
+}
+
+// PrincipalArrayInput is an input type that accepts PrincipalArray and PrincipalArrayOutput values.
+// You can construct a concrete instance of `PrincipalArrayInput` via:
+//
+//          PrincipalArray{ PrincipalArgs{...} }
+type PrincipalArrayInput interface {
+	pulumi.Input
+
+	ToPrincipalArrayOutput() PrincipalArrayOutput
+	ToPrincipalArrayOutputWithContext(context.Context) PrincipalArrayOutput
+}
+
+type PrincipalArray []PrincipalInput
+
+func (PrincipalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Principal)(nil)).Elem()
+}
+
+func (i PrincipalArray) ToPrincipalArrayOutput() PrincipalArrayOutput {
+	return i.ToPrincipalArrayOutputWithContext(context.Background())
+}
+
+func (i PrincipalArray) ToPrincipalArrayOutputWithContext(ctx context.Context) PrincipalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalArrayOutput)
+}
+
+// Deny assignment principal.
+type PrincipalOutput struct{ *pulumi.OutputState }
+
+func (PrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Principal)(nil)).Elem()
+}
+
+func (o PrincipalOutput) ToPrincipalOutput() PrincipalOutput {
+	return o
+}
+
+func (o PrincipalOutput) ToPrincipalOutputWithContext(ctx context.Context) PrincipalOutput {
+	return o
+}
+
+// Object ID of the Azure AD principal (user, group, or service principal) to which the deny assignment applies. An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+func (o PrincipalOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Principal) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Type of object represented by principal id (user, group, or service principal). An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+func (o PrincipalOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Principal) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PrincipalArrayOutput struct{ *pulumi.OutputState }
+
+func (PrincipalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Principal)(nil)).Elem()
+}
+
+func (o PrincipalArrayOutput) ToPrincipalArrayOutput() PrincipalArrayOutput {
+	return o
+}
+
+func (o PrincipalArrayOutput) ToPrincipalArrayOutputWithContext(ctx context.Context) PrincipalArrayOutput {
+	return o
+}
+
+func (o PrincipalArrayOutput) Index(i pulumi.IntInput) PrincipalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Principal {
+		return vs[0].([]Principal)[vs[1].(int)]
+	}).(PrincipalOutput)
+}
+
+// Deny assignment principal.
+type PrincipalResponse struct {
+	// Object ID of the Azure AD principal (user, group, or service principal) to which the deny assignment applies. An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+	Id *string `pulumi:"id"`
+	// Type of object represented by principal id (user, group, or service principal). An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+	Type *string `pulumi:"type"`
+}
+
+// PrincipalResponseInput is an input type that accepts PrincipalResponseArgs and PrincipalResponseOutput values.
+// You can construct a concrete instance of `PrincipalResponseInput` via:
+//
+//          PrincipalResponseArgs{...}
+type PrincipalResponseInput interface {
+	pulumi.Input
+
+	ToPrincipalResponseOutput() PrincipalResponseOutput
+	ToPrincipalResponseOutputWithContext(context.Context) PrincipalResponseOutput
+}
+
+// Deny assignment principal.
+type PrincipalResponseArgs struct {
+	// Object ID of the Azure AD principal (user, group, or service principal) to which the deny assignment applies. An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Type of object represented by principal id (user, group, or service principal). An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PrincipalResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalResponse)(nil)).Elem()
+}
+
+func (i PrincipalResponseArgs) ToPrincipalResponseOutput() PrincipalResponseOutput {
+	return i.ToPrincipalResponseOutputWithContext(context.Background())
+}
+
+func (i PrincipalResponseArgs) ToPrincipalResponseOutputWithContext(ctx context.Context) PrincipalResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalResponseOutput)
+}
+
+// PrincipalResponseArrayInput is an input type that accepts PrincipalResponseArray and PrincipalResponseArrayOutput values.
+// You can construct a concrete instance of `PrincipalResponseArrayInput` via:
+//
+//          PrincipalResponseArray{ PrincipalResponseArgs{...} }
+type PrincipalResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrincipalResponseArrayOutput() PrincipalResponseArrayOutput
+	ToPrincipalResponseArrayOutputWithContext(context.Context) PrincipalResponseArrayOutput
+}
+
+type PrincipalResponseArray []PrincipalResponseInput
+
+func (PrincipalResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrincipalResponse)(nil)).Elem()
+}
+
+func (i PrincipalResponseArray) ToPrincipalResponseArrayOutput() PrincipalResponseArrayOutput {
+	return i.ToPrincipalResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrincipalResponseArray) ToPrincipalResponseArrayOutputWithContext(ctx context.Context) PrincipalResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalResponseArrayOutput)
+}
+
+// Deny assignment principal.
+type PrincipalResponseOutput struct{ *pulumi.OutputState }
+
+func (PrincipalResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalResponse)(nil)).Elem()
+}
+
+func (o PrincipalResponseOutput) ToPrincipalResponseOutput() PrincipalResponseOutput {
+	return o
+}
+
+func (o PrincipalResponseOutput) ToPrincipalResponseOutputWithContext(ctx context.Context) PrincipalResponseOutput {
+	return o
+}
+
+// Object ID of the Azure AD principal (user, group, or service principal) to which the deny assignment applies. An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+func (o PrincipalResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrincipalResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Type of object represented by principal id (user, group, or service principal). An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+func (o PrincipalResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrincipalResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PrincipalResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrincipalResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrincipalResponse)(nil)).Elem()
+}
+
+func (o PrincipalResponseArrayOutput) ToPrincipalResponseArrayOutput() PrincipalResponseArrayOutput {
+	return o
+}
+
+func (o PrincipalResponseArrayOutput) ToPrincipalResponseArrayOutputWithContext(ctx context.Context) PrincipalResponseArrayOutput {
+	return o
+}
+
+func (o PrincipalResponseArrayOutput) Index(i pulumi.IntInput) PrincipalResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrincipalResponse {
+		return vs[0].([]PrincipalResponse)[vs[1].(int)]
+	}).(PrincipalResponseOutput)
+}
+
 // Role assignment properties.
 type RoleAssignmentProperties struct {
 	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
@@ -3382,6 +3600,10 @@ func init() {
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceArrayOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrincipalOutput{})
+	pulumi.RegisterOutputType(PrincipalArrayOutput{})
+	pulumi.RegisterOutputType(PrincipalResponseOutput{})
+	pulumi.RegisterOutputType(PrincipalResponseArrayOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeResponseOutput{})

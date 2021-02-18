@@ -29,7 +29,9 @@ class StorageAccount(pulumi.CustomResource):
                  azure_files_identity_based_authentication: Optional[pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+                 enable_nfs_v3: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
@@ -46,7 +48,7 @@ class StorageAccount(pulumi.CustomResource):
                  __opts__=None):
         """
         The storage account.
-        Latest API Version: 2019-06-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -57,7 +59,9 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']] azure_files_identity_based_authentication: Provides the identity based authentication settings for Azure Files.
         :param pulumi.Input[pulumi.InputType['CustomDomainArgs']] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
         :param pulumi.Input[bool] enable_https_traffic_only: Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
+        :param pulumi.Input[bool] enable_nfs_v3: NFS 3.0 protocol support enabled if set to true.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Optional. Set the extended location of the resource. If not set, the storage account will be created in Azure main region. Otherwise it will be created in the specified extended location
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[bool] is_hns_enabled: Account HierarchicalNamespace enabled if sets to true.
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Indicates the type of storage account.
@@ -97,7 +101,9 @@ class StorageAccount(pulumi.CustomResource):
             __props__['azure_files_identity_based_authentication'] = azure_files_identity_based_authentication
             __props__['custom_domain'] = custom_domain
             __props__['enable_https_traffic_only'] = enable_https_traffic_only
+            __props__['enable_nfs_v3'] = enable_nfs_v3
             __props__['encryption'] = encryption
+            __props__['extended_location'] = extended_location
             __props__['identity'] = identity
             __props__['is_hns_enabled'] = is_hns_enabled
             if kind is None and not opts.urn:
@@ -130,7 +136,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__['status_of_primary'] = None
             __props__['status_of_secondary'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:StorageAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:StorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccount, __self__).__init__(
             'azure-nextgen:storage/latest:StorageAccount',
@@ -221,12 +227,28 @@ class StorageAccount(pulumi.CustomResource):
         return pulumi.get(self, "enable_https_traffic_only")
 
     @property
+    @pulumi.getter(name="enableNfsV3")
+    def enable_nfs_v3(self) -> pulumi.Output[Optional[bool]]:
+        """
+        NFS 3.0 protocol support enabled if set to true.
+        """
+        return pulumi.get(self, "enable_nfs_v3")
+
+    @property
     @pulumi.getter
     def encryption(self) -> pulumi.Output['outputs.EncryptionResponse']:
         """
         Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extendedLocation of the resource.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="failoverInProgress")

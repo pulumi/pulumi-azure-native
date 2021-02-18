@@ -70,9 +70,13 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
         pulumi.log.warn("OperationByProviderRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:OperationByProviderRegistration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
+            if ((!args || args.contents === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'contents'");
+            }
             if ((!args || args.providerNamespace === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
+            inputs["contents"] = args ? args.contents : undefined;
             inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
             inputs["actionType"] = undefined /*out*/;
             inputs["display"] = undefined /*out*/;
@@ -107,6 +111,7 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
  * The set of arguments for constructing a OperationByProviderRegistration resource.
  */
 export interface OperationByProviderRegistrationArgs {
+    readonly contents: pulumi.Input<pulumi.Input<inputs.providerhub.latest.OperationsDefinition>[]>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */

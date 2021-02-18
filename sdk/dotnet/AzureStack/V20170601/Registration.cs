@@ -90,6 +90,7 @@ namespace Pulumi.AzureNextGen.AzureStack.V20170601
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack:Registration"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/latest:Registration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20160101:Registration"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20200601preview:Registration"},
                 },
             };
