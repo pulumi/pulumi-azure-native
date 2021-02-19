@@ -66,8 +66,6 @@ class DiskPool(pulumi.CustomResource):
             if availability_zones is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zones'")
             __props__['availability_zones'] = availability_zones
-            if disk_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'disk_pool_name'")
             __props__['disk_pool_name'] = disk_pool_name
             __props__['disks'] = disks
             __props__['location'] = location

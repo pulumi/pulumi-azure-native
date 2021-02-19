@@ -89,8 +89,6 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
             __props__['microsoft_peering_config'] = microsoft_peering_config
             __props__['name'] = name
             __props__['peer_asn'] = peer_asn
-            if peering_name is None and not opts.urn:
-                raise TypeError("Missing required property 'peering_name'")
             __props__['peering_name'] = peering_name
             __props__['peering_type'] = peering_type
             __props__['primary_peer_address_prefix'] = primary_peer_address_prefix

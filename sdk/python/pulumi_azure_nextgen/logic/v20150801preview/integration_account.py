@@ -60,8 +60,6 @@ class IntegrationAccount(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
-            if integration_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
             __props__['name'] = name

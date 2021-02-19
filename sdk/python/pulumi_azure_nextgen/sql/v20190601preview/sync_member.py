@@ -86,8 +86,6 @@ class SyncMember(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__['sync_group_name'] = sync_group_name
             __props__['sync_member_azure_database_resource_id'] = sync_member_azure_database_resource_id
-            if sync_member_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sync_member_name'")
             __props__['sync_member_name'] = sync_member_name
             __props__['use_private_link_connection'] = use_private_link_connection
             __props__['user_name'] = user_name

@@ -69,8 +69,6 @@ class Logger(pulumi.CustomResource):
             if logger_type is None and not opts.urn:
                 raise TypeError("Missing required property 'logger_type'")
             __props__['logger_type'] = logger_type
-            if loggerid is None and not opts.urn:
-                raise TypeError("Missing required property 'loggerid'")
             __props__['loggerid'] = loggerid
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

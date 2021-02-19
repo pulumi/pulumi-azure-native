@@ -79,8 +79,6 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             if sql_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_pool_name'")
             __props__['sql_pool_name'] = sql_pool_name
-            if workload_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workload_group_name'")
             __props__['workload_group_name'] = workload_group_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

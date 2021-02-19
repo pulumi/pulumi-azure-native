@@ -96,8 +96,6 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_kind'")
             __props__['service_kind'] = service_kind
             __props__['service_load_metrics'] = service_load_metrics
-            if service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['service_package_activation_mode'] = service_package_activation_mode
             __props__['service_placement_policies'] = service_placement_policies

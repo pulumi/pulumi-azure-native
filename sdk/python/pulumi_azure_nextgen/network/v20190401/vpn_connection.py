@@ -77,8 +77,6 @@ class VpnConnection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['connection_bandwidth'] = connection_bandwidth
-            if connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_name'")
             __props__['connection_name'] = connection_name
             __props__['enable_bgp'] = enable_bgp
             __props__['enable_internet_security'] = enable_internet_security

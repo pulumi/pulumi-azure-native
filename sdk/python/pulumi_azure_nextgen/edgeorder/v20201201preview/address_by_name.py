@@ -56,8 +56,6 @@ class AddressByName(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if address_name is None and not opts.urn:
-                raise TypeError("Missing required property 'address_name'")
             __props__['address_name'] = address_name
             if contact_details is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_details'")

@@ -61,8 +61,6 @@ class Extension(pulumi.CustomResource):
             if account_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_resource_name'")
             __props__['account_resource_name'] = account_resource_name
-            if extension_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'extension_resource_name'")
             __props__['extension_resource_name'] = extension_resource_name
             __props__['location'] = location
             __props__['plan'] = plan

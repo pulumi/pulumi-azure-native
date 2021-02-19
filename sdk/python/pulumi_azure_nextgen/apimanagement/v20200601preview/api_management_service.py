@@ -110,8 +110,6 @@ class ApiManagementService(pulumi.CustomResource):
             if restore is None:
                 restore = False
             __props__['restore'] = restore
-            if service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")

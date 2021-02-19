@@ -62,8 +62,6 @@ class Binding(pulumi.CustomResource):
             if app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_name'")
             __props__['app_name'] = app_name
-            if binding_name is None and not opts.urn:
-                raise TypeError("Missing required property 'binding_name'")
             __props__['binding_name'] = binding_name
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

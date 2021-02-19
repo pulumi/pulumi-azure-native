@@ -97,8 +97,6 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
             if responder_role_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'responder_role_settings'")
             __props__['responder_role_settings'] = responder_role_settings
-            if rosetta_net_process_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rosetta_net_process_configuration_name'")
             __props__['rosetta_net_process_configuration_name'] = rosetta_net_process_configuration_name
             __props__['tags'] = tags
             __props__['changed_time'] = None

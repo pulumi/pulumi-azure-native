@@ -61,8 +61,6 @@ class DataCollectionRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if data_collection_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_collection_rule_name'")
             __props__['data_collection_rule_name'] = data_collection_rule_name
             if data_flows is None and not opts.urn:
                 raise TypeError("Missing required property 'data_flows'")

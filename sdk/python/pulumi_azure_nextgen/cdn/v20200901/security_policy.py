@@ -58,8 +58,6 @@ class SecurityPolicy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if security_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'security_policy_name'")
             __props__['security_policy_name'] = security_policy_name
             __props__['deployment_status'] = None
             __props__['name'] = None

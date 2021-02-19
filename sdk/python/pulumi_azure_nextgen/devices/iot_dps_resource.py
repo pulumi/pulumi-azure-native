@@ -64,8 +64,6 @@ class IotDpsResource(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
-            if provisioning_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'provisioning_service_name'")
             __props__['provisioning_service_name'] = provisioning_service_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

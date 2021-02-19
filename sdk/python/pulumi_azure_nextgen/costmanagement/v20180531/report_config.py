@@ -61,8 +61,6 @@ class ReportConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'delivery_info'")
             __props__['delivery_info'] = delivery_info
             __props__['format'] = format
-            if report_config_name is None and not opts.urn:
-                raise TypeError("Missing required property 'report_config_name'")
             __props__['report_config_name'] = report_config_name
             __props__['schedule'] = schedule
             __props__['name'] = None

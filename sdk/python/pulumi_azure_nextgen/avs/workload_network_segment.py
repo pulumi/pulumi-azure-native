@@ -67,8 +67,6 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['revision'] = revision
-            if segment_id is None and not opts.urn:
-                raise TypeError("Missing required property 'segment_id'")
             __props__['segment_id'] = segment_id
             __props__['subnet'] = subnet
             __props__['name'] = None

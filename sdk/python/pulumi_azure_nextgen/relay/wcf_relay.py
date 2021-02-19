@@ -60,8 +60,6 @@ class WCFRelay(pulumi.CustomResource):
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if relay_name is None and not opts.urn:
-                raise TypeError("Missing required property 'relay_name'")
             __props__['relay_name'] = relay_name
             __props__['relay_type'] = relay_type
             __props__['requires_client_authorization'] = requires_client_authorization

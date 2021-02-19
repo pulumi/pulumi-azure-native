@@ -59,8 +59,6 @@ class ArtifactSource(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['artifact_root'] = artifact_root
-            if artifact_source_name is None and not opts.urn:
-                raise TypeError("Missing required property 'artifact_source_name'")
             __props__['artifact_source_name'] = artifact_source_name
             if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")

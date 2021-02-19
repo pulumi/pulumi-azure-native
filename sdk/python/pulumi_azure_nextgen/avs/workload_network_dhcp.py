@@ -55,8 +55,6 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if dhcp_id is None and not opts.urn:
-                raise TypeError("Missing required property 'dhcp_id'")
             __props__['dhcp_id'] = dhcp_id
             if dhcp_type is None and not opts.urn:
                 raise TypeError("Missing required property 'dhcp_type'")

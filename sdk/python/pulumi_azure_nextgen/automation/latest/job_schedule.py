@@ -66,8 +66,6 @@ class JobSchedule(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if job_schedule_id is None and not opts.urn:
-                raise TypeError("Missing required property 'job_schedule_id'")
             __props__['job_schedule_id'] = job_schedule_id
             __props__['parameters'] = parameters
             if resource_group_name is None and not opts.urn:

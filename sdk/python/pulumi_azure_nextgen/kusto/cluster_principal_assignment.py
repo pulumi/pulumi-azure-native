@@ -60,8 +60,6 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if principal_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'principal_assignment_name'")
             __props__['principal_assignment_name'] = principal_assignment_name
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")

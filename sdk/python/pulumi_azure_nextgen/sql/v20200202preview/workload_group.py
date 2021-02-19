@@ -82,8 +82,6 @@ class WorkloadGroup(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
-            if workload_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workload_group_name'")
             __props__['workload_group_name'] = workload_group_name
             __props__['name'] = None
             __props__['type'] = None

@@ -75,8 +75,6 @@ class Workspace(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['ui_definition_uri'] = ui_definition_uri
-            if workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['created_by'] = None
             __props__['created_date_time'] = None

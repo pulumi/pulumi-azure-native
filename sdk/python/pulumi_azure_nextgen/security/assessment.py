@@ -60,8 +60,6 @@ class Assessment(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['additional_data'] = additional_data
-            if assessment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'assessment_name'")
             __props__['assessment_name'] = assessment_name
             __props__['metadata'] = metadata
             __props__['partners_data'] = partners_data

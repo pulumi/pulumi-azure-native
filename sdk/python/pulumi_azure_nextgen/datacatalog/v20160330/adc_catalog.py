@@ -67,8 +67,6 @@ class ADCCatalog(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['admins'] = admins
-            if catalog_name is None and not opts.urn:
-                raise TypeError("Missing required property 'catalog_name'")
             __props__['catalog_name'] = catalog_name
             __props__['enable_automatic_unit_adjustment'] = enable_automatic_unit_adjustment
             __props__['etag'] = etag

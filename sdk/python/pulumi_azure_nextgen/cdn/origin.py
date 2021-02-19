@@ -83,8 +83,6 @@ class Origin(pulumi.CustomResource):
             __props__['http_port'] = http_port
             __props__['https_port'] = https_port
             __props__['origin_host_header'] = origin_host_header
-            if origin_name is None and not opts.urn:
-                raise TypeError("Missing required property 'origin_name'")
             __props__['origin_name'] = origin_name
             __props__['priority'] = priority
             __props__['private_link_alias'] = private_link_alias

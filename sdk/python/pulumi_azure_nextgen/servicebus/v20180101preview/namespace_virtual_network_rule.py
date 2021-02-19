@@ -55,8 +55,6 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if virtual_network_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_rule_name'")
             __props__['virtual_network_rule_name'] = virtual_network_rule_name
             __props__['virtual_network_subnet_id'] = virtual_network_subnet_id
             __props__['name'] = None

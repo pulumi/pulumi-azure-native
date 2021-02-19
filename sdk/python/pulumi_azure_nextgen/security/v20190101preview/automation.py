@@ -67,8 +67,6 @@ class Automation(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['actions'] = actions
-            if automation_name is None and not opts.urn:
-                raise TypeError("Missing required property 'automation_name'")
             __props__['automation_name'] = automation_name
             __props__['description'] = description
             __props__['etag'] = etag

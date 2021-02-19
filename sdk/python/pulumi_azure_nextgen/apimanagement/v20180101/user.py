@@ -88,8 +88,6 @@ class User(pulumi.CustomResource):
             if state is None:
                 state = 'active'
             __props__['state'] = state
-            if uid is None and not opts.urn:
-                raise TypeError("Missing required property 'uid'")
             __props__['uid'] = uid
             __props__['groups'] = None
             __props__['name'] = None

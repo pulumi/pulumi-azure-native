@@ -55,8 +55,6 @@ class ManagedNetwork(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['location'] = location
-            if managed_network_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_network_name'")
             __props__['managed_network_name'] = managed_network_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

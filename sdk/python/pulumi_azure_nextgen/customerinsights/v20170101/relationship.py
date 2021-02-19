@@ -81,8 +81,6 @@ class Relationship(pulumi.CustomResource):
             if related_profile_type is None and not opts.urn:
                 raise TypeError("Missing required property 'related_profile_type'")
             __props__['related_profile_type'] = related_profile_type
-            if relationship_name is None and not opts.urn:
-                raise TypeError("Missing required property 'relationship_name'")
             __props__['relationship_name'] = relationship_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -60,8 +60,6 @@ class EventSource(pulumi.CustomResource):
             if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")
             __props__['environment_name'] = environment_name
-            if event_source_name is None and not opts.urn:
-                raise TypeError("Missing required property 'event_source_name'")
             __props__['event_source_name'] = event_source_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

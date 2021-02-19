@@ -60,8 +60,6 @@ class ApiIssueAttachment(pulumi.CustomResource):
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
-            if attachment_id is None and not opts.urn:
-                raise TypeError("Missing required property 'attachment_id'")
             __props__['attachment_id'] = attachment_id
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")

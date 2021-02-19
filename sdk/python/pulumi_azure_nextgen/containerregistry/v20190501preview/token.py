@@ -65,8 +65,6 @@ class Token(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['scope_map_id'] = scope_map_id
             __props__['status'] = status
-            if token_name is None and not opts.urn:
-                raise TypeError("Missing required property 'token_name'")
             __props__['token_name'] = token_name
             __props__['creation_date'] = None
             __props__['name'] = None

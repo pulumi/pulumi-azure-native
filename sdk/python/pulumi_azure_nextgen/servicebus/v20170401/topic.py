@@ -85,8 +85,6 @@ class Topic(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
             __props__['support_ordering'] = support_ordering
-            if topic_name is None and not opts.urn:
-                raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
             __props__['accessed_at'] = None
             __props__['count_details'] = None

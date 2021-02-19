@@ -73,8 +73,6 @@ class EventHubConnection(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
-            if event_hub_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'event_hub_connection_name'")
             __props__['event_hub_connection_name'] = event_hub_connection_name
             if event_hub_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hub_resource_id'")

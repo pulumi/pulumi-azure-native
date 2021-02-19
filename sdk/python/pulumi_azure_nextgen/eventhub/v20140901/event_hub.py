@@ -60,8 +60,6 @@ class EventHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if event_hub_name is None and not opts.urn:
-                raise TypeError("Missing required property 'event_hub_name'")
             __props__['event_hub_name'] = event_hub_name
             __props__['location'] = location
             __props__['message_retention_in_days'] = message_retention_in_days

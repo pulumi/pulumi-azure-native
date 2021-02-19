@@ -62,8 +62,6 @@ class Trigger(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if trigger_name is None and not opts.urn:
-                raise TypeError("Missing required property 'trigger_name'")
             __props__['trigger_name'] = trigger_name
             __props__['etag'] = None
             __props__['name'] = None

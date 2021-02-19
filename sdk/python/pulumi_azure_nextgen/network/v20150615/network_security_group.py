@@ -73,8 +73,6 @@ class NetworkSecurityGroup(pulumi.CustomResource):
             __props__['id'] = id
             __props__['location'] = location
             __props__['network_interfaces'] = network_interfaces
-            if network_security_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_security_group_name'")
             __props__['network_security_group_name'] = network_security_group_name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None and not opts.urn:

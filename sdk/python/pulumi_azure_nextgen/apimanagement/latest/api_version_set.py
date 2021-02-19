@@ -76,8 +76,6 @@ class ApiVersionSet(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['version_header_name'] = version_header_name
             __props__['version_query_name'] = version_query_name
-            if version_set_id is None and not opts.urn:
-                raise TypeError("Missing required property 'version_set_id'")
             __props__['version_set_id'] = version_set_id
             if versioning_scheme is None and not opts.urn:
                 raise TypeError("Missing required property 'versioning_scheme'")

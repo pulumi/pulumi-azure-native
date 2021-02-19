@@ -60,8 +60,6 @@ class SqlPoolsV3(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
-            if sql_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_pool_name'")
             __props__['sql_pool_name'] = sql_pool_name
             __props__['tags'] = tags
             if workspace_name is None and not opts.urn:

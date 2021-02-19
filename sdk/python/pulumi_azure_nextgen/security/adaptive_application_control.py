@@ -57,8 +57,6 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'asc_location'")
             __props__['asc_location'] = asc_location
             __props__['enforcement_mode'] = enforcement_mode
-            if group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'group_name'")
             __props__['group_name'] = group_name
             __props__['path_recommendations'] = path_recommendations
             __props__['protection_mode'] = protection_mode

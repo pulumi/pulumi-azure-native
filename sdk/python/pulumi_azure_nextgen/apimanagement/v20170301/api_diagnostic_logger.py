@@ -58,8 +58,6 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
             if diagnostic_id is None and not opts.urn:
                 raise TypeError("Missing required property 'diagnostic_id'")
             __props__['diagnostic_id'] = diagnostic_id
-            if loggerid is None and not opts.urn:
-                raise TypeError("Missing required property 'loggerid'")
             __props__['loggerid'] = loggerid
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

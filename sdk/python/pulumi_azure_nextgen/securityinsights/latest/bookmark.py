@@ -84,8 +84,6 @@ class Bookmark(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if bookmark_id is None and not opts.urn:
-                raise TypeError("Missing required property 'bookmark_id'")
             __props__['bookmark_id'] = bookmark_id
             __props__['created'] = created
             __props__['created_by'] = created_by

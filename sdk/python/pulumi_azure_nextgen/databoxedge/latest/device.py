@@ -67,8 +67,6 @@ class Device(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['data_box_edge_device_status'] = data_box_edge_device_status
-            if device_name is None and not opts.urn:
-                raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             __props__['etag'] = etag
             __props__['identity'] = identity

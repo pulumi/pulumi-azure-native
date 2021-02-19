@@ -55,8 +55,6 @@ class CommitmentPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if commitment_plan_name is None and not opts.urn:
-                raise TypeError("Missing required property 'commitment_plan_name'")
             __props__['commitment_plan_name'] = commitment_plan_name
             __props__['etag'] = etag
             __props__['location'] = location

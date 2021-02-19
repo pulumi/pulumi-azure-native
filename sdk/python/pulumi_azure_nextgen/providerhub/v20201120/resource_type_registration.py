@@ -52,8 +52,6 @@ class ResourceTypeRegistration(pulumi.CustomResource):
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__['provider_namespace'] = provider_namespace
-            if resource_type is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_type'")
             __props__['resource_type'] = resource_type
             __props__['name'] = None
             __props__['type'] = None

@@ -59,8 +59,6 @@ class Project(pulumi.CustomResource):
 
             __props__['e_tag'] = e_tag
             __props__['location'] = location
-            if project_name is None and not opts.urn:
-                raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

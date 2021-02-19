@@ -85,8 +85,6 @@ class JobDefinition(pulumi.CustomResource):
             if data_source_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source_id'")
             __props__['data_source_id'] = data_source_id
-            if job_definition_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_definition_name'")
             __props__['job_definition_name'] = job_definition_name
             __props__['last_modified_time'] = last_modified_time
             if resource_group_name is None and not opts.urn:

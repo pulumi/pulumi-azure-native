@@ -54,8 +54,6 @@ class CostAllocationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'billing_account_id'")
             __props__['billing_account_id'] = billing_account_id
             __props__['properties'] = properties
-            if rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
             __props__['name'] = None
             __props__['type'] = None

@@ -58,8 +58,6 @@ class Queue(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['metadata'] = metadata
-            if queue_name is None and not opts.urn:
-                raise TypeError("Missing required property 'queue_name'")
             __props__['queue_name'] = queue_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

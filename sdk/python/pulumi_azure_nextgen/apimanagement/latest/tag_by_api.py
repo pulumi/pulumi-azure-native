@@ -64,8 +64,6 @@ class TagByApi(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            if tag_id is None and not opts.urn:
-                raise TypeError("Missing required property 'tag_id'")
             __props__['tag_id'] = tag_id
             __props__['display_name'] = None
             __props__['name'] = None

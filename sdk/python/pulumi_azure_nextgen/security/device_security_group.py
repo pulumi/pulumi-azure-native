@@ -58,8 +58,6 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
             __props__['allowlist_rules'] = allowlist_rules
             __props__['denylist_rules'] = denylist_rules
-            if device_security_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'device_security_group_name'")
             __props__['device_security_group_name'] = device_security_group_name
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")

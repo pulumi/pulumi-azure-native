@@ -76,8 +76,6 @@ class VNetPeering(pulumi.CustomResource):
             __props__['allow_virtual_network_access'] = allow_virtual_network_access
             __props__['databricks_address_space'] = databricks_address_space
             __props__['databricks_virtual_network'] = databricks_virtual_network
-            if peering_name is None and not opts.urn:
-                raise TypeError("Missing required property 'peering_name'")
             __props__['peering_name'] = peering_name
             __props__['remote_address_space'] = remote_address_space
             if remote_virtual_network is None and not opts.urn:

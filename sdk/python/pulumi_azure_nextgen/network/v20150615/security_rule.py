@@ -99,8 +99,6 @@ class SecurityRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if security_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'security_rule_name'")
             __props__['security_rule_name'] = security_rule_name
             if source_address_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'source_address_prefix'")

@@ -61,8 +61,6 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bootstrap_configuration'")
             __props__['bootstrap_configuration'] = bootstrap_configuration
             __props__['location'] = location
-            if pipeline_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pipeline_name'")
             __props__['pipeline_name'] = pipeline_name
             if pipeline_type is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_type'")

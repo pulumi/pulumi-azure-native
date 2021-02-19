@@ -79,8 +79,6 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
             __props__['p2_s_vpn_server_config_radius_server_root_certificates'] = p2_s_vpn_server_config_radius_server_root_certificates
             __props__['p2_s_vpn_server_config_vpn_client_revoked_certificates'] = p2_s_vpn_server_config_vpn_client_revoked_certificates
             __props__['p2_s_vpn_server_config_vpn_client_root_certificates'] = p2_s_vpn_server_config_vpn_client_root_certificates
-            if p2_s_vpn_server_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'p2_s_vpn_server_configuration_name'")
             __props__['p2_s_vpn_server_configuration_name'] = p2_s_vpn_server_configuration_name
             __props__['radius_server_address'] = radius_server_address
             __props__['radius_server_secret'] = radius_server_secret

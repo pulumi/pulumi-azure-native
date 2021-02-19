@@ -54,8 +54,6 @@ class OrderCollectionByName(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['location'] = location
-            if order_collection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'order_collection_name'")
             __props__['order_collection_name'] = order_collection_name
             if order_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'order_ids'")

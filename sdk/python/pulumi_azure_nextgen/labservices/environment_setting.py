@@ -71,8 +71,6 @@ class EnvironmentSetting(pulumi.CustomResource):
 
             __props__['configuration_state'] = configuration_state
             __props__['description'] = description
-            if environment_setting_name is None and not opts.urn:
-                raise TypeError("Missing required property 'environment_setting_name'")
             __props__['environment_setting_name'] = environment_setting_name
             if lab_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_account_name'")

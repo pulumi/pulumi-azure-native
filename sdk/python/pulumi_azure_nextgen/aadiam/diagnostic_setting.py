@@ -62,8 +62,6 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__['event_hub_authorization_rule_id'] = event_hub_authorization_rule_id
             __props__['event_hub_name'] = event_hub_name
             __props__['logs'] = logs
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['service_bus_rule_id'] = service_bus_rule_id
             __props__['storage_account_id'] = storage_account_id

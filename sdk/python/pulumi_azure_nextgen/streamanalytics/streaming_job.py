@@ -86,8 +86,6 @@ class StreamingJob(pulumi.CustomResource):
             __props__['events_out_of_order_policy'] = events_out_of_order_policy
             __props__['functions'] = functions
             __props__['inputs'] = inputs
-            if job_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
             __props__['location'] = location
             __props__['output_error_policy'] = output_error_policy

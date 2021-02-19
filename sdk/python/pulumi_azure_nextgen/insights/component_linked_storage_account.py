@@ -57,8 +57,6 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-            if storage_type is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_type'")
             __props__['storage_type'] = storage_type
             __props__['name'] = None
             __props__['type'] = None

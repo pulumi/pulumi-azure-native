@@ -122,8 +122,6 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             __props__['language'] = language
             __props__['last_updated_time_utc'] = last_updated_time_utc
             __props__['modified'] = modified
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")

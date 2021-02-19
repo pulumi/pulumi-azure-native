@@ -93,8 +93,6 @@ class StorageAccount(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_tier'] = access_tier
-            if account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['allow_blob_public_access'] = allow_blob_public_access
             __props__['allow_shared_key_access'] = allow_shared_key_access

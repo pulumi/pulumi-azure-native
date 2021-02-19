@@ -67,8 +67,6 @@ class BuildTask(pulumi.CustomResource):
             if alias is None and not opts.urn:
                 raise TypeError("Missing required property 'alias'")
             __props__['alias'] = alias
-            if build_task_name is None and not opts.urn:
-                raise TypeError("Missing required property 'build_task_name'")
             __props__['build_task_name'] = build_task_name
             __props__['location'] = location
             if platform is None and not opts.urn:

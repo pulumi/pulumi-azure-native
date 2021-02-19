@@ -68,8 +68,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             if metadata_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'metadata_endpoint'")
             __props__['metadata_endpoint'] = metadata_endpoint
-            if opid is None and not opts.urn:
-                raise TypeError("Missing required property 'opid'")
             __props__['opid'] = opid
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

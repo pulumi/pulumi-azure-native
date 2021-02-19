@@ -53,8 +53,6 @@ class ManagedInstanceKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if key_name is None and not opts.urn:
-                raise TypeError("Missing required property 'key_name'")
             __props__['key_name'] = key_name
             if managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_name'")

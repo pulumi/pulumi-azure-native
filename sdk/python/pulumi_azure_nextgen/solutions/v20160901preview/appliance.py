@@ -71,8 +71,6 @@ class Appliance(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['appliance_definition_id'] = appliance_definition_id
-            if appliance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'appliance_name'")
             __props__['appliance_name'] = appliance_name
             __props__['identity'] = identity
             __props__['kind'] = kind

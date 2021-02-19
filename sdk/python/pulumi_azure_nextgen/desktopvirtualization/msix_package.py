@@ -80,8 +80,6 @@ class MSIXPackage(pulumi.CustomResource):
             __props__['is_active'] = is_active
             __props__['is_regular_registration'] = is_regular_registration
             __props__['last_updated'] = last_updated
-            if msix_package_full_name is None and not opts.urn:
-                raise TypeError("Missing required property 'msix_package_full_name'")
             __props__['msix_package_full_name'] = msix_package_full_name
             __props__['package_applications'] = package_applications
             __props__['package_dependencies'] = package_dependencies

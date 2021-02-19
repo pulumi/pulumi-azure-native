@@ -58,8 +58,6 @@ class Device(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['azure_stack_edge'] = azure_stack_edge
-            if device_name is None and not opts.urn:
-                raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             if device_type is None and not opts.urn:
                 raise TypeError("Missing required property 'device_type'")

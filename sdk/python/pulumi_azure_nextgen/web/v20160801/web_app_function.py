@@ -68,8 +68,6 @@ class WebAppFunction(pulumi.CustomResource):
             __props__['config'] = config
             __props__['config_href'] = config_href
             __props__['files'] = files
-            if function_name is None and not opts.urn:
-                raise TypeError("Missing required property 'function_name'")
             __props__['function_name'] = function_name
             __props__['href'] = href
             __props__['kind'] = kind

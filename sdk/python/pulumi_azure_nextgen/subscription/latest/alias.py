@@ -54,8 +54,6 @@ class Alias(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if alias_name is None and not opts.urn:
-                raise TypeError("Missing required property 'alias_name'")
             __props__['alias_name'] = alias_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

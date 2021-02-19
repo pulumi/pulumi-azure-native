@@ -75,8 +75,6 @@ class DscConfiguration(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_name'")
             __props__['configuration_name'] = configuration_name
             __props__['description'] = description
             __props__['location'] = location

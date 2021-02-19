@@ -71,8 +71,6 @@ class VirtualRouter(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['virtual_router_asn'] = virtual_router_asn
             __props__['virtual_router_ips'] = virtual_router_ips
-            if virtual_router_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_router_name'")
             __props__['virtual_router_name'] = virtual_router_name
             __props__['etag'] = None
             __props__['name'] = None

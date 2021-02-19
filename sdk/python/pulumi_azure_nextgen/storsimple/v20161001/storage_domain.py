@@ -69,8 +69,6 @@ class StorageDomain(pulumi.CustomResource):
             if storage_account_credential_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_credential_ids'")
             __props__['storage_account_credential_ids'] = storage_account_credential_ids
-            if storage_domain_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_domain_name'")
             __props__['storage_domain_name'] = storage_domain_name
             __props__['name'] = None
             __props__['type'] = None

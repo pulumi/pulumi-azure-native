@@ -86,8 +86,6 @@ class View(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
-            if view_name is None and not opts.urn:
-                raise TypeError("Missing required property 'view_name'")
             __props__['view_name'] = view_name
             __props__['created_on'] = None
             __props__['currency'] = None

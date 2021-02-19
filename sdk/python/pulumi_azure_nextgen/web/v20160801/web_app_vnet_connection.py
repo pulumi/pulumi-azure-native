@@ -66,8 +66,6 @@ class WebAppVnetConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if vnet_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name
             __props__['vnet_resource_id'] = vnet_resource_id
             __props__['cert_thumbprint'] = None

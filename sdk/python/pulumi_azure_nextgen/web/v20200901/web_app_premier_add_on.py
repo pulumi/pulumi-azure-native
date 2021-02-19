@@ -71,8 +71,6 @@ class WebAppPremierAddOn(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if premier_add_on_name is None and not opts.urn:
-                raise TypeError("Missing required property 'premier_add_on_name'")
             __props__['premier_add_on_name'] = premier_add_on_name
             __props__['product'] = product
             if resource_group_name is None and not opts.urn:

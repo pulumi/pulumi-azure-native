@@ -85,8 +85,6 @@ class Profile(pulumi.CustomResource):
             __props__['max_return'] = max_return
             __props__['monitor_config'] = monitor_config
             __props__['name'] = name
-            if profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
             __props__['profile_status'] = profile_status
             if resource_group_name is None and not opts.urn:

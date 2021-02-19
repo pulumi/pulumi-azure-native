@@ -79,8 +79,6 @@ class SyncGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['sync_database_id'] = sync_database_id
-            if sync_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sync_group_name'")
             __props__['sync_group_name'] = sync_group_name
             __props__['last_sync_time'] = None
             __props__['name'] = None

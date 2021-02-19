@@ -79,8 +79,6 @@ class PrivateCloud(pulumi.CustomResource):
                 raise TypeError("Missing required property 'network_block'")
             __props__['network_block'] = network_block
             __props__['nsxt_password'] = nsxt_password
-            if private_cloud_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_cloud_name'")
             __props__['private_cloud_name'] = private_cloud_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -74,8 +74,6 @@ class Assessment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if assessment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'assessment_name'")
             __props__['assessment_name'] = assessment_name
             if azure_hybrid_use_benefit is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_hybrid_use_benefit'")

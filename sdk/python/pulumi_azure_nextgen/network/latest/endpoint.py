@@ -89,8 +89,6 @@ class Endpoint(pulumi.CustomResource):
             __props__['custom_headers'] = custom_headers
             __props__['endpoint_location'] = endpoint_location
             __props__['endpoint_monitor_status'] = endpoint_monitor_status
-            if endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
             __props__['endpoint_status'] = endpoint_status
             if endpoint_type is None and not opts.urn:

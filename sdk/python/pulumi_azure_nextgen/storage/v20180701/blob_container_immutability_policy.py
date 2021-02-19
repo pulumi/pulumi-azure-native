@@ -60,8 +60,6 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
             if immutability_period_since_creation_in_days is None and not opts.urn:
                 raise TypeError("Missing required property 'immutability_period_since_creation_in_days'")
             __props__['immutability_period_since_creation_in_days'] = immutability_period_since_creation_in_days
-            if immutability_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'immutability_policy_name'")
             __props__['immutability_policy_name'] = immutability_policy_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

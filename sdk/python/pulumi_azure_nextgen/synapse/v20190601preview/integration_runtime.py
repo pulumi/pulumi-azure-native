@@ -52,8 +52,6 @@ class IntegrationRuntime(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if integration_runtime_name is None and not opts.urn:
-                raise TypeError("Missing required property 'integration_runtime_name'")
             __props__['integration_runtime_name'] = integration_runtime_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

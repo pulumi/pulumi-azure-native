@@ -79,8 +79,6 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
             __props__['namespace_name'] = namespace_name
             __props__['port'] = port
             __props__['relay_arm_uri'] = relay_arm_uri
-            if relay_name is None and not opts.urn:
-                raise TypeError("Missing required property 'relay_name'")
             __props__['relay_name'] = relay_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

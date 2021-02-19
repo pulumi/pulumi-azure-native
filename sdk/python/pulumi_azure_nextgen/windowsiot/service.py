@@ -62,8 +62,6 @@ class Service(pulumi.CustomResource):
 
             __props__['admin_domain_name'] = admin_domain_name
             __props__['billing_domain_name'] = billing_domain_name
-            if device_name is None and not opts.urn:
-                raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             __props__['etag'] = etag
             __props__['location'] = location

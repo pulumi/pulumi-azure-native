@@ -72,8 +72,6 @@ class ProtectedItem(pulumi.CustomResource):
             __props__['fabric_name'] = fabric_name
             __props__['location'] = location
             __props__['properties'] = properties
-            if protected_item_name is None and not opts.urn:
-                raise TypeError("Missing required property 'protected_item_name'")
             __props__['protected_item_name'] = protected_item_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

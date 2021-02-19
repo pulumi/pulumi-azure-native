@@ -85,8 +85,6 @@ class Registry(pulumi.CustomResource):
             if public_network_access is None:
                 public_network_access = 'Enabled'
             __props__['public_network_access'] = public_network_access
-            if registry_name is None and not opts.urn:
-                raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

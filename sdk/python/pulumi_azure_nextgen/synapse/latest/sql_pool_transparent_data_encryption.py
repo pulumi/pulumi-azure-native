@@ -65,8 +65,6 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sql_pool_name'")
             __props__['sql_pool_name'] = sql_pool_name
             __props__['status'] = status
-            if transparent_data_encryption_name is None and not opts.urn:
-                raise TypeError("Missing required property 'transparent_data_encryption_name'")
             __props__['transparent_data_encryption_name'] = transparent_data_encryption_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

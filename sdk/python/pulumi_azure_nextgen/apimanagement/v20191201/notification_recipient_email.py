@@ -49,8 +49,6 @@ class NotificationRecipientEmail(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if email is None and not opts.urn:
-                raise TypeError("Missing required property 'email'")
             __props__['email'] = email
             if notification_name is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_name'")

@@ -59,8 +59,6 @@ class RegisteredAsn(pulumi.CustomResource):
             if peering_name is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_name'")
             __props__['peering_name'] = peering_name
-            if registered_asn_name is None and not opts.urn:
-                raise TypeError("Missing required property 'registered_asn_name'")
             __props__['registered_asn_name'] = registered_asn_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

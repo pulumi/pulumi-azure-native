@@ -58,8 +58,6 @@ class SecurityContact(pulumi.CustomResource):
             __props__['emails'] = emails
             __props__['notifications_by_role'] = notifications_by_role
             __props__['phone'] = phone
-            if security_contact_name is None and not opts.urn:
-                raise TypeError("Missing required property 'security_contact_name'")
             __props__['security_contact_name'] = security_contact_name
             __props__['name'] = None
             __props__['type'] = None

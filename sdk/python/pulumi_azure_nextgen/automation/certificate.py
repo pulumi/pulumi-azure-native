@@ -64,8 +64,6 @@ class Certificate(pulumi.CustomResource):
             if base64_value is None and not opts.urn:
                 raise TypeError("Missing required property 'base64_value'")
             __props__['base64_value'] = base64_value
-            if certificate_name is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_name'")
             __props__['certificate_name'] = certificate_name
             __props__['description'] = description
             __props__['is_exportable'] = is_exportable

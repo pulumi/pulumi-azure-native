@@ -80,8 +80,6 @@ class SqlResourceSqlStoredProcedure(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if stored_procedure_name is None and not opts.urn:
-                raise TypeError("Missing required property 'stored_procedure_name'")
             __props__['stored_procedure_name'] = stored_procedure_name
             __props__['tags'] = tags
             __props__['name'] = None

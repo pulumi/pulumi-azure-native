@@ -69,8 +69,6 @@ class Project(pulumi.CustomResource):
                 raise TypeError("Missing required property 'group_name'")
             __props__['group_name'] = group_name
             __props__['location'] = location
-            if project_name is None and not opts.urn:
-                raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")

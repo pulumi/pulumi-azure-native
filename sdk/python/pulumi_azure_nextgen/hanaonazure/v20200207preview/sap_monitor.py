@@ -68,8 +68,6 @@ class SapMonitor(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sap_monitor_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sap_monitor_name'")
             __props__['sap_monitor_name'] = sap_monitor_name
             __props__['tags'] = tags
             __props__['managed_resource_group_name'] = None

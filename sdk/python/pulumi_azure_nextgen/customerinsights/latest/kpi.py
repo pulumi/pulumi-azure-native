@@ -109,8 +109,6 @@ class Kpi(pulumi.CustomResource):
             if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
-            if kpi_name is None and not opts.urn:
-                raise TypeError("Missing required property 'kpi_name'")
             __props__['kpi_name'] = kpi_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

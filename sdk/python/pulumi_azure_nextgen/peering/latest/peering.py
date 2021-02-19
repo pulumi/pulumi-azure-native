@@ -75,8 +75,6 @@ class Peering(pulumi.CustomResource):
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['peering_location'] = peering_location
-            if peering_name is None and not opts.urn:
-                raise TypeError("Missing required property 'peering_name'")
             __props__['peering_name'] = peering_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

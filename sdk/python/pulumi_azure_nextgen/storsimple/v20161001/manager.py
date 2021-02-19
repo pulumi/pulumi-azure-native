@@ -61,8 +61,6 @@ class Manager(pulumi.CustomResource):
             __props__['cis_intrinsic_settings'] = cis_intrinsic_settings
             __props__['etag'] = etag
             __props__['location'] = location
-            if manager_name is None and not opts.urn:
-                raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

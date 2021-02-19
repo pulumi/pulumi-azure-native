@@ -66,8 +66,6 @@ class LinkedServer(pulumi.CustomResource):
             if linked_redis_cache_location is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_redis_cache_location'")
             __props__['linked_redis_cache_location'] = linked_redis_cache_location
-            if linked_server_name is None and not opts.urn:
-                raise TypeError("Missing required property 'linked_server_name'")
             __props__['linked_server_name'] = linked_server_name
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

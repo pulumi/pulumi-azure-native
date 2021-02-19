@@ -98,8 +98,6 @@ class SourceControlConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source_control_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'source_control_configuration_name'")
             __props__['source_control_configuration_name'] = source_control_configuration_name
             __props__['ssh_known_hosts_contents'] = ssh_known_hosts_contents
             __props__['compliance_status'] = None

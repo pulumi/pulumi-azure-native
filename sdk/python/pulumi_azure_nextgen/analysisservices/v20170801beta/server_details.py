@@ -85,8 +85,6 @@ class ServerDetails(pulumi.CustomResource):
             if server_monitor_mode is None:
                 server_monitor_mode = 1
             __props__['server_monitor_mode'] = server_monitor_mode
-            if server_name is None and not opts.urn:
-                raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")

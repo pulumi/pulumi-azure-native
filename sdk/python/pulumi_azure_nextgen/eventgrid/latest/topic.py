@@ -80,8 +80,6 @@ class Topic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if topic_name is None and not opts.urn:
-                raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
             __props__['endpoint'] = None
             __props__['metric_resource_id'] = None

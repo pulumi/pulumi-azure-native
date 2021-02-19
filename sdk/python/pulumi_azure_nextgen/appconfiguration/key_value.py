@@ -59,8 +59,6 @@ class KeyValue(pulumi.CustomResource):
                 raise TypeError("Missing required property 'config_store_name'")
             __props__['config_store_name'] = config_store_name
             __props__['content_type'] = content_type
-            if key_value_name is None and not opts.urn:
-                raise TypeError("Missing required property 'key_value_name'")
             __props__['key_value_name'] = key_value_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

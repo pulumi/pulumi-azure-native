@@ -60,8 +60,6 @@ class Gateway(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if gateway_id is None and not opts.urn:
-                raise TypeError("Missing required property 'gateway_id'")
             __props__['gateway_id'] = gateway_id
             __props__['location_data'] = location_data
             if resource_group_name is None and not opts.urn:

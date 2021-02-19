@@ -56,8 +56,6 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if administrator_name is None and not opts.urn:
-                raise TypeError("Missing required property 'administrator_name'")
             __props__['administrator_name'] = administrator_name
             if administrator_type is None and not opts.urn:
                 raise TypeError("Missing required property 'administrator_type'")

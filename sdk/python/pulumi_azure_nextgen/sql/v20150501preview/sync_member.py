@@ -81,8 +81,6 @@ class SyncMember(pulumi.CustomResource):
             if sync_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__['sync_group_name'] = sync_group_name
-            if sync_member_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sync_member_name'")
             __props__['sync_member_name'] = sync_member_name
             __props__['user_name'] = user_name
             __props__['name'] = None

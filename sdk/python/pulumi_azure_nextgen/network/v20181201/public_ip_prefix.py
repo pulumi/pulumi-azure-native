@@ -83,8 +83,6 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__['provisioning_state'] = provisioning_state
             __props__['public_ip_address_version'] = public_ip_address_version
             __props__['public_ip_addresses'] = public_ip_addresses
-            if public_ip_prefix_name is None and not opts.urn:
-                raise TypeError("Missing required property 'public_ip_prefix_name'")
             __props__['public_ip_prefix_name'] = public_ip_prefix_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

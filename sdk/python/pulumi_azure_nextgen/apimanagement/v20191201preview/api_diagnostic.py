@@ -73,8 +73,6 @@ class ApiDiagnostic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
             __props__['backend'] = backend
-            if diagnostic_id is None and not opts.urn:
-                raise TypeError("Missing required property 'diagnostic_id'")
             __props__['diagnostic_id'] = diagnostic_id
             __props__['frontend'] = frontend
             __props__['http_correlation_protocol'] = http_correlation_protocol

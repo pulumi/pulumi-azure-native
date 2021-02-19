@@ -64,8 +64,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
             __props__['identity'] = identity
             __props__['location'] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['over_provision'] = over_provision
             if resource_group_name is None and not opts.urn:

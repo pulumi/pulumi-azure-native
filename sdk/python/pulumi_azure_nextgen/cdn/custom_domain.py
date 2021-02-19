@@ -53,8 +53,6 @@ class CustomDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if custom_domain_name is None and not opts.urn:
-                raise TypeError("Missing required property 'custom_domain_name'")
             __props__['custom_domain_name'] = custom_domain_name
             if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")

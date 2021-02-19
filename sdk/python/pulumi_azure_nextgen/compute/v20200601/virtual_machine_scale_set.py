@@ -103,8 +103,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['upgrade_policy'] = upgrade_policy
             __props__['virtual_machine_profile'] = virtual_machine_profile
-            if vm_scale_set_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__['vm_scale_set_name'] = vm_scale_set_name
             __props__['zone_balance'] = zone_balance
             __props__['zones'] = zones

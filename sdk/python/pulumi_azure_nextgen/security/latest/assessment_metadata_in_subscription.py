@@ -72,8 +72,6 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if assessment_metadata_name is None and not opts.urn:
-                raise TypeError("Missing required property 'assessment_metadata_name'")
             __props__['assessment_metadata_name'] = assessment_metadata_name
             if assessment_type is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_type'")

@@ -56,8 +56,6 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
             __props__['kind'] = kind
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['ownership_id'] = ownership_id
             if resource_group_name is None and not opts.urn:

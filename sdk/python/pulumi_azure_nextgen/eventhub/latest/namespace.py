@@ -70,8 +70,6 @@ class Namespace(pulumi.CustomResource):
             __props__['kafka_enabled'] = kafka_enabled
             __props__['location'] = location
             __props__['maximum_throughput_units'] = maximum_throughput_units
-            if namespace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

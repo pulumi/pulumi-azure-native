@@ -59,8 +59,6 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if spatial_anchors_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'spatial_anchors_account_name'")
             __props__['spatial_anchors_account_name'] = spatial_anchors_account_name
             __props__['tags'] = tags
             __props__['account_domain'] = None

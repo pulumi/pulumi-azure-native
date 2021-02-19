@@ -79,8 +79,6 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['retention_days'] = retention_days
-            if security_alert_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'security_alert_policy_name'")
             __props__['security_alert_policy_name'] = security_alert_policy_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")

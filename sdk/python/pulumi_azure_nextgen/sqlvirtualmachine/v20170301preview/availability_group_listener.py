@@ -57,8 +57,6 @@ class AvailabilityGroupListener(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if availability_group_listener_name is None and not opts.urn:
-                raise TypeError("Missing required property 'availability_group_listener_name'")
             __props__['availability_group_listener_name'] = availability_group_listener_name
             __props__['availability_group_name'] = availability_group_name
             __props__['create_default_availability_group_if_not_exist'] = create_default_availability_group_if_not_exist

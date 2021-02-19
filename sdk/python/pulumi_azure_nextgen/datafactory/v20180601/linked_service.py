@@ -55,8 +55,6 @@ class LinkedService(pulumi.CustomResource):
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
             __props__['factory_name'] = factory_name
-            if linked_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'linked_service_name'")
             __props__['linked_service_name'] = linked_service_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

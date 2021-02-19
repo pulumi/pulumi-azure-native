@@ -68,8 +68,6 @@ class Variable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['value'] = value
-            if variable_name is None and not opts.urn:
-                raise TypeError("Missing required property 'variable_name'")
             __props__['variable_name'] = variable_name
             __props__['creation_time'] = None
             __props__['last_modified_time'] = None

@@ -69,8 +69,6 @@ class ReplicationProtectedItem(pulumi.CustomResource):
             if protection_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'protection_container_name'")
             __props__['protection_container_name'] = protection_container_name
-            if replicated_protected_item_name is None and not opts.urn:
-                raise TypeError("Missing required property 'replicated_protected_item_name'")
             __props__['replicated_protected_item_name'] = replicated_protected_item_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

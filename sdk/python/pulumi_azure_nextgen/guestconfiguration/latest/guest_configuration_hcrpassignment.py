@@ -62,8 +62,6 @@ class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if guest_configuration_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'guest_configuration_assignment_name'")
             __props__['guest_configuration_assignment_name'] = guest_configuration_assignment_name
             __props__['location'] = location
             if machine_name is None and not opts.urn:

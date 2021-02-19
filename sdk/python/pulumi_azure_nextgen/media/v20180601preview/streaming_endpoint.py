@@ -93,8 +93,6 @@ class StreamingEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scale_units'] = scale_units
-            if streaming_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'streaming_endpoint_name'")
             __props__['streaming_endpoint_name'] = streaming_endpoint_name
             __props__['tags'] = tags
             __props__['created'] = None

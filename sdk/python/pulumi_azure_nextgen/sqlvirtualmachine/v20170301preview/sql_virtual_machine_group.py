@@ -64,8 +64,6 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sql_image_offer'] = sql_image_offer
             __props__['sql_image_sku'] = sql_image_sku
-            if sql_virtual_machine_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_virtual_machine_group_name'")
             __props__['sql_virtual_machine_group_name'] = sql_virtual_machine_group_name
             __props__['tags'] = tags
             __props__['wsfc_domain_profile'] = wsfc_domain_profile

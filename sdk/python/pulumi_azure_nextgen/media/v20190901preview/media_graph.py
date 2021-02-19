@@ -59,8 +59,6 @@ class MediaGraph(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['description'] = description
-            if media_graph_name is None and not opts.urn:
-                raise TypeError("Missing required property 'media_graph_name'")
             __props__['media_graph_name'] = media_graph_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

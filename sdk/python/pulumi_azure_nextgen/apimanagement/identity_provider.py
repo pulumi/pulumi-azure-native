@@ -77,8 +77,6 @@ class IdentityProvider(pulumi.CustomResource):
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
             __props__['client_secret'] = client_secret
-            if identity_provider_name is None and not opts.urn:
-                raise TypeError("Missing required property 'identity_provider_name'")
             __props__['identity_provider_name'] = identity_provider_name
             __props__['password_reset_policy_name'] = password_reset_policy_name
             __props__['profile_editing_policy_name'] = profile_editing_policy_name

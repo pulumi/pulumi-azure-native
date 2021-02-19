@@ -124,8 +124,6 @@ class MachineLearningDatastore(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_store_type'")
             __props__['data_store_type'] = data_store_type
             __props__['database_name'] = database_name
-            if datastore_name is None and not opts.urn:
-                raise TypeError("Missing required property 'datastore_name'")
             __props__['datastore_name'] = datastore_name
             __props__['description'] = description
             __props__['endpoint'] = endpoint

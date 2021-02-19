@@ -55,8 +55,6 @@ class SyncAgent(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
-            if sync_agent_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sync_agent_name'")
             __props__['sync_agent_name'] = sync_agent_name
             __props__['sync_database_id'] = sync_database_id
             __props__['expiry_time'] = None

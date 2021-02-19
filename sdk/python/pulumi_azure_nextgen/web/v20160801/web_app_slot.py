@@ -129,8 +129,6 @@ class WebAppSlot(pulumi.CustomResource):
             __props__['site_config'] = site_config
             __props__['skip_custom_domain_verification'] = skip_custom_domain_verification
             __props__['skip_dns_registration'] = skip_dns_registration
-            if slot is None and not opts.urn:
-                raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['snapshot_info'] = snapshot_info
             __props__['tags'] = tags

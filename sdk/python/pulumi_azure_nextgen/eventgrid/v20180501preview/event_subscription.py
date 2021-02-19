@@ -65,8 +65,6 @@ class EventSubscription(pulumi.CustomResource):
             if event_delivery_schema is None:
                 event_delivery_schema = 'InputEventSchema'
             __props__['event_delivery_schema'] = event_delivery_schema
-            if event_subscription_name is None and not opts.urn:
-                raise TypeError("Missing required property 'event_subscription_name'")
             __props__['event_subscription_name'] = event_subscription_name
             __props__['filter'] = filter
             __props__['labels'] = labels

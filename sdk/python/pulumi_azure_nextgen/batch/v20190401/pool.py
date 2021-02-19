@@ -89,8 +89,6 @@ class Pool(pulumi.CustomResource):
             __props__['max_tasks_per_node'] = max_tasks_per_node
             __props__['metadata'] = metadata
             __props__['network_configuration'] = network_configuration
-            if pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

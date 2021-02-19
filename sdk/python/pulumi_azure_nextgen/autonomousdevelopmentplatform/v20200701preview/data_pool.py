@@ -54,8 +54,6 @@ class DataPool(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if data_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_pool_name'")
             __props__['data_pool_name'] = data_pool_name
             if locations is None and not opts.urn:
                 raise TypeError("Missing required property 'locations'")

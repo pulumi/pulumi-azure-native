@@ -99,8 +99,6 @@ class Server(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['restore_point_in_time'] = restore_point_in_time
-            if server_name is None and not opts.urn:
-                raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['sku'] = sku
             __props__['source_server_id'] = source_server_id

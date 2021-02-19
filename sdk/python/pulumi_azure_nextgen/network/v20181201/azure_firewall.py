@@ -65,8 +65,6 @@ class AzureFirewall(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['application_rule_collections'] = application_rule_collections
-            if azure_firewall_name is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_firewall_name'")
             __props__['azure_firewall_name'] = azure_firewall_name
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations

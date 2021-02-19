@@ -71,8 +71,6 @@ class Job(pulumi.CustomResource):
             if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
             __props__['input'] = input
-            if job_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
             if outputs is None and not opts.urn:
                 raise TypeError("Missing required property 'outputs'")

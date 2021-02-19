@@ -108,8 +108,6 @@ class IoMAMPolicyByName(pulumi.CustomResource):
                 pin = 'required'
             __props__['pin'] = pin
             __props__['pin_num_retry'] = pin_num_retry
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__['policy_name'] = policy_name
             __props__['tags'] = tags
             if touch_id is None:

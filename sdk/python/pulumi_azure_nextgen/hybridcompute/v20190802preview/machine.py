@@ -67,8 +67,6 @@ class Machine(pulumi.CustomResource):
             __props__['client_public_key'] = client_public_key
             __props__['extensions'] = extensions
             __props__['location'] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['os_name'] = os_name
             __props__['os_version'] = os_version

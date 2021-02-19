@@ -62,8 +62,6 @@ class MasterSite(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if site_name is None and not opts.urn:
-                raise TypeError("Missing required property 'site_name'")
             __props__['site_name'] = site_name
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:offazure:MasterSite"), pulumi.Alias(type_="azure-nextgen:offazure/latest:MasterSite")])

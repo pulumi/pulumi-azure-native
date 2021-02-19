@@ -71,8 +71,6 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-            if storage_classification_mapping_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_classification_mapping_name'")
             __props__['storage_classification_mapping_name'] = storage_classification_mapping_name
             if storage_classification_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_classification_name'")

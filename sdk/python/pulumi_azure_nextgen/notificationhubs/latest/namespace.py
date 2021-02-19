@@ -92,8 +92,6 @@ class Namespace(pulumi.CustomResource):
             __props__['enabled'] = enabled
             __props__['location'] = location
             __props__['name'] = name
-            if namespace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['namespace_type'] = namespace_type
             __props__['provisioning_state'] = provisioning_state

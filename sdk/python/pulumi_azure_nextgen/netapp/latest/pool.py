@@ -68,8 +68,6 @@ class Pool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['location'] = location
-            if pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
             if qos_type is None:
                 qos_type = 'Auto'

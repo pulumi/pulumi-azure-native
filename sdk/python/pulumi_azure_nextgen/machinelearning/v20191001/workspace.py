@@ -72,8 +72,6 @@ class Workspace(pulumi.CustomResource):
             if user_storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_storage_account_id'")
             __props__['user_storage_account_id'] = user_storage_account_id
-            if workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['creation_time'] = None
             __props__['name'] = None

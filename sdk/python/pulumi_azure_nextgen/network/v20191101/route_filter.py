@@ -61,8 +61,6 @@ class RouteFilter(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if route_filter_name is None and not opts.urn:
-                raise TypeError("Missing required property 'route_filter_name'")
             __props__['route_filter_name'] = route_filter_name
             __props__['rules'] = rules
             __props__['tags'] = tags

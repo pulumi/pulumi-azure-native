@@ -59,8 +59,6 @@ class RulesEngine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['rules'] = rules
-            if rules_engine_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rules_engine_name'")
             __props__['rules_engine_name'] = rules_engine_name
             __props__['name'] = None
             __props__['resource_state'] = None

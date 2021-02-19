@@ -60,8 +60,6 @@ class Invitation(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if invitation_name is None and not opts.urn:
-                raise TypeError("Missing required property 'invitation_name'")
             __props__['invitation_name'] = invitation_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

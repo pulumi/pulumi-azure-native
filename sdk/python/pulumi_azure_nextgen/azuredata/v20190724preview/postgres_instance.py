@@ -46,8 +46,6 @@ class PostgresInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if postgres_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'postgres_instance_name'")
             __props__['postgres_instance_name'] = postgres_instance_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -58,8 +58,6 @@ class AFDCustomDomain(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['azure_dns_zone'] = azure_dns_zone
-            if custom_domain_name is None and not opts.urn:
-                raise TypeError("Missing required property 'custom_domain_name'")
             __props__['custom_domain_name'] = custom_domain_name
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")

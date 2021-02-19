@@ -59,8 +59,6 @@ class MigrateProject(pulumi.CustomResource):
 
             __props__['e_tag'] = e_tag
             __props__['location'] = location
-            if migrate_project_name is None and not opts.urn:
-                raise TypeError("Missing required property 'migrate_project_name'")
             __props__['migrate_project_name'] = migrate_project_name
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

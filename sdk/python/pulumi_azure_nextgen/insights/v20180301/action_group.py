@@ -73,8 +73,6 @@ class ActionGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'action_group_name'")
             __props__['action_group_name'] = action_group_name
             __props__['automation_runbook_receivers'] = automation_runbook_receivers
             __props__['azure_app_push_receivers'] = azure_app_push_receivers

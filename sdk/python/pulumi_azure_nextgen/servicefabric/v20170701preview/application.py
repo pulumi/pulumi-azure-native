@@ -68,8 +68,6 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_name is None and not opts.urn:
-                raise TypeError("Missing required property 'application_name'")
             __props__['application_name'] = application_name
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")

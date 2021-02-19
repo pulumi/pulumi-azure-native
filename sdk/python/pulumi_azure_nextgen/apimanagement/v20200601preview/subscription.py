@@ -86,8 +86,6 @@ class Subscription(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            if sid is None and not opts.urn:
-                raise TypeError("Missing required property 'sid'")
             __props__['sid'] = sid
             __props__['state'] = state
             __props__['created_date'] = None

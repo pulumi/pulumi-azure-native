@@ -52,8 +52,6 @@ class CustomerSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if customer_subscription_name is None and not opts.urn:
-                raise TypeError("Missing required property 'customer_subscription_name'")
             __props__['customer_subscription_name'] = customer_subscription_name
             __props__['etag'] = etag
             if registration_name is None and not opts.urn:

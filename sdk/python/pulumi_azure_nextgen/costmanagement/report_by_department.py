@@ -67,8 +67,6 @@ class ReportByDepartment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'department_id'")
             __props__['department_id'] = department_id
             __props__['format'] = format
-            if report_name is None and not opts.urn:
-                raise TypeError("Missing required property 'report_name'")
             __props__['report_name'] = report_name
             __props__['schedule'] = schedule
             __props__['name'] = None

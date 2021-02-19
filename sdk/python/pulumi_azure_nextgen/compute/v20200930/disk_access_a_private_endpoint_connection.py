@@ -55,8 +55,6 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
             if disk_access_name is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_access_name'")
             __props__['disk_access_name'] = disk_access_name
-            if private_endpoint_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             if private_link_service_connection_state is None and not opts.urn:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")

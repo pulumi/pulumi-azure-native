@@ -59,8 +59,6 @@ class Python2Package(pulumi.CustomResource):
             if content_link is None and not opts.urn:
                 raise TypeError("Missing required property 'content_link'")
             __props__['content_link'] = content_link
-            if package_name is None and not opts.urn:
-                raise TypeError("Missing required property 'package_name'")
             __props__['package_name'] = package_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

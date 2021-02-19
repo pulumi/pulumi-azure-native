@@ -62,8 +62,6 @@ class ServiceTask(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            if task_name is None and not opts.urn:
-                raise TypeError("Missing required property 'task_name'")
             __props__['task_name'] = task_name
             __props__['name'] = None
             __props__['type'] = None

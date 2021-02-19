@@ -90,8 +90,6 @@ class Volume(pulumi.CustomResource):
             if usage_threshold is None:
                 usage_threshold = 107374182400
             __props__['usage_threshold'] = usage_threshold
-            if volume_name is None and not opts.urn:
-                raise TypeError("Missing required property 'volume_name'")
             __props__['volume_name'] = volume_name
             __props__['file_system_id'] = None
             __props__['name'] = None

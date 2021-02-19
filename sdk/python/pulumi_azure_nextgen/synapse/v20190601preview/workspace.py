@@ -95,8 +95,6 @@ class Workspace(pulumi.CustomResource):
             __props__['sql_administrator_login_password'] = sql_administrator_login_password
             __props__['tags'] = tags
             __props__['virtual_network_profile'] = virtual_network_profile
-            if workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['workspace_repository_configuration'] = workspace_repository_configuration
             __props__['adla_resource_id'] = None

@@ -81,8 +81,6 @@ class ManagedDatabase(pulumi.CustomResource):
             __props__['catalog_collation'] = catalog_collation
             __props__['collation'] = collation
             __props__['create_mode'] = create_mode
-            if database_name is None and not opts.urn:
-                raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['last_backup_name'] = last_backup_name
             __props__['location'] = location

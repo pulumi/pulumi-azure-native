@@ -63,8 +63,6 @@ class TransparentDataEncryption(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['status'] = status
-            if transparent_data_encryption_name is None and not opts.urn:
-                raise TypeError("Missing required property 'transparent_data_encryption_name'")
             __props__['transparent_data_encryption_name'] = transparent_data_encryption_name
             __props__['location'] = None
             __props__['name'] = None

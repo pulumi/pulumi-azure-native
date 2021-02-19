@@ -70,8 +70,6 @@ class EmailTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['subject'] = subject
-            if template_name is None and not opts.urn:
-                raise TypeError("Missing required property 'template_name'")
             __props__['template_name'] = template_name
             __props__['title'] = title
             __props__['is_default'] = None

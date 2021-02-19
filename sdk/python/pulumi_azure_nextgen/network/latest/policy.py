@@ -72,8 +72,6 @@ class Policy(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['location'] = location
             __props__['managed_rules'] = managed_rules
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__['policy_name'] = policy_name
             __props__['policy_settings'] = policy_settings
             if resource_group_name is None and not opts.urn:

@@ -69,8 +69,6 @@ class Workspace(pulumi.CustomResource):
             __props__['retention_in_days'] = retention_in_days
             __props__['sku'] = sku
             __props__['tags'] = tags
-            if workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['customer_id'] = None
             __props__['name'] = None

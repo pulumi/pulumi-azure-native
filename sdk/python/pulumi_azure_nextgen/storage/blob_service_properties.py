@@ -73,8 +73,6 @@ class BlobServiceProperties(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['automatic_snapshot_policy_enabled'] = automatic_snapshot_policy_enabled
-            if blob_services_name is None and not opts.urn:
-                raise TypeError("Missing required property 'blob_services_name'")
             __props__['blob_services_name'] = blob_services_name
             __props__['change_feed'] = change_feed
             __props__['container_delete_retention_policy'] = container_delete_retention_policy

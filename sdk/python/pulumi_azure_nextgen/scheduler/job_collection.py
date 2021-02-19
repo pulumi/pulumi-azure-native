@@ -56,8 +56,6 @@ class JobCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if job_collection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_collection_name'")
             __props__['job_collection_name'] = job_collection_name
             __props__['location'] = location
             __props__['name'] = name

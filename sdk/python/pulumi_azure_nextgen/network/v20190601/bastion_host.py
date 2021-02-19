@@ -58,8 +58,6 @@ class BastionHost(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if bastion_host_name is None and not opts.urn:
-                raise TypeError("Missing required property 'bastion_host_name'")
             __props__['bastion_host_name'] = bastion_host_name
             __props__['dns_name'] = dns_name
             __props__['id'] = id

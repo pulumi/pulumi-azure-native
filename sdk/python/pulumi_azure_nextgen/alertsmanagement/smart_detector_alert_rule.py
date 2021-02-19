@@ -72,8 +72,6 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             if action_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'action_groups'")
             __props__['action_groups'] = action_groups
-            if alert_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'alert_rule_name'")
             __props__['alert_rule_name'] = alert_rule_name
             __props__['description'] = description
             if detector is None and not opts.urn:

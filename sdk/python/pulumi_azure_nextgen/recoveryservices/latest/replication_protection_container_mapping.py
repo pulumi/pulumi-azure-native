@@ -65,8 +65,6 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__['fabric_name'] = fabric_name
-            if mapping_name is None and not opts.urn:
-                raise TypeError("Missing required property 'mapping_name'")
             __props__['mapping_name'] = mapping_name
             __props__['properties'] = properties
             if protection_container_name is None and not opts.urn:

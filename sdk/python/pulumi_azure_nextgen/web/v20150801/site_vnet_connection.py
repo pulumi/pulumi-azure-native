@@ -88,8 +88,6 @@ class SiteVNETConnection(pulumi.CustomResource):
             __props__['routes'] = routes
             __props__['tags'] = tags
             __props__['type'] = type
-            if vnet_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name
             __props__['vnet_resource_id'] = vnet_resource_id
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:SiteVNETConnection"), pulumi.Alias(type_="azure-nextgen:web/latest:SiteVNETConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteVNETConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteVNETConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteVNETConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteVNETConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteVNETConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteVNETConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteVNETConnection")])

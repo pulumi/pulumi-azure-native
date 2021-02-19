@@ -57,8 +57,6 @@ class LinkedService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if linked_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'linked_service_name'")
             __props__['linked_service_name'] = linked_service_name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None and not opts.urn:

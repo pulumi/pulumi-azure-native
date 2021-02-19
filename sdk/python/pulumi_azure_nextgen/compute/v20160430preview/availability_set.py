@@ -63,8 +63,6 @@ class AvailabilitySet(pulumi.CustomResource):
 
             __props__['location'] = location
             __props__['managed'] = managed
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['platform_fault_domain_count'] = platform_fault_domain_count
             __props__['platform_update_domain_count'] = platform_update_domain_count

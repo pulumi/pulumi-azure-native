@@ -99,8 +99,6 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
             __props__['recommendations_enabled'] = recommendations_enabled
             __props__['reminder_notifications_enabled'] = reminder_notifications_enabled
             __props__['reviewers'] = reviewers
-            if schedule_definition_id is None and not opts.urn:
-                raise TypeError("Missing required property 'schedule_definition_id'")
             __props__['schedule_definition_id'] = schedule_definition_id
             __props__['start_date'] = start_date
             __props__['type'] = type

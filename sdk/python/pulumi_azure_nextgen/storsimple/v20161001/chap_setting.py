@@ -54,8 +54,6 @@ class ChapSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if chap_user_name is None and not opts.urn:
-                raise TypeError("Missing required property 'chap_user_name'")
             __props__['chap_user_name'] = chap_user_name
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")

@@ -94,8 +94,6 @@ class Queue(pulumi.CustomResource):
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if queue_name is None and not opts.urn:
-                raise TypeError("Missing required property 'queue_name'")
             __props__['queue_name'] = queue_name
             __props__['requires_duplicate_detection'] = requires_duplicate_detection
             __props__['requires_session'] = requires_session

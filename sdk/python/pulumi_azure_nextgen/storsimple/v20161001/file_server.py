@@ -67,8 +67,6 @@ class FileServer(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
-            if file_server_name is None and not opts.urn:
-                raise TypeError("Missing required property 'file_server_name'")
             __props__['file_server_name'] = file_server_name
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")

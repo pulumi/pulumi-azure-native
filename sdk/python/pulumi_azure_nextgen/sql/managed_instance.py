@@ -114,8 +114,6 @@ class ManagedInstance(pulumi.CustomResource):
             __props__['location'] = location
             __props__['maintenance_configuration_id'] = maintenance_configuration_id
             __props__['managed_instance_create_mode'] = managed_instance_create_mode
-            if managed_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_instance_name'")
             __props__['managed_instance_name'] = managed_instance_name
             __props__['minimal_tls_version'] = minimal_tls_version
             __props__['proxy_override'] = proxy_override

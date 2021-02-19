@@ -113,8 +113,6 @@ class Cluster(pulumi.CustomResource):
             __props__['client_certificate_common_names'] = client_certificate_common_names
             __props__['client_certificate_thumbprints'] = client_certificate_thumbprints
             __props__['cluster_code_version'] = cluster_code_version
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['diagnostics_storage_account_config'] = diagnostics_storage_account_config
             __props__['event_store_service_enabled'] = event_store_service_enabled

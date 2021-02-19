@@ -53,8 +53,6 @@ class LabelingJob(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if labeling_job_id is None and not opts.urn:
-                raise TypeError("Missing required property 'labeling_job_id'")
             __props__['labeling_job_id'] = labeling_job_id
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

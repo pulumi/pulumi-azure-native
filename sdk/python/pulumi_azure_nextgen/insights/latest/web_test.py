@@ -107,8 +107,6 @@ class WebTest(pulumi.CustomResource):
             if web_test_kind is None and not opts.urn:
                 raise TypeError("Missing required property 'web_test_kind'")
             __props__['web_test_kind'] = web_test_kind
-            if web_test_name is None and not opts.urn:
-                raise TypeError("Missing required property 'web_test_name'")
             __props__['web_test_name'] = web_test_name
             __props__['name'] = None
             __props__['provisioning_state'] = None

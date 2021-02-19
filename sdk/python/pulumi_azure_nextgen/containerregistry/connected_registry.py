@@ -60,8 +60,6 @@ class ConnectedRegistry(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['client_token_ids'] = client_token_ids
-            if connected_registry_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connected_registry_name'")
             __props__['connected_registry_name'] = connected_registry_name
             __props__['logging'] = logging
             if mode is None and not opts.urn:

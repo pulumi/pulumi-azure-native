@@ -76,8 +76,6 @@ class ScalingPlan(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if scaling_plan_name is None and not opts.urn:
-                raise TypeError("Missing required property 'scaling_plan_name'")
             __props__['scaling_plan_name'] = scaling_plan_name
             __props__['schedules'] = schedules
             __props__['tags'] = tags

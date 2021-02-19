@@ -68,8 +68,6 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
             __props__['metadata'] = metadata
             __props__['mode'] = mode
             __props__['parameters'] = parameters
-            if policy_definition_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_definition_name'")
             __props__['policy_definition_name'] = policy_definition_name
             __props__['policy_rule'] = policy_rule
             __props__['policy_type'] = policy_type

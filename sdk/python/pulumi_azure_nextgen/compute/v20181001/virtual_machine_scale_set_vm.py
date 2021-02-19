@@ -76,8 +76,6 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             __props__['availability_set'] = availability_set
             __props__['diagnostics_profile'] = diagnostics_profile
             __props__['hardware_profile'] = hardware_profile
-            if instance_id is None and not opts.urn:
-                raise TypeError("Missing required property 'instance_id'")
             __props__['instance_id'] = instance_id
             __props__['license_type'] = license_type
             __props__['location'] = location

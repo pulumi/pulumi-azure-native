@@ -59,8 +59,6 @@ class ManagedNetworkPeeringPolicy(pulumi.CustomResource):
             if managed_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_network_name'")
             __props__['managed_network_name'] = managed_network_name
-            if managed_network_peering_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_network_peering_policy_name'")
             __props__['managed_network_peering_policy_name'] = managed_network_peering_policy_name
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

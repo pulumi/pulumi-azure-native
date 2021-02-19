@@ -96,8 +96,6 @@ class VpnServerConfiguration(pulumi.CustomResource):
             __props__['vpn_client_revoked_certificates'] = vpn_client_revoked_certificates
             __props__['vpn_client_root_certificates'] = vpn_client_root_certificates
             __props__['vpn_protocols'] = vpn_protocols
-            if vpn_server_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vpn_server_configuration_name'")
             __props__['vpn_server_configuration_name'] = vpn_server_configuration_name
             __props__['p2_s_vpn_gateways'] = None
             __props__['provisioning_state'] = None

@@ -55,8 +55,6 @@ class ApiRelease(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
             __props__['notes'] = notes
-            if release_id is None and not opts.urn:
-                raise TypeError("Missing required property 'release_id'")
             __props__['release_id'] = release_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

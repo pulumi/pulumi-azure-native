@@ -61,8 +61,6 @@ class SecretValue(pulumi.CustomResource):
             if secret_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_resource_name'")
             __props__['secret_resource_name'] = secret_resource_name
-            if secret_value_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'secret_value_resource_name'")
             __props__['secret_value_resource_name'] = secret_value_resource_name
             __props__['tags'] = tags
             __props__['value'] = value

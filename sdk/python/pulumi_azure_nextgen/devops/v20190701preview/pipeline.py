@@ -65,8 +65,6 @@ class Pipeline(pulumi.CustomResource):
             if organization is None and not opts.urn:
                 raise TypeError("Missing required property 'organization'")
             __props__['organization'] = organization
-            if pipeline_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pipeline_name'")
             __props__['pipeline_name'] = pipeline_name
             if project is None and not opts.urn:
                 raise TypeError("Missing required property 'project'")

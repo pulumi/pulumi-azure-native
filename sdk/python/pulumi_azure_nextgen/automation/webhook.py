@@ -79,8 +79,6 @@ class Webhook(pulumi.CustomResource):
             __props__['run_on'] = run_on
             __props__['runbook'] = runbook
             __props__['uri'] = uri
-            if webhook_name is None and not opts.urn:
-                raise TypeError("Missing required property 'webhook_name'")
             __props__['webhook_name'] = webhook_name
             __props__['creation_time'] = None
             __props__['description'] = None

@@ -74,8 +74,6 @@ class Zone(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if zone_name is None and not opts.urn:
-                raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
             if zone_type is None:
                 zone_type = 'Public'

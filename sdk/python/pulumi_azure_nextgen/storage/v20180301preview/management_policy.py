@@ -52,8 +52,6 @@ class ManagementPolicy(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if management_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'management_policy_name'")
             __props__['management_policy_name'] = management_policy_name
             __props__['policy'] = policy
             if resource_group_name is None and not opts.urn:

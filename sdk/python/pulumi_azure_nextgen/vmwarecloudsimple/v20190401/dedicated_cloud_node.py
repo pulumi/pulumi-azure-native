@@ -68,8 +68,6 @@ class DedicatedCloudNode(pulumi.CustomResource):
             if availability_zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone_id'")
             __props__['availability_zone_id'] = availability_zone_id
-            if dedicated_cloud_node_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dedicated_cloud_node_name'")
             __props__['dedicated_cloud_node_name'] = dedicated_cloud_node_name
             if id is None and not opts.urn:
                 raise TypeError("Missing required property 'id'")

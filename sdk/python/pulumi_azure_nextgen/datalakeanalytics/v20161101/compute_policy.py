@@ -59,8 +59,6 @@ class ComputePolicy(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if compute_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'compute_policy_name'")
             __props__['compute_policy_name'] = compute_policy_name
             __props__['max_degree_of_parallelism_per_job'] = max_degree_of_parallelism_per_job
             __props__['min_priority_per_job'] = min_priority_per_job

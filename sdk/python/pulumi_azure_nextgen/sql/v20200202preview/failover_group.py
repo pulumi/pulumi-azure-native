@@ -61,8 +61,6 @@ class FailoverGroup(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['databases'] = databases
-            if failover_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'failover_group_name'")
             __props__['failover_group_name'] = failover_group_name
             if partner_servers is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_servers'")

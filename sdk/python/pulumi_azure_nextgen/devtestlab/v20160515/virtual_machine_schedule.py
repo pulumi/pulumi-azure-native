@@ -82,8 +82,6 @@ class VirtualMachineSchedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['location'] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['notification_settings'] = notification_settings
             __props__['provisioning_state'] = provisioning_state

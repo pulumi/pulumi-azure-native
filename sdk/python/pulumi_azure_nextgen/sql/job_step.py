@@ -88,8 +88,6 @@ class JobStep(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['step_id'] = step_id
-            if step_name is None and not opts.urn:
-                raise TypeError("Missing required property 'step_name'")
             __props__['step_name'] = step_name
             if target_group is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group'")

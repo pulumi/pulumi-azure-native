@@ -59,8 +59,6 @@ class CloudEndpoint(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['azure_file_share_name'] = azure_file_share_name
-            if cloud_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cloud_endpoint_name'")
             __props__['cloud_endpoint_name'] = cloud_endpoint_name
             __props__['friendly_name'] = friendly_name
             if resource_group_name is None and not opts.urn:

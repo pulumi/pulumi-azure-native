@@ -68,8 +68,6 @@ class Redis(pulumi.CustomResource):
 
             __props__['enable_non_ssl_port'] = enable_non_ssl_port
             __props__['location'] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['redis_configuration'] = redis_configuration
             if resource_group_name is None and not opts.urn:

@@ -58,8 +58,6 @@ class AFDEndpoint(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['enabled_state'] = enabled_state
-            if endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
             __props__['location'] = location
             __props__['origin_response_timeout_seconds'] = origin_response_timeout_seconds

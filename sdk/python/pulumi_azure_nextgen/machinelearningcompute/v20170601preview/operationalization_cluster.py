@@ -67,8 +67,6 @@ class OperationalizationCluster(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['app_insights'] = app_insights
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             if cluster_type is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_type'")

@@ -89,8 +89,6 @@ class ManagedCluster(pulumi.CustomResource):
             __props__['client_connection_port'] = client_connection_port
             __props__['clients'] = clients
             __props__['cluster_code_version'] = cluster_code_version
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             if dns_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_name'")

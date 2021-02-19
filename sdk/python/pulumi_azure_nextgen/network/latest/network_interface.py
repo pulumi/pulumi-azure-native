@@ -79,8 +79,6 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
-            if network_interface_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_interface_name'")
             __props__['network_interface_name'] = network_interface_name
             __props__['network_security_group'] = network_security_group
             if resource_group_name is None and not opts.urn:

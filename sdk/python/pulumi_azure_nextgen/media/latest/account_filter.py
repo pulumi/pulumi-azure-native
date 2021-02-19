@@ -65,8 +65,6 @@ class AccountFilter(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if filter_name is None and not opts.urn:
-                raise TypeError("Missing required property 'filter_name'")
             __props__['filter_name'] = filter_name
             __props__['first_quality'] = first_quality
             __props__['presentation_time_range'] = presentation_time_range

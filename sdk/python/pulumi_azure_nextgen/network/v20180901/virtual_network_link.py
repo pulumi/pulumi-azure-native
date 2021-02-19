@@ -70,8 +70,6 @@ class VirtualNetworkLink(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['virtual_network'] = virtual_network
-            if virtual_network_link_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_link_name'")
             __props__['virtual_network_link_name'] = virtual_network_link_name
             __props__['name'] = None
             __props__['provisioning_state'] = None

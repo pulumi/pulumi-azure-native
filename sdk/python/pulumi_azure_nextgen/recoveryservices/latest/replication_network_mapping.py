@@ -64,8 +64,6 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__['fabric_name'] = fabric_name
-            if network_mapping_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_mapping_name'")
             __props__['network_mapping_name'] = network_mapping_name
             if network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_name'")

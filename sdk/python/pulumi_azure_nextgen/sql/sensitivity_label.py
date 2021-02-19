@@ -83,8 +83,6 @@ class SensitivityLabel(pulumi.CustomResource):
             if schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_name'")
             __props__['schema_name'] = schema_name
-            if sensitivity_label_source is None and not opts.urn:
-                raise TypeError("Missing required property 'sensitivity_label_source'")
             __props__['sensitivity_label_source'] = sensitivity_label_source
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")

@@ -69,8 +69,6 @@ class Factory(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['encryption'] = encryption
-            if factory_name is None and not opts.urn:
-                raise TypeError("Missing required property 'factory_name'")
             __props__['factory_name'] = factory_name
             __props__['global_parameters'] = global_parameters
             __props__['identity'] = identity

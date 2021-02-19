@@ -69,8 +69,6 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
             if schedule_info is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_info'")
             __props__['schedule_info'] = schedule_info
-            if software_update_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'software_update_configuration_name'")
             __props__['software_update_configuration_name'] = software_update_configuration_name
             __props__['tasks'] = tasks
             if update_configuration is None and not opts.urn:

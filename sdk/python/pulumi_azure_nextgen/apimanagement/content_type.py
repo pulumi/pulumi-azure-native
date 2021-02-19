@@ -48,8 +48,6 @@ class ContentType(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if content_type_id is None and not opts.urn:
-                raise TypeError("Missing required property 'content_type_id'")
             __props__['content_type_id'] = content_type_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

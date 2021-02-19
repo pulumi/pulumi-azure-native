@@ -88,8 +88,6 @@ class ApplicationGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'application_gateway_name'")
             __props__['application_gateway_name'] = application_gateway_name
             __props__['authentication_certificates'] = authentication_certificates
             __props__['backend_address_pools'] = backend_address_pools

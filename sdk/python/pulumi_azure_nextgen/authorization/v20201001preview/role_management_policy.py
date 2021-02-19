@@ -59,8 +59,6 @@ class RoleManagementPolicy(pulumi.CustomResource):
             __props__['description'] = description
             __props__['display_name'] = display_name
             __props__['is_organization_default'] = is_organization_default
-            if role_management_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'role_management_policy_name'")
             __props__['role_management_policy_name'] = role_management_policy_name
             __props__['rules'] = rules
             if scope is None and not opts.urn:

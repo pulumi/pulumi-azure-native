@@ -88,8 +88,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__['allow_global_reach'] = allow_global_reach
             __props__['authorizations'] = authorizations
             __props__['bandwidth_in_gbps'] = bandwidth_in_gbps
-            if circuit_name is None and not opts.urn:
-                raise TypeError("Missing required property 'circuit_name'")
             __props__['circuit_name'] = circuit_name
             __props__['circuit_provisioning_state'] = circuit_provisioning_state
             __props__['express_route_port'] = express_route_port

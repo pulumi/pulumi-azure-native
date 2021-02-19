@@ -62,8 +62,6 @@ class Group(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['external_id'] = external_id
-            if group_id is None and not opts.urn:
-                raise TypeError("Missing required property 'group_id'")
             __props__['group_id'] = group_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

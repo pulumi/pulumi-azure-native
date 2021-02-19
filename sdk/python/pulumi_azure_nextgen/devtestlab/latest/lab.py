@@ -83,8 +83,6 @@ class Lab(pulumi.CustomResource):
             __props__['location'] = location
             __props__['mandatory_artifacts_resource_ids_linux'] = mandatory_artifacts_resource_ids_linux
             __props__['mandatory_artifacts_resource_ids_windows'] = mandatory_artifacts_resource_ids_windows
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['premium_data_disks'] = premium_data_disks
             if resource_group_name is None and not opts.urn:

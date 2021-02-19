@@ -61,8 +61,6 @@ class Cluster(pulumi.CustomResource):
             if aad_tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'aad_tenant_id'")
             __props__['aad_tenant_id'] = aad_tenant_id
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:

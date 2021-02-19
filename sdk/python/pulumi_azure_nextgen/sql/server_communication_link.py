@@ -50,8 +50,6 @@ class ServerCommunicationLink(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if communication_link_name is None and not opts.urn:
-                raise TypeError("Missing required property 'communication_link_name'")
             __props__['communication_link_name'] = communication_link_name
             if partner_server is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_server'")

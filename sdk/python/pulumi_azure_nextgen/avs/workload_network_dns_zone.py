@@ -63,8 +63,6 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['dns_server_ips'] = dns_server_ips
             __props__['dns_services'] = dns_services
-            if dns_zone_id is None and not opts.urn:
-                raise TypeError("Missing required property 'dns_zone_id'")
             __props__['dns_zone_id'] = dns_zone_id
             __props__['domain'] = domain
             if private_cloud_name is None and not opts.urn:

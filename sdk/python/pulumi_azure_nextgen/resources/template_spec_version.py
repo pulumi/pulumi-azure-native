@@ -71,8 +71,6 @@ class TemplateSpecVersion(pulumi.CustomResource):
             if template_spec_name is None and not opts.urn:
                 raise TypeError("Missing required property 'template_spec_name'")
             __props__['template_spec_name'] = template_spec_name
-            if template_spec_version is None and not opts.urn:
-                raise TypeError("Missing required property 'template_spec_version'")
             __props__['template_spec_version'] = template_spec_version
             __props__['name'] = None
             __props__['system_data'] = None

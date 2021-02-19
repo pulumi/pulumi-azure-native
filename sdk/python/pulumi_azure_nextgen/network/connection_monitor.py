@@ -78,8 +78,6 @@ class ConnectionMonitor(pulumi.CustomResource):
             if auto_start is None:
                 auto_start = True
             __props__['auto_start'] = auto_start
-            if connection_monitor_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_monitor_name'")
             __props__['connection_monitor_name'] = connection_monitor_name
             __props__['destination'] = destination
             __props__['endpoints'] = endpoints

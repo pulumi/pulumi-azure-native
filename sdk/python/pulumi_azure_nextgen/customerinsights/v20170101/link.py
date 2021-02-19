@@ -71,8 +71,6 @@ class Link(pulumi.CustomResource):
             if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
-            if link_name is None and not opts.urn:
-                raise TypeError("Missing required property 'link_name'")
             __props__['link_name'] = link_name
             __props__['mappings'] = mappings
             __props__['operation_type'] = operation_type

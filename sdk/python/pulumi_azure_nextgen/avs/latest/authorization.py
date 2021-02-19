@@ -53,8 +53,6 @@ class Authorization(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if authorization_name is None and not opts.urn:
-                raise TypeError("Missing required property 'authorization_name'")
             __props__['authorization_name'] = authorization_name
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")

@@ -61,8 +61,6 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
             if destination_account is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_account'")
             __props__['destination_account'] = destination_account
-            if object_replication_policy_id is None and not opts.urn:
-                raise TypeError("Missing required property 'object_replication_policy_id'")
             __props__['object_replication_policy_id'] = object_replication_policy_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

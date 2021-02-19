@@ -66,8 +66,6 @@ class Vault(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            if vault_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
             __props__['name'] = None
             __props__['properties'] = None

@@ -59,8 +59,6 @@ class ManagementGroup(pulumi.CustomResource):
 
             __props__['details'] = details
             __props__['display_name'] = display_name
-            if group_id is None and not opts.urn:
-                raise TypeError("Missing required property 'group_id'")
             __props__['group_id'] = group_id
             __props__['name'] = name
             __props__['children'] = None

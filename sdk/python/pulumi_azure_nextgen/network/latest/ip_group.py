@@ -62,8 +62,6 @@ class IpGroup(pulumi.CustomResource):
 
             __props__['id'] = id
             __props__['ip_addresses'] = ip_addresses
-            if ip_groups_name is None and not opts.urn:
-                raise TypeError("Missing required property 'ip_groups_name'")
             __props__['ip_groups_name'] = ip_groups_name
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:

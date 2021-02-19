@@ -71,8 +71,6 @@ class SynchronizationSetting(pulumi.CustomResource):
             if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
             __props__['share_name'] = share_name
-            if synchronization_setting_name is None and not opts.urn:
-                raise TypeError("Missing required property 'synchronization_setting_name'")
             __props__['synchronization_setting_name'] = synchronization_setting_name
             __props__['name'] = None
             __props__['system_data'] = None

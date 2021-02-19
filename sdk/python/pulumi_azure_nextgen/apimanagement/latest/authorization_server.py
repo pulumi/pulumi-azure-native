@@ -92,8 +92,6 @@ class AuthorizationServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'authorization_endpoint'")
             __props__['authorization_endpoint'] = authorization_endpoint
             __props__['authorization_methods'] = authorization_methods
-            if authsid is None and not opts.urn:
-                raise TypeError("Missing required property 'authsid'")
             __props__['authsid'] = authsid
             __props__['bearer_token_sending_methods'] = bearer_token_sending_methods
             __props__['client_authentication_method'] = client_authentication_method

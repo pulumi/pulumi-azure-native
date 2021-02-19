@@ -66,8 +66,6 @@ class VendorSkus(pulumi.CustomResource):
             __props__['managed_application_template'] = managed_application_template
             __props__['network_function_template'] = network_function_template
             __props__['preview'] = preview
-            if sku_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['sku_type'] = sku_type
             if vendor_name is None and not opts.urn:

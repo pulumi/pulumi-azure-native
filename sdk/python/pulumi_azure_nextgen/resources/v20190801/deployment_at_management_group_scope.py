@@ -52,8 +52,6 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if deployment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'deployment_name'")
             __props__['deployment_name'] = deployment_name
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")

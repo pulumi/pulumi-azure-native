@@ -60,8 +60,6 @@ class InstancePool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if instance_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'instance_pool_name'")
             __props__['instance_pool_name'] = instance_pool_name
             if license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'license_type'")

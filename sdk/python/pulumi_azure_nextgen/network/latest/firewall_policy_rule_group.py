@@ -73,8 +73,6 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rule_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_group_name'")
             __props__['rule_group_name'] = rule_group_name
             __props__['rules'] = rules
             __props__['etag'] = None

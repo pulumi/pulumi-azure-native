@@ -61,8 +61,6 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
             if event_hub_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hub_endpoint_name'")
             __props__['event_hub_endpoint_name'] = event_hub_endpoint_name
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

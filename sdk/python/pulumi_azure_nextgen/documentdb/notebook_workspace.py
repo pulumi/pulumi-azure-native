@@ -51,8 +51,6 @@ class NotebookWorkspace(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if notebook_workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'notebook_workspace_name'")
             __props__['notebook_workspace_name'] = notebook_workspace_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

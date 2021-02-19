@@ -64,8 +64,6 @@ class JitRequest(pulumi.CustomResource):
             if jit_authorization_policies is None and not opts.urn:
                 raise TypeError("Missing required property 'jit_authorization_policies'")
             __props__['jit_authorization_policies'] = jit_authorization_policies
-            if jit_request_name is None and not opts.urn:
-                raise TypeError("Missing required property 'jit_request_name'")
             __props__['jit_request_name'] = jit_request_name
             if jit_scheduling_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'jit_scheduling_policy'")

@@ -63,8 +63,6 @@ class ProductPolicy(pulumi.CustomResource):
             if format is None:
                 format = 'xml'
             __props__['format'] = format
-            if policy_id is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_id'")
             __props__['policy_id'] = policy_id
             if product_id is None and not opts.urn:
                 raise TypeError("Missing required property 'product_id'")

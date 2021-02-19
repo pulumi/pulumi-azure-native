@@ -77,8 +77,6 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sql_pool_name'")
             __props__['sql_pool_name'] = sql_pool_name
             __props__['start_time'] = start_time
-            if workload_classifier_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workload_classifier_name'")
             __props__['workload_classifier_name'] = workload_classifier_name
             if workload_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workload_group_name'")

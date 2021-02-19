@@ -63,8 +63,6 @@ class ReportByResourceGroupName(pulumi.CustomResource):
                 raise TypeError("Missing required property 'delivery_info'")
             __props__['delivery_info'] = delivery_info
             __props__['format'] = format
-            if report_name is None and not opts.urn:
-                raise TypeError("Missing required property 'report_name'")
             __props__['report_name'] = report_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

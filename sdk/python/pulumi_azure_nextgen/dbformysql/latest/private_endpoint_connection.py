@@ -59,8 +59,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['private_endpoint'] = private_endpoint
-            if private_endpoint_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             __props__['private_link_service_connection_state'] = private_link_service_connection_state
             if resource_group_name is None and not opts.urn:

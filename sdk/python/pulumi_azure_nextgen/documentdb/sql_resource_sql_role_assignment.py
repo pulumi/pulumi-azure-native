@@ -61,8 +61,6 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if role_assignment_id is None and not opts.urn:
-                raise TypeError("Missing required property 'role_assignment_id'")
             __props__['role_assignment_id'] = role_assignment_id
             __props__['role_definition_id'] = role_definition_id
             __props__['scope'] = scope

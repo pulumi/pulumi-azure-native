@@ -82,8 +82,6 @@ class Endpoint(pulumi.CustomResource):
 
             __props__['content_types_to_compress'] = content_types_to_compress
             __props__['delivery_policy'] = delivery_policy
-            if endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
             __props__['geo_filters'] = geo_filters
             __props__['is_compression_enabled'] = is_compression_enabled

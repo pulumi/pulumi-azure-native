@@ -52,8 +52,6 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if configuration_profile_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_profile_assignment_name'")
             __props__['configuration_profile_assignment_name'] = configuration_profile_assignment_name
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

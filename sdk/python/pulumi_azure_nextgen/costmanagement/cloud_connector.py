@@ -63,8 +63,6 @@ class CloudConnector(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['billing_model'] = billing_model
-            if connector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connector_name'")
             __props__['connector_name'] = connector_name
             __props__['credentials_key'] = credentials_key
             __props__['credentials_secret'] = credentials_secret

@@ -93,8 +93,6 @@ class BigDataPool(pulumi.CustomResource):
 
             __props__['auto_pause'] = auto_pause
             __props__['auto_scale'] = auto_scale
-            if big_data_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'big_data_pool_name'")
             __props__['big_data_pool_name'] = big_data_pool_name
             __props__['cache_size'] = cache_size
             __props__['creation_date'] = creation_date

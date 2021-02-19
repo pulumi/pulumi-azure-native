@@ -85,8 +85,6 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
             __props__['settings'] = settings
             __props__['type'] = type
             __props__['type_handler_version'] = type_handler_version
-            if vm_extension_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vm_extension_name'")
             __props__['vm_extension_name'] = vm_extension_name
             if vm_scale_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_scale_set_name'")

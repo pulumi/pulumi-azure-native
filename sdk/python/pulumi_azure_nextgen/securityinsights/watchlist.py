@@ -122,8 +122,6 @@ class Watchlist(pulumi.CustomResource):
             __props__['updated'] = updated
             __props__['updated_by'] = updated_by
             __props__['upload_status'] = upload_status
-            if watchlist_alias is None and not opts.urn:
-                raise TypeError("Missing required property 'watchlist_alias'")
             __props__['watchlist_alias'] = watchlist_alias
             __props__['watchlist_id'] = watchlist_id
             __props__['watchlist_items_count'] = watchlist_items_count

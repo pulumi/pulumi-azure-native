@@ -68,8 +68,6 @@ class NetworkFunction(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['location'] = location
             __props__['managed_application_parameters'] = managed_application_parameters
-            if network_function_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_function_name'")
             __props__['network_function_name'] = network_function_name
             __props__['network_function_user_configurations'] = network_function_user_configurations
             if resource_group_name is None and not opts.urn:

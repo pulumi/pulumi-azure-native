@@ -66,8 +66,6 @@ class ApiOperationPolicy(pulumi.CustomResource):
             if operation_id is None and not opts.urn:
                 raise TypeError("Missing required property 'operation_id'")
             __props__['operation_id'] = operation_id
-            if policy_id is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_id'")
             __props__['policy_id'] = policy_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

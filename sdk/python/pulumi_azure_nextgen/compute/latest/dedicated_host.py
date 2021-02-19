@@ -72,8 +72,6 @@ class DedicatedHost(pulumi.CustomResource):
             if host_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_group_name'")
             __props__['host_group_name'] = host_group_name
-            if host_name is None and not opts.urn:
-                raise TypeError("Missing required property 'host_name'")
             __props__['host_name'] = host_name
             __props__['license_type'] = license_type
             __props__['location'] = location

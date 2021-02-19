@@ -64,8 +64,6 @@ class TransparentDataEncryption(pulumi.CustomResource):
             if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
-            if tde_name is None and not opts.urn:
-                raise TypeError("Missing required property 'tde_name'")
             __props__['tde_name'] = tde_name
             __props__['name'] = None
             __props__['type'] = None

@@ -57,8 +57,6 @@ class IncidentComment(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['etag'] = etag
-            if incident_comment_id is None and not opts.urn:
-                raise TypeError("Missing required property 'incident_comment_id'")
             __props__['incident_comment_id'] = incident_comment_id
             if incident_id is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_id'")

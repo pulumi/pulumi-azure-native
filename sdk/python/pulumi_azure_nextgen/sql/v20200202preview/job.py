@@ -62,8 +62,6 @@ class Job(pulumi.CustomResource):
             if job_agent_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_agent_name'")
             __props__['job_agent_name'] = job_agent_name
-            if job_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

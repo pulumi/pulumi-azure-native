@@ -61,8 +61,6 @@ class AlertsSuppressionRule(pulumi.CustomResource):
             if alert_type is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_type'")
             __props__['alert_type'] = alert_type
-            if alerts_suppression_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'alerts_suppression_rule_name'")
             __props__['alerts_suppression_rule_name'] = alerts_suppression_rule_name
             __props__['comment'] = comment
             __props__['expiration_date_utc'] = expiration_date_utc

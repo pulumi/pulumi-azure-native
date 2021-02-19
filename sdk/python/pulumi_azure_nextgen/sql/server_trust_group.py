@@ -63,8 +63,6 @@ class ServerTrustGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_trust_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'server_trust_group_name'")
             __props__['server_trust_group_name'] = server_trust_group_name
             if trust_scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'trust_scopes'")

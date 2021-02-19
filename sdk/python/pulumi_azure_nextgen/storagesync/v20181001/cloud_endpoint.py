@@ -55,8 +55,6 @@ class CloudEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cloud_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cloud_endpoint_name'")
             __props__['cloud_endpoint_name'] = cloud_endpoint_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

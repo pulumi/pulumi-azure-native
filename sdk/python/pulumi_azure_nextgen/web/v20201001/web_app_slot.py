@@ -142,8 +142,6 @@ class WebAppSlot(pulumi.CustomResource):
             __props__['scm_site_also_stopped'] = scm_site_also_stopped
             __props__['server_farm_id'] = server_farm_id
             __props__['site_config'] = site_config
-            if slot is None and not opts.urn:
-                raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['storage_account_required'] = storage_account_required
             __props__['tags'] = tags

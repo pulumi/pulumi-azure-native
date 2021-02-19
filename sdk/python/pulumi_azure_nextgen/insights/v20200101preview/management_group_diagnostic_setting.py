@@ -68,8 +68,6 @@ class ManagementGroupDiagnosticSetting(pulumi.CustomResource):
             if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")
             __props__['management_group_id'] = management_group_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['service_bus_rule_id'] = service_bus_rule_id
             __props__['storage_account_id'] = storage_account_id

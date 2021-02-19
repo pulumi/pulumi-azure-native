@@ -74,8 +74,6 @@ class IscsiDisk(pulumi.CustomResource):
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if disk_name is None and not opts.urn:
-                raise TypeError("Missing required property 'disk_name'")
             __props__['disk_name'] = disk_name
             if disk_status is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_status'")

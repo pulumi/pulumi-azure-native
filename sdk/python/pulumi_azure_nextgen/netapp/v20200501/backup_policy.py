@@ -70,8 +70,6 @@ class BackupPolicy(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if backup_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'backup_policy_name'")
             __props__['backup_policy_name'] = backup_policy_name
             __props__['daily_backups_to_keep'] = daily_backups_to_keep
             __props__['enabled'] = enabled

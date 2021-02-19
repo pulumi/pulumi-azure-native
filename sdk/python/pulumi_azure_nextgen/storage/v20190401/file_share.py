@@ -58,8 +58,6 @@ class FileShare(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if share_name is None and not opts.urn:
-                raise TypeError("Missing required property 'share_name'")
             __props__['share_name'] = share_name
             __props__['share_quota'] = share_quota
             __props__['etag'] = None
