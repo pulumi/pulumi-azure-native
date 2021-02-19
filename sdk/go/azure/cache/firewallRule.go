@@ -42,9 +42,6 @@ func NewFirewallRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RuleName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleName'")
-	}
 	if args.StartIP == nil {
 		return nil, errors.New("invalid value for required argument 'StartIP'")
 	}
@@ -127,7 +124,7 @@ type firewallRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the firewall rule.
-	RuleName string `pulumi:"ruleName"`
+	RuleName *string `pulumi:"ruleName"`
 	// lowest IP address included in the range
 	StartIP string `pulumi:"startIP"`
 }
@@ -141,7 +138,7 @@ type FirewallRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the firewall rule.
-	RuleName pulumi.StringInput
+	RuleName pulumi.StringPtrInput
 	// lowest IP address included in the range
 	StartIP pulumi.StringInput
 }

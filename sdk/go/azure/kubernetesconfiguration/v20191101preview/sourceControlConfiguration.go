@@ -62,9 +62,6 @@ func NewSourceControlConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SourceControlConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'SourceControlConfigurationName'")
-	}
 	if args.OperatorNamespace == nil {
 		args.OperatorNamespace = pulumi.StringPtr("default")
 	}
@@ -195,7 +192,7 @@ type sourceControlConfigurationArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the Source Control Configuration.
-	SourceControlConfigurationName string `pulumi:"sourceControlConfigurationName"`
+	SourceControlConfigurationName *string `pulumi:"sourceControlConfigurationName"`
 }
 
 // The set of arguments for constructing a SourceControlConfiguration resource.
@@ -225,7 +222,7 @@ type SourceControlConfigurationArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Name of the Source Control Configuration.
-	SourceControlConfigurationName pulumi.StringInput
+	SourceControlConfigurationName pulumi.StringPtrInput
 }
 
 func (SourceControlConfigurationArgs) ElementType() reflect.Type {

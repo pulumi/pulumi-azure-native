@@ -70,9 +70,6 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
             if ((!args || args.searchServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'searchServiceName'");
             }
-            if ((!args || args.sharedPrivateLinkResourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sharedPrivateLinkResourceName'");
-            }
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["searchServiceName"] = args ? args.searchServiceName : undefined;
@@ -116,5 +113,5 @@ export interface SharedPrivateLinkResourceArgs {
     /**
      * The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
      */
-    readonly sharedPrivateLinkResourceName: pulumi.Input<string>;
+    readonly sharedPrivateLinkResourceName?: pulumi.Input<string>;
 }

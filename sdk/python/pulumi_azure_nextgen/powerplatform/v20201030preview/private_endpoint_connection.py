@@ -55,8 +55,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if enterprise_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'enterprise_policy_name'")
             __props__['enterprise_policy_name'] = enterprise_policy_name
-            if private_endpoint_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             if private_link_service_connection_state is None and not opts.urn:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")

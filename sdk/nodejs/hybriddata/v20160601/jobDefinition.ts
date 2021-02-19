@@ -102,9 +102,6 @@ export class JobDefinition extends pulumi.CustomResource {
             if ((!args || args.dataSourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataSourceId'");
             }
-            if ((!args || args.jobDefinitionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'jobDefinitionName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -183,7 +180,7 @@ export interface JobDefinitionArgs {
     /**
      * The job definition name to be created or updated.
      */
-    readonly jobDefinitionName: pulumi.Input<string>;
+    readonly jobDefinitionName?: pulumi.Input<string>;
     /**
      * Last modified time of the job definition.
      */

@@ -115,8 +115,8 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
         /// <summary>
         /// Channel Name
         /// </summary>
-        [Input("channelName", required: true)]
-        public Input<string> ChannelName { get; set; } = null!;
+        [Input("channelName")]
+        public Input<string>? ChannelName { get; set; }
 
         /// <summary>
         /// The channel type

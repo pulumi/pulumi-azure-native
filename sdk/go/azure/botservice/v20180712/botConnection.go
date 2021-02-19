@@ -40,9 +40,6 @@ func NewBotConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -129,7 +126,7 @@ func (BotConnectionState) ElementType() reflect.Type {
 
 type botConnectionArgs struct {
 	// The name of the Bot Service Connection Setting resource
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// Entity Tag
 	Etag *string `pulumi:"etag"`
 	// Required. Gets or sets the Kind of the resource.
@@ -151,7 +148,7 @@ type botConnectionArgs struct {
 // The set of arguments for constructing a BotConnection resource.
 type BotConnectionArgs struct {
 	// The name of the Bot Service Connection Setting resource
-	ConnectionName pulumi.StringInput
+	ConnectionName pulumi.StringPtrInput
 	// Entity Tag
 	Etag pulumi.StringPtrInput
 	// Required. Gets or sets the Kind of the resource.

@@ -138,8 +138,8 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <summary>
         /// The integration account session name.
         /// </summary>
-        [Input("sessionName", required: true)]
-        public Input<string> SessionName { get; set; } = null!;
+        [Input("sessionName")]
+        public Input<string>? SessionName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -78,9 +78,6 @@ export class Snapshot extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.snapshotName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'snapshotName'");
-            }
             if ((!args || args.volumeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'volumeName'");
             }
@@ -139,7 +136,7 @@ export interface SnapshotArgs {
     /**
      * The name of the mount target
      */
-    readonly snapshotName: pulumi.Input<string>;
+    readonly snapshotName?: pulumi.Input<string>;
     /**
      * The name of the volume
      */

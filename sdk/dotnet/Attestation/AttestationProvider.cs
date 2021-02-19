@@ -136,8 +136,8 @@ namespace Pulumi.AzureNextGen.Attestation
         /// <summary>
         /// Name of the attestation provider.
         /// </summary>
-        [Input("providerName", required: true)]
-        public Input<string> ProviderName { get; set; } = null!;
+        [Input("providerName")]
+        public Input<string>? ProviderName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

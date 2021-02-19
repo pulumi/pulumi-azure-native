@@ -83,9 +83,6 @@ func NewServer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServerName == nil {
-		return nil, errors.New("invalid value for required argument 'ServerName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20200701privatepreview:Server"),
@@ -263,7 +260,7 @@ type serverArgs struct {
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName *string `pulumi:"serverName"`
 	// The SKU (pricing tier) of the server.
 	Sku *Sku `pulumi:"sku"`
 	// The source MySQL server id.
@@ -307,7 +304,7 @@ type ServerArgs struct {
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
 	RestorePointInTime pulumi.StringPtrInput
 	// The name of the server.
-	ServerName pulumi.StringInput
+	ServerName pulumi.StringPtrInput
 	// The SKU (pricing tier) of the server.
 	Sku SkuPtrInput
 	// The source MySQL server id.

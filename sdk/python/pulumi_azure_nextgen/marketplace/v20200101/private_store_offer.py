@@ -60,8 +60,6 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
             __props__['e_tag'] = e_tag
             __props__['icon_file_uris'] = icon_file_uris
-            if offer_id is None and not opts.urn:
-                raise TypeError("Missing required property 'offer_id'")
             __props__['offer_id'] = offer_id
             __props__['plans'] = plans
             if private_store_id is None and not opts.urn:

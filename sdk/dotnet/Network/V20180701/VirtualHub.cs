@@ -190,8 +190,8 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// <summary>
         /// The name of the VirtualHub.
         /// </summary>
-        [Input("virtualHubName", required: true)]
-        public Input<string> VirtualHubName { get; set; } = null!;
+        [Input("virtualHubName")]
+        public Input<string>? VirtualHubName { get; set; }
 
         /// <summary>
         /// The VirtualWAN to which the VirtualHub belongs

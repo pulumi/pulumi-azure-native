@@ -105,8 +105,8 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20160301
         /// <summary>
         /// Authorization Rule Name.
         /// </summary>
-        [Input("authorizationRuleName", required: true)]
-        public Input<string> AuthorizationRuleName { get; set; } = null!;
+        [Input("authorizationRuleName")]
+        public Input<string>? AuthorizationRuleName { get; set; }
 
         /// <summary>
         /// Resource location

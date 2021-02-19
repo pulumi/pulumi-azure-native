@@ -71,9 +71,6 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
     constructor(name: string, args: ServerAzureADAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.administratorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'administratorName'");
-            }
             if ((!args || args.administratorType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'administratorType'");
             }
@@ -129,7 +126,7 @@ export interface ServerAzureADAdministratorArgs {
     /**
      * Name of the server administrator resource.
      */
-    readonly administratorName: pulumi.Input<string>;
+    readonly administratorName?: pulumi.Input<string>;
     /**
      * The type of administrator.
      */

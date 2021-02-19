@@ -140,8 +140,6 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
             __props__['maximum_number_of_machines'] = maximum_number_of_machines
             __props__['multi_role_count'] = multi_role_count
             __props__['multi_size'] = multi_size
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['network_access_control_list'] = network_access_control_list
             __props__['provisioning_state'] = provisioning_state

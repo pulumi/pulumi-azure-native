@@ -85,9 +85,6 @@ export class AttestationProvider extends pulumi.CustomResource {
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.providerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'providerName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -142,7 +139,7 @@ export interface AttestationProviderArgs {
     /**
      * Name of the attestation provider.
      */
-    readonly providerName: pulumi.Input<string>;
+    readonly providerName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

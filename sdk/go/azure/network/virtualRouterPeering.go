@@ -37,9 +37,6 @@ func NewVirtualRouterPeering(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PeeringName == nil {
-		return nil, errors.New("invalid value for required argument 'PeeringName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -150,7 +147,7 @@ type virtualRouterPeeringArgs struct {
 	// Peer IP.
 	PeerIp *string `pulumi:"peerIp"`
 	// The name of the Virtual Router Peering.
-	PeeringName string `pulumi:"peeringName"`
+	PeeringName *string `pulumi:"peeringName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Virtual Router.
@@ -168,7 +165,7 @@ type VirtualRouterPeeringArgs struct {
 	// Peer IP.
 	PeerIp pulumi.StringPtrInput
 	// The name of the Virtual Router Peering.
-	PeeringName pulumi.StringInput
+	PeeringName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Virtual Router.

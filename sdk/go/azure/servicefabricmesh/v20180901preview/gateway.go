@@ -53,9 +53,6 @@ func NewGateway(ctx *pulumi.Context,
 	if args.DestinationNetwork == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationNetwork'")
 	}
-	if args.GatewayResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'GatewayResourceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -157,7 +154,7 @@ type gatewayArgs struct {
 	// Network that the Application is using.
 	DestinationNetwork NetworkRef `pulumi:"destinationNetwork"`
 	// The identity of the gateway.
-	GatewayResourceName string `pulumi:"gatewayResourceName"`
+	GatewayResourceName *string `pulumi:"gatewayResourceName"`
 	// Configuration for http connectivity for this gateway.
 	Http []HttpConfig `pulumi:"http"`
 	// The geo-location where the resource lives
@@ -179,7 +176,7 @@ type GatewayArgs struct {
 	// Network that the Application is using.
 	DestinationNetwork NetworkRefInput
 	// The identity of the gateway.
-	GatewayResourceName pulumi.StringInput
+	GatewayResourceName pulumi.StringPtrInput
 	// Configuration for http connectivity for this gateway.
 	Http HttpConfigArrayInput
 	// The geo-location where the resource lives

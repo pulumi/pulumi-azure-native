@@ -104,9 +104,6 @@ func NewWebApp(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -367,7 +364,7 @@ type webAppArgs struct {
 	// Resource Location.
 	Location *string `pulumi:"location"`
 	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// <code>true</code> if reserved; otherwise, <code>false</code>.
 	Reserved *bool `pulumi:"reserved"`
 	// Name of the resource group to which the resource belongs.
@@ -415,7 +412,7 @@ type WebAppArgs struct {
 	// Resource Location.
 	Location pulumi.StringPtrInput
 	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// <code>true</code> if reserved; otherwise, <code>false</code>.
 	Reserved pulumi.BoolPtrInput
 	// Name of the resource group to which the resource belongs.

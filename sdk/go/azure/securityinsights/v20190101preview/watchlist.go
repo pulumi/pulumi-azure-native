@@ -85,9 +85,6 @@ func NewWatchlist(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
-	if args.WatchlistAlias == nil {
-		return nil, errors.New("invalid value for required argument 'WatchlistAlias'")
-	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
@@ -260,7 +257,7 @@ type watchlistArgs struct {
 	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
 	UploadStatus *string `pulumi:"uploadStatus"`
 	// The alias of the watchlist
-	WatchlistAlias string `pulumi:"watchlistAlias"`
+	WatchlistAlias *string `pulumi:"watchlistAlias"`
 	// The id (a Guid) of the watchlist
 	WatchlistId *string `pulumi:"watchlistId"`
 	// The number of Watchlist Items in the Watchlist
@@ -312,7 +309,7 @@ type WatchlistArgs struct {
 	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
 	UploadStatus pulumi.StringPtrInput
 	// The alias of the watchlist
-	WatchlistAlias pulumi.StringInput
+	WatchlistAlias pulumi.StringPtrInput
 	// The id (a Guid) of the watchlist
 	WatchlistId pulumi.StringPtrInput
 	// The number of Watchlist Items in the Watchlist

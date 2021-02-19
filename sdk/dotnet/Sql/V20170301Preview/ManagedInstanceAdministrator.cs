@@ -105,8 +105,8 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// <summary>
         /// The requested administrator name.
         /// </summary>
-        [Input("administratorName", required: true)]
-        public Input<string> AdministratorName { get; set; } = null!;
+        [Input("administratorName")]
+        public Input<string>? AdministratorName { get; set; }
 
         /// <summary>
         /// Type of the managed instance administrator.

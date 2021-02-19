@@ -103,8 +103,8 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

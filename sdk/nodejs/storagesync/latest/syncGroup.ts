@@ -73,9 +73,6 @@ export class SyncGroup extends pulumi.CustomResource {
             if ((!args || args.storageSyncServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            if ((!args || args.syncGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'syncGroupName'");
-            }
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
@@ -117,5 +114,5 @@ export interface SyncGroupArgs {
     /**
      * Name of Sync Group resource.
      */
-    readonly syncGroupName: pulumi.Input<string>;
+    readonly syncGroupName?: pulumi.Input<string>;
 }

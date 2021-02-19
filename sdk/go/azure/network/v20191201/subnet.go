@@ -65,9 +65,6 @@ func NewSubnet(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SubnetName == nil {
-		return nil, errors.New("invalid value for required argument 'SubnetName'")
-	}
 	if args.VirtualNetworkName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkName'")
 	}
@@ -317,7 +314,7 @@ type subnetArgs struct {
 	// An array of service endpoints.
 	ServiceEndpoints []ServiceEndpointPropertiesFormat `pulumi:"serviceEndpoints"`
 	// The name of the subnet.
-	SubnetName string `pulumi:"subnetName"`
+	SubnetName *string `pulumi:"subnetName"`
 	// The name of the virtual network.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 }
@@ -351,7 +348,7 @@ type SubnetArgs struct {
 	// An array of service endpoints.
 	ServiceEndpoints ServiceEndpointPropertiesFormatArrayInput
 	// The name of the subnet.
-	SubnetName pulumi.StringInput
+	SubnetName pulumi.StringPtrInput
 	// The name of the virtual network.
 	VirtualNetworkName pulumi.StringInput
 }

@@ -34,9 +34,6 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BandwidthSettingName == nil {
-		return nil, errors.New("invalid value for required argument 'BandwidthSettingName'")
-	}
 	if args.ManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagerName'")
 	}
@@ -108,7 +105,7 @@ func (BandwidthSettingState) ElementType() reflect.Type {
 
 type bandwidthSettingArgs struct {
 	// The bandwidth setting name.
-	BandwidthSettingName string `pulumi:"bandwidthSettingName"`
+	BandwidthSettingName *string `pulumi:"bandwidthSettingName"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The manager name
@@ -122,7 +119,7 @@ type bandwidthSettingArgs struct {
 // The set of arguments for constructing a BandwidthSetting resource.
 type BandwidthSettingArgs struct {
 	// The bandwidth setting name.
-	BandwidthSettingName pulumi.StringInput
+	BandwidthSettingName pulumi.StringPtrInput
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *Kind
 	// The manager name

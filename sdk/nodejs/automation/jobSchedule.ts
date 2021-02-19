@@ -78,9 +78,6 @@ export class JobSchedule extends pulumi.CustomResource {
             if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.jobScheduleId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'jobScheduleId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,7 +129,7 @@ export interface JobScheduleArgs {
     /**
      * The job schedule name.
      */
-    readonly jobScheduleId: pulumi.Input<string>;
+    readonly jobScheduleId?: pulumi.Input<string>;
     /**
      * Gets or sets a list of job properties.
      */

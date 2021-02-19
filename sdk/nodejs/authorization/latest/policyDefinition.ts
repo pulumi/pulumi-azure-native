@@ -84,13 +84,10 @@ export class PolicyDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyDefinition'. */
-    constructor(name: string, args: PolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PolicyDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyDefinition'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.policyDefinitionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyDefinitionName'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
@@ -152,7 +149,7 @@ export interface PolicyDefinitionArgs {
     /**
      * The name of the policy definition to create.
      */
-    readonly policyDefinitionName: pulumi.Input<string>;
+    readonly policyDefinitionName?: pulumi.Input<string>;
     /**
      * The policy rule.
      */

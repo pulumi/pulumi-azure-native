@@ -34,9 +34,6 @@ func NewNamespaceIpFilterRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.IpFilterRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'IpFilterRuleName'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -106,7 +103,7 @@ type namespaceIpFilterRuleArgs struct {
 	// IP Filter name
 	FilterName *string `pulumi:"filterName"`
 	// The IP Filter Rule name.
-	IpFilterRuleName string `pulumi:"ipFilterRuleName"`
+	IpFilterRuleName *string `pulumi:"ipFilterRuleName"`
 	// IP Mask
 	IpMask *string `pulumi:"ipMask"`
 	// The Namespace name
@@ -122,7 +119,7 @@ type NamespaceIpFilterRuleArgs struct {
 	// IP Filter name
 	FilterName pulumi.StringPtrInput
 	// The IP Filter Rule name.
-	IpFilterRuleName pulumi.StringInput
+	IpFilterRuleName pulumi.StringPtrInput
 	// IP Mask
 	IpMask pulumi.StringPtrInput
 	// The Namespace name

@@ -62,8 +62,6 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if data_source_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_source_name'")
             __props__['data_source_name'] = data_source_name
             __props__['etag'] = etag
             if kind is None and not opts.urn:

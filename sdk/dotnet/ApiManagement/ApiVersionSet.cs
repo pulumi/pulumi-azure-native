@@ -153,8 +153,8 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <summary>
         /// Api Version Set identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("versionSetId", required: true)]
-        public Input<string> VersionSetId { get; set; } = null!;
+        [Input("versionSetId")]
+        public Input<string>? VersionSetId { get; set; }
 
         /// <summary>
         /// An value that determines where the API Version identifer will be located in a HTTP request.

@@ -105,8 +105,8 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
         /// <summary>
         /// The identity of the network.
         /// </summary>
-        [Input("networkResourceName", required: true)]
-        public Input<string> NetworkResourceName { get; set; } = null!;
+        [Input("networkResourceName")]
+        public Input<string>? NetworkResourceName { get; set; }
 
         /// <summary>
         /// Describes properties of a network resource.

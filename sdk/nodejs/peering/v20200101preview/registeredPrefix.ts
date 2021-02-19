@@ -76,9 +76,6 @@ export class RegisteredPrefix extends pulumi.CustomResource {
             if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if ((!args || args.registeredPrefixName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'registeredPrefixName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,7 +126,7 @@ export interface RegisteredPrefixArgs {
     /**
      * The name of the registered prefix.
      */
-    readonly registeredPrefixName: pulumi.Input<string>;
+    readonly registeredPrefixName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -126,8 +126,8 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
         /// <summary>
         /// The prefix name
         /// </summary>
-        [Input("prefixName", required: true)]
-        public Input<string> PrefixName { get; set; } = null!;
+        [Input("prefixName")]
+        public Input<string>? PrefixName { get; set; }
 
         /// <summary>
         /// The prefix validation state

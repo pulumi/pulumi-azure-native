@@ -77,7 +77,7 @@ interface MyDatabaseAccountArgs {
 export class DatabaseAccount {
     public id: pulumi.Output<string>;
 
-    constructor(name: pulumi.Output<string>, args: MyDatabaseAccountArgs) {
+    constructor(name: string, args: MyDatabaseAccountArgs) {
 
         let kind = "GlobalDocumentDB";
         let capabilities: documentdbInputs.latest.Capability[] | undefined = undefined;
@@ -97,7 +97,6 @@ export class DatabaseAccount {
 
         const cosmosdbAccount = new documentdb.DatabaseAccount("dbaccount", {
             resourceGroupName: args.resourceGroup.name,
-            accountName: name,
             location: locations[0],
             kind,
             consistencyPolicy: args.consisencyPolicy,        

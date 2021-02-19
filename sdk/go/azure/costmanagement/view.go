@@ -61,9 +61,6 @@ func NewView(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	if args.ViewName == nil {
-		return nil, errors.New("invalid value for required argument 'ViewName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/latest:View"),
@@ -196,7 +193,7 @@ type viewArgs struct {
 	// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
 	Type string `pulumi:"type"`
 	// View name
-	ViewName string `pulumi:"viewName"`
+	ViewName *string `pulumi:"viewName"`
 }
 
 // The set of arguments for constructing a View resource.
@@ -226,7 +223,7 @@ type ViewArgs struct {
 	// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
 	Type pulumi.StringInput
 	// View name
-	ViewName pulumi.StringInput
+	ViewName pulumi.StringPtrInput
 }
 
 func (ViewArgs) ElementType() reflect.Type {

@@ -74,9 +74,6 @@ export class RoleDefinition extends pulumi.CustomResource {
     constructor(name: string, args: RoleDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.roleDefinitionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'roleDefinitionName'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -130,7 +127,7 @@ export interface RoleDefinitionArgs {
     /**
      * The name of the role definition to delete.
      */
-    readonly roleDefinitionName: pulumi.Input<string>;
+    readonly roleDefinitionName?: pulumi.Input<string>;
     /**
      * The role name.
      */

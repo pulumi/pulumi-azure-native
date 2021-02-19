@@ -122,9 +122,6 @@ export class PartnerRegistration extends pulumi.CustomResource {
     constructor(name: string, args: PartnerRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.partnerRegistrationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'partnerRegistrationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -225,7 +222,7 @@ export interface PartnerRegistrationArgs {
     /**
      * Name of the partner registration.
      */
-    readonly partnerRegistrationName: pulumi.Input<string>;
+    readonly partnerRegistrationName?: pulumi.Input<string>;
     /**
      * Short description of the partner resource type. The length of this description should not exceed 256 characters.
      */

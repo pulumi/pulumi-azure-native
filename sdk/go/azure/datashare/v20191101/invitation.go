@@ -51,9 +51,6 @@ func NewInvitation(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.InvitationName == nil {
-		return nil, errors.New("invalid value for required argument 'InvitationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -161,7 +158,7 @@ type invitationArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the invitation.
-	InvitationName string `pulumi:"invitationName"`
+	InvitationName *string `pulumi:"invitationName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the share to send the invitation for.
@@ -181,7 +178,7 @@ type InvitationArgs struct {
 	// The name of the share account.
 	AccountName pulumi.StringInput
 	// The name of the invitation.
-	InvitationName pulumi.StringInput
+	InvitationName pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The name of the share to send the invitation for.

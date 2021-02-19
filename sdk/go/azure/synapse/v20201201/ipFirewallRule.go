@@ -37,9 +37,6 @@ func NewIpFirewallRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RuleName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleName'")
-	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
@@ -112,7 +109,7 @@ type ipFirewallRuleArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The IP firewall rule name
-	RuleName string `pulumi:"ruleName"`
+	RuleName *string `pulumi:"ruleName"`
 	// The start IP address of the firewall rule. Must be IPv4 format
 	StartIpAddress *string `pulumi:"startIpAddress"`
 	// The name of the workspace
@@ -126,7 +123,7 @@ type IpFirewallRuleArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The IP firewall rule name
-	RuleName pulumi.StringInput
+	RuleName pulumi.StringPtrInput
 	// The start IP address of the firewall rule. Must be IPv4 format
 	StartIpAddress pulumi.StringPtrInput
 	// The name of the workspace

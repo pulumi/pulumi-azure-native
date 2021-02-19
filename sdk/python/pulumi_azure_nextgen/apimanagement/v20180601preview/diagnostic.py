@@ -64,8 +64,6 @@ class Diagnostic(pulumi.CustomResource):
 
             __props__['always_log'] = always_log
             __props__['backend'] = backend
-            if diagnostic_id is None and not opts.urn:
-                raise TypeError("Missing required property 'diagnostic_id'")
             __props__['diagnostic_id'] = diagnostic_id
             __props__['enable_http_correlation_headers'] = enable_http_correlation_headers
             __props__['frontend'] = frontend

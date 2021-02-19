@@ -35,9 +35,6 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.IntegrationRuntimeName == nil {
-		return nil, errors.New("invalid value for required argument 'IntegrationRuntimeName'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -108,7 +105,7 @@ func (IntegrationRuntimeState) ElementType() reflect.Type {
 
 type integrationRuntimeArgs struct {
 	// Integration runtime name
-	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
+	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Integration runtime properties.
 	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
@@ -120,7 +117,7 @@ type integrationRuntimeArgs struct {
 // The set of arguments for constructing a IntegrationRuntime resource.
 type IntegrationRuntimeArgs struct {
 	// Integration runtime name
-	IntegrationRuntimeName pulumi.StringInput
+	IntegrationRuntimeName pulumi.StringPtrInput
 	// Integration runtime properties.
 	Properties pulumi.Input
 	// The name of the resource group. The name is case insensitive.

@@ -119,8 +119,8 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// The state of a private link connection

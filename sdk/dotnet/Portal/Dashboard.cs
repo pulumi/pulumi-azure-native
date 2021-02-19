@@ -107,8 +107,8 @@ namespace Pulumi.AzureNextGen.Portal
         /// <summary>
         /// The name of the dashboard.
         /// </summary>
-        [Input("dashboardName", required: true)]
-        public Input<string> DashboardName { get; set; } = null!;
+        [Input("dashboardName")]
+        public Input<string>? DashboardName { get; set; }
 
         [Input("lenses")]
         private InputList<Inputs.DashboardLensArgs>? _lenses;

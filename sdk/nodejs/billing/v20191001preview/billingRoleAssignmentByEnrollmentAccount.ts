@@ -96,9 +96,6 @@ export class BillingRoleAssignmentByEnrollmentAccount extends pulumi.CustomResou
             if ((!args || args.billingAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
-            if ((!args || args.billingRoleAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'billingRoleAssignmentName'");
-            }
             if ((!args || args.enrollmentAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enrollmentAccountName'");
             }
@@ -155,7 +152,7 @@ export interface BillingRoleAssignmentByEnrollmentAccountArgs {
     /**
      * The ID that uniquely identifies a role assignment.
      */
-    readonly billingRoleAssignmentName: pulumi.Input<string>;
+    readonly billingRoleAssignmentName?: pulumi.Input<string>;
     /**
      * The ID that uniquely identifies an enrollment account.
      */

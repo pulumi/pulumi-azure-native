@@ -190,8 +190,8 @@ namespace Pulumi.AzureNextGen.Web
         /// <summary>
         /// ID of an existing deployment.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// Kind of resource.

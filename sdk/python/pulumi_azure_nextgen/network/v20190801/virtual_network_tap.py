@@ -72,8 +72,6 @@ class VirtualNetworkTap(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if tap_name is None and not opts.urn:
-                raise TypeError("Missing required property 'tap_name'")
             __props__['tap_name'] = tap_name
             __props__['name'] = None
             __props__['network_interface_tap_configurations'] = None

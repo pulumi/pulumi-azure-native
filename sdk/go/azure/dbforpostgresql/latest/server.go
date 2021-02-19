@@ -75,9 +75,6 @@ func NewServer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServerName == nil {
-		return nil, errors.New("invalid value for required argument 'ServerName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:Server"),
@@ -215,7 +212,7 @@ type serverArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName *string `pulumi:"serverName"`
 	// The SKU (pricing tier) of the server.
 	Sku *Sku `pulumi:"sku"`
 	// Application-specific metadata in the form of key-value pairs.
@@ -233,7 +230,7 @@ type ServerArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
-	ServerName pulumi.StringInput
+	ServerName pulumi.StringPtrInput
 	// The SKU (pricing tier) of the server.
 	Sku SkuPtrInput
 	// Application-specific metadata in the form of key-value pairs.

@@ -62,9 +62,6 @@ export class File extends pulumi.CustomResource {
     constructor(name: string, args: FileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.fileName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'fileName'");
-            }
             if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupName'");
             }
@@ -112,7 +109,7 @@ export interface FileArgs {
     /**
      * Name of the File
      */
-    readonly fileName: pulumi.Input<string>;
+    readonly fileName?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */

@@ -37,9 +37,6 @@ func NewGuestUsage(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:azureactivedirectory:GuestUsage"),
@@ -103,7 +100,7 @@ type guestUsageArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The initial domain name of the AAD tenant.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags map[string]string `pulumi:"tags"`
 	// An identifier for the tenant for which the resource is being created
@@ -117,7 +114,7 @@ type GuestUsageArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The initial domain name of the AAD tenant.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// Key-value pairs of additional resource provisioning properties.
 	Tags pulumi.StringMapInput
 	// An identifier for the tenant for which the resource is being created

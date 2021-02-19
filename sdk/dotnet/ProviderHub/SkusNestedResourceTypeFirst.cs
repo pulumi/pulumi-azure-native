@@ -101,8 +101,8 @@ namespace Pulumi.AzureNextGen.ProviderHub
         /// <summary>
         /// The SKU.
         /// </summary>
-        [Input("sku", required: true)]
-        public Input<string> Sku { get; set; } = null!;
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
 
         [Input("skuSettings", required: true)]
         private InputList<Inputs.SkuSettingArgs>? _skuSettings;

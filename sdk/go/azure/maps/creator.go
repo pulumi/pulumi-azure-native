@@ -38,9 +38,6 @@ func NewCreator(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.CreatorName == nil {
-		return nil, errors.New("invalid value for required argument 'CreatorName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -105,7 +102,7 @@ type creatorArgs struct {
 	// The name of the Maps Account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the Maps Creator instance.
-	CreatorName string `pulumi:"creatorName"`
+	CreatorName *string `pulumi:"creatorName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
@@ -119,7 +116,7 @@ type CreatorArgs struct {
 	// The name of the Maps Account.
 	AccountName pulumi.StringInput
 	// The name of the Maps Creator instance.
-	CreatorName pulumi.StringInput
+	CreatorName pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

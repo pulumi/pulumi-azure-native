@@ -140,9 +140,6 @@ export class Cluster extends pulumi.CustomResource {
         pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Cluster'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -217,7 +214,7 @@ export interface ClusterArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * A boolean value that indicates if the cluster's disks are encrypted.
      */

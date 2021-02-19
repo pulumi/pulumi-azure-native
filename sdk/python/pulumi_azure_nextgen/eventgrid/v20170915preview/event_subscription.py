@@ -54,8 +54,6 @@ class EventSubscription(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['destination'] = destination
-            if event_subscription_name is None and not opts.urn:
-                raise TypeError("Missing required property 'event_subscription_name'")
             __props__['event_subscription_name'] = event_subscription_name
             __props__['filter'] = filter
             __props__['labels'] = labels

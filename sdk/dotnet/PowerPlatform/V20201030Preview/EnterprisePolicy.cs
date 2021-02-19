@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// <summary>
         /// Name of the EnterprisePolicy.
         /// </summary>
-        [Input("enterprisePolicyName", required: true)]
-        public Input<string> EnterprisePolicyName { get; set; } = null!;
+        [Input("enterprisePolicyName")]
+        public Input<string>? EnterprisePolicyName { get; set; }
 
         /// <summary>
         /// The identity of the EnterprisePolicy.

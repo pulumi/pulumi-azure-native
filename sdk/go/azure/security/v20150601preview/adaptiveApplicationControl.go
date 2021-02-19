@@ -45,9 +45,6 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 	if args.AscLocation == nil {
 		return nil, errors.New("invalid value for required argument 'AscLocation'")
 	}
-	if args.GroupName == nil {
-		return nil, errors.New("invalid value for required argument 'GroupName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:security:AdaptiveApplicationControl"),
@@ -135,7 +132,7 @@ type adaptiveApplicationControlArgs struct {
 	// The enforcement mode of the group. Can also be defined per collection type by using ProtectionMode
 	EnforcementMode *string `pulumi:"enforcementMode"`
 	// Name of an application control VM/server group
-	GroupName           string               `pulumi:"groupName"`
+	GroupName           *string              `pulumi:"groupName"`
 	PathRecommendations []PathRecommendation `pulumi:"pathRecommendations"`
 	// The protection mode of the group per collection type. Can also be defined for all collection types by using EnforcementMode
 	ProtectionMode    *ProtectionMode    `pulumi:"protectionMode"`
@@ -149,7 +146,7 @@ type AdaptiveApplicationControlArgs struct {
 	// The enforcement mode of the group. Can also be defined per collection type by using ProtectionMode
 	EnforcementMode pulumi.StringPtrInput
 	// Name of an application control VM/server group
-	GroupName           pulumi.StringInput
+	GroupName           pulumi.StringPtrInput
 	PathRecommendations PathRecommendationArrayInput
 	// The protection mode of the group per collection type. Can also be defined for all collection types by using EnforcementMode
 	ProtectionMode    ProtectionModePtrInput

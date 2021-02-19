@@ -181,8 +181,8 @@ namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
         /// <summary>
         /// Blockchain member name.
         /// </summary>
-        [Input("blockchainMemberName", required: true)]
-        public Input<string> BlockchainMemberName { get; set; } = null!;
+        [Input("blockchainMemberName")]
+        public Input<string>? BlockchainMemberName { get; set; }
 
         /// <summary>
         /// Gets or sets the consortium for the blockchain member.

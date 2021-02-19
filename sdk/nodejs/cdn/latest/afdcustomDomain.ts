@@ -89,9 +89,6 @@ export class AFDCustomDomain extends pulumi.CustomResource {
         pulumi.log.warn("AFDCustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDCustomDomain'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.customDomainName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'customDomainName'");
-            }
             if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostName'");
             }
@@ -150,7 +147,7 @@ export interface AFDCustomDomainArgs {
     /**
      * Name of the domain under the profile which is unique globally
      */
-    readonly customDomainName: pulumi.Input<string>;
+    readonly customDomainName?: pulumi.Input<string>;
     /**
      * The host name of the domain. Must be a domain name.
      */

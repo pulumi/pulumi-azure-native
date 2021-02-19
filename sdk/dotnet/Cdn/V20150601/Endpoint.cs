@@ -181,8 +181,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
         /// <summary>
         /// Name of the endpoint within the CDN profile.
         /// </summary>
-        [Input("endpointName", required: true)]
-        public Input<string> EndpointName { get; set; } = null!;
+        [Input("endpointName")]
+        public Input<string>? EndpointName { get; set; }
 
         /// <summary>
         /// Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.

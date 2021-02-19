@@ -58,9 +58,6 @@ func NewVolumeContainer(ctx *pulumi.Context,
 	if args.StorageAccountCredentialId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountCredentialId'")
 	}
-	if args.VolumeContainerName == nil {
-		return nil, errors.New("invalid value for required argument 'VolumeContainerName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storsimple:VolumeContainer"),
@@ -163,7 +160,7 @@ type volumeContainerArgs struct {
 	// The path ID of storage account associated with the volume container.
 	StorageAccountCredentialId string `pulumi:"storageAccountCredentialId"`
 	// The name of the volume container.
-	VolumeContainerName string `pulumi:"volumeContainerName"`
+	VolumeContainerName *string `pulumi:"volumeContainerName"`
 }
 
 // The set of arguments for constructing a VolumeContainer resource.
@@ -185,7 +182,7 @@ type VolumeContainerArgs struct {
 	// The path ID of storage account associated with the volume container.
 	StorageAccountCredentialId pulumi.StringInput
 	// The name of the volume container.
-	VolumeContainerName pulumi.StringInput
+	VolumeContainerName pulumi.StringPtrInput
 }
 
 func (VolumeContainerArgs) ElementType() reflect.Type {

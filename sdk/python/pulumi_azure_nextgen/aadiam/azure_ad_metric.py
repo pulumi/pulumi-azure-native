@@ -51,8 +51,6 @@ class AzureADMetric(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if azure_ad_metrics_name is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_ad_metrics_name'")
             __props__['azure_ad_metrics_name'] = azure_ad_metrics_name
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:

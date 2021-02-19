@@ -269,8 +269,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
         /// <summary>
         /// The subscription name.
         /// </summary>
-        [Input("subscriptionName", required: true)]
-        public Input<string> SubscriptionName { get; set; } = null!;
+        [Input("subscriptionName")]
+        public Input<string>? SubscriptionName { get; set; }
 
         /// <summary>
         /// The topic name.

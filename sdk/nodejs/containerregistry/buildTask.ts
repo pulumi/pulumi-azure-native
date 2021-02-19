@@ -94,9 +94,6 @@ export class BuildTask extends pulumi.CustomResource {
             if ((!args || args.alias === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'alias'");
             }
-            if ((!args || args.buildTaskName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'buildTaskName'");
-            }
             if ((!args || args.platform === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'platform'");
             }
@@ -160,7 +157,7 @@ export interface BuildTaskArgs {
     /**
      * The name of the container registry build task.
      */
-    readonly buildTaskName: pulumi.Input<string>;
+    readonly buildTaskName?: pulumi.Input<string>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */

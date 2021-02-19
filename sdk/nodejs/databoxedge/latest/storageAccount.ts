@@ -97,9 +97,6 @@ export class StorageAccount extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'storageAccountName'");
-            }
             inputs["dataPolicy"] = args ? args.dataPolicy : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
@@ -163,7 +160,7 @@ export interface StorageAccountArgs {
     /**
      * The StorageAccount name.
      */
-    readonly storageAccountName: pulumi.Input<string>;
+    readonly storageAccountName?: pulumi.Input<string>;
     /**
      * Current status of the storage account
      */

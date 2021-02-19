@@ -112,8 +112,8 @@ namespace Pulumi.AzureNextGen.ServiceBus
         /// <summary>
         /// The Disaster Recovery configuration name
         /// </summary>
-        [Input("alias", required: true)]
-        public Input<string> Alias { get; set; } = null!;
+        [Input("alias")]
+        public Input<string>? Alias { get; set; }
 
         /// <summary>
         /// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing

@@ -111,8 +111,6 @@ class Site(pulumi.CustomResource):
             __props__['location'] = location
             __props__['max_number_of_workers'] = max_number_of_workers
             __props__['micro_service'] = micro_service
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

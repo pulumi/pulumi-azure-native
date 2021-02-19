@@ -70,9 +70,6 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.certificateId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'certificateId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -118,7 +115,7 @@ export interface CertificateArgs {
     /**
      * Identifier of the certificate entity. Must be unique in the current API Management service instance.
      */
-    readonly certificateId: pulumi.Input<string>;
+    readonly certificateId?: pulumi.Input<string>;
     /**
      * Base 64 encoded certificate using the application/x-pkcs12 representation.
      */

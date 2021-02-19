@@ -72,9 +72,6 @@ export class App extends pulumi.CustomResource {
         pulumi.log.warn("App is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:App'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.appName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'appName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +113,7 @@ export interface AppArgs {
     /**
      * The name of the App resource.
      */
-    readonly appName: pulumi.Input<string>;
+    readonly appName?: pulumi.Input<string>;
     /**
      * The Managed Identity type of the app resource
      */

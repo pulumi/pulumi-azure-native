@@ -65,8 +65,6 @@ class ProductSetting(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if settings_name is None and not opts.urn:
-                raise TypeError("Missing required property 'settings_name'")
             __props__['settings_name'] = settings_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

@@ -154,8 +154,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// <summary>
         /// The name of the log profile.
         /// </summary>
-        [Input("logProfileName", required: true)]
-        public Input<string> LogProfileName { get; set; } = null!;
+        [Input("logProfileName")]
+        public Input<string>? LogProfileName { get; set; }
 
         /// <summary>
         /// the retention policy for the events in the log.

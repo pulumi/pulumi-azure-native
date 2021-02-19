@@ -340,8 +340,8 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
         /// <summary>
         /// virtual machine name
         /// </summary>
-        [Input("virtualMachineName", required: true)]
-        public Input<string> VirtualMachineName { get; set; } = null!;
+        [Input("virtualMachineName")]
+        public Input<string>? VirtualMachineName { get; set; }
 
         public VirtualMachineArgs()
         {

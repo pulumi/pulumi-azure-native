@@ -77,9 +77,6 @@ func NewDevice(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DeviceName == nil {
-		return nil, errors.New("invalid value for required argument 'DeviceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -242,7 +239,7 @@ type deviceArgs struct {
 	// The status of the Data Box Edge/Gateway device.
 	DataBoxEdgeDeviceStatus *string `pulumi:"dataBoxEdgeDeviceStatus"`
 	// The device name.
-	DeviceName string `pulumi:"deviceName"`
+	DeviceName *string `pulumi:"deviceName"`
 	// The etag for the devices.
 	Etag *string `pulumi:"etag"`
 	// Msi identity of the resource
@@ -262,7 +259,7 @@ type DeviceArgs struct {
 	// The status of the Data Box Edge/Gateway device.
 	DataBoxEdgeDeviceStatus pulumi.StringPtrInput
 	// The device name.
-	DeviceName pulumi.StringInput
+	DeviceName pulumi.StringPtrInput
 	// The etag for the devices.
 	Etag pulumi.StringPtrInput
 	// Msi identity of the resource

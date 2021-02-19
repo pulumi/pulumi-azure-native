@@ -94,9 +94,6 @@ func NewSite(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -335,7 +332,7 @@ type siteArgs struct {
 	MaxNumberOfWorkers *int    `pulumi:"maxNumberOfWorkers"`
 	MicroService       *string `pulumi:"microService"`
 	// Resource Name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Name of the resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
@@ -391,7 +388,7 @@ type SiteArgs struct {
 	MaxNumberOfWorkers pulumi.IntPtrInput
 	MicroService       pulumi.StringPtrInput
 	// Resource Name
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Name of the resource group
 	ResourceGroupName pulumi.StringInput
 	// If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.

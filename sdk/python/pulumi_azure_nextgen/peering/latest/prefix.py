@@ -63,8 +63,6 @@ class Prefix(pulumi.CustomResource):
             __props__['peering_service_name'] = peering_service_name
             __props__['peering_service_prefix_key'] = peering_service_prefix_key
             __props__['prefix'] = prefix
-            if prefix_name is None and not opts.urn:
-                raise TypeError("Missing required property 'prefix_name'")
             __props__['prefix_name'] = prefix_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

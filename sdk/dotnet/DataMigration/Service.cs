@@ -163,8 +163,8 @@ namespace Pulumi.AzureNextGen.DataMigration
         /// <summary>
         /// Name of the service
         /// </summary>
-        [Input("serviceName", required: true)]
-        public Input<string> ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
 
         /// <summary>
         /// Service SKU

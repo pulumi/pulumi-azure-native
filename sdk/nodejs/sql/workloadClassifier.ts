@@ -90,9 +90,6 @@ export class WorkloadClassifier extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.workloadClassifierName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'workloadClassifierName'");
-            }
             if ((!args || args.workloadGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workloadGroupName'");
             }
@@ -175,7 +172,7 @@ export interface WorkloadClassifierArgs {
     /**
      * The name of the workload classifier to create/update.
      */
-    readonly workloadClassifierName: pulumi.Input<string>;
+    readonly workloadClassifierName?: pulumi.Input<string>;
     /**
      * The name of the workload group from which to receive the classifier from.
      */

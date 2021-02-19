@@ -133,8 +133,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20180901Preview
         /// <summary>
         /// The name of the role assignment to create. It can be any valid GUID.
         /// </summary>
-        [Input("roleAssignmentName", required: true)]
-        public Input<string> RoleAssignmentName { get; set; } = null!;
+        [Input("roleAssignmentName")]
+        public Input<string>? RoleAssignmentName { get; set; }
 
         /// <summary>
         /// The role definition ID used in the role assignment.

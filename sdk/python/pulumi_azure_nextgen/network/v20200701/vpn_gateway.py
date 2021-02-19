@@ -66,8 +66,6 @@ class VpnGateway(pulumi.CustomResource):
 
             __props__['bgp_settings'] = bgp_settings
             __props__['connections'] = connections
-            if gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gateway_name'")
             __props__['gateway_name'] = gateway_name
             __props__['id'] = id
             __props__['is_routing_preference_internet'] = is_routing_preference_internet

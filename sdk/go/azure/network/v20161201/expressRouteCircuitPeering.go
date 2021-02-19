@@ -63,9 +63,6 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 	if args.CircuitName == nil {
 		return nil, errors.New("invalid value for required argument 'CircuitName'")
 	}
-	if args.PeeringName == nil {
-		return nil, errors.New("invalid value for required argument 'PeeringName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -301,7 +298,7 @@ type expressRouteCircuitPeeringArgs struct {
 	// The peer ASN.
 	PeerASN *int `pulumi:"peerASN"`
 	// The name of the peering.
-	PeeringName string `pulumi:"peeringName"`
+	PeeringName *string `pulumi:"peeringName"`
 	// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
 	PeeringType *string `pulumi:"peeringType"`
 	// The primary port.
@@ -347,7 +344,7 @@ type ExpressRouteCircuitPeeringArgs struct {
 	// The peer ASN.
 	PeerASN pulumi.IntPtrInput
 	// The name of the peering.
-	PeeringName pulumi.StringInput
+	PeeringName pulumi.StringPtrInput
 	// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
 	PeeringType pulumi.StringPtrInput
 	// The primary port.

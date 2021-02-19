@@ -136,8 +136,8 @@ namespace Pulumi.AzureNextGen.Security
         /// <summary>
         /// The Assessment Key - Unique key for the assessment type
         /// </summary>
-        [Input("assessmentName", required: true)]
-        public Input<string> AssessmentName { get; set; } = null!;
+        [Input("assessmentName")]
+        public Input<string>? AssessmentName { get; set; }
 
         /// <summary>
         /// Describes properties of an assessment metadata.

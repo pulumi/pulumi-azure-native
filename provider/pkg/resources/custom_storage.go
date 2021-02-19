@@ -345,7 +345,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 					Default:     "Block",
 				},
 			},
-			RequiredInputs: []string{resourceGroupName, accountName, containerName, blobName},
+			RequiredInputs: []string{resourceGroupName, accountName, containerName},
 		},
 		Meta: &AzureAPIResource{
 			Path: blobPath,
@@ -354,7 +354,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 				{Name: resourceGroupName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
 				{Name: accountName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
 				{Name: containerName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
-				{Name: blobName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
+				{Name: blobName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string", AutoName: "copy"}},
 				{
 					Name:     "properties",
 					Location: "body",

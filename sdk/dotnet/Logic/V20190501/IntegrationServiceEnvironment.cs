@@ -104,8 +104,8 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// <summary>
         /// The integration service environment name.
         /// </summary>
-        [Input("integrationServiceEnvironmentName", required: true)]
-        public Input<string> IntegrationServiceEnvironmentName { get; set; } = null!;
+        [Input("integrationServiceEnvironmentName")]
+        public Input<string>? IntegrationServiceEnvironmentName { get; set; }
 
         /// <summary>
         /// The resource location.

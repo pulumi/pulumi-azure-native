@@ -69,9 +69,6 @@ func NewRoute(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RouteName == nil {
-		return nil, errors.New("invalid value for required argument 'RouteName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:cdn:Route"),
@@ -206,7 +203,7 @@ type routeArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the routing rule.
-	RouteName string `pulumi:"routeName"`
+	RouteName *string `pulumi:"routeName"`
 	// rule sets referenced by this endpoint.
 	RuleSets []ResourceReference `pulumi:"ruleSets"`
 	// List of supported protocols for this route.
@@ -242,7 +239,7 @@ type RouteArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the routing rule.
-	RouteName pulumi.StringInput
+	RouteName pulumi.StringPtrInput
 	// rule sets referenced by this endpoint.
 	RuleSets ResourceReferenceArrayInput
 	// List of supported protocols for this route.

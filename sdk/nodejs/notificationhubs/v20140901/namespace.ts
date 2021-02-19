@@ -66,9 +66,6 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'namespaceName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -113,7 +110,7 @@ export interface NamespaceArgs {
     /**
      * The namespace name.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    readonly namespaceName?: pulumi.Input<string>;
     /**
      * Gets or sets properties of the Namespace.
      */

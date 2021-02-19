@@ -63,9 +63,6 @@ export class ManagementAssociation extends pulumi.CustomResource {
     constructor(name: string, args: ManagementAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.managementAssociationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'managementAssociationName'");
-            }
             if ((!args || args.providerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'providerName'");
             }
@@ -117,7 +114,7 @@ export interface ManagementAssociationArgs {
     /**
      * User ManagementAssociation Name.
      */
-    readonly managementAssociationName: pulumi.Input<string>;
+    readonly managementAssociationName?: pulumi.Input<string>;
     /**
      * Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
      */

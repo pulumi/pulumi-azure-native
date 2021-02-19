@@ -158,9 +158,6 @@ export class ServerGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serverGroupName'");
-            }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
@@ -299,7 +296,7 @@ export interface ServerGroupArgs {
     /**
      * The name of the server group.
      */
-    readonly serverGroupName: pulumi.Input<string>;
+    readonly serverGroupName?: pulumi.Input<string>;
     /**
      * The list of server role groups.
      */

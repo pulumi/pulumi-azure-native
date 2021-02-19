@@ -99,8 +99,8 @@ namespace Pulumi.AzureNextGen.HDInsight
         /// <summary>
         /// The constant value for the application name.
         /// </summary>
-        [Input("applicationName", required: true)]
-        public Input<string> ApplicationName { get; set; } = null!;
+        [Input("applicationName")]
+        public Input<string>? ApplicationName { get; set; }
 
         /// <summary>
         /// The name of the cluster.

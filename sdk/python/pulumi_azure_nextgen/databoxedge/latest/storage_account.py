@@ -74,8 +74,6 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_account_credential_id'] = storage_account_credential_id
-            if storage_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
             __props__['storage_account_status'] = storage_account_status
             __props__['blob_endpoint'] = None

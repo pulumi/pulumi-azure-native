@@ -64,8 +64,6 @@ class Property(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if prop_id is None and not opts.urn:
-                raise TypeError("Missing required property 'prop_id'")
             __props__['prop_id'] = prop_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

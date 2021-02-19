@@ -46,9 +46,6 @@ func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 	if args.ManagementGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementGroupId'")
 	}
-	if args.PolicyDefinitionName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyDefinitionName'")
-	}
 	if args.Mode == nil {
 		args.Mode = pulumi.StringPtr("Indexed")
 	}
@@ -163,7 +160,7 @@ type policyDefinitionAtManagementGroupArgs struct {
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
 	Parameters map[string]ParameterDefinitionsValue `pulumi:"parameters"`
 	// The name of the policy definition to create.
-	PolicyDefinitionName string `pulumi:"policyDefinitionName"`
+	PolicyDefinitionName *string `pulumi:"policyDefinitionName"`
 	// The policy rule.
 	PolicyRule interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
@@ -185,7 +182,7 @@ type PolicyDefinitionAtManagementGroupArgs struct {
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
 	Parameters ParameterDefinitionsValueMapInput
 	// The name of the policy definition to create.
-	PolicyDefinitionName pulumi.StringInput
+	PolicyDefinitionName pulumi.StringPtrInput
 	// The policy rule.
 	PolicyRule pulumi.Input
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.

@@ -169,8 +169,8 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
         /// <summary>
         /// The name of the machine learning team account workspace.
         /// </summary>
-        [Input("workspaceName", required: true)]
-        public Input<string> WorkspaceName { get; set; } = null!;
+        [Input("workspaceName")]
+        public Input<string>? WorkspaceName { get; set; }
 
         public WorkspaceArgs()
         {

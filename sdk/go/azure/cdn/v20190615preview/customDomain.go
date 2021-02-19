@@ -42,9 +42,6 @@ func NewCustomDomain(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CustomDomainName == nil {
-		return nil, errors.New("invalid value for required argument 'CustomDomainName'")
-	}
 	if args.EndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointName'")
 	}
@@ -168,7 +165,7 @@ func (CustomDomainState) ElementType() reflect.Type {
 
 type customDomainArgs struct {
 	// Name of the custom domain within an endpoint.
-	CustomDomainName string `pulumi:"customDomainName"`
+	CustomDomainName *string `pulumi:"customDomainName"`
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName string `pulumi:"endpointName"`
 	// The host name of the custom domain. Must be a domain name.
@@ -182,7 +179,7 @@ type customDomainArgs struct {
 // The set of arguments for constructing a CustomDomain resource.
 type CustomDomainArgs struct {
 	// Name of the custom domain within an endpoint.
-	CustomDomainName pulumi.StringInput
+	CustomDomainName pulumi.StringPtrInput
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName pulumi.StringInput
 	// The host name of the custom domain. Must be a domain name.

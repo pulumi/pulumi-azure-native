@@ -54,9 +54,6 @@ export class Deployment extends pulumi.CustomResource {
     constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.deploymentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'deploymentName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -88,7 +85,7 @@ export interface DeploymentArgs {
     /**
      * The name of the deployment.
      */
-    readonly deploymentName: pulumi.Input<string>;
+    readonly deploymentName?: pulumi.Input<string>;
     /**
      * Gets or sets the deployment properties.
      */

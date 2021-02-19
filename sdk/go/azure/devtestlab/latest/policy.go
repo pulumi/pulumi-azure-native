@@ -56,9 +56,6 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.LabName == nil {
 		return nil, errors.New("invalid value for required argument 'LabName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.PolicySetName == nil {
 		return nil, errors.New("invalid value for required argument 'PolicySetName'")
 	}
@@ -177,7 +174,7 @@ type policyArgs struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the policy.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The name of the policy set.
 	PolicySetName string `pulumi:"policySetName"`
 	// The name of the resource group.
@@ -205,7 +202,7 @@ type PolicyArgs struct {
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the policy.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The name of the policy set.
 	PolicySetName pulumi.StringInput
 	// The name of the resource group.

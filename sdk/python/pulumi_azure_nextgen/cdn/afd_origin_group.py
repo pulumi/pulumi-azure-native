@@ -63,8 +63,6 @@ class AFDOriginGroup(pulumi.CustomResource):
 
             __props__['health_probe_settings'] = health_probe_settings
             __props__['load_balancing_settings'] = load_balancing_settings
-            if origin_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'origin_group_name'")
             __props__['origin_group_name'] = origin_group_name
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")

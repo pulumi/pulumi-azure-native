@@ -44,9 +44,6 @@ func NewEventSubscription(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EventSubscriptionName == nil {
-		return nil, errors.New("invalid value for required argument 'EventSubscriptionName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -174,7 +171,7 @@ type eventSubscriptionArgs struct {
 	// The event delivery schema for the event subscription.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
-	EventSubscriptionName string `pulumi:"eventSubscriptionName"`
+	EventSubscriptionName *string `pulumi:"eventSubscriptionName"`
 	// Information about the filter for the event subscription.
 	Filter *EventSubscriptionFilter `pulumi:"filter"`
 	// List of user defined labels.
@@ -194,7 +191,7 @@ type EventSubscriptionArgs struct {
 	// The event delivery schema for the event subscription.
 	EventDeliverySchema pulumi.StringPtrInput
 	// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
-	EventSubscriptionName pulumi.StringInput
+	EventSubscriptionName pulumi.StringPtrInput
 	// Information about the filter for the event subscription.
 	Filter EventSubscriptionFilterPtrInput
 	// List of user defined labels.

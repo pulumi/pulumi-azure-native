@@ -40,9 +40,6 @@ func NewStep(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.StepName == nil {
-		return nil, errors.New("invalid value for required argument 'StepName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager:Step"),
@@ -111,7 +108,7 @@ type stepArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the deployment step.
-	StepName string `pulumi:"stepName"`
+	StepName *string `pulumi:"stepName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -125,7 +122,7 @@ type StepArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the deployment step.
-	StepName pulumi.StringInput
+	StepName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

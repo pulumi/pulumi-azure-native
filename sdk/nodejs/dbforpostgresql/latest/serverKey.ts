@@ -76,9 +76,6 @@ export class ServerKey extends pulumi.CustomResource {
         pulumi.log.warn("ServerKey is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:ServerKey'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.keyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'keyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -125,7 +122,7 @@ export interface ServerKeyArgs {
     /**
      * The name of the PostgreSQL Server key to be operated on (updated or created).
      */
-    readonly keyName: pulumi.Input<string>;
+    readonly keyName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -82,9 +82,6 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.contentKeyPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'contentKeyPolicyName'");
-            }
             if ((!args || args.options === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'options'");
             }
@@ -136,7 +133,7 @@ export interface ContentKeyPolicyArgs {
     /**
      * The Content Key Policy name.
      */
-    readonly contentKeyPolicyName: pulumi.Input<string>;
+    readonly contentKeyPolicyName?: pulumi.Input<string>;
     /**
      * A description for the Policy.
      */

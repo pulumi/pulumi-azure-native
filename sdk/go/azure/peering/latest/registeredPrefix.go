@@ -44,9 +44,6 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 	if args.PeeringName == nil {
 		return nil, errors.New("invalid value for required argument 'PeeringName'")
 	}
-	if args.RegisteredPrefixName == nil {
-		return nil, errors.New("invalid value for required argument 'RegisteredPrefixName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -130,7 +127,7 @@ type registeredPrefixArgs struct {
 	// The customer's prefix from which traffic originates.
 	Prefix *string `pulumi:"prefix"`
 	// The name of the registered prefix.
-	RegisteredPrefixName string `pulumi:"registeredPrefixName"`
+	RegisteredPrefixName *string `pulumi:"registeredPrefixName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -142,7 +139,7 @@ type RegisteredPrefixArgs struct {
 	// The customer's prefix from which traffic originates.
 	Prefix pulumi.StringPtrInput
 	// The name of the registered prefix.
-	RegisteredPrefixName pulumi.StringInput
+	RegisteredPrefixName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

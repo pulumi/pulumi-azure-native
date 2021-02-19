@@ -64,8 +64,6 @@ class OuContainer(pulumi.CustomResource):
             if domain_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_service_name'")
             __props__['domain_service_name'] = domain_service_name
-            if ou_container_name is None and not opts.urn:
-                raise TypeError("Missing required property 'ou_container_name'")
             __props__['ou_container_name'] = ou_container_name
             __props__['password'] = password
             if resource_group_name is None and not opts.urn:

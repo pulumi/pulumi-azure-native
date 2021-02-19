@@ -116,9 +116,6 @@ export class Environment extends pulumi.CustomResource {
         pulumi.log.warn("Environment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:Environment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'environmentName'");
-            }
             if ((!args || args.environmentSettingName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'environmentSettingName'");
             }
@@ -190,7 +187,7 @@ export interface EnvironmentArgs {
     /**
      * The name of the environment.
      */
-    readonly environmentName: pulumi.Input<string>;
+    readonly environmentName?: pulumi.Input<string>;
     /**
      * The name of the environment Setting.
      */

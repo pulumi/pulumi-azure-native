@@ -49,9 +49,6 @@ func NewTaskRun(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TaskRunName == nil {
-		return nil, errors.New("invalid value for required argument 'TaskRunName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry:TaskRun"),
@@ -139,7 +136,7 @@ type taskRunArgs struct {
 	// The request (parameters) for the run
 	RunRequest interface{} `pulumi:"runRequest"`
 	// The name of the task run.
-	TaskRunName string `pulumi:"taskRunName"`
+	TaskRunName *string `pulumi:"taskRunName"`
 }
 
 // The set of arguments for constructing a TaskRun resource.
@@ -157,7 +154,7 @@ type TaskRunArgs struct {
 	// The request (parameters) for the run
 	RunRequest pulumi.Input
 	// The name of the task run.
-	TaskRunName pulumi.StringInput
+	TaskRunName pulumi.StringPtrInput
 }
 
 func (TaskRunArgs) ElementType() reflect.Type {

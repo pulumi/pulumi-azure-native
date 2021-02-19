@@ -71,9 +71,6 @@ func NewBigDataPool(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BigDataPoolName == nil {
-		return nil, errors.New("invalid value for required argument 'BigDataPoolName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -217,7 +214,7 @@ type bigDataPoolArgs struct {
 	// Auto-scaling properties
 	AutoScale *AutoScaleProperties `pulumi:"autoScale"`
 	// Big Data pool name
-	BigDataPoolName string `pulumi:"bigDataPoolName"`
+	BigDataPoolName *string `pulumi:"bigDataPoolName"`
 	// The cache size
 	CacheSize *int `pulumi:"cacheSize"`
 	// The time when the Big Data pool was created.
@@ -267,7 +264,7 @@ type BigDataPoolArgs struct {
 	// Auto-scaling properties
 	AutoScale AutoScalePropertiesPtrInput
 	// Big Data pool name
-	BigDataPoolName pulumi.StringInput
+	BigDataPoolName pulumi.StringPtrInput
 	// The cache size
 	CacheSize pulumi.IntPtrInput
 	// The time when the Big Data pool was created.

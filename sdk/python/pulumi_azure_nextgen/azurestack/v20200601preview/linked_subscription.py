@@ -56,8 +56,6 @@ class LinkedSubscription(pulumi.CustomResource):
             if linked_subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_subscription_id'")
             __props__['linked_subscription_id'] = linked_subscription_id
-            if linked_subscription_name is None and not opts.urn:
-                raise TypeError("Missing required property 'linked_subscription_name'")
             __props__['linked_subscription_name'] = linked_subscription_name
             __props__['location'] = location
             if registration_resource_id is None and not opts.urn:

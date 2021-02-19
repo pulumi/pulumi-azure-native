@@ -102,8 +102,6 @@ class Prediction(pulumi.CustomResource):
             if positive_outcome_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'positive_outcome_expression'")
             __props__['positive_outcome_expression'] = positive_outcome_expression
-            if prediction_name is None and not opts.urn:
-                raise TypeError("Missing required property 'prediction_name'")
             __props__['prediction_name'] = prediction_name
             if primary_profile_type is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_profile_type'")

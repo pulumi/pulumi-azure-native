@@ -47,9 +47,6 @@ func NewBudget(ctx *pulumi.Context,
 	if args.Amount == nil {
 		return nil, errors.New("invalid value for required argument 'Amount'")
 	}
-	if args.BudgetName == nil {
-		return nil, errors.New("invalid value for required argument 'BudgetName'")
-	}
 	if args.Category == nil {
 		return nil, errors.New("invalid value for required argument 'Category'")
 	}
@@ -143,7 +140,7 @@ type budgetArgs struct {
 	// The total amount of cost to track with the budget
 	Amount float64 `pulumi:"amount"`
 	// Budget Name.
-	BudgetName string `pulumi:"budgetName"`
+	BudgetName *string `pulumi:"budgetName"`
 	// The category of the budget, whether the budget tracks cost or usage.
 	Category string `pulumi:"category"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -165,7 +162,7 @@ type BudgetArgs struct {
 	// The total amount of cost to track with the budget
 	Amount pulumi.Float64Input
 	// Budget Name.
-	BudgetName pulumi.StringInput
+	BudgetName pulumi.StringPtrInput
 	// The category of the budget, whether the budget tracks cost or usage.
 	Category pulumi.StringInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.

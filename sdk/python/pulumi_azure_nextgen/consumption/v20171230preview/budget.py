@@ -65,8 +65,6 @@ class Budget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'category'")
             __props__['category'] = category
             __props__['e_tag'] = e_tag
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['notifications'] = notifications
             if time_grain is None and not opts.urn:

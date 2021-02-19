@@ -120,8 +120,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// Name of the Rules Engine which is unique within the Front Door.
         /// </summary>
-        [Input("rulesEngineName", required: true)]
-        public Input<string> RulesEngineName { get; set; } = null!;
+        [Input("rulesEngineName")]
+        public Input<string>? RulesEngineName { get; set; }
 
         public RulesEngineArgs()
         {

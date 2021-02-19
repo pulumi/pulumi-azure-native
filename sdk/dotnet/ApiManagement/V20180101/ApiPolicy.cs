@@ -116,8 +116,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// <summary>
         /// The identifier of the Policy.
         /// </summary>
-        [Input("policyId", required: true)]
-        public Input<string> PolicyId { get; set; } = null!;
+        [Input("policyId")]
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// The name of the resource group.

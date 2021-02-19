@@ -68,8 +68,6 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
-            if graph_name is None and not opts.urn:
-                raise TypeError("Missing required property 'graph_name'")
             __props__['graph_name'] = graph_name
             if options is None and not opts.urn:
                 raise TypeError("Missing required property 'options'")

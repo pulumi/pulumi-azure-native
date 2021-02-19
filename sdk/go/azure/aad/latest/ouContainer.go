@@ -56,9 +56,6 @@ func NewOuContainer(ctx *pulumi.Context,
 	if args.DomainServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainServiceName'")
 	}
-	if args.OuContainerName == nil {
-		return nil, errors.New("invalid value for required argument 'OuContainerName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -163,7 +160,7 @@ type ouContainerArgs struct {
 	// The name of the domain service.
 	DomainServiceName string `pulumi:"domainServiceName"`
 	// The name of the OuContainer.
-	OuContainerName string `pulumi:"ouContainerName"`
+	OuContainerName *string `pulumi:"ouContainerName"`
 	// The account password
 	Password *string `pulumi:"password"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -179,7 +176,7 @@ type OuContainerArgs struct {
 	// The name of the domain service.
 	DomainServiceName pulumi.StringInput
 	// The name of the OuContainer.
-	OuContainerName pulumi.StringInput
+	OuContainerName pulumi.StringPtrInput
 	// The account password
 	Password pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.

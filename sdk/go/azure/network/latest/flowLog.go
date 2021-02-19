@@ -53,9 +53,6 @@ func NewFlowLog(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FlowLogName == nil {
-		return nil, errors.New("invalid value for required argument 'FlowLogName'")
-	}
 	if args.NetworkWatcherName == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkWatcherName'")
 	}
@@ -187,7 +184,7 @@ type flowLogArgs struct {
 	// Parameters that define the configuration of traffic analytics.
 	FlowAnalyticsConfiguration *TrafficAnalyticsProperties `pulumi:"flowAnalyticsConfiguration"`
 	// The name of the flow log.
-	FlowLogName string `pulumi:"flowLogName"`
+	FlowLogName *string `pulumi:"flowLogName"`
 	// Parameters that define the flow log format.
 	Format *FlowLogFormatParameters `pulumi:"format"`
 	// Resource ID.
@@ -215,7 +212,7 @@ type FlowLogArgs struct {
 	// Parameters that define the configuration of traffic analytics.
 	FlowAnalyticsConfiguration TrafficAnalyticsPropertiesPtrInput
 	// The name of the flow log.
-	FlowLogName pulumi.StringInput
+	FlowLogName pulumi.StringPtrInput
 	// Parameters that define the flow log format.
 	Format FlowLogFormatParametersPtrInput
 	// Resource ID.

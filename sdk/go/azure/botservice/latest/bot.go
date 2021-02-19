@@ -46,9 +46,6 @@ func NewBot(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:botservice:Bot"),
@@ -139,7 +136,7 @@ type botArgs struct {
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Bot resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// Gets or sets the SKU of the resource.
 	Sku *Sku `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
@@ -159,7 +156,7 @@ type BotArgs struct {
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Bot resource.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// Gets or sets the SKU of the resource.
 	Sku SkuPtrInput
 	// Contains resource tags defined as key/value pairs.

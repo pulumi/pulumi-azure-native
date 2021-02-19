@@ -131,8 +131,6 @@ class WebApp(pulumi.CustomResource):
             __props__['is_xenon'] = is_xenon
             __props__['kind'] = kind
             __props__['location'] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['redundancy_mode'] = redundancy_mode
             if reserved is None:

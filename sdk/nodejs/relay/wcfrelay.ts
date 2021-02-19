@@ -90,9 +90,6 @@ export class WCFRelay extends pulumi.CustomResource {
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.relayName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'relayName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -145,7 +142,7 @@ export interface WCFRelayArgs {
     /**
      * The relay name.
      */
-    readonly relayName: pulumi.Input<string>;
+    readonly relayName?: pulumi.Input<string>;
     /**
      * WCF relay type.
      */

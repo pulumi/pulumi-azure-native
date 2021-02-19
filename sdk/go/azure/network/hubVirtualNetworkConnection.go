@@ -41,9 +41,6 @@ func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -137,7 +134,7 @@ type hubVirtualNetworkConnectionArgs struct {
 	// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
 	AllowRemoteVnetToUseHubVnetGateways *bool `pulumi:"allowRemoteVnetToUseHubVnetGateways"`
 	// The name of the HubVirtualNetworkConnection.
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// Enable internet security.
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// Resource ID.
@@ -161,7 +158,7 @@ type HubVirtualNetworkConnectionArgs struct {
 	// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
 	AllowRemoteVnetToUseHubVnetGateways pulumi.BoolPtrInput
 	// The name of the HubVirtualNetworkConnection.
-	ConnectionName pulumi.StringInput
+	ConnectionName pulumi.StringPtrInput
 	// Enable internet security.
 	EnableInternetSecurity pulumi.BoolPtrInput
 	// Resource ID.

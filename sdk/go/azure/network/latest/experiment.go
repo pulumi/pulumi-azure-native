@@ -49,9 +49,6 @@ func NewExperiment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ExperimentName == nil {
-		return nil, errors.New("invalid value for required argument 'ExperimentName'")
-	}
 	if args.ProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'ProfileName'")
 	}
@@ -152,7 +149,7 @@ type experimentArgs struct {
 	// The endpoint B of an experiment
 	EndpointB *EndpointType `pulumi:"endpointB"`
 	// The Experiment identifier associated with the Experiment
-	ExperimentName string `pulumi:"experimentName"`
+	ExperimentName *string `pulumi:"experimentName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The Profile identifier associated with the Tenant and Partner
@@ -174,7 +171,7 @@ type ExperimentArgs struct {
 	// The endpoint B of an experiment
 	EndpointB EndpointTypePtrInput
 	// The Experiment identifier associated with the Experiment
-	ExperimentName pulumi.StringInput
+	ExperimentName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The Profile identifier associated with the Tenant and Partner

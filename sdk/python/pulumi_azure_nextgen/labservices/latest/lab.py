@@ -72,8 +72,6 @@ class Lab(pulumi.CustomResource):
             if lab_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_account_name'")
             __props__['lab_account_name'] = lab_account_name
-            if lab_name is None and not opts.urn:
-                raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['location'] = location
             __props__['max_users_in_lab'] = max_users_in_lab

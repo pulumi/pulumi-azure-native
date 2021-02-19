@@ -52,9 +52,6 @@ func NewMachineExtension(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ExtensionName == nil {
-		return nil, errors.New("invalid value for required argument 'ExtensionName'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -173,7 +170,7 @@ type machineExtensionArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
 	// The name of the machine extension.
-	ExtensionName string `pulumi:"extensionName"`
+	ExtensionName *string `pulumi:"extensionName"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The machine extension instance view.
@@ -203,7 +200,7 @@ type MachineExtensionArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
 	// The name of the machine extension.
-	ExtensionName pulumi.StringInput
+	ExtensionName pulumi.StringPtrInput
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The machine extension instance view.

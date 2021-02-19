@@ -41,9 +41,6 @@ func NewNamedValue(ctx *pulumi.Context,
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
-	if args.NamedValueId == nil {
-		return nil, errors.New("invalid value for required argument 'NamedValueId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -130,7 +127,7 @@ type namedValueArgs struct {
 	// KeyVault location details of the namedValue.
 	KeyVault *KeyVaultContractCreateProperties `pulumi:"keyVault"`
 	// Identifier of the NamedValue.
-	NamedValueId string `pulumi:"namedValueId"`
+	NamedValueId *string `pulumi:"namedValueId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
@@ -150,7 +147,7 @@ type NamedValueArgs struct {
 	// KeyVault location details of the namedValue.
 	KeyVault KeyVaultContractCreatePropertiesPtrInput
 	// Identifier of the NamedValue.
-	NamedValueId pulumi.StringInput
+	NamedValueId pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Determines whether the value is a secret and should be encrypted or not. Default value is false.

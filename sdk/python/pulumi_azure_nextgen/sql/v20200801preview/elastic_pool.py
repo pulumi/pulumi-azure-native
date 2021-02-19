@@ -72,8 +72,6 @@ class ElasticPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if elastic_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'elastic_pool_name'")
             __props__['elastic_pool_name'] = elastic_pool_name
             __props__['license_type'] = license_type
             __props__['location'] = location

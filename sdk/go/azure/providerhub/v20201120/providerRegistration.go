@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -25,12 +24,9 @@ type ProviderRegistration struct {
 func NewProviderRegistration(ctx *pulumi.Context,
 	name string, args *ProviderRegistrationArgs, opts ...pulumi.ResourceOption) (*ProviderRegistration, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ProviderRegistrationArgs{}
 	}
 
-	if args.ProviderNamespace == nil {
-		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:providerhub:ProviderRegistration"),
@@ -84,14 +80,14 @@ func (ProviderRegistrationState) ElementType() reflect.Type {
 type providerRegistrationArgs struct {
 	Properties *ProviderRegistrationProperties `pulumi:"properties"`
 	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string `pulumi:"providerNamespace"`
+	ProviderNamespace *string `pulumi:"providerNamespace"`
 }
 
 // The set of arguments for constructing a ProviderRegistration resource.
 type ProviderRegistrationArgs struct {
 	Properties ProviderRegistrationPropertiesPtrInput
 	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace pulumi.StringInput
+	ProviderNamespace pulumi.StringPtrInput
 }
 
 func (ProviderRegistrationArgs) ElementType() reflect.Type {

@@ -104,8 +104,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20160901
         /// <summary>
         /// The name of lock. The lock name can be a maximum of 260 characters. It cannot contain &lt;, &gt; %, &amp;, :, \, ?, /, or any control characters.
         /// </summary>
-        [Input("lockName", required: true)]
-        public Input<string> LockName { get; set; } = null!;
+        [Input("lockName")]
+        public Input<string>? LockName { get; set; }
 
         /// <summary>
         /// Notes about the lock. Maximum of 512 characters.

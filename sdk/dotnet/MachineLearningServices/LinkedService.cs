@@ -104,8 +104,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
         /// <summary>
         /// Friendly name of the linked workspace
         /// </summary>
-        [Input("linkName", required: true)]
-        public Input<string> LinkName { get; set; } = null!;
+        [Input("linkName")]
+        public Input<string>? LinkName { get; set; }
 
         /// <summary>
         /// location of the linked service.

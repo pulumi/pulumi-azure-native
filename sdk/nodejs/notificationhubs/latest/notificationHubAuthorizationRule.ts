@@ -108,9 +108,6 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
         pulumi.log.warn("NotificationHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHubAuthorizationRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.authorizationRuleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'authorizationRuleName'");
-            }
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -178,7 +175,7 @@ export interface NotificationHubAuthorizationRuleArgs {
     /**
      * Authorization Rule Name.
      */
-    readonly authorizationRuleName: pulumi.Input<string>;
+    readonly authorizationRuleName?: pulumi.Input<string>;
     /**
      * The namespace name.
      */

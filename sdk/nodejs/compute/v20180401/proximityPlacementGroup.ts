@@ -78,9 +78,6 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
     constructor(name: string, args: ProximityPlacementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.proximityPlacementGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'proximityPlacementGroupName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -128,7 +125,7 @@ export interface ProximityPlacementGroupArgs {
     /**
      * The name of the proximity placement group.
      */
-    readonly proximityPlacementGroupName: pulumi.Input<string>;
+    readonly proximityPlacementGroupName?: pulumi.Input<string>;
     /**
      * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
      */

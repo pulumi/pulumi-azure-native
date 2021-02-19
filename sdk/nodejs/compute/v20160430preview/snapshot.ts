@@ -100,9 +100,6 @@ export class Snapshot extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.snapshotName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'snapshotName'");
-            }
             inputs["accountType"] = args ? args.accountType : undefined;
             inputs["creationData"] = args ? args.creationData : undefined;
             inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
@@ -179,7 +176,7 @@ export interface SnapshotArgs {
     /**
      * The name of the snapshot within the given subscription and resource group.
      */
-    readonly snapshotName: pulumi.Input<string>;
+    readonly snapshotName?: pulumi.Input<string>;
     /**
      * Resource tags
      */

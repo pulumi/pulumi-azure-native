@@ -92,8 +92,8 @@ namespace Pulumi.AzureNextGen.CustomProviders
         /// <summary>
         /// The name of the association.
         /// </summary>
-        [Input("associationName", required: true)]
-        public Input<string> AssociationName { get; set; } = null!;
+        [Input("associationName")]
+        public Input<string>? AssociationName { get; set; }
 
         /// <summary>
         /// The scope of the association. The scope can be any valid REST resource instance. For example, use '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}' for a virtual machine resource.

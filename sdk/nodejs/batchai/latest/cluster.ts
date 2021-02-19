@@ -120,9 +120,6 @@ export class Cluster extends pulumi.CustomResource {
         pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Cluster'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -194,7 +191,7 @@ export interface ClusterArgs {
     /**
      * The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly clusterName: pulumi.Input<string>;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * Setup to be performed on each compute node in the cluster.
      */

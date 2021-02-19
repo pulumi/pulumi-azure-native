@@ -64,9 +64,6 @@ export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
         pulumi.log.warn("WCFRelayAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:WCFRelayAuthorizationRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.authorizationRuleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'authorizationRuleName'");
-            }
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -111,7 +108,7 @@ export interface WCFRelayAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    readonly authorizationRuleName: pulumi.Input<string>;
+    readonly authorizationRuleName?: pulumi.Input<string>;
     /**
      * The namespace name
      */

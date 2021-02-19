@@ -72,8 +72,6 @@ class SerialPort(pulumi.CustomResource):
             if resource_provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_provider_namespace'")
             __props__['resource_provider_namespace'] = resource_provider_namespace
-            if serial_port is None and not opts.urn:
-                raise TypeError("Missing required property 'serial_port'")
             __props__['serial_port'] = serial_port
             __props__['state'] = state
             __props__['name'] = None

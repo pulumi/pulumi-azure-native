@@ -32,9 +32,6 @@ func NewPrivateLinkScopedResource(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -98,7 +95,7 @@ type privateLinkScopedResourceArgs struct {
 	// The resource id of the scoped Azure monitor resource.
 	LinkedResourceId *string `pulumi:"linkedResourceId"`
 	// The name of the scoped resource object.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Azure Monitor PrivateLinkScope resource.
@@ -110,7 +107,7 @@ type PrivateLinkScopedResourceArgs struct {
 	// The resource id of the scoped Azure monitor resource.
 	LinkedResourceId pulumi.StringPtrInput
 	// The name of the scoped resource object.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Azure Monitor PrivateLinkScope resource.

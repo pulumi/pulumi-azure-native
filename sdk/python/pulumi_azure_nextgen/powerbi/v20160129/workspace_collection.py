@@ -57,8 +57,6 @@ class WorkspaceCollection(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            if workspace_collection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_collection_name'")
             __props__['workspace_collection_name'] = workspace_collection_name
             __props__['name'] = None
             __props__['properties'] = None

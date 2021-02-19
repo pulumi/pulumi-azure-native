@@ -38,9 +38,6 @@ func NewRoleDefinition(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RoleDefinitionId == nil {
-		return nil, errors.New("invalid value for required argument 'RoleDefinitionId'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -126,7 +123,7 @@ type roleDefinitionArgs struct {
 	// Role definition permissions.
 	Permissions []Permission `pulumi:"permissions"`
 	// The ID of the role definition.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
 	// The role name.
 	RoleName *string `pulumi:"roleName"`
 	// The role type.
@@ -144,7 +141,7 @@ type RoleDefinitionArgs struct {
 	// Role definition permissions.
 	Permissions PermissionArrayInput
 	// The ID of the role definition.
-	RoleDefinitionId pulumi.StringInput
+	RoleDefinitionId pulumi.StringPtrInput
 	// The role name.
 	RoleName pulumi.StringPtrInput
 	// The role type.

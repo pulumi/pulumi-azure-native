@@ -48,9 +48,6 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Version == nil {
-		return nil, errors.New("invalid value for required argument 'Version'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric:ApplicationTypeVersion"),
@@ -142,7 +139,7 @@ type applicationTypeVersionArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The application type version.
-	Version string `pulumi:"version"`
+	Version *string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a ApplicationTypeVersion resource.
@@ -158,7 +155,7 @@ type ApplicationTypeVersionArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The application type version.
-	Version pulumi.StringInput
+	Version pulumi.StringPtrInput
 }
 
 func (ApplicationTypeVersionArgs) ElementType() reflect.Type {

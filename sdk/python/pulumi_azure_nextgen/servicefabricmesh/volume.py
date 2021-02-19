@@ -69,8 +69,6 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if volume_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'volume_resource_name'")
             __props__['volume_resource_name'] = volume_resource_name
             __props__['name'] = None
             __props__['provisioning_state'] = None

@@ -181,8 +181,8 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
         /// <summary>
         /// Name of the SAP monitor resource.
         /// </summary>
-        [Input("sapMonitorName", required: true)]
-        public Input<string> SapMonitorName { get; set; } = null!;
+        [Input("sapMonitorName")]
+        public Input<string>? SapMonitorName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -70,9 +70,6 @@ export class PrivateAtlase extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.privateAtlasName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateAtlasName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -119,7 +116,7 @@ export interface PrivateAtlaseArgs {
     /**
      * The name of the Private Atlas instance.
      */
-    readonly privateAtlasName: pulumi.Input<string>;
+    readonly privateAtlasName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

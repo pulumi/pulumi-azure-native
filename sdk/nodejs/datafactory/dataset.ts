@@ -63,9 +63,6 @@ export class Dataset extends pulumi.CustomResource {
     constructor(name: string, args: DatasetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.datasetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'datasetName'");
-            }
             if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'factoryName'");
             }
@@ -108,7 +105,7 @@ export interface DatasetArgs {
     /**
      * The dataset name.
      */
-    readonly datasetName: pulumi.Input<string>;
+    readonly datasetName?: pulumi.Input<string>;
     /**
      * The factory name.
      */

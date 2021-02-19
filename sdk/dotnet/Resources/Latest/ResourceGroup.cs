@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ResourceGroup(string name, ResourceGroupArgs args, CustomResourceOptions? options = null)
+        public ResourceGroup(string name, ResourceGroupArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:resources/latest:ResourceGroup", name, args ?? new ResourceGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -133,8 +133,8 @@ namespace Pulumi.AzureNextGen.Resources.Latest
         /// <summary>
         /// The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

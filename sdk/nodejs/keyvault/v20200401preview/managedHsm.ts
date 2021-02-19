@@ -70,9 +70,6 @@ export class ManagedHsm extends pulumi.CustomResource {
     constructor(name: string, args: ManagedHsmArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,7 +112,7 @@ export interface ManagedHsmArgs {
     /**
      * Name of the managed HSM Pool
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Properties of the managed HSM
      */

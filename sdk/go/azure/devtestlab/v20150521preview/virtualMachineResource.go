@@ -75,9 +75,6 @@ func NewVirtualMachineResource(ctx *pulumi.Context,
 	if args.LabName == nil {
 		return nil, errors.New("invalid value for required argument 'LabName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -255,7 +252,7 @@ type virtualMachineResourceArgs struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The notes of the virtual machine.
 	Notes *string `pulumi:"notes"`
 	// The OS type of the virtual machine.
@@ -313,7 +310,7 @@ type VirtualMachineResourceArgs struct {
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The notes of the virtual machine.
 	Notes pulumi.StringPtrInput
 	// The OS type of the virtual machine.

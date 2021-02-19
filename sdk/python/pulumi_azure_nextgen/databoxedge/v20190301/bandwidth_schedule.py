@@ -62,8 +62,6 @@ class BandwidthSchedule(pulumi.CustomResource):
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if rate_in_mbps is None and not opts.urn:
                 raise TypeError("Missing required property 'rate_in_mbps'")

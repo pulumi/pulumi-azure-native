@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -39,12 +38,9 @@ type SubscriptionDiagnosticSetting struct {
 func NewSubscriptionDiagnosticSetting(ctx *pulumi.Context,
 	name string, args *SubscriptionDiagnosticSettingArgs, opts ...pulumi.ResourceOption) (*SubscriptionDiagnosticSetting, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &SubscriptionDiagnosticSettingArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:insights:SubscriptionDiagnosticSetting"),
@@ -128,7 +124,7 @@ type subscriptionDiagnosticSettingArgs struct {
 	// The list of logs settings.
 	Logs []SubscriptionLogSettings `pulumi:"logs"`
 	// The name of the diagnostic setting.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
 	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
 	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
@@ -148,7 +144,7 @@ type SubscriptionDiagnosticSettingArgs struct {
 	// The list of logs settings.
 	Logs SubscriptionLogSettingsArrayInput
 	// The name of the diagnostic setting.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
 	ServiceBusRuleId pulumi.StringPtrInput
 	// The resource ID of the storage account to which you would like to send Diagnostic Logs.

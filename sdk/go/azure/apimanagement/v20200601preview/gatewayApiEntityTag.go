@@ -64,9 +64,6 @@ func NewGatewayApiEntityTag(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApiId == nil {
-		return nil, errors.New("invalid value for required argument 'ApiId'")
-	}
 	if args.GatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayId'")
 	}
@@ -204,7 +201,7 @@ func (GatewayApiEntityTagState) ElementType() reflect.Type {
 
 type gatewayApiEntityTagArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
-	ApiId string `pulumi:"apiId"`
+	ApiId *string `pulumi:"apiId"`
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId string `pulumi:"gatewayId"`
 	// Provisioning state.
@@ -218,7 +215,7 @@ type gatewayApiEntityTagArgs struct {
 // The set of arguments for constructing a GatewayApiEntityTag resource.
 type GatewayApiEntityTagArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
-	ApiId pulumi.StringInput
+	ApiId pulumi.StringPtrInput
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId pulumi.StringInput
 	// Provisioning state.

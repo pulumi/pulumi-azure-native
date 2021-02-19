@@ -76,13 +76,10 @@ export class ManagementGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroup'. */
-    constructor(name: string, args: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'groupId'");
-            }
             inputs["details"] = args ? args.details : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["groupId"] = args ? args.groupId : undefined;
@@ -128,7 +125,7 @@ export interface ManagementGroupArgs {
     /**
      * Management Group ID.
      */
-    readonly groupId: pulumi.Input<string>;
+    readonly groupId?: pulumi.Input<string>;
     /**
      * The name of the management group. For example, 00000000-0000-0000-0000-000000000000
      */

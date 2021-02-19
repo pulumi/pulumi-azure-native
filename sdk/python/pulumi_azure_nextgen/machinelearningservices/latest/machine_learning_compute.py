@@ -66,8 +66,6 @@ class MachineLearningCompute(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if compute_name is None and not opts.urn:
-                raise TypeError("Missing required property 'compute_name'")
             __props__['compute_name'] = compute_name
             __props__['identity'] = identity
             __props__['location'] = location

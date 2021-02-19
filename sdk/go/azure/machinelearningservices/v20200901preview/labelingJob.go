@@ -32,9 +32,6 @@ func NewLabelingJob(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LabelingJobId == nil {
-		return nil, errors.New("invalid value for required argument 'LabelingJobId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -96,7 +93,7 @@ func (LabelingJobState) ElementType() reflect.Type {
 
 type labelingJobArgs struct {
 	// Name and identifier for LabelingJob.
-	LabelingJobId string `pulumi:"labelingJobId"`
+	LabelingJobId *string `pulumi:"labelingJobId"`
 	// Definition of a labeling job.
 	Properties *LabelingJobProperties `pulumi:"properties"`
 	// Name of the resource group in which workspace is located.
@@ -108,7 +105,7 @@ type labelingJobArgs struct {
 // The set of arguments for constructing a LabelingJob resource.
 type LabelingJobArgs struct {
 	// Name and identifier for LabelingJob.
-	LabelingJobId pulumi.StringInput
+	LabelingJobId pulumi.StringPtrInput
 	// Definition of a labeling job.
 	Properties LabelingJobPropertiesPtrInput
 	// Name of the resource group in which workspace is located.

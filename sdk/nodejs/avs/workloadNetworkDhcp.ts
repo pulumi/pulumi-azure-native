@@ -75,9 +75,6 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
     constructor(name: string, args: WorkloadNetworkDhcpArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dhcpId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dhcpId'");
-            }
             if ((!args || args.dhcpType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dhcpType'");
             }
@@ -126,7 +123,7 @@ export interface WorkloadNetworkDhcpArgs {
     /**
      * NSX DHCP identifier. Generally the same as the DHCP display name
      */
-    readonly dhcpId: pulumi.Input<string>;
+    readonly dhcpId?: pulumi.Input<string>;
     /**
      * Type of DHCP: SERVER or RELAY.
      */

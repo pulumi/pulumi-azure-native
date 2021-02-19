@@ -55,8 +55,6 @@ class Monitor(pulumi.CustomResource):
 
             __props__['identity'] = identity
             __props__['location'] = location
-            if monitor_name is None and not opts.urn:
-                raise TypeError("Missing required property 'monitor_name'")
             __props__['monitor_name'] = monitor_name
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

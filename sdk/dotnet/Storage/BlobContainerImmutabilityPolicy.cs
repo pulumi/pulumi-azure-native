@@ -136,8 +136,8 @@ namespace Pulumi.AzureNextGen.Storage
         /// <summary>
         /// The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         /// </summary>
-        [Input("immutabilityPolicyName", required: true)]
-        public Input<string> ImmutabilityPolicyName { get; set; } = null!;
+        [Input("immutabilityPolicyName")]
+        public Input<string>? ImmutabilityPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

@@ -183,8 +183,8 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// <summary>
         /// The name of the nat gateway.
         /// </summary>
-        [Input("natGatewayName", required: true)]
-        public Input<string> NatGatewayName { get; set; } = null!;
+        [Input("natGatewayName")]
+        public Input<string>? NatGatewayName { get; set; }
 
         /// <summary>
         /// The provisioning state of the NatGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

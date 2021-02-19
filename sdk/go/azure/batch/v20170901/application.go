@@ -35,9 +35,6 @@ func NewApplication(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.ApplicationId == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -133,7 +130,7 @@ type applicationArgs struct {
 	// A value indicating whether packages within the application may be overwritten using the same version string.
 	AllowUpdates *bool `pulumi:"allowUpdates"`
 	// The ID of the application.
-	ApplicationId string `pulumi:"applicationId"`
+	ApplicationId *string `pulumi:"applicationId"`
 	// The display name for the application.
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the resource group that contains the Batch account.
@@ -147,7 +144,7 @@ type ApplicationArgs struct {
 	// A value indicating whether packages within the application may be overwritten using the same version string.
 	AllowUpdates pulumi.BoolPtrInput
 	// The ID of the application.
-	ApplicationId pulumi.StringInput
+	ApplicationId pulumi.StringPtrInput
 	// The display name for the application.
 	DisplayName pulumi.StringPtrInput
 	// The name of the resource group that contains the Batch account.

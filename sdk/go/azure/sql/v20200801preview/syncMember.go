@@ -64,9 +64,6 @@ func NewSyncMember(ctx *pulumi.Context,
 	if args.SyncGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'SyncGroupName'")
 	}
-	if args.SyncMemberName == nil {
-		return nil, errors.New("invalid value for required argument 'SyncMemberName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql:SyncMember"),
@@ -191,7 +188,7 @@ type syncMemberArgs struct {
 	// ARM resource id of the sync member logical database, for sync members in Azure.
 	SyncMemberAzureDatabaseResourceId *string `pulumi:"syncMemberAzureDatabaseResourceId"`
 	// The name of the sync member.
-	SyncMemberName string `pulumi:"syncMemberName"`
+	SyncMemberName *string `pulumi:"syncMemberName"`
 	// Whether to use private link connection.
 	UsePrivateLinkConnection *bool `pulumi:"usePrivateLinkConnection"`
 	// User name of the member database in the sync member.
@@ -221,7 +218,7 @@ type SyncMemberArgs struct {
 	// ARM resource id of the sync member logical database, for sync members in Azure.
 	SyncMemberAzureDatabaseResourceId pulumi.StringPtrInput
 	// The name of the sync member.
-	SyncMemberName pulumi.StringInput
+	SyncMemberName pulumi.StringPtrInput
 	// Whether to use private link connection.
 	UsePrivateLinkConnection pulumi.BoolPtrInput
 	// User name of the member database in the sync member.

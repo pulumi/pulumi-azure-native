@@ -39,9 +39,6 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TrustedIdProviderName == nil {
-		return nil, errors.New("invalid value for required argument 'TrustedIdProviderName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore:TrustedIdProvider"),
@@ -102,7 +99,7 @@ type trustedIdProviderArgs struct {
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the trusted identity provider. This is used for differentiation of providers in the account.
-	TrustedIdProviderName string `pulumi:"trustedIdProviderName"`
+	TrustedIdProviderName *string `pulumi:"trustedIdProviderName"`
 }
 
 // The set of arguments for constructing a TrustedIdProvider resource.
@@ -114,7 +111,7 @@ type TrustedIdProviderArgs struct {
 	// The name of the Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the trusted identity provider. This is used for differentiation of providers in the account.
-	TrustedIdProviderName pulumi.StringInput
+	TrustedIdProviderName pulumi.StringPtrInput
 }
 
 func (TrustedIdProviderArgs) ElementType() reflect.Type {

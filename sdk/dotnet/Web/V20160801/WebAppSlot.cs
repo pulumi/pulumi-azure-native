@@ -448,8 +448,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <summary>
         /// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         /// </summary>
-        [Input("slot", required: true)]
-        public Input<string> Slot { get; set; } = null!;
+        [Input("slot")]
+        public Input<string>? Slot { get; set; }
 
         /// <summary>
         /// If specified during app creation, the app is created from a previous snapshot.

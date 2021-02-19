@@ -51,9 +51,6 @@ func NewRemediationAtManagementGroup(ctx *pulumi.Context,
 	if args.ManagementGroupsNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementGroupsNamespace'")
 	}
-	if args.RemediationName == nil {
-		return nil, errors.New("invalid value for required argument 'RemediationName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:policyinsights/latest:RemediationAtManagementGroup"),
@@ -149,7 +146,7 @@ type remediationAtManagementGroupArgs struct {
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 	// The name of the remediation.
-	RemediationName string `pulumi:"remediationName"`
+	RemediationName *string `pulumi:"remediationName"`
 	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
@@ -167,7 +164,7 @@ type RemediationAtManagementGroupArgs struct {
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
 	// The name of the remediation.
-	RemediationName pulumi.StringInput
+	RemediationName pulumi.StringPtrInput
 	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 }

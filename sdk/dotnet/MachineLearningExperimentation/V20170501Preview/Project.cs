@@ -169,8 +169,8 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
         /// <summary>
         /// The name of the machine learning project under a team account workspace.
         /// </summary>
-        [Input("projectName", required: true)]
-        public Input<string> ProjectName { get; set; } = null!;
+        [Input("projectName")]
+        public Input<string>? ProjectName { get; set; }
 
         /// <summary>
         /// The name of the resource group to which the machine learning team account belongs.

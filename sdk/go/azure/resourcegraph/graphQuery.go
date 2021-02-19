@@ -51,9 +51,6 @@ func NewGraphQuery(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:resourcegraph/v20180901preview:GraphQuery"),
@@ -144,7 +141,7 @@ type graphQueryArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Graph Query resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -160,7 +157,7 @@ type GraphQueryArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Graph Query resource.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

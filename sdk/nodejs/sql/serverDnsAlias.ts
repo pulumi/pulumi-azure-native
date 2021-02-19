@@ -58,9 +58,6 @@ export class ServerDnsAlias extends pulumi.CustomResource {
     constructor(name: string, args: ServerDnsAliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dnsAliasName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dnsAliasName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -98,7 +95,7 @@ export interface ServerDnsAliasArgs {
     /**
      * The name of the server dns alias.
      */
-    readonly dnsAliasName: pulumi.Input<string>;
+    readonly dnsAliasName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -41,9 +41,6 @@ func NewObjectAnchorsAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -120,7 +117,7 @@ func (ObjectAnchorsAccountState) ElementType() reflect.Type {
 
 type objectAnchorsAccountArgs struct {
 	// Name of an Mixed Reality Account.
-	AccountName string                        `pulumi:"accountName"`
+	AccountName *string                       `pulumi:"accountName"`
 	Identity    *ObjectAnchorsAccountIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
@@ -135,7 +132,7 @@ type objectAnchorsAccountArgs struct {
 // The set of arguments for constructing a ObjectAnchorsAccount resource.
 type ObjectAnchorsAccountArgs struct {
 	// Name of an Mixed Reality Account.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	Identity    ObjectAnchorsAccountIdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput

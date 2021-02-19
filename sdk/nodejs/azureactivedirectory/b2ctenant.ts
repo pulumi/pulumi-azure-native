@@ -80,9 +80,6 @@ export class B2CTenant extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
@@ -134,7 +131,7 @@ export interface B2CTenantArgs {
     /**
      * The initial domain name of the B2C tenant.
      */
-    readonly resourceName: pulumi.Input<string>;
+    readonly resourceName?: pulumi.Input<string>;
     /**
      * SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
      */

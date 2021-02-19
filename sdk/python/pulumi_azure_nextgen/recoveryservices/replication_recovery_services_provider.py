@@ -60,8 +60,6 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
-            if provider_name is None and not opts.urn:
-                raise TypeError("Missing required property 'provider_name'")
             __props__['provider_name'] = provider_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

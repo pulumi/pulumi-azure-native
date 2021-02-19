@@ -92,9 +92,6 @@ export class Organization extends pulumi.CustomResource {
         pulumi.log.warn("Organization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:confluent:Organization'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.organizationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'organizationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -150,7 +147,7 @@ export interface OrganizationArgs {
     /**
      * Organization resource name
      */
-    readonly organizationName: pulumi.Input<string>;
+    readonly organizationName?: pulumi.Input<string>;
     /**
      * Resource group name
      */

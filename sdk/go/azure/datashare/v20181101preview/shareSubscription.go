@@ -63,9 +63,6 @@ func NewShareSubscription(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ShareSubscriptionName == nil {
-		return nil, errors.New("invalid value for required argument 'ShareSubscriptionName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:datashare:ShareSubscription"),
@@ -183,7 +180,7 @@ type shareSubscriptionArgs struct {
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the shareSubscription.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
+	ShareSubscriptionName *string `pulumi:"shareSubscriptionName"`
 }
 
 // The set of arguments for constructing a ShareSubscription resource.
@@ -195,7 +192,7 @@ type ShareSubscriptionArgs struct {
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The name of the shareSubscription.
-	ShareSubscriptionName pulumi.StringInput
+	ShareSubscriptionName pulumi.StringPtrInput
 }
 
 func (ShareSubscriptionArgs) ElementType() reflect.Type {

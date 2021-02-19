@@ -70,8 +70,6 @@ class DataStore(pulumi.CustomResource):
             if data_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_manager_name'")
             __props__['data_manager_name'] = data_manager_name
-            if data_store_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_store_name'")
             __props__['data_store_name'] = data_store_name
             if data_store_type_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_store_type_id'")

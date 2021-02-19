@@ -152,8 +152,8 @@ namespace Pulumi.AzureNextGen.NetApp
         /// <summary>
         /// Backup policy Name which uniquely identify backup policy.
         /// </summary>
-        [Input("backupPolicyName", required: true)]
-        public Input<string> BackupPolicyName { get; set; } = null!;
+        [Input("backupPolicyName")]
+        public Input<string>? BackupPolicyName { get; set; }
 
         /// <summary>
         /// Daily backups count to keep

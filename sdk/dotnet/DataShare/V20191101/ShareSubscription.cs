@@ -185,8 +185,8 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
         /// <summary>
         /// The name of the shareSubscription.
         /// </summary>
-        [Input("shareSubscriptionName", required: true)]
-        public Input<string> ShareSubscriptionName { get; set; } = null!;
+        [Input("shareSubscriptionName")]
+        public Input<string>? ShareSubscriptionName { get; set; }
 
         /// <summary>
         /// Source share location.

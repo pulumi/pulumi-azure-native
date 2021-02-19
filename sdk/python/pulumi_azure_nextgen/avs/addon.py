@@ -53,8 +53,6 @@ class Addon(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if addon_name is None and not opts.urn:
-                raise TypeError("Missing required property 'addon_name'")
             __props__['addon_name'] = addon_name
             __props__['addon_type'] = addon_type
             __props__['license_key'] = license_key

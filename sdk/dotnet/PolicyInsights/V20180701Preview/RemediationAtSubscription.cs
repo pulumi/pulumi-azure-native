@@ -77,7 +77,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public RemediationAtSubscription(string name, RemediationAtSubscriptionArgs args, CustomResourceOptions? options = null)
+        public RemediationAtSubscription(string name, RemediationAtSubscriptionArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription", name, args ?? new RemediationAtSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -147,8 +147,8 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
         /// <summary>
         /// The name of the remediation.
         /// </summary>
-        [Input("remediationName", required: true)]
-        public Input<string> RemediationName { get; set; } = null!;
+        [Input("remediationName")]
+        public Input<string>? RemediationName { get; set; }
 
         public RemediationAtSubscriptionArgs()
         {

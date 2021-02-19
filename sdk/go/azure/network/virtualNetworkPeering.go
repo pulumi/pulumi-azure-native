@@ -53,9 +53,6 @@ func NewVirtualNetworkPeering(ctx *pulumi.Context,
 	if args.VirtualNetworkName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkName'")
 	}
-	if args.VirtualNetworkPeeringName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualNetworkPeeringName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualNetworkPeering"),
@@ -259,7 +256,7 @@ type virtualNetworkPeeringArgs struct {
 	// The name of the virtual network.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 	// The name of the peering.
-	VirtualNetworkPeeringName string `pulumi:"virtualNetworkPeeringName"`
+	VirtualNetworkPeeringName *string `pulumi:"virtualNetworkPeeringName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkPeering resource.
@@ -289,7 +286,7 @@ type VirtualNetworkPeeringArgs struct {
 	// The name of the virtual network.
 	VirtualNetworkName pulumi.StringInput
 	// The name of the peering.
-	VirtualNetworkPeeringName pulumi.StringInput
+	VirtualNetworkPeeringName pulumi.StringPtrInput
 }
 
 func (VirtualNetworkPeeringArgs) ElementType() reflect.Type {

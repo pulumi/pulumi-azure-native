@@ -60,9 +60,6 @@ func NewLab(ctx *pulumi.Context,
 	if args.LabAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'LabAccountName'")
 	}
-	if args.LabName == nil {
-		return nil, errors.New("invalid value for required argument 'LabName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -170,7 +167,7 @@ type labArgs struct {
 	// The name of the lab Account.
 	LabAccountName string `pulumi:"labAccountName"`
 	// The name of the lab.
-	LabName string `pulumi:"labName"`
+	LabName *string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// Maximum number of users allowed in the lab.
@@ -194,7 +191,7 @@ type LabArgs struct {
 	// The name of the lab Account.
 	LabAccountName pulumi.StringInput
 	// The name of the lab.
-	LabName pulumi.StringInput
+	LabName pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// Maximum number of users allowed in the lab.

@@ -93,9 +93,6 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
             if ((!args || args.managementGroupsNamespace === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managementGroupsNamespace'");
             }
-            if ((!args || args.remediationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'remediationName'");
-            }
             inputs["filters"] = args ? args.filters : undefined;
             inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
             inputs["managementGroupsNamespace"] = args ? args.managementGroupsNamespace : undefined;
@@ -161,7 +158,7 @@ export interface RemediationAtManagementGroupArgs {
     /**
      * The name of the remediation.
      */
-    readonly remediationName: pulumi.Input<string>;
+    readonly remediationName?: pulumi.Input<string>;
     /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */

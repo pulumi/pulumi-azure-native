@@ -175,8 +175,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// Name of the static site to create or update.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.

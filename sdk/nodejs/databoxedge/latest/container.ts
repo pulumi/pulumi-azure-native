@@ -80,9 +80,6 @@ export class Container extends pulumi.CustomResource {
         pulumi.log.warn("Container is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Container'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'containerName'");
-            }
             if ((!args || args.dataFormat === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataFormat'");
             }
@@ -135,7 +132,7 @@ export interface ContainerArgs {
     /**
      * The container name.
      */
-    readonly containerName: pulumi.Input<string>;
+    readonly containerName?: pulumi.Input<string>;
     /**
      * DataFormat for Container
      */

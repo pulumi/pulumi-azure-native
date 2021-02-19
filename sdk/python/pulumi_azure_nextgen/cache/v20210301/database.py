@@ -67,8 +67,6 @@ class Database(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['clustering_policy'] = clustering_policy
-            if database_name is None and not opts.urn:
-                raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['eviction_policy'] = eviction_policy
             __props__['modules'] = modules

@@ -66,9 +66,6 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 	if args.AvailabilityZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZoneId'")
 	}
-	if args.DedicatedCloudNodeName == nil {
-		return nil, errors.New("invalid value for required argument 'DedicatedCloudNodeName'")
-	}
 	if args.Id == nil {
 		return nil, errors.New("invalid value for required argument 'Id'")
 	}
@@ -203,7 +200,7 @@ type dedicatedCloudNodeArgs struct {
 	// Availability Zone id, e.g. "az1"
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
 	// dedicated cloud node name
-	DedicatedCloudNodeName string `pulumi:"dedicatedCloudNodeName"`
+	DedicatedCloudNodeName *string `pulumi:"dedicatedCloudNodeName"`
 	// SKU's id
 	Id string `pulumi:"id"`
 	// Azure region
@@ -229,7 +226,7 @@ type DedicatedCloudNodeArgs struct {
 	// Availability Zone id, e.g. "az1"
 	AvailabilityZoneId pulumi.StringInput
 	// dedicated cloud node name
-	DedicatedCloudNodeName pulumi.StringInput
+	DedicatedCloudNodeName pulumi.StringPtrInput
 	// SKU's id
 	Id pulumi.StringInput
 	// Azure region

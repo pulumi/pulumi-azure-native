@@ -72,8 +72,6 @@ class StorageTarget(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_target_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_target_name'")
             __props__['storage_target_name'] = storage_target_name
             if target_type is None and not opts.urn:
                 raise TypeError("Missing required property 'target_type'")

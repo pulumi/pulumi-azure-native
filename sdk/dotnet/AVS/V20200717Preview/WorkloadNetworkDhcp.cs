@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// NSX DHCP identifier. Generally the same as the DHCP display name
         /// </summary>
-        [Input("dhcpId", required: true)]
-        public Input<string> DhcpId { get; set; } = null!;
+        [Input("dhcpId")]
+        public Input<string>? DhcpId { get; set; }
 
         /// <summary>
         /// Type of DHCP: SERVER or RELAY.

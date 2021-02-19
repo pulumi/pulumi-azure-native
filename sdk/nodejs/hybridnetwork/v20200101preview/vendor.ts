@@ -59,12 +59,9 @@ export class Vendor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VendorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: VendorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.vendorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'vendorName'");
-            }
             inputs["vendorName"] = args ? args.vendorName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -96,5 +93,5 @@ export interface VendorArgs {
     /**
      * The name of the vendor.
      */
-    readonly vendorName: pulumi.Input<string>;
+    readonly vendorName?: pulumi.Input<string>;
 }

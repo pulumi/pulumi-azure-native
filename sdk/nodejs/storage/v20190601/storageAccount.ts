@@ -174,9 +174,6 @@ export class StorageAccount extends pulumi.CustomResource {
     constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -278,7 +275,7 @@ export interface StorageAccountArgs {
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    readonly accountName: pulumi.Input<string>;
+    readonly accountName?: pulumi.Input<string>;
     /**
      * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
      */

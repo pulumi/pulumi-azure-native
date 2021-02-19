@@ -84,9 +84,6 @@ export class Logger extends pulumi.CustomResource {
             if ((!args || args.credentials === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'credentials'");
             }
-            if ((!args || args.loggerId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'loggerId'");
-            }
             if ((!args || args.loggerType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loggerType'");
             }
@@ -148,7 +145,7 @@ export interface LoggerArgs {
     /**
      * Logger identifier. Must be unique in the API Management service instance.
      */
-    readonly loggerId: pulumi.Input<string>;
+    readonly loggerId?: pulumi.Input<string>;
     /**
      * Logger type.
      */

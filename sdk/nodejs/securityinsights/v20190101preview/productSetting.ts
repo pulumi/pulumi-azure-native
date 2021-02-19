@@ -71,9 +71,6 @@ export class ProductSetting extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.settingsName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'settingsName'");
-            }
             if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -127,7 +124,7 @@ export interface ProductSettingArgs {
     /**
      * The setting name. Supports - EyesOn, EntityAnalytics, Ueba
      */
-    readonly settingsName: pulumi.Input<string>;
+    readonly settingsName?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

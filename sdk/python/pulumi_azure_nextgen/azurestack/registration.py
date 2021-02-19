@@ -52,8 +52,6 @@ class Registration(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['location'] = location
-            if registration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'registration_name'")
             __props__['registration_name'] = registration_name
             if registration_token is None and not opts.urn:
                 raise TypeError("Missing required property 'registration_token'")

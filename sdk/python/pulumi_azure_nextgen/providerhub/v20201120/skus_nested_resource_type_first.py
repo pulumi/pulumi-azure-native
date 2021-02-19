@@ -61,8 +61,6 @@ class SkusNestedResourceTypeFirst(pulumi.CustomResource):
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__['resource_type'] = resource_type
-            if sku is None and not opts.urn:
-                raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             if sku_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_settings'")

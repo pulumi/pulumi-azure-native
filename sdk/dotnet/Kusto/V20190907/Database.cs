@@ -106,8 +106,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20190907
         /// <summary>
         /// The name of the database in the Kusto cluster.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// Kind of the database

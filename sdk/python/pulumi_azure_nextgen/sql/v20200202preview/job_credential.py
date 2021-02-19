@@ -53,8 +53,6 @@ class JobCredential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if credential_name is None and not opts.urn:
-                raise TypeError("Missing required property 'credential_name'")
             __props__['credential_name'] = credential_name
             if job_agent_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_agent_name'")

@@ -44,9 +44,6 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.BootstrapConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'BootstrapConfiguration'")
 	}
-	if args.PipelineName == nil {
-		return nil, errors.New("invalid value for required argument 'PipelineName'")
-	}
 	if args.PipelineType == nil {
 		return nil, errors.New("invalid value for required argument 'PipelineType'")
 	}
@@ -131,7 +128,7 @@ type pipelineArgs struct {
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// The name of the Pipeline resource in ARM.
-	PipelineName string `pulumi:"pipelineName"`
+	PipelineName *string `pulumi:"pipelineName"`
 	// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
 	PipelineType string `pulumi:"pipelineType"`
 	// Name of the resource group within the Azure subscription.
@@ -147,7 +144,7 @@ type PipelineArgs struct {
 	// Resource Location
 	Location pulumi.StringPtrInput
 	// The name of the Pipeline resource in ARM.
-	PipelineName pulumi.StringInput
+	PipelineName pulumi.StringPtrInput
 	// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
 	PipelineType pulumi.StringInput
 	// Name of the resource group within the Azure subscription.

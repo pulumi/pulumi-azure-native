@@ -44,9 +44,6 @@ func NewFailoverGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FailoverGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'FailoverGroupName'")
-	}
 	if args.PartnerServers == nil {
 		return nil, errors.New("invalid value for required argument 'PartnerServers'")
 	}
@@ -146,7 +143,7 @@ type failoverGroupArgs struct {
 	// List of databases in the failover group.
 	Databases []string `pulumi:"databases"`
 	// The name of the failover group.
-	FailoverGroupName string `pulumi:"failoverGroupName"`
+	FailoverGroupName *string `pulumi:"failoverGroupName"`
 	// List of partner server information for the failover group.
 	PartnerServers []PartnerInfo `pulumi:"partnerServers"`
 	// Read-only endpoint of the failover group instance.
@@ -166,7 +163,7 @@ type FailoverGroupArgs struct {
 	// List of databases in the failover group.
 	Databases pulumi.StringArrayInput
 	// The name of the failover group.
-	FailoverGroupName pulumi.StringInput
+	FailoverGroupName pulumi.StringPtrInput
 	// List of partner server information for the failover group.
 	PartnerServers PartnerInfoArrayInput
 	// Read-only endpoint of the failover group instance.

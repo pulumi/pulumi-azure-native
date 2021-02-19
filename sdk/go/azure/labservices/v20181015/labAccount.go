@@ -42,9 +42,6 @@ func NewLabAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LabAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'LabAccountName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -128,7 +125,7 @@ type labAccountArgs struct {
 	// Represents if region selection is enabled
 	EnabledRegionSelection *bool `pulumi:"enabledRegionSelection"`
 	// The name of the lab Account.
-	LabAccountName string `pulumi:"labAccountName"`
+	LabAccountName *string `pulumi:"labAccountName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The provisioning status of the resource.
@@ -146,7 +143,7 @@ type LabAccountArgs struct {
 	// Represents if region selection is enabled
 	EnabledRegionSelection pulumi.BoolPtrInput
 	// The name of the lab Account.
-	LabAccountName pulumi.StringInput
+	LabAccountName pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The provisioning status of the resource.

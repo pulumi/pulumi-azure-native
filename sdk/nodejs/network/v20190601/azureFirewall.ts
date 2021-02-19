@@ -106,9 +106,6 @@ export class AzureFirewall extends pulumi.CustomResource {
     constructor(name: string, args: AzureFirewallArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.azureFirewallName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'azureFirewallName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -171,7 +168,7 @@ export interface AzureFirewallArgs {
     /**
      * The name of the Azure Firewall.
      */
-    readonly azureFirewallName: pulumi.Input<string>;
+    readonly azureFirewallName?: pulumi.Input<string>;
     /**
      * The firewallPolicy associated with this azure firewall.
      */

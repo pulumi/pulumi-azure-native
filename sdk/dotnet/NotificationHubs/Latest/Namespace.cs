@@ -216,8 +216,8 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
         /// <summary>
         /// The namespace name.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// The namespace type.

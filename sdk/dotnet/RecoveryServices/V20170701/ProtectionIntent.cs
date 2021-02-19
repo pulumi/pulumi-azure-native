@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20170701
         /// <summary>
         /// Intent object name.
         /// </summary>
-        [Input("intentObjectName", required: true)]
-        public Input<string> IntentObjectName { get; set; } = null!;
+        [Input("intentObjectName")]
+        public Input<string>? IntentObjectName { get; set; }
 
         /// <summary>
         /// Resource location.

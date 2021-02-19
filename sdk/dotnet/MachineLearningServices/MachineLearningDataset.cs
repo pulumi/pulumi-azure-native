@@ -110,8 +110,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
         /// <summary>
         /// The Dataset name.
         /// </summary>
-        [Input("datasetName", required: true)]
-        public Input<string> DatasetName { get; set; } = null!;
+        [Input("datasetName")]
+        public Input<string>? DatasetName { get; set; }
 
         /// <summary>
         /// Specifies dataset type.

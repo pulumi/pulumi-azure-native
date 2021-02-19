@@ -84,8 +84,6 @@ class RouteFilterRule(pulumi.CustomResource):
             if route_filter_rule_type is None and not opts.urn:
                 raise TypeError("Missing required property 'route_filter_rule_type'")
             __props__['route_filter_rule_type'] = route_filter_rule_type
-            if rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
             __props__['etag'] = None
             __props__['provisioning_state'] = None

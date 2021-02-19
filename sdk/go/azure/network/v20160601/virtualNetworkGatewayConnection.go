@@ -65,9 +65,6 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VirtualNetworkGatewayConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualNetworkGatewayConnectionName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:VirtualNetworkGatewayConnection"),
@@ -323,7 +320,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// A common class for general resource information
 	VirtualNetworkGateway2 *VirtualNetworkGatewayType `pulumi:"virtualNetworkGateway2"`
 	// The name of the virtual network gateway connection.
-	VirtualNetworkGatewayConnectionName string `pulumi:"virtualNetworkGatewayConnectionName"`
+	VirtualNetworkGatewayConnectionName *string `pulumi:"virtualNetworkGatewayConnectionName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
@@ -367,7 +364,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// A common class for general resource information
 	VirtualNetworkGateway2 VirtualNetworkGatewayTypePtrInput
 	// The name of the virtual network gateway connection.
-	VirtualNetworkGatewayConnectionName pulumi.StringInput
+	VirtualNetworkGatewayConnectionName pulumi.StringPtrInput
 }
 
 func (VirtualNetworkGatewayConnectionArgs) ElementType() reflect.Type {

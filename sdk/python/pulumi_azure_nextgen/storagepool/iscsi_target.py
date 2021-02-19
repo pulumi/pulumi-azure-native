@@ -57,8 +57,6 @@ class IscsiTarget(pulumi.CustomResource):
             if disk_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_pool_name'")
             __props__['disk_pool_name'] = disk_pool_name
-            if iscsi_target_name is None and not opts.urn:
-                raise TypeError("Missing required property 'iscsi_target_name'")
             __props__['iscsi_target_name'] = iscsi_target_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

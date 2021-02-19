@@ -57,8 +57,6 @@ class AutomationAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
             __props__['location'] = location
             __props__['name'] = name

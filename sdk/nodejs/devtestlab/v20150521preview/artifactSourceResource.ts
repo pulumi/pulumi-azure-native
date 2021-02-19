@@ -97,9 +97,6 @@ export class ArtifactSourceResource extends pulumi.CustomResource {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -176,7 +173,7 @@ export interface ArtifactSourceResourceArgs {
     /**
      * The name of the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */

@@ -184,9 +184,6 @@ export class SiteSlot extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'slot'");
-            }
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             inputs["clientCertEnabled"] = args ? args.clientCertEnabled : undefined;
             inputs["cloningInfo"] = args ? args.cloningInfo : undefined;
@@ -368,7 +365,7 @@ export interface SiteSlotArgs {
     /**
      * Name of web app slot. If not specified then will default to production slot.
      */
-    readonly slot: pulumi.Input<string>;
+    readonly slot?: pulumi.Input<string>;
     /**
      * Resource tags
      */

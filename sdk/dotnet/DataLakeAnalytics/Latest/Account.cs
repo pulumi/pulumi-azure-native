@@ -245,8 +245,8 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// <summary>
         /// The name of the Data Lake Analytics account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         [Input("computePolicies")]
         private InputList<Inputs.CreateComputePolicyWithAccountParametersArgs>? _computePolicies;

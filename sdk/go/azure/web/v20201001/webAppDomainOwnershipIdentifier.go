@@ -34,9 +34,6 @@ func NewWebAppDomainOwnershipIdentifier(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DomainOwnershipIdentifierName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainOwnershipIdentifierName'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -123,7 +120,7 @@ func (WebAppDomainOwnershipIdentifierState) ElementType() reflect.Type {
 
 type webAppDomainOwnershipIdentifierArgs struct {
 	// Name of domain ownership identifier.
-	DomainOwnershipIdentifierName string `pulumi:"domainOwnershipIdentifierName"`
+	DomainOwnershipIdentifierName *string `pulumi:"domainOwnershipIdentifierName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Name of the app.
@@ -137,7 +134,7 @@ type webAppDomainOwnershipIdentifierArgs struct {
 // The set of arguments for constructing a WebAppDomainOwnershipIdentifier resource.
 type WebAppDomainOwnershipIdentifierArgs struct {
 	// Name of domain ownership identifier.
-	DomainOwnershipIdentifierName pulumi.StringInput
+	DomainOwnershipIdentifierName pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Name of the app.

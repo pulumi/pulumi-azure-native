@@ -115,9 +115,6 @@ export class ServerFarm extends pulumi.CustomResource {
     constructor(name: string, args: ServerFarmArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -208,7 +205,7 @@ export interface ServerFarmArgs {
     /**
      * Resource Name
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * If True apps assigned to this App Service Plan can be scaled independently
      *             If False apps assigned to this App Service Plan will scale to all instances of the plan

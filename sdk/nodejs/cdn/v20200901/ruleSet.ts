@@ -69,9 +69,6 @@ export class RuleSet extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleSetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ruleSetName'");
-            }
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
@@ -115,5 +112,5 @@ export interface RuleSetArgs {
     /**
      * Name of the rule set under the profile which is unique globally
      */
-    readonly ruleSetName: pulumi.Input<string>;
+    readonly ruleSetName?: pulumi.Input<string>;
 }

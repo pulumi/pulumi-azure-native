@@ -81,8 +81,6 @@ class HostPool(pulumi.CustomResource):
             __props__['custom_rdp_property'] = custom_rdp_property
             __props__['description'] = description
             __props__['friendly_name'] = friendly_name
-            if host_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'host_pool_name'")
             __props__['host_pool_name'] = host_pool_name
             if host_pool_type is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_type'")

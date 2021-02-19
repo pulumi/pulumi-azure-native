@@ -217,8 +217,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
         /// </summary>
-        [Input("endpointName", required: true)]
-        public Input<string> EndpointName { get; set; } = null!;
+        [Input("endpointName")]
+        public Input<string>? EndpointName { get; set; }
 
         [Input("geoFilters")]
         private InputList<Inputs.GeoFilterArgs>? _geoFilters;

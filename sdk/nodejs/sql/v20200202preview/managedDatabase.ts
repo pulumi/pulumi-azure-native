@@ -130,9 +130,6 @@ export class ManagedDatabase extends pulumi.CustomResource {
     constructor(name: string, args: ManagedDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'databaseName'");
-            }
             if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
@@ -222,7 +219,7 @@ export interface ManagedDatabaseArgs {
     /**
      * The name of the database.
      */
-    readonly databaseName: pulumi.Input<string>;
+    readonly databaseName?: pulumi.Input<string>;
     /**
      * Last backup file name for restore of this managed database.
      */

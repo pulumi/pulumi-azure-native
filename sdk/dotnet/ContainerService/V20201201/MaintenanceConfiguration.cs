@@ -98,8 +98,8 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
         /// <summary>
         /// The name of the maintenance configuration.
         /// </summary>
-        [Input("configName", required: true)]
-        public Input<string> ConfigName { get; set; } = null!;
+        [Input("configName")]
+        public Input<string>? ConfigName { get; set; }
 
         [Input("notAllowedTime")]
         private InputList<Inputs.TimeSpanArgs>? _notAllowedTime;

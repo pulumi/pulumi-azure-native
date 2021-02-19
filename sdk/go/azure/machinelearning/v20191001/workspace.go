@@ -59,9 +59,6 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.UserStorageAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'UserStorageAccountId'")
 	}
-	if args.WorkspaceName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:machinelearning:Workspace"),
@@ -173,7 +170,7 @@ type workspaceArgs struct {
 	// The fully qualified arm id of the storage account associated with this workspace.
 	UserStorageAccountId string `pulumi:"userStorageAccountId"`
 	// The name of the machine learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName *string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -193,7 +190,7 @@ type WorkspaceArgs struct {
 	// The fully qualified arm id of the storage account associated with this workspace.
 	UserStorageAccountId pulumi.StringInput
 	// The name of the machine learning workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName pulumi.StringPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

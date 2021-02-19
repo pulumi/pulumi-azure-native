@@ -326,8 +326,8 @@ namespace Pulumi.AzureNextGen.Sql
         /// <summary>
         /// The name of the database to be operated on (updated or created).
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.

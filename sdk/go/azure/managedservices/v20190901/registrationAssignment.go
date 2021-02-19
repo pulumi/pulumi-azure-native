@@ -30,9 +30,6 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RegistrationAssignmentId == nil {
-		return nil, errors.New("invalid value for required argument 'RegistrationAssignmentId'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -104,7 +101,7 @@ type registrationAssignmentArgs struct {
 	// Properties of a registration assignment.
 	Properties *RegistrationAssignmentProperties `pulumi:"properties"`
 	// Guid of the registration assignment.
-	RegistrationAssignmentId string `pulumi:"registrationAssignmentId"`
+	RegistrationAssignmentId *string `pulumi:"registrationAssignmentId"`
 	// Scope of the resource.
 	Scope string `pulumi:"scope"`
 }
@@ -114,7 +111,7 @@ type RegistrationAssignmentArgs struct {
 	// Properties of a registration assignment.
 	Properties RegistrationAssignmentPropertiesPtrInput
 	// Guid of the registration assignment.
-	RegistrationAssignmentId pulumi.StringInput
+	RegistrationAssignmentId pulumi.StringPtrInput
 	// Scope of the resource.
 	Scope pulumi.StringInput
 }

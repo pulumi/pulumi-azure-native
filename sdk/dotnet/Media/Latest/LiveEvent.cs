@@ -224,8 +224,8 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// The name of the live event, maximum length is 32.
         /// </summary>
-        [Input("liveEventName", required: true)]
-        public Input<string> LiveEventName { get; set; } = null!;
+        [Input("liveEventName")]
+        public Input<string>? LiveEventName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

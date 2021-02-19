@@ -46,9 +46,6 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AuthorizationRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'AuthorizationRuleName'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -156,7 +153,7 @@ func (TopicAuthorizationRuleState) ElementType() reflect.Type {
 
 type topicAuthorizationRuleArgs struct {
 	// The authorization rule name.
-	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
+	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
 	// A string that describes Claim Type for authorization rule.
 	ClaimType *string `pulumi:"claimType"`
 	// A string that describes Claim Value of authorization rule.
@@ -184,7 +181,7 @@ type topicAuthorizationRuleArgs struct {
 // The set of arguments for constructing a TopicAuthorizationRule resource.
 type TopicAuthorizationRuleArgs struct {
 	// The authorization rule name.
-	AuthorizationRuleName pulumi.StringInput
+	AuthorizationRuleName pulumi.StringPtrInput
 	// A string that describes Claim Type for authorization rule.
 	ClaimType pulumi.StringPtrInput
 	// A string that describes Claim Value of authorization rule.

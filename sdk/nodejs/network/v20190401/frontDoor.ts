@@ -106,9 +106,6 @@ export class FrontDoor extends pulumi.CustomResource {
     constructor(name: string, args: FrontDoorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.frontDoorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'frontDoorName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -182,7 +179,7 @@ export interface FrontDoorArgs {
     /**
      * Name of the Front Door which is globally unique.
      */
-    readonly frontDoorName: pulumi.Input<string>;
+    readonly frontDoorName?: pulumi.Input<string>;
     /**
      * Frontend endpoints available to routing rules.
      */

@@ -68,8 +68,6 @@ class DscpConfiguration(pulumi.CustomResource):
 
             __props__['destination_ip_ranges'] = destination_ip_ranges
             __props__['destination_port_ranges'] = destination_port_ranges
-            if dscp_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dscp_configuration_name'")
             __props__['dscp_configuration_name'] = dscp_configuration_name
             __props__['id'] = id
             __props__['location'] = location

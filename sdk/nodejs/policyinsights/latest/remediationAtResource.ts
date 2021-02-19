@@ -92,9 +92,6 @@ export class RemediationAtResource extends pulumi.CustomResource {
         pulumi.log.warn("RemediationAtResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtResource'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.remediationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'remediationName'");
-            }
             if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceId'");
             }
@@ -154,7 +151,7 @@ export interface RemediationAtResourceArgs {
     /**
      * The name of the remediation.
      */
-    readonly remediationName: pulumi.Input<string>;
+    readonly remediationName?: pulumi.Input<string>;
     /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */

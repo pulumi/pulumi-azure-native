@@ -68,9 +68,6 @@ export class DpsCertificate extends pulumi.CustomResource {
         pulumi.log.warn("DpsCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:DpsCertificate'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.certificateName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'certificateName'");
-            }
             if ((!args || args.provisioningServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'provisioningServiceName'");
             }
@@ -115,7 +112,7 @@ export interface DpsCertificateArgs {
     /**
      * The name of the certificate create or update.
      */
-    readonly certificateName: pulumi.Input<string>;
+    readonly certificateName?: pulumi.Input<string>;
     /**
      * The name of the provisioning service.
      */

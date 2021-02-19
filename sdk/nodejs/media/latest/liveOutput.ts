@@ -112,9 +112,6 @@ export class LiveOutput extends pulumi.CustomResource {
             if ((!args || args.liveEventName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'liveEventName'");
             }
-            if ((!args || args.liveOutputName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'liveOutputName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -192,7 +189,7 @@ export interface LiveOutputArgs {
     /**
      * The name of the live output.
      */
-    readonly liveOutputName: pulumi.Input<string>;
+    readonly liveOutputName?: pulumi.Input<string>;
     /**
      * The manifest file name. If not provided, the service will generate one automatically.
      */

@@ -87,9 +87,6 @@ export class Diagnostic extends pulumi.CustomResource {
     constructor(name: string, args: DiagnosticArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.diagnosticId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'diagnosticId'");
-            }
             if ((!args || args.loggerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loggerId'");
             }
@@ -152,7 +149,7 @@ export interface DiagnosticArgs {
     /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
-    readonly diagnosticId: pulumi.Input<string>;
+    readonly diagnosticId?: pulumi.Input<string>;
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
      */

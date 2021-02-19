@@ -75,9 +75,6 @@ export class HybridUseBenefit extends pulumi.CustomResource {
     constructor(name: string, args: HybridUseBenefitArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.planId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'planId'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -122,7 +119,7 @@ export interface HybridUseBenefitArgs {
     /**
      * This is a unique identifier for a plan. Should be a guid.
      */
-    readonly planId: pulumi.Input<string>;
+    readonly planId?: pulumi.Input<string>;
     /**
      * The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
      */

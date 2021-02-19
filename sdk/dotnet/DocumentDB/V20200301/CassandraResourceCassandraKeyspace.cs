@@ -110,8 +110,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200301
         /// <summary>
         /// Cosmos DB keyspace name.
         /// </summary>
-        [Input("keyspaceName", required: true)]
-        public Input<string> KeyspaceName { get; set; } = null!;
+        [Input("keyspaceName")]
+        public Input<string>? KeyspaceName { get; set; }
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

@@ -131,8 +131,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         /// <summary>
         /// The name of the Log Analytics cluster.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The identity of the resource.

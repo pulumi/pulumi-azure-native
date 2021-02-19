@@ -39,9 +39,6 @@ func NewBuildStep(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.StepName == nil {
-		return nil, errors.New("invalid value for required argument 'StepName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry:BuildStep"),
@@ -99,7 +96,7 @@ type buildStepArgs struct {
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of a build step for a container registry build task.
-	StepName string `pulumi:"stepName"`
+	StepName *string `pulumi:"stepName"`
 }
 
 // The set of arguments for constructing a BuildStep resource.
@@ -111,7 +108,7 @@ type BuildStepArgs struct {
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// The name of a build step for a container registry build task.
-	StepName pulumi.StringInput
+	StepName pulumi.StringPtrInput
 }
 
 func (BuildStepArgs) ElementType() reflect.Type {

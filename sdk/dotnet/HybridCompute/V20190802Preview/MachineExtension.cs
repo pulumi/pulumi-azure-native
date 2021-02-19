@@ -162,8 +162,8 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
         /// <summary>
         /// The name of the machine extension.
         /// </summary>
-        [Input("extensionName", required: true)]
-        public Input<string> ExtensionName { get; set; } = null!;
+        [Input("extensionName")]
+        public Input<string>? ExtensionName { get; set; }
 
         /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.

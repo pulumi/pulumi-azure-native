@@ -113,8 +113,8 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
         /// <summary>
         /// The name of the synchronizationSetting.
         /// </summary>
-        [Input("synchronizationSettingName", required: true)]
-        public Input<string> SynchronizationSettingName { get; set; } = null!;
+        [Input("synchronizationSettingName")]
+        public Input<string>? SynchronizationSettingName { get; set; }
 
         public SynchronizationSettingArgs()
         {

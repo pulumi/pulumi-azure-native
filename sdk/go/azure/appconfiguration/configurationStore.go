@@ -49,9 +49,6 @@ func NewConfigurationStore(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConfigStoreName == nil {
-		return nil, errors.New("invalid value for required argument 'ConfigStoreName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -160,7 +157,7 @@ func (ConfigurationStoreState) ElementType() reflect.Type {
 
 type configurationStoreArgs struct {
 	// The name of the configuration store.
-	ConfigStoreName string `pulumi:"configStoreName"`
+	ConfigStoreName *string `pulumi:"configStoreName"`
 	// The encryption settings of the configuration store.
 	Encryption *EncryptionProperties `pulumi:"encryption"`
 	// The managed identity information, if configured.
@@ -180,7 +177,7 @@ type configurationStoreArgs struct {
 // The set of arguments for constructing a ConfigurationStore resource.
 type ConfigurationStoreArgs struct {
 	// The name of the configuration store.
-	ConfigStoreName pulumi.StringInput
+	ConfigStoreName pulumi.StringPtrInput
 	// The encryption settings of the configuration store.
 	Encryption EncryptionPropertiesPtrInput
 	// The managed identity information, if configured.

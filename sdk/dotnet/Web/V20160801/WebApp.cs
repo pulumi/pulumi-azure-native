@@ -393,8 +393,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <summary>
         /// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if reserved; otherwise, &lt;code&gt;false&lt;/code&gt;.

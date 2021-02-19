@@ -76,9 +76,6 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Password == nil {
 		return nil, errors.New("invalid value for required argument 'Password'")
 	}
@@ -264,7 +261,7 @@ type certificateArgs struct {
 	// Resource Location.
 	Location *string `pulumi:"location"`
 	// Name of the certificate.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Certificate password.
 	Password string `pulumi:"password"`
 	// Pfx blob.
@@ -292,7 +289,7 @@ type CertificateArgs struct {
 	// Resource Location.
 	Location pulumi.StringPtrInput
 	// Name of the certificate.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Certificate password.
 	Password pulumi.StringInput
 	// Pfx blob.

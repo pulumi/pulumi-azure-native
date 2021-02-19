@@ -116,8 +116,8 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
         /// <summary>
         /// Name of the secret
         /// </summary>
-        [Input("secretName", required: true)]
-        public Input<string> SecretName { get; set; } = null!;
+        [Input("secretName")]
+        public Input<string>? SecretName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

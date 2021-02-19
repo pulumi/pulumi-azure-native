@@ -111,9 +111,6 @@ export class Topic extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.topicName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'topicName'");
-            }
             inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
@@ -216,5 +213,5 @@ export interface TopicArgs {
     /**
      * Name of the topic.
      */
-    readonly topicName: pulumi.Input<string>;
+    readonly topicName?: pulumi.Input<string>;
 }

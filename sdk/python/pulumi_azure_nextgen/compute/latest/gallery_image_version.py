@@ -69,8 +69,6 @@ class GalleryImageVersion(pulumi.CustomResource):
             if gallery_image_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_image_name'")
             __props__['gallery_image_name'] = gallery_image_name
-            if gallery_image_version_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gallery_image_version_name'")
             __props__['gallery_image_version_name'] = gallery_image_version_name
             if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")

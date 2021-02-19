@@ -61,8 +61,6 @@ class TemplateSpec(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if template_spec_name is None and not opts.urn:
-                raise TypeError("Missing required property 'template_spec_name'")
             __props__['template_spec_name'] = template_spec_name
             __props__['name'] = None
             __props__['system_data'] = None

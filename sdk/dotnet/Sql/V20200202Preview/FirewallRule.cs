@@ -101,8 +101,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <summary>
         /// The name of the firewall rule.
         /// </summary>
-        [Input("firewallRuleName", required: true)]
-        public Input<string> FirewallRuleName { get; set; } = null!;
+        [Input("firewallRuleName")]
+        public Input<string>? FirewallRuleName { get; set; }
 
         /// <summary>
         /// Resource name.

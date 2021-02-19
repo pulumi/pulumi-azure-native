@@ -61,8 +61,6 @@ class CustomIPPrefix(pulumi.CustomResource):
 
             __props__['cidr'] = cidr
             __props__['commissioned_state'] = commissioned_state
-            if custom_ip_prefix_name is None and not opts.urn:
-                raise TypeError("Missing required property 'custom_ip_prefix_name'")
             __props__['custom_ip_prefix_name'] = custom_ip_prefix_name
             __props__['id'] = id
             __props__['location'] = location

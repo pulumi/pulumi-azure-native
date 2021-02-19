@@ -184,8 +184,8 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The file share name.
         /// </summary>
-        [Input("shareName", required: true)]
-        public Input<string> ShareName { get; set; } = null!;
+        [Input("shareName")]
+        public Input<string>? ShareName { get; set; }
 
         /// <summary>
         /// The Share Status

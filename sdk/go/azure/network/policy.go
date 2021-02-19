@@ -52,9 +52,6 @@ func NewPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -174,7 +171,7 @@ type policyArgs struct {
 	// Describes managed rules inside the policy.
 	ManagedRules *ManagedRuleSetList `pulumi:"managedRules"`
 	// The name of the Web Application Firewall Policy.
-	PolicyName string `pulumi:"policyName"`
+	PolicyName *string `pulumi:"policyName"`
 	// Describes settings for the policy.
 	PolicySettings *PolicySettings `pulumi:"policySettings"`
 	// Name of the Resource group within the Azure subscription.
@@ -196,7 +193,7 @@ type PolicyArgs struct {
 	// Describes managed rules inside the policy.
 	ManagedRules ManagedRuleSetListPtrInput
 	// The name of the Web Application Firewall Policy.
-	PolicyName pulumi.StringInput
+	PolicyName pulumi.StringPtrInput
 	// Describes settings for the policy.
 	PolicySettings PolicySettingsPtrInput
 	// Name of the Resource group within the Azure subscription.

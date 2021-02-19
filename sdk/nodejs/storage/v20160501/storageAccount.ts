@@ -118,9 +118,6 @@ export class StorageAccount extends pulumi.CustomResource {
     constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -194,7 +191,7 @@ export interface StorageAccountArgs {
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    readonly accountName: pulumi.Input<string>;
+    readonly accountName?: pulumi.Input<string>;
     /**
      * User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
      */

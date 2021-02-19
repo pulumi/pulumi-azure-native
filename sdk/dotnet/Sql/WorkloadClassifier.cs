@@ -172,8 +172,8 @@ namespace Pulumi.AzureNextGen.Sql
         /// <summary>
         /// The name of the workload classifier to create/update.
         /// </summary>
-        [Input("workloadClassifierName", required: true)]
-        public Input<string> WorkloadClassifierName { get; set; } = null!;
+        [Input("workloadClassifierName")]
+        public Input<string>? WorkloadClassifierName { get; set; }
 
         /// <summary>
         /// The name of the workload group from which to receive the classifier from.

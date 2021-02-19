@@ -79,8 +79,6 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
             if policy_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_definitions'")
             __props__['policy_definitions'] = policy_definitions
-            if policy_set_definition_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_set_definition_name'")
             __props__['policy_set_definition_name'] = policy_set_definition_name
             __props__['policy_type'] = policy_type
             __props__['name'] = None

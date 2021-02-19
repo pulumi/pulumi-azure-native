@@ -70,9 +70,6 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ClusterName == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
 	if args.ManagementEndpoint == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementEndpoint'")
 	}
@@ -247,7 +244,7 @@ type clusterArgs struct {
 	// The ServiceFabric code version running in your cluster
 	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
 	// The name of the cluster resource
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName *string `pulumi:"clusterName"`
 	// The storage diagnostics account configuration details
 	DiagnosticsStorageAccountConfig *DiagnosticsStorageAccountConfig `pulumi:"diagnosticsStorageAccountConfig"`
 	// List of custom fabric settings to configure the cluster.
@@ -287,7 +284,7 @@ type ClusterArgs struct {
 	// The ServiceFabric code version running in your cluster
 	ClusterCodeVersion pulumi.StringPtrInput
 	// The name of the cluster resource
-	ClusterName pulumi.StringInput
+	ClusterName pulumi.StringPtrInput
 	// The storage diagnostics account configuration details
 	DiagnosticsStorageAccountConfig DiagnosticsStorageAccountConfigPtrInput
 	// List of custom fabric settings to configure the cluster.

@@ -137,9 +137,6 @@ export class ManagedCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             inputs["aadProfile"] = args ? args.aadProfile : undefined;
             inputs["addonProfiles"] = args ? args.addonProfiles : undefined;
             inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
@@ -264,7 +261,7 @@ export interface ManagedClusterArgs {
     /**
      * The name of the managed cluster resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    readonly resourceName?: pulumi.Input<string>;
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
      */

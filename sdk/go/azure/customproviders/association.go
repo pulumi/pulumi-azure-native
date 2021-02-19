@@ -33,9 +33,6 @@ func NewAssociation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AssociationName == nil {
-		return nil, errors.New("invalid value for required argument 'AssociationName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -94,7 +91,7 @@ func (AssociationState) ElementType() reflect.Type {
 
 type associationArgs struct {
 	// The name of the association.
-	AssociationName string `pulumi:"associationName"`
+	AssociationName *string `pulumi:"associationName"`
 	// The scope of the association. The scope can be any valid REST resource instance. For example, use '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}' for a virtual machine resource.
 	Scope string `pulumi:"scope"`
 	// The REST resource instance of the target resource for this association.
@@ -104,7 +101,7 @@ type associationArgs struct {
 // The set of arguments for constructing a Association resource.
 type AssociationArgs struct {
 	// The name of the association.
-	AssociationName pulumi.StringInput
+	AssociationName pulumi.StringPtrInput
 	// The scope of the association. The scope can be any valid REST resource instance. For example, use '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}' for a virtual machine resource.
 	Scope pulumi.StringInput
 	// The REST resource instance of the target resource for this association.

@@ -107,9 +107,6 @@ export class GlobalSchedule extends pulumi.CustomResource {
     constructor(name: string, args: GlobalScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -178,7 +175,7 @@ export interface GlobalScheduleArgs {
     /**
      * The name of the schedule.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Notification settings.
      */

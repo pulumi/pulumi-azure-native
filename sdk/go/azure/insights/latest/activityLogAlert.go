@@ -48,9 +48,6 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	if args.Actions == nil {
 		return nil, errors.New("invalid value for required argument 'Actions'")
 	}
-	if args.ActivityLogAlertName == nil {
-		return nil, errors.New("invalid value for required argument 'ActivityLogAlertName'")
-	}
 	if args.Condition == nil {
 		return nil, errors.New("invalid value for required argument 'Condition'")
 	}
@@ -149,7 +146,7 @@ type activityLogAlertArgs struct {
 	// The actions that will activate when the condition is met.
 	Actions ActionList `pulumi:"actions"`
 	// The name of the Activity Log Alert rule.
-	ActivityLogAlertName string `pulumi:"activityLogAlertName"`
+	ActivityLogAlertName *string `pulumi:"activityLogAlertName"`
 	// The condition that will cause this alert to activate.
 	Condition AlertRuleAllOfCondition `pulumi:"condition"`
 	// A description of this Activity Log Alert rule.
@@ -171,7 +168,7 @@ type ActivityLogAlertArgs struct {
 	// The actions that will activate when the condition is met.
 	Actions ActionListInput
 	// The name of the Activity Log Alert rule.
-	ActivityLogAlertName pulumi.StringInput
+	ActivityLogAlertName pulumi.StringPtrInput
 	// The condition that will cause this alert to activate.
 	Condition AlertRuleAllOfConditionInput
 	// A description of this Activity Log Alert rule.

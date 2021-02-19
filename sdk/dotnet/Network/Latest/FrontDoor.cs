@@ -207,8 +207,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// Name of the Front Door which is globally unique.
         /// </summary>
-        [Input("frontDoorName", required: true)]
-        public Input<string> FrontDoorName { get; set; } = null!;
+        [Input("frontDoorName")]
+        public Input<string>? FrontDoorName { get; set; }
 
         [Input("frontendEndpoints")]
         private InputList<Inputs.FrontendEndpointArgs>? _frontendEndpoints;

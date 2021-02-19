@@ -62,8 +62,6 @@ class SqlDatabase(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sql_database_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_database_name'")
             __props__['sql_database_name'] = sql_database_name
             __props__['tags'] = tags
             if workspace_name is None and not opts.urn:

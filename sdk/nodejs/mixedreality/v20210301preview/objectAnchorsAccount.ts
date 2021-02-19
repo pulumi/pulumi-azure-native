@@ -79,9 +79,6 @@ export class ObjectAnchorsAccount extends pulumi.CustomResource {
     constructor(name: string, args: ObjectAnchorsAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -127,7 +124,7 @@ export interface ObjectAnchorsAccountArgs {
     /**
      * Name of an Mixed Reality Account.
      */
-    readonly accountName: pulumi.Input<string>;
+    readonly accountName?: pulumi.Input<string>;
     readonly identity?: pulumi.Input<inputs.mixedreality.v20210301preview.ObjectAnchorsAccountIdentity>;
     /**
      * The geo-location where the resource lives

@@ -93,9 +93,6 @@ export class ManagedCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
@@ -166,7 +163,7 @@ export interface ManagedClusterArgs {
     /**
      * The name of the managed cluster resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    readonly resourceName?: pulumi.Input<string>;
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
      */

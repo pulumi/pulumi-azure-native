@@ -68,9 +68,6 @@ func NewSourceControlConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SourceControlConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'SourceControlConfigurationName'")
-	}
 	if args.OperatorNamespace == nil {
 		args.OperatorNamespace = pulumi.StringPtr("default")
 	}
@@ -212,7 +209,7 @@ type sourceControlConfigurationArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the Source Control Configuration.
-	SourceControlConfigurationName string `pulumi:"sourceControlConfigurationName"`
+	SourceControlConfigurationName *string `pulumi:"sourceControlConfigurationName"`
 	// Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
 	SshKnownHostsContents *string `pulumi:"sshKnownHostsContents"`
 }
@@ -246,7 +243,7 @@ type SourceControlConfigurationArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Name of the Source Control Configuration.
-	SourceControlConfigurationName pulumi.StringInput
+	SourceControlConfigurationName pulumi.StringPtrInput
 	// Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
 	SshKnownHostsContents pulumi.StringPtrInput
 }

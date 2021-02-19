@@ -70,9 +70,6 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["operationType"] = args ? args.operationType : undefined;
@@ -129,7 +126,7 @@ export interface AccountArgs {
     /**
      * Name of the resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    readonly resourceName?: pulumi.Input<string>;
     /**
      * The custom tags of the resource.
      */

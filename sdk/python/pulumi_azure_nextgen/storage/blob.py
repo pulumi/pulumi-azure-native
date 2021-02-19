@@ -66,8 +66,6 @@ class Blob(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if blob_name is None and not opts.urn:
-                raise TypeError("Missing required property 'blob_name'")
             __props__['blob_name'] = blob_name
             if container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_name'")

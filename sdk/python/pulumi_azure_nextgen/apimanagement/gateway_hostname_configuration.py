@@ -60,8 +60,6 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             if gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_id'")
             __props__['gateway_id'] = gateway_id
-            if hc_id is None and not opts.urn:
-                raise TypeError("Missing required property 'hc_id'")
             __props__['hc_id'] = hc_id
             __props__['hostname'] = hostname
             __props__['negotiate_client_certificate'] = negotiate_client_certificate

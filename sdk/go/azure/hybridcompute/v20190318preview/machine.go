@@ -62,9 +62,6 @@ func NewMachine(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -205,7 +202,7 @@ type machineArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the hybrid machine.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Resource's Physical Location
 	PhysicalLocation *string `pulumi:"physicalLocation"`
 	// The name of the resource group.
@@ -223,7 +220,7 @@ type MachineArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the hybrid machine.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Resource's Physical Location
 	PhysicalLocation pulumi.StringPtrInput
 	// The name of the resource group.

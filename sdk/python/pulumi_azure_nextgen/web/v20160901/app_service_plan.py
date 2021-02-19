@@ -79,8 +79,6 @@ class AppServicePlan(pulumi.CustomResource):
             __props__['is_spot'] = is_spot
             __props__['kind'] = kind
             __props__['location'] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if per_site_scaling is None:
                 per_site_scaling = False

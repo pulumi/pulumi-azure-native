@@ -105,8 +105,8 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

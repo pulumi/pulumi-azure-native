@@ -39,9 +39,6 @@ func NewDatabaseAccountMongoDBCollection(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.CollectionName == nil {
-		return nil, errors.New("invalid value for required argument 'CollectionName'")
-	}
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
@@ -134,7 +131,7 @@ type databaseAccountMongoDBCollectionArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB collection name.
-	CollectionName string `pulumi:"collectionName"`
+	CollectionName *string `pulumi:"collectionName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
@@ -150,7 +147,7 @@ type DatabaseAccountMongoDBCollectionArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
 	// Cosmos DB collection name.
-	CollectionName pulumi.StringInput
+	CollectionName pulumi.StringPtrInput
 	// Cosmos DB database name.
 	DatabaseName pulumi.StringInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.

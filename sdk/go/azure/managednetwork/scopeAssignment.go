@@ -40,9 +40,6 @@ func NewScopeAssignment(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
-	if args.ScopeAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'ScopeAssignmentName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:managednetwork/v20190601preview:ScopeAssignment"),
@@ -112,7 +109,7 @@ type scopeAssignmentArgs struct {
 	// The base resource of the scope assignment to create. The scope can be any REST resource instance. For example, use 'subscriptions/{subscription-id}' for a subscription, 'subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and 'subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
 	Scope string `pulumi:"scope"`
 	// The name of the scope assignment to create.
-	ScopeAssignmentName string `pulumi:"scopeAssignmentName"`
+	ScopeAssignmentName *string `pulumi:"scopeAssignmentName"`
 }
 
 // The set of arguments for constructing a ScopeAssignment resource.
@@ -124,7 +121,7 @@ type ScopeAssignmentArgs struct {
 	// The base resource of the scope assignment to create. The scope can be any REST resource instance. For example, use 'subscriptions/{subscription-id}' for a subscription, 'subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and 'subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
 	Scope pulumi.StringInput
 	// The name of the scope assignment to create.
-	ScopeAssignmentName pulumi.StringInput
+	ScopeAssignmentName pulumi.StringPtrInput
 }
 
 func (ScopeAssignmentArgs) ElementType() reflect.Type {

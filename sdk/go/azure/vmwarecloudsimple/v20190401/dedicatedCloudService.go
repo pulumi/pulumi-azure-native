@@ -40,9 +40,6 @@ func NewDedicatedCloudService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DedicatedCloudServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'DedicatedCloudServiceName'")
-	}
 	if args.GatewaySubnet == nil {
 		return nil, errors.New("invalid value for required argument 'GatewaySubnet'")
 	}
@@ -123,7 +120,7 @@ func (DedicatedCloudServiceState) ElementType() reflect.Type {
 
 type dedicatedCloudServiceArgs struct {
 	// dedicated cloud Service name
-	DedicatedCloudServiceName string `pulumi:"dedicatedCloudServiceName"`
+	DedicatedCloudServiceName *string `pulumi:"dedicatedCloudServiceName"`
 	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
 	GatewaySubnet string `pulumi:"gatewaySubnet"`
 	// Azure region
@@ -137,7 +134,7 @@ type dedicatedCloudServiceArgs struct {
 // The set of arguments for constructing a DedicatedCloudService resource.
 type DedicatedCloudServiceArgs struct {
 	// dedicated cloud Service name
-	DedicatedCloudServiceName pulumi.StringInput
+	DedicatedCloudServiceName pulumi.StringPtrInput
 	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
 	GatewaySubnet pulumi.StringInput
 	// Azure region

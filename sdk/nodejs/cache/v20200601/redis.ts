@@ -142,9 +142,6 @@ export class Redis extends pulumi.CustomResource {
     constructor(name: string, args: RedisArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -234,7 +231,7 @@ export interface RedisArgs {
     /**
      * The name of the Redis cache.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
      */

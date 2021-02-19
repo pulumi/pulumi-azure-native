@@ -107,8 +107,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// The name of the security alert policy.
         /// </summary>
-        [Input("securityAlertPolicyName", required: true)]
-        public Input<string> SecurityAlertPolicyName { get; set; } = null!;
+        [Input("securityAlertPolicyName")]
+        public Input<string>? SecurityAlertPolicyName { get; set; }
 
         /// <summary>
         /// The name of the  server.

@@ -70,9 +70,6 @@ func NewRunbook(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RunbookName == nil {
-		return nil, errors.New("invalid value for required argument 'RunbookName'")
-	}
 	if args.RunbookType == nil {
 		return nil, errors.New("invalid value for required argument 'RunbookType'")
 	}
@@ -224,7 +221,7 @@ type runbookArgs struct {
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The runbook name.
-	RunbookName string `pulumi:"runbookName"`
+	RunbookName *string `pulumi:"runbookName"`
 	// Gets or sets the type of the runbook.
 	RunbookType string `pulumi:"runbookType"`
 	// Gets or sets the tags attached to the resource.
@@ -254,7 +251,7 @@ type RunbookArgs struct {
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// The runbook name.
-	RunbookName pulumi.StringInput
+	RunbookName pulumi.StringPtrInput
 	// Gets or sets the type of the runbook.
 	RunbookType pulumi.StringInput
 	// Gets or sets the tags attached to the resource.

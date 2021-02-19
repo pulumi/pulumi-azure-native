@@ -95,8 +95,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// <summary>
         /// Replication policy name
         /// </summary>
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         /// <summary>
         /// Policy creation properties.

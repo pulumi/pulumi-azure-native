@@ -32,9 +32,6 @@ func NewDeploymentAtTenantScope(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DeploymentName == nil {
-		return nil, errors.New("invalid value for required argument 'DeploymentName'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -111,7 +108,7 @@ func (DeploymentAtTenantScopeState) ElementType() reflect.Type {
 
 type deploymentAtTenantScopeArgs struct {
 	// The name of the deployment.
-	DeploymentName string `pulumi:"deploymentName"`
+	DeploymentName *string `pulumi:"deploymentName"`
 	// The location to store the deployment data.
 	Location *string `pulumi:"location"`
 	// The deployment properties.
@@ -121,7 +118,7 @@ type deploymentAtTenantScopeArgs struct {
 // The set of arguments for constructing a DeploymentAtTenantScope resource.
 type DeploymentAtTenantScopeArgs struct {
 	// The name of the deployment.
-	DeploymentName pulumi.StringInput
+	DeploymentName pulumi.StringPtrInput
 	// The location to store the deployment data.
 	Location pulumi.StringPtrInput
 	// The deployment properties.

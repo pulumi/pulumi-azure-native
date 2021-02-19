@@ -71,8 +71,6 @@ class Trigger(pulumi.CustomResource):
             if share_subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_subscription_name'")
             __props__['share_subscription_name'] = share_subscription_name
-            if trigger_name is None and not opts.urn:
-                raise TypeError("Missing required property 'trigger_name'")
             __props__['trigger_name'] = trigger_name
             __props__['name'] = None
             __props__['system_data'] = None

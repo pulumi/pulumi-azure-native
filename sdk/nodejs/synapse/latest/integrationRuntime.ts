@@ -68,9 +68,6 @@ export class IntegrationRuntime extends pulumi.CustomResource {
         pulumi.log.warn("IntegrationRuntime is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IntegrationRuntime'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.integrationRuntimeName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'integrationRuntimeName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -113,7 +110,7 @@ export interface IntegrationRuntimeArgs {
     /**
      * Integration runtime name
      */
-    readonly integrationRuntimeName: pulumi.Input<string>;
+    readonly integrationRuntimeName?: pulumi.Input<string>;
     /**
      * Integration runtime properties.
      */

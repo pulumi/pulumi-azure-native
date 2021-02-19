@@ -205,8 +205,8 @@ namespace Pulumi.AzureNextGen.Network.V20181001
         /// <summary>
         /// The name of the virtual network tap.
         /// </summary>
-        [Input("tapName", required: true)]
-        public Input<string> TapName { get; set; } = null!;
+        [Input("tapName")]
+        public Input<string>? TapName { get; set; }
 
         public VirtualNetworkTapArgs()
         {

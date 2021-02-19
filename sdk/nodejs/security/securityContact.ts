@@ -68,12 +68,9 @@ export class SecurityContact extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SecurityContactArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: SecurityContactArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.securityContactName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'securityContactName'");
-            }
             inputs["alertNotifications"] = args ? args.alertNotifications : undefined;
             inputs["emails"] = args ? args.emails : undefined;
             inputs["notificationsByRole"] = args ? args.notificationsByRole : undefined;
@@ -125,5 +122,5 @@ export interface SecurityContactArgs {
     /**
      * Name of the security contact object
      */
-    readonly securityContactName: pulumi.Input<string>;
+    readonly securityContactName?: pulumi.Input<string>;
 }

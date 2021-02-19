@@ -104,8 +104,8 @@ namespace Pulumi.AzureNextGen.Insights
         /// <summary>
         /// The type of the Application Insights component data source for the linked storage account.
         /// </summary>
-        [Input("storageType", required: true)]
-        public Input<string> StorageType { get; set; } = null!;
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
         public ComponentLinkedStorageAccountArgs()
         {

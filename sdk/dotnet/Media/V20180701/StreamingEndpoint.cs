@@ -282,8 +282,8 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// <summary>
         /// The name of the StreamingEndpoint.
         /// </summary>
-        [Input("streamingEndpointName", required: true)]
-        public Input<string> StreamingEndpointName { get; set; } = null!;
+        [Input("streamingEndpointName")]
+        public Input<string>? StreamingEndpointName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

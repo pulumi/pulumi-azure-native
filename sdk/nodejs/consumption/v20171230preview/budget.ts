@@ -88,9 +88,6 @@ export class Budget extends pulumi.CustomResource {
             if ((!args || args.category === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.timeGrain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timeGrain'");
             }
@@ -149,7 +146,7 @@ export interface BudgetArgs {
     /**
      * Budget name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */

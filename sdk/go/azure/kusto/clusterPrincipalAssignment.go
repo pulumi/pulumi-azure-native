@@ -46,9 +46,6 @@ func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
-	if args.PrincipalAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'PrincipalAssignmentName'")
-	}
 	if args.PrincipalId == nil {
 		return nil, errors.New("invalid value for required argument 'PrincipalId'")
 	}
@@ -150,7 +147,7 @@ type clusterPrincipalAssignmentArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the Kusto principalAssignment.
-	PrincipalAssignmentName string `pulumi:"principalAssignmentName"`
+	PrincipalAssignmentName *string `pulumi:"principalAssignmentName"`
 	// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
 	PrincipalId string `pulumi:"principalId"`
 	// Principal type.
@@ -168,7 +165,7 @@ type ClusterPrincipalAssignmentArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName pulumi.StringInput
 	// The name of the Kusto principalAssignment.
-	PrincipalAssignmentName pulumi.StringInput
+	PrincipalAssignmentName pulumi.StringPtrInput
 	// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
 	PrincipalId pulumi.StringInput
 	// Principal type.

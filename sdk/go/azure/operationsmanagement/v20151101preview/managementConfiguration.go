@@ -32,9 +32,6 @@ func NewManagementConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ManagementConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'ManagementConfigurationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -95,7 +92,7 @@ type managementConfigurationArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// User Management Configuration Name.
-	ManagementConfigurationName string `pulumi:"managementConfigurationName"`
+	ManagementConfigurationName *string `pulumi:"managementConfigurationName"`
 	// Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
 	Properties *ManagementConfigurationProperties `pulumi:"properties"`
 	// The name of the resource group to get. The name is case insensitive.
@@ -107,7 +104,7 @@ type ManagementConfigurationArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// User Management Configuration Name.
-	ManagementConfigurationName pulumi.StringInput
+	ManagementConfigurationName pulumi.StringPtrInput
 	// Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
 	Properties ManagementConfigurationPropertiesPtrInput
 	// The name of the resource group to get. The name is case insensitive.

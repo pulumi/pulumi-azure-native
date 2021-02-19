@@ -36,9 +36,6 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -131,7 +128,7 @@ type protectionPolicyArgs struct {
 	// Resource name associated with the resource.
 	Name *string `pulumi:"name"`
 	// The backup policy to be created.
-	PolicyName string `pulumi:"policyName"`
+	PolicyName *string `pulumi:"policyName"`
 	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
 	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group associated with the Recovery Services vault.
@@ -155,7 +152,7 @@ type ProtectionPolicyArgs struct {
 	// Resource name associated with the resource.
 	Name pulumi.StringPtrInput
 	// The backup policy to be created.
-	PolicyName pulumi.StringInput
+	PolicyName pulumi.StringPtrInput
 	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
 	Properties pulumi.Input
 	// The name of the resource group associated with the Recovery Services vault.

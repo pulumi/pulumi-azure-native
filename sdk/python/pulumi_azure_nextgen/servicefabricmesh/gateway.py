@@ -67,8 +67,6 @@ class Gateway(pulumi.CustomResource):
             if destination_network is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_network'")
             __props__['destination_network'] = destination_network
-            if gateway_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gateway_resource_name'")
             __props__['gateway_resource_name'] = gateway_resource_name
             __props__['http'] = http
             __props__['location'] = location

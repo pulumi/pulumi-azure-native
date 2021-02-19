@@ -33,9 +33,6 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AuthorizationRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'AuthorizationRuleName'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -111,7 +108,7 @@ func (QueueAuthorizationRuleState) ElementType() reflect.Type {
 
 type queueAuthorizationRuleArgs struct {
 	// The authorization rule name.
-	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
+	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// The queue name.
@@ -125,7 +122,7 @@ type queueAuthorizationRuleArgs struct {
 // The set of arguments for constructing a QueueAuthorizationRule resource.
 type QueueAuthorizationRuleArgs struct {
 	// The authorization rule name.
-	AuthorizationRuleName pulumi.StringInput
+	AuthorizationRuleName pulumi.StringPtrInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// The queue name.

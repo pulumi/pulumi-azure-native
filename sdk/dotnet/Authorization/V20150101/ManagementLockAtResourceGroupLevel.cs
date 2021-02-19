@@ -99,8 +99,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20150101
         /// <summary>
         /// The lock name.
         /// </summary>
-        [Input("lockName", required: true)]
-        public Input<string> LockName { get; set; } = null!;
+        [Input("lockName")]
+        public Input<string>? LockName { get; set; }
 
         /// <summary>
         /// The name of the lock.

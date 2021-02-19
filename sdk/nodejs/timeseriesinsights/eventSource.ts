@@ -70,9 +70,6 @@ export class EventSource extends pulumi.CustomResource {
             if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.eventSourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'eventSourceName'");
-            }
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -119,7 +116,7 @@ export interface EventSourceArgs {
     /**
      * Name of the event source.
      */
-    readonly eventSourceName: pulumi.Input<string>;
+    readonly eventSourceName?: pulumi.Input<string>;
     /**
      * The kind of the event source.
      */

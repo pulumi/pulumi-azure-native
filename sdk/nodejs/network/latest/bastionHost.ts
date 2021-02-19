@@ -84,9 +84,6 @@ export class BastionHost extends pulumi.CustomResource {
         pulumi.log.warn("BastionHost is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:BastionHost'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.bastionHostName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'bastionHostName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -131,7 +128,7 @@ export interface BastionHostArgs {
     /**
      * The name of the Bastion Host.
      */
-    readonly bastionHostName: pulumi.Input<string>;
+    readonly bastionHostName?: pulumi.Input<string>;
     /**
      * FQDN for the endpoint on which bastion host is accessible.
      */

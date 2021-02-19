@@ -67,9 +67,6 @@ export class SyncGroup extends pulumi.CustomResource {
             if ((!args || args.storageSyncServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            if ((!args || args.syncGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'syncGroupName'");
-            }
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
@@ -117,7 +114,7 @@ export interface SyncGroupArgs {
     /**
      * Name of Sync Group resource.
      */
-    readonly syncGroupName: pulumi.Input<string>;
+    readonly syncGroupName?: pulumi.Input<string>;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
      */

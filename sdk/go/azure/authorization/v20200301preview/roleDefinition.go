@@ -38,9 +38,6 @@ func NewRoleDefinition(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RoleDefinitionName == nil {
-		return nil, errors.New("invalid value for required argument 'RoleDefinitionName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -126,7 +123,7 @@ type roleDefinitionArgs struct {
 	// Role definition permissions.
 	Permissions []Permission `pulumi:"permissions"`
 	// The name of the role definition to delete.
-	RoleDefinitionName string `pulumi:"roleDefinitionName"`
+	RoleDefinitionName *string `pulumi:"roleDefinitionName"`
 	// The role name.
 	RoleName *string `pulumi:"roleName"`
 	// The role type.
@@ -144,7 +141,7 @@ type RoleDefinitionArgs struct {
 	// Role definition permissions.
 	Permissions PermissionArrayInput
 	// The name of the role definition to delete.
-	RoleDefinitionName pulumi.StringInput
+	RoleDefinitionName pulumi.StringPtrInput
 	// The role name.
 	RoleName pulumi.StringPtrInput
 	// The role type.

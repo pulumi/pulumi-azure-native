@@ -185,8 +185,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
         /// <summary>
         /// The name of the workspace.
         /// </summary>
-        [Input("workspaceName", required: true)]
-        public Input<string> WorkspaceName { get; set; } = null!;
+        [Input("workspaceName")]
+        public Input<string>? WorkspaceName { get; set; }
 
         public WorkspaceArgs()
         {

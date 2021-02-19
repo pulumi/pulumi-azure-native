@@ -75,9 +75,6 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
         pulumi.log.warn("ServerCommunicationLink is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerCommunicationLink'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.communicationLinkName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'communicationLinkName'");
-            }
             if ((!args || args.partnerServer === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partnerServer'");
             }
@@ -124,7 +121,7 @@ export interface ServerCommunicationLinkArgs {
     /**
      * The name of the server communication link.
      */
-    readonly communicationLinkName: pulumi.Input<string>;
+    readonly communicationLinkName?: pulumi.Input<string>;
     /**
      * The name of the partner server.
      */

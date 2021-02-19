@@ -104,9 +104,6 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
         pulumi.log.warn("WebAppHostNameBindingSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppHostNameBindingSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'hostName'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -183,7 +180,7 @@ export interface WebAppHostNameBindingSlotArgs {
     /**
      * Hostname in the hostname binding.
      */
-    readonly hostName: pulumi.Input<string>;
+    readonly hostName?: pulumi.Input<string>;
     /**
      * Hostname type.
      */

@@ -33,9 +33,6 @@ func NewMonitor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.MonitorName == nil {
-		return nil, errors.New("invalid value for required argument 'MonitorName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -100,7 +97,7 @@ type monitorArgs struct {
 	Identity *IdentityProperties `pulumi:"identity"`
 	Location *string             `pulumi:"location"`
 	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
+	MonitorName *string `pulumi:"monitorName"`
 	// Properties specific to the monitor resource.
 	Properties *MonitorProperties `pulumi:"properties"`
 	// The name of the resource group to which the Datadog resource belongs.
@@ -114,7 +111,7 @@ type MonitorArgs struct {
 	Identity IdentityPropertiesPtrInput
 	Location pulumi.StringPtrInput
 	// Monitor resource name
-	MonitorName pulumi.StringInput
+	MonitorName pulumi.StringPtrInput
 	// Properties specific to the monitor resource.
 	Properties MonitorPropertiesPtrInput
 	// The name of the resource group to which the Datadog resource belongs.

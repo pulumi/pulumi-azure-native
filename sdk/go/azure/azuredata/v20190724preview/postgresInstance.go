@@ -36,9 +36,6 @@ func NewPostgresInstance(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PostgresInstanceName == nil {
-		return nil, errors.New("invalid value for required argument 'PostgresInstanceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -108,7 +105,7 @@ func (PostgresInstanceState) ElementType() reflect.Type {
 
 type postgresInstanceArgs struct {
 	// Name of PostgresInstance
-	PostgresInstanceName string `pulumi:"postgresInstanceName"`
+	PostgresInstanceName *string `pulumi:"postgresInstanceName"`
 	// The name of the Azure resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -116,7 +113,7 @@ type postgresInstanceArgs struct {
 // The set of arguments for constructing a PostgresInstance resource.
 type PostgresInstanceArgs struct {
 	// Name of PostgresInstance
-	PostgresInstanceName pulumi.StringInput
+	PostgresInstanceName pulumi.StringPtrInput
 	// The name of the Azure resource group
 	ResourceGroupName pulumi.StringInput
 }

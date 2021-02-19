@@ -34,9 +34,6 @@ func NewLinkedService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LinkName == nil {
-		return nil, errors.New("invalid value for required argument 'LinkName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -104,7 +101,7 @@ type linkedServiceArgs struct {
 	// Identity for the resource.
 	Identity *Identity `pulumi:"identity"`
 	// Friendly name of the linked workspace
-	LinkName string `pulumi:"linkName"`
+	LinkName *string `pulumi:"linkName"`
 	// location of the linked service.
 	Location *string `pulumi:"location"`
 	// Friendly name of the linked service
@@ -122,7 +119,7 @@ type LinkedServiceArgs struct {
 	// Identity for the resource.
 	Identity IdentityPtrInput
 	// Friendly name of the linked workspace
-	LinkName pulumi.StringInput
+	LinkName pulumi.StringPtrInput
 	// location of the linked service.
 	Location pulumi.StringPtrInput
 	// Friendly name of the linked service

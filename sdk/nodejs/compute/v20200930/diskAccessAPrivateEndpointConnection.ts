@@ -69,9 +69,6 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
             if ((!args || args.diskAccessName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'diskAccessName'");
             }
-            if ((!args || args.privateEndpointConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if ((!args || args.privateLinkServiceConnectionState === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateLinkServiceConnectionState'");
             }
@@ -117,7 +114,7 @@ export interface DiskAccessAPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection
      */
-    readonly privateEndpointConnectionName: pulumi.Input<string>;
+    readonly privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between DiskAccess and Virtual Network.
      */

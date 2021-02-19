@@ -160,8 +160,8 @@ namespace Pulumi.AzureNextGen.Aad
         /// <summary>
         /// The name of the OuContainer.
         /// </summary>
-        [Input("ouContainerName", required: true)]
-        public Input<string> OuContainerName { get; set; } = null!;
+        [Input("ouContainerName")]
+        public Input<string>? OuContainerName { get; set; }
 
         /// <summary>
         /// The account password

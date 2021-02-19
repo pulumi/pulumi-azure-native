@@ -105,8 +105,8 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// <summary>
         /// The name of the notebook workspace resource.
         /// </summary>
-        [Input("notebookWorkspaceName", required: true)]
-        public Input<string> NotebookWorkspaceName { get; set; } = null!;
+        [Input("notebookWorkspaceName")]
+        public Input<string>? NotebookWorkspaceName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

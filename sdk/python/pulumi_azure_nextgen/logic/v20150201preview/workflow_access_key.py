@@ -52,8 +52,6 @@ class WorkflowAccessKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access_key_name is None and not opts.urn:
-                raise TypeError("Missing required property 'access_key_name'")
             __props__['access_key_name'] = access_key_name
             __props__['id'] = id
             __props__['not_after'] = not_after

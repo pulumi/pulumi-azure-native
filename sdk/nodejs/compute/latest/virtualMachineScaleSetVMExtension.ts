@@ -102,9 +102,6 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmExtensionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'vmExtensionName'");
-            }
             if ((!args || args.vmScaleSetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
@@ -200,7 +197,7 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
     /**
      * The name of the virtual machine extension.
      */
-    readonly vmExtensionName: pulumi.Input<string>;
+    readonly vmExtensionName?: pulumi.Input<string>;
     /**
      * The name of the VM scale set.
      */

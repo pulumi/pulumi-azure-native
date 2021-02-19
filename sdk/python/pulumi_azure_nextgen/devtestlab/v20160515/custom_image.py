@@ -75,8 +75,6 @@ class CustomImage(pulumi.CustomResource):
             __props__['lab_name'] = lab_name
             __props__['location'] = location
             __props__['managed_image_id'] = managed_image_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None and not opts.urn:

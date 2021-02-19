@@ -96,9 +96,6 @@ export class ADCCatalog extends pulumi.CustomResource {
         pulumi.log.warn("ADCCatalog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datacatalog:ADCCatalog'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.catalogName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'catalogName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -152,7 +149,7 @@ export interface ADCCatalogArgs {
     /**
      * The name of the data catalog in the specified subscription and resource group.
      */
-    readonly catalogName: pulumi.Input<string>;
+    readonly catalogName?: pulumi.Input<string>;
     /**
      * Automatic unit adjustment enabled or not.
      */

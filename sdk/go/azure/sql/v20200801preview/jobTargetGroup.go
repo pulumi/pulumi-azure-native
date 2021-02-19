@@ -42,9 +42,6 @@ func NewJobTargetGroup(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.TargetGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'TargetGroupName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql:JobTargetGroup"),
@@ -110,7 +107,7 @@ type jobTargetGroupArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// The name of the target group.
-	TargetGroupName string `pulumi:"targetGroupName"`
+	TargetGroupName *string `pulumi:"targetGroupName"`
 }
 
 // The set of arguments for constructing a JobTargetGroup resource.
@@ -124,7 +121,7 @@ type JobTargetGroupArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// The name of the target group.
-	TargetGroupName pulumi.StringInput
+	TargetGroupName pulumi.StringPtrInput
 }
 
 func (JobTargetGroupArgs) ElementType() reflect.Type {

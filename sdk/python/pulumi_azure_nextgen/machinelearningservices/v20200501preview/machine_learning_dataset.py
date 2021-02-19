@@ -57,8 +57,6 @@ class MachineLearningDataset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if dataset_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dataset_name'")
             __props__['dataset_name'] = dataset_name
             if dataset_type is None and not opts.urn:
                 raise TypeError("Missing required property 'dataset_type'")

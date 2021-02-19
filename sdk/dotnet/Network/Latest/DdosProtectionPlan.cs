@@ -139,8 +139,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The name of the DDoS protection plan.
         /// </summary>
-        [Input("ddosProtectionPlanName", required: true)]
-        public Input<string> DdosProtectionPlanName { get; set; } = null!;
+        [Input("ddosProtectionPlanName")]
+        public Input<string>? DdosProtectionPlanName { get; set; }
 
         /// <summary>
         /// Resource location.

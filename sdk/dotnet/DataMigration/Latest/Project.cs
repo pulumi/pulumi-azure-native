@@ -164,8 +164,8 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
         /// <summary>
         /// Name of the project
         /// </summary>
-        [Input("projectName", required: true)]
-        public Input<string> ProjectName { get; set; } = null!;
+        [Input("projectName")]
+        public Input<string>? ProjectName { get; set; }
 
         /// <summary>
         /// Name of the service

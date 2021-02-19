@@ -133,8 +133,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <summary>
         /// The bandwidth schedule name which needs to be added/updated.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The bandwidth rate in Mbps.

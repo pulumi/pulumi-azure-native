@@ -40,9 +40,6 @@ func NewInstancePool(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.InstancePoolName == nil {
-		return nil, errors.New("invalid value for required argument 'InstancePoolName'")
-	}
 	if args.LicenseType == nil {
 		return nil, errors.New("invalid value for required argument 'LicenseType'")
 	}
@@ -132,7 +129,7 @@ func (InstancePoolState) ElementType() reflect.Type {
 
 type instancePoolArgs struct {
 	// The name of the instance pool to be created or updated.
-	InstancePoolName string `pulumi:"instancePoolName"`
+	InstancePoolName *string `pulumi:"instancePoolName"`
 	// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
 	LicenseType string `pulumi:"licenseType"`
 	// Resource location.
@@ -152,7 +149,7 @@ type instancePoolArgs struct {
 // The set of arguments for constructing a InstancePool resource.
 type InstancePoolArgs struct {
 	// The name of the instance pool to be created or updated.
-	InstancePoolName pulumi.StringInput
+	InstancePoolName pulumi.StringPtrInput
 	// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
 	LicenseType pulumi.StringInput
 	// Resource location.

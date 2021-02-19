@@ -73,9 +73,6 @@ export class ConnectionGateway extends pulumi.CustomResource {
         pulumi.log.warn("ConnectionGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:ConnectionGateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.connectionGatewayName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'connectionGatewayName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +113,7 @@ export interface ConnectionGatewayArgs {
     /**
      * The connection gateway name
      */
-    readonly connectionGatewayName: pulumi.Input<string>;
+    readonly connectionGatewayName?: pulumi.Input<string>;
     /**
      * Resource ETag
      */

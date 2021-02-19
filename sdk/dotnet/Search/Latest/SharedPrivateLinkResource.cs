@@ -107,8 +107,8 @@ namespace Pulumi.AzureNextGen.Search.Latest
         /// <summary>
         /// The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
         /// </summary>
-        [Input("sharedPrivateLinkResourceName", required: true)]
-        public Input<string> SharedPrivateLinkResourceName { get; set; } = null!;
+        [Input("sharedPrivateLinkResourceName")]
+        public Input<string>? SharedPrivateLinkResourceName { get; set; }
 
         public SharedPrivateLinkResourceArgs()
         {

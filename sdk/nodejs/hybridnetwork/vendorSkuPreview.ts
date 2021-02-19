@@ -54,9 +54,6 @@ export class VendorSkuPreview extends pulumi.CustomResource {
     constructor(name: string, args: VendorSkuPreviewArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.previewSubscription === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'previewSubscription'");
-            }
             if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
@@ -92,7 +89,7 @@ export interface VendorSkuPreviewArgs {
     /**
      * Preview subscription ID.
      */
-    readonly previewSubscription: pulumi.Input<string>;
+    readonly previewSubscription?: pulumi.Input<string>;
     /**
      * The name of the vendor sku.
      */

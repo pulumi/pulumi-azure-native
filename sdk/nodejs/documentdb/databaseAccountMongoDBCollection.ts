@@ -74,9 +74,6 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.collectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'collectionName'");
-            }
             if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
@@ -133,7 +130,7 @@ export interface DatabaseAccountMongoDBCollectionArgs {
     /**
      * Cosmos DB collection name.
      */
-    readonly collectionName: pulumi.Input<string>;
+    readonly collectionName?: pulumi.Input<string>;
     /**
      * Cosmos DB database name.
      */

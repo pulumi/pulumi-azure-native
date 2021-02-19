@@ -75,9 +75,6 @@ export class Container extends pulumi.CustomResource {
     constructor(name: string, args: ContainerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'containerName'");
-            }
             if ((!args || args.dataFormat === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataFormat'");
             }
@@ -130,7 +127,7 @@ export interface ContainerArgs {
     /**
      * The container name.
      */
-    readonly containerName: pulumi.Input<string>;
+    readonly containerName?: pulumi.Input<string>;
     /**
      * DataFormat for Container
      */

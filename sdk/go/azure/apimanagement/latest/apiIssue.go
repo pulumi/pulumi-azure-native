@@ -49,9 +49,6 @@ func NewApiIssue(ctx *pulumi.Context,
 	if args.Description == nil {
 		return nil, errors.New("invalid value for required argument 'Description'")
 	}
-	if args.IssueId == nil {
-		return nil, errors.New("invalid value for required argument 'IssueId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -162,7 +159,7 @@ type apiIssueArgs struct {
 	// Text describing the issue.
 	Description string `pulumi:"description"`
 	// Issue identifier. Must be unique in the current API Management service instance.
-	IssueId string `pulumi:"issueId"`
+	IssueId *string `pulumi:"issueId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -184,7 +181,7 @@ type ApiIssueArgs struct {
 	// Text describing the issue.
 	Description pulumi.StringInput
 	// Issue identifier. Must be unique in the current API Management service instance.
-	IssueId pulumi.StringInput
+	IssueId pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

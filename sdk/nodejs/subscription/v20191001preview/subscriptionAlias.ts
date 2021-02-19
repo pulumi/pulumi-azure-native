@@ -55,12 +55,9 @@ export class SubscriptionAlias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubscriptionAliasArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: SubscriptionAliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.aliasName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'aliasName'");
-            }
             inputs["aliasName"] = args ? args.aliasName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["name"] = undefined /*out*/;
@@ -90,7 +87,7 @@ export interface SubscriptionAliasArgs {
     /**
      * Alias Name
      */
-    readonly aliasName: pulumi.Input<string>;
+    readonly aliasName?: pulumi.Input<string>;
     /**
      * Put alias request properties.
      */

@@ -407,8 +407,8 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// <summary>
         /// Name of the App Service Environment.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("networkAccessControlList")]
         private InputList<Inputs.NetworkAccessControlEntryArgs>? _networkAccessControlList;

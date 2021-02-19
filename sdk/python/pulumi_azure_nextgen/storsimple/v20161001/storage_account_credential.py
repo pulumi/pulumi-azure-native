@@ -66,8 +66,6 @@ class StorageAccountCredential(pulumi.CustomResource):
             if cloud_type is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud_type'")
             __props__['cloud_type'] = cloud_type
-            if credential_name is None and not opts.urn:
-                raise TypeError("Missing required property 'credential_name'")
             __props__['credential_name'] = credential_name
             if enable_ssl is None and not opts.urn:
                 raise TypeError("Missing required property 'enable_ssl'")

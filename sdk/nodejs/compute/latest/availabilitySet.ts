@@ -92,9 +92,6 @@ export class AvailabilitySet extends pulumi.CustomResource {
         pulumi.log.warn("AvailabilitySet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:AvailabilitySet'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.availabilitySetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'availabilitySetName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -142,7 +139,7 @@ export interface AvailabilitySetArgs {
     /**
      * The name of the availability set.
      */
-    readonly availabilitySetName: pulumi.Input<string>;
+    readonly availabilitySetName?: pulumi.Input<string>;
     /**
      * Resource location
      */

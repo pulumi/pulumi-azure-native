@@ -86,9 +86,6 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
     constructor(name: string, args: WebApplicationFirewallPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -153,7 +150,7 @@ export interface WebApplicationFirewallPolicyArgs {
     /**
      * The name of the policy.
      */
-    readonly policyName: pulumi.Input<string>;
+    readonly policyName?: pulumi.Input<string>;
     /**
      * Describes policySettings for policy.
      */

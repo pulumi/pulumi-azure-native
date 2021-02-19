@@ -189,9 +189,6 @@ export class Cluster extends pulumi.CustomResource {
         pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Cluster'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.managementEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managementEndpoint'");
             }
@@ -315,7 +312,7 @@ export interface ClusterArgs {
     /**
      * The name of the cluster resource.
      */
-    readonly clusterName: pulumi.Input<string>;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * The storage account information for storing Service Fabric diagnostic logs.
      */

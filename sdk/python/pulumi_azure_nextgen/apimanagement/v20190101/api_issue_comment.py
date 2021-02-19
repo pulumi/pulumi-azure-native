@@ -60,8 +60,6 @@ class ApiIssueComment(pulumi.CustomResource):
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
-            if comment_id is None and not opts.urn:
-                raise TypeError("Missing required property 'comment_id'")
             __props__['comment_id'] = comment_id
             __props__['created_date'] = created_date
             if issue_id is None and not opts.urn:

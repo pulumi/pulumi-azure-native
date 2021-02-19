@@ -56,9 +56,6 @@ func NewSiteVNETConnectionSlot(ctx *pulumi.Context,
 	if args.Slot == nil {
 		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
-	if args.VnetName == nil {
-		return nil, errors.New("invalid value for required argument 'VnetName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:web:SiteVNETConnectionSlot"),
@@ -195,7 +192,7 @@ type siteVNETConnectionSlotArgs struct {
 	// Resource type
 	Type *string `pulumi:"type"`
 	// The name of the Virtual Network
-	VnetName string `pulumi:"vnetName"`
+	VnetName *string `pulumi:"vnetName"`
 	// The vnet resource id
 	VnetResourceId *string `pulumi:"vnetResourceId"`
 }
@@ -230,7 +227,7 @@ type SiteVNETConnectionSlotArgs struct {
 	// Resource type
 	Type pulumi.StringPtrInput
 	// The name of the Virtual Network
-	VnetName pulumi.StringInput
+	VnetName pulumi.StringPtrInput
 	// The vnet resource id
 	VnetResourceId pulumi.StringPtrInput
 }

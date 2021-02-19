@@ -114,8 +114,8 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20190201Preview
         /// <summary>
         /// The name of the configuration store.
         /// </summary>
-        [Input("configStoreName", required: true)]
-        public Input<string> ConfigStoreName { get; set; } = null!;
+        [Input("configStoreName")]
+        public Input<string>? ConfigStoreName { get; set; }
 
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.

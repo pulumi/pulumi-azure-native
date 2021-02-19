@@ -66,8 +66,6 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
             __props__['key_vault_secret_name'] = key_vault_secret_name
             __props__['kind'] = kind
             __props__['location'] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

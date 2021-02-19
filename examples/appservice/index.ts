@@ -1,5 +1,4 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as random from "@pulumi/random";
 
 import * as insights from "@pulumi/azure-nextgen/insights";
 import * as resources from "@pulumi/azure-nextgen/resources";
@@ -8,19 +7,10 @@ import * as sqltde from "@pulumi/azure-nextgen/sql";
 import * as storage from "@pulumi/azure-nextgen/storage";
 import * as web from "@pulumi/azure-nextgen/web";
 
-const randomString = new random.RandomString("random", {
-    length: 12,
-    special: false,
-    upper: false,
-});
-
-const resourceGroup = new resources.ResourceGroup("rg", {
-    resourceGroupName: randomString.result,
-});
+const resourceGroup = new resources.ResourceGroup("rg");
 
 const storageAccount = new storage.StorageAccount("sa", {
     resourceGroupName: resourceGroup.name,
-    accountName: randomString.result,
     sku: {
         name: storage.SkuName.Standard_LRS,
     },
@@ -29,7 +19,6 @@ const storageAccount = new storage.StorageAccount("sa", {
 
 const appServicePlan  = new web.AppServicePlan("asp", {
     resourceGroupName: resourceGroup.name,
-    name: randomString.result,
     kind: "App",
     sku: {
         name: "B1",
@@ -37,20 +26,17 @@ const appServicePlan  = new web.AppServicePlan("asp", {
     },
 });
 
-const storageContainer = new storage.BlobContainer("c", {
+const storageContainer = new storage.BlobContainer("files", {
     resourceGroupName: resourceGroup.name,
     accountName: storageAccount.name,
-    containerName: "files",
     publicAccess: storage.PublicAccess.None,
 });
 
-const blob = new storage.Blob("b", {
+const blob = new storage.Blob("wwwroot", {
     resourceGroupName: resourceGroup.name,
     accountName: storageAccount.name,
     containerName: storageContainer.name,
-    blobName: "wwwroot",
     type: "Block",
-
     source: new pulumi.asset.FileArchive("wwwroot"),
 });
 
@@ -59,7 +45,6 @@ const blob = new storage.Blob("b", {
 
 const appInsights = new insights.Component("ai", {
     resourceGroupName: resourceGroup.name,
-    resourceName: randomString.result,
     kind: "web",
     applicationType: insights.ApplicationType.Web,
 });
@@ -78,7 +63,6 @@ const pwd = "Not2S3cure!?";
 
 const sqlServer = new sql.Server("sql", {
     resourceGroupName: resourceGroup.name,
-    serverName: randomString.result,
     administratorLogin: username,
     administratorLoginPassword: pwd,
     version: "12.0",
@@ -87,7 +71,6 @@ const sqlServer = new sql.Server("sql", {
 const database = new sql.Database("db", {
     resourceGroupName: resourceGroup.name,
     serverName: sqlServer.name,
-    databaseName: "db",
     sku: {
         name: "S0",
     },
@@ -101,9 +84,8 @@ new sql.DatabaseSecurityAlertPolicy("dsal", {
     state: "Enabled",
 });
 
-new sqltde.TransparentDataEncryption("tde", {
+new sqltde.TransparentDataEncryption("current", {
     resourceGroupName: resourceGroup.name,
-    transparentDataEncryptionName: "current",
     serverName: sqlServer.name,
     databaseName: database.name,
     status: sqltde.TransparentDataEncryptionStatus.Enabled,
@@ -111,7 +93,6 @@ new sqltde.TransparentDataEncryption("tde", {
 
 const app = new web.WebApp("as", {
     resourceGroupName: resourceGroup.name,
-    name: randomString.result,
     serverFarmId: appServicePlan.id,
 });
 

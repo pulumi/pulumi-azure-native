@@ -233,8 +233,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <summary>
         /// The name of the Virtual Network
         /// </summary>
-        [Input("vnetName", required: true)]
-        public Input<string> VnetName { get; set; } = null!;
+        [Input("vnetName")]
+        public Input<string>? VnetName { get; set; }
 
         /// <summary>
         /// The vnet resource id

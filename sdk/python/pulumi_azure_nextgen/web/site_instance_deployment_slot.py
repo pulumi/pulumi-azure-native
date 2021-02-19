@@ -84,8 +84,6 @@ class SiteInstanceDeploymentSlot(pulumi.CustomResource):
             __props__['deployer'] = deployer
             __props__['details'] = details
             __props__['end_time'] = end_time
-            if id is None and not opts.urn:
-                raise TypeError("Missing required property 'id'")
             __props__['id'] = id
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")

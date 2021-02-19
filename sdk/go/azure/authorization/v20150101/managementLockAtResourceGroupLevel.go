@@ -32,9 +32,6 @@ func NewManagementLockAtResourceGroupLevel(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LockName == nil {
-		return nil, errors.New("invalid value for required argument 'LockName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -101,7 +98,7 @@ type managementLockAtResourceGroupLevelArgs struct {
 	// The lock level of the management lock.
 	Level *string `pulumi:"level"`
 	// The lock name.
-	LockName string `pulumi:"lockName"`
+	LockName *string `pulumi:"lockName"`
 	// The name of the lock.
 	Name *string `pulumi:"name"`
 	// The notes of the management lock.
@@ -115,7 +112,7 @@ type ManagementLockAtResourceGroupLevelArgs struct {
 	// The lock level of the management lock.
 	Level pulumi.StringPtrInput
 	// The lock name.
-	LockName pulumi.StringInput
+	LockName pulumi.StringPtrInput
 	// The name of the lock.
 	Name pulumi.StringPtrInput
 	// The notes of the management lock.

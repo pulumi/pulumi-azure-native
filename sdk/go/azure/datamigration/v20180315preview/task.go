@@ -41,9 +41,6 @@ func NewTask(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
-	if args.TaskName == nil {
-		return nil, errors.New("invalid value for required argument 'TaskName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:datamigration:Task"),
@@ -124,7 +121,7 @@ type taskArgs struct {
 	// Name of the service
 	ServiceName string `pulumi:"serviceName"`
 	// Name of the Task
-	TaskName string `pulumi:"taskName"`
+	TaskName *string `pulumi:"taskName"`
 }
 
 // The set of arguments for constructing a Task resource.
@@ -140,7 +137,7 @@ type TaskArgs struct {
 	// Name of the service
 	ServiceName pulumi.StringInput
 	// Name of the Task
-	TaskName pulumi.StringInput
+	TaskName pulumi.StringPtrInput
 }
 
 func (TaskArgs) ElementType() reflect.Type {

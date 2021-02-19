@@ -69,8 +69,6 @@ class BackupSchedule(pulumi.CustomResource):
             if backup_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_policy_name'")
             __props__['backup_policy_name'] = backup_policy_name
-            if backup_schedule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'backup_schedule_name'")
             __props__['backup_schedule_name'] = backup_schedule_name
             if backup_type is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_type'")

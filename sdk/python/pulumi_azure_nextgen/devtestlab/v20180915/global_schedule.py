@@ -71,8 +71,6 @@ class GlobalSchedule(pulumi.CustomResource):
             __props__['daily_recurrence'] = daily_recurrence
             __props__['hourly_recurrence'] = hourly_recurrence
             __props__['location'] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['notification_settings'] = notification_settings
             if resource_group_name is None and not opts.urn:

@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// <summary>
         /// The name of the Bastion Host.
         /// </summary>
-        [Input("bastionHostName", required: true)]
-        public Input<string> BastionHostName { get; set; } = null!;
+        [Input("bastionHostName")]
+        public Input<string>? BastionHostName { get; set; }
 
         /// <summary>
         /// FQDN for the endpoint on which bastion host is accessible.

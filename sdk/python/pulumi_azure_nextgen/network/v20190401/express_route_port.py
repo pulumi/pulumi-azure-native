@@ -66,8 +66,6 @@ class ExpressRoutePort(pulumi.CustomResource):
 
             __props__['bandwidth_in_gbps'] = bandwidth_in_gbps
             __props__['encapsulation'] = encapsulation
-            if express_route_port_name is None and not opts.urn:
-                raise TypeError("Missing required property 'express_route_port_name'")
             __props__['express_route_port_name'] = express_route_port_name
             __props__['id'] = id
             __props__['links'] = links

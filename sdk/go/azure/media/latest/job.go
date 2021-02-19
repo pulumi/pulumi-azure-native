@@ -59,9 +59,6 @@ func NewJob(ctx *pulumi.Context,
 	if args.Input == nil {
 		return nil, errors.New("invalid value for required argument 'Input'")
 	}
-	if args.JobName == nil {
-		return nil, errors.New("invalid value for required argument 'JobName'")
-	}
 	if args.Outputs == nil {
 		return nil, errors.New("invalid value for required argument 'Outputs'")
 	}
@@ -182,7 +179,7 @@ type jobArgs struct {
 	// The inputs for the Job.
 	Input interface{} `pulumi:"input"`
 	// The Job name.
-	JobName string `pulumi:"jobName"`
+	JobName *string `pulumi:"jobName"`
 	// The outputs for the Job.
 	Outputs []JobOutputAsset `pulumi:"outputs"`
 	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
@@ -204,7 +201,7 @@ type JobArgs struct {
 	// The inputs for the Job.
 	Input pulumi.Input
 	// The Job name.
-	JobName pulumi.StringInput
+	JobName pulumi.StringPtrInput
 	// The outputs for the Job.
 	Outputs JobOutputAssetArrayInput
 	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.

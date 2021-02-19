@@ -55,9 +55,6 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	if args.PrincipalId == nil {
 		return nil, errors.New("invalid value for required argument 'PrincipalId'")
 	}
-	if args.RoleAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'RoleAssignmentName'")
-	}
 	if args.RoleDefinitionId == nil {
 		return nil, errors.New("invalid value for required argument 'RoleDefinitionId'")
 	}
@@ -189,7 +186,7 @@ type roleAssignmentArgs struct {
 	// The principal type of the assigned principal ID.
 	PrincipalType *string `pulumi:"principalType"`
 	// The name of the role assignment. It can be any valid GUID.
-	RoleAssignmentName string `pulumi:"roleAssignmentName"`
+	RoleAssignmentName *string `pulumi:"roleAssignmentName"`
 	// The role definition ID.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 	// The role assignment scope.
@@ -211,7 +208,7 @@ type RoleAssignmentArgs struct {
 	// The principal type of the assigned principal ID.
 	PrincipalType pulumi.StringPtrInput
 	// The name of the role assignment. It can be any valid GUID.
-	RoleAssignmentName pulumi.StringInput
+	RoleAssignmentName pulumi.StringPtrInput
 	// The role definition ID.
 	RoleDefinitionId pulumi.StringInput
 	// The role assignment scope.

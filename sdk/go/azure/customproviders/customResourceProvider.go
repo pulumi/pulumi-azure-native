@@ -44,9 +44,6 @@ func NewCustomResourceProvider(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceProviderName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceProviderName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:customproviders/v20180901preview:CustomResourceProvider"),
@@ -124,7 +121,7 @@ type customResourceProviderArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource provider.
-	ResourceProviderName string `pulumi:"resourceProviderName"`
+	ResourceProviderName *string `pulumi:"resourceProviderName"`
 	// A list of resource types that the custom resource provider implements.
 	ResourceTypes []CustomRPResourceTypeRouteDefinition `pulumi:"resourceTypes"`
 	// Resource tags
@@ -142,7 +139,7 @@ type CustomResourceProviderArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource provider.
-	ResourceProviderName pulumi.StringInput
+	ResourceProviderName pulumi.StringPtrInput
 	// A list of resource types that the custom resource provider implements.
 	ResourceTypes CustomRPResourceTypeRouteDefinitionArrayInput
 	// Resource tags

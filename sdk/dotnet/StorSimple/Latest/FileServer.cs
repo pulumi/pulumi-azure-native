@@ -130,8 +130,8 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The file server name.
         /// </summary>
-        [Input("fileServerName", required: true)]
-        public Input<string> FileServerName { get; set; } = null!;
+        [Input("fileServerName")]
+        public Input<string>? FileServerName { get; set; }
 
         /// <summary>
         /// The manager name

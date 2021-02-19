@@ -63,9 +63,6 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +109,7 @@ export interface PolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    readonly policyId: pulumi.Input<string>;
+    readonly policyId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

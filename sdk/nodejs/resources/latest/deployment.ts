@@ -72,9 +72,6 @@ export class Deployment extends pulumi.CustomResource {
         pulumi.log.warn("Deployment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Deployment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.deploymentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'deploymentName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -115,7 +112,7 @@ export interface DeploymentArgs {
     /**
      * The name of the deployment.
      */
-    readonly deploymentName: pulumi.Input<string>;
+    readonly deploymentName?: pulumi.Input<string>;
     /**
      * The location to store the deployment data.
      */

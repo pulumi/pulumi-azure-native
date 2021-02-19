@@ -145,8 +145,8 @@ namespace Pulumi.AzureNextGen.Network.V20181101
         /// <summary>
         /// The name of the tap configuration.
         /// </summary>
-        [Input("tapConfigurationName", required: true)]
-        public Input<string> TapConfigurationName { get; set; } = null!;
+        [Input("tapConfigurationName")]
+        public Input<string>? TapConfigurationName { get; set; }
 
         /// <summary>
         /// The reference of the Virtual Network Tap resource.

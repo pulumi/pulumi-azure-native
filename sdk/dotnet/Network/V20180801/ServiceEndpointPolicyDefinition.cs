@@ -158,8 +158,8 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// The name of the service endpoint policy definition name.
         /// </summary>
-        [Input("serviceEndpointPolicyDefinitionName", required: true)]
-        public Input<string> ServiceEndpointPolicyDefinitionName { get; set; } = null!;
+        [Input("serviceEndpointPolicyDefinitionName")]
+        public Input<string>? ServiceEndpointPolicyDefinitionName { get; set; }
 
         /// <summary>
         /// The name of the service endpoint policy.

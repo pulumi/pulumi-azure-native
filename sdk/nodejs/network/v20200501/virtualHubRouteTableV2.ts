@@ -69,9 +69,6 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routeTableName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'routeTableName'");
-            }
             if ((!args || args.virtualHubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
@@ -127,7 +124,7 @@ export interface VirtualHubRouteTableV2Args {
     /**
      * The name of the VirtualHubRouteTableV2.
      */
-    readonly routeTableName: pulumi.Input<string>;
+    readonly routeTableName?: pulumi.Input<string>;
     /**
      * List of all routes.
      */

@@ -58,8 +58,6 @@ class Role(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

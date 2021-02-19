@@ -104,9 +104,6 @@ export class SqlServerInstance extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlServerInstanceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sqlServerInstanceName'");
-            }
             if ((!args || args.status === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'status'");
             }
@@ -180,7 +177,7 @@ export interface SqlServerInstanceArgs {
     /**
      * The name of SQL Server Instance
      */
-    readonly sqlServerInstanceName: pulumi.Input<string>;
+    readonly sqlServerInstanceName?: pulumi.Input<string>;
     /**
      * The cloud connectivity status.
      */

@@ -68,8 +68,6 @@ class AutoscaleSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if autoscale_setting_name is None and not opts.urn:
-                raise TypeError("Missing required property 'autoscale_setting_name'")
             __props__['autoscale_setting_name'] = autoscale_setting_name
             if enabled is None:
                 enabled = True

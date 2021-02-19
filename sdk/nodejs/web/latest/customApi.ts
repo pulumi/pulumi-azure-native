@@ -76,9 +76,6 @@ export class CustomApi extends pulumi.CustomResource {
         pulumi.log.warn("CustomApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CustomApi'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.apiName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'apiName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -119,7 +116,7 @@ export interface CustomApiArgs {
     /**
      * API name
      */
-    readonly apiName: pulumi.Input<string>;
+    readonly apiName?: pulumi.Input<string>;
     /**
      * Resource ETag
      */

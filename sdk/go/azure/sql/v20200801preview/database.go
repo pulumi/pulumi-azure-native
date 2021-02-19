@@ -124,9 +124,6 @@ func NewDatabase(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DatabaseName == nil {
-		return nil, errors.New("invalid value for required argument 'DatabaseName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -414,7 +411,7 @@ type databaseArgs struct {
 	// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
 	CreateMode *string `pulumi:"createMode"`
 	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
+	DatabaseName *string `pulumi:"databaseName"`
 	// The resource identifier of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// The number of secondary replicas associated with the database that are used to provide high availability.
@@ -492,7 +489,7 @@ type DatabaseArgs struct {
 	// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
 	CreateMode pulumi.StringPtrInput
 	// The name of the database.
-	DatabaseName pulumi.StringInput
+	DatabaseName pulumi.StringPtrInput
 	// The resource identifier of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
 	// The number of secondary replicas associated with the database that are used to provide high availability.

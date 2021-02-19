@@ -35,9 +35,6 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CertificateName == nil {
-		return nil, errors.New("invalid value for required argument 'CertificateName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -144,7 +141,7 @@ func (CertificateState) ElementType() reflect.Type {
 
 type certificateArgs struct {
 	// The name of the certificate
-	CertificateName string `pulumi:"certificateName"`
+	CertificateName *string `pulumi:"certificateName"`
 	// The description of an X509 CA Certificate.
 	Properties *CertificateProperties `pulumi:"properties"`
 	// The name of the resource group that contains the IoT hub.
@@ -156,7 +153,7 @@ type certificateArgs struct {
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// The name of the certificate
-	CertificateName pulumi.StringInput
+	CertificateName pulumi.StringPtrInput
 	// The description of an X509 CA Certificate.
 	Properties CertificatePropertiesPtrInput
 	// The name of the resource group that contains the IoT hub.

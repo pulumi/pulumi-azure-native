@@ -90,8 +90,6 @@ class PartnerRegistration(pulumi.CustomResource):
             __props__['partner_customer_service_extension'] = partner_customer_service_extension
             __props__['partner_customer_service_number'] = partner_customer_service_number
             __props__['partner_name'] = partner_name
-            if partner_registration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'partner_registration_name'")
             __props__['partner_registration_name'] = partner_registration_name
             __props__['partner_resource_type_description'] = partner_resource_type_description
             __props__['partner_resource_type_display_name'] = partner_resource_type_display_name

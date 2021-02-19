@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -76,12 +75,9 @@ type AccessReviewScheduleDefinitionById struct {
 func NewAccessReviewScheduleDefinitionById(ctx *pulumi.Context,
 	name string, args *AccessReviewScheduleDefinitionByIdArgs, opts ...pulumi.ResourceOption) (*AccessReviewScheduleDefinitionById, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AccessReviewScheduleDefinitionByIdArgs{}
 	}
 
-	if args.ScheduleDefinitionId == nil {
-		return nil, errors.New("invalid value for required argument 'ScheduleDefinitionId'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById"),
@@ -261,7 +257,7 @@ type accessReviewScheduleDefinitionByIdArgs struct {
 	// This is the collection of reviewers.
 	Reviewers []AccessReviewReviewer `pulumi:"reviewers"`
 	// The id of the access review schedule definition.
-	ScheduleDefinitionId string `pulumi:"scheduleDefinitionId"`
+	ScheduleDefinitionId *string `pulumi:"scheduleDefinitionId"`
 	// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
 	StartDate *string `pulumi:"startDate"`
 	// The recurrence range type. The possible values are: endDate, noEnd, numbered.
@@ -303,7 +299,7 @@ type AccessReviewScheduleDefinitionByIdArgs struct {
 	// This is the collection of reviewers.
 	Reviewers AccessReviewReviewerArrayInput
 	// The id of the access review schedule definition.
-	ScheduleDefinitionId pulumi.StringInput
+	ScheduleDefinitionId pulumi.StringPtrInput
 	// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
 	StartDate pulumi.StringPtrInput
 	// The recurrence range type. The possible values are: endDate, noEnd, numbered.

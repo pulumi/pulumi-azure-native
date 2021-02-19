@@ -69,9 +69,6 @@ export class WorkspaceConnection extends pulumi.CustomResource {
     constructor(name: string, args: WorkspaceConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -123,7 +120,7 @@ export interface WorkspaceConnectionArgs {
     /**
      * Friendly name of the workspace connection
      */
-    readonly connectionName: pulumi.Input<string>;
+    readonly connectionName?: pulumi.Input<string>;
     /**
      * Friendly name of the workspace connection
      */

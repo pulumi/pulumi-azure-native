@@ -37,9 +37,6 @@ func NewGuestDiagnosticsSetting(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DiagnosticSettingsName == nil {
-		return nil, errors.New("invalid value for required argument 'DiagnosticSettingsName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -110,7 +107,7 @@ type guestDiagnosticsSettingArgs struct {
 	// the array of data source object which are configured to collect and send data
 	DataSources []DataSource `pulumi:"dataSources"`
 	// The name of the diagnostic setting.
-	DiagnosticSettingsName string `pulumi:"diagnosticSettingsName"`
+	DiagnosticSettingsName *string `pulumi:"diagnosticSettingsName"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Operating system type for the configuration
@@ -127,7 +124,7 @@ type GuestDiagnosticsSettingArgs struct {
 	// the array of data source object which are configured to collect and send data
 	DataSources DataSourceArrayInput
 	// The name of the diagnostic setting.
-	DiagnosticSettingsName pulumi.StringInput
+	DiagnosticSettingsName pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Operating system type for the configuration

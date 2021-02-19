@@ -64,8 +64,6 @@ class ScopeMap(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if scope_map_name is None and not opts.urn:
-                raise TypeError("Missing required property 'scope_map_name'")
             __props__['scope_map_name'] = scope_map_name
             __props__['creation_date'] = None
             __props__['name'] = None

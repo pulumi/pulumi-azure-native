@@ -51,9 +51,6 @@ func NewNotificationChannel(ctx *pulumi.Context,
 	if args.LabName == nil {
 		return nil, errors.New("invalid value for required argument 'LabName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -160,7 +157,7 @@ type notificationChannelArgs struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the notification channel.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The locale to use when sending a notification (fallback for unsupported languages is EN).
 	NotificationLocale *string `pulumi:"notificationLocale"`
 	// The name of the resource group.
@@ -184,7 +181,7 @@ type NotificationChannelArgs struct {
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the notification channel.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The locale to use when sending a notification (fallback for unsupported languages is EN).
 	NotificationLocale pulumi.StringPtrInput
 	// The name of the resource group.

@@ -75,8 +75,6 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
-            if vnet_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name
             __props__['vnet_resource_id'] = vnet_resource_id
             __props__['cert_thumbprint'] = None

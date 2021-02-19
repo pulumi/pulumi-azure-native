@@ -65,8 +65,6 @@ class Registry(pulumi.CustomResource):
             __props__['admin_user_enabled'] = admin_user_enabled
             __props__['location'] = location
             __props__['network_rule_set'] = network_rule_set
-            if registry_name is None and not opts.urn:
-                raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

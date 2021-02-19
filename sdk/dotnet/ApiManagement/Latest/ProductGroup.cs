@@ -112,8 +112,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <summary>
         /// Group identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("groupId", required: true)]
-        public Input<string> GroupId { get; set; } = null!;
+        [Input("groupId")]
+        public Input<string>? GroupId { get; set; }
 
         /// <summary>
         /// Product identifier. Must be unique in the current API Management service instance.

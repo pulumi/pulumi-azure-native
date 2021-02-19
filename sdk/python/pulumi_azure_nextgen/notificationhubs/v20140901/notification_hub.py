@@ -60,8 +60,6 @@ class NotificationHub(pulumi.CustomResource):
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if notification_hub_name is None and not opts.urn:
-                raise TypeError("Missing required property 'notification_hub_name'")
             __props__['notification_hub_name'] = notification_hub_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

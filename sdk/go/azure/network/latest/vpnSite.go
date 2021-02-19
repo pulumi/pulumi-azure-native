@@ -60,9 +60,6 @@ func NewVpnSite(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VpnSiteName == nil {
-		return nil, errors.New("invalid value for required argument 'VpnSiteName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:VpnSite"),
@@ -251,7 +248,7 @@ type vpnSiteArgs struct {
 	// List of all vpn site links.
 	VpnSiteLinks []VpnSiteLink `pulumi:"vpnSiteLinks"`
 	// The name of the VpnSite being created or updated.
-	VpnSiteName string `pulumi:"vpnSiteName"`
+	VpnSiteName *string `pulumi:"vpnSiteName"`
 }
 
 // The set of arguments for constructing a VpnSite resource.
@@ -283,7 +280,7 @@ type VpnSiteArgs struct {
 	// List of all vpn site links.
 	VpnSiteLinks VpnSiteLinkArrayInput
 	// The name of the VpnSite being created or updated.
-	VpnSiteName pulumi.StringInput
+	VpnSiteName pulumi.StringPtrInput
 }
 
 func (VpnSiteArgs) ElementType() reflect.Type {

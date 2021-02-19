@@ -87,9 +87,6 @@ export class GalleryApplication extends pulumi.CustomResource {
     constructor(name: string, args: GalleryApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.galleryApplicationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'galleryApplicationName'");
-            }
             if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryName'");
             }
@@ -156,7 +153,7 @@ export interface GalleryApplicationArgs {
     /**
      * The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
      */
-    readonly galleryApplicationName: pulumi.Input<string>;
+    readonly galleryApplicationName?: pulumi.Input<string>;
     /**
      * The name of the Shared Application Gallery in which the Application Definition is to be created.
      */

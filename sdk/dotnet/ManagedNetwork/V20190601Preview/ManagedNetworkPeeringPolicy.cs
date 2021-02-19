@@ -103,8 +103,8 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
         /// <summary>
         /// The name of the Managed Network Peering Policy.
         /// </summary>
-        [Input("managedNetworkPeeringPolicyName", required: true)]
-        public Input<string> ManagedNetworkPeeringPolicyName { get; set; } = null!;
+        [Input("managedNetworkPeeringPolicyName")]
+        public Input<string>? ManagedNetworkPeeringPolicyName { get; set; }
 
         /// <summary>
         /// Gets or sets the properties of a Managed Network Policy

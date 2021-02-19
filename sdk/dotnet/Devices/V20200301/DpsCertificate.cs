@@ -103,8 +103,8 @@ namespace Pulumi.AzureNextGen.Devices.V20200301
         /// <summary>
         /// The name of the certificate create or update.
         /// </summary>
-        [Input("certificateName", required: true)]
-        public Input<string> CertificateName { get; set; } = null!;
+        [Input("certificateName")]
+        public Input<string>? CertificateName { get; set; }
 
         /// <summary>
         /// The name of the provisioning service.

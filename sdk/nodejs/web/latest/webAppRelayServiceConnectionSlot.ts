@@ -75,9 +75,6 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
         pulumi.log.warn("WebAppRelayServiceConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppRelayServiceConnectionSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.entityName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'entityName'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -132,7 +129,7 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
 export interface WebAppRelayServiceConnectionSlotArgs {
     readonly biztalkUri?: pulumi.Input<string>;
     readonly entityConnectionString?: pulumi.Input<string>;
-    readonly entityName: pulumi.Input<string>;
+    readonly entityName?: pulumi.Input<string>;
     readonly hostname?: pulumi.Input<string>;
     /**
      * Kind of resource.

@@ -115,9 +115,6 @@ export class Lab extends pulumi.CustomResource {
             if ((!args || args.labAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labAccountName'");
             }
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'labName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -180,7 +177,7 @@ export interface LabArgs {
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    readonly labName?: pulumi.Input<string>;
     /**
      * The location of the resource.
      */

@@ -116,8 +116,8 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
         /// <summary>
         /// The name of the deployment step.
         /// </summary>
-        [Input("stepName", required: true)]
-        public Input<string> StepName { get; set; } = null!;
+        [Input("stepName")]
+        public Input<string>? StepName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

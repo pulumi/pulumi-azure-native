@@ -53,9 +53,6 @@ func NewAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.KeyVaultId == nil {
 		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
 	}
@@ -163,7 +160,7 @@ func (AccountState) ElementType() reflect.Type {
 
 type accountArgs struct {
 	// The name of the machine learning team account.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// The description of this workspace.
 	Description *string `pulumi:"description"`
 	// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
@@ -187,7 +184,7 @@ type accountArgs struct {
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
 	// The name of the machine learning team account.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// The description of this workspace.
 	Description pulumi.StringPtrInput
 	// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created

@@ -65,8 +65,6 @@ class ActivityLogAlert(pulumi.CustomResource):
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__['actions'] = actions
-            if activity_log_alert_name is None and not opts.urn:
-                raise TypeError("Missing required property 'activity_log_alert_name'")
             __props__['activity_log_alert_name'] = activity_log_alert_name
             if condition is None and not opts.urn:
                 raise TypeError("Missing required property 'condition'")

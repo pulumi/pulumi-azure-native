@@ -63,9 +63,6 @@ func NewRelationshipLink(ctx *pulumi.Context,
 	if args.RelatedProfilePropertyReferences == nil {
 		return nil, errors.New("invalid value for required argument 'RelatedProfilePropertyReferences'")
 	}
-	if args.RelationshipLinkName == nil {
-		return nil, errors.New("invalid value for required argument 'RelationshipLinkName'")
-	}
 	if args.RelationshipName == nil {
 		return nil, errors.New("invalid value for required argument 'RelationshipName'")
 	}
@@ -183,7 +180,7 @@ type relationshipLinkArgs struct {
 	// The property references for the Related Profile of the Relationship.
 	RelatedProfilePropertyReferences []ParticipantProfilePropertyReference `pulumi:"relatedProfilePropertyReferences"`
 	// The name of the relationship link.
-	RelationshipLinkName string `pulumi:"relationshipLinkName"`
+	RelationshipLinkName *string `pulumi:"relationshipLinkName"`
 	// The Relationship associated with the Link.
 	RelationshipName string `pulumi:"relationshipName"`
 	// The name of the resource group.
@@ -207,7 +204,7 @@ type RelationshipLinkArgs struct {
 	// The property references for the Related Profile of the Relationship.
 	RelatedProfilePropertyReferences ParticipantProfilePropertyReferenceArrayInput
 	// The name of the relationship link.
-	RelationshipLinkName pulumi.StringInput
+	RelationshipLinkName pulumi.StringPtrInput
 	// The Relationship associated with the Link.
 	RelationshipName pulumi.StringInput
 	// The name of the resource group.

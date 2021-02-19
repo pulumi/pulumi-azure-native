@@ -115,8 +115,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <summary>
         /// Incident comment ID
         /// </summary>
-        [Input("incidentCommentId", required: true)]
-        public Input<string> IncidentCommentId { get; set; } = null!;
+        [Input("incidentCommentId")]
+        public Input<string>? IncidentCommentId { get; set; }
 
         /// <summary>
         /// Incident ID

@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// <summary>
         /// The name of the export pipeline.
         /// </summary>
-        [Input("exportPipelineName", required: true)]
-        public Input<string> ExportPipelineName { get; set; } = null!;
+        [Input("exportPipelineName")]
+        public Input<string>? ExportPipelineName { get; set; }
 
         /// <summary>
         /// The identity of the export pipeline.

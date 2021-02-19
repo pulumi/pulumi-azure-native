@@ -83,8 +83,6 @@ class Schedule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if schedule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'schedule_name'")
             __props__['schedule_name'] = schedule_name
             if start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'start_time'")

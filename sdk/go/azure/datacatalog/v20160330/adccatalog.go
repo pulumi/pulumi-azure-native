@@ -46,9 +46,6 @@ func NewADCCatalog(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CatalogName == nil {
-		return nil, errors.New("invalid value for required argument 'CatalogName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -140,7 +137,7 @@ type adccatalogArgs struct {
 	// Azure data catalog admin list.
 	Admins []Principals `pulumi:"admins"`
 	// The name of the data catalog in the specified subscription and resource group.
-	CatalogName string `pulumi:"catalogName"`
+	CatalogName *string `pulumi:"catalogName"`
 	// Automatic unit adjustment enabled or not.
 	EnableAutomaticUnitAdjustment *bool `pulumi:"enableAutomaticUnitAdjustment"`
 	// Resource etag
@@ -166,7 +163,7 @@ type ADCCatalogArgs struct {
 	// Azure data catalog admin list.
 	Admins PrincipalsArrayInput
 	// The name of the data catalog in the specified subscription and resource group.
-	CatalogName pulumi.StringInput
+	CatalogName pulumi.StringPtrInput
 	// Automatic unit adjustment enabled or not.
 	EnableAutomaticUnitAdjustment pulumi.BoolPtrInput
 	// Resource etag

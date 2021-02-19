@@ -48,9 +48,6 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 	if args.IntegrationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
 	}
-	if args.MapName == nil {
-		return nil, errors.New("invalid value for required argument 'MapName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -159,7 +156,7 @@ type integrationAccountMapArgs struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The integration account map name.
-	MapName string `pulumi:"mapName"`
+	MapName *string `pulumi:"mapName"`
 	// The map type.
 	MapType *string `pulumi:"mapType"`
 	// The metadata.
@@ -187,7 +184,7 @@ type IntegrationAccountMapArgs struct {
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The integration account map name.
-	MapName pulumi.StringInput
+	MapName pulumi.StringPtrInput
 	// The map type.
 	MapType *MapType
 	// The metadata.

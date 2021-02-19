@@ -45,9 +45,6 @@ func NewSerialPort(ctx *pulumi.Context,
 	if args.ResourceProviderNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceProviderNamespace'")
 	}
-	if args.SerialPort == nil {
-		return nil, errors.New("invalid value for required argument 'SerialPort'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:serialconsole:SerialPort"),
@@ -110,7 +107,7 @@ type serialPortArgs struct {
 	// The namespace of the resource provider.
 	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
 	// The name of the serial port to create.
-	SerialPort string `pulumi:"serialPort"`
+	SerialPort *string `pulumi:"serialPort"`
 	// Specifies whether the port is enabled for a serial console connection.
 	State *string `pulumi:"state"`
 }
@@ -126,7 +123,7 @@ type SerialPortArgs struct {
 	// The namespace of the resource provider.
 	ResourceProviderNamespace pulumi.StringInput
 	// The name of the serial port to create.
-	SerialPort pulumi.StringInput
+	SerialPort pulumi.StringPtrInput
 	// Specifies whether the port is enabled for a serial console connection.
 	State *SerialPortStateEnum
 }

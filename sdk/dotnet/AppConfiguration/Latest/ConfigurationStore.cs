@@ -146,8 +146,8 @@ namespace Pulumi.AzureNextGen.AppConfiguration.Latest
         /// <summary>
         /// The name of the configuration store.
         /// </summary>
-        [Input("configStoreName", required: true)]
-        public Input<string> ConfigStoreName { get; set; } = null!;
+        [Input("configStoreName")]
+        public Input<string>? ConfigStoreName { get; set; }
 
         /// <summary>
         /// The encryption settings of the configuration store.

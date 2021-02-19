@@ -91,9 +91,6 @@ export class Service extends pulumi.CustomResource {
         pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:windowsiot:Service'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'deviceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -149,7 +146,7 @@ export interface ServiceArgs {
     /**
      * The name of the Windows IoT Device Service.
      */
-    readonly deviceName: pulumi.Input<string>;
+    readonly deviceName?: pulumi.Input<string>;
     /**
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */

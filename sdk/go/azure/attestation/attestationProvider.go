@@ -46,9 +46,6 @@ func NewAttestationProvider(ctx *pulumi.Context,
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
-	if args.ProviderName == nil {
-		return nil, errors.New("invalid value for required argument 'ProviderName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -137,7 +134,7 @@ type attestationProviderArgs struct {
 	// Properties of the attestation provider
 	Properties AttestationServiceCreationSpecificParams `pulumi:"properties"`
 	// Name of the attestation provider.
-	ProviderName string `pulumi:"providerName"`
+	ProviderName *string `pulumi:"providerName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags that will be assigned to the attestation provider.
@@ -151,7 +148,7 @@ type AttestationProviderArgs struct {
 	// Properties of the attestation provider
 	Properties AttestationServiceCreationSpecificParamsInput
 	// Name of the attestation provider.
-	ProviderName pulumi.StringInput
+	ProviderName pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The tags that will be assigned to the attestation provider.

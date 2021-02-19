@@ -130,9 +130,6 @@ export class SignalR extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             inputs["cors"] = args ? args.cors : undefined;
             inputs["features"] = args ? args.features : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -228,7 +225,7 @@ export interface SignalRArgs {
     /**
      * The name of the SignalR resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    readonly resourceName?: pulumi.Input<string>;
     /**
      * The billing information of the resource.(e.g. Free, Standard)
      */

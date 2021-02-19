@@ -147,8 +147,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The name of the ExpressRoute gateway.
         /// </summary>
-        [Input("expressRouteGatewayName", required: true)]
-        public Input<string> ExpressRouteGatewayName { get; set; } = null!;
+        [Input("expressRouteGatewayName")]
+        public Input<string>? ExpressRouteGatewayName { get; set; }
 
         /// <summary>
         /// Resource ID.

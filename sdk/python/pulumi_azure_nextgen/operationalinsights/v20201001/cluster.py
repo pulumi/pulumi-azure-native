@@ -65,8 +65,6 @@ class Cluster(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['billing_type'] = billing_type
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['identity'] = identity
             __props__['is_availability_zones_enabled'] = is_availability_zones_enabled

@@ -102,9 +102,6 @@ export class NetworkInterface extends pulumi.CustomResource {
     constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.networkInterfaceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'networkInterfaceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -189,7 +186,7 @@ export interface NetworkInterfaceArgs {
     /**
      * The name of the network interface.
      */
-    readonly networkInterfaceName: pulumi.Input<string>;
+    readonly networkInterfaceName?: pulumi.Input<string>;
     /**
      * Gets or sets the reference of the NetworkSecurityGroup resource
      */

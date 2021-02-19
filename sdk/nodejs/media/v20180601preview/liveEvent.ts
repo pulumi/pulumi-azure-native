@@ -112,9 +112,6 @@ export class LiveEvent extends pulumi.CustomResource {
             if ((!args || args.input === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'input'");
             }
-            if ((!args || args.liveEventName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'liveEventName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -198,7 +195,7 @@ export interface LiveEventArgs {
     /**
      * The name of the Live Event.
      */
-    readonly liveEventName: pulumi.Input<string>;
+    readonly liveEventName?: pulumi.Input<string>;
     /**
      * The Azure Region of the resource.
      */

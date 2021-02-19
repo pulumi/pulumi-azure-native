@@ -65,9 +65,6 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.WorkspaceName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:databricks:Workspace"),
@@ -190,7 +187,7 @@ type workspaceArgs struct {
 	// The blob URI where the UI definition file is located.
 	UiDefinitionUri *string `pulumi:"uiDefinitionUri"`
 	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName *string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -212,7 +209,7 @@ type WorkspaceArgs struct {
 	// The blob URI where the UI definition file is located.
 	UiDefinitionUri pulumi.StringPtrInput
 	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName pulumi.StringPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

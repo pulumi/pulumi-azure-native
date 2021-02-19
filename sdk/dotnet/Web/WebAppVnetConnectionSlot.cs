@@ -186,8 +186,8 @@ namespace Pulumi.AzureNextGen.Web
         /// <summary>
         /// Name of an existing Virtual Network.
         /// </summary>
-        [Input("vnetName", required: true)]
-        public Input<string> VnetName { get; set; } = null!;
+        [Input("vnetName")]
+        public Input<string>? VnetName { get; set; }
 
         /// <summary>
         /// The Virtual Network's resource ID.

@@ -32,9 +32,6 @@ func NewAddon(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AddonName == nil {
-		return nil, errors.New("invalid value for required argument 'AddonName'")
-	}
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
@@ -108,7 +105,7 @@ func (AddonState) ElementType() reflect.Type {
 
 type addonArgs struct {
 	// The addon name.
-	AddonName string `pulumi:"addonName"`
+	AddonName *string `pulumi:"addonName"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// Addon type.
@@ -122,7 +119,7 @@ type addonArgs struct {
 // The set of arguments for constructing a Addon resource.
 type AddonArgs struct {
 	// The addon name.
-	AddonName pulumi.StringInput
+	AddonName pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringInput
 	// Addon type.

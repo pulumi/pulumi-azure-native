@@ -164,8 +164,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// <summary>
         /// The name of the connected registry.
         /// </summary>
-        [Input("connectedRegistryName", required: true)]
-        public Input<string> ConnectedRegistryName { get; set; } = null!;
+        [Input("connectedRegistryName")]
+        public Input<string>? ConnectedRegistryName { get; set; }
 
         /// <summary>
         /// The logging properties of the connected registry.

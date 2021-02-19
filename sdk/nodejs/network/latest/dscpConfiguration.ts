@@ -112,9 +112,6 @@ export class DscpConfiguration extends pulumi.CustomResource {
         pulumi.log.warn("DscpConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DscpConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dscpConfigurationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dscpConfigurationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -181,7 +178,7 @@ export interface DscpConfigurationArgs {
     /**
      * The name of the resource.
      */
-    readonly dscpConfigurationName: pulumi.Input<string>;
+    readonly dscpConfigurationName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

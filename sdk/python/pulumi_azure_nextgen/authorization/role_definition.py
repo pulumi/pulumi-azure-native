@@ -61,8 +61,6 @@ class RoleDefinition(pulumi.CustomResource):
             __props__['assignable_scopes'] = assignable_scopes
             __props__['description'] = description
             __props__['permissions'] = permissions
-            if role_definition_id is None and not opts.urn:
-                raise TypeError("Missing required property 'role_definition_id'")
             __props__['role_definition_id'] = role_definition_id
             __props__['role_name'] = role_name
             __props__['role_type'] = role_type

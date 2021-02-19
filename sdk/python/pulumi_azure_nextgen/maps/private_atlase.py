@@ -57,8 +57,6 @@ class PrivateAtlase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['location'] = location
-            if private_atlas_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_atlas_name'")
             __props__['private_atlas_name'] = private_atlas_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

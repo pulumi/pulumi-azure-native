@@ -95,9 +95,6 @@ export class PrivateEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: PrivateEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.privateEndpointName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateEndpointName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -170,7 +167,7 @@ export interface PrivateEndpointArgs {
     /**
      * The name of the private endpoint.
      */
-    readonly privateEndpointName: pulumi.Input<string>;
+    readonly privateEndpointName?: pulumi.Input<string>;
     /**
      * A grouping of information about the connection to the remote resource.
      */

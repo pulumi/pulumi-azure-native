@@ -194,8 +194,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// <summary>
         /// The volume name.
         /// </summary>
-        [Input("volumeName", required: true)]
-        public Input<string> VolumeName { get; set; } = null!;
+        [Input("volumeName")]
+        public Input<string>? VolumeName { get; set; }
 
         /// <summary>
         /// The volume status.

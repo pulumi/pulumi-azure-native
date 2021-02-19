@@ -62,9 +62,6 @@ func NewExpressRouteCrossConnectionPeering(ctx *pulumi.Context,
 	if args.CrossConnectionName == nil {
 		return nil, errors.New("invalid value for required argument 'CrossConnectionName'")
 	}
-	if args.PeeringName == nil {
-		return nil, errors.New("invalid value for required argument 'PeeringName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -255,7 +252,7 @@ type expressRouteCrossConnectionPeeringArgs struct {
 	// The peer ASN.
 	PeerASN *float64 `pulumi:"peerASN"`
 	// The name of the peering.
-	PeeringName string `pulumi:"peeringName"`
+	PeeringName *string `pulumi:"peeringName"`
 	// The peering type.
 	PeeringType *string `pulumi:"peeringType"`
 	// The primary address prefix.
@@ -289,7 +286,7 @@ type ExpressRouteCrossConnectionPeeringArgs struct {
 	// The peer ASN.
 	PeerASN pulumi.Float64PtrInput
 	// The name of the peering.
-	PeeringName pulumi.StringInput
+	PeeringName pulumi.StringPtrInput
 	// The peering type.
 	PeeringType pulumi.StringPtrInput
 	// The primary address prefix.

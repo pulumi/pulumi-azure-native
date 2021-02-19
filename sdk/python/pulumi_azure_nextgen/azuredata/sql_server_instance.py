@@ -71,8 +71,6 @@ class SqlServerInstance(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sql_server_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_server_instance_name'")
             __props__['sql_server_instance_name'] = sql_server_instance_name
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")

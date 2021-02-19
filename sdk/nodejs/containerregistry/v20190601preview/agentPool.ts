@@ -87,9 +87,6 @@ export class AgentPool extends pulumi.CustomResource {
     constructor(name: string, args: AgentPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.agentPoolName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'agentPoolName'");
-            }
             if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
@@ -141,7 +138,7 @@ export interface AgentPoolArgs {
     /**
      * The name of the agent pool.
      */
-    readonly agentPoolName: pulumi.Input<string>;
+    readonly agentPoolName?: pulumi.Input<string>;
     /**
      * The count of agent machine
      */

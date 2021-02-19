@@ -124,8 +124,8 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest
         /// <summary>
         /// The name of the EnterpriseKnowledgeGraph resource.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// Gets or sets the SKU of the resource.

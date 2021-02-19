@@ -105,9 +105,6 @@ export class Policy extends pulumi.CustomResource {
         pulumi.log.warn("Policy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Policy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -179,7 +176,7 @@ export interface PolicyArgs {
     /**
      * The name of the Web Application Firewall Policy.
      */
-    readonly policyName: pulumi.Input<string>;
+    readonly policyName?: pulumi.Input<string>;
     /**
      * Describes settings for the policy.
      */

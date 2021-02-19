@@ -98,9 +98,6 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             if ((!args || args.actionGroups === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actionGroups'");
             }
-            if ((!args || args.alertRuleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'alertRuleName'");
-            }
             if ((!args || args.detector === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'detector'");
             }
@@ -171,7 +168,7 @@ export interface SmartDetectorAlertRuleArgs {
     /**
      * The name of the alert rule.
      */
-    readonly alertRuleName: pulumi.Input<string>;
+    readonly alertRuleName?: pulumi.Input<string>;
     /**
      * The alert rule description.
      */

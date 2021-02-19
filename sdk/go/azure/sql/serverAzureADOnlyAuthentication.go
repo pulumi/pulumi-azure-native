@@ -31,9 +31,6 @@ func NewServerAzureADOnlyAuthentication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AuthenticationName == nil {
-		return nil, errors.New("invalid value for required argument 'AuthenticationName'")
-	}
 	if args.AzureADOnlyAuthentication == nil {
 		return nil, errors.New("invalid value for required argument 'AzureADOnlyAuthentication'")
 	}
@@ -97,7 +94,7 @@ func (ServerAzureADOnlyAuthenticationState) ElementType() reflect.Type {
 
 type serverAzureADOnlyAuthenticationArgs struct {
 	// The name of server azure active directory only authentication.
-	AuthenticationName string `pulumi:"authenticationName"`
+	AuthenticationName *string `pulumi:"authenticationName"`
 	// Azure Active Directory only Authentication enabled.
 	AzureADOnlyAuthentication bool `pulumi:"azureADOnlyAuthentication"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -109,7 +106,7 @@ type serverAzureADOnlyAuthenticationArgs struct {
 // The set of arguments for constructing a ServerAzureADOnlyAuthentication resource.
 type ServerAzureADOnlyAuthenticationArgs struct {
 	// The name of server azure active directory only authentication.
-	AuthenticationName pulumi.StringInput
+	AuthenticationName pulumi.StringPtrInput
 	// Azure Active Directory only Authentication enabled.
 	AzureADOnlyAuthentication pulumi.BoolInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -59,8 +59,6 @@ class Backup(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if backup_name is None and not opts.urn:
-                raise TypeError("Missing required property 'backup_name'")
             __props__['backup_name'] = backup_name
             __props__['label'] = label
             __props__['location'] = location

@@ -49,9 +49,6 @@ func NewFileServer(ctx *pulumi.Context,
 	if args.DataDisks == nil {
 		return nil, errors.New("invalid value for required argument 'DataDisks'")
 	}
-	if args.FileServerName == nil {
-		return nil, errors.New("invalid value for required argument 'FileServerName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -146,7 +143,7 @@ type fileServerArgs struct {
 	// Settings for the data disk which would be created for the File Server.
 	DataDisks DataDisks `pulumi:"dataDisks"`
 	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	FileServerName string `pulumi:"fileServerName"`
+	FileServerName *string `pulumi:"fileServerName"`
 	// The region in which to create the File Server.
 	Location *string `pulumi:"location"`
 	// Name of the resource group to which the resource belongs.
@@ -166,7 +163,7 @@ type FileServerArgs struct {
 	// Settings for the data disk which would be created for the File Server.
 	DataDisks DataDisksInput
 	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	FileServerName pulumi.StringInput
+	FileServerName pulumi.StringPtrInput
 	// The region in which to create the File Server.
 	Location pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.

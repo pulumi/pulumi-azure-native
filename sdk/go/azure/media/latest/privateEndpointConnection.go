@@ -40,9 +40,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.PrivateLinkServiceConnectionState == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateLinkServiceConnectionState'")
 	}
@@ -111,8 +108,8 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 
 type privateEndpointConnectionArgs struct {
 	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	Name        string `pulumi:"name"`
+	AccountName string  `pulumi:"accountName"`
+	Name        *string `pulumi:"name"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group within the Azure subscription.
@@ -123,7 +120,7 @@ type privateEndpointConnectionArgs struct {
 type PrivateEndpointConnectionArgs struct {
 	// The Media Services account name.
 	AccountName pulumi.StringInput
-	Name        pulumi.StringInput
+	Name        pulumi.StringPtrInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	// The name of the resource group within the Azure subscription.

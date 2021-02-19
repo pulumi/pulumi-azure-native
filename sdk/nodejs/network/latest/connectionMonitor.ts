@@ -124,9 +124,6 @@ export class ConnectionMonitor extends pulumi.CustomResource {
         pulumi.log.warn("ConnectionMonitor is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ConnectionMonitor'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.connectionMonitorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'connectionMonitorName'");
-            }
             if ((!args || args.networkWatcherName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
@@ -199,7 +196,7 @@ export interface ConnectionMonitorArgs {
     /**
      * The name of the connection monitor.
      */
-    readonly connectionMonitorName: pulumi.Input<string>;
+    readonly connectionMonitorName?: pulumi.Input<string>;
     /**
      * Describes the destination of connection monitor.
      */

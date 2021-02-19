@@ -221,8 +221,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// Last backup file name for restore of this managed database.

@@ -38,9 +38,6 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 	if args.OperationId == nil {
 		return nil, errors.New("invalid value for required argument 'OperationId'")
 	}
-	if args.PolicyId == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -135,7 +132,7 @@ type apiOperationPolicyArgs struct {
 	// Operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId string `pulumi:"operationId"`
 	// The identifier of the Policy.
-	PolicyId string `pulumi:"policyId"`
+	PolicyId *string `pulumi:"policyId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -153,7 +150,7 @@ type ApiOperationPolicyArgs struct {
 	// Operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId pulumi.StringInput
 	// The identifier of the Policy.
-	PolicyId pulumi.StringInput
+	PolicyId pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

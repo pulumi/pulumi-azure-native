@@ -75,9 +75,6 @@ export class PartnerNamespace extends pulumi.CustomResource {
     constructor(name: string, args: PartnerNamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.partnerNamespaceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'partnerNamespaceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -123,7 +120,7 @@ export interface PartnerNamespaceArgs {
     /**
      * Name of the partner namespace.
      */
-    readonly partnerNamespaceName: pulumi.Input<string>;
+    readonly partnerNamespaceName?: pulumi.Input<string>;
     /**
      * The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
      * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.

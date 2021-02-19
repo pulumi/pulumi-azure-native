@@ -65,8 +65,6 @@ class Transform(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if transform_name is None and not opts.urn:
-                raise TypeError("Missing required property 'transform_name'")
             __props__['transform_name'] = transform_name
             __props__['created'] = None
             __props__['last_modified'] = None

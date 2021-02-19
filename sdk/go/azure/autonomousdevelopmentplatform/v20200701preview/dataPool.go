@@ -39,9 +39,6 @@ func NewDataPool(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.DataPoolName == nil {
-		return nil, errors.New("invalid value for required argument 'DataPoolName'")
-	}
 	if args.Locations == nil {
 		return nil, errors.New("invalid value for required argument 'Locations'")
 	}
@@ -113,7 +110,7 @@ type dataPoolArgs struct {
 	// The name of the ADP account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the Data Pool.
-	DataPoolName string `pulumi:"dataPoolName"`
+	DataPoolName *string `pulumi:"dataPoolName"`
 	// Gets or sets the collection of locations where Data Pool resources should be created.
 	Locations []DataPoolLocation `pulumi:"locations"`
 	// The name of the resource group. The name is case insensitive.
@@ -125,7 +122,7 @@ type DataPoolArgs struct {
 	// The name of the ADP account.
 	AccountName pulumi.StringInput
 	// The name of the Data Pool.
-	DataPoolName pulumi.StringInput
+	DataPoolName pulumi.StringPtrInput
 	// Gets or sets the collection of locations where Data Pool resources should be created.
 	Locations DataPoolLocationArrayInput
 	// The name of the resource group. The name is case insensitive.

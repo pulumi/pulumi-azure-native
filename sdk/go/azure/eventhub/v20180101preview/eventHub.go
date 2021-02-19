@@ -42,9 +42,6 @@ func NewEventHub(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EventHubName == nil {
-		return nil, errors.New("invalid value for required argument 'EventHubName'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -140,7 +137,7 @@ type eventHubArgs struct {
 	// Properties of capture description
 	CaptureDescription *CaptureDescription `pulumi:"captureDescription"`
 	// The Event Hub name
-	EventHubName string `pulumi:"eventHubName"`
+	EventHubName *string `pulumi:"eventHubName"`
 	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
 	MessageRetentionInDays *float64 `pulumi:"messageRetentionInDays"`
 	// The Namespace name
@@ -158,7 +155,7 @@ type EventHubArgs struct {
 	// Properties of capture description
 	CaptureDescription CaptureDescriptionPtrInput
 	// The Event Hub name
-	EventHubName pulumi.StringInput
+	EventHubName pulumi.StringPtrInput
 	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
 	MessageRetentionInDays pulumi.Float64PtrInput
 	// The Namespace name

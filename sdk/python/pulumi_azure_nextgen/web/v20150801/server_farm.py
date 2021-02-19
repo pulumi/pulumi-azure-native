@@ -81,8 +81,6 @@ class ServerFarm(pulumi.CustomResource):
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['maximum_number_of_workers'] = maximum_number_of_workers
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['per_site_scaling'] = per_site_scaling
             __props__['reserved'] = reserved

@@ -67,8 +67,6 @@ class Disk(pulumi.CustomResource):
             if creation_data is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_data'")
             __props__['creation_data'] = creation_data
-            if disk_name is None and not opts.urn:
-                raise TypeError("Missing required property 'disk_name'")
             __props__['disk_name'] = disk_name
             __props__['disk_size_gb'] = disk_size_gb
             __props__['encryption_settings'] = encryption_settings

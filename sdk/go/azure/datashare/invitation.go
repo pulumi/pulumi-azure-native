@@ -56,9 +56,6 @@ func NewInvitation(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.InvitationName == nil {
-		return nil, errors.New("invalid value for required argument 'InvitationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -176,7 +173,7 @@ type invitationArgs struct {
 	// The expiration date for the invitation and share subscription.
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// The name of the invitation.
-	InvitationName string `pulumi:"invitationName"`
+	InvitationName *string `pulumi:"invitationName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the share to send the invitation for.
@@ -198,7 +195,7 @@ type InvitationArgs struct {
 	// The expiration date for the invitation and share subscription.
 	ExpirationDate pulumi.StringPtrInput
 	// The name of the invitation.
-	InvitationName pulumi.StringInput
+	InvitationName pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The name of the share to send the invitation for.

@@ -44,9 +44,6 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
-	if args.StorageClassificationMappingName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageClassificationMappingName'")
-	}
 	if args.StorageClassificationName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageClassificationName'")
 	}
@@ -122,7 +119,7 @@ type replicationStorageClassificationMappingArgs struct {
 	// The name of the recovery services vault.
 	ResourceName string `pulumi:"resourceName"`
 	// Storage classification mapping name.
-	StorageClassificationMappingName string `pulumi:"storageClassificationMappingName"`
+	StorageClassificationMappingName *string `pulumi:"storageClassificationMappingName"`
 	// Storage classification name.
 	StorageClassificationName string `pulumi:"storageClassificationName"`
 }
@@ -138,7 +135,7 @@ type ReplicationStorageClassificationMappingArgs struct {
 	// The name of the recovery services vault.
 	ResourceName pulumi.StringInput
 	// Storage classification mapping name.
-	StorageClassificationMappingName pulumi.StringInput
+	StorageClassificationMappingName pulumi.StringPtrInput
 	// Storage classification name.
 	StorageClassificationName pulumi.StringInput
 }

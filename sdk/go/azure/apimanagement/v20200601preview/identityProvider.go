@@ -52,9 +52,6 @@ func NewIdentityProvider(ctx *pulumi.Context,
 	if args.ClientSecret == nil {
 		return nil, errors.New("invalid value for required argument 'ClientSecret'")
 	}
-	if args.IdentityProviderName == nil {
-		return nil, errors.New("invalid value for required argument 'IdentityProviderName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -179,7 +176,7 @@ type identityProviderArgs struct {
 	// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
 	ClientSecret string `pulumi:"clientSecret"`
 	// Identity Provider Type identifier.
-	IdentityProviderName string `pulumi:"identityProviderName"`
+	IdentityProviderName *string `pulumi:"identityProviderName"`
 	// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
 	PasswordResetPolicyName *string `pulumi:"passwordResetPolicyName"`
 	// Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
@@ -209,7 +206,7 @@ type IdentityProviderArgs struct {
 	// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
 	ClientSecret pulumi.StringInput
 	// Identity Provider Type identifier.
-	IdentityProviderName pulumi.StringInput
+	IdentityProviderName pulumi.StringPtrInput
 	// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
 	PasswordResetPolicyName pulumi.StringPtrInput
 	// Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.

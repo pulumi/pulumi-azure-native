@@ -86,9 +86,6 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
             if ((!args || args.certificateOrderName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateOrderName'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -154,7 +151,7 @@ export interface AppServiceCertificateOrderCertificateArgs {
     /**
      * Name of the certificate.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

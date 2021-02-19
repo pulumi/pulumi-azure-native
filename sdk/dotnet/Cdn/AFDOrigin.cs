@@ -192,8 +192,8 @@ namespace Pulumi.AzureNextGen.Cdn
         /// <summary>
         /// Name of the origin that is unique within the profile.
         /// </summary>
-        [Input("originName", required: true)]
-        public Input<string> OriginName { get; set; } = null!;
+        [Input("originName")]
+        public Input<string>? OriginName { get; set; }
 
         /// <summary>
         /// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5

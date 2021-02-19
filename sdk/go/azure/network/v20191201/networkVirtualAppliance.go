@@ -50,9 +50,6 @@ func NewNetworkVirtualAppliance(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.NetworkVirtualApplianceName == nil {
-		return nil, errors.New("invalid value for required argument 'NetworkVirtualApplianceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -178,7 +175,7 @@ type networkVirtualApplianceArgs struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of Network Virtual Appliance.
-	NetworkVirtualApplianceName string `pulumi:"networkVirtualApplianceName"`
+	NetworkVirtualApplianceName *string `pulumi:"networkVirtualApplianceName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Network Virtual Appliance SKU.
@@ -204,7 +201,7 @@ type NetworkVirtualApplianceArgs struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of Network Virtual Appliance.
-	NetworkVirtualApplianceName pulumi.StringInput
+	NetworkVirtualApplianceName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Network Virtual Appliance SKU.

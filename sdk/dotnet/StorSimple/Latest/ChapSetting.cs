@@ -88,8 +88,8 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The chap user name.
         /// </summary>
-        [Input("chapUserName", required: true)]
-        public Input<string> ChapUserName { get; set; } = null!;
+        [Input("chapUserName")]
+        public Input<string>? ChapUserName { get; set; }
 
         /// <summary>
         /// The device name.

@@ -60,9 +60,6 @@ func NewEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'EndpointName'")
-	}
 	if args.Origins == nil {
 		return nil, errors.New("invalid value for required argument 'Origins'")
 	}
@@ -221,7 +218,7 @@ type endpointArgs struct {
 	// List of content types on which compression applies. The value should be a valid MIME type.
 	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
 	// Name of the endpoint under the profile which is unique globally.
-	EndpointName string `pulumi:"endpointName"`
+	EndpointName *string `pulumi:"endpointName"`
 	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
 	GeoFilters []GeoFilter `pulumi:"geoFilters"`
 	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
@@ -257,7 +254,7 @@ type EndpointArgs struct {
 	// List of content types on which compression applies. The value should be a valid MIME type.
 	ContentTypesToCompress pulumi.StringArrayInput
 	// Name of the endpoint under the profile which is unique globally.
-	EndpointName pulumi.StringInput
+	EndpointName pulumi.StringPtrInput
 	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
 	GeoFilters GeoFilterArrayInput
 	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.

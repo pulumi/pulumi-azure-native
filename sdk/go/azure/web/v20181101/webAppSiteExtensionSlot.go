@@ -75,9 +75,6 @@ func NewWebAppSiteExtensionSlot(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SiteExtensionId == nil {
-		return nil, errors.New("invalid value for required argument 'SiteExtensionId'")
-	}
 	if args.Slot == nil {
 		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
@@ -235,7 +232,7 @@ type webAppSiteExtensionSlotArgs struct {
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Site extension name.
-	SiteExtensionId string `pulumi:"siteExtensionId"`
+	SiteExtensionId *string `pulumi:"siteExtensionId"`
 	// Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.
 	Slot string `pulumi:"slot"`
 }
@@ -247,7 +244,7 @@ type WebAppSiteExtensionSlotArgs struct {
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Site extension name.
-	SiteExtensionId pulumi.StringInput
+	SiteExtensionId pulumi.StringPtrInput
 	// Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.
 	Slot pulumi.StringInput
 }

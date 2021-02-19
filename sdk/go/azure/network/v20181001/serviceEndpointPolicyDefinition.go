@@ -39,9 +39,6 @@ func NewServiceEndpointPolicyDefinition(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServiceEndpointPolicyDefinitionName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceEndpointPolicyDefinitionName'")
-	}
 	if args.ServiceEndpointPolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointPolicyName'")
 	}
@@ -177,7 +174,7 @@ type serviceEndpointPolicyDefinitionArgs struct {
 	// service endpoint name.
 	Service *string `pulumi:"service"`
 	// The name of the service endpoint policy definition name.
-	ServiceEndpointPolicyDefinitionName string `pulumi:"serviceEndpointPolicyDefinitionName"`
+	ServiceEndpointPolicyDefinitionName *string `pulumi:"serviceEndpointPolicyDefinitionName"`
 	// The name of the service endpoint policy.
 	ServiceEndpointPolicyName string `pulumi:"serviceEndpointPolicyName"`
 	// A list of service resources.
@@ -199,7 +196,7 @@ type ServiceEndpointPolicyDefinitionArgs struct {
 	// service endpoint name.
 	Service pulumi.StringPtrInput
 	// The name of the service endpoint policy definition name.
-	ServiceEndpointPolicyDefinitionName pulumi.StringInput
+	ServiceEndpointPolicyDefinitionName pulumi.StringPtrInput
 	// The name of the service endpoint policy.
 	ServiceEndpointPolicyName pulumi.StringInput
 	// A list of service resources.

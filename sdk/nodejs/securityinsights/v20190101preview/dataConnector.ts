@@ -62,9 +62,6 @@ export class DataConnector extends pulumi.CustomResource {
     constructor(name: string, args: DataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dataConnectorId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dataConnectorId'");
-            }
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -109,7 +106,7 @@ export interface DataConnectorArgs {
     /**
      * Connector ID
      */
-    readonly dataConnectorId: pulumi.Input<string>;
+    readonly dataConnectorId?: pulumi.Input<string>;
     /**
      * Etag of the azure resource
      */

@@ -83,9 +83,6 @@ export class MediaService extends pulumi.CustomResource {
     constructor(name: string, args: MediaServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -133,7 +130,7 @@ export interface MediaServiceArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    readonly accountName?: pulumi.Input<string>;
     /**
      * The account encryption properties.
      */

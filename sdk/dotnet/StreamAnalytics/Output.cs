@@ -124,8 +124,8 @@ namespace Pulumi.AzureNextGen.StreamAnalytics
         /// <summary>
         /// The name of the output.
         /// </summary>
-        [Input("outputName", required: true)]
-        public Input<string> OutputName { get; set; } = null!;
+        [Input("outputName")]
+        public Input<string>? OutputName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

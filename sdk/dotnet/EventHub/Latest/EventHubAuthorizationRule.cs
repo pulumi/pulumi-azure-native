@@ -91,8 +91,8 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         /// <summary>
         /// The authorization rule name.
         /// </summary>
-        [Input("authorizationRuleName", required: true)]
-        public Input<string> AuthorizationRuleName { get; set; } = null!;
+        [Input("authorizationRuleName")]
+        public Input<string>? AuthorizationRuleName { get; set; }
 
         /// <summary>
         /// The Event Hub name

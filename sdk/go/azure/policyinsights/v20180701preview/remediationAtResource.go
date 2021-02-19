@@ -42,9 +42,6 @@ func NewRemediationAtResource(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RemediationName == nil {
-		return nil, errors.New("invalid value for required argument 'RemediationName'")
-	}
 	if args.ResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
@@ -137,7 +134,7 @@ type remediationAtResourceArgs struct {
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 	// The name of the remediation.
-	RemediationName string `pulumi:"remediationName"`
+	RemediationName *string `pulumi:"remediationName"`
 	// Resource ID.
 	ResourceId string `pulumi:"resourceId"`
 }
@@ -153,7 +150,7 @@ type RemediationAtResourceArgs struct {
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
 	// The name of the remediation.
-	RemediationName pulumi.StringInput
+	RemediationName pulumi.StringPtrInput
 	// Resource ID.
 	ResourceId pulumi.StringInput
 }

@@ -72,9 +72,6 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         pulumi.log.warn("MaintenanceConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:MaintenanceConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.configName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'configName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +113,7 @@ export interface MaintenanceConfigurationArgs {
     /**
      * The name of the maintenance configuration.
      */
-    readonly configName: pulumi.Input<string>;
+    readonly configName?: pulumi.Input<string>;
     /**
      * Time slots on which upgrade is not allowed.
      */

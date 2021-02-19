@@ -42,9 +42,6 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	if args.GraphName == nil {
-		return nil, errors.New("invalid value for required argument 'GraphName'")
-	}
 	if args.Options == nil {
 		return nil, errors.New("invalid value for required argument 'Options'")
 	}
@@ -142,7 +139,7 @@ type gremlinResourceGremlinGraphArgs struct {
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
 	// Cosmos DB graph name.
-	GraphName string `pulumi:"graphName"`
+	GraphName *string `pulumi:"graphName"`
 	// Identity for the resource.
 	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
@@ -164,7 +161,7 @@ type GremlinResourceGremlinGraphArgs struct {
 	// Cosmos DB database name.
 	DatabaseName pulumi.StringInput
 	// Cosmos DB graph name.
-	GraphName pulumi.StringInput
+	GraphName pulumi.StringPtrInput
 	// Identity for the resource.
 	Identity ManagedServiceIdentityPtrInput
 	// The location of the resource group to which the resource belongs.

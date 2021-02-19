@@ -49,9 +49,6 @@ func NewSqlPoolsV3(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SqlPoolName == nil {
-		return nil, errors.New("invalid value for required argument 'SqlPoolName'")
-	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
@@ -153,7 +150,7 @@ type sqlPoolsV3Args struct {
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.
 	Sku *Sku `pulumi:"sku"`
 	// The name of the sql pool.
-	SqlPoolName string `pulumi:"sqlPoolName"`
+	SqlPoolName *string `pulumi:"sqlPoolName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the workspace.
@@ -169,7 +166,7 @@ type SqlPoolsV3Args struct {
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.
 	Sku SkuPtrInput
 	// The name of the sql pool.
-	SqlPoolName pulumi.StringInput
+	SqlPoolName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the workspace.

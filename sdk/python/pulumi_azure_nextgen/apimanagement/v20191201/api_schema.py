@@ -65,8 +65,6 @@ class ApiSchema(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if schema_id is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_id'")
             __props__['schema_id'] = schema_id
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")

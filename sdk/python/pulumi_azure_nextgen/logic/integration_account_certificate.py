@@ -60,8 +60,6 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if certificate_name is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_name'")
             __props__['certificate_name'] = certificate_name
             if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")

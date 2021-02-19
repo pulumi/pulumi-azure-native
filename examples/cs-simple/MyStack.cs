@@ -7,28 +7,16 @@ using Pulumi.AzureNextGen.Authorization;
 using Pulumi.AzureNextGen.Resources;
 using Pulumi.AzureNextGen.Storage;
 using Pulumi.AzureNextGen.Storage.Inputs;
-using Pulumi.Random;
 
 class MyStack : Stack
 {
     public MyStack()
     {
-        var randomString = new RandomString("random", new RandomStringArgs
-        {
-            Length = 12,
-            Special = false,
-            Upper = false,
-        });
-
-        var resourceGroup = new ResourceGroup("resourceGroup", new ResourceGroupArgs
-        {
-            ResourceGroupName = randomString.Result
-        });
+        var resourceGroup = new ResourceGroup("resourceGroup");
 
         var storageAccount = new StorageAccount("sa", new StorageAccountArgs
         {
             ResourceGroupName = resourceGroup.Name,
-            AccountName = randomString.Result,
             Location = resourceGroup.Location,
             Sku = new SkuArgs
             {

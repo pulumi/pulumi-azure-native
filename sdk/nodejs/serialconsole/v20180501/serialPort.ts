@@ -70,9 +70,6 @@ export class SerialPort extends pulumi.CustomResource {
             if ((!args || args.resourceProviderNamespace === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceProviderNamespace'");
             }
-            if ((!args || args.serialPort === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serialPort'");
-            }
             inputs["parentResource"] = args ? args.parentResource : undefined;
             inputs["parentResourceType"] = args ? args.parentResourceType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -122,7 +119,7 @@ export interface SerialPortArgs {
     /**
      * The name of the serial port to create.
      */
-    readonly serialPort: pulumi.Input<string>;
+    readonly serialPort?: pulumi.Input<string>;
     /**
      * Specifies whether the port is enabled for a serial console connection.
      */

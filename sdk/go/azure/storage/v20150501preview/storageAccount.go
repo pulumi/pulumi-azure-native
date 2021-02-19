@@ -54,9 +54,6 @@ func NewStorageAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -204,7 +201,7 @@ func (StorageAccountState) ElementType() reflect.Type {
 
 type storageAccountArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// Gets or sets the account type.
 	AccountType *string `pulumi:"accountType"`
 	// Resource location
@@ -218,7 +215,7 @@ type storageAccountArgs struct {
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// Gets or sets the account type.
 	AccountType *AccountType
 	// Resource location

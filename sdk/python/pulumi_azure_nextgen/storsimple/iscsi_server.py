@@ -68,8 +68,6 @@ class IscsiServer(pulumi.CustomResource):
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if iscsi_server_name is None and not opts.urn:
-                raise TypeError("Missing required property 'iscsi_server_name'")
             __props__['iscsi_server_name'] = iscsi_server_name
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")

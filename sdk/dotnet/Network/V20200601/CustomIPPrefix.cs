@@ -148,8 +148,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <summary>
         /// The name of the custom IP prefix.
         /// </summary>
-        [Input("customIpPrefixName", required: true)]
-        public Input<string> CustomIpPrefixName { get; set; } = null!;
+        [Input("customIpPrefixName")]
+        public Input<string>? CustomIpPrefixName { get; set; }
 
         /// <summary>
         /// Resource ID.

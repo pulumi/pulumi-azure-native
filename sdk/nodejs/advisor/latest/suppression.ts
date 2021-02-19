@@ -71,9 +71,6 @@ export class Suppression extends pulumi.CustomResource {
         pulumi.log.warn("Suppression is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:advisor:Suppression'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.recommendationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'recommendationId'");
             }
@@ -114,7 +111,7 @@ export interface SuppressionArgs {
     /**
      * The name of the suppression.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The recommendation ID.
      */

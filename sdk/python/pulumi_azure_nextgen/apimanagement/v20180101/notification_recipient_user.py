@@ -58,8 +58,6 @@ class NotificationRecipientUser(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            if uid is None and not opts.urn:
-                raise TypeError("Missing required property 'uid'")
             __props__['uid'] = uid
             __props__['name'] = None
             __props__['type'] = None

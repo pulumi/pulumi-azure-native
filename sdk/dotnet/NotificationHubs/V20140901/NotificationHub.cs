@@ -112,8 +112,8 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
         /// <summary>
         /// The notification hub name.
         /// </summary>
-        [Input("notificationHubName", required: true)]
-        public Input<string> NotificationHubName { get; set; } = null!;
+        [Input("notificationHubName")]
+        public Input<string>? NotificationHubName { get; set; }
 
         /// <summary>
         /// Gets or sets properties of the NotificationHub.

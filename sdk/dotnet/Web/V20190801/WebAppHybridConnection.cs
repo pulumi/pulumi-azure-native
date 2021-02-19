@@ -177,8 +177,8 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// <summary>
         /// The name of the Service Bus relay.
         /// </summary>
-        [Input("relayName", required: true)]
-        public Input<string> RelayName { get; set; } = null!;
+        [Input("relayName")]
+        public Input<string>? RelayName { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

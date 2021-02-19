@@ -80,8 +80,6 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if schema_name is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_name'")
             __props__['schema_name'] = schema_name
             __props__['schema_type'] = schema_type
             __props__['tags'] = tags

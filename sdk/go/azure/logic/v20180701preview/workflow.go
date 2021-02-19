@@ -55,9 +55,6 @@ func NewWorkflow(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.WorkflowName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkflowName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:logic:Workflow"),
@@ -181,7 +178,7 @@ type workflowArgs struct {
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The workflow name.
-	WorkflowName string `pulumi:"workflowName"`
+	WorkflowName *string `pulumi:"workflowName"`
 }
 
 // The set of arguments for constructing a Workflow resource.
@@ -203,7 +200,7 @@ type WorkflowArgs struct {
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The workflow name.
-	WorkflowName pulumi.StringInput
+	WorkflowName pulumi.StringPtrInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {

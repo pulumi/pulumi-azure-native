@@ -114,8 +114,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <summary>
         /// Identifier of the NamedValue.
         /// </summary>
-        [Input("namedValueId", required: true)]
-        public Input<string> NamedValueId { get; set; } = null!;
+        [Input("namedValueId")]
+        public Input<string>? NamedValueId { get; set; }
 
         /// <summary>
         /// The name of the resource group.

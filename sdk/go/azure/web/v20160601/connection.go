@@ -35,9 +35,6 @@ func NewConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -108,7 +105,7 @@ func (ConnectionState) ElementType() reflect.Type {
 
 type connectionArgs struct {
 	// Connection name
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// Resource ETag
 	Etag *string `pulumi:"etag"`
 	// Resource location
@@ -125,7 +122,7 @@ type connectionArgs struct {
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
 	// Connection name
-	ConnectionName pulumi.StringInput
+	ConnectionName pulumi.StringPtrInput
 	// Resource ETag
 	Etag pulumi.StringPtrInput
 	// Resource location

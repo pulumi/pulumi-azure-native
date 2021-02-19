@@ -131,8 +131,8 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
         /// <summary>
         /// The name of the share account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// Identity Info on the Account

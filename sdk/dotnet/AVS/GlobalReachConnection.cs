@@ -116,8 +116,8 @@ namespace Pulumi.AzureNextGen.AVS
         /// <summary>
         /// Name of the global reach connection in the private cloud
         /// </summary>
-        [Input("globalReachConnectionName", required: true)]
-        public Input<string> GlobalReachConnectionName { get; set; } = null!;
+        [Input("globalReachConnectionName")]
+        public Input<string>? GlobalReachConnectionName { get; set; }
 
         /// <summary>
         /// Identifier of the ExpressRoute Circuit to peer with in the global reach connection

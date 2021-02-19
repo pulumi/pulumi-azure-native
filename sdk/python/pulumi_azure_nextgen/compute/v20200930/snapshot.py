@@ -94,8 +94,6 @@ class Snapshot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
-            if snapshot_name is None and not opts.urn:
-                raise TypeError("Missing required property 'snapshot_name'")
             __props__['snapshot_name'] = snapshot_name
             __props__['tags'] = tags
             __props__['disk_size_bytes'] = None

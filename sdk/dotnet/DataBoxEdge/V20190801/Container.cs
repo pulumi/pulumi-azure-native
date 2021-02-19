@@ -107,8 +107,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// <summary>
         /// The container name.
         /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
+        [Input("containerName")]
+        public Input<string>? ContainerName { get; set; }
 
         /// <summary>
         /// DataFormat for Container

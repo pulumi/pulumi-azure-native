@@ -105,8 +105,6 @@ class Disk(pulumi.CustomResource):
             __props__['disk_iops_read_write'] = disk_iops_read_write
             __props__['disk_m_bps_read_only'] = disk_m_bps_read_only
             __props__['disk_m_bps_read_write'] = disk_m_bps_read_write
-            if disk_name is None and not opts.urn:
-                raise TypeError("Missing required property 'disk_name'")
             __props__['disk_name'] = disk_name
             __props__['disk_size_gb'] = disk_size_gb
             __props__['encryption'] = encryption

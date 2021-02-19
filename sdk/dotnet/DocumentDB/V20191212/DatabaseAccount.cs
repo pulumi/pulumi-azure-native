@@ -217,8 +217,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
         /// <summary>
         /// Cosmos DB database account name.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         [Input("capabilities")]
         private InputList<Inputs.CapabilityArgs>? _capabilities;

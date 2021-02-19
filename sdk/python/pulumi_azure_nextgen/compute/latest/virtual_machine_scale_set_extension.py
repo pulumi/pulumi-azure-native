@@ -89,8 +89,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             if vm_scale_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__['vm_scale_set_name'] = vm_scale_set_name
-            if vmss_extension_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vmss_extension_name'")
             __props__['vmss_extension_name'] = vmss_extension_name
             __props__['provisioning_state'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSetExtension")])

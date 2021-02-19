@@ -80,9 +80,6 @@ export class DeploymentScript extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scriptName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'scriptName'");
-            }
             inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -137,7 +134,7 @@ export interface DeploymentScriptArgs {
     /**
      * Name of the deployment script.
      */
-    readonly scriptName: pulumi.Input<string>;
+    readonly scriptName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

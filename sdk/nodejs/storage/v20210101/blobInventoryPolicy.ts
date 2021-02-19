@@ -69,9 +69,6 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.blobInventoryPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'blobInventoryPolicyName'");
-            }
             if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policy'");
             }
@@ -117,7 +114,7 @@ export interface BlobInventoryPolicyArgs {
     /**
      * The name of the storage account blob inventory policy. It should always be 'default'
      */
-    readonly blobInventoryPolicyName: pulumi.Input<string>;
+    readonly blobInventoryPolicyName?: pulumi.Input<string>;
     /**
      * The storage account blob inventory policy object. It is composed of policy rules.
      */

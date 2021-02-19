@@ -110,9 +110,6 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'jobName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -187,7 +184,7 @@ export interface JobArgs {
     /**
      * The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    readonly jobName: pulumi.Input<string>;
+    readonly jobName?: pulumi.Input<string>;
     /**
      * The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
      */

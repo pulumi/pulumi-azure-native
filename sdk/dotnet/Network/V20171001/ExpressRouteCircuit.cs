@@ -216,8 +216,8 @@ namespace Pulumi.AzureNextGen.Network.V20171001
         /// <summary>
         /// The name of the circuit.
         /// </summary>
-        [Input("circuitName", required: true)]
-        public Input<string> CircuitName { get; set; } = null!;
+        [Input("circuitName")]
+        public Input<string>? CircuitName { get; set; }
 
         /// <summary>
         /// The CircuitProvisioningState state of the resource.

@@ -214,8 +214,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// <summary>
         /// The Continuous Export configuration ID. This is unique within a Application Insights component.
         /// </summary>
-        [Input("exportId", required: true)]
-        public Input<string> ExportId { get; set; } = null!;
+        [Input("exportId")]
+        public Input<string>? ExportId { get; set; }
 
         /// <summary>
         /// Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.

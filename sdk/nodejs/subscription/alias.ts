@@ -59,9 +59,6 @@ export class Alias extends pulumi.CustomResource {
     constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.aliasName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'aliasName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -94,7 +91,7 @@ export interface AliasArgs {
     /**
      * Alias Name
      */
-    readonly aliasName: pulumi.Input<string>;
+    readonly aliasName?: pulumi.Input<string>;
     /**
      * Put alias request properties.
      */

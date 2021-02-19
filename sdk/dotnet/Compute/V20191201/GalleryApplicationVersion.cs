@@ -119,8 +119,8 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// <summary>
         /// The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: &lt;MajorVersion&gt;.&lt;MinorVersion&gt;.&lt;Patch&gt;
         /// </summary>
-        [Input("galleryApplicationVersionName", required: true)]
-        public Input<string> GalleryApplicationVersionName { get; set; } = null!;
+        [Input("galleryApplicationVersionName")]
+        public Input<string>? GalleryApplicationVersionName { get; set; }
 
         /// <summary>
         /// The name of the Shared Application Gallery in which the Application Definition resides.

@@ -106,8 +106,8 @@ namespace Pulumi.AzureNextGen.Storage.V20210101
         /// <summary>
         /// The name of the Table Service within the specified storage account. Table Service Name must be 'default'
         /// </summary>
-        [Input("tableServiceName", required: true)]
-        public Input<string> TableServiceName { get; set; } = null!;
+        [Input("tableServiceName")]
+        public Input<string>? TableServiceName { get; set; }
 
         public TableServicePropertiesArgs()
         {

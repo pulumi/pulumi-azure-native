@@ -51,9 +51,6 @@ func NewRollout(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RolloutName == nil {
-		return nil, errors.New("invalid value for required argument 'RolloutName'")
-	}
 	if args.StepGroups == nil {
 		return nil, errors.New("invalid value for required argument 'StepGroups'")
 	}
@@ -148,7 +145,7 @@ type rolloutArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The rollout name.
-	RolloutName string `pulumi:"rolloutName"`
+	RolloutName *string `pulumi:"rolloutName"`
 	// The list of step groups that define the orchestration.
 	StepGroups []StepGroup `pulumi:"stepGroups"`
 	// Resource tags.
@@ -170,7 +167,7 @@ type RolloutArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The rollout name.
-	RolloutName pulumi.StringInput
+	RolloutName pulumi.StringPtrInput
 	// The list of step groups that define the orchestration.
 	StepGroups StepGroupArrayInput
 	// Resource tags.

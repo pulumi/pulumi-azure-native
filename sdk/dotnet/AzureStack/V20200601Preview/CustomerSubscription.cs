@@ -99,8 +99,8 @@ namespace Pulumi.AzureNextGen.AzureStack.V20200601Preview
         /// <summary>
         /// Name of the product.
         /// </summary>
-        [Input("customerSubscriptionName", required: true)]
-        public Input<string> CustomerSubscriptionName { get; set; } = null!;
+        [Input("customerSubscriptionName")]
+        public Input<string>? CustomerSubscriptionName { get; set; }
 
         /// <summary>
         /// The entity tag used for optimistic concurrency when modifying the resource.

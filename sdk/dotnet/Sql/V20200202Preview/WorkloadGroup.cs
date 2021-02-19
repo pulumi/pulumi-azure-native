@@ -171,8 +171,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <summary>
         /// The name of the workload group.
         /// </summary>
-        [Input("workloadGroupName", required: true)]
-        public Input<string> WorkloadGroupName { get; set; } = null!;
+        [Input("workloadGroupName")]
+        public Input<string>? WorkloadGroupName { get; set; }
 
         public WorkloadGroupArgs()
         {

@@ -70,9 +70,6 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.WorkspaceName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:Workspace"),
@@ -232,7 +229,7 @@ type workspaceArgs struct {
 	// Virtual Network profile
 	VirtualNetworkProfile *VirtualNetworkProfile `pulumi:"virtualNetworkProfile"`
 	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName *string `pulumi:"workspaceName"`
 	// Git integration settings
 	WorkspaceRepositoryConfiguration *WorkspaceRepositoryConfiguration `pulumi:"workspaceRepositoryConfiguration"`
 }
@@ -270,7 +267,7 @@ type WorkspaceArgs struct {
 	// Virtual Network profile
 	VirtualNetworkProfile VirtualNetworkProfilePtrInput
 	// The name of the workspace
-	WorkspaceName pulumi.StringInput
+	WorkspaceName pulumi.StringPtrInput
 	// Git integration settings
 	WorkspaceRepositoryConfiguration WorkspaceRepositoryConfigurationPtrInput
 }

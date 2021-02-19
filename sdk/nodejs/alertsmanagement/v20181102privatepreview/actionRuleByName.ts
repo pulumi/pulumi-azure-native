@@ -66,9 +66,6 @@ export class ActionRuleByName extends pulumi.CustomResource {
     constructor(name: string, args: ActionRuleByNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.actionRuleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'actionRuleName'");
-            }
             if ((!args || args.resourceGroup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
@@ -106,7 +103,7 @@ export interface ActionRuleByNameArgs {
     /**
      * The name of action rule that needs to be created/updated
      */
-    readonly actionRuleName: pulumi.Input<string>;
+    readonly actionRuleName?: pulumi.Input<string>;
     /**
      * Resource location
      */

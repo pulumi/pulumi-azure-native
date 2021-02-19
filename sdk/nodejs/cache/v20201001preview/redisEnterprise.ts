@@ -94,9 +94,6 @@ export class RedisEnterprise extends pulumi.CustomResource {
     constructor(name: string, args: RedisEnterpriseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -151,7 +148,7 @@ export interface RedisEnterpriseArgs {
     /**
      * The name of the RedisEnterprise cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

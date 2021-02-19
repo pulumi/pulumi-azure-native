@@ -39,9 +39,6 @@ func NewHyperVSite(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SiteName == nil {
-		return nil, errors.New("invalid value for required argument 'SiteName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:offazure/latest:HyperVSite"),
@@ -119,7 +116,7 @@ type hyperVSiteArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Site name.
-	SiteName string            `pulumi:"siteName"`
+	SiteName *string           `pulumi:"siteName"`
 	Tags     map[string]string `pulumi:"tags"`
 }
 
@@ -136,7 +133,7 @@ type HyperVSiteArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Site name.
-	SiteName pulumi.StringInput
+	SiteName pulumi.StringPtrInput
 	Tags     pulumi.StringMapInput
 }
 

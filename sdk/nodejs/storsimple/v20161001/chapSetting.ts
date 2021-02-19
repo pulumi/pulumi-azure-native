@@ -58,9 +58,6 @@ export class ChapSetting extends pulumi.CustomResource {
     constructor(name: string, args: ChapSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.chapUserName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'chapUserName'");
-            }
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -105,7 +102,7 @@ export interface ChapSettingArgs {
     /**
      * The chap user name.
      */
-    readonly chapUserName: pulumi.Input<string>;
+    readonly chapUserName?: pulumi.Input<string>;
     /**
      * The device name.
      */

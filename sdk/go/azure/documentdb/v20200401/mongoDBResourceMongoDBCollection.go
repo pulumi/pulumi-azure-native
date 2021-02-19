@@ -37,9 +37,6 @@ func NewMongoDBResourceMongoDBCollection(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.CollectionName == nil {
-		return nil, errors.New("invalid value for required argument 'CollectionName'")
-	}
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
@@ -134,7 +131,7 @@ type mongoDBResourceMongoDBCollectionArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB collection name.
-	CollectionName string `pulumi:"collectionName"`
+	CollectionName *string `pulumi:"collectionName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
 	// The location of the resource group to which the resource belongs.
@@ -154,7 +151,7 @@ type MongoDBResourceMongoDBCollectionArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
 	// Cosmos DB collection name.
-	CollectionName pulumi.StringInput
+	CollectionName pulumi.StringPtrInput
 	// Cosmos DB database name.
 	DatabaseName pulumi.StringInput
 	// The location of the resource group to which the resource belongs.

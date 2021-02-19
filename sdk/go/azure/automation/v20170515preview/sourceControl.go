@@ -52,9 +52,6 @@ func NewSourceControl(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SourceControlName == nil {
-		return nil, errors.New("invalid value for required argument 'SourceControlName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation:SourceControl"),
@@ -165,7 +162,7 @@ type sourceControlArgs struct {
 	// The authorization token for the repo of the source control.
 	SecurityToken *SourceControlSecurityTokenProperties `pulumi:"securityToken"`
 	// The source control name.
-	SourceControlName string `pulumi:"sourceControlName"`
+	SourceControlName *string `pulumi:"sourceControlName"`
 	// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
 	SourceType *string `pulumi:"sourceType"`
 }
@@ -191,7 +188,7 @@ type SourceControlArgs struct {
 	// The authorization token for the repo of the source control.
 	SecurityToken SourceControlSecurityTokenPropertiesPtrInput
 	// The source control name.
-	SourceControlName pulumi.StringInput
+	SourceControlName pulumi.StringPtrInput
 	// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
 	SourceType pulumi.StringPtrInput
 }

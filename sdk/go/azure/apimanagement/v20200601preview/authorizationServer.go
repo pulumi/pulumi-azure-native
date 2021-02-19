@@ -63,9 +63,6 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 	if args.AuthorizationEndpoint == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizationEndpoint'")
 	}
-	if args.Authsid == nil {
-		return nil, errors.New("invalid value for required argument 'Authsid'")
-	}
 	if args.ClientId == nil {
 		return nil, errors.New("invalid value for required argument 'ClientId'")
 	}
@@ -226,7 +223,7 @@ type authorizationServerArgs struct {
 	// HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
 	AuthorizationMethods []string `pulumi:"authorizationMethods"`
 	// Identifier of the authorization server.
-	Authsid string `pulumi:"authsid"`
+	Authsid *string `pulumi:"authsid"`
 	// Specifies the mechanism by which access token is passed to the API.
 	BearerTokenSendingMethods []string `pulumi:"bearerTokenSendingMethods"`
 	// Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
@@ -268,7 +265,7 @@ type AuthorizationServerArgs struct {
 	// HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
 	AuthorizationMethods AuthorizationMethodArrayInput
 	// Identifier of the authorization server.
-	Authsid pulumi.StringInput
+	Authsid pulumi.StringPtrInput
 	// Specifies the mechanism by which access token is passed to the API.
 	BearerTokenSendingMethods pulumi.StringArrayInput
 	// Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.

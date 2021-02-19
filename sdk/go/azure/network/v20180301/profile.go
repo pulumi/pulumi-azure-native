@@ -44,9 +44,6 @@ func NewProfile(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ProfileName == nil {
-		return nil, errors.New("invalid value for required argument 'ProfileName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -159,7 +156,7 @@ type profileArgs struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The name of the Traffic Manager profile.
-	ProfileName string `pulumi:"profileName"`
+	ProfileName *string `pulumi:"profileName"`
 	// The status of the Traffic Manager profile.
 	ProfileStatus *string `pulumi:"profileStatus"`
 	// The name of the resource group containing the Traffic Manager profile.
@@ -189,7 +186,7 @@ type ProfileArgs struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The name of the Traffic Manager profile.
-	ProfileName pulumi.StringInput
+	ProfileName pulumi.StringPtrInput
 	// The status of the Traffic Manager profile.
 	ProfileStatus pulumi.StringPtrInput
 	// The name of the resource group containing the Traffic Manager profile.

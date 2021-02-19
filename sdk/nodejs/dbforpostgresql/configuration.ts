@@ -78,9 +78,6 @@ export class Configuration extends pulumi.CustomResource {
     constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.configurationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'configurationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -128,7 +125,7 @@ export interface ConfigurationArgs {
     /**
      * The name of the server configuration.
      */
-    readonly configurationName: pulumi.Input<string>;
+    readonly configurationName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

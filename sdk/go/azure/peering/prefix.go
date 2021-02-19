@@ -46,9 +46,6 @@ func NewPrefix(ctx *pulumi.Context,
 	if args.PeeringServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'PeeringServiceName'")
 	}
-	if args.PrefixName == nil {
-		return nil, errors.New("invalid value for required argument 'PrefixName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -148,7 +145,7 @@ type prefixArgs struct {
 	// The prefix from which your traffic originates.
 	Prefix *string `pulumi:"prefix"`
 	// The name of the prefix.
-	PrefixName string `pulumi:"prefixName"`
+	PrefixName *string `pulumi:"prefixName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -162,7 +159,7 @@ type PrefixArgs struct {
 	// The prefix from which your traffic originates.
 	Prefix pulumi.StringPtrInput
 	// The name of the prefix.
-	PrefixName pulumi.StringInput
+	PrefixName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

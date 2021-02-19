@@ -59,8 +59,6 @@ class Organization(pulumi.CustomResource):
 
             __props__['location'] = location
             __props__['offer_detail'] = offer_detail
-            if organization_name is None and not opts.urn:
-                raise TypeError("Missing required property 'organization_name'")
             __props__['organization_name'] = organization_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

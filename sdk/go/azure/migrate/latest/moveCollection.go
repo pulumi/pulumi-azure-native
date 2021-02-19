@@ -41,9 +41,6 @@ func NewMoveCollection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.MoveCollectionName == nil {
-		return nil, errors.New("invalid value for required argument 'MoveCollectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -124,7 +121,7 @@ type moveCollectionArgs struct {
 	// The geo-location where the resource lives.
 	Location *string `pulumi:"location"`
 	// The Move Collection Name.
-	MoveCollectionName string `pulumi:"moveCollectionName"`
+	MoveCollectionName *string `pulumi:"moveCollectionName"`
 	// Defines the move collection properties.
 	Properties *MoveCollectionProperties `pulumi:"properties"`
 	// The Resource Group Name.
@@ -140,7 +137,7 @@ type MoveCollectionArgs struct {
 	// The geo-location where the resource lives.
 	Location pulumi.StringPtrInput
 	// The Move Collection Name.
-	MoveCollectionName pulumi.StringInput
+	MoveCollectionName pulumi.StringPtrInput
 	// Defines the move collection properties.
 	Properties MoveCollectionPropertiesPtrInput
 	// The Resource Group Name.

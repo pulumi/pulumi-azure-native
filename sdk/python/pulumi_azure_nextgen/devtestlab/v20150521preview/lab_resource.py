@@ -77,8 +77,6 @@ class LabResource(pulumi.CustomResource):
             __props__['id'] = id
             __props__['lab_storage_type'] = lab_storage_type
             __props__['location'] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None and not opts.urn:

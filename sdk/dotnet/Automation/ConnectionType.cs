@@ -119,8 +119,8 @@ namespace Pulumi.AzureNextGen.Automation
         /// <summary>
         /// The parameters supplied to the create or update connection type operation.
         /// </summary>
-        [Input("connectionTypeName", required: true)]
-        public Input<string> ConnectionTypeName { get; set; } = null!;
+        [Input("connectionTypeName")]
+        public Input<string>? ConnectionTypeName { get; set; }
 
         [Input("fieldDefinitions", required: true)]
         private InputMap<Inputs.FieldDefinitionArgs>? _fieldDefinitions;

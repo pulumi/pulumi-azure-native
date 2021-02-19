@@ -41,9 +41,6 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SpatialAnchorsAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'SpatialAnchorsAccountName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:mixedreality:SpatialAnchorsAccount"),
@@ -132,7 +129,7 @@ type spatialAnchorsAccountArgs struct {
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of an Mixed Reality Spatial Anchors Account.
-	SpatialAnchorsAccountName string `pulumi:"spatialAnchorsAccountName"`
+	SpatialAnchorsAccountName *string `pulumi:"spatialAnchorsAccountName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -146,7 +143,7 @@ type SpatialAnchorsAccountArgs struct {
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// Name of an Mixed Reality Spatial Anchors Account.
-	SpatialAnchorsAccountName pulumi.StringInput
+	SpatialAnchorsAccountName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

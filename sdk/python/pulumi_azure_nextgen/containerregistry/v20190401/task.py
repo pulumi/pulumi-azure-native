@@ -89,8 +89,6 @@ class Task(pulumi.CustomResource):
                 raise TypeError("Missing required property 'step'")
             __props__['step'] = step
             __props__['tags'] = tags
-            if task_name is None and not opts.urn:
-                raise TypeError("Missing required property 'task_name'")
             __props__['task_name'] = task_name
             if timeout is None:
                 timeout = 3600

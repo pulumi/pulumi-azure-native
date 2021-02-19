@@ -122,8 +122,8 @@ namespace Pulumi.AzureNextGen.IoTSpaces
         /// <summary>
         /// The name of the IoTSpaces instance.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// A valid instance SKU.

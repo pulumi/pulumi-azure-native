@@ -129,9 +129,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkGatewayName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'virtualNetworkGatewayName'");
-            }
             inputs["activeActive"] = args ? args.activeActive : undefined;
             inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             inputs["customRoutes"] = args ? args.customRoutes : undefined;
@@ -249,7 +246,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * The name of the virtual network gateway.
      */
-    readonly virtualNetworkGatewayName: pulumi.Input<string>;
+    readonly virtualNetworkGatewayName?: pulumi.Input<string>;
     /**
      * The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */

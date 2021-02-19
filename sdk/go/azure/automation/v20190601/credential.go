@@ -39,9 +39,6 @@ func NewCredential(ctx *pulumi.Context,
 	if args.AutomationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
 	}
-	if args.CredentialName == nil {
-		return nil, errors.New("invalid value for required argument 'CredentialName'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -128,7 +125,7 @@ type credentialArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The parameters supplied to the create or update credential operation.
-	CredentialName string `pulumi:"credentialName"`
+	CredentialName *string `pulumi:"credentialName"`
 	// Gets or sets the description of the credential.
 	Description *string `pulumi:"description"`
 	// Gets or sets the name of the credential.
@@ -146,7 +143,7 @@ type CredentialArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
 	// The parameters supplied to the create or update credential operation.
-	CredentialName pulumi.StringInput
+	CredentialName pulumi.StringPtrInput
 	// Gets or sets the description of the credential.
 	Description pulumi.StringPtrInput
 	// Gets or sets the name of the credential.

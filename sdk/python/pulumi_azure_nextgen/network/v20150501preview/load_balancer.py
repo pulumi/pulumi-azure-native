@@ -77,8 +77,6 @@ class LoadBalancer(pulumi.CustomResource):
             __props__['frontend_ip_configurations'] = frontend_ip_configurations
             __props__['inbound_nat_pools'] = inbound_nat_pools
             __props__['inbound_nat_rules'] = inbound_nat_rules
-            if load_balancer_name is None and not opts.urn:
-                raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
             __props__['load_balancing_rules'] = load_balancing_rules
             __props__['location'] = location

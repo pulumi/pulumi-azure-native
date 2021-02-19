@@ -60,8 +60,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if config_name is None and not opts.urn:
-                raise TypeError("Missing required property 'config_name'")
             __props__['config_name'] = config_name
             __props__['not_allowed_time'] = not_allowed_time
             if resource_group_name is None and not opts.urn:

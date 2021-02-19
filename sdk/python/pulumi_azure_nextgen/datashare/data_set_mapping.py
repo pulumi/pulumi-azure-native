@@ -57,8 +57,6 @@ class DataSetMapping(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if data_set_mapping_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_set_mapping_name'")
             __props__['data_set_mapping_name'] = data_set_mapping_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

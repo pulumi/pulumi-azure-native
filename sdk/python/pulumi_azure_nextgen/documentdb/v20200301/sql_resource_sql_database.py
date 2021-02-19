@@ -60,8 +60,6 @@ class SqlResourceSqlDatabase(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if database_name is None and not opts.urn:
-                raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['location'] = location
             if options is None and not opts.urn:

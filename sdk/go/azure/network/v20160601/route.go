@@ -42,9 +42,6 @@ func NewRoute(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RouteName == nil {
-		return nil, errors.New("invalid value for required argument 'RouteName'")
-	}
 	if args.RouteTableName == nil {
 		return nil, errors.New("invalid value for required argument 'RouteTableName'")
 	}
@@ -232,7 +229,7 @@ type routeArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the route.
-	RouteName string `pulumi:"routeName"`
+	RouteName *string `pulumi:"routeName"`
 	// The name of the route table.
 	RouteTableName string `pulumi:"routeTableName"`
 }
@@ -256,7 +253,7 @@ type RouteArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the route.
-	RouteName pulumi.StringInput
+	RouteName pulumi.StringPtrInput
 	// The name of the route table.
 	RouteTableName pulumi.StringInput
 }

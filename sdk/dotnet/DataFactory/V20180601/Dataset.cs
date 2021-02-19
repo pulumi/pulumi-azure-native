@@ -93,8 +93,8 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// <summary>
         /// The dataset name.
         /// </summary>
-        [Input("datasetName", required: true)]
-        public Input<string> DatasetName { get; set; } = null!;
+        [Input("datasetName")]
+        public Input<string>? DatasetName { get; set; }
 
         /// <summary>
         /// The factory name.

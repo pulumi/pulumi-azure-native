@@ -41,9 +41,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -132,7 +129,7 @@ type privateEndpointConnectionArgs struct {
 	// Modified whenever there is a change in the state of private endpoint connection.
 	Etag *string `pulumi:"etag"`
 	// Name of the private endpoint connection associated with the key vault.
-	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// Name of the resource group that contains the key vault.
@@ -146,7 +143,7 @@ type PrivateEndpointConnectionArgs struct {
 	// Modified whenever there is a change in the state of private endpoint connection.
 	Etag pulumi.StringPtrInput
 	// Name of the private endpoint connection associated with the key vault.
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
 	// Name of the resource group that contains the key vault.

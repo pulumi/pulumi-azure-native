@@ -68,9 +68,6 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.Locations == nil {
 		return nil, errors.New("invalid value for required argument 'Locations'")
 	}
@@ -243,7 +240,7 @@ func (DatabaseAccountState) ElementType() reflect.Type {
 
 type databaseAccountArgs struct {
 	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// List of Cosmos DB capabilities for the account
 	Capabilities []Capability `pulumi:"capabilities"`
 	// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -281,7 +278,7 @@ type databaseAccountArgs struct {
 // The set of arguments for constructing a DatabaseAccount resource.
 type DatabaseAccountArgs struct {
 	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// List of Cosmos DB capabilities for the account
 	Capabilities CapabilityArrayInput
 	// The cassandra connector offer type for the Cosmos DB database C* account.

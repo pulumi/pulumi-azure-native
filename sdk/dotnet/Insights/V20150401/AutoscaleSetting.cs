@@ -116,8 +116,8 @@ namespace Pulumi.AzureNextGen.Insights.V20150401
         /// <summary>
         /// The autoscale setting name.
         /// </summary>
-        [Input("autoscaleSettingName", required: true)]
-        public Input<string> AutoscaleSettingName { get; set; } = null!;
+        [Input("autoscaleSettingName")]
+        public Input<string>? AutoscaleSettingName { get; set; }
 
         /// <summary>
         /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.

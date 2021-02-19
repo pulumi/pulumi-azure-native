@@ -220,8 +220,8 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         /// <summary>
         /// The name of the VirtualHub.
         /// </summary>
-        [Input("virtualHubName", required: true)]
-        public Input<string> VirtualHubName { get; set; } = null!;
+        [Input("virtualHubName")]
+        public Input<string>? VirtualHubName { get; set; }
 
         [Input("virtualNetworkConnections")]
         private InputList<Inputs.HubVirtualNetworkConnectionArgs>? _virtualNetworkConnections;

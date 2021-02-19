@@ -112,8 +112,8 @@ namespace Pulumi.AzureNextGen.Synapse
         /// <summary>
         /// The name of the transparent data encryption configuration.
         /// </summary>
-        [Input("transparentDataEncryptionName", required: true)]
-        public Input<string> TransparentDataEncryptionName { get; set; } = null!;
+        [Input("transparentDataEncryptionName")]
+        public Input<string>? TransparentDataEncryptionName { get; set; }
 
         /// <summary>
         /// The name of the workspace

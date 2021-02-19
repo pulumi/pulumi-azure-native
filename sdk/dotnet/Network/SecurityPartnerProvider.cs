@@ -146,8 +146,8 @@ namespace Pulumi.AzureNextGen.Network
         /// <summary>
         /// The name of the Security Partner Provider.
         /// </summary>
-        [Input("securityPartnerProviderName", required: true)]
-        public Input<string> SecurityPartnerProviderName { get; set; } = null!;
+        [Input("securityPartnerProviderName")]
+        public Input<string>? SecurityPartnerProviderName { get; set; }
 
         /// <summary>
         /// The security provider name.

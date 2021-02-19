@@ -50,9 +50,6 @@ export class ConsoleWithLocation extends pulumi.CustomResource {
     constructor(name: string, args: ConsoleWithLocationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.consoleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'consoleName'");
-            }
             if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
@@ -82,7 +79,7 @@ export interface ConsoleWithLocationArgs {
     /**
      * The name of the console
      */
-    readonly consoleName: pulumi.Input<string>;
+    readonly consoleName?: pulumi.Input<string>;
     /**
      * The provider location
      */

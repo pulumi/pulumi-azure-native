@@ -50,9 +50,6 @@ func NewSqlVirtualMachineGroup(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SqlVirtualMachineGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'SqlVirtualMachineGroupName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup"),
@@ -144,7 +141,7 @@ type sqlVirtualMachineGroupArgs struct {
 	// SQL image sku.
 	SqlImageSku *string `pulumi:"sqlImageSku"`
 	// Name of the SQL virtual machine group.
-	SqlVirtualMachineGroupName string `pulumi:"sqlVirtualMachineGroupName"`
+	SqlVirtualMachineGroupName *string `pulumi:"sqlVirtualMachineGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Cluster Active Directory domain profile.
@@ -162,7 +159,7 @@ type SqlVirtualMachineGroupArgs struct {
 	// SQL image sku.
 	SqlImageSku pulumi.StringPtrInput
 	// Name of the SQL virtual machine group.
-	SqlVirtualMachineGroupName pulumi.StringInput
+	SqlVirtualMachineGroupName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Cluster Active Directory domain profile.

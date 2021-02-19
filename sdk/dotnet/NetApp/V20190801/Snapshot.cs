@@ -160,8 +160,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20190801
         /// <summary>
         /// The name of the mount target
         /// </summary>
-        [Input("snapshotName", required: true)]
-        public Input<string> SnapshotName { get; set; } = null!;
+        [Input("snapshotName")]
+        public Input<string>? SnapshotName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

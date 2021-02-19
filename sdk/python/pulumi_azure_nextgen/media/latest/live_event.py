@@ -91,8 +91,6 @@ class LiveEvent(pulumi.CustomResource):
             if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
             __props__['input'] = input
-            if live_event_name is None and not opts.urn:
-                raise TypeError("Missing required property 'live_event_name'")
             __props__['live_event_name'] = live_event_name
             __props__['location'] = location
             __props__['preview'] = preview

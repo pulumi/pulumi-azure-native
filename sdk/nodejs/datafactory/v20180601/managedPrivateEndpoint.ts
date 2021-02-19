@@ -65,9 +65,6 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if ((!args || args.managedPrivateEndpointName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'managedPrivateEndpointName'");
-            }
             if ((!args || args.managedVirtualNetworkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedVirtualNetworkName'");
             }
@@ -115,7 +112,7 @@ export interface ManagedPrivateEndpointArgs {
     /**
      * Managed private endpoint name
      */
-    readonly managedPrivateEndpointName: pulumi.Input<string>;
+    readonly managedPrivateEndpointName?: pulumi.Input<string>;
     /**
      * Managed virtual network name
      */

@@ -101,8 +101,8 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The name of the access control record.
         /// </summary>
-        [Input("accessControlRecordName", required: true)]
-        public Input<string> AccessControlRecordName { get; set; } = null!;
+        [Input("accessControlRecordName")]
+        public Input<string>? AccessControlRecordName { get; set; }
 
         /// <summary>
         /// The iSCSI initiator name (IQN).

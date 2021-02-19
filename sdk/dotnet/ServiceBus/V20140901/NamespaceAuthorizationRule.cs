@@ -137,8 +137,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// <summary>
         /// The authorization rule name.
         /// </summary>
-        [Input("authorizationRuleName", required: true)]
-        public Input<string> AuthorizationRuleName { get; set; } = null!;
+        [Input("authorizationRuleName")]
+        public Input<string>? AuthorizationRuleName { get; set; }
 
         /// <summary>
         /// A string that describes Claim Type for authorization rule.

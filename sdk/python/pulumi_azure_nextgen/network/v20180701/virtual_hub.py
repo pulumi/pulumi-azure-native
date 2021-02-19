@@ -67,8 +67,6 @@ class VirtualHub(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if virtual_hub_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['virtual_wan'] = virtual_wan
             __props__['etag'] = None

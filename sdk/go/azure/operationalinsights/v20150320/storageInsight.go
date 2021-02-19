@@ -46,9 +46,6 @@ func NewStorageInsight(ctx *pulumi.Context,
 	if args.StorageAccount == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccount'")
 	}
-	if args.StorageInsightName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageInsightName'")
-	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
@@ -140,7 +137,7 @@ type storageInsightArgs struct {
 	// The storage account connection details
 	StorageAccount StorageAccount `pulumi:"storageAccount"`
 	// Name of the storageInsightsConfigs resource
-	StorageInsightName string `pulumi:"storageInsightName"`
+	StorageInsightName *string `pulumi:"storageInsightName"`
 	// The names of the Azure tables that the workspace should read
 	Tables []string `pulumi:"tables"`
 	// Resource tags
@@ -160,7 +157,7 @@ type StorageInsightArgs struct {
 	// The storage account connection details
 	StorageAccount StorageAccountInput
 	// Name of the storageInsightsConfigs resource
-	StorageInsightName pulumi.StringInput
+	StorageInsightName pulumi.StringPtrInput
 	// The names of the Azure tables that the workspace should read
 	Tables pulumi.StringArrayInput
 	// Resource tags

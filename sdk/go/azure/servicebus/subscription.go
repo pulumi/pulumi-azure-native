@@ -69,9 +69,6 @@ func NewSubscription(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SubscriptionName == nil {
-		return nil, errors.New("invalid value for required argument 'SubscriptionName'")
-	}
 	if args.TopicName == nil {
 		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
@@ -230,7 +227,7 @@ type subscriptionArgs struct {
 	// Enumerates the possible values for the status of a messaging entity.
 	Status *string `pulumi:"status"`
 	// The subscription name.
-	SubscriptionName string `pulumi:"subscriptionName"`
+	SubscriptionName *string `pulumi:"subscriptionName"`
 	// The topic name.
 	TopicName string `pulumi:"topicName"`
 }
@@ -266,7 +263,7 @@ type SubscriptionArgs struct {
 	// Enumerates the possible values for the status of a messaging entity.
 	Status *EntityStatus
 	// The subscription name.
-	SubscriptionName pulumi.StringInput
+	SubscriptionName pulumi.StringPtrInput
 	// The topic name.
 	TopicName pulumi.StringInput
 }

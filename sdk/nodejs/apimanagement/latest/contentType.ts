@@ -71,9 +71,6 @@ export class ContentType extends pulumi.CustomResource {
         pulumi.log.warn("ContentType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ContentType'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.contentTypeId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'contentTypeId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,7 +112,7 @@ export interface ContentTypeArgs {
     /**
      * Content type identifier.
      */
-    readonly contentTypeId: pulumi.Input<string>;
+    readonly contentTypeId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

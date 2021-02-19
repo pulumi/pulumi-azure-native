@@ -160,8 +160,8 @@ namespace Pulumi.AzureNextGen.Network.V20200101
         /// <summary>
         /// The name of the Private DNS zone (without a terminating dot).
         /// </summary>
-        [Input("privateZoneName", required: true)]
-        public Input<string> PrivateZoneName { get; set; } = null!;
+        [Input("privateZoneName")]
+        public Input<string>? PrivateZoneName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

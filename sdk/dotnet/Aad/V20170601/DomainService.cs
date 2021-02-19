@@ -238,8 +238,8 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// <summary>
         /// The name of the domain service.
         /// </summary>
-        [Input("domainServiceName", required: true)]
-        public Input<string> DomainServiceName { get; set; } = null!;
+        [Input("domainServiceName")]
+        public Input<string>? DomainServiceName { get; set; }
 
         /// <summary>
         /// Resource etag

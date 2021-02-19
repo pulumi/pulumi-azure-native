@@ -71,9 +71,6 @@ export class Certificate extends pulumi.CustomResource {
         pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Certificate'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.certificateId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'certificateId'");
-            }
             if ((!args || args.data === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'data'");
             }
@@ -123,7 +120,7 @@ export interface CertificateArgs {
     /**
      * Identifier of the certificate entity. Must be unique in the current API Management service instance.
      */
-    readonly certificateId: pulumi.Input<string>;
+    readonly certificateId?: pulumi.Input<string>;
     /**
      * Base 64 encoded certificate using the application/x-pkcs12 representation.
      */

@@ -111,8 +111,8 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// <summary>
         /// The trigger name.
         /// </summary>
-        [Input("triggerName", required: true)]
-        public Input<string> TriggerName { get; set; } = null!;
+        [Input("triggerName")]
+        public Input<string>? TriggerName { get; set; }
 
         public TriggerArgs()
         {

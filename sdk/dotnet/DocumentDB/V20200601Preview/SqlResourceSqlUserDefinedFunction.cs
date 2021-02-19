@@ -167,8 +167,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// <summary>
         /// Cosmos DB userDefinedFunction name.
         /// </summary>
-        [Input("userDefinedFunctionName", required: true)]
-        public Input<string> UserDefinedFunctionName { get; set; } = null!;
+        [Input("userDefinedFunctionName")]
+        public Input<string>? UserDefinedFunctionName { get; set; }
 
         public SqlResourceSqlUserDefinedFunctionArgs()
         {

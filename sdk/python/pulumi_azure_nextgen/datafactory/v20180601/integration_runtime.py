@@ -55,8 +55,6 @@ class IntegrationRuntime(pulumi.CustomResource):
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
             __props__['factory_name'] = factory_name
-            if integration_runtime_name is None and not opts.urn:
-                raise TypeError("Missing required property 'integration_runtime_name'")
             __props__['integration_runtime_name'] = integration_runtime_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

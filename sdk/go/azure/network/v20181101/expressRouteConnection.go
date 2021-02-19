@@ -34,9 +34,6 @@ func NewExpressRouteConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionName'")
-	}
 	if args.ExpressRouteCircuitPeering == nil {
 		return nil, errors.New("invalid value for required argument 'ExpressRouteCircuitPeering'")
 	}
@@ -164,7 +161,7 @@ type expressRouteConnectionArgs struct {
 	// Authorization key to establish the connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// The name of the connection subresource.
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringId `pulumi:"expressRouteCircuitPeering"`
 	// The name of the ExpressRoute gateway.
@@ -184,7 +181,7 @@ type ExpressRouteConnectionArgs struct {
 	// Authorization key to establish the connection.
 	AuthorizationKey pulumi.StringPtrInput
 	// The name of the connection subresource.
-	ConnectionName pulumi.StringInput
+	ConnectionName pulumi.StringPtrInput
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdInput
 	// The name of the ExpressRoute gateway.

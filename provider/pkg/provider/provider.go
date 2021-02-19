@@ -8,7 +8,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/util/logging"
 	"io"
 	"io/ioutil"
 	"log"
@@ -34,6 +33,8 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/util/logging"
 	rpc "github.com/pulumi/pulumi/sdk/v2/proto/go"
 )
 
@@ -48,7 +49,8 @@ const (
 %[3]s
 ===================================================== HTTP Response End %[1]s %[2]s
 `
-	apiVersionResources = "2020-10-01"
+	apiVersionResources    = "2020-10-01"
+	createBeforeDeleteFlag = "__createBeforeDelete"
 )
 
 type azureNextGenProvider struct {
@@ -311,7 +313,7 @@ func (k *azureNextGenProvider) Check(ctx context.Context, req *rpc.CheckRequest)
 		return nil, errors.Errorf("Resource type %s not found", resourceKey)
 	}
 
-	k.applyDefaults(ctx, res, olds, news)
+	k.applyDefaults(ctx, req.Urn, res, olds, news)
 	inputMap := news.Mappable()
 
 	// Validate inputs against PUT parameters.
@@ -407,13 +409,47 @@ func (k *azureNextGenProvider) getDefaultLocation(ctx context.Context, olds, new
 	return result(v)
 }
 
+func (k *azureNextGenProvider) getDefaultName(urn string, strategy resources.AutoNameKind, key resource.PropertyKey,
+	olds resource.PropertyMap) (resource.PropertyValue, bool) {
+	if v, ok := olds[key]; ok {
+		if vf, ok := olds[createBeforeDeleteFlag]; ok && vf.IsBool() {
+			return v, vf.BoolValue()
+		}
+		return v, false
+	}
+
+	urnParts := strings.Split(urn, "::")
+	name := urnParts[len(urnParts)-1]
+	switch strategy {
+	case resources.AutoNameRandom:
+		// Resource name is URN name + random suffix.
+		random, err := resource.NewUniqueHex(name, 8, 0)
+		contract.AssertNoError(err)
+		return resource.NewStringProperty(random), true
+	case resources.AutoNameCopy:
+		// Resource name is just a copy of the URN name.
+		return resource.NewStringProperty(name), false
+	default:
+		panic(fmt.Sprintf("unknown auto-naming strategy %q", strategy))
+	}
+}
+
 // Apply default values (e.g., location) to user's inputs.
-func (k *azureNextGenProvider) applyDefaults(ctx context.Context, res resources.AzureAPIResource, olds, news resource.PropertyMap) {
-	if !news.HasValue("location") {
-		for _, par := range res.PutParameters {
-			if par.Body == nil {
-				continue
+func (k *azureNextGenProvider) applyDefaults(ctx context.Context, urn string, res resources.AzureAPIResource,
+	olds, news resource.PropertyMap) {
+	for _, par := range res.PutParameters {
+		// Auto-naming.
+		key := resource.PropertyKey(par.Name)
+		if !news.HasValue(key) && par.Value != nil && par.Value.AutoName != "" {
+			name, randomlyNamed := k.getDefaultName(urn, par.Value.AutoName, key, olds)
+			news[key] = name
+			if randomlyNamed {
+				news[createBeforeDeleteFlag] = resource.NewBoolProperty(true)
 			}
+		}
+
+		// Auto-location.
+		if !news.HasValue("location") && par.Body != nil {
 			if _, ok := par.Body.Properties["location"]; ok {
 				v := k.getDefaultLocation(ctx, olds, news)
 				if v != nil {
@@ -658,7 +694,9 @@ func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*r
 	}
 
 	// Calculate the difference between old and new inputs.
-	diff := oldInputs.Diff(newResInputs)
+	diff := oldInputs.Diff(newResInputs, func(key resource.PropertyKey) bool {
+		return strings.HasPrefix(string(key), "__")
+	})
 
 	if diff == nil {
 		return &rpc.DiffResponse{
@@ -705,8 +743,11 @@ func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*r
 		}
 	}
 
-	// TODO: Define delete-before-replace only if autonaming is off.
+	// TODO: implement create-before-delete for children of randomly auto-named resources.
 	deleteBeforeReplace := len(replaces) > 0
+	if v, ok := oldInputs[createBeforeDeleteFlag]; ok && v.IsBool() {
+		deleteBeforeReplace = !v.BoolValue()
+	}
 	changeType := rpc.DiffResponse_DIFF_NONE
 	if len(detailedDiff) > 0 {
 		changeType = rpc.DiffResponse_DIFF_SOME
@@ -1706,7 +1747,6 @@ func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{
 	object := resource.NewPropertyMapFromMap(outputs)
 	object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
 	return object
-
 }
 
 // parseCheckpointObject returns inputs that are saved in the `__inputs` field of the state.

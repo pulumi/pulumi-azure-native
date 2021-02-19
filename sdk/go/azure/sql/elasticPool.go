@@ -51,9 +51,6 @@ func NewElasticPool(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ElasticPoolName == nil {
-		return nil, errors.New("invalid value for required argument 'ElasticPoolName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -171,7 +168,7 @@ type elasticPoolArgs struct {
 	// The edition of the elastic pool.
 	Edition *string `pulumi:"edition"`
 	// The name of the elastic pool to be operated on (updated or created).
-	ElasticPoolName string `pulumi:"elasticPoolName"`
+	ElasticPoolName *string `pulumi:"elasticPoolName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -197,7 +194,7 @@ type ElasticPoolArgs struct {
 	// The edition of the elastic pool.
 	Edition pulumi.StringPtrInput
 	// The name of the elastic pool to be operated on (updated or created).
-	ElasticPoolName pulumi.StringInput
+	ElasticPoolName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

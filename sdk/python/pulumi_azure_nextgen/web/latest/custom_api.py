@@ -64,8 +64,6 @@ class CustomApi(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_name is None and not opts.urn:
-                raise TypeError("Missing required property 'api_name'")
             __props__['api_name'] = api_name
             __props__['etag'] = etag
             __props__['location'] = location

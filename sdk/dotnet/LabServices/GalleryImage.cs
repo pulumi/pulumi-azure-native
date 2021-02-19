@@ -165,8 +165,8 @@ namespace Pulumi.AzureNextGen.LabServices
         /// <summary>
         /// The name of the gallery Image.
         /// </summary>
-        [Input("galleryImageName", required: true)]
-        public Input<string> GalleryImageName { get; set; } = null!;
+        [Input("galleryImageName")]
+        public Input<string>? GalleryImageName { get; set; }
 
         /// <summary>
         /// Indicates whether this gallery image is enabled.

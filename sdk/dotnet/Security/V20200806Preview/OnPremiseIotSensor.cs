@@ -35,7 +35,7 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public OnPremiseIotSensor(string name, OnPremiseIotSensorArgs args, CustomResourceOptions? options = null)
+        public OnPremiseIotSensor(string name, OnPremiseIotSensorArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:security/v20200806preview:OnPremiseIotSensor", name, args ?? new OnPremiseIotSensorArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -79,8 +79,8 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         /// <summary>
         /// Name of the on-premise IoT sensor
         /// </summary>
-        [Input("onPremiseIotSensorName", required: true)]
-        public Input<string> OnPremiseIotSensorName { get; set; } = null!;
+        [Input("onPremiseIotSensorName")]
+        public Input<string>? OnPremiseIotSensorName { get; set; }
 
         public OnPremiseIotSensorArgs()
         {

@@ -73,9 +73,6 @@ export class PrivateLinkScope extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopeName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'scopeName'");
-            }
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scopeName"] = args ? args.scopeName : undefined;
@@ -120,7 +117,7 @@ export interface PrivateLinkScopeArgs {
     /**
      * The name of the Azure Monitor PrivateLinkScope resource.
      */
-    readonly scopeName: pulumi.Input<string>;
+    readonly scopeName?: pulumi.Input<string>;
     /**
      * Resource tags
      */

@@ -46,9 +46,6 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	if args.Distribute == nil {
 		return nil, errors.New("invalid value for required argument 'Distribute'")
 	}
-	if args.ImageTemplateName == nil {
-		return nil, errors.New("invalid value for required argument 'ImageTemplateName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -150,7 +147,7 @@ type virtualMachineImageTemplateArgs struct {
 	// The distribution targets where the image output needs to go to.
 	Distribute []interface{} `pulumi:"distribute"`
 	// The name of the image Template
-	ImageTemplateName string `pulumi:"imageTemplateName"`
+	ImageTemplateName *string `pulumi:"imageTemplateName"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the resource group.
@@ -168,7 +165,7 @@ type VirtualMachineImageTemplateArgs struct {
 	// The distribution targets where the image output needs to go to.
 	Distribute pulumi.ArrayInput
 	// The name of the image Template
-	ImageTemplateName pulumi.StringInput
+	ImageTemplateName pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the resource group.

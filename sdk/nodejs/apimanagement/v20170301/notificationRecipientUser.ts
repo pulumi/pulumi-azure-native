@@ -66,9 +66,6 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.uid === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'uid'");
-            }
             inputs["notificationName"] = args ? args.notificationName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
@@ -113,5 +110,5 @@ export interface NotificationRecipientUserArgs {
     /**
      * User identifier. Must be unique in the current API Management service instance.
      */
-    readonly uid: pulumi.Input<string>;
+    readonly uid?: pulumi.Input<string>;
 }

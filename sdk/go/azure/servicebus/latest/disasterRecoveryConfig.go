@@ -41,9 +41,6 @@ func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Alias == nil {
-		return nil, errors.New("invalid value for required argument 'Alias'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -123,7 +120,7 @@ func (DisasterRecoveryConfigState) ElementType() reflect.Type {
 
 type disasterRecoveryConfigArgs struct {
 	// The Disaster Recovery configuration name
-	Alias string `pulumi:"alias"`
+	Alias *string `pulumi:"alias"`
 	// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
 	AlternateName *string `pulumi:"alternateName"`
 	// The namespace name
@@ -137,7 +134,7 @@ type disasterRecoveryConfigArgs struct {
 // The set of arguments for constructing a DisasterRecoveryConfig resource.
 type DisasterRecoveryConfigArgs struct {
 	// The Disaster Recovery configuration name
-	Alias pulumi.StringInput
+	Alias pulumi.StringPtrInput
 	// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
 	AlternateName pulumi.StringPtrInput
 	// The namespace name

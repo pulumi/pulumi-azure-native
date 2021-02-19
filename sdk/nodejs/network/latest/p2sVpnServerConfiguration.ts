@@ -100,9 +100,6 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
         pulumi.log.warn("P2sVpnServerConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnServerConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.p2SVpnServerConfigurationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'p2SVpnServerConfigurationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -187,7 +184,7 @@ export interface P2sVpnServerConfigurationArgs {
     /**
      * The name of the P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigurationName: pulumi.Input<string>;
+    readonly p2SVpnServerConfigurationName?: pulumi.Input<string>;
     /**
      * The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
      */

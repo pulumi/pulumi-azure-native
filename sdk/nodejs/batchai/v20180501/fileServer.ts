@@ -89,9 +89,6 @@ export class FileServer extends pulumi.CustomResource {
             if ((!args || args.dataDisks === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataDisks'");
             }
-            if ((!args || args.fileServerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'fileServerName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -153,7 +150,7 @@ export interface FileServerArgs {
     /**
      * The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly fileServerName: pulumi.Input<string>;
+    readonly fileServerName?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

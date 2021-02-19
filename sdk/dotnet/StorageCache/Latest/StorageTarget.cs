@@ -175,8 +175,8 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         /// <summary>
         /// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
-        [Input("storageTargetName", required: true)]
-        public Input<string> StorageTargetName { get; set; } = null!;
+        [Input("storageTargetName")]
+        public Input<string>? StorageTargetName { get; set; }
 
         /// <summary>
         /// Type of the Storage Target.

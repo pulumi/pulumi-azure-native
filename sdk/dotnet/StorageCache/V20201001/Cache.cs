@@ -173,8 +173,8 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
         /// <summary>
         /// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
-        [Input("cacheName", required: true)]
-        public Input<string> CacheName { get; set; } = null!;
+        [Input("cacheName")]
+        public Input<string>? CacheName { get; set; }
 
         /// <summary>
         /// The size of this Cache, in GB.

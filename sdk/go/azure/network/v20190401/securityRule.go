@@ -75,9 +75,6 @@ func NewSecurityRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SecurityRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'SecurityRuleName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:SecurityRule"),
@@ -326,7 +323,7 @@ type securityRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the security rule.
-	SecurityRuleName string `pulumi:"securityRuleName"`
+	SecurityRuleName *string `pulumi:"securityRuleName"`
 	// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
 	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
 	// The CIDR or source IP ranges.
@@ -374,7 +371,7 @@ type SecurityRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the security rule.
-	SecurityRuleName pulumi.StringInput
+	SecurityRuleName pulumi.StringPtrInput
 	// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
 	SourceAddressPrefix pulumi.StringPtrInput
 	// The CIDR or source IP ranges.

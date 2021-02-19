@@ -130,8 +130,8 @@ namespace Pulumi.AzureNextGen.Insights
         /// <summary>
         /// The name of the Activity Log Alert rule.
         /// </summary>
-        [Input("activityLogAlertName", required: true)]
-        public Input<string> ActivityLogAlertName { get; set; } = null!;
+        [Input("activityLogAlertName")]
+        public Input<string>? ActivityLogAlertName { get; set; }
 
         /// <summary>
         /// The condition that will cause this alert to activate.

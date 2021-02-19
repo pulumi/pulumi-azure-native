@@ -53,9 +53,6 @@ func NewRouteFilterRule(ctx *pulumi.Context,
 	if args.RouteFilterRuleType == nil {
 		return nil, errors.New("invalid value for required argument 'RouteFilterRuleType'")
 	}
-	if args.RuleName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:RouteFilterRule"),
@@ -229,7 +226,7 @@ type routeFilterRuleArgs struct {
 	// The rule type of the rule. Valid value is: 'Community'
 	RouteFilterRuleType string `pulumi:"routeFilterRuleType"`
 	// The name of the route filter rule.
-	RuleName string `pulumi:"ruleName"`
+	RuleName *string `pulumi:"ruleName"`
 }
 
 // The set of arguments for constructing a RouteFilterRule resource.
@@ -251,7 +248,7 @@ type RouteFilterRuleArgs struct {
 	// The rule type of the rule. Valid value is: 'Community'
 	RouteFilterRuleType pulumi.StringInput
 	// The name of the route filter rule.
-	RuleName pulumi.StringInput
+	RuleName pulumi.StringPtrInput
 }
 
 func (RouteFilterRuleArgs) ElementType() reflect.Type {

@@ -58,8 +58,6 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
             if application_gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_gateway_name'")
             __props__['application_gateway_name'] = application_gateway_name
-            if connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_name'")
             __props__['connection_name'] = connection_name
             __props__['id'] = id
             __props__['name'] = name

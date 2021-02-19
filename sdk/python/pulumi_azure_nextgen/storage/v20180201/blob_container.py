@@ -56,8 +56,6 @@ class BlobContainer(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if container_name is None and not opts.urn:
-                raise TypeError("Missing required property 'container_name'")
             __props__['container_name'] = container_name
             __props__['metadata'] = metadata
             __props__['public_access'] = public_access

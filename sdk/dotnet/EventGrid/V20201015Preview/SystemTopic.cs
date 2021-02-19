@@ -152,8 +152,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
         /// <summary>
         /// Name of the system topic.
         /// </summary>
-        [Input("systemTopicName", required: true)]
-        public Input<string> SystemTopicName { get; set; } = null!;
+        [Input("systemTopicName")]
+        public Input<string>? SystemTopicName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

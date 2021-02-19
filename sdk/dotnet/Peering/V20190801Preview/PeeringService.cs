@@ -126,8 +126,8 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
         /// <summary>
         /// The name of the peering service.
         /// </summary>
-        [Input("peeringServiceName", required: true)]
-        public Input<string> PeeringServiceName { get; set; } = null!;
+        [Input("peeringServiceName")]
+        public Input<string>? PeeringServiceName { get; set; }
 
         /// <summary>
         /// The MAPS Provider Name.

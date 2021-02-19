@@ -89,8 +89,8 @@ namespace Pulumi.AzureNextGen.Cache.V20200601
         /// <summary>
         /// Default string modeled as parameter for auto generation to work correctly.
         /// </summary>
-        [Input("default", required: true)]
-        public Input<string> Default { get; set; } = null!;
+        [Input("default")]
+        public Input<string>? Default { get; set; }
 
         /// <summary>
         /// The name of the Redis cache.

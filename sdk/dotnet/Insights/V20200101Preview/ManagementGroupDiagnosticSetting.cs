@@ -153,8 +153,8 @@ namespace Pulumi.AzureNextGen.Insights.V20200101Preview
         /// <summary>
         /// The name of the diagnostic setting.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.

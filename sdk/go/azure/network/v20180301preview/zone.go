@@ -51,9 +51,6 @@ func NewZone(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ZoneName == nil {
-		return nil, errors.New("invalid value for required argument 'ZoneName'")
-	}
 	if args.ZoneType == nil {
 		e := ZoneType("Public")
 		args.ZoneType = &e
@@ -175,7 +172,7 @@ type zoneArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the DNS zone (without a terminating dot).
-	ZoneName string `pulumi:"zoneName"`
+	ZoneName *string `pulumi:"zoneName"`
 	// The type of this DNS zone (Public or Private).
 	ZoneType *string `pulumi:"zoneType"`
 }
@@ -195,7 +192,7 @@ type ZoneArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the DNS zone (without a terminating dot).
-	ZoneName pulumi.StringInput
+	ZoneName pulumi.StringPtrInput
 	// The type of this DNS zone (Public or Private).
 	ZoneType *ZoneType
 }

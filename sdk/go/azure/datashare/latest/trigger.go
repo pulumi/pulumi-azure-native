@@ -47,9 +47,6 @@ func NewTrigger(ctx *pulumi.Context,
 	if args.ShareSubscriptionName == nil {
 		return nil, errors.New("invalid value for required argument 'ShareSubscriptionName'")
 	}
-	if args.TriggerName == nil {
-		return nil, errors.New("invalid value for required argument 'TriggerName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:datashare:Trigger"),
@@ -125,7 +122,7 @@ type triggerArgs struct {
 	// The name of the share subscription which will hold the data set sink.
 	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
 	// The name of the trigger.
-	TriggerName string `pulumi:"triggerName"`
+	TriggerName *string `pulumi:"triggerName"`
 }
 
 // The set of arguments for constructing a Trigger resource.
@@ -139,7 +136,7 @@ type TriggerArgs struct {
 	// The name of the share subscription which will hold the data set sink.
 	ShareSubscriptionName pulumi.StringInput
 	// The name of the trigger.
-	TriggerName pulumi.StringInput
+	TriggerName pulumi.StringPtrInput
 }
 
 func (TriggerArgs) ElementType() reflect.Type {

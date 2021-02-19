@@ -137,8 +137,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// Name of the origin group which is unique within the endpoint.
         /// </summary>
-        [Input("originGroupName", required: true)]
-        public Input<string> OriginGroupName { get; set; } = null!;
+        [Input("originGroupName")]
+        public Input<string>? OriginGroupName { get; set; }
 
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.

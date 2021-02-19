@@ -143,8 +143,8 @@ namespace Pulumi.AzureNextGen.Consumption.V20171230Preview
         /// <summary>
         /// Budget name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("notifications")]
         private InputMap<Inputs.NotificationArgs>? _notifications;

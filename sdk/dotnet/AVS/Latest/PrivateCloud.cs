@@ -227,8 +227,8 @@ namespace Pulumi.AzureNextGen.AVS.Latest
         /// <summary>
         /// Name of the private cloud
         /// </summary>
-        [Input("privateCloudName", required: true)]
-        public Input<string> PrivateCloudName { get; set; } = null!;
+        [Input("privateCloudName")]
+        public Input<string>? PrivateCloudName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

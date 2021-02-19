@@ -59,8 +59,6 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
             __props__['id'] = id
             __props__['name'] = name
             __props__['private_dns_zone_configs'] = private_dns_zone_configs
-            if private_dns_zone_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_dns_zone_group_name'")
             __props__['private_dns_zone_group_name'] = private_dns_zone_group_name
             if private_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_endpoint_name'")

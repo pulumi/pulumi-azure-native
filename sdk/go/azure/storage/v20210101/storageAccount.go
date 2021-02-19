@@ -92,9 +92,6 @@ func NewStorageAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
@@ -326,7 +323,7 @@ type storageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
 	AccessTier *string `pulumi:"accessTier"`
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
@@ -372,7 +369,7 @@ type StorageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
 	AccessTier *AccessTier
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess pulumi.BoolPtrInput
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.

@@ -73,8 +73,6 @@ class WebAppHostNameBindingSlot(pulumi.CustomResource):
             __props__['azure_resource_type'] = azure_resource_type
             __props__['custom_host_name_dns_record_type'] = custom_host_name_dns_record_type
             __props__['domain_id'] = domain_id
-            if host_name is None and not opts.urn:
-                raise TypeError("Missing required property 'host_name'")
             __props__['host_name'] = host_name
             __props__['host_name_type'] = host_name_type
             __props__['kind'] = kind

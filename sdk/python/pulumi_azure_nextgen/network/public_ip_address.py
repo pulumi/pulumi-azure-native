@@ -88,8 +88,6 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__['public_ip_address_version'] = public_ip_address_version
             __props__['public_ip_allocation_method'] = public_ip_allocation_method
             __props__['public_ip_prefix'] = public_ip_prefix
-            if public_ip_address_name is None and not opts.urn:
-                raise TypeError("Missing required property 'public_ip_address_name'")
             __props__['public_ip_address_name'] = public_ip_address_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

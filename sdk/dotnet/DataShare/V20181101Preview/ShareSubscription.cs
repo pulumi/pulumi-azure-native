@@ -179,8 +179,8 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
         /// <summary>
         /// The name of the shareSubscription.
         /// </summary>
-        [Input("shareSubscriptionName", required: true)]
-        public Input<string> ShareSubscriptionName { get; set; } = null!;
+        [Input("shareSubscriptionName")]
+        public Input<string>? ShareSubscriptionName { get; set; }
 
         public ShareSubscriptionArgs()
         {

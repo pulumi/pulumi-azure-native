@@ -135,8 +135,8 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190301
         /// <summary>
         /// The name of the alert rule.
         /// </summary>
-        [Input("alertRuleName", required: true)]
-        public Input<string> AlertRuleName { get; set; } = null!;
+        [Input("alertRuleName")]
+        public Input<string>? AlertRuleName { get; set; }
 
         /// <summary>
         /// The alert rule description.

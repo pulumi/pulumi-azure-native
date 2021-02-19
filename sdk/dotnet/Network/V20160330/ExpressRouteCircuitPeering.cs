@@ -234,8 +234,8 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// <summary>
         /// The name of the peering.
         /// </summary>
-        [Input("peeringName", required: true)]
-        public Input<string> PeeringName { get; set; } = null!;
+        [Input("peeringName")]
+        public Input<string>? PeeringName { get; set; }
 
         /// <summary>
         /// Gets or sets PeeringType

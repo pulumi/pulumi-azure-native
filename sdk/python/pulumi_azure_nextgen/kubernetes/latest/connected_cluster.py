@@ -71,8 +71,6 @@ class ConnectedCluster(pulumi.CustomResource):
             if agent_public_key_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_public_key_certificate'")
             __props__['agent_public_key_certificate'] = agent_public_key_certificate
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['distribution'] = distribution
             if identity is None and not opts.urn:

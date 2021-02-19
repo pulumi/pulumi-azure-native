@@ -93,8 +93,6 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['type'] = type
-            if vnet_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name
             __props__['vnet_resource_id'] = vnet_resource_id
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:SiteVNETConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:SiteVNETConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteVNETConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteVNETConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteVNETConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteVNETConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteVNETConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteVNETConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteVNETConnectionSlot")])

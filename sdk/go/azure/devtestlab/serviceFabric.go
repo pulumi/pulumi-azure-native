@@ -46,9 +46,6 @@ func NewServiceFabric(ctx *pulumi.Context,
 	if args.LabName == nil {
 		return nil, errors.New("invalid value for required argument 'LabName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -141,7 +138,7 @@ type serviceFabricArgs struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the service fabric.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
@@ -161,7 +158,7 @@ type ServiceFabricArgs struct {
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the service fabric.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.

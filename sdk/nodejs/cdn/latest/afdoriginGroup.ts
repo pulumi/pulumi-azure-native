@@ -89,9 +89,6 @@ export class AFDOriginGroup extends pulumi.CustomResource {
         pulumi.log.warn("AFDOriginGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOriginGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.originGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'originGroupName'");
-            }
             if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
@@ -151,7 +148,7 @@ export interface AFDOriginGroupArgs {
     /**
      * Name of the origin group which is unique within the endpoint.
      */
-    readonly originGroupName: pulumi.Input<string>;
+    readonly originGroupName?: pulumi.Input<string>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */

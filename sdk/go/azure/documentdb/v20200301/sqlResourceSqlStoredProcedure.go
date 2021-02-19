@@ -51,9 +51,6 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.StoredProcedureName == nil {
-		return nil, errors.New("invalid value for required argument 'StoredProcedureName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlStoredProcedure"),
@@ -146,7 +143,7 @@ type sqlResourceSqlStoredProcedureArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Cosmos DB storedProcedure name.
-	StoredProcedureName string `pulumi:"storedProcedureName"`
+	StoredProcedureName *string `pulumi:"storedProcedureName"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -168,7 +165,7 @@ type SqlResourceSqlStoredProcedureArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Cosmos DB storedProcedure name.
-	StoredProcedureName pulumi.StringInput
+	StoredProcedureName pulumi.StringPtrInput
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags pulumi.StringMapInput
 }

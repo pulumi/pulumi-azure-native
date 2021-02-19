@@ -93,8 +93,6 @@ class SqlVirtualMachine(pulumi.CustomResource):
             __props__['sql_management'] = sql_management
             __props__['sql_server_license_type'] = sql_server_license_type
             __props__['sql_virtual_machine_group_resource_id'] = sql_virtual_machine_group_resource_id
-            if sql_virtual_machine_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_virtual_machine_name'")
             __props__['sql_virtual_machine_name'] = sql_virtual_machine_name
             __props__['storage_configuration_settings'] = storage_configuration_settings
             __props__['tags'] = tags

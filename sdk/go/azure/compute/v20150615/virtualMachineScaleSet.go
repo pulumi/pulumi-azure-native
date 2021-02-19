@@ -42,9 +42,6 @@ func NewVirtualMachineScaleSet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -164,7 +161,7 @@ type virtualMachineScaleSetArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the VM scale set to create or update.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
 	OverProvision *bool `pulumi:"overProvision"`
 	// The provisioning state, which only appears in the response.
@@ -186,7 +183,7 @@ type VirtualMachineScaleSetArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the VM scale set to create or update.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
 	OverProvision pulumi.BoolPtrInput
 	// The provisioning state, which only appears in the response.

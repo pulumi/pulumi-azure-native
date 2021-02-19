@@ -108,8 +108,8 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         /// <summary>
         /// The Media Services account name.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The Azure Region of the resource.

@@ -253,8 +253,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// <summary>
         /// The topic name.
         /// </summary>
-        [Input("topicName", required: true)]
-        public Input<string> TopicName { get; set; } = null!;
+        [Input("topicName")]
+        public Input<string>? TopicName { get; set; }
 
         public TopicArgs()
         {

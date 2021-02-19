@@ -61,9 +61,6 @@ func NewNamespace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.NamespaceName == nil {
-		return nil, errors.New("invalid value for required argument 'NamespaceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -199,7 +196,7 @@ type namespaceArgs struct {
 	// The name of the namespace.
 	Name *string `pulumi:"name"`
 	// The namespace name.
-	NamespaceName string `pulumi:"namespaceName"`
+	NamespaceName *string `pulumi:"namespaceName"`
 	// The namespace type.
 	NamespaceType *string `pulumi:"namespaceType"`
 	// Provisioning state of the Namespace.
@@ -239,7 +236,7 @@ type NamespaceArgs struct {
 	// The name of the namespace.
 	Name pulumi.StringPtrInput
 	// The namespace name.
-	NamespaceName pulumi.StringInput
+	NamespaceName pulumi.StringPtrInput
 	// The namespace type.
 	NamespaceType *NamespaceType
 	// Provisioning state of the Namespace.

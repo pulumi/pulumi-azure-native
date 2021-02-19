@@ -35,9 +35,6 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConfigName == nil {
-		return nil, errors.New("invalid value for required argument 'ConfigName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -106,7 +103,7 @@ func (MaintenanceConfigurationState) ElementType() reflect.Type {
 
 type maintenanceConfigurationArgs struct {
 	// The name of the maintenance configuration.
-	ConfigName string `pulumi:"configName"`
+	ConfigName *string `pulumi:"configName"`
 	// Time slots on which upgrade is not allowed.
 	NotAllowedTime []TimeSpan `pulumi:"notAllowedTime"`
 	// The name of the resource group.
@@ -120,7 +117,7 @@ type maintenanceConfigurationArgs struct {
 // The set of arguments for constructing a MaintenanceConfiguration resource.
 type MaintenanceConfigurationArgs struct {
 	// The name of the maintenance configuration.
-	ConfigName pulumi.StringInput
+	ConfigName pulumi.StringPtrInput
 	// Time slots on which upgrade is not allowed.
 	NotAllowedTime TimeSpanArrayInput
 	// The name of the resource group.

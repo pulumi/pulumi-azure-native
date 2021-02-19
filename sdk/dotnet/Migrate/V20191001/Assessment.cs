@@ -92,8 +92,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
         /// <summary>
         /// Unique name of an assessment within a project.
         /// </summary>
-        [Input("assessmentName", required: true)]
-        public Input<string> AssessmentName { get; set; } = null!;
+        [Input("assessmentName")]
+        public Input<string>? AssessmentName { get; set; }
 
         /// <summary>
         /// For optimistic concurrency control.

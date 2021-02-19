@@ -56,8 +56,6 @@ class Action(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action_id is None and not opts.urn:
-                raise TypeError("Missing required property 'action_id'")
             __props__['action_id'] = action_id
             __props__['etag'] = etag
             if logic_app_resource_id is None and not opts.urn:

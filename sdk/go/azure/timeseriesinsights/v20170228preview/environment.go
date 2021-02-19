@@ -49,9 +49,6 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.DataRetentionTime == nil {
 		return nil, errors.New("invalid value for required argument 'DataRetentionTime'")
 	}
-	if args.EnvironmentName == nil {
-		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -155,7 +152,7 @@ type environmentArgs struct {
 	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
 	DataRetentionTime string `pulumi:"dataRetentionTime"`
 	// Name of the environment
-	EnvironmentName string `pulumi:"environmentName"`
+	EnvironmentName *string `pulumi:"environmentName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// Name of an Azure Resource group.
@@ -173,7 +170,7 @@ type EnvironmentArgs struct {
 	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
 	DataRetentionTime pulumi.StringInput
 	// Name of the environment
-	EnvironmentName pulumi.StringInput
+	EnvironmentName pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// Name of an Azure Resource group.

@@ -82,9 +82,6 @@ export class IncidentRelation extends pulumi.CustomResource {
             if ((!args || args.relatedResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'relatedResourceId'");
             }
-            if ((!args || args.relationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'relationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -148,7 +145,7 @@ export interface IncidentRelationArgs {
     /**
      * Relation Name
      */
-    readonly relationName: pulumi.Input<string>;
+    readonly relationName?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

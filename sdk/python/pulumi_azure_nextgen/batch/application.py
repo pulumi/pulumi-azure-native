@@ -58,8 +58,6 @@ class Application(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['allow_updates'] = allow_updates
-            if application_name is None and not opts.urn:
-                raise TypeError("Missing required property 'application_name'")
             __props__['application_name'] = application_name
             __props__['default_version'] = default_version
             __props__['display_name'] = display_name

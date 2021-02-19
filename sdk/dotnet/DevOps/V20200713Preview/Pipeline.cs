@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.DevOps.V20200713Preview
         /// <summary>
         /// The name of the Pipeline resource in ARM.
         /// </summary>
-        [Input("pipelineName", required: true)]
-        public Input<string> PipelineName { get; set; } = null!;
+        [Input("pipelineName")]
+        public Input<string>? PipelineName { get; set; }
 
         /// <summary>
         /// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.

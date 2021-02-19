@@ -62,9 +62,6 @@ func NewManagedDatabase(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DatabaseName == nil {
-		return nil, errors.New("invalid value for required argument 'DatabaseName'")
-	}
 	if args.ManagedInstanceName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedInstanceName'")
 	}
@@ -204,7 +201,7 @@ type managedDatabaseArgs struct {
 	// Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
 	CreateMode *string `pulumi:"createMode"`
 	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
+	DatabaseName *string `pulumi:"databaseName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the Long Term Retention backup to be used for restore of this managed database.
@@ -238,7 +235,7 @@ type ManagedDatabaseArgs struct {
 	// Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
 	CreateMode pulumi.StringPtrInput
 	// The name of the database.
-	DatabaseName pulumi.StringInput
+	DatabaseName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the Long Term Retention backup to be used for restore of this managed database.

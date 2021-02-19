@@ -65,9 +65,6 @@ export class Suppression extends pulumi.CustomResource {
     constructor(name: string, args: SuppressionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.recommendationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'recommendationId'");
             }
@@ -108,7 +105,7 @@ export interface SuppressionArgs {
     /**
      * The name of the suppression.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The recommendation ID.
      */

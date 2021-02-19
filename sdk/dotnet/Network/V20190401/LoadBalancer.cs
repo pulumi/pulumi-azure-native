@@ -252,8 +252,8 @@ namespace Pulumi.AzureNextGen.Network.V20190401
         /// <summary>
         /// The name of the load balancer.
         /// </summary>
-        [Input("loadBalancerName", required: true)]
-        public Input<string> LoadBalancerName { get; set; } = null!;
+        [Input("loadBalancerName")]
+        public Input<string>? LoadBalancerName { get; set; }
 
         [Input("loadBalancingRules")]
         private InputList<Inputs.LoadBalancingRuleArgs>? _loadBalancingRules;

@@ -255,8 +255,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20160901
         /// <summary>
         /// The name of the cluster resource
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The storage diagnostics account configuration details

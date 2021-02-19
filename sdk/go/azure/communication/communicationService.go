@@ -45,9 +45,6 @@ func NewCommunicationService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CommunicationServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'CommunicationServiceName'")
-	}
 	if args.DataLocation == nil {
 		return nil, errors.New("invalid value for required argument 'DataLocation'")
 	}
@@ -133,7 +130,7 @@ func (CommunicationServiceState) ElementType() reflect.Type {
 
 type communicationServiceArgs struct {
 	// The name of the CommunicationService resource.
-	CommunicationServiceName string `pulumi:"communicationServiceName"`
+	CommunicationServiceName *string `pulumi:"communicationServiceName"`
 	// The location where the communication service stores its data at rest.
 	DataLocation string `pulumi:"dataLocation"`
 	// The Azure location where the CommunicationService is running.
@@ -147,7 +144,7 @@ type communicationServiceArgs struct {
 // The set of arguments for constructing a CommunicationService resource.
 type CommunicationServiceArgs struct {
 	// The name of the CommunicationService resource.
-	CommunicationServiceName pulumi.StringInput
+	CommunicationServiceName pulumi.StringPtrInput
 	// The location where the communication service stores its data at rest.
 	DataLocation pulumi.StringInput
 	// The Azure location where the CommunicationService is running.

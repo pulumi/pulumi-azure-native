@@ -35,9 +35,6 @@ func NewIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApiName == nil {
-		return nil, errors.New("invalid value for required argument 'ApiName'")
-	}
 	if args.IntegrationServiceEnvironmentName == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationServiceEnvironmentName'")
 	}
@@ -106,7 +103,7 @@ func (IntegrationServiceEnvironmentManagedApiState) ElementType() reflect.Type {
 
 type integrationServiceEnvironmentManagedApiArgs struct {
 	// The api name.
-	ApiName string `pulumi:"apiName"`
+	ApiName *string `pulumi:"apiName"`
 	// The integration service environment name.
 	IntegrationServiceEnvironmentName string `pulumi:"integrationServiceEnvironmentName"`
 	// The resource group name.
@@ -116,7 +113,7 @@ type integrationServiceEnvironmentManagedApiArgs struct {
 // The set of arguments for constructing a IntegrationServiceEnvironmentManagedApi resource.
 type IntegrationServiceEnvironmentManagedApiArgs struct {
 	// The api name.
-	ApiName pulumi.StringInput
+	ApiName pulumi.StringPtrInput
 	// The integration service environment name.
 	IntegrationServiceEnvironmentName pulumi.StringInput
 	// The resource group name.

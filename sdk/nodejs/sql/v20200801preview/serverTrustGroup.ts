@@ -71,9 +71,6 @@ export class ServerTrustGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverTrustGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serverTrustGroupName'");
-            }
             if ((!args || args.trustScopes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'trustScopes'");
             }
@@ -122,7 +119,7 @@ export interface ServerTrustGroupArgs {
     /**
      * The name of the server trust group.
      */
-    readonly serverTrustGroupName: pulumi.Input<string>;
+    readonly serverTrustGroupName?: pulumi.Input<string>;
     /**
      * Trust scope of the server trust group.
      */

@@ -41,9 +41,6 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:maintenance:MaintenanceConfiguration"),
@@ -133,7 +130,7 @@ type maintenanceConfigurationArgs struct {
 	// Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource Identifier
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// Gets or sets tags of the resource
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -151,7 +148,7 @@ type MaintenanceConfigurationArgs struct {
 	// Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// Resource Identifier
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// Gets or sets tags of the resource
 	Tags pulumi.StringMapInput
 }

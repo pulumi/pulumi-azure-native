@@ -149,8 +149,8 @@ namespace Pulumi.AzureNextGen.ContainerService.V20151101Preview
         /// <summary>
         /// The name of the container service within the given subscription and resource group.
         /// </summary>
-        [Input("containerServiceName", required: true)]
-        public Input<string> ContainerServiceName { get; set; } = null!;
+        [Input("containerServiceName")]
+        public Input<string>? ContainerServiceName { get; set; }
 
         /// <summary>
         /// Properties for Diagnostic Agent

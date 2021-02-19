@@ -132,8 +132,8 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
         /// <summary>
         /// The name of the image.
         /// </summary>
-        [Input("imageName", required: true)]
-        public Input<string> ImageName { get; set; } = null!;
+        [Input("imageName")]
+        public Input<string>? ImageName { get; set; }
 
         /// <summary>
         /// Resource location

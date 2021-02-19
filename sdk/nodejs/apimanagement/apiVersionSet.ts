@@ -84,9 +84,6 @@ export class ApiVersionSet extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.versionSetId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'versionSetId'");
-            }
             if ((!args || args.versioningScheme === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'versioningScheme'");
             }
@@ -153,7 +150,7 @@ export interface ApiVersionSetArgs {
     /**
      * Api Version Set identifier. Must be unique in the current API Management service instance.
      */
-    readonly versionSetId: pulumi.Input<string>;
+    readonly versionSetId?: pulumi.Input<string>;
     /**
      * An value that determines where the API Version identifer will be located in a HTTP request.
      */

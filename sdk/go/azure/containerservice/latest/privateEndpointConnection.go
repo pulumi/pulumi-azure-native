@@ -37,9 +37,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.PrivateLinkServiceConnectionState == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateLinkServiceConnectionState'")
 	}
@@ -125,7 +122,7 @@ type privateEndpointConnectionArgs struct {
 	// The resource of private endpoint.
 	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
 	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group.
@@ -139,7 +136,7 @@ type PrivateEndpointConnectionArgs struct {
 	// The resource of private endpoint.
 	PrivateEndpoint PrivateEndpointPtrInput
 	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	// The name of the resource group.

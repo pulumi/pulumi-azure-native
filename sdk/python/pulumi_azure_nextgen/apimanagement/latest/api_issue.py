@@ -73,8 +73,6 @@ class ApiIssue(pulumi.CustomResource):
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__['description'] = description
-            if issue_id is None and not opts.urn:
-                raise TypeError("Missing required property 'issue_id'")
             __props__['issue_id'] = issue_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

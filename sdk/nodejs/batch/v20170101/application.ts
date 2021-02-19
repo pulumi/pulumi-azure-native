@@ -65,9 +65,6 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'applicationId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +109,7 @@ export interface ApplicationArgs {
     /**
      * The ID of the application.
      */
-    readonly applicationId: pulumi.Input<string>;
+    readonly applicationId?: pulumi.Input<string>;
     /**
      * The display name for the application.
      */

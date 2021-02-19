@@ -72,9 +72,6 @@ export class TrustedIdProvider extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.trustedIdProviderName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'trustedIdProviderName'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["idProvider"] = args ? args.idProvider : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -118,5 +115,5 @@ export interface TrustedIdProviderArgs {
     /**
      * The name of the trusted identity provider. This is used for differentiation of providers in the account.
      */
-    readonly trustedIdProviderName: pulumi.Input<string>;
+    readonly trustedIdProviderName?: pulumi.Input<string>;
 }

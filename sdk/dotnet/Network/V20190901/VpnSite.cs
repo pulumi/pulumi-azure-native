@@ -256,8 +256,8 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// <summary>
         /// The name of the VpnSite being created or updated.
         /// </summary>
-        [Input("vpnSiteName", required: true)]
-        public Input<string> VpnSiteName { get; set; } = null!;
+        [Input("vpnSiteName")]
+        public Input<string>? VpnSiteName { get; set; }
 
         public VpnSiteArgs()
         {

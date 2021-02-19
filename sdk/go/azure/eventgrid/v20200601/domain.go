@@ -49,9 +49,6 @@ func NewDomain(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DomainName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -168,7 +165,7 @@ func (DomainState) ElementType() reflect.Type {
 
 type domainArgs struct {
 	// Name of the domain.
-	DomainName string `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
 	InboundIpRules []InboundIpRule `pulumi:"inboundIpRules"`
 	// This determines the format that Event Grid should expect for incoming events published to the domain.
@@ -191,7 +188,7 @@ type domainArgs struct {
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// Name of the domain.
-	DomainName pulumi.StringInput
+	DomainName pulumi.StringPtrInput
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
 	InboundIpRules InboundIpRuleArrayInput
 	// This determines the format that Event Grid should expect for incoming events published to the domain.

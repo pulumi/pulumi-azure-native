@@ -75,8 +75,6 @@ class InboundNatRule(pulumi.CustomResource):
             __props__['frontend_port'] = frontend_port
             __props__['id'] = id
             __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
-            if inbound_nat_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'inbound_nat_rule_name'")
             __props__['inbound_nat_rule_name'] = inbound_nat_rule_name
             if load_balancer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_name'")

@@ -124,9 +124,6 @@ export class ConnectedCluster extends pulumi.CustomResource {
             if ((!args || args.agentPublicKeyCertificate === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'agentPublicKeyCertificate'");
             }
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identity'");
             }
@@ -201,7 +198,7 @@ export interface ConnectedClusterArgs {
     /**
      * The name of the Kubernetes cluster on which get is called.
      */
-    readonly clusterName: pulumi.Input<string>;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * Represents the connectivity status of the connected cluster.
      */

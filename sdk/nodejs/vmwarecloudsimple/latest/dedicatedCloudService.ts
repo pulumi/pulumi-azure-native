@@ -83,9 +83,6 @@ export class DedicatedCloudService extends pulumi.CustomResource {
         pulumi.log.warn("DedicatedCloudService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:DedicatedCloudService'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dedicatedCloudServiceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dedicatedCloudServiceName'");
-            }
             if ((!args || args.gatewaySubnet === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewaySubnet'");
             }
@@ -132,7 +129,7 @@ export interface DedicatedCloudServiceArgs {
     /**
      * dedicated cloud Service name
      */
-    readonly dedicatedCloudServiceName: pulumi.Input<string>;
+    readonly dedicatedCloudServiceName?: pulumi.Input<string>;
     /**
      * gateway Subnet for the account. It will collect the subnet address and always treat it as /28
      */

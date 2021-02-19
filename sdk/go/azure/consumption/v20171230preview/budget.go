@@ -48,9 +48,6 @@ func NewBudget(ctx *pulumi.Context,
 	if args.Category == nil {
 		return nil, errors.New("invalid value for required argument 'Category'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.TimeGrain == nil {
 		return nil, errors.New("invalid value for required argument 'TimeGrain'")
 	}
@@ -150,7 +147,7 @@ type budgetArgs struct {
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
 	// Budget name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
 	Notifications map[string]Notification `pulumi:"notifications"`
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
@@ -168,7 +165,7 @@ type BudgetArgs struct {
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
 	// Budget name.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
 	Notifications NotificationMapInput
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.

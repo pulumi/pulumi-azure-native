@@ -33,9 +33,6 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GuestConfigurationAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'GuestConfigurationAssignmentName'")
-	}
 	if args.MachineName == nil {
 		return nil, errors.New("invalid value for required argument 'MachineName'")
 	}
@@ -103,7 +100,7 @@ func (GuestConfigurationHCRPAssignmentState) ElementType() reflect.Type {
 
 type guestConfigurationHCRPAssignmentArgs struct {
 	// Name of the guest configuration assignment.
-	GuestConfigurationAssignmentName string `pulumi:"guestConfigurationAssignmentName"`
+	GuestConfigurationAssignmentName *string `pulumi:"guestConfigurationAssignmentName"`
 	// Region where the VM is located.
 	Location *string `pulumi:"location"`
 	// The name of the ARC machine.
@@ -119,7 +116,7 @@ type guestConfigurationHCRPAssignmentArgs struct {
 // The set of arguments for constructing a GuestConfigurationHCRPAssignment resource.
 type GuestConfigurationHCRPAssignmentArgs struct {
 	// Name of the guest configuration assignment.
-	GuestConfigurationAssignmentName pulumi.StringInput
+	GuestConfigurationAssignmentName pulumi.StringPtrInput
 	// Region where the VM is located.
 	Location pulumi.StringPtrInput
 	// The name of the ARC machine.

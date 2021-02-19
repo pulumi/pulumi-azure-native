@@ -39,9 +39,6 @@ func NewReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
-	if args.ProviderName == nil {
-		return nil, errors.New("invalid value for required argument 'ProviderName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -113,7 +110,7 @@ type replicationRecoveryServicesProviderArgs struct {
 	// The properties of an add provider request.
 	Properties AddRecoveryServicesProviderInputProperties `pulumi:"properties"`
 	// Recovery services provider name.
-	ProviderName string `pulumi:"providerName"`
+	ProviderName *string `pulumi:"providerName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
@@ -127,7 +124,7 @@ type ReplicationRecoveryServicesProviderArgs struct {
 	// The properties of an add provider request.
 	Properties AddRecoveryServicesProviderInputPropertiesInput
 	// Recovery services provider name.
-	ProviderName pulumi.StringInput
+	ProviderName pulumi.StringPtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// The name of the recovery services vault.

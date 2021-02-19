@@ -248,8 +248,8 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// The name of the private link service.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public Input<string> ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

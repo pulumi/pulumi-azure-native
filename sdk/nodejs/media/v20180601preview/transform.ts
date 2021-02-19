@@ -79,9 +79,6 @@ export class Transform extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.transformName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'transformName'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["outputs"] = args ? args.outputs : undefined;
@@ -135,5 +132,5 @@ export interface TransformArgs {
     /**
      * The Transform name.
      */
-    readonly transformName: pulumi.Input<string>;
+    readonly transformName?: pulumi.Input<string>;
 }

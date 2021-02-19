@@ -78,8 +78,6 @@ class Watcher(pulumi.CustomResource):
             __props__['script_parameters'] = script_parameters
             __props__['script_run_on'] = script_run_on
             __props__['tags'] = tags
-            if watcher_name is None and not opts.urn:
-                raise TypeError("Missing required property 'watcher_name'")
             __props__['watcher_name'] = watcher_name
             __props__['creation_time'] = None
             __props__['last_modified_by'] = None

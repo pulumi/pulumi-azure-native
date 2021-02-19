@@ -161,8 +161,8 @@ namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
         /// <summary>
         /// Name of storage target.
         /// </summary>
-        [Input("storageTargetName", required: true)]
-        public Input<string> StorageTargetName { get; set; } = null!;
+        [Input("storageTargetName")]
+        public Input<string>? StorageTargetName { get; set; }
 
         /// <summary>
         /// Type for storage target.

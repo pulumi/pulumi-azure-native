@@ -135,8 +135,6 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['lab_subnet_name'] = lab_subnet_name
             __props__['lab_virtual_network_id'] = lab_virtual_network_id
             __props__['location'] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['network_interface'] = network_interface
             __props__['notes'] = notes

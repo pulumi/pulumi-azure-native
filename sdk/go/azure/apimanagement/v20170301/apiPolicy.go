@@ -36,9 +36,6 @@ func NewApiPolicy(ctx *pulumi.Context,
 	if args.PolicyContent == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyContent'")
 	}
-	if args.PolicyId == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -121,7 +118,7 @@ type apiPolicyArgs struct {
 	// Json escaped Xml Encoded contents of the Policy.
 	PolicyContent string `pulumi:"policyContent"`
 	// The identifier of the Policy.
-	PolicyId string `pulumi:"policyId"`
+	PolicyId *string `pulumi:"policyId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -135,7 +132,7 @@ type ApiPolicyArgs struct {
 	// Json escaped Xml Encoded contents of the Policy.
 	PolicyContent pulumi.StringInput
 	// The identifier of the Policy.
-	PolicyId pulumi.StringInput
+	PolicyId pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

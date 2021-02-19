@@ -86,9 +86,6 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
             if ((!args || args.managementGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.policyDefinitionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyDefinitionName'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
@@ -155,7 +152,7 @@ export interface PolicyDefinitionAtManagementGroupArgs {
     /**
      * The name of the policy definition to create.
      */
-    readonly policyDefinitionName: pulumi.Input<string>;
+    readonly policyDefinitionName?: pulumi.Input<string>;
     /**
      * The policy rule.
      */

@@ -224,8 +224,8 @@ namespace Pulumi.AzureNextGen.Compute.V20150615
         /// <summary>
         /// The name of the virtual machine extension.
         /// </summary>
-        [Input("vmExtensionName", required: true)]
-        public Input<string> VmExtensionName { get; set; } = null!;
+        [Input("vmExtensionName")]
+        public Input<string>? VmExtensionName { get; set; }
 
         /// <summary>
         /// The name of the virtual machine where the extension should be created or updated.

@@ -41,9 +41,6 @@ func NewExportPipeline(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ExportPipelineName == nil {
-		return nil, errors.New("invalid value for required argument 'ExportPipelineName'")
-	}
 	if args.RegistryName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
@@ -127,7 +124,7 @@ func (ExportPipelineState) ElementType() reflect.Type {
 
 type exportPipelineArgs struct {
 	// The name of the export pipeline.
-	ExportPipelineName string `pulumi:"exportPipelineName"`
+	ExportPipelineName *string `pulumi:"exportPipelineName"`
 	// The identity of the export pipeline.
 	Identity *IdentityProperties `pulumi:"identity"`
 	// The location of the export pipeline.
@@ -145,7 +142,7 @@ type exportPipelineArgs struct {
 // The set of arguments for constructing a ExportPipeline resource.
 type ExportPipelineArgs struct {
 	// The name of the export pipeline.
-	ExportPipelineName pulumi.StringInput
+	ExportPipelineName pulumi.StringPtrInput
 	// The identity of the export pipeline.
 	Identity IdentityPropertiesPtrInput
 	// The location of the export pipeline.

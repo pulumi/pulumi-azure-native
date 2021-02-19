@@ -192,8 +192,8 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview
         /// <summary>
         /// The name of the snapshot within the given subscription and resource group.
         /// </summary>
-        [Input("snapshotName", required: true)]
-        public Input<string> SnapshotName { get; set; } = null!;
+        [Input("snapshotName")]
+        public Input<string>? SnapshotName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

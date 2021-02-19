@@ -58,8 +58,6 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
             __props__['colocation_status'] = colocation_status
             __props__['location'] = location
-            if proximity_placement_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'proximity_placement_group_name'")
             __props__['proximity_placement_group_name'] = proximity_placement_group_name
             __props__['proximity_placement_group_type'] = proximity_placement_group_type
             if resource_group_name is None and not opts.urn:

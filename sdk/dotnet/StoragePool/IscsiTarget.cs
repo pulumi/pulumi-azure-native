@@ -110,8 +110,8 @@ namespace Pulumi.AzureNextGen.StoragePool
         /// <summary>
         /// The name of the iSCSI target.
         /// </summary>
-        [Input("iscsiTargetName", required: true)]
-        public Input<string> IscsiTargetName { get; set; } = null!;
+        [Input("iscsiTargetName")]
+        public Input<string>? IscsiTargetName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

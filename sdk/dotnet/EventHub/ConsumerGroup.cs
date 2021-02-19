@@ -102,8 +102,8 @@ namespace Pulumi.AzureNextGen.EventHub
         /// <summary>
         /// The consumer group name
         /// </summary>
-        [Input("consumerGroupName", required: true)]
-        public Input<string> ConsumerGroupName { get; set; } = null!;
+        [Input("consumerGroupName")]
+        public Input<string>? ConsumerGroupName { get; set; }
 
         /// <summary>
         /// The Event Hub name

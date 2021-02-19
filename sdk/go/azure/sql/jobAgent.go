@@ -42,9 +42,6 @@ func NewJobAgent(ctx *pulumi.Context,
 	if args.DatabaseId == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseId'")
 	}
-	if args.JobAgentName == nil {
-		return nil, errors.New("invalid value for required argument 'JobAgentName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -126,7 +123,7 @@ type jobAgentArgs struct {
 	// Resource ID of the database to store job metadata in.
 	DatabaseId string `pulumi:"databaseId"`
 	// The name of the job agent to be created or updated.
-	JobAgentName string `pulumi:"jobAgentName"`
+	JobAgentName *string `pulumi:"jobAgentName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -144,7 +141,7 @@ type JobAgentArgs struct {
 	// Resource ID of the database to store job metadata in.
 	DatabaseId pulumi.StringInput
 	// The name of the job agent to be created or updated.
-	JobAgentName pulumi.StringInput
+	JobAgentName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

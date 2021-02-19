@@ -94,9 +94,6 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.principalAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'principalAssignmentName'");
-            }
             if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principalId'");
             }
@@ -161,7 +158,7 @@ export interface DatabasePrincipalAssignmentArgs {
     /**
      * The name of the Kusto principalAssignment.
      */
-    readonly principalAssignmentName: pulumi.Input<string>;
+    readonly principalAssignmentName?: pulumi.Input<string>;
     /**
      * The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
      */

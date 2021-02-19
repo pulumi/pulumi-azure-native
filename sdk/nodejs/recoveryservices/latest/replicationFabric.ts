@@ -68,9 +68,6 @@ export class ReplicationFabric extends pulumi.CustomResource {
         pulumi.log.warn("ReplicationFabric is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationFabric'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'fabricName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -110,7 +107,7 @@ export interface ReplicationFabricArgs {
     /**
      * Name of the ASR fabric.
      */
-    readonly fabricName: pulumi.Input<string>;
+    readonly fabricName?: pulumi.Input<string>;
     /**
      * Fabric creation input.
      */

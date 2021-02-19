@@ -124,9 +124,6 @@ export class Route extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routeName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'routeName'");
-            }
             inputs["compressionSettings"] = args ? args.compressionSettings : undefined;
             inputs["customDomains"] = args ? args.customDomains : undefined;
             inputs["enabledState"] = args ? args.enabledState : undefined;
@@ -239,7 +236,7 @@ export interface RouteArgs {
     /**
      * Name of the routing rule.
      */
-    readonly routeName: pulumi.Input<string>;
+    readonly routeName?: pulumi.Input<string>;
     /**
      * rule sets referenced by this endpoint.
      */

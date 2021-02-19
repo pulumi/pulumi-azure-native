@@ -48,9 +48,6 @@ func NewRemoteRenderingAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -153,7 +150,7 @@ func (RemoteRenderingAccountState) ElementType() reflect.Type {
 
 type remoteRenderingAccountArgs struct {
 	// Name of an Mixed Reality Account.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// The identity associated with this account
 	Identity *Identity `pulumi:"identity"`
 	// The kind of account, if supported
@@ -175,7 +172,7 @@ type remoteRenderingAccountArgs struct {
 // The set of arguments for constructing a RemoteRenderingAccount resource.
 type RemoteRenderingAccountArgs struct {
 	// Name of an Mixed Reality Account.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// The identity associated with this account
 	Identity IdentityPtrInput
 	// The kind of account, if supported

@@ -101,9 +101,6 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             inputs["apiserverProfile"] = args ? args.apiserverProfile : undefined;
             inputs["clusterProfile"] = args ? args.clusterProfile : undefined;
             inputs["consoleProfile"] = args ? args.consoleProfile : undefined;
@@ -190,7 +187,7 @@ export interface OpenShiftClusterArgs {
     /**
      * The name of the OpenShift cluster resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    readonly resourceName?: pulumi.Input<string>;
     /**
      * The cluster service principal profile.
      */

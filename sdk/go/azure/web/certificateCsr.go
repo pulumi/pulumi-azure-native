@@ -47,9 +47,6 @@ func NewCertificateCsr(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -151,7 +148,7 @@ type certificateCsrArgs struct {
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// PFX password
 	Password *string `pulumi:"password"`
 	// PFX certificate of created certificate
@@ -181,7 +178,7 @@ type CertificateCsrArgs struct {
 	// Resource Location
 	Location pulumi.StringPtrInput
 	// Resource Name
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// PFX password
 	Password pulumi.StringPtrInput
 	// PFX certificate of created certificate

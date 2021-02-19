@@ -57,8 +57,6 @@ class EnterprisePolicy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['encryption'] = encryption
-            if enterprise_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'enterprise_policy_name'")
             __props__['enterprise_policy_name'] = enterprise_policy_name
             __props__['identity'] = identity
             __props__['location'] = location

@@ -127,8 +127,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180101
         /// <summary>
         /// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
         /// </summary>
-        [Input("eventSubscriptionName", required: true)]
-        public Input<string> EventSubscriptionName { get; set; } = null!;
+        [Input("eventSubscriptionName")]
+        public Input<string>? EventSubscriptionName { get; set; }
 
         /// <summary>
         /// Information about the filter for the event subscription.

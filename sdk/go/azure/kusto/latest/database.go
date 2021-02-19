@@ -38,9 +38,6 @@ func NewDatabase(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
-	if args.DatabaseName == nil {
-		return nil, errors.New("invalid value for required argument 'DatabaseName'")
-	}
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
@@ -131,7 +128,7 @@ type databaseArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the database in the Kusto cluster.
-	DatabaseName string `pulumi:"databaseName"`
+	DatabaseName *string `pulumi:"databaseName"`
 	// Kind of the database
 	Kind string `pulumi:"kind"`
 	// Resource location.
@@ -145,7 +142,7 @@ type DatabaseArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName pulumi.StringInput
 	// The name of the database in the Kusto cluster.
-	DatabaseName pulumi.StringInput
+	DatabaseName pulumi.StringPtrInput
 	// Kind of the database
 	Kind pulumi.StringInput
 	// Resource location.

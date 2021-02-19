@@ -57,8 +57,6 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
             if asc_location is None and not opts.urn:
                 raise TypeError("Missing required property 'asc_location'")
             __props__['asc_location'] = asc_location
-            if jit_network_access_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'jit_network_access_policy_name'")
             __props__['jit_network_access_policy_name'] = jit_network_access_policy_name
             __props__['kind'] = kind
             __props__['requests'] = requests

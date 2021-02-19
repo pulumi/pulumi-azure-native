@@ -74,9 +74,6 @@ export class IoTSpace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
@@ -128,7 +125,7 @@ export interface IoTSpaceArgs {
     /**
      * The name of the IoTSpaces instance.
      */
-    readonly resourceName: pulumi.Input<string>;
+    readonly resourceName?: pulumi.Input<string>;
     /**
      * A valid instance SKU.
      */

@@ -132,8 +132,8 @@ namespace Pulumi.AzureNextGen.Cdn
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
         /// </summary>
-        [Input("endpointName", required: true)]
-        public Input<string> EndpointName { get; set; } = null!;
+        [Input("endpointName")]
+        public Input<string>? EndpointName { get; set; }
 
         /// <summary>
         /// Resource location.

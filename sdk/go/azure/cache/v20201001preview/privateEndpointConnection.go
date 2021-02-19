@@ -37,9 +37,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.PrivateLinkServiceConnectionState == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateLinkServiceConnectionState'")
 	}
@@ -113,7 +110,7 @@ type privateEndpointConnectionArgs struct {
 	// The name of the RedisEnterprise cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the private endpoint connection associated with the Azure resource
-	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group.
@@ -125,7 +122,7 @@ type PrivateEndpointConnectionArgs struct {
 	// The name of the RedisEnterprise cluster.
 	ClusterName pulumi.StringInput
 	// The name of the private endpoint connection associated with the Azure resource
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	// The name of the resource group.

@@ -277,8 +277,8 @@ namespace Pulumi.AzureNextGen.DevTestLab
         /// <summary>
         /// The name of the lab.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The setting to enable usage of premium data disks.

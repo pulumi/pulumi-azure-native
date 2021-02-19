@@ -1,25 +1,15 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as random from "@pulumi/random";
 import { URL } from "url";
 
 import * as cdn from "@pulumi/azure-nextgen/cdn";
 import * as resources from "@pulumi/azure-nextgen/resources";
 import * as storage from "@pulumi/azure-nextgen/storage";
 
-const randomString = new random.RandomString("random", {
-    length: 12,
-    special: false,
-    upper: false,
-});
-
-const resourceGroup = new resources.ResourceGroup("rg", {
-    resourceGroupName: randomString.result,
-});
+const resourceGroup = new resources.ResourceGroup("rg");
 
 // Create a Storage Account for our static website
 const storageAccount = new storage.StorageAccount("websitesa", {
     resourceGroupName: resourceGroup.name,
-    accountName: randomString.result,
     sku: {
         name: storage.SkuName.Standard_LRS,
     },
@@ -40,7 +30,6 @@ const staticWebsite = new storage.StorageAccountStaticWebsite("staticsite", {
         resourceGroupName: resourceGroup.name,
         accountName: storageAccount.name,
         containerName: staticWebsite.containerName,
-        blobName: name,
         source: new pulumi.asset.FileAsset(`./wwwroot/${name}`),
         contentType: "text/html",
     }),
@@ -50,7 +39,6 @@ new storage.Blob("test.html", {
     resourceGroupName: resourceGroup.name,
     accountName: storageAccount.name,
     containerName: staticWebsite.containerName,
-    blobName: "test.html",
     source: new pulumi.asset.StringAsset("<h1>This is deployed as-is</h1>"),
     contentMd5: "+vC+ix/2YjgiJLA4GimBqg==",
     contentType: "text/html",
@@ -60,17 +48,15 @@ new storage.Blob("backup.zip", {
     resourceGroupName: resourceGroup.name,
     accountName: storageAccount.name,
     containerName: staticWebsite.containerName,
-    blobName: "backup.zip",
     source: new pulumi.asset.FileArchive("./wwwroot"),
     contentType: "text/html",
 });
 
 // A test for an append blob.
-new storage.Blob("append-blob", {
+new storage.Blob("append-blob.dat", {
     resourceGroupName: resourceGroup.name,
     accountName: storageAccount.name,
     containerName: staticWebsite.containerName,
-    blobName: "append-me.dat",
     type: storage.BlobType.Append,
 });
 
@@ -81,7 +67,6 @@ const staticHostname = staticEndpoint.apply(url => new URL(url).hostname);
 // We can add a CDN in front of the website
 const profile =  new cdn.Profile("website-cdn", {
     resourceGroupName: resourceGroup.name,
-    profileName: randomString.result,
     location: "global",
     sku: {
           name: cdn.SkuName.Standard_Microsoft,
@@ -92,7 +77,6 @@ const endpoint = new cdn.Endpoint("website-cdn-ep", {
     resourceGroupName: resourceGroup.name,
     location: "westus",
     profileName: profile.name,
-    endpointName: randomString.result,
     originHostHeader: staticHostname,
     origins: [{
         name: "blobstorage",

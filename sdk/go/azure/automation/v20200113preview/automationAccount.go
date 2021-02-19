@@ -54,9 +54,6 @@ func NewAutomationAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AutomationAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -168,7 +165,7 @@ func (AutomationAccountState) ElementType() reflect.Type {
 
 type automationAccountArgs struct {
 	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
+	AutomationAccountName *string `pulumi:"automationAccountName"`
 	// Set the encryption properties for the automation account
 	Encryption *EncryptionProperties `pulumi:"encryption"`
 	// Sets the identity property for automation account
@@ -190,7 +187,7 @@ type automationAccountArgs struct {
 // The set of arguments for constructing a AutomationAccount resource.
 type AutomationAccountArgs struct {
 	// The name of the automation account.
-	AutomationAccountName pulumi.StringInput
+	AutomationAccountName pulumi.StringPtrInput
 	// Set the encryption properties for the automation account
 	Encryption EncryptionPropertiesPtrInput
 	// Sets the identity property for automation account

@@ -63,9 +63,6 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.certificateName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'certificateName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -105,7 +102,7 @@ export interface CertificateArgs {
     /**
      * The name of the certificate
      */
-    readonly certificateName: pulumi.Input<string>;
+    readonly certificateName?: pulumi.Input<string>;
     /**
      * The description of an X509 CA Certificate.
      */

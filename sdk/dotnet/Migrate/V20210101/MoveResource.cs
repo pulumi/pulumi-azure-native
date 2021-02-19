@@ -93,8 +93,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20210101
         /// <summary>
         /// The Move Resource Name.
         /// </summary>
-        [Input("moveResourceName", required: true)]
-        public Input<string> MoveResourceName { get; set; } = null!;
+        [Input("moveResourceName")]
+        public Input<string>? MoveResourceName { get; set; }
 
         /// <summary>
         /// Defines the move resource properties.

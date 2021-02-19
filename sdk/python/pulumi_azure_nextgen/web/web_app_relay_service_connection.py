@@ -58,8 +58,6 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
 
             __props__['biztalk_uri'] = biztalk_uri
             __props__['entity_connection_string'] = entity_connection_string
-            if entity_name is None and not opts.urn:
-                raise TypeError("Missing required property 'entity_name'")
             __props__['entity_name'] = entity_name
             __props__['hostname'] = hostname
             __props__['kind'] = kind

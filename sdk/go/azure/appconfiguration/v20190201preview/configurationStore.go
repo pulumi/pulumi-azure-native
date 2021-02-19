@@ -38,9 +38,6 @@ func NewConfigurationStore(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConfigStoreName == nil {
-		return nil, errors.New("invalid value for required argument 'ConfigStoreName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -126,7 +123,7 @@ func (ConfigurationStoreState) ElementType() reflect.Type {
 
 type configurationStoreArgs struct {
 	// The name of the configuration store.
-	ConfigStoreName string `pulumi:"configStoreName"`
+	ConfigStoreName *string `pulumi:"configStoreName"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
 	// The name of the resource group to which the container registry belongs.
@@ -138,7 +135,7 @@ type configurationStoreArgs struct {
 // The set of arguments for constructing a ConfigurationStore resource.
 type ConfigurationStoreArgs struct {
 	// The name of the configuration store.
-	ConfigStoreName pulumi.StringInput
+	ConfigStoreName pulumi.StringPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringPtrInput
 	// The name of the resource group to which the container registry belongs.

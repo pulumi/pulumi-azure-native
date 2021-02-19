@@ -67,9 +67,6 @@ export class Key extends pulumi.CustomResource {
         pulumi.log.warn("Key is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:Key'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.keyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'keyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -113,7 +110,7 @@ export interface KeyArgs {
     /**
      * The name of the workspace key
      */
-    readonly keyName: pulumi.Input<string>;
+    readonly keyName?: pulumi.Input<string>;
     /**
      * The Key Vault Url of the workspace key.
      */

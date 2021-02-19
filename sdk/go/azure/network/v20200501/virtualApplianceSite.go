@@ -42,9 +42,6 @@ func NewVirtualApplianceSite(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SiteName == nil {
-		return nil, errors.New("invalid value for required argument 'SiteName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:VirtualApplianceSite"),
@@ -132,7 +129,7 @@ type virtualApplianceSiteArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the site.
-	SiteName string `pulumi:"siteName"`
+	SiteName *string `pulumi:"siteName"`
 }
 
 // The set of arguments for constructing a VirtualApplianceSite resource.
@@ -150,7 +147,7 @@ type VirtualApplianceSiteArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the site.
-	SiteName pulumi.StringInput
+	SiteName pulumi.StringPtrInput
 }
 
 func (VirtualApplianceSiteArgs) ElementType() reflect.Type {

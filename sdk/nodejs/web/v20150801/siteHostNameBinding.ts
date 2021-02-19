@@ -90,9 +90,6 @@ export class SiteHostNameBinding extends pulumi.CustomResource {
     constructor(name: string, args: SiteHostNameBindingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'hostName'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -162,7 +159,7 @@ export interface SiteHostNameBindingArgs {
     /**
      * Name of host
      */
-    readonly hostName: pulumi.Input<string>;
+    readonly hostName?: pulumi.Input<string>;
     /**
      * Host name type
      */

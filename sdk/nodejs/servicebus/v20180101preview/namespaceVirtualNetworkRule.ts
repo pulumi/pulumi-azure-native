@@ -63,9 +63,6 @@ export class NamespaceVirtualNetworkRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkRuleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'virtualNetworkRuleName'");
-            }
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["virtualNetworkRuleName"] = args ? args.virtualNetworkRuleName : undefined;
@@ -105,7 +102,7 @@ export interface NamespaceVirtualNetworkRuleArgs {
     /**
      * The Virtual Network Rule name.
      */
-    readonly virtualNetworkRuleName: pulumi.Input<string>;
+    readonly virtualNetworkRuleName?: pulumi.Input<string>;
     /**
      * Resource ID of Virtual Network Subnet
      */

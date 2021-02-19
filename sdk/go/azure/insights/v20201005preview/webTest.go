@@ -77,9 +77,6 @@ func NewWebTest(ctx *pulumi.Context,
 	if args.SyntheticMonitorId == nil {
 		return nil, errors.New("invalid value for required argument 'SyntheticMonitorId'")
 	}
-	if args.WebTestName == nil {
-		return nil, errors.New("invalid value for required argument 'WebTestName'")
-	}
 	if args.Frequency == nil {
 		args.Frequency = pulumi.IntPtr(300)
 	}
@@ -264,7 +261,7 @@ type webTestArgs struct {
 	// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
 	WebTestKind string `pulumi:"webTestKind"`
 	// User defined name if this WebTest.
-	WebTestName string `pulumi:"webTestName"`
+	WebTestName *string `pulumi:"webTestName"`
 }
 
 // The set of arguments for constructing a WebTest resource.
@@ -308,7 +305,7 @@ type WebTestArgs struct {
 	// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
 	WebTestKind WebTestKindEnum
 	// User defined name if this WebTest.
-	WebTestName pulumi.StringInput
+	WebTestName pulumi.StringPtrInput
 }
 
 func (WebTestArgs) ElementType() reflect.Type {

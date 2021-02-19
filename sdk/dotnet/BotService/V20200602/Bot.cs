@@ -148,8 +148,8 @@ namespace Pulumi.AzureNextGen.BotService.V20200602
         /// <summary>
         /// The name of the Bot resource.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// Gets or sets the SKU of the resource.

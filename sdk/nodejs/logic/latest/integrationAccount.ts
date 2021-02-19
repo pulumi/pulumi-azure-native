@@ -80,9 +80,6 @@ export class IntegrationAccount extends pulumi.CustomResource {
         pulumi.log.warn("IntegrationAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccount'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'integrationAccountName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -124,7 +121,7 @@ export interface IntegrationAccountArgs {
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: pulumi.Input<string>;
+    readonly integrationAccountName?: pulumi.Input<string>;
     /**
      * The integration service environment.
      */

@@ -70,9 +70,6 @@ func NewNodeType(ctx *pulumi.Context,
 	if args.IsPrimary == nil {
 		return nil, errors.New("invalid value for required argument 'IsPrimary'")
 	}
-	if args.NodeTypeName == nil {
-		return nil, errors.New("invalid value for required argument 'NodeTypeName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -202,7 +199,7 @@ type nodeTypeArgs struct {
 	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
 	IsPrimary bool `pulumi:"isPrimary"`
 	// The name of the node type.
-	NodeTypeName string `pulumi:"nodeTypeName"`
+	NodeTypeName *string `pulumi:"nodeTypeName"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties map[string]string `pulumi:"placementProperties"`
 	// The name of the resource group.
@@ -242,7 +239,7 @@ type NodeTypeArgs struct {
 	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
 	IsPrimary pulumi.BoolInput
 	// The name of the node type.
-	NodeTypeName pulumi.StringInput
+	NodeTypeName pulumi.StringPtrInput
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties pulumi.StringMapInput
 	// The name of the resource group.

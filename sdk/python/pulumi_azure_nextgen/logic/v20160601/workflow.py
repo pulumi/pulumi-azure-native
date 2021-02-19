@@ -69,8 +69,6 @@ class Workflow(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['state'] = state
             __props__['tags'] = tags
-            if workflow_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workflow_name'")
             __props__['workflow_name'] = workflow_name
             __props__['access_endpoint'] = None
             __props__['changed_time'] = None

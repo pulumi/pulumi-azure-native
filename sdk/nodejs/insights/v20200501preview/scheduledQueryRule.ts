@@ -135,9 +135,6 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ruleName'");
-            }
             if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scopes'");
             }
@@ -248,7 +245,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The name of the rule.
      */
-    readonly ruleName: pulumi.Input<string>;
+    readonly ruleName?: pulumi.Input<string>;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */

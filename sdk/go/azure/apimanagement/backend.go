@@ -47,9 +47,6 @@ func NewBackend(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BackendId == nil {
-		return nil, errors.New("invalid value for required argument 'BackendId'")
-	}
 	if args.Protocol == nil {
 		return nil, errors.New("invalid value for required argument 'Protocol'")
 	}
@@ -172,7 +169,7 @@ func (BackendState) ElementType() reflect.Type {
 
 type backendArgs struct {
 	// Identifier of the Backend entity. Must be unique in the current API Management service instance.
-	BackendId string `pulumi:"backendId"`
+	BackendId *string `pulumi:"backendId"`
 	// Backend Credentials Contract Properties
 	Credentials *BackendCredentialsContract `pulumi:"credentials"`
 	// Backend Description.
@@ -200,7 +197,7 @@ type backendArgs struct {
 // The set of arguments for constructing a Backend resource.
 type BackendArgs struct {
 	// Identifier of the Backend entity. Must be unique in the current API Management service instance.
-	BackendId pulumi.StringInput
+	BackendId pulumi.StringPtrInput
 	// Backend Credentials Contract Properties
 	Credentials BackendCredentialsContractPtrInput
 	// Backend Description.

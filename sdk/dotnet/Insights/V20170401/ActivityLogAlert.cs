@@ -129,8 +129,8 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
         /// <summary>
         /// The name of the activity log alert.
         /// </summary>
-        [Input("activityLogAlertName", required: true)]
-        public Input<string> ActivityLogAlertName { get; set; } = null!;
+        [Input("activityLogAlertName")]
+        public Input<string>? ActivityLogAlertName { get; set; }
 
         /// <summary>
         /// The condition that will cause this alert to activate.

@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.OperationsManagement
         /// <summary>
         /// User Solution Name.
         /// </summary>
-        [Input("solutionName", required: true)]
-        public Input<string> SolutionName { get; set; } = null!;
+        [Input("solutionName")]
+        public Input<string>? SolutionName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

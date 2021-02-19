@@ -43,9 +43,6 @@ func NewAFDEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'EndpointName'")
-	}
 	if args.ProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'ProfileName'")
 	}
@@ -134,7 +131,7 @@ type afdendpointArgs struct {
 	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 	EnabledState *string `pulumi:"enabledState"`
 	// Name of the endpoint under the profile which is unique globally.
-	EndpointName string `pulumi:"endpointName"`
+	EndpointName *string `pulumi:"endpointName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
@@ -152,7 +149,7 @@ type AFDEndpointArgs struct {
 	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 	EnabledState pulumi.StringPtrInput
 	// Name of the endpoint under the profile which is unique globally.
-	EndpointName pulumi.StringInput
+	EndpointName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.

@@ -128,9 +128,6 @@ export class PublicIPAddress extends pulumi.CustomResource {
         pulumi.log.warn("PublicIPAddress is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PublicIPAddress'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.publicIpAddressName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'publicIpAddressName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -241,7 +238,7 @@ export interface PublicIPAddressArgs {
     /**
      * The name of the public IP address.
      */
-    readonly publicIpAddressName: pulumi.Input<string>;
+    readonly publicIpAddressName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

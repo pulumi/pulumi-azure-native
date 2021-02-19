@@ -98,9 +98,6 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'namespaceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -170,7 +167,7 @@ export interface NamespaceArgs {
     /**
      * The Namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    readonly namespaceName?: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */

@@ -54,9 +54,6 @@ func NewEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'EndpointName'")
-	}
 	if args.Origins == nil {
 		return nil, errors.New("invalid value for required argument 'Origins'")
 	}
@@ -203,7 +200,7 @@ type endpointArgs struct {
 	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
 	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
 	// Name of the endpoint within the CDN profile.
-	EndpointName string `pulumi:"endpointName"`
+	EndpointName *string `pulumi:"endpointName"`
 	// Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
 	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
 	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
@@ -233,7 +230,7 @@ type EndpointArgs struct {
 	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
 	ContentTypesToCompress pulumi.StringArrayInput
 	// Name of the endpoint within the CDN profile.
-	EndpointName pulumi.StringInput
+	EndpointName pulumi.StringPtrInput
 	// Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
 	IsCompressionEnabled pulumi.BoolPtrInput
 	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.

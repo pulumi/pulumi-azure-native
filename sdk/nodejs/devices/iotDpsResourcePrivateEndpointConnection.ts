@@ -59,9 +59,6 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
     constructor(name: string, args: IotDpsResourcePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.privateEndpointConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -102,7 +99,7 @@ export interface IotDpsResourcePrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection
      */
-    readonly privateEndpointConnectionName: pulumi.Input<string>;
+    readonly privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * The properties of a private endpoint connection
      */

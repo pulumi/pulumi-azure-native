@@ -63,8 +63,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
             __props__['gateway_ip_address'] = gateway_ip_address
             __props__['id'] = id
             __props__['local_network_address_space'] = local_network_address_space
-            if local_network_gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'local_network_gateway_name'")
             __props__['local_network_gateway_name'] = local_network_gateway_name
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:

@@ -37,9 +37,6 @@ func NewManagementLockByScope(ctx *pulumi.Context,
 	if args.Level == nil {
 		return nil, errors.New("invalid value for required argument 'Level'")
 	}
-	if args.LockName == nil {
-		return nil, errors.New("invalid value for required argument 'LockName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -107,7 +104,7 @@ type managementLockByScopeArgs struct {
 	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
 	Level string `pulumi:"level"`
 	// The name of lock.
-	LockName string `pulumi:"lockName"`
+	LockName *string `pulumi:"lockName"`
 	// Notes about the lock. Maximum of 512 characters.
 	Notes *string `pulumi:"notes"`
 	// The owners of the lock.
@@ -121,7 +118,7 @@ type ManagementLockByScopeArgs struct {
 	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
 	Level pulumi.StringInput
 	// The name of lock.
-	LockName pulumi.StringInput
+	LockName pulumi.StringPtrInput
 	// Notes about the lock. Maximum of 512 characters.
 	Notes pulumi.StringPtrInput
 	// The owners of the lock.

@@ -171,8 +171,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <summary>
         /// Premier add on Name.
         /// </summary>
-        [Input("premierAddOnName", required: true)]
-        public Input<string> PremierAddOnName { get; set; } = null!;
+        [Input("premierAddOnName")]
+        public Input<string>? PremierAddOnName { get; set; }
 
         /// <summary>
         /// Premier add on Product.

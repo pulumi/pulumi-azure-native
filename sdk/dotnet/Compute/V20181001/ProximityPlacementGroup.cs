@@ -129,8 +129,8 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
         /// <summary>
         /// The name of the proximity placement group.
         /// </summary>
-        [Input("proximityPlacementGroupName", required: true)]
-        public Input<string> ProximityPlacementGroupName { get; set; } = null!;
+        [Input("proximityPlacementGroupName")]
+        public Input<string>? ProximityPlacementGroupName { get; set; }
 
         /// <summary>
         /// Specifies the type of the proximity placement group. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Standard** : Co-locate resources within an Azure region or Availability Zone. &lt;br&gt;&lt;br&gt; **Ultra** : For future use.

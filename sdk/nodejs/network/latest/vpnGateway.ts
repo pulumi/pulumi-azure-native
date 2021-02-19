@@ -104,9 +104,6 @@ export class VpnGateway extends pulumi.CustomResource {
         pulumi.log.warn("VpnGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VpnGateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'gatewayName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -169,7 +166,7 @@ export interface VpnGatewayArgs {
     /**
      * The name of the gateway.
      */
-    readonly gatewayName: pulumi.Input<string>;
+    readonly gatewayName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

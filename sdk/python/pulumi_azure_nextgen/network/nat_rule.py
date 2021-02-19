@@ -74,8 +74,6 @@ class NatRule(pulumi.CustomResource):
             __props__['ip_configuration_id'] = ip_configuration_id
             __props__['mode'] = mode
             __props__['name'] = name
-            if nat_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'nat_rule_name'")
             __props__['nat_rule_name'] = nat_rule_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

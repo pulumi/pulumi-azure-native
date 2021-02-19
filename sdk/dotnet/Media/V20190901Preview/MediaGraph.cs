@@ -127,8 +127,8 @@ namespace Pulumi.AzureNextGen.Media.V20190901Preview
         /// <summary>
         /// The Media Graph name.
         /// </summary>
-        [Input("mediaGraphName", required: true)]
-        public Input<string> MediaGraphName { get; set; } = null!;
+        [Input("mediaGraphName")]
+        public Input<string>? MediaGraphName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

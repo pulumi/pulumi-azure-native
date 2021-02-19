@@ -37,9 +37,6 @@ func NewEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EnvironmentName == nil {
-		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
-	}
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
@@ -124,7 +121,7 @@ func (EnvironmentState) ElementType() reflect.Type {
 
 type environmentArgs struct {
 	// Name of the environment
-	EnvironmentName string `pulumi:"environmentName"`
+	EnvironmentName *string `pulumi:"environmentName"`
 	// The kind of the environment.
 	Kind string `pulumi:"kind"`
 	// The location of the resource.
@@ -140,7 +137,7 @@ type environmentArgs struct {
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
 	// Name of the environment
-	EnvironmentName pulumi.StringInput
+	EnvironmentName pulumi.StringPtrInput
 	// The kind of the environment.
 	Kind pulumi.StringInput
 	// The location of the resource.

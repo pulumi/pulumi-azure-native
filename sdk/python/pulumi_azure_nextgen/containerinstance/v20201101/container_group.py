@@ -81,8 +81,6 @@ class ContainerGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if container_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'container_group_name'")
             __props__['container_group_name'] = container_group_name
             if containers is None and not opts.urn:
                 raise TypeError("Missing required property 'containers'")

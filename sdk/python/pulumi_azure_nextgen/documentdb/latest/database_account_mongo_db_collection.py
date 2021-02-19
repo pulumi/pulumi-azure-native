@@ -64,8 +64,6 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if collection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'collection_name'")
             __props__['collection_name'] = collection_name
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")

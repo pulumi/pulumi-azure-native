@@ -186,8 +186,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// <summary>
         /// The name of module.
         /// </summary>
-        [Input("moduleName", required: true)]
-        public Input<string> ModuleName { get; set; } = null!;
+        [Input("moduleName")]
+        public Input<string>? ModuleName { get; set; }
 
         /// <summary>
         /// Gets or sets name of the resource.

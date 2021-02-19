@@ -59,8 +59,6 @@ class Asset(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['alternate_id'] = alternate_id
-            if asset_name is None and not opts.urn:
-                raise TypeError("Missing required property 'asset_name'")
             __props__['asset_name'] = asset_name
             __props__['container'] = container
             __props__['description'] = description

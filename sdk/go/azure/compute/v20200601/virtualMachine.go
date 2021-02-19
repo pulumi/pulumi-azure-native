@@ -83,9 +83,6 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VmName == nil {
-		return nil, errors.New("invalid value for required argument 'VmName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:compute:VirtualMachine"),
@@ -320,7 +317,7 @@ type virtualMachineArgs struct {
 	// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
 	VirtualMachineScaleSet *SubResource `pulumi:"virtualMachineScaleSet"`
 	// The name of the virtual machine.
-	VmName string `pulumi:"vmName"`
+	VmName *string `pulumi:"vmName"`
 	// The virtual machine zones.
 	Zones []string `pulumi:"zones"`
 }
@@ -372,7 +369,7 @@ type VirtualMachineArgs struct {
 	// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
 	VirtualMachineScaleSet SubResourcePtrInput
 	// The name of the virtual machine.
-	VmName pulumi.StringInput
+	VmName pulumi.StringPtrInput
 	// The virtual machine zones.
 	Zones pulumi.StringArrayInput
 }

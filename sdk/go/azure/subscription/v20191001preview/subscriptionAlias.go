@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -27,12 +26,9 @@ type SubscriptionAlias struct {
 func NewSubscriptionAlias(ctx *pulumi.Context,
 	name string, args *SubscriptionAliasArgs, opts ...pulumi.ResourceOption) (*SubscriptionAlias, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &SubscriptionAliasArgs{}
 	}
 
-	if args.AliasName == nil {
-		return nil, errors.New("invalid value for required argument 'AliasName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:subscription:SubscriptionAlias"),
@@ -90,7 +86,7 @@ func (SubscriptionAliasState) ElementType() reflect.Type {
 
 type subscriptionAliasArgs struct {
 	// Alias Name
-	AliasName string `pulumi:"aliasName"`
+	AliasName *string `pulumi:"aliasName"`
 	// Put alias request properties.
 	Properties *PutAliasRequestProperties `pulumi:"properties"`
 }
@@ -98,7 +94,7 @@ type subscriptionAliasArgs struct {
 // The set of arguments for constructing a SubscriptionAlias resource.
 type SubscriptionAliasArgs struct {
 	// Alias Name
-	AliasName pulumi.StringInput
+	AliasName pulumi.StringPtrInput
 	// Put alias request properties.
 	Properties PutAliasRequestPropertiesPtrInput
 }

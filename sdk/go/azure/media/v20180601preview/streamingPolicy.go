@@ -46,9 +46,6 @@ func NewStreamingPolicy(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.StreamingPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'StreamingPolicyName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:media:StreamingPolicy"),
@@ -146,7 +143,7 @@ type streamingPolicyArgs struct {
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Streaming Policy name.
-	StreamingPolicyName string `pulumi:"streamingPolicyName"`
+	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
 }
 
 // The set of arguments for constructing a StreamingPolicy resource.
@@ -166,7 +163,7 @@ type StreamingPolicyArgs struct {
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The Streaming Policy name.
-	StreamingPolicyName pulumi.StringInput
+	StreamingPolicyName pulumi.StringPtrInput
 }
 
 func (StreamingPolicyArgs) ElementType() reflect.Type {

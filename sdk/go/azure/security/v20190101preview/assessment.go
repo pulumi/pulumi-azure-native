@@ -38,9 +38,6 @@ func NewAssessment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AssessmentName == nil {
-		return nil, errors.New("invalid value for required argument 'AssessmentName'")
-	}
 	if args.ResourceDetails == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceDetails'")
 	}
@@ -125,7 +122,7 @@ type assessmentArgs struct {
 	// Additional data regarding the assessment
 	AdditionalData map[string]string `pulumi:"additionalData"`
 	// The Assessment Key - Unique key for the assessment type
-	AssessmentName string `pulumi:"assessmentName"`
+	AssessmentName *string `pulumi:"assessmentName"`
 	// Details of the resource that was assessed
 	ResourceDetails interface{} `pulumi:"resourceDetails"`
 	// The identifier of the resource.
@@ -139,7 +136,7 @@ type AssessmentArgs struct {
 	// Additional data regarding the assessment
 	AdditionalData pulumi.StringMapInput
 	// The Assessment Key - Unique key for the assessment type
-	AssessmentName pulumi.StringInput
+	AssessmentName pulumi.StringPtrInput
 	// Details of the resource that was assessed
 	ResourceDetails pulumi.Input
 	// The identifier of the resource.

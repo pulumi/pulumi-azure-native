@@ -65,8 +65,6 @@ class TransactionNode(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if transaction_node_name is None and not opts.urn:
-                raise TypeError("Missing required property 'transaction_node_name'")
             __props__['transaction_node_name'] = transaction_node_name
             __props__['dns'] = None
             __props__['name'] = None

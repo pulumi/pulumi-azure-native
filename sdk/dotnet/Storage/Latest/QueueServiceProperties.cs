@@ -102,8 +102,8 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// <summary>
         /// The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
         /// </summary>
-        [Input("queueServiceName", required: true)]
-        public Input<string> QueueServiceName { get; set; } = null!;
+        [Input("queueServiceName")]
+        public Input<string>? QueueServiceName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

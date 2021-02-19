@@ -72,9 +72,6 @@ export class BandwidthSetting extends pulumi.CustomResource {
         pulumi.log.warn("BandwidthSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BandwidthSetting'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.bandwidthSettingName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'bandwidthSettingName'");
-            }
             if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
@@ -119,7 +116,7 @@ export interface BandwidthSettingArgs {
     /**
      * The bandwidth setting name.
      */
-    readonly bandwidthSettingName: pulumi.Input<string>;
+    readonly bandwidthSettingName?: pulumi.Input<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */

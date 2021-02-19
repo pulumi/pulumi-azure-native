@@ -68,9 +68,6 @@ func NewAgentPool(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AgentPoolName == nil {
-		return nil, errors.New("invalid value for required argument 'AgentPoolName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -249,7 +246,7 @@ func (AgentPoolState) ElementType() reflect.Type {
 
 type agentPoolArgs struct {
 	// The name of the agent pool.
-	AgentPoolName string `pulumi:"agentPoolName"`
+	AgentPoolName *string `pulumi:"agentPoolName"`
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
@@ -299,7 +296,7 @@ type agentPoolArgs struct {
 // The set of arguments for constructing a AgentPool resource.
 type AgentPoolArgs struct {
 	// The name of the agent pool.
-	AgentPoolName pulumi.StringInput
+	AgentPoolName pulumi.StringPtrInput
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones pulumi.StringArrayInput
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.

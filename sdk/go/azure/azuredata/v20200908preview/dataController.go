@@ -40,9 +40,6 @@ func NewDataController(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataControllerName == nil {
-		return nil, errors.New("invalid value for required argument 'DataControllerName'")
-	}
 	if args.OnPremiseProperty == nil {
 		return nil, errors.New("invalid value for required argument 'OnPremiseProperty'")
 	}
@@ -122,7 +119,7 @@ func (DataControllerState) ElementType() reflect.Type {
 }
 
 type dataControllerArgs struct {
-	DataControllerName string `pulumi:"dataControllerName"`
+	DataControllerName *string `pulumi:"dataControllerName"`
 	// The raw kubernetes information
 	K8sRaw interface{} `pulumi:"k8sRaw"`
 	// Last uploaded date from on premise cluster. Defaults to current date time
@@ -139,7 +136,7 @@ type dataControllerArgs struct {
 
 // The set of arguments for constructing a DataController resource.
 type DataControllerArgs struct {
-	DataControllerName pulumi.StringInput
+	DataControllerName pulumi.StringPtrInput
 	// The raw kubernetes information
 	K8sRaw pulumi.Input
 	// Last uploaded date from on premise cluster. Defaults to current date time

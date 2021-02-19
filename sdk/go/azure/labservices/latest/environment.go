@@ -59,9 +59,6 @@ func NewEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EnvironmentName == nil {
-		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
-	}
 	if args.EnvironmentSettingName == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentSettingName'")
 	}
@@ -180,7 +177,7 @@ func (EnvironmentState) ElementType() reflect.Type {
 
 type environmentArgs struct {
 	// The name of the environment.
-	EnvironmentName string `pulumi:"environmentName"`
+	EnvironmentName *string `pulumi:"environmentName"`
 	// The name of the environment Setting.
 	EnvironmentSettingName string `pulumi:"environmentSettingName"`
 	// The name of the lab Account.
@@ -204,7 +201,7 @@ type environmentArgs struct {
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
 	// The name of the environment.
-	EnvironmentName pulumi.StringInput
+	EnvironmentName pulumi.StringPtrInput
 	// The name of the environment Setting.
 	EnvironmentSettingName pulumi.StringInput
 	// The name of the lab Account.

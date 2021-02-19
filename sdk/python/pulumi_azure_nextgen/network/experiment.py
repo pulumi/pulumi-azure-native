@@ -67,8 +67,6 @@ class Experiment(pulumi.CustomResource):
             __props__['enabled_state'] = enabled_state
             __props__['endpoint_a'] = endpoint_a
             __props__['endpoint_b'] = endpoint_b
-            if experiment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'experiment_name'")
             __props__['experiment_name'] = experiment_name
             __props__['location'] = location
             if profile_name is None and not opts.urn:

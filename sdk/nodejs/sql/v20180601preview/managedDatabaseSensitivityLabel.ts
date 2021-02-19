@@ -90,9 +90,6 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
             if ((!args || args.schemaName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            if ((!args || args.sensitivityLabelSource === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sensitivityLabelSource'");
-            }
             if ((!args || args.tableName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tableName'");
             }
@@ -178,7 +175,7 @@ export interface ManagedDatabaseSensitivityLabelArgs {
     /**
      * The source of the sensitivity label.
      */
-    readonly sensitivityLabelSource: pulumi.Input<string>;
+    readonly sensitivityLabelSource?: pulumi.Input<string>;
     /**
      * The name of the table.
      */

@@ -166,8 +166,8 @@ namespace Pulumi.AzureNextGen.Network
         /// <summary>
         /// The name of the flow log.
         /// </summary>
-        [Input("flowLogName", required: true)]
-        public Input<string> FlowLogName { get; set; } = null!;
+        [Input("flowLogName")]
+        public Input<string>? FlowLogName { get; set; }
 
         /// <summary>
         /// Parameters that define the flow log format.

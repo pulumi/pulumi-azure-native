@@ -78,9 +78,6 @@ export class AutoscaleSetting extends pulumi.CustomResource {
     constructor(name: string, args: AutoscaleSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.autoscaleSettingName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'autoscaleSettingName'");
-            }
             if ((!args || args.profiles === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profiles'");
             }
@@ -127,7 +124,7 @@ export interface AutoscaleSettingArgs {
     /**
      * The autoscale setting name.
      */
-    readonly autoscaleSettingName: pulumi.Input<string>;
+    readonly autoscaleSettingName?: pulumi.Input<string>;
     /**
      * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
      */

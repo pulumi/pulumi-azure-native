@@ -98,8 +98,6 @@ class AppServicePlan(pulumi.CustomResource):
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['maximum_elastic_worker_count'] = maximum_elastic_worker_count
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if per_site_scaling is None:
                 per_site_scaling = False

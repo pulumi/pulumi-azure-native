@@ -98,8 +98,8 @@ namespace Pulumi.AzureNextGen.OperationsManagement
         /// <summary>
         /// User ManagementAssociation Name.
         /// </summary>
-        [Input("managementAssociationName", required: true)]
-        public Input<string> ManagementAssociationName { get; set; } = null!;
+        [Input("managementAssociationName")]
+        public Input<string>? ManagementAssociationName { get; set; }
 
         /// <summary>
         /// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.

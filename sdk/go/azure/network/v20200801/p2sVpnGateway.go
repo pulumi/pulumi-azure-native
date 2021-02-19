@@ -50,9 +50,6 @@ func NewP2sVpnGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GatewayName == nil {
-		return nil, errors.New("invalid value for required argument 'GatewayName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -203,7 +200,7 @@ type p2sVpnGatewayArgs struct {
 	// List of all customer specified DNS servers IP addresses.
 	CustomDnsServers []string `pulumi:"customDnsServers"`
 	// The name of the gateway.
-	GatewayName string `pulumi:"gatewayName"`
+	GatewayName *string `pulumi:"gatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
@@ -229,7 +226,7 @@ type P2sVpnGatewayArgs struct {
 	// List of all customer specified DNS servers IP addresses.
 	CustomDnsServers pulumi.StringArrayInput
 	// The name of the gateway.
-	GatewayName pulumi.StringInput
+	GatewayName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.

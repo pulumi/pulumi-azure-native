@@ -79,9 +79,6 @@ export class DataManager extends pulumi.CustomResource {
         pulumi.log.warn("DataManager is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataManager'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dataManagerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dataManagerName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -121,7 +118,7 @@ export interface DataManagerArgs {
     /**
      * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    readonly dataManagerName: pulumi.Input<string>;
+    readonly dataManagerName?: pulumi.Input<string>;
     /**
      * Etag of the Resource.
      */

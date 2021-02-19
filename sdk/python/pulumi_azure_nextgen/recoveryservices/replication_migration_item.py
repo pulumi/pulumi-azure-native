@@ -60,8 +60,6 @@ class ReplicationMigrationItem(pulumi.CustomResource):
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__['fabric_name'] = fabric_name
-            if migration_item_name is None and not opts.urn:
-                raise TypeError("Missing required property 'migration_item_name'")
             __props__['migration_item_name'] = migration_item_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

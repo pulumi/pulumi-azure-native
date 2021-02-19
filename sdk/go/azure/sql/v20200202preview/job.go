@@ -37,9 +37,6 @@ func NewJob(ctx *pulumi.Context,
 	if args.JobAgentName == nil {
 		return nil, errors.New("invalid value for required argument 'JobAgentName'")
 	}
-	if args.JobName == nil {
-		return nil, errors.New("invalid value for required argument 'JobName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -118,7 +115,7 @@ type jobArgs struct {
 	// The name of the job agent.
 	JobAgentName string `pulumi:"jobAgentName"`
 	// The name of the job to get.
-	JobName string `pulumi:"jobName"`
+	JobName *string `pulumi:"jobName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Schedule properties of the job.
@@ -134,7 +131,7 @@ type JobArgs struct {
 	// The name of the job agent.
 	JobAgentName pulumi.StringInput
 	// The name of the job to get.
-	JobName pulumi.StringInput
+	JobName pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// Schedule properties of the job.

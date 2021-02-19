@@ -83,8 +83,8 @@ namespace Pulumi.AzureNextGen.Migrate
         /// <summary>
         /// Unique name of a Hyper-V collector within a project.
         /// </summary>
-        [Input("hyperVCollectorName", required: true)]
-        public Input<string> HyperVCollectorName { get; set; } = null!;
+        [Input("hyperVCollectorName")]
+        public Input<string>? HyperVCollectorName { get; set; }
 
         /// <summary>
         /// Name of the Azure Migrate project.

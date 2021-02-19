@@ -63,9 +63,6 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
     constructor(name: string, args: GuestConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.guestConfigurationAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'guestConfigurationAssignmentName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -105,7 +102,7 @@ export interface GuestConfigurationAssignmentArgs {
     /**
      * Name of the guest configuration assignment.
      */
-    readonly guestConfigurationAssignmentName: pulumi.Input<string>;
+    readonly guestConfigurationAssignmentName?: pulumi.Input<string>;
     /**
      * Region where the VM is located.
      */

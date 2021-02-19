@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.Storage
         /// <summary>
         /// The name of the storage blob. Must be unique within the storage container the blob is located.
         /// </summary>
-        [Input("blobName", required: true)]
-        public Input<string> BlobName { get; set; } = null!;
+        [Input("blobName")]
+        public Input<string>? BlobName { get; set; }
 
         /// <summary>
         /// The name of the storage container in which this blob should be created.

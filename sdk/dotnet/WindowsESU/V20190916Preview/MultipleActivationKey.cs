@@ -160,8 +160,8 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
         /// <summary>
         /// The name of the MAK key.
         /// </summary>
-        [Input("multipleActivationKeyName", required: true)]
-        public Input<string> MultipleActivationKeyName { get; set; } = null!;
+        [Input("multipleActivationKeyName")]
+        public Input<string>? MultipleActivationKeyName { get; set; }
 
         /// <summary>
         /// Type of OS for which the key is requested.

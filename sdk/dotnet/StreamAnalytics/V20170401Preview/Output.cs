@@ -129,8 +129,8 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <summary>
         /// The name of the output.
         /// </summary>
-        [Input("outputName", required: true)]
-        public Input<string> OutputName { get; set; } = null!;
+        [Input("outputName")]
+        public Input<string>? OutputName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -31,12 +30,9 @@ type PolicyDefinition struct {
 func NewPolicyDefinition(ctx *pulumi.Context,
 	name string, args *PolicyDefinitionArgs, opts ...pulumi.ResourceOption) (*PolicyDefinition, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PolicyDefinitionArgs{}
 	}
 
-	if args.PolicyDefinitionName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyDefinitionName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:authorization:PolicyDefinition"),
@@ -132,7 +128,7 @@ type policyDefinitionArgs struct {
 	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
 	Name *string `pulumi:"name"`
 	// The name of the policy definition to create.
-	PolicyDefinitionName string `pulumi:"policyDefinitionName"`
+	PolicyDefinitionName *string `pulumi:"policyDefinitionName"`
 	// The policy rule.
 	PolicyRule interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -148,7 +144,7 @@ type PolicyDefinitionArgs struct {
 	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
 	Name pulumi.StringPtrInput
 	// The name of the policy definition to create.
-	PolicyDefinitionName pulumi.StringInput
+	PolicyDefinitionName pulumi.StringPtrInput
 	// The policy rule.
 	PolicyRule pulumi.Input
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.

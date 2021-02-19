@@ -68,8 +68,6 @@ class Partner(pulumi.CustomResource):
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
             __props__['metadata'] = metadata
-            if partner_name is None and not opts.urn:
-                raise TypeError("Missing required property 'partner_name'")
             __props__['partner_name'] = partner_name
             if partner_type is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_type'")

@@ -100,9 +100,6 @@ export class IpAllocation extends pulumi.CustomResource {
         pulumi.log.warn("IpAllocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpAllocation'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ipAllocationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ipAllocationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -163,7 +160,7 @@ export interface IpAllocationArgs {
     /**
      * The name of the IpAllocation.
      */
-    readonly ipAllocationName: pulumi.Input<string>;
+    readonly ipAllocationName?: pulumi.Input<string>;
     /**
      * The IPAM allocation ID.
      */

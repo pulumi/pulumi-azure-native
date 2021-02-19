@@ -65,8 +65,6 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
             __props__['allow_hub_to_remote_vnet_transit'] = allow_hub_to_remote_vnet_transit
             __props__['allow_remote_vnet_to_use_hub_vnet_gateways'] = allow_remote_vnet_to_use_hub_vnet_gateways
-            if connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_name'")
             __props__['connection_name'] = connection_name
             __props__['enable_internet_security'] = enable_internet_security
             __props__['id'] = id

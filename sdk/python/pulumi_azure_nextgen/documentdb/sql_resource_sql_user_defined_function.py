@@ -80,8 +80,6 @@ class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if user_defined_function_name is None and not opts.urn:
-                raise TypeError("Missing required property 'user_defined_function_name'")
             __props__['user_defined_function_name'] = user_defined_function_name
             __props__['name'] = None
             __props__['type'] = None

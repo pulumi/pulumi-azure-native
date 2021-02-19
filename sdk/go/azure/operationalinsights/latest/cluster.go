@@ -59,9 +59,6 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ClusterName == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -182,7 +179,7 @@ type clusterArgs struct {
 	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
 	BillingType *string `pulumi:"billingType"`
 	// The name of the Log Analytics cluster.
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName *string `pulumi:"clusterName"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
 	// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
@@ -206,7 +203,7 @@ type ClusterArgs struct {
 	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
 	BillingType pulumi.StringPtrInput
 	// The name of the Log Analytics cluster.
-	ClusterName pulumi.StringInput
+	ClusterName pulumi.StringPtrInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.

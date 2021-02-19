@@ -49,9 +49,6 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TriggerName == nil {
-		return nil, errors.New("invalid value for required argument 'TriggerName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:SqlResourceSqlTrigger"),
@@ -146,7 +143,7 @@ type sqlResourceSqlTriggerArgs struct {
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags map[string]string `pulumi:"tags"`
 	// Cosmos DB trigger name.
-	TriggerName string `pulumi:"triggerName"`
+	TriggerName *string `pulumi:"triggerName"`
 }
 
 // The set of arguments for constructing a SqlResourceSqlTrigger resource.
@@ -168,7 +165,7 @@ type SqlResourceSqlTriggerArgs struct {
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags pulumi.StringMapInput
 	// Cosmos DB trigger name.
-	TriggerName pulumi.StringInput
+	TriggerName pulumi.StringPtrInput
 }
 
 func (SqlResourceSqlTriggerArgs) ElementType() reflect.Type {

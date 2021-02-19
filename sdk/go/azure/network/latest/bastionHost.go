@@ -43,9 +43,6 @@ func NewBastionHost(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BastionHostName == nil {
-		return nil, errors.New("invalid value for required argument 'BastionHostName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -159,7 +156,7 @@ func (BastionHostState) ElementType() reflect.Type {
 
 type bastionHostArgs struct {
 	// The name of the Bastion Host.
-	BastionHostName string `pulumi:"bastionHostName"`
+	BastionHostName *string `pulumi:"bastionHostName"`
 	// FQDN for the endpoint on which bastion host is accessible.
 	DnsName *string `pulumi:"dnsName"`
 	// Resource ID.
@@ -177,7 +174,7 @@ type bastionHostArgs struct {
 // The set of arguments for constructing a BastionHost resource.
 type BastionHostArgs struct {
 	// The name of the Bastion Host.
-	BastionHostName pulumi.StringInput
+	BastionHostName pulumi.StringPtrInput
 	// FQDN for the endpoint on which bastion host is accessible.
 	DnsName pulumi.StringPtrInput
 	// Resource ID.

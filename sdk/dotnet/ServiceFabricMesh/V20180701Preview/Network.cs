@@ -140,8 +140,8 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
         /// <summary>
         /// The identity of the network.
         /// </summary>
-        [Input("networkName", required: true)]
-        public Input<string> NetworkName { get; set; } = null!;
+        [Input("networkName")]
+        public Input<string>? NetworkName { get; set; }
 
         /// <summary>
         /// Azure resource group name

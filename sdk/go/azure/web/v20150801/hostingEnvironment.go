@@ -95,9 +95,6 @@ func NewHostingEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -343,7 +340,7 @@ type hostingEnvironmentArgs struct {
 	// Front-end VM size, e.g. "Medium", "Large"
 	MultiSize *string `pulumi:"multiSize"`
 	// Resource Name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
 	NetworkAccessControlList []NetworkAccessControlEntry `pulumi:"networkAccessControlList"`
 	// Provisioning state of the hostingEnvironment (App Service Environment)
@@ -422,7 +419,7 @@ type HostingEnvironmentArgs struct {
 	// Front-end VM size, e.g. "Medium", "Large"
 	MultiSize pulumi.StringPtrInput
 	// Resource Name
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
 	NetworkAccessControlList NetworkAccessControlEntryArrayInput
 	// Provisioning state of the hostingEnvironment (App Service Environment)

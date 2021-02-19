@@ -58,9 +58,6 @@ func NewProject(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ProjectName == nil {
-		return nil, errors.New("invalid value for required argument 'ProjectName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -179,7 +176,7 @@ type projectArgs struct {
 	// Azure location in which project is created.
 	Location *string `pulumi:"location"`
 	// Name of the Azure Migrate project.
-	ProjectName string `pulumi:"projectName"`
+	ProjectName *string `pulumi:"projectName"`
 	// Provisioning state of the project.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Name of the Azure Resource Group that project is part of.
@@ -199,7 +196,7 @@ type ProjectArgs struct {
 	// Azure location in which project is created.
 	Location pulumi.StringPtrInput
 	// Name of the Azure Migrate project.
-	ProjectName pulumi.StringInput
+	ProjectName pulumi.StringPtrInput
 	// Provisioning state of the project.
 	ProvisioningState pulumi.StringPtrInput
 	// Name of the Azure Resource Group that project is part of.

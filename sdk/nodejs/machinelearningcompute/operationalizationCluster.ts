@@ -107,9 +107,6 @@ export class OperationalizationCluster extends pulumi.CustomResource {
     constructor(name: string, args: OperationalizationClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.clusterType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterType'");
             }
@@ -174,7 +171,7 @@ export interface OperationalizationClusterArgs {
     /**
      * The name of the cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * The cluster type.
      */

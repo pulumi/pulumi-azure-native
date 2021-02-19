@@ -74,8 +74,6 @@ class HanaInstance(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['hana_instance_id'] = hana_instance_id
-            if hana_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'hana_instance_name'")
             __props__['hana_instance_name'] = hana_instance_name
             __props__['hardware_profile'] = hardware_profile
             __props__['hw_revision'] = hw_revision

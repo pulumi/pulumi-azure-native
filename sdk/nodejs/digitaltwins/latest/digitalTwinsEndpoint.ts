@@ -64,9 +64,6 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
         pulumi.log.warn("DigitalTwinsEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:DigitalTwinsEndpoint'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'endpointName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -107,7 +104,7 @@ export interface DigitalTwinsEndpointArgs {
     /**
      * Name of Endpoint Resource.
      */
-    readonly endpointName: pulumi.Input<string>;
+    readonly endpointName?: pulumi.Input<string>;
     /**
      * DigitalTwinsInstance endpoint resource properties.
      */

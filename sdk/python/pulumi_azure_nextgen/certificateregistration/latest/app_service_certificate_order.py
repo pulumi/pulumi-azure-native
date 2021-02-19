@@ -77,8 +77,6 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             if auto_renew is None:
                 auto_renew = True
             __props__['auto_renew'] = auto_renew
-            if certificate_order_name is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_order_name'")
             __props__['certificate_order_name'] = certificate_order_name
             __props__['certificates'] = certificates
             __props__['csr'] = csr

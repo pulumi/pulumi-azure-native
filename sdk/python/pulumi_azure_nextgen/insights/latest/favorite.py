@@ -72,8 +72,6 @@ class Favorite(pulumi.CustomResource):
 
             __props__['category'] = category
             __props__['config'] = config
-            if favorite_id is None and not opts.urn:
-                raise TypeError("Missing required property 'favorite_id'")
             __props__['favorite_id'] = favorite_id
             __props__['favorite_type'] = favorite_type
             __props__['is_generated_from_template'] = is_generated_from_template

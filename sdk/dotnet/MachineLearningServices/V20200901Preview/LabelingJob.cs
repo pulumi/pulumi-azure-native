@@ -91,8 +91,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         /// <summary>
         /// Name and identifier for LabelingJob.
         /// </summary>
-        [Input("labelingJobId", required: true)]
-        public Input<string> LabelingJobId { get; set; } = null!;
+        [Input("labelingJobId")]
+        public Input<string>? LabelingJobId { get; set; }
 
         /// <summary>
         /// Definition of a labeling job.

@@ -48,9 +48,6 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FirewallPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'FirewallPolicyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -179,7 +176,7 @@ type firewallPolicyArgs struct {
 	// The parent firewall policy from which rules are inherited.
 	BasePolicy *SubResource `pulumi:"basePolicy"`
 	// The name of the Firewall Policy.
-	FirewallPolicyName string `pulumi:"firewallPolicyName"`
+	FirewallPolicyName *string `pulumi:"firewallPolicyName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -199,7 +196,7 @@ type FirewallPolicyArgs struct {
 	// The parent firewall policy from which rules are inherited.
 	BasePolicy SubResourcePtrInput
 	// The name of the Firewall Policy.
-	FirewallPolicyName pulumi.StringInput
+	FirewallPolicyName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

@@ -40,9 +40,6 @@ func NewEnterprisePolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EnterprisePolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'EnterprisePolicyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -113,7 +110,7 @@ type enterprisePolicyArgs struct {
 	// The encryption settings for a configuration store.
 	Encryption *PropertiesEncryption `pulumi:"encryption"`
 	// Name of the EnterprisePolicy.
-	EnterprisePolicyName string `pulumi:"enterprisePolicyName"`
+	EnterprisePolicyName *string `pulumi:"enterprisePolicyName"`
 	// The identity of the EnterprisePolicy.
 	Identity *EnterprisePolicyIdentity `pulumi:"identity"`
 	// The Azure Region where the resource lives
@@ -129,7 +126,7 @@ type EnterprisePolicyArgs struct {
 	// The encryption settings for a configuration store.
 	Encryption PropertiesEncryptionPtrInput
 	// Name of the EnterprisePolicy.
-	EnterprisePolicyName pulumi.StringInput
+	EnterprisePolicyName pulumi.StringPtrInput
 	// The identity of the EnterprisePolicy.
 	Identity EnterprisePolicyIdentityPtrInput
 	// The Azure Region where the resource lives

@@ -92,8 +92,6 @@ class NodeType(pulumi.CustomResource):
             if is_primary is None and not opts.urn:
                 raise TypeError("Missing required property 'is_primary'")
             __props__['is_primary'] = is_primary
-            if node_type_name is None and not opts.urn:
-                raise TypeError("Missing required property 'node_type_name'")
             __props__['node_type_name'] = node_type_name
             __props__['placement_properties'] = placement_properties
             if resource_group_name is None and not opts.urn:

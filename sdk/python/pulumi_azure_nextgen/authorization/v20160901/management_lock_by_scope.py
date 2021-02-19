@@ -57,8 +57,6 @@ class ManagementLockByScope(pulumi.CustomResource):
             if level is None and not opts.urn:
                 raise TypeError("Missing required property 'level'")
             __props__['level'] = level
-            if lock_name is None and not opts.urn:
-                raise TypeError("Missing required property 'lock_name'")
             __props__['lock_name'] = lock_name
             __props__['notes'] = notes
             __props__['owners'] = owners

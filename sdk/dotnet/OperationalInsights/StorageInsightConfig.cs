@@ -149,8 +149,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights
         /// <summary>
         /// Name of the storageInsightsConfigs resource
         /// </summary>
-        [Input("storageInsightName", required: true)]
-        public Input<string> StorageInsightName { get; set; } = null!;
+        [Input("storageInsightName")]
+        public Input<string>? StorageInsightName { get; set; }
 
         [Input("tables")]
         private InputList<string>? _tables;

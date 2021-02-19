@@ -125,8 +125,8 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
         /// <summary>
         /// Name of Storage Sync Service resource.
         /// </summary>
-        [Input("storageSyncServiceName", required: true)]
-        public Input<string> StorageSyncServiceName { get; set; } = null!;
+        [Input("storageSyncServiceName")]
+        public Input<string>? StorageSyncServiceName { get; set; }
 
         /// <summary>
         /// The tags of the resource.

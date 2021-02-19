@@ -132,8 +132,8 @@ namespace Pulumi.AzureNextGen.Batch.V20151201
         /// <summary>
         /// The version of the application.
         /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public ApplicationPackageArgs()
         {

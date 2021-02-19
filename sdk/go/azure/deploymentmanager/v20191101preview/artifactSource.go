@@ -38,9 +38,6 @@ func NewArtifactSource(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ArtifactSourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ArtifactSourceName'")
-	}
 	if args.Authentication == nil {
 		return nil, errors.New("invalid value for required argument 'Authentication'")
 	}
@@ -122,7 +119,7 @@ type artifactSourceArgs struct {
 	// The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
 	ArtifactRoot *string `pulumi:"artifactRoot"`
 	// The name of the artifact source.
-	ArtifactSourceName string `pulumi:"artifactSourceName"`
+	ArtifactSourceName *string `pulumi:"artifactSourceName"`
 	// The authentication method to use to access the artifact source.
 	Authentication SasAuthentication `pulumi:"authentication"`
 	// The geo-location where the resource lives
@@ -140,7 +137,7 @@ type ArtifactSourceArgs struct {
 	// The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
 	ArtifactRoot pulumi.StringPtrInput
 	// The name of the artifact source.
-	ArtifactSourceName pulumi.StringInput
+	ArtifactSourceName pulumi.StringPtrInput
 	// The authentication method to use to access the artifact source.
 	Authentication SasAuthenticationInput
 	// The geo-location where the resource lives

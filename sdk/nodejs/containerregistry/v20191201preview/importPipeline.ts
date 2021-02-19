@@ -82,9 +82,6 @@ export class ImportPipeline extends pulumi.CustomResource {
     constructor(name: string, args: ImportPipelineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.importPipelineName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'importPipelineName'");
-            }
             if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
@@ -141,7 +138,7 @@ export interface ImportPipelineArgs {
     /**
      * The name of the import pipeline.
      */
-    readonly importPipelineName: pulumi.Input<string>;
+    readonly importPipelineName?: pulumi.Input<string>;
     /**
      * The location of the import pipeline.
      */

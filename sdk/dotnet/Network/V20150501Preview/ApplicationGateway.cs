@@ -204,8 +204,8 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// The name of the ApplicationGateway.
         /// </summary>
-        [Input("applicationGatewayName", required: true)]
-        public Input<string> ApplicationGatewayName { get; set; } = null!;
+        [Input("applicationGatewayName")]
+        public Input<string>? ApplicationGatewayName { get; set; }
 
         [Input("backendAddressPools")]
         private InputList<Inputs.ApplicationGatewayBackendAddressPoolArgs>? _backendAddressPools;

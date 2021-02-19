@@ -151,8 +151,8 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// <summary>
         /// The name of the Firewall Policy.
         /// </summary>
-        [Input("firewallPolicyName", required: true)]
-        public Input<string> FirewallPolicyName { get; set; } = null!;
+        [Input("firewallPolicyName")]
+        public Input<string>? FirewallPolicyName { get; set; }
 
         /// <summary>
         /// Resource ID.

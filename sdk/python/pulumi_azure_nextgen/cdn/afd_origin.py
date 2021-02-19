@@ -82,8 +82,6 @@ class AFDOrigin(pulumi.CustomResource):
                 raise TypeError("Missing required property 'origin_group_name'")
             __props__['origin_group_name'] = origin_group_name
             __props__['origin_host_header'] = origin_host_header
-            if origin_name is None and not opts.urn:
-                raise TypeError("Missing required property 'origin_name'")
             __props__['origin_name'] = origin_name
             __props__['priority'] = priority
             if profile_name is None and not opts.urn:

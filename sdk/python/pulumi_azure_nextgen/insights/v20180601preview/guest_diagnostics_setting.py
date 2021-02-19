@@ -57,8 +57,6 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['data_sources'] = data_sources
-            if diagnostic_settings_name is None and not opts.urn:
-                raise TypeError("Missing required property 'diagnostic_settings_name'")
             __props__['diagnostic_settings_name'] = diagnostic_settings_name
             __props__['location'] = location
             __props__['os_type'] = os_type

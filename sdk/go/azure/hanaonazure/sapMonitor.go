@@ -52,9 +52,6 @@ func NewSapMonitor(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SapMonitorName == nil {
-		return nil, errors.New("invalid value for required argument 'SapMonitorName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:hanaonazure/v20200207preview:SapMonitor"),
@@ -156,7 +153,7 @@ type sapMonitorArgs struct {
 	// Name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the SAP monitor resource.
-	SapMonitorName string `pulumi:"sapMonitorName"`
+	SapMonitorName *string `pulumi:"sapMonitorName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -178,7 +175,7 @@ type SapMonitorArgs struct {
 	// Name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Name of the SAP monitor resource.
-	SapMonitorName pulumi.StringInput
+	SapMonitorName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

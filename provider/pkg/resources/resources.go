@@ -3,6 +3,7 @@
 package resources
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/gedex/inflector"
@@ -20,6 +21,12 @@ type AzureAPIParameter struct {
 	// Body contains metadata for the body parameter.
 	Body *AzureAPIType `json:"body,omitempty"`
 }
+
+type AutoNameKind string
+const (
+	AutoNameRandom AutoNameKind = "random"
+	AutoNameCopy AutoNameKind = "copy"
+)
 
 // AzureAPIProperty represents validation constraints for a single parameter or body property.
 type AzureAPIProperty struct {
@@ -43,6 +50,11 @@ type AzureAPIProperty struct {
 	// Whether a change in the value of the property requires a replacement of the whole resource
 	// (i.e., no in-place updates allowed).
 	ForceNew bool `json:"forceNew,omitempty"`
+	// If the property is a resource name where we should apply auto-naming, this will contain the kind of
+	// auto-naming strategy. Possible values are:
+	// - "copy" for 1-to-1 copy of the resource's logical name.
+	// - "random" for adding a random suffix to resource's logical name.
+	AutoName AutoNameKind `json:"autoname,omitempty"`
 }
 
 // AzureAPIType represents the shape of an object property.
@@ -194,6 +206,23 @@ func ResourceName(operationID string) string {
 	}
 
 	return name + subName
+}
+
+// AutoName returns auto-naming strategy ("random", "copy") for a given property name and a resource path.
+// The second value is true if auto-naming should be applied.
+func AutoName(name, path string) (AutoNameKind, bool) {
+	suffix := fmt.Sprintf("{%s}", name)
+	if !strings.HasSuffix(path, suffix) {
+		return "", false
+	}
+
+	parts := strings.Split(strings.ToLower(path), "microsoft.")
+	resourcePath := parts[len(parts)-1]
+	if len(parts) == 1 || strings.Count(resourcePath, "{") == 1 {
+		return AutoNameRandom, true
+	}
+
+	return AutoNameCopy, true
 }
 
 func sliceHasPrefix(slice, subSlice []string) bool {

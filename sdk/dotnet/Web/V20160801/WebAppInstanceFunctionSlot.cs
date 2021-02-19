@@ -170,8 +170,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <summary>
         /// Function name.
         /// </summary>
-        [Input("functionName", required: true)]
-        public Input<string> FunctionName { get; set; } = null!;
+        [Input("functionName")]
+        public Input<string>? FunctionName { get; set; }
 
         /// <summary>
         /// Function URI.

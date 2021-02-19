@@ -82,8 +82,6 @@ class Share(pulumi.CustomResource):
             if monitoring_status is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_status'")
             __props__['monitoring_status'] = monitoring_status
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['refresh_details'] = refresh_details
             if resource_group_name is None and not opts.urn:

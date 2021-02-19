@@ -87,8 +87,8 @@ namespace Pulumi.AzureNextGen.Portal
         /// <summary>
         /// The name of the user settings
         /// </summary>
-        [Input("userSettingsName", required: true)]
-        public Input<string> UserSettingsName { get; set; } = null!;
+        [Input("userSettingsName")]
+        public Input<string>? UserSettingsName { get; set; }
 
         public UserSettingsWithLocationArgs()
         {

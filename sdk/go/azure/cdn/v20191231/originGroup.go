@@ -43,9 +43,6 @@ func NewOriginGroup(ctx *pulumi.Context,
 	if args.EndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointName'")
 	}
-	if args.OriginGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'OriginGroupName'")
-	}
 	if args.Origins == nil {
 		return nil, errors.New("invalid value for required argument 'Origins'")
 	}
@@ -142,7 +139,7 @@ type originGroupArgs struct {
 	// Health probe settings to the origin that is used to determine the health of the origin.
 	HealthProbeSettings *HealthProbeParameters `pulumi:"healthProbeSettings"`
 	// Name of the origin group which is unique within the endpoint.
-	OriginGroupName string `pulumi:"originGroupName"`
+	OriginGroupName *string `pulumi:"originGroupName"`
 	// The source of the content being delivered via CDN within given origin group.
 	Origins []ResourceReference `pulumi:"origins"`
 	// Name of the CDN profile which is unique within the resource group.
@@ -162,7 +159,7 @@ type OriginGroupArgs struct {
 	// Health probe settings to the origin that is used to determine the health of the origin.
 	HealthProbeSettings HealthProbeParametersPtrInput
 	// Name of the origin group which is unique within the endpoint.
-	OriginGroupName pulumi.StringInput
+	OriginGroupName pulumi.StringPtrInput
 	// The source of the content being delivered via CDN within given origin group.
 	Origins ResourceReferenceArrayInput
 	// Name of the CDN profile which is unique within the resource group.

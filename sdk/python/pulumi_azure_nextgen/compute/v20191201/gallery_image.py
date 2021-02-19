@@ -82,8 +82,6 @@ class GalleryImage(pulumi.CustomResource):
             __props__['disallowed'] = disallowed
             __props__['end_of_life_date'] = end_of_life_date
             __props__['eula'] = eula
-            if gallery_image_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gallery_image_name'")
             __props__['gallery_image_name'] = gallery_image_name
             if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")

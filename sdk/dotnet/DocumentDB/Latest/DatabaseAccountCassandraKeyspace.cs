@@ -104,8 +104,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// <summary>
         /// Cosmos DB keyspace name.
         /// </summary>
-        [Input("keyspaceName", required: true)]
-        public Input<string> KeyspaceName { get; set; } = null!;
+        [Input("keyspaceName")]
+        public Input<string>? KeyspaceName { get; set; }
 
         [Input("options", required: true)]
         private InputMap<string>? _options;

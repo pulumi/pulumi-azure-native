@@ -38,9 +38,6 @@ func NewManagementLockAtResourceGroupLevel(ctx *pulumi.Context,
 	if args.Level == nil {
 		return nil, errors.New("invalid value for required argument 'Level'")
 	}
-	if args.LockName == nil {
-		return nil, errors.New("invalid value for required argument 'LockName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -111,7 +108,7 @@ type managementLockAtResourceGroupLevelArgs struct {
 	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
 	Level string `pulumi:"level"`
 	// The lock name. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
-	LockName string `pulumi:"lockName"`
+	LockName *string `pulumi:"lockName"`
 	// Notes about the lock. Maximum of 512 characters.
 	Notes *string `pulumi:"notes"`
 	// The owners of the lock.
@@ -125,7 +122,7 @@ type ManagementLockAtResourceGroupLevelArgs struct {
 	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
 	Level pulumi.StringInput
 	// The lock name. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
-	LockName pulumi.StringInput
+	LockName pulumi.StringPtrInput
 	// Notes about the lock. Maximum of 512 characters.
 	Notes pulumi.StringPtrInput
 	// The owners of the lock.

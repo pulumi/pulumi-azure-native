@@ -82,9 +82,6 @@ export class Device extends pulumi.CustomResource {
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'deviceName'");
-            }
             if ((!args || args.deviceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceType'");
             }
@@ -137,7 +134,7 @@ export interface DeviceArgs {
     /**
      * Resource name for the device resource.
      */
-    readonly deviceName: pulumi.Input<string>;
+    readonly deviceName?: pulumi.Input<string>;
     /**
      * The type of the device.
      */

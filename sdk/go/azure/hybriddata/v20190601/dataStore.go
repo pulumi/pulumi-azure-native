@@ -41,9 +41,6 @@ func NewDataStore(ctx *pulumi.Context,
 	if args.DataManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'DataManagerName'")
 	}
-	if args.DataStoreName == nil {
-		return nil, errors.New("invalid value for required argument 'DataStoreName'")
-	}
 	if args.DataStoreTypeId == nil {
 		return nil, errors.New("invalid value for required argument 'DataStoreTypeId'")
 	}
@@ -127,7 +124,7 @@ type dataStoreArgs struct {
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	DataManagerName string `pulumi:"dataManagerName"`
 	// The data store/repository name to be created or updated.
-	DataStoreName string `pulumi:"dataStoreName"`
+	DataStoreName *string `pulumi:"dataStoreName"`
 	// The arm id of the data store type.
 	DataStoreTypeId string `pulumi:"dataStoreTypeId"`
 	// A generic json used differently by each data source type.
@@ -147,7 +144,7 @@ type DataStoreArgs struct {
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	DataManagerName pulumi.StringInput
 	// The data store/repository name to be created or updated.
-	DataStoreName pulumi.StringInput
+	DataStoreName pulumi.StringPtrInput
 	// The arm id of the data store type.
 	DataStoreTypeId pulumi.StringInput
 	// A generic json used differently by each data source type.

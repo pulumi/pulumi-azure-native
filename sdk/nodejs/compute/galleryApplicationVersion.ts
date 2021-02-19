@@ -78,9 +78,6 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             if ((!args || args.galleryApplicationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryApplicationName'");
             }
-            if ((!args || args.galleryApplicationVersionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'galleryApplicationVersionName'");
-            }
             if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryName'");
             }
@@ -134,7 +131,7 @@ export interface GalleryApplicationVersionArgs {
     /**
      * The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
      */
-    readonly galleryApplicationVersionName: pulumi.Input<string>;
+    readonly galleryApplicationVersionName?: pulumi.Input<string>;
     /**
      * The name of the Shared Application Gallery in which the Application Definition resides.
      */

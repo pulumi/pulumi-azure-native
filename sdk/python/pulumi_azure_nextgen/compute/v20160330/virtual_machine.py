@@ -84,8 +84,6 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
-            if vm_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vm_name'")
             __props__['vm_name'] = vm_name
             __props__['instance_view'] = None
             __props__['name'] = None

@@ -162,8 +162,8 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
         /// <summary>
         /// The name of the peering.
         /// </summary>
-        [Input("peeringName", required: true)]
-        public Input<string> PeeringName { get; set; } = null!;
+        [Input("peeringName")]
+        public Input<string>? PeeringName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

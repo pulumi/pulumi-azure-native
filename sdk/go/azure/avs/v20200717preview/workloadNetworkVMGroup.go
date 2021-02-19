@@ -44,9 +44,6 @@ func NewWorkloadNetworkVMGroup(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VmGroupId == nil {
-		return nil, errors.New("invalid value for required argument 'VmGroupId'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:avs:WorkloadNetworkVMGroup"),
@@ -124,7 +121,7 @@ type workloadNetworkVMGroupArgs struct {
 	// NSX revision number.
 	Revision *float64 `pulumi:"revision"`
 	// NSX VM Group identifier. Generally the same as the VM Group's display name
-	VmGroupId string `pulumi:"vmGroupId"`
+	VmGroupId *string `pulumi:"vmGroupId"`
 }
 
 // The set of arguments for constructing a WorkloadNetworkVMGroup resource.
@@ -140,7 +137,7 @@ type WorkloadNetworkVMGroupArgs struct {
 	// NSX revision number.
 	Revision pulumi.Float64PtrInput
 	// NSX VM Group identifier. Generally the same as the VM Group's display name
-	VmGroupId pulumi.StringInput
+	VmGroupId pulumi.StringPtrInput
 }
 
 func (WorkloadNetworkVMGroupArgs) ElementType() reflect.Type {

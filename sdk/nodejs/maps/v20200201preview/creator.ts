@@ -69,9 +69,6 @@ export class Creator extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.creatorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'creatorName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -114,7 +111,7 @@ export interface CreatorArgs {
     /**
      * The name of the Maps Creator instance.
      */
-    readonly creatorName: pulumi.Input<string>;
+    readonly creatorName?: pulumi.Input<string>;
     /**
      * The location of the resource.
      */

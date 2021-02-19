@@ -41,9 +41,6 @@ func NewUserAssignedIdentity(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:managedidentity:UserAssignedIdentity"),
@@ -121,7 +118,7 @@ type userAssignedIdentityArgs struct {
 	// The name of the Resource Group to which the identity belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the identity resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -133,7 +130,7 @@ type UserAssignedIdentityArgs struct {
 	// The name of the Resource Group to which the identity belongs.
 	ResourceGroupName pulumi.StringInput
 	// The name of the identity resource.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

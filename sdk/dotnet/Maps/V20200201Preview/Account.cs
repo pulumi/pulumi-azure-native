@@ -112,8 +112,8 @@ namespace Pulumi.AzureNextGen.Maps.V20200201Preview
         /// <summary>
         /// The name of the Maps Account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The location of the resource.

@@ -105,8 +105,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['virtual_network_gateway1'] = virtual_network_gateway1
             __props__['virtual_network_gateway2'] = virtual_network_gateway2
-            if virtual_network_gateway_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_gateway_connection_name'")
             __props__['virtual_network_gateway_connection_name'] = virtual_network_gateway_connection_name
             __props__['name'] = None
             __props__['type'] = None

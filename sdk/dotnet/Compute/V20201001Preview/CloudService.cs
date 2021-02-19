@@ -93,8 +93,8 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview
         /// <summary>
         /// Name of the cloud service.
         /// </summary>
-        [Input("cloudServiceName", required: true)]
-        public Input<string> CloudServiceName { get; set; } = null!;
+        [Input("cloudServiceName")]
+        public Input<string>? CloudServiceName { get; set; }
 
         /// <summary>
         /// Resource location.

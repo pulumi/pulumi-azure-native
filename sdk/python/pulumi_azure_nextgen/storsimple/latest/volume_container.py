@@ -84,8 +84,6 @@ class VolumeContainer(pulumi.CustomResource):
             if storage_account_credential_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_credential_id'")
             __props__['storage_account_credential_id'] = storage_account_credential_id
-            if volume_container_name is None and not opts.urn:
-                raise TypeError("Missing required property 'volume_container_name'")
             __props__['volume_container_name'] = volume_container_name
             __props__['encryption_status'] = None
             __props__['name'] = None

@@ -131,8 +131,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
         /// <summary>
         /// Cosmos DB table name.
         /// </summary>
-        [Input("tableName", required: true)]
-        public Input<string> TableName { get; set; } = null!;
+        [Input("tableName")]
+        public Input<string>? TableName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

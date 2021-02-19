@@ -59,9 +59,6 @@ func NewUser(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
-	if args.Uid == nil {
-		return nil, errors.New("invalid value for required argument 'Uid'")
-	}
 	if args.State == nil {
 		args.State = pulumi.StringPtr("active")
 	}
@@ -189,7 +186,7 @@ type userArgs struct {
 	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
 	State *string `pulumi:"state"`
 	// User identifier. Must be unique in the current API Management service instance.
-	Uid string `pulumi:"uid"`
+	Uid *string `pulumi:"uid"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -213,7 +210,7 @@ type UserArgs struct {
 	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
 	State pulumi.StringPtrInput
 	// User identifier. Must be unique in the current API Management service instance.
-	Uid pulumi.StringInput
+	Uid pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

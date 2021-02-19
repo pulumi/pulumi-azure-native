@@ -155,8 +155,8 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101
         /// <summary>
         /// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.

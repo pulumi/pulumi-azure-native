@@ -39,9 +39,6 @@ func NewCommitmentPlan(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CommitmentPlanName == nil {
-		return nil, errors.New("invalid value for required argument 'CommitmentPlanName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -112,7 +109,7 @@ func (CommitmentPlanState) ElementType() reflect.Type {
 
 type commitmentPlanArgs struct {
 	// The Azure ML commitment plan name.
-	CommitmentPlanName string `pulumi:"commitmentPlanName"`
+	CommitmentPlanName *string `pulumi:"commitmentPlanName"`
 	// An entity tag used to enforce optimistic concurrency.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
@@ -128,7 +125,7 @@ type commitmentPlanArgs struct {
 // The set of arguments for constructing a CommitmentPlan resource.
 type CommitmentPlanArgs struct {
 	// The Azure ML commitment plan name.
-	CommitmentPlanName pulumi.StringInput
+	CommitmentPlanName pulumi.StringPtrInput
 	// An entity tag used to enforce optimistic concurrency.
 	Etag pulumi.StringPtrInput
 	// Resource location.

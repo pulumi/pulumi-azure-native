@@ -108,8 +108,6 @@ class ServerGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'server_group_name'")
             __props__['server_group_name'] = server_group_name
             __props__['server_role_groups'] = server_role_groups
             __props__['source_location'] = source_location

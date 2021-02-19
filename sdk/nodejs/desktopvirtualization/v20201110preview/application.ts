@@ -109,9 +109,6 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.applicationGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationGroupName'");
             }
-            if ((!args || args.applicationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'applicationName'");
-            }
             if ((!args || args.commandLineSetting === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'commandLineSetting'");
             }
@@ -177,7 +174,7 @@ export interface ApplicationArgs {
     /**
      * The name of the application within the specified application group
      */
-    readonly applicationName: pulumi.Input<string>;
+    readonly applicationName?: pulumi.Input<string>;
     /**
      * Resource Type of Application.
      */

@@ -50,9 +50,6 @@ func NewResource(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	if args.ResourceProviderNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceProviderNamespace'")
 	}
@@ -202,7 +199,7 @@ type resourceArgs struct {
 	// The name of the resource group for the resource. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource to create.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// The namespace of the resource provider.
 	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
 	// The resource type of the resource to create.
@@ -232,7 +229,7 @@ type ResourceArgs struct {
 	// The name of the resource group for the resource. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource to create.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// The namespace of the resource provider.
 	ResourceProviderNamespace pulumi.StringInput
 	// The resource type of the resource to create.

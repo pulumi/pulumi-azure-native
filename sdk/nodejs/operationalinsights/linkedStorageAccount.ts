@@ -62,9 +62,6 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
     constructor(name: string, args: LinkedStorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dataSourceType === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dataSourceType'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -103,7 +100,7 @@ export interface LinkedStorageAccountArgs {
     /**
      * Linked storage accounts type.
      */
-    readonly dataSourceType: pulumi.Input<string>;
+    readonly dataSourceType?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

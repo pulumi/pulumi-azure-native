@@ -59,7 +59,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PeerAsn(string name, PeerAsnArgs args, CustomResourceOptions? options = null)
+        public PeerAsn(string name, PeerAsnArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:peering/v20190801preview:PeerAsn", name, args ?? new PeerAsnArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -114,8 +114,8 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
         /// <summary>
         /// The peer ASN name.
         /// </summary>
-        [Input("peerAsnName", required: true)]
-        public Input<string> PeerAsnName { get; set; } = null!;
+        [Input("peerAsnName")]
+        public Input<string>? PeerAsnName { get; set; }
 
         /// <summary>
         /// The contact information of the peer.

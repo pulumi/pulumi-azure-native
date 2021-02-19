@@ -39,9 +39,6 @@ func NewAddressByName(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AddressName == nil {
-		return nil, errors.New("invalid value for required argument 'AddressName'")
-	}
 	if args.ContactDetails == nil {
 		return nil, errors.New("invalid value for required argument 'ContactDetails'")
 	}
@@ -115,7 +112,7 @@ func (AddressByNameState) ElementType() reflect.Type {
 
 type addressByNameArgs struct {
 	// The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	AddressName string `pulumi:"addressName"`
+	AddressName *string `pulumi:"addressName"`
 	// Contact details for the address
 	ContactDetails ContactDetails `pulumi:"contactDetails"`
 	// The geo-location where the resource lives
@@ -131,7 +128,7 @@ type addressByNameArgs struct {
 // The set of arguments for constructing a AddressByName resource.
 type AddressByNameArgs struct {
 	// The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	AddressName pulumi.StringInput
+	AddressName pulumi.StringPtrInput
 	// Contact details for the address
 	ContactDetails ContactDetailsInput
 	// The geo-location where the resource lives

@@ -41,9 +41,6 @@ func NewSiteRelayServiceConnectionSlot(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EntityName == nil {
-		return nil, errors.New("invalid value for required argument 'EntityName'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -151,7 +148,7 @@ func (SiteRelayServiceConnectionSlotState) ElementType() reflect.Type {
 type siteRelayServiceConnectionSlotArgs struct {
 	BiztalkUri             *string `pulumi:"biztalkUri"`
 	EntityConnectionString *string `pulumi:"entityConnectionString"`
-	EntityName             string  `pulumi:"entityName"`
+	EntityName             *string `pulumi:"entityName"`
 	Hostname               *string `pulumi:"hostname"`
 	// Resource Id
 	Id *string `pulumi:"id"`
@@ -178,7 +175,7 @@ type siteRelayServiceConnectionSlotArgs struct {
 type SiteRelayServiceConnectionSlotArgs struct {
 	BiztalkUri             pulumi.StringPtrInput
 	EntityConnectionString pulumi.StringPtrInput
-	EntityName             pulumi.StringInput
+	EntityName             pulumi.StringPtrInput
 	Hostname               pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput

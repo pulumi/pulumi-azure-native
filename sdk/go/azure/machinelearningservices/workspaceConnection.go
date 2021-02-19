@@ -39,9 +39,6 @@ func NewWorkspaceConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -131,7 +128,7 @@ type workspaceConnectionArgs struct {
 	// Category of the workspace connection.
 	Category *string `pulumi:"category"`
 	// Friendly name of the workspace connection
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// Friendly name of the workspace connection
 	Name *string `pulumi:"name"`
 	// Name of the resource group in which workspace is located.
@@ -153,7 +150,7 @@ type WorkspaceConnectionArgs struct {
 	// Category of the workspace connection.
 	Category pulumi.StringPtrInput
 	// Friendly name of the workspace connection
-	ConnectionName pulumi.StringInput
+	ConnectionName pulumi.StringPtrInput
 	// Friendly name of the workspace connection
 	Name pulumi.StringPtrInput
 	// Name of the resource group in which workspace is located.

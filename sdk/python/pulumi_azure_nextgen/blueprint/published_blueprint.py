@@ -75,8 +75,6 @@ class PublishedBlueprint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_scope'")
             __props__['resource_scope'] = resource_scope
             __props__['target_scope'] = target_scope
-            if version_id is None and not opts.urn:
-                raise TypeError("Missing required property 'version_id'")
             __props__['version_id'] = version_id
             __props__['name'] = None
             __props__['status'] = None

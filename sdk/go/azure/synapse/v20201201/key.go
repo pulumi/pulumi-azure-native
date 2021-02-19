@@ -32,9 +32,6 @@ func NewKey(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.KeyName == nil {
-		return nil, errors.New("invalid value for required argument 'KeyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -104,7 +101,7 @@ type keyArgs struct {
 	// Used to activate the workspace after a customer managed key is provided.
 	IsActiveCMK *bool `pulumi:"isActiveCMK"`
 	// The name of the workspace key
-	KeyName string `pulumi:"keyName"`
+	KeyName *string `pulumi:"keyName"`
 	// The Key Vault Url of the workspace key.
 	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
 	// The name of the resource group. The name is case insensitive.
@@ -118,7 +115,7 @@ type KeyArgs struct {
 	// Used to activate the workspace after a customer managed key is provided.
 	IsActiveCMK pulumi.BoolPtrInput
 	// The name of the workspace key
-	KeyName pulumi.StringInput
+	KeyName pulumi.StringPtrInput
 	// The Key Vault Url of the workspace key.
 	KeyVaultUrl pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -34,12 +33,9 @@ type SecurityContact struct {
 func NewSecurityContact(ctx *pulumi.Context,
 	name string, args *SecurityContactArgs, opts ...pulumi.ResourceOption) (*SecurityContact, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &SecurityContactArgs{}
 	}
 
-	if args.SecurityContactName == nil {
-		return nil, errors.New("invalid value for required argument 'SecurityContactName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:security/v20170801preview:SecurityContact"),
@@ -114,7 +110,7 @@ type securityContactArgs struct {
 	// The security contact's phone number
 	Phone *string `pulumi:"phone"`
 	// Name of the security contact object
-	SecurityContactName string `pulumi:"securityContactName"`
+	SecurityContactName *string `pulumi:"securityContactName"`
 }
 
 // The set of arguments for constructing a SecurityContact resource.
@@ -128,7 +124,7 @@ type SecurityContactArgs struct {
 	// The security contact's phone number
 	Phone pulumi.StringPtrInput
 	// Name of the security contact object
-	SecurityContactName pulumi.StringInput
+	SecurityContactName pulumi.StringPtrInput
 }
 
 func (SecurityContactArgs) ElementType() reflect.Type {

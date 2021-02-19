@@ -30,9 +30,6 @@ func NewWCFRelayAuthorizationRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AuthorizationRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'AuthorizationRuleName'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -102,7 +99,7 @@ func (WCFRelayAuthorizationRuleState) ElementType() reflect.Type {
 
 type wcfrelayAuthorizationRuleArgs struct {
 	// The authorizationRule name.
-	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
+	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
 	// The Namespace Name
 	NamespaceName string `pulumi:"namespaceName"`
 	// The relay name
@@ -116,7 +113,7 @@ type wcfrelayAuthorizationRuleArgs struct {
 // The set of arguments for constructing a WCFRelayAuthorizationRule resource.
 type WCFRelayAuthorizationRuleArgs struct {
 	// The authorizationRule name.
-	AuthorizationRuleName pulumi.StringInput
+	AuthorizationRuleName pulumi.StringPtrInput
 	// The Namespace Name
 	NamespaceName pulumi.StringInput
 	// The relay name

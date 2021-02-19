@@ -45,9 +45,6 @@ func NewAgentPool(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AgentPoolName == nil {
-		return nil, errors.New("invalid value for required argument 'AgentPoolName'")
-	}
 	if args.RegistryName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
@@ -133,7 +130,7 @@ func (AgentPoolState) ElementType() reflect.Type {
 
 type agentPoolArgs struct {
 	// The name of the agent pool.
-	AgentPoolName string `pulumi:"agentPoolName"`
+	AgentPoolName *string `pulumi:"agentPoolName"`
 	// The count of agent machine
 	Count *int `pulumi:"count"`
 	// The location of the resource. This cannot be changed after the resource is created.
@@ -155,7 +152,7 @@ type agentPoolArgs struct {
 // The set of arguments for constructing a AgentPool resource.
 type AgentPoolArgs struct {
 	// The name of the agent pool.
-	AgentPoolName pulumi.StringInput
+	AgentPoolName pulumi.StringPtrInput
 	// The count of agent machine
 	Count pulumi.IntPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.

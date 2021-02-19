@@ -49,9 +49,6 @@ func NewContainerService(ctx *pulumi.Context,
 	if args.AgentPoolProfiles == nil {
 		return nil, errors.New("invalid value for required argument 'AgentPoolProfiles'")
 	}
-	if args.ContainerServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'ContainerServiceName'")
-	}
 	if args.LinuxProfile == nil {
 		return nil, errors.New("invalid value for required argument 'LinuxProfile'")
 	}
@@ -158,7 +155,7 @@ type containerServiceArgs struct {
 	// Properties of the agent pool.
 	AgentPoolProfiles []ContainerServiceAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// The name of the container service in the specified subscription and resource group.
-	ContainerServiceName string `pulumi:"containerServiceName"`
+	ContainerServiceName *string `pulumi:"containerServiceName"`
 	// Properties of the diagnostic agent.
 	DiagnosticsProfile *ContainerServiceDiagnosticsProfile `pulumi:"diagnosticsProfile"`
 	// Properties of Linux VMs.
@@ -182,7 +179,7 @@ type ContainerServiceArgs struct {
 	// Properties of the agent pool.
 	AgentPoolProfiles ContainerServiceAgentPoolProfileArrayInput
 	// The name of the container service in the specified subscription and resource group.
-	ContainerServiceName pulumi.StringInput
+	ContainerServiceName pulumi.StringPtrInput
 	// Properties of the diagnostic agent.
 	DiagnosticsProfile ContainerServiceDiagnosticsProfilePtrInput
 	// Properties of Linux VMs.

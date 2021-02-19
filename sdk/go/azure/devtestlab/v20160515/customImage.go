@@ -51,9 +51,6 @@ func NewCustomImage(ctx *pulumi.Context,
 	if args.LabName == nil {
 		return nil, errors.New("invalid value for required argument 'LabName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -163,7 +160,7 @@ type customImageArgs struct {
 	// The Managed Image Id backing the custom image.
 	ManagedImageId *string `pulumi:"managedImageId"`
 	// The name of the custom image.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -191,7 +188,7 @@ type CustomImageArgs struct {
 	// The Managed Image Id backing the custom image.
 	ManagedImageId pulumi.StringPtrInput
 	// The name of the custom image.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The provisioning status of the resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

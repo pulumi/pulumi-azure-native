@@ -40,9 +40,6 @@ func NewDomain(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DomainName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -141,7 +138,7 @@ func (DomainState) ElementType() reflect.Type {
 
 type domainArgs struct {
 	// Name of the domain
-	DomainName string `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
 	// This determines the format that Event Grid should expect for incoming events published to the domain.
 	InputSchema *string `pulumi:"inputSchema"`
 	// Information about the InputSchemaMapping which specified the info about mapping event payload.
@@ -157,7 +154,7 @@ type domainArgs struct {
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// Name of the domain
-	DomainName pulumi.StringInput
+	DomainName pulumi.StringPtrInput
 	// This determines the format that Event Grid should expect for incoming events published to the domain.
 	InputSchema pulumi.StringPtrInput
 	// Information about the InputSchemaMapping which specified the info about mapping event payload.

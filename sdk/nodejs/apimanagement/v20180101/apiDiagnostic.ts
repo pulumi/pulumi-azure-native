@@ -60,9 +60,6 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.diagnosticId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'diagnosticId'");
-            }
             if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enabled'");
             }
@@ -108,7 +105,7 @@ export interface ApiDiagnosticArgs {
     /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
-    readonly diagnosticId: pulumi.Input<string>;
+    readonly diagnosticId?: pulumi.Input<string>;
     /**
      * Indicates whether a diagnostic should receive data or not.
      */

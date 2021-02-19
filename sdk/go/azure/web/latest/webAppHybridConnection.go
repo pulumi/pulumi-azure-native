@@ -58,9 +58,6 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
-	if args.RelayName == nil {
-		return nil, errors.New("invalid value for required argument 'RelayName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -186,7 +183,7 @@ type webAppHybridConnectionArgs struct {
 	// The ARM URI to the Service Bus relay.
 	RelayArmUri *string `pulumi:"relayArmUri"`
 	// The name of the Service Bus relay.
-	RelayName string `pulumi:"relayName"`
+	RelayName *string `pulumi:"relayName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
@@ -215,7 +212,7 @@ type WebAppHybridConnectionArgs struct {
 	// The ARM URI to the Service Bus relay.
 	RelayArmUri pulumi.StringPtrInput
 	// The name of the Service Bus relay.
-	RelayName pulumi.StringInput
+	RelayName pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.

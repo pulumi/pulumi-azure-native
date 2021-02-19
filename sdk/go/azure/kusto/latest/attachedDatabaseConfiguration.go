@@ -43,9 +43,6 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AttachedDatabaseConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'AttachedDatabaseConfigurationName'")
-	}
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
@@ -147,7 +144,7 @@ func (AttachedDatabaseConfigurationState) ElementType() reflect.Type {
 
 type attachedDatabaseConfigurationArgs struct {
 	// The name of the attached database configuration.
-	AttachedDatabaseConfigurationName string `pulumi:"attachedDatabaseConfigurationName"`
+	AttachedDatabaseConfigurationName *string `pulumi:"attachedDatabaseConfigurationName"`
 	// The name of the Kusto cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The resource id of the cluster where the databases you would like to attach reside.
@@ -165,7 +162,7 @@ type attachedDatabaseConfigurationArgs struct {
 // The set of arguments for constructing a AttachedDatabaseConfiguration resource.
 type AttachedDatabaseConfigurationArgs struct {
 	// The name of the attached database configuration.
-	AttachedDatabaseConfigurationName pulumi.StringInput
+	AttachedDatabaseConfigurationName pulumi.StringPtrInput
 	// The name of the Kusto cluster.
 	ClusterName pulumi.StringInput
 	// The resource id of the cluster where the databases you would like to attach reside.

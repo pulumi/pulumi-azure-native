@@ -44,9 +44,6 @@ func NewSystemTopic(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SystemTopicName == nil {
-		return nil, errors.New("invalid value for required argument 'SystemTopicName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:SystemTopic"),
@@ -127,7 +124,7 @@ type systemTopicArgs struct {
 	// Source for the system topic.
 	Source *string `pulumi:"source"`
 	// Name of the system topic.
-	SystemTopicName string `pulumi:"systemTopicName"`
+	SystemTopicName *string `pulumi:"systemTopicName"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// TopicType for the system topic.
@@ -143,7 +140,7 @@ type SystemTopicArgs struct {
 	// Source for the system topic.
 	Source pulumi.StringPtrInput
 	// Name of the system topic.
-	SystemTopicName pulumi.StringInput
+	SystemTopicName pulumi.StringPtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput
 	// TopicType for the system topic.

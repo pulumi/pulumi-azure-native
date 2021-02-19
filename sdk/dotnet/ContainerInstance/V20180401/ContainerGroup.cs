@@ -153,8 +153,8 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180401
         /// <summary>
         /// The name of the container group.
         /// </summary>
-        [Input("containerGroupName", required: true)]
-        public Input<string> ContainerGroupName { get; set; } = null!;
+        [Input("containerGroupName")]
+        public Input<string>? ContainerGroupName { get; set; }
 
         [Input("containers", required: true)]
         private InputList<Inputs.ContainerArgs>? _containers;

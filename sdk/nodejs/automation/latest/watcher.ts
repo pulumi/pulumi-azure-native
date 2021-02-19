@@ -113,9 +113,6 @@ export class Watcher extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.watcherName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'watcherName'");
-            }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["etag"] = args ? args.etag : undefined;
@@ -209,5 +206,5 @@ export interface WatcherArgs {
     /**
      * The watcher name.
      */
-    readonly watcherName: pulumi.Input<string>;
+    readonly watcherName?: pulumi.Input<string>;
 }

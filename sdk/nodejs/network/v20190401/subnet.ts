@@ -125,9 +125,6 @@ export class Subnet extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'subnetName'");
-            }
             if ((!args || args.virtualNetworkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
@@ -263,7 +260,7 @@ export interface SubnetArgs {
     /**
      * The name of the subnet.
      */
-    readonly subnetName: pulumi.Input<string>;
+    readonly subnetName?: pulumi.Input<string>;
     /**
      * The name of the virtual network.
      */

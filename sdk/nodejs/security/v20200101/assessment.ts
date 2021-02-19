@@ -82,9 +82,6 @@ export class Assessment extends pulumi.CustomResource {
     constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.assessmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'assessmentName'");
-            }
             if ((!args || args.resourceDetails === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceDetails'");
             }
@@ -140,7 +137,7 @@ export interface AssessmentArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    readonly assessmentName: pulumi.Input<string>;
+    readonly assessmentName?: pulumi.Input<string>;
     /**
      * Describes properties of an assessment metadata.
      */

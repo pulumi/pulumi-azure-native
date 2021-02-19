@@ -33,9 +33,6 @@ func NewApiDiagnostic(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
-	if args.DiagnosticId == nil {
-		return nil, errors.New("invalid value for required argument 'DiagnosticId'")
-	}
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
 	}
@@ -119,7 +116,7 @@ type apiDiagnosticArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId string `pulumi:"diagnosticId"`
+	DiagnosticId *string `pulumi:"diagnosticId"`
 	// Indicates whether a diagnostic should receive data or not.
 	Enabled bool `pulumi:"enabled"`
 	// The name of the resource group.
@@ -133,7 +130,7 @@ type ApiDiagnosticArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId pulumi.StringInput
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId pulumi.StringInput
+	DiagnosticId pulumi.StringPtrInput
 	// Indicates whether a diagnostic should receive data or not.
 	Enabled pulumi.BoolInput
 	// The name of the resource group.

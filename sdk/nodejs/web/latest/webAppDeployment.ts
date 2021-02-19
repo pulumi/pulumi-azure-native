@@ -104,9 +104,6 @@ export class WebAppDeployment extends pulumi.CustomResource {
         pulumi.log.warn("WebAppDeployment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDeployment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'id'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -187,7 +184,7 @@ export interface WebAppDeploymentArgs {
     /**
      * ID of an existing deployment.
      */
-    readonly id: pulumi.Input<string>;
+    readonly id?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */

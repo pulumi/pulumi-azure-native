@@ -92,8 +92,6 @@ class Volume(pulumi.CustomResource):
             if volume_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_container_name'")
             __props__['volume_container_name'] = volume_container_name
-            if volume_name is None and not opts.urn:
-                raise TypeError("Missing required property 'volume_name'")
             __props__['volume_name'] = volume_name
             if volume_status is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_status'")

@@ -159,8 +159,8 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// <summary>
         /// The name of the software update configuration to be created.
         /// </summary>
-        [Input("softwareUpdateConfigurationName", required: true)]
-        public Input<string> SoftwareUpdateConfigurationName { get; set; } = null!;
+        [Input("softwareUpdateConfigurationName")]
+        public Input<string>? SoftwareUpdateConfigurationName { get; set; }
 
         /// <summary>
         /// Tasks information for the Software update configuration.

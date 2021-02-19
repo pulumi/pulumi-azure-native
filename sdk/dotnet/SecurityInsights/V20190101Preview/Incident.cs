@@ -231,8 +231,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <summary>
         /// Incident ID
         /// </summary>
-        [Input("incidentId", required: true)]
-        public Input<string> IncidentId { get; set; } = null!;
+        [Input("incidentId")]
+        public Input<string>? IncidentId { get; set; }
 
         [Input("labels")]
         private InputList<Inputs.IncidentLabelArgs>? _labels;

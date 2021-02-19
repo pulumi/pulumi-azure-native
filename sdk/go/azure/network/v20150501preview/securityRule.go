@@ -66,9 +66,6 @@ func NewSecurityRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SecurityRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'SecurityRuleName'")
-	}
 	if args.SourceAddressPrefix == nil {
 		return nil, errors.New("invalid value for required argument 'SourceAddressPrefix'")
 	}
@@ -290,7 +287,7 @@ type securityRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the security rule.
-	SecurityRuleName string `pulumi:"securityRuleName"`
+	SecurityRuleName *string `pulumi:"securityRuleName"`
 	// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
 	SourceAddressPrefix string `pulumi:"sourceAddressPrefix"`
 	// Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
@@ -326,7 +323,7 @@ type SecurityRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the security rule.
-	SecurityRuleName pulumi.StringInput
+	SecurityRuleName pulumi.StringPtrInput
 	// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
 	SourceAddressPrefix pulumi.StringInput
 	// Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.

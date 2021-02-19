@@ -32,9 +32,6 @@ func NewDataset(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DatasetName == nil {
-		return nil, errors.New("invalid value for required argument 'DatasetName'")
-	}
 	if args.FactoryName == nil {
 		return nil, errors.New("invalid value for required argument 'FactoryName'")
 	}
@@ -105,7 +102,7 @@ func (DatasetState) ElementType() reflect.Type {
 
 type datasetArgs struct {
 	// The dataset name.
-	DatasetName string `pulumi:"datasetName"`
+	DatasetName *string `pulumi:"datasetName"`
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// Dataset properties.
@@ -117,7 +114,7 @@ type datasetArgs struct {
 // The set of arguments for constructing a Dataset resource.
 type DatasetArgs struct {
 	// The dataset name.
-	DatasetName pulumi.StringInput
+	DatasetName pulumi.StringPtrInput
 	// The factory name.
 	FactoryName pulumi.StringInput
 	// Dataset properties.

@@ -78,9 +78,6 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceEndpointPolicyDefinitionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serviceEndpointPolicyDefinitionName'");
-            }
             if ((!args || args.serviceEndpointPolicyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceEndpointPolicyName'");
             }
@@ -142,7 +139,7 @@ export interface ServiceEndpointPolicyDefinitionArgs {
     /**
      * The name of the service endpoint policy definition name.
      */
-    readonly serviceEndpointPolicyDefinitionName: pulumi.Input<string>;
+    readonly serviceEndpointPolicyDefinitionName?: pulumi.Input<string>;
     /**
      * The name of the service endpoint policy.
      */

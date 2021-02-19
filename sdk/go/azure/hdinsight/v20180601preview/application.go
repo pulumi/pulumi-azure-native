@@ -34,9 +34,6 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationName'")
-	}
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
@@ -105,7 +102,7 @@ func (ApplicationState) ElementType() reflect.Type {
 
 type applicationArgs struct {
 	// The constant value for the application name.
-	ApplicationName string `pulumi:"applicationName"`
+	ApplicationName *string `pulumi:"applicationName"`
 	// The name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The ETag for the application
@@ -121,7 +118,7 @@ type applicationArgs struct {
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	// The constant value for the application name.
-	ApplicationName pulumi.StringInput
+	ApplicationName pulumi.StringPtrInput
 	// The name of the cluster.
 	ClusterName pulumi.StringInput
 	// The ETag for the application

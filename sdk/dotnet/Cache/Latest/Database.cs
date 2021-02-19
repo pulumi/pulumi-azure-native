@@ -149,8 +149,8 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// Redis eviction policy - default is VolatileLRU

@@ -94,9 +94,6 @@ export class StreamingPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.streamingPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'streamingPolicyName'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["commonEncryptionCbcs"] = args ? args.commonEncryptionCbcs : undefined;
             inputs["commonEncryptionCenc"] = args ? args.commonEncryptionCenc : undefined;
@@ -168,5 +165,5 @@ export interface StreamingPolicyArgs {
     /**
      * The Streaming Policy name.
      */
-    readonly streamingPolicyName: pulumi.Input<string>;
+    readonly streamingPolicyName?: pulumi.Input<string>;
 }

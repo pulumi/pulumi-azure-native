@@ -87,9 +87,6 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
     constructor(name: string, args: WorkloadNetworkDnsServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dnsServiceId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dnsServiceId'");
-            }
             if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -149,7 +146,7 @@ export interface WorkloadNetworkDnsServiceArgs {
     /**
      * NSX DNS Service identifier. Generally the same as the DNS Service's display name
      */
-    readonly dnsServiceId: pulumi.Input<string>;
+    readonly dnsServiceId?: pulumi.Input<string>;
     /**
      * DNS service IP of the DNS Service.
      */

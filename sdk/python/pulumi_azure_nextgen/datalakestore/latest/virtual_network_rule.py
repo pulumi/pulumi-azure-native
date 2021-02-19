@@ -64,8 +64,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
-            if virtual_network_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_rule_name'")
             __props__['virtual_network_rule_name'] = virtual_network_rule_name
             __props__['name'] = None
             __props__['type'] = None

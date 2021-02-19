@@ -48,9 +48,6 @@ func NewTransactionNode(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TransactionNodeName == nil {
-		return nil, errors.New("invalid value for required argument 'TransactionNodeName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:blockchain:TransactionNode"),
@@ -136,7 +133,7 @@ type transactionNodeArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Transaction node name.
-	TransactionNodeName string `pulumi:"transactionNodeName"`
+	TransactionNodeName *string `pulumi:"transactionNodeName"`
 }
 
 // The set of arguments for constructing a TransactionNode resource.
@@ -152,7 +149,7 @@ type TransactionNodeArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// Transaction node name.
-	TransactionNodeName pulumi.StringInput
+	TransactionNodeName pulumi.StringPtrInput
 }
 
 func (TransactionNodeArgs) ElementType() reflect.Type {

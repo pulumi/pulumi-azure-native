@@ -62,8 +62,6 @@ class Replication(pulumi.CustomResource):
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if replication_name is None and not opts.urn:
-                raise TypeError("Missing required property 'replication_name'")
             __props__['replication_name'] = replication_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

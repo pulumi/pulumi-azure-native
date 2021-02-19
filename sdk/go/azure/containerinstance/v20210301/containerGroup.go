@@ -65,9 +65,6 @@ func NewContainerGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ContainerGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ContainerGroupName'")
-	}
 	if args.Containers == nil {
 		return nil, errors.New("invalid value for required argument 'Containers'")
 	}
@@ -231,7 +228,7 @@ func (ContainerGroupState) ElementType() reflect.Type {
 
 type containerGroupArgs struct {
 	// The name of the container group.
-	ContainerGroupName string `pulumi:"containerGroupName"`
+	ContainerGroupName *string `pulumi:"containerGroupName"`
 	// The containers within the container group.
 	Containers []Container `pulumi:"containers"`
 	// The diagnostic information for a container group.
@@ -272,7 +269,7 @@ type containerGroupArgs struct {
 // The set of arguments for constructing a ContainerGroup resource.
 type ContainerGroupArgs struct {
 	// The name of the container group.
-	ContainerGroupName pulumi.StringInput
+	ContainerGroupName pulumi.StringPtrInput
 	// The containers within the container group.
 	Containers ContainerArrayInput
 	// The diagnostic information for a container group.

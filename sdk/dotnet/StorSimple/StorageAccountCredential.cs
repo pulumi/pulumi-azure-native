@@ -148,8 +148,8 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// <summary>
         /// The storage account credential name.
         /// </summary>
-        [Input("storageAccountCredentialName", required: true)]
-        public Input<string> StorageAccountCredentialName { get; set; } = null!;
+        [Input("storageAccountCredentialName")]
+        public Input<string>? StorageAccountCredentialName { get; set; }
 
         public StorageAccountCredentialArgs()
         {

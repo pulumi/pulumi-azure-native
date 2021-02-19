@@ -126,8 +126,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20151001Preview
         /// <summary>
         /// The name of the policy assignment.
         /// </summary>
-        [Input("policyAssignmentName", required: true)]
-        public Input<string> PolicyAssignmentName { get; set; } = null!;
+        [Input("policyAssignmentName")]
+        public Input<string>? PolicyAssignmentName { get; set; }
 
         /// <summary>
         /// The ID of the policy definition.

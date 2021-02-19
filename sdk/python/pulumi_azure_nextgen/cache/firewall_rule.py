@@ -61,8 +61,6 @@ class FirewallRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
             if start_ip is None and not opts.urn:
                 raise TypeError("Missing required property 'start_ip'")

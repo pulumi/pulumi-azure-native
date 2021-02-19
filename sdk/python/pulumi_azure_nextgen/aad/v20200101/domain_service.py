@@ -75,8 +75,6 @@ class DomainService(pulumi.CustomResource):
             __props__['domain_configuration_type'] = domain_configuration_type
             __props__['domain_name'] = domain_name
             __props__['domain_security_settings'] = domain_security_settings
-            if domain_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'domain_service_name'")
             __props__['domain_service_name'] = domain_service_name
             __props__['etag'] = etag
             __props__['filtered_sync'] = filtered_sync

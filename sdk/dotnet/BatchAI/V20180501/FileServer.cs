@@ -134,8 +134,8 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <summary>
         /// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         /// </summary>
-        [Input("fileServerName", required: true)]
-        public Input<string> FileServerName { get; set; } = null!;
+        [Input("fileServerName")]
+        public Input<string>? FileServerName { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

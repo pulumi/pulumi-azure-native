@@ -71,9 +71,6 @@ export class Cache extends pulumi.CustomResource {
         pulumi.log.warn("Cache is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Cache'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.cacheId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'cacheId'");
-            }
             if ((!args || args.connectionString === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionString'");
             }
@@ -118,7 +115,7 @@ export interface CacheArgs {
     /**
      * Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
      */
-    readonly cacheId: pulumi.Input<string>;
+    readonly cacheId?: pulumi.Input<string>;
     /**
      * Runtime connection string to cache
      */

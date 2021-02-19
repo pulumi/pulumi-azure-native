@@ -101,8 +101,8 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
         /// <summary>
         /// The name of the data set mapping to be created.
         /// </summary>
-        [Input("dataSetMappingName", required: true)]
-        public Input<string> DataSetMappingName { get; set; } = null!;
+        [Input("dataSetMappingName")]
+        public Input<string>? DataSetMappingName { get; set; }
 
         /// <summary>
         /// Kind of data set mapping.

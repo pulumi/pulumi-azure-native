@@ -43,9 +43,6 @@ func NewApiDiagnosticLogger(ctx *pulumi.Context,
 	if args.DiagnosticId == nil {
 		return nil, errors.New("invalid value for required argument 'DiagnosticId'")
 	}
-	if args.Loggerid == nil {
-		return nil, errors.New("invalid value for required argument 'Loggerid'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -127,7 +124,7 @@ type apiDiagnosticLoggerArgs struct {
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
 	DiagnosticId string `pulumi:"diagnosticId"`
 	// Logger identifier. Must be unique in the API Management service instance.
-	Loggerid string `pulumi:"loggerid"`
+	Loggerid *string `pulumi:"loggerid"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -141,7 +138,7 @@ type ApiDiagnosticLoggerArgs struct {
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
 	DiagnosticId pulumi.StringInput
 	// Logger identifier. Must be unique in the API Management service instance.
-	Loggerid pulumi.StringInput
+	Loggerid pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

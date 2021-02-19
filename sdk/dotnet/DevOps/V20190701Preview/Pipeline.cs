@@ -134,8 +134,8 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
         /// <summary>
         /// The name of the Azure Pipeline resource in ARM.
         /// </summary>
-        [Input("pipelineName", required: true)]
-        public Input<string> PipelineName { get; set; } = null!;
+        [Input("pipelineName")]
+        public Input<string>? PipelineName { get; set; }
 
         /// <summary>
         /// Reference to the Azure DevOps Project containing the Pipeline.

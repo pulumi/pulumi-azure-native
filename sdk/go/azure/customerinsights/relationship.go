@@ -62,9 +62,6 @@ func NewRelationship(ctx *pulumi.Context,
 	if args.RelatedProfileType == nil {
 		return nil, errors.New("invalid value for required argument 'RelatedProfileType'")
 	}
-	if args.RelationshipName == nil {
-		return nil, errors.New("invalid value for required argument 'RelationshipName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -187,7 +184,7 @@ type relationshipArgs struct {
 	// Related profile being referenced.
 	RelatedProfileType string `pulumi:"relatedProfileType"`
 	// The name of the Relationship.
-	RelationshipName string `pulumi:"relationshipName"`
+	RelationshipName *string `pulumi:"relationshipName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -213,7 +210,7 @@ type RelationshipArgs struct {
 	// Related profile being referenced.
 	RelatedProfileType pulumi.StringInput
 	// The name of the Relationship.
-	RelationshipName pulumi.StringInput
+	RelationshipName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

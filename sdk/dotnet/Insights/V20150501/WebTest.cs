@@ -255,8 +255,8 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// <summary>
         /// User defined name if this WebTest.
         /// </summary>
-        [Input("webTestName", required: true)]
-        public Input<string> WebTestName { get; set; } = null!;
+        [Input("webTestName")]
+        public Input<string>? WebTestName { get; set; }
 
         public WebTestArgs()
         {

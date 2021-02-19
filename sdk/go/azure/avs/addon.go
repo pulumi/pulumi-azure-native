@@ -35,9 +35,6 @@ func NewAddon(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AddonName == nil {
-		return nil, errors.New("invalid value for required argument 'AddonName'")
-	}
 	if args.PrivateCloudName == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
 	}
@@ -103,7 +100,7 @@ func (AddonState) ElementType() reflect.Type {
 
 type addonArgs struct {
 	// Name of the addon for the private cloud
-	AddonName string `pulumi:"addonName"`
+	AddonName *string `pulumi:"addonName"`
 	// The type of private cloud addon
 	AddonType *string `pulumi:"addonType"`
 	// The SRM license
@@ -117,7 +114,7 @@ type addonArgs struct {
 // The set of arguments for constructing a Addon resource.
 type AddonArgs struct {
 	// Name of the addon for the private cloud
-	AddonName pulumi.StringInput
+	AddonName pulumi.StringPtrInput
 	// The type of private cloud addon
 	AddonType pulumi.StringPtrInput
 	// The SRM license

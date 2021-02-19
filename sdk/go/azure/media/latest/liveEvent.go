@@ -69,9 +69,6 @@ func NewLiveEvent(ctx *pulumi.Context,
 	if args.Input == nil {
 		return nil, errors.New("invalid value for required argument 'Input'")
 	}
-	if args.LiveEventName == nil {
-		return nil, errors.New("invalid value for required argument 'LiveEventName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -215,7 +212,7 @@ type liveEventArgs struct {
 	// Live event input settings. It defines how the live event receives input from a contribution encoder.
 	Input LiveEventInputType `pulumi:"input"`
 	// The name of the live event, maximum length is 32.
-	LiveEventName string `pulumi:"liveEventName"`
+	LiveEventName *string `pulumi:"liveEventName"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
@@ -249,7 +246,7 @@ type LiveEventArgs struct {
 	// Live event input settings. It defines how the live event receives input from a contribution encoder.
 	Input LiveEventInputTypeInput
 	// The name of the live event, maximum length is 32.
-	LiveEventName pulumi.StringInput
+	LiveEventName pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.

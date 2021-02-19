@@ -74,9 +74,6 @@ export class MachineLearningCompute extends pulumi.CustomResource {
     constructor(name: string, args: MachineLearningComputeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.computeName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'computeName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -122,7 +119,7 @@ export interface MachineLearningComputeArgs {
     /**
      * Name of the Azure Machine Learning compute.
      */
-    readonly computeName: pulumi.Input<string>;
+    readonly computeName?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */

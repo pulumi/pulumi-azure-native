@@ -134,8 +134,8 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <summary>
         /// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         /// </summary>
-        [Input("workspaceName", required: true)]
-        public Input<string> WorkspaceName { get; set; } = null!;
+        [Input("workspaceName")]
+        public Input<string>? WorkspaceName { get; set; }
 
         public WorkspaceArgs()
         {

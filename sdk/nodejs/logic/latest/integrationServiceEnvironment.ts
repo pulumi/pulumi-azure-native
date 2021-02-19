@@ -76,9 +76,6 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
         pulumi.log.warn("IntegrationServiceEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.integrationServiceEnvironmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'integrationServiceEnvironmentName'");
-            }
             if ((!args || args.resourceGroup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
@@ -118,7 +115,7 @@ export interface IntegrationServiceEnvironmentArgs {
     /**
      * The integration service environment name.
      */
-    readonly integrationServiceEnvironmentName: pulumi.Input<string>;
+    readonly integrationServiceEnvironmentName?: pulumi.Input<string>;
     /**
      * The resource location.
      */

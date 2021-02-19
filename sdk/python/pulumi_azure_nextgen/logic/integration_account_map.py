@@ -71,8 +71,6 @@ class IntegrationAccountMap(pulumi.CustomResource):
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
-            if map_name is None and not opts.urn:
-                raise TypeError("Missing required property 'map_name'")
             __props__['map_name'] = map_name
             if map_type is None and not opts.urn:
                 raise TypeError("Missing required property 'map_type'")

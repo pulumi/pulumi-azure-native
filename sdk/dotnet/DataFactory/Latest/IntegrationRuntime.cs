@@ -101,8 +101,8 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <summary>
         /// The integration runtime name.
         /// </summary>
-        [Input("integrationRuntimeName", required: true)]
-        public Input<string> IntegrationRuntimeName { get; set; } = null!;
+        [Input("integrationRuntimeName")]
+        public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
         /// Integration runtime properties.

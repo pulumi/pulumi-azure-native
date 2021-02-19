@@ -40,9 +40,6 @@ func NewIoTSpace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
@@ -115,7 +112,7 @@ type ioTSpaceArgs struct {
 	// The name of the resource group that contains the IoTSpaces instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the IoTSpaces instance.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// A valid instance SKU.
 	Sku IoTSpacesSkuInfo `pulumi:"sku"`
 	// The resource tags.
@@ -131,7 +128,7 @@ type IoTSpaceArgs struct {
 	// The name of the resource group that contains the IoTSpaces instance.
 	ResourceGroupName pulumi.StringInput
 	// The name of the IoTSpaces instance.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// A valid instance SKU.
 	Sku IoTSpacesSkuInfoInput
 	// The resource tags.

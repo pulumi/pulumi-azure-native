@@ -39,9 +39,6 @@ func NewAvailabilityGroupListener(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AvailabilityGroupListenerName == nil {
-		return nil, errors.New("invalid value for required argument 'AvailabilityGroupListenerName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -115,7 +112,7 @@ func (AvailabilityGroupListenerState) ElementType() reflect.Type {
 
 type availabilityGroupListenerArgs struct {
 	// Name of the availability group listener.
-	AvailabilityGroupListenerName string `pulumi:"availabilityGroupListenerName"`
+	AvailabilityGroupListenerName *string `pulumi:"availabilityGroupListenerName"`
 	// Name of the availability group.
 	AvailabilityGroupName *string `pulumi:"availabilityGroupName"`
 	// Create a default availability group if it does not exist.
@@ -133,7 +130,7 @@ type availabilityGroupListenerArgs struct {
 // The set of arguments for constructing a AvailabilityGroupListener resource.
 type AvailabilityGroupListenerArgs struct {
 	// Name of the availability group listener.
-	AvailabilityGroupListenerName pulumi.StringInput
+	AvailabilityGroupListenerName pulumi.StringPtrInput
 	// Name of the availability group.
 	AvailabilityGroupName pulumi.StringPtrInput
 	// Create a default availability group if it does not exist.

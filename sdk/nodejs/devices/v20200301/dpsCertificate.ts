@@ -62,9 +62,6 @@ export class DpsCertificate extends pulumi.CustomResource {
     constructor(name: string, args: DpsCertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.certificateName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'certificateName'");
-            }
             if ((!args || args.provisioningServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'provisioningServiceName'");
             }
@@ -109,7 +106,7 @@ export interface DpsCertificateArgs {
     /**
      * The name of the certificate create or update.
      */
-    readonly certificateName: pulumi.Input<string>;
+    readonly certificateName?: pulumi.Input<string>;
     /**
      * The name of the provisioning service.
      */

@@ -38,9 +38,6 @@ func NewIncidentComment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.IncidentCommentId == nil {
-		return nil, errors.New("invalid value for required argument 'IncidentCommentId'")
-	}
 	if args.IncidentId == nil {
 		return nil, errors.New("invalid value for required argument 'IncidentId'")
 	}
@@ -125,7 +122,7 @@ type incidentCommentArgs struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
 	// Incident comment ID
-	IncidentCommentId string `pulumi:"incidentCommentId"`
+	IncidentCommentId *string `pulumi:"incidentCommentId"`
 	// Incident ID
 	IncidentId string `pulumi:"incidentId"`
 	// The comment message
@@ -143,7 +140,7 @@ type IncidentCommentArgs struct {
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
 	// Incident comment ID
-	IncidentCommentId pulumi.StringInput
+	IncidentCommentId pulumi.StringPtrInput
 	// Incident ID
 	IncidentId pulumi.StringInput
 	// The comment message

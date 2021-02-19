@@ -107,9 +107,6 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
         pulumi.log.warn("SiteInstanceDeploymentSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeploymentSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'id'");
-            }
             if ((!args || args.instanceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceId'");
             }
@@ -200,7 +197,7 @@ export interface SiteInstanceDeploymentSlotArgs {
     /**
      * Resource Id
      */
-    readonly id: pulumi.Input<string>;
+    readonly id?: pulumi.Input<string>;
     /**
      * Id of web app instance
      */

@@ -44,9 +44,6 @@ func NewDisasterRecoveryConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DisasterRecoveryConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'DisasterRecoveryConfigurationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -135,7 +132,7 @@ func (DisasterRecoveryConfigurationState) ElementType() reflect.Type {
 
 type disasterRecoveryConfigurationArgs struct {
 	// The name of the disaster recovery configuration to be created/updated.
-	DisasterRecoveryConfigurationName string `pulumi:"disasterRecoveryConfigurationName"`
+	DisasterRecoveryConfigurationName *string `pulumi:"disasterRecoveryConfigurationName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -145,7 +142,7 @@ type disasterRecoveryConfigurationArgs struct {
 // The set of arguments for constructing a DisasterRecoveryConfiguration resource.
 type DisasterRecoveryConfigurationArgs struct {
 	// The name of the disaster recovery configuration to be created/updated.
-	DisasterRecoveryConfigurationName pulumi.StringInput
+	DisasterRecoveryConfigurationName pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

@@ -45,9 +45,6 @@ func NewAlertsSuppressionRule(ctx *pulumi.Context,
 	if args.AlertType == nil {
 		return nil, errors.New("invalid value for required argument 'AlertType'")
 	}
-	if args.AlertsSuppressionRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'AlertsSuppressionRuleName'")
-	}
 	if args.Reason == nil {
 		return nil, errors.New("invalid value for required argument 'Reason'")
 	}
@@ -131,7 +128,7 @@ type alertsSuppressionRuleArgs struct {
 	// Type of the alert to automatically suppress. For all alert types, use '*'
 	AlertType string `pulumi:"alertType"`
 	// The unique name of the suppression alert rule
-	AlertsSuppressionRuleName string `pulumi:"alertsSuppressionRuleName"`
+	AlertsSuppressionRuleName *string `pulumi:"alertsSuppressionRuleName"`
 	// Any comment regarding the rule
 	Comment *string `pulumi:"comment"`
 	// Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
@@ -149,7 +146,7 @@ type AlertsSuppressionRuleArgs struct {
 	// Type of the alert to automatically suppress. For all alert types, use '*'
 	AlertType pulumi.StringInput
 	// The unique name of the suppression alert rule
-	AlertsSuppressionRuleName pulumi.StringInput
+	AlertsSuppressionRuleName pulumi.StringPtrInput
 	// Any comment regarding the rule
 	Comment pulumi.StringPtrInput
 	// Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.

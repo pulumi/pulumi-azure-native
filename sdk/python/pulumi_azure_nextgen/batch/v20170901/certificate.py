@@ -62,8 +62,6 @@ class Certificate(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if certificate_name is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_name'")
             __props__['certificate_name'] = certificate_name
             if data is None and not opts.urn:
                 raise TypeError("Missing required property 'data'")

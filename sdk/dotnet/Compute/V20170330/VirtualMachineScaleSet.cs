@@ -230,8 +230,8 @@ namespace Pulumi.AzureNextGen.Compute.V20170330
         /// <summary>
         /// The name of the VM scale set to create or update.
         /// </summary>
-        [Input("vmScaleSetName", required: true)]
-        public Input<string> VmScaleSetName { get; set; } = null!;
+        [Input("vmScaleSetName")]
+        public Input<string>? VmScaleSetName { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;

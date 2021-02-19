@@ -226,8 +226,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The name of Network Virtual Appliance.
         /// </summary>
-        [Input("networkVirtualApplianceName", required: true)]
-        public Input<string> NetworkVirtualApplianceName { get; set; } = null!;
+        [Input("networkVirtualApplianceName")]
+        public Input<string>? NetworkVirtualApplianceName { get; set; }
 
         /// <summary>
         /// Network Virtual Appliance SKU.

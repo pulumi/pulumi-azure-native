@@ -165,8 +165,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <summary>
         /// The name of the workload classifier.
         /// </summary>
-        [Input("workloadClassifierName", required: true)]
-        public Input<string> WorkloadClassifierName { get; set; } = null!;
+        [Input("workloadClassifierName")]
+        public Input<string>? WorkloadClassifierName { get; set; }
 
         /// <summary>
         /// The name of the workload group.

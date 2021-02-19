@@ -86,8 +86,6 @@ class VpnSite(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['virtual_wan'] = virtual_wan
             __props__['vpn_site_links'] = vpn_site_links
-            if vpn_site_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vpn_site_name'")
             __props__['vpn_site_name'] = vpn_site_name
             __props__['etag'] = None
             __props__['name'] = None

@@ -118,9 +118,6 @@ export class Api extends pulumi.CustomResource {
     constructor(name: string, args: ApiArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'apiId'");
-            }
             if ((!args || args.path === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'path'");
             }
@@ -195,7 +192,7 @@ export interface ApiArgs {
     /**
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    readonly apiId: pulumi.Input<string>;
+    readonly apiId?: pulumi.Input<string>;
     /**
      * Describes the Revision of the Api. If no value is provided, default revision 1 is created
      */

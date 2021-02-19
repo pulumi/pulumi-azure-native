@@ -181,8 +181,8 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// The Job name.
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         [Input("outputs", required: true)]
         private InputList<Inputs.JobOutputAssetArgs>? _outputs;

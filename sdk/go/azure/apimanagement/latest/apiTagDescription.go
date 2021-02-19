@@ -50,9 +50,6 @@ func NewApiTagDescription(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
-	if args.TagDescriptionId == nil {
-		return nil, errors.New("invalid value for required argument 'TagDescriptionId'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiTagDescription"),
@@ -153,7 +150,7 @@ type apiTagDescriptionArgs struct {
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
 	// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
-	TagDescriptionId string `pulumi:"tagDescriptionId"`
+	TagDescriptionId *string `pulumi:"tagDescriptionId"`
 }
 
 // The set of arguments for constructing a ApiTagDescription resource.
@@ -171,7 +168,7 @@ type ApiTagDescriptionArgs struct {
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 	// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
-	TagDescriptionId pulumi.StringInput
+	TagDescriptionId pulumi.StringPtrInput
 }
 
 func (ApiTagDescriptionArgs) ElementType() reflect.Type {

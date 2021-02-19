@@ -46,9 +46,6 @@ func NewAFDCustomDomain(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CustomDomainName == nil {
-		return nil, errors.New("invalid value for required argument 'CustomDomainName'")
-	}
 	if args.HostName == nil {
 		return nil, errors.New("invalid value for required argument 'HostName'")
 	}
@@ -140,7 +137,7 @@ type afdcustomDomainArgs struct {
 	// Resource reference to the Azure DNS zone
 	AzureDnsZone *ResourceReference `pulumi:"azureDnsZone"`
 	// Name of the domain under the profile which is unique globally
-	CustomDomainName string `pulumi:"customDomainName"`
+	CustomDomainName *string `pulumi:"customDomainName"`
 	// The host name of the domain. Must be a domain name.
 	HostName string `pulumi:"hostName"`
 	// Name of the CDN profile which is unique within the resource group.
@@ -156,7 +153,7 @@ type AFDCustomDomainArgs struct {
 	// Resource reference to the Azure DNS zone
 	AzureDnsZone ResourceReferencePtrInput
 	// Name of the domain under the profile which is unique globally
-	CustomDomainName pulumi.StringInput
+	CustomDomainName pulumi.StringPtrInput
 	// The host name of the domain. Must be a domain name.
 	HostName pulumi.StringInput
 	// Name of the CDN profile which is unique within the resource group.

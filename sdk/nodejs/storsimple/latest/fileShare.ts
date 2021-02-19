@@ -116,9 +116,6 @@ export class FileShare extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'shareName'");
-            }
             if ((!args || args.shareStatus === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareStatus'");
             }
@@ -205,7 +202,7 @@ export interface FileShareArgs {
     /**
      * The file share name.
      */
-    readonly shareName: pulumi.Input<string>;
+    readonly shareName?: pulumi.Input<string>;
     /**
      * The Share Status
      */

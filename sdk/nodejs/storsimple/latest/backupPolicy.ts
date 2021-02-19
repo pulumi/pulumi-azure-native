@@ -92,9 +92,6 @@ export class BackupPolicy extends pulumi.CustomResource {
         pulumi.log.warn("BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.backupPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'backupPolicyName'");
-            }
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -153,7 +150,7 @@ export interface BackupPolicyArgs {
     /**
      * The name of the backup policy to be created/updated.
      */
-    readonly backupPolicyName: pulumi.Input<string>;
+    readonly backupPolicyName?: pulumi.Input<string>;
     /**
      * The device name
      */

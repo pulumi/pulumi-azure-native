@@ -65,8 +65,6 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
             if amount is None and not opts.urn:
                 raise TypeError("Missing required property 'amount'")
             __props__['amount'] = amount
-            if budget_name is None and not opts.urn:
-                raise TypeError("Missing required property 'budget_name'")
             __props__['budget_name'] = budget_name
             if category is None and not opts.urn:
                 raise TypeError("Missing required property 'category'")

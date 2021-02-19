@@ -198,8 +198,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <summary>
         /// The name of the server.
         /// </summary>
-        [Input("serverName", required: true)]
-        public Input<string> ServerName { get; set; } = null!;
+        [Input("serverName")]
+        public Input<string>? ServerName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

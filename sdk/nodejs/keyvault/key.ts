@@ -88,9 +88,6 @@ export class Key extends pulumi.CustomResource {
     constructor(name: string, args: KeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.keyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'keyName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -148,7 +145,7 @@ export interface KeyArgs {
     /**
      * The name of the key to be created.
      */
-    readonly keyName: pulumi.Input<string>;
+    readonly keyName?: pulumi.Input<string>;
     /**
      * The properties of the key to be created.
      */

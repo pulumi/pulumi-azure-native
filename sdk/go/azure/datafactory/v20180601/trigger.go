@@ -41,9 +41,6 @@ func NewTrigger(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TriggerName == nil {
-		return nil, errors.New("invalid value for required argument 'TriggerName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:datafactory:Trigger"),
@@ -111,7 +108,7 @@ type triggerArgs struct {
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The trigger name.
-	TriggerName string `pulumi:"triggerName"`
+	TriggerName *string `pulumi:"triggerName"`
 }
 
 // The set of arguments for constructing a Trigger resource.
@@ -123,7 +120,7 @@ type TriggerArgs struct {
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The trigger name.
-	TriggerName pulumi.StringInput
+	TriggerName pulumi.StringPtrInput
 }
 
 func (TriggerArgs) ElementType() reflect.Type {

@@ -90,9 +90,6 @@ export class AutomationAccount extends pulumi.CustomResource {
     constructor(name: string, args: AutomationAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'automationAccountName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -142,7 +139,7 @@ export interface AutomationAccountArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    readonly automationAccountName?: pulumi.Input<string>;
     /**
      * Gets or sets the location of the resource.
      */

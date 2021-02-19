@@ -167,8 +167,8 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// The name of the connection monitor.
         /// </summary>
-        [Input("connectionMonitorName", required: true)]
-        public Input<string> ConnectionMonitorName { get; set; } = null!;
+        [Input("connectionMonitorName")]
+        public Input<string>? ConnectionMonitorName { get; set; }
 
         /// <summary>
         /// Describes the destination of connection monitor.

@@ -178,8 +178,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The name of the packet capture session.
         /// </summary>
-        [Input("packetCaptureName", required: true)]
-        public Input<string> PacketCaptureName { get; set; } = null!;
+        [Input("packetCaptureName")]
+        public Input<string>? PacketCaptureName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

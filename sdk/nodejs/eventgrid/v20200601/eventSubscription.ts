@@ -90,9 +90,6 @@ export class EventSubscription extends pulumi.CustomResource {
     constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.eventSubscriptionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'eventSubscriptionName'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -154,7 +151,7 @@ export interface EventSubscriptionArgs {
     /**
      * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
      */
-    readonly eventSubscriptionName: pulumi.Input<string>;
+    readonly eventSubscriptionName?: pulumi.Input<string>;
     /**
      * Expiration time of the event subscription.
      */

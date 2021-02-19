@@ -100,9 +100,6 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
         pulumi.log.warn("SpatialAnchorsAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:mixedreality:SpatialAnchorsAccount'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -154,7 +151,7 @@ export interface SpatialAnchorsAccountArgs {
     /**
      * Name of an Mixed Reality Account.
      */
-    readonly accountName: pulumi.Input<string>;
+    readonly accountName?: pulumi.Input<string>;
     /**
      * The identity associated with this account
      */

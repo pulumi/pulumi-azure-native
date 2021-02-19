@@ -118,8 +118,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
         /// <summary>
         /// vCenter name.
         /// </summary>
-        [Input("vCenterName", required: true)]
-        public Input<string> VCenterName { get; set; } = null!;
+        [Input("vCenterName")]
+        public Input<string>? VCenterName { get; set; }
 
         public ReplicationvCenterArgs()
         {

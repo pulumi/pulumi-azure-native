@@ -52,9 +52,6 @@ func NewNetworkInterface(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.NetworkInterfaceName == nil {
-		return nil, errors.New("invalid value for required argument 'NetworkInterfaceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -272,7 +269,7 @@ type networkInterfaceArgs struct {
 	// Gets the MAC address of the network interface
 	MacAddress *string `pulumi:"macAddress"`
 	// The name of the network interface.
-	NetworkInterfaceName string `pulumi:"networkInterfaceName"`
+	NetworkInterfaceName *string `pulumi:"networkInterfaceName"`
 	// Gets or sets the reference of the NetworkSecurityGroup resource
 	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
 	// Gets whether this is a primary NIC on a virtual machine
@@ -306,7 +303,7 @@ type NetworkInterfaceArgs struct {
 	// Gets the MAC address of the network interface
 	MacAddress pulumi.StringPtrInput
 	// The name of the network interface.
-	NetworkInterfaceName pulumi.StringInput
+	NetworkInterfaceName pulumi.StringPtrInput
 	// Gets or sets the reference of the NetworkSecurityGroup resource
 	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
 	// Gets whether this is a primary NIC on a virtual machine

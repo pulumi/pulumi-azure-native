@@ -100,8 +100,8 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The bandwidth setting name.
         /// </summary>
-        [Input("bandwidthSettingName", required: true)]
-        public Input<string> BandwidthSettingName { get; set; } = null!;
+        [Input("bandwidthSettingName")]
+        public Input<string>? BandwidthSettingName { get; set; }
 
         /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported

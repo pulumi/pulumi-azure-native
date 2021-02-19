@@ -67,9 +67,6 @@ export class Binding extends pulumi.CustomResource {
             if ((!args || args.appName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appName'");
             }
-            if ((!args || args.bindingName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'bindingName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +109,7 @@ export interface BindingArgs {
     /**
      * The name of the Binding resource.
      */
-    readonly bindingName: pulumi.Input<string>;
+    readonly bindingName?: pulumi.Input<string>;
     /**
      * Properties of the Binding resource
      */

@@ -84,9 +84,6 @@ export class BotConnection extends pulumi.CustomResource {
         pulumi.log.warn("BotConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:BotConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +131,7 @@ export interface BotConnectionArgs {
     /**
      * The name of the Bot Service Connection Setting resource.
      */
-    readonly connectionName: pulumi.Input<string>;
+    readonly connectionName?: pulumi.Input<string>;
     /**
      * Entity Tag
      */

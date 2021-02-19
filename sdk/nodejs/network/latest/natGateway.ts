@@ -104,9 +104,6 @@ export class NatGateway extends pulumi.CustomResource {
         pulumi.log.warn("NatGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NatGateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.natGatewayName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'natGatewayName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -173,7 +170,7 @@ export interface NatGatewayArgs {
     /**
      * The name of the nat gateway.
      */
-    readonly natGatewayName: pulumi.Input<string>;
+    readonly natGatewayName?: pulumi.Input<string>;
     /**
      * An array of public ip addresses associated with the nat gateway resource.
      */

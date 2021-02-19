@@ -180,8 +180,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
         /// <summary>
         /// Name of the Azure Machine Learning service.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public Input<string> ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
 
         /// <summary>
         /// Name of Azure Machine Learning workspace.

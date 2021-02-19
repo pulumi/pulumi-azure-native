@@ -111,9 +111,6 @@ func NewDatabase(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DatabaseName == nil {
-		return nil, errors.New("invalid value for required argument 'DatabaseName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -365,7 +362,7 @@ type databaseArgs struct {
 	// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
 	CreateMode *string `pulumi:"createMode"`
 	// The name of the database to be operated on (updated or created).
-	DatabaseName string `pulumi:"databaseName"`
+	DatabaseName *string `pulumi:"databaseName"`
 	// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
 	//
 	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
@@ -429,7 +426,7 @@ type DatabaseArgs struct {
 	// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
 	CreateMode pulumi.StringPtrInput
 	// The name of the database to be operated on (updated or created).
-	DatabaseName pulumi.StringInput
+	DatabaseName pulumi.StringPtrInput
 	// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
 	//
 	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:

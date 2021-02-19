@@ -95,9 +95,6 @@ export class CloudEndpoint extends pulumi.CustomResource {
         pulumi.log.warn("CloudEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:CloudEndpoint'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.cloudEndpointName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'cloudEndpointName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -159,7 +156,7 @@ export interface CloudEndpointArgs {
     /**
      * Name of Cloud Endpoint object.
      */
-    readonly cloudEndpointName: pulumi.Input<string>;
+    readonly cloudEndpointName?: pulumi.Input<string>;
     /**
      * Friendly Name
      */

@@ -41,9 +41,6 @@ func NewOutput(ctx *pulumi.Context,
 	if args.JobName == nil {
 		return nil, errors.New("invalid value for required argument 'JobName'")
 	}
-	if args.OutputName == nil {
-		return nil, errors.New("invalid value for required argument 'OutputName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -126,7 +123,7 @@ type outputArgs struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The name of the output.
-	OutputName string `pulumi:"outputName"`
+	OutputName *string `pulumi:"outputName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
@@ -144,7 +141,7 @@ type OutputArgs struct {
 	// Resource name
 	Name pulumi.StringPtrInput
 	// The name of the output.
-	OutputName pulumi.StringInput
+	OutputName pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.

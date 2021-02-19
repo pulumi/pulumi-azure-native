@@ -74,9 +74,6 @@ func NewDomainService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DomainServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainServiceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -234,7 +231,7 @@ type domainServiceArgs struct {
 	// DomainSecurity Settings
 	DomainSecuritySettings *DomainSecuritySettings `pulumi:"domainSecuritySettings"`
 	// The name of the domain service.
-	DomainServiceName string `pulumi:"domainServiceName"`
+	DomainServiceName *string `pulumi:"domainServiceName"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
 	// Enabled or Disabled flag to turn on Group-based filtered sync
@@ -266,7 +263,7 @@ type DomainServiceArgs struct {
 	// DomainSecurity Settings
 	DomainSecuritySettings DomainSecuritySettingsPtrInput
 	// The name of the domain service.
-	DomainServiceName pulumi.StringInput
+	DomainServiceName pulumi.StringPtrInput
 	// Resource etag
 	Etag pulumi.StringPtrInput
 	// Enabled or Disabled flag to turn on Group-based filtered sync

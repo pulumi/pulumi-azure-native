@@ -118,8 +118,8 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
         /// <summary>
         /// dedicated cloud Service name
         /// </summary>
-        [Input("dedicatedCloudServiceName", required: true)]
-        public Input<string> DedicatedCloudServiceName { get; set; } = null!;
+        [Input("dedicatedCloudServiceName")]
+        public Input<string>? DedicatedCloudServiceName { get; set; }
 
         /// <summary>
         /// gateway Subnet for the account. It will collect the subnet address and always treat it as /28

@@ -46,9 +46,6 @@ func NewToken(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TokenName == nil {
-		return nil, errors.New("invalid value for required argument 'TokenName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry:Token"),
@@ -133,7 +130,7 @@ type tokenArgs struct {
 	// The status of the token example enabled or disabled.
 	Status *string `pulumi:"status"`
 	// The name of the token.
-	TokenName string `pulumi:"tokenName"`
+	TokenName *string `pulumi:"tokenName"`
 }
 
 // The set of arguments for constructing a Token resource.
@@ -149,7 +146,7 @@ type TokenArgs struct {
 	// The status of the token example enabled or disabled.
 	Status pulumi.StringPtrInput
 	// The name of the token.
-	TokenName pulumi.StringInput
+	TokenName pulumi.StringPtrInput
 }
 
 func (TokenArgs) ElementType() reflect.Type {

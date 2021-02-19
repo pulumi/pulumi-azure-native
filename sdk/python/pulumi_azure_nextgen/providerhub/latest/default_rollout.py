@@ -55,8 +55,6 @@ class DefaultRollout(pulumi.CustomResource):
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__['provider_namespace'] = provider_namespace
-            if rollout_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rollout_name'")
             __props__['rollout_name'] = rollout_name
             __props__['name'] = None
             __props__['provisioning_state'] = None

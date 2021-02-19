@@ -42,9 +42,6 @@ func NewEventHub(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EventHubName == nil {
-		return nil, errors.New("invalid value for required argument 'EventHubName'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -138,7 +135,7 @@ func (EventHubState) ElementType() reflect.Type {
 
 type eventHubArgs struct {
 	// The Event Hub name
-	EventHubName string `pulumi:"eventHubName"`
+	EventHubName *string `pulumi:"eventHubName"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// Number of days to retain the events for this Event Hub.
@@ -160,7 +157,7 @@ type eventHubArgs struct {
 // The set of arguments for constructing a EventHub resource.
 type EventHubArgs struct {
 	// The Event Hub name
-	EventHubName pulumi.StringInput
+	EventHubName pulumi.StringPtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
 	// Number of days to retain the events for this Event Hub.

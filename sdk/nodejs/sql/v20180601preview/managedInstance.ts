@@ -159,9 +159,6 @@ export class ManagedInstance extends pulumi.CustomResource {
     constructor(name: string, args: ManagedInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'managedInstanceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -285,7 +282,7 @@ export interface ManagedInstanceArgs {
     /**
      * The name of the managed instance.
      */
-    readonly managedInstanceName: pulumi.Input<string>;
+    readonly managedInstanceName?: pulumi.Input<string>;
     /**
      * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
      */

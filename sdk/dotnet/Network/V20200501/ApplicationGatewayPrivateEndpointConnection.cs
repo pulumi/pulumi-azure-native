@@ -119,8 +119,8 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// <summary>
         /// The name of the application gateway private endpoint connection.
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// Resource ID.

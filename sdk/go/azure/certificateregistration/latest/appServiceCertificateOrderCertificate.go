@@ -48,9 +48,6 @@ func NewAppServiceCertificateOrderCertificate(ctx *pulumi.Context,
 	if args.CertificateOrderName == nil {
 		return nil, errors.New("invalid value for required argument 'CertificateOrderName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -157,7 +154,7 @@ type appServiceCertificateOrderCertificateArgs struct {
 	// Resource Location.
 	Location *string `pulumi:"location"`
 	// Name of the certificate.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -177,7 +174,7 @@ type AppServiceCertificateOrderCertificateArgs struct {
 	// Resource Location.
 	Location pulumi.StringPtrInput
 	// Name of the certificate.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

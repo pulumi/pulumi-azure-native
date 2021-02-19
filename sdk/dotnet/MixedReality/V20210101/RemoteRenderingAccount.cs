@@ -143,8 +143,8 @@ namespace Pulumi.AzureNextGen.MixedReality.V20210101
         /// <summary>
         /// Name of an Mixed Reality Account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The identity associated with this account

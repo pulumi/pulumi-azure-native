@@ -51,9 +51,6 @@ func NewDiskPool(ctx *pulumi.Context,
 	if args.AvailabilityZones == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZones'")
 	}
-	if args.DiskPoolName == nil {
-		return nil, errors.New("invalid value for required argument 'DiskPoolName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -154,7 +151,7 @@ type diskPoolArgs struct {
 	// Logical zone for Disk pool resource; example: ["1"].
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The name of the Disk pool.
-	DiskPoolName string `pulumi:"diskPoolName"`
+	DiskPoolName *string `pulumi:"diskPoolName"`
 	// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
 	Disks []Disk `pulumi:"disks"`
 	// The geo-location where the resource lives.
@@ -176,7 +173,7 @@ type DiskPoolArgs struct {
 	// Logical zone for Disk pool resource; example: ["1"].
 	AvailabilityZones pulumi.StringArrayInput
 	// The name of the Disk pool.
-	DiskPoolName pulumi.StringInput
+	DiskPoolName pulumi.StringPtrInput
 	// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
 	Disks DiskArrayInput
 	// The geo-location where the resource lives.

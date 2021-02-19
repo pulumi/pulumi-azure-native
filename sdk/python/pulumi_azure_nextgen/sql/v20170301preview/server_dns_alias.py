@@ -47,8 +47,6 @@ class ServerDnsAlias(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if dns_alias_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dns_alias_name'")
             __props__['dns_alias_name'] = dns_alias_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

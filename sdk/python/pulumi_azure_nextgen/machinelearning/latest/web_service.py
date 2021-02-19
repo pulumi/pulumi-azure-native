@@ -68,8 +68,6 @@ class WebService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if web_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'web_service_name'")
             __props__['web_service_name'] = web_service_name
             __props__['name'] = None
             __props__['type'] = None

@@ -42,9 +42,6 @@ func NewGeoBackupPolicy(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	if args.GeoBackupPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'GeoBackupPolicyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -119,7 +116,7 @@ type geoBackupPolicyArgs struct {
 	// The name of the database.
 	DatabaseName string `pulumi:"databaseName"`
 	// The name of the geo backup policy.
-	GeoBackupPolicyName string `pulumi:"geoBackupPolicyName"`
+	GeoBackupPolicyName *string `pulumi:"geoBackupPolicyName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -133,7 +130,7 @@ type GeoBackupPolicyArgs struct {
 	// The name of the database.
 	DatabaseName pulumi.StringInput
 	// The name of the geo backup policy.
-	GeoBackupPolicyName pulumi.StringInput
+	GeoBackupPolicyName pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

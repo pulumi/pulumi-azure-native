@@ -45,9 +45,6 @@ func NewSqlDatabase(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SqlDatabaseName == nil {
-		return nil, errors.New("invalid value for required argument 'SqlDatabaseName'")
-	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
@@ -128,7 +125,7 @@ type sqlDatabaseArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the sql database.
-	SqlDatabaseName string `pulumi:"sqlDatabaseName"`
+	SqlDatabaseName *string `pulumi:"sqlDatabaseName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the workspace.
@@ -146,7 +143,7 @@ type SqlDatabaseArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the sql database.
-	SqlDatabaseName pulumi.StringInput
+	SqlDatabaseName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the workspace.

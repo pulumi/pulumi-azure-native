@@ -293,8 +293,8 @@ namespace Pulumi.AzureNextGen.Storage
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.

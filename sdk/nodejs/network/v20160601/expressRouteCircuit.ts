@@ -110,9 +110,6 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     constructor(name: string, args: ExpressRouteCircuitArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.circuitName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'circuitName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -181,7 +178,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * The name of the circuit.
      */
-    readonly circuitName: pulumi.Input<string>;
+    readonly circuitName?: pulumi.Input<string>;
     /**
      * Gets or sets CircuitProvisioningState state of the resource 
      */

@@ -74,9 +74,6 @@ func NewRegisteredServer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServerId == nil {
-		return nil, errors.New("invalid value for required argument 'ServerId'")
-	}
 	if args.StorageSyncServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageSyncServiceName'")
 	}
@@ -251,7 +248,7 @@ type registeredServerArgs struct {
 	// Registered Server Certificate
 	ServerCertificate *string `pulumi:"serverCertificate"`
 	// Registered Server serverId
-	ServerId string `pulumi:"serverId"`
+	ServerId *string `pulumi:"serverId"`
 	// Registered Server OS Version
 	ServerOSVersion *string `pulumi:"serverOSVersion"`
 	// Registered Server serverRole
@@ -277,7 +274,7 @@ type RegisteredServerArgs struct {
 	// Registered Server Certificate
 	ServerCertificate pulumi.StringPtrInput
 	// Registered Server serverId
-	ServerId pulumi.StringInput
+	ServerId pulumi.StringPtrInput
 	// Registered Server OS Version
 	ServerOSVersion pulumi.StringPtrInput
 	// Registered Server serverRole

@@ -104,8 +104,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
         /// <summary>
         /// Name of PostgresInstance
         /// </summary>
-        [Input("postgresInstanceName", required: true)]
-        public Input<string> PostgresInstanceName { get; set; } = null!;
+        [Input("postgresInstanceName")]
+        public Input<string>? PostgresInstanceName { get; set; }
 
         /// <summary>
         /// The name of the Azure resource group

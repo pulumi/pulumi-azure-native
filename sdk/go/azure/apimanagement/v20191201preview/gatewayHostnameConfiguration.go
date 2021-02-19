@@ -37,9 +37,6 @@ func NewGatewayHostnameConfiguration(ctx *pulumi.Context,
 	if args.GatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayId'")
 	}
-	if args.HcId == nil {
-		return nil, errors.New("invalid value for required argument 'HcId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -118,7 +115,7 @@ type gatewayHostnameConfigurationArgs struct {
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId string `pulumi:"gatewayId"`
 	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
-	HcId string `pulumi:"hcId"`
+	HcId *string `pulumi:"hcId"`
 	// Hostname value. Supports valid domain name, partial or full wildcard
 	Hostname *string `pulumi:"hostname"`
 	// Determines whether gateway requests client certificate
@@ -136,7 +133,7 @@ type GatewayHostnameConfigurationArgs struct {
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId pulumi.StringInput
 	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
-	HcId pulumi.StringInput
+	HcId pulumi.StringPtrInput
 	// Hostname value. Supports valid domain name, partial or full wildcard
 	Hostname pulumi.StringPtrInput
 	// Determines whether gateway requests client certificate

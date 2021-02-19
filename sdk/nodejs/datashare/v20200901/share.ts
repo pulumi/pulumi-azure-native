@@ -92,9 +92,6 @@ export class Share extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'shareName'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -156,7 +153,7 @@ export interface ShareArgs {
     /**
      * The name of the share.
      */
-    readonly shareName: pulumi.Input<string>;
+    readonly shareName?: pulumi.Input<string>;
     /**
      * Share terms.
      */

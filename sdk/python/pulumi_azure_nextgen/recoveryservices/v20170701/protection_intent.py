@@ -64,8 +64,6 @@ class ProtectionIntent(pulumi.CustomResource):
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__['fabric_name'] = fabric_name
-            if intent_object_name is None and not opts.urn:
-                raise TypeError("Missing required property 'intent_object_name'")
             __props__['intent_object_name'] = intent_object_name
             __props__['location'] = location
             __props__['properties'] = properties

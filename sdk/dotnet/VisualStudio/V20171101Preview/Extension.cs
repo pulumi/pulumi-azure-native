@@ -110,8 +110,8 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20171101Preview
         /// <summary>
         /// The name of the extension.
         /// </summary>
-        [Input("extensionResourceName", required: true)]
-        public Input<string> ExtensionResourceName { get; set; } = null!;
+        [Input("extensionResourceName")]
+        public Input<string>? ExtensionResourceName { get; set; }
 
         /// <summary>
         /// The Azure region of the Visual Studio account associated with this request (i.e 'southcentralus'.)

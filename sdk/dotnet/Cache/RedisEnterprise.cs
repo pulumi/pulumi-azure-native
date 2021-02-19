@@ -142,8 +142,8 @@ namespace Pulumi.AzureNextGen.Cache
         /// <summary>
         /// The name of the RedisEnterprise cluster.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -55,9 +55,6 @@ func NewAppliance(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplianceName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplianceName'")
-	}
 	if args.ManagedResourceGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedResourceGroupId'")
 	}
@@ -165,7 +162,7 @@ type applianceArgs struct {
 	// The fully qualified path of appliance definition Id.
 	ApplianceDefinitionId *string `pulumi:"applianceDefinitionId"`
 	// The name of the appliance.
-	ApplianceName string `pulumi:"applianceName"`
+	ApplianceName *string `pulumi:"applianceName"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
 	// The kind of the appliance. Allowed values are MarketPlace and ServiceCatalog.
@@ -195,7 +192,7 @@ type ApplianceArgs struct {
 	// The fully qualified path of appliance definition Id.
 	ApplianceDefinitionId pulumi.StringPtrInput
 	// The name of the appliance.
-	ApplianceName pulumi.StringInput
+	ApplianceName pulumi.StringPtrInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// The kind of the appliance. Allowed values are MarketPlace and ServiceCatalog.

@@ -54,8 +54,6 @@ class PartnerNamespace(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['location'] = location
-            if partner_namespace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'partner_namespace_name'")
             __props__['partner_namespace_name'] = partner_namespace_name
             __props__['partner_registration_fully_qualified_id'] = partner_registration_fully_qualified_id
             if resource_group_name is None and not opts.urn:

@@ -42,9 +42,6 @@ func NewIotHubResource(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
@@ -174,7 +171,7 @@ type iotHubResourceArgs struct {
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the IoT hub.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// IotHub SKU info
 	Sku IotHubSkuInfo `pulumi:"sku"`
 	// The resource tags.
@@ -192,7 +189,7 @@ type IotHubResourceArgs struct {
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName pulumi.StringInput
 	// The name of the IoT hub.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// IotHub SKU info
 	Sku IotHubSkuInfoInput
 	// The resource tags.

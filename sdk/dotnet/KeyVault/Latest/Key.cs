@@ -133,8 +133,8 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
         /// <summary>
         /// The name of the key to be created.
         /// </summary>
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         /// <summary>
         /// The properties of the key to be created.

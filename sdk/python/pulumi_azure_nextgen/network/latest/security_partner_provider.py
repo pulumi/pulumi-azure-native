@@ -69,8 +69,6 @@ class SecurityPartnerProvider(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if security_partner_provider_name is None and not opts.urn:
-                raise TypeError("Missing required property 'security_partner_provider_name'")
             __props__['security_partner_provider_name'] = security_partner_provider_name
             __props__['security_provider_name'] = security_provider_name
             __props__['tags'] = tags

@@ -68,8 +68,6 @@ class Backend(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if backendid is None and not opts.urn:
-                raise TypeError("Missing required property 'backendid'")
             __props__['backendid'] = backendid
             __props__['credentials'] = credentials
             __props__['description'] = description

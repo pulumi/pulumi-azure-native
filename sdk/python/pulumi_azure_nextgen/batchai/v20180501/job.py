@@ -111,8 +111,6 @@ class Job(pulumi.CustomResource):
             __props__['experiment_name'] = experiment_name
             __props__['horovod_settings'] = horovod_settings
             __props__['input_directories'] = input_directories
-            if job_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
             __props__['job_preparation'] = job_preparation
             __props__['mount_volumes'] = mount_volumes

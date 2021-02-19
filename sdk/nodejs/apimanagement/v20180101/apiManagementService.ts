@@ -159,9 +159,6 @@ export class ApiManagementService extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serviceName'");
-            }
             if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
@@ -281,7 +278,7 @@ export interface ApiManagementServiceArgs {
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    readonly serviceName?: pulumi.Input<string>;
     /**
      * SKU properties of the API Management service.
      */

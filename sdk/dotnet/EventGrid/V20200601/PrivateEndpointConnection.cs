@@ -133,8 +133,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200601
         /// <summary>
         /// The name of the private endpoint connection connection.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// Details about the state of the connection.

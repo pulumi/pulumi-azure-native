@@ -125,8 +125,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20150801
         /// <summary>
         /// The Event Hub name
         /// </summary>
-        [Input("eventHubName", required: true)]
-        public Input<string> EventHubName { get; set; } = null!;
+        [Input("eventHubName")]
+        public Input<string>? EventHubName { get; set; }
 
         /// <summary>
         /// Location of the resource.

@@ -107,8 +107,8 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
         /// <summary>
         /// Name of the event source.
         /// </summary>
-        [Input("eventSourceName", required: true)]
-        public Input<string> EventSourceName { get; set; } = null!;
+        [Input("eventSourceName")]
+        public Input<string>? EventSourceName { get; set; }
 
         /// <summary>
         /// The kind of the event source.

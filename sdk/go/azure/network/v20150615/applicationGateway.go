@@ -62,9 +62,6 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationGatewayName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationGatewayName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -288,7 +285,7 @@ func (ApplicationGatewayState) ElementType() reflect.Type {
 
 type applicationGatewayArgs struct {
 	// The name of the application gateway.
-	ApplicationGatewayName string `pulumi:"applicationGatewayName"`
+	ApplicationGatewayName *string `pulumi:"applicationGatewayName"`
 	// Backend address pool of the application gateway resource.
 	BackendAddressPools []ApplicationGatewayBackendAddressPool `pulumi:"backendAddressPools"`
 	// Backend http settings of the application gateway resource.
@@ -330,7 +327,7 @@ type applicationGatewayArgs struct {
 // The set of arguments for constructing a ApplicationGateway resource.
 type ApplicationGatewayArgs struct {
 	// The name of the application gateway.
-	ApplicationGatewayName pulumi.StringInput
+	ApplicationGatewayName pulumi.StringPtrInput
 	// Backend address pool of the application gateway resource.
 	BackendAddressPools ApplicationGatewayBackendAddressPoolArrayInput
 	// Backend http settings of the application gateway resource.

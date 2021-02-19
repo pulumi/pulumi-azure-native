@@ -235,8 +235,8 @@ namespace Pulumi.AzureNextGen.Network.V20181201
         /// <summary>
         /// The name of the VirtualWAN being created or updated.
         /// </summary>
-        [Input("virtualWANName", required: true)]
-        public Input<string> VirtualWANName { get; set; } = null!;
+        [Input("virtualWANName")]
+        public Input<string>? VirtualWANName { get; set; }
 
         public VirtualWanArgs()
         {

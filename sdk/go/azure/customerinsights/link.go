@@ -58,9 +58,6 @@ func NewLink(ctx *pulumi.Context,
 	if args.HubName == nil {
 		return nil, errors.New("invalid value for required argument 'HubName'")
 	}
-	if args.LinkName == nil {
-		return nil, errors.New("invalid value for required argument 'LinkName'")
-	}
 	if args.ParticipantPropertyReferences == nil {
 		return nil, errors.New("invalid value for required argument 'ParticipantPropertyReferences'")
 	}
@@ -184,7 +181,7 @@ type linkArgs struct {
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
 	// The name of the link.
-	LinkName string `pulumi:"linkName"`
+	LinkName *string `pulumi:"linkName"`
 	// The set of properties mappings between the source and target Types.
 	Mappings []TypePropertiesMapping `pulumi:"mappings"`
 	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
@@ -214,7 +211,7 @@ type LinkArgs struct {
 	// The name of the hub.
 	HubName pulumi.StringInput
 	// The name of the link.
-	LinkName pulumi.StringInput
+	LinkName pulumi.StringPtrInput
 	// The set of properties mappings between the source and target Types.
 	Mappings TypePropertiesMappingArrayInput
 	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.

@@ -130,8 +130,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <summary>
         /// The name of the private end point connection.
         /// </summary>
-        [Input("peConnectionName", required: true)]
-        public Input<string> PeConnectionName { get; set; } = null!;
+        [Input("peConnectionName")]
+        public Input<string>? PeConnectionName { get; set; }
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.

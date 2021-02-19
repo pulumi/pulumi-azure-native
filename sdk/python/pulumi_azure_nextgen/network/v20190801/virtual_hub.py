@@ -83,8 +83,6 @@ class VirtualHub(pulumi.CustomResource):
             __props__['route_table'] = route_table
             __props__['security_provider_name'] = security_provider_name
             __props__['tags'] = tags
-            if virtual_hub_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['virtual_network_connections'] = virtual_network_connections
             __props__['virtual_wan'] = virtual_wan

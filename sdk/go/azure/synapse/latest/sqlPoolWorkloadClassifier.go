@@ -52,9 +52,6 @@ func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 	if args.SqlPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'SqlPoolName'")
 	}
-	if args.WorkloadClassifierName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkloadClassifierName'")
-	}
 	if args.WorkloadGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkloadGroupName'")
 	}
@@ -154,7 +151,7 @@ type sqlPoolWorkloadClassifierArgs struct {
 	// The workload classifier start time for classification.
 	StartTime *string `pulumi:"startTime"`
 	// The name of the workload classifier.
-	WorkloadClassifierName string `pulumi:"workloadClassifierName"`
+	WorkloadClassifierName *string `pulumi:"workloadClassifierName"`
 	// The name of the workload group.
 	WorkloadGroupName string `pulumi:"workloadGroupName"`
 	// The name of the workspace
@@ -180,7 +177,7 @@ type SqlPoolWorkloadClassifierArgs struct {
 	// The workload classifier start time for classification.
 	StartTime pulumi.StringPtrInput
 	// The name of the workload classifier.
-	WorkloadClassifierName pulumi.StringInput
+	WorkloadClassifierName pulumi.StringPtrInput
 	// The name of the workload group.
 	WorkloadGroupName pulumi.StringInput
 	// The name of the workspace

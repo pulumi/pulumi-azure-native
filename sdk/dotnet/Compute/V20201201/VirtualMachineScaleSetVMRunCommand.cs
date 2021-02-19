@@ -231,8 +231,8 @@ namespace Pulumi.AzureNextGen.Compute.V20201201
         /// <summary>
         /// The name of the virtual machine run command.
         /// </summary>
-        [Input("runCommandName", required: true)]
-        public Input<string> RunCommandName { get; set; } = null!;
+        [Input("runCommandName")]
+        public Input<string>? RunCommandName { get; set; }
 
         /// <summary>
         /// The source of the run command script.

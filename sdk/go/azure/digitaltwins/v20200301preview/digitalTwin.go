@@ -45,9 +45,6 @@ func NewDigitalTwin(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins:DigitalTwin"),
@@ -136,7 +133,7 @@ type digitalTwinArgs struct {
 	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the DigitalTwinsInstance.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// This property is reserved for future use, and will be ignored/omitted
 	Sku *DigitalTwinsSkuInfo `pulumi:"sku"`
 	// The resource tags.
@@ -150,7 +147,7 @@ type DigitalTwinArgs struct {
 	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName pulumi.StringInput
 	// The name of the DigitalTwinsInstance.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// This property is reserved for future use, and will be ignored/omitted
 	Sku DigitalTwinsSkuInfoPtrInput
 	// The resource tags.

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -44,12 +43,9 @@ type RemediationAtSubscription struct {
 func NewRemediationAtSubscription(ctx *pulumi.Context,
 	name string, args *RemediationAtSubscriptionArgs, opts ...pulumi.ResourceOption) (*RemediationAtSubscription, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &RemediationAtSubscriptionArgs{}
 	}
 
-	if args.RemediationName == nil {
-		return nil, errors.New("invalid value for required argument 'RemediationName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:policyinsights:RemediationAtSubscription"),
@@ -141,7 +137,7 @@ type remediationAtSubscriptionArgs struct {
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 	// The name of the remediation.
-	RemediationName string `pulumi:"remediationName"`
+	RemediationName *string `pulumi:"remediationName"`
 	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
@@ -155,7 +151,7 @@ type RemediationAtSubscriptionArgs struct {
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
 	// The name of the remediation.
-	RemediationName pulumi.StringInput
+	RemediationName pulumi.StringPtrInput
 	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 }

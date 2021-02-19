@@ -32,9 +32,6 @@ func NewCustomerSubscription(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CustomerSubscriptionName == nil {
-		return nil, errors.New("invalid value for required argument 'CustomerSubscriptionName'")
-	}
 	if args.RegistrationName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistrationName'")
 	}
@@ -102,7 +99,7 @@ func (CustomerSubscriptionState) ElementType() reflect.Type {
 
 type customerSubscriptionArgs struct {
 	// Name of the product.
-	CustomerSubscriptionName string `pulumi:"customerSubscriptionName"`
+	CustomerSubscriptionName *string `pulumi:"customerSubscriptionName"`
 	// The entity tag used for optimistic concurrency when modifying the resource.
 	Etag *string `pulumi:"etag"`
 	// Name of the Azure Stack registration.
@@ -116,7 +113,7 @@ type customerSubscriptionArgs struct {
 // The set of arguments for constructing a CustomerSubscription resource.
 type CustomerSubscriptionArgs struct {
 	// Name of the product.
-	CustomerSubscriptionName pulumi.StringInput
+	CustomerSubscriptionName pulumi.StringPtrInput
 	// The entity tag used for optimistic concurrency when modifying the resource.
 	Etag pulumi.StringPtrInput
 	// Name of the Azure Stack registration.

@@ -67,9 +67,6 @@ func NewPartnerRegistration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PartnerRegistrationName == nil {
-		return nil, errors.New("invalid value for required argument 'PartnerRegistrationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -222,7 +219,7 @@ type partnerRegistrationArgs struct {
 	// Official name of the partner name. For example: "Contoso".
 	PartnerName *string `pulumi:"partnerName"`
 	// Name of the partner registration.
-	PartnerRegistrationName string `pulumi:"partnerRegistrationName"`
+	PartnerRegistrationName *string `pulumi:"partnerRegistrationName"`
 	// Short description of the partner resource type. The length of this description should not exceed 256 characters.
 	PartnerResourceTypeDescription *string `pulumi:"partnerResourceTypeDescription"`
 	// Display name of the partner resource type.
@@ -266,7 +263,7 @@ type PartnerRegistrationArgs struct {
 	// Official name of the partner name. For example: "Contoso".
 	PartnerName pulumi.StringPtrInput
 	// Name of the partner registration.
-	PartnerRegistrationName pulumi.StringInput
+	PartnerRegistrationName pulumi.StringPtrInput
 	// Short description of the partner resource type. The length of this description should not exceed 256 characters.
 	PartnerResourceTypeDescription pulumi.StringPtrInput
 	// Display name of the partner resource type.

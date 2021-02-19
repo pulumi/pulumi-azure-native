@@ -35,9 +35,6 @@ func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DeploymentName == nil {
-		return nil, errors.New("invalid value for required argument 'DeploymentName'")
-	}
 	if args.GroupId == nil {
 		return nil, errors.New("invalid value for required argument 'GroupId'")
 	}
@@ -127,7 +124,7 @@ func (DeploymentAtManagementGroupScopeState) ElementType() reflect.Type {
 
 type deploymentAtManagementGroupScopeArgs struct {
 	// The name of the deployment.
-	DeploymentName string `pulumi:"deploymentName"`
+	DeploymentName *string `pulumi:"deploymentName"`
 	// The management group ID.
 	GroupId string `pulumi:"groupId"`
 	// The location to store the deployment data.
@@ -141,7 +138,7 @@ type deploymentAtManagementGroupScopeArgs struct {
 // The set of arguments for constructing a DeploymentAtManagementGroupScope resource.
 type DeploymentAtManagementGroupScopeArgs struct {
 	// The name of the deployment.
-	DeploymentName pulumi.StringInput
+	DeploymentName pulumi.StringPtrInput
 	// The management group ID.
 	GroupId pulumi.StringInput
 	// The location to store the deployment data.

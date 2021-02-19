@@ -66,9 +66,6 @@ export class ProviderInstance extends pulumi.CustomResource {
     constructor(name: string, args: ProviderInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.providerInstanceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'providerInstanceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -118,7 +115,7 @@ export interface ProviderInstanceArgs {
     /**
      * Name of the provider instance.
      */
-    readonly providerInstanceName: pulumi.Input<string>;
+    readonly providerInstanceName?: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */

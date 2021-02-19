@@ -37,9 +37,6 @@ func NewApiIssueComment(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
-	if args.CommentId == nil {
-		return nil, errors.New("invalid value for required argument 'CommentId'")
-	}
 	if args.IssueId == nil {
 		return nil, errors.New("invalid value for required argument 'IssueId'")
 	}
@@ -137,7 +134,7 @@ type apiIssueCommentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
 	// Comment identifier within an Issue. Must be unique in the current Issue.
-	CommentId string `pulumi:"commentId"`
+	CommentId *string `pulumi:"commentId"`
 	// Date and time when the comment was created.
 	CreatedDate *string `pulumi:"createdDate"`
 	// Issue identifier. Must be unique in the current API Management service instance.
@@ -157,7 +154,7 @@ type ApiIssueCommentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId pulumi.StringInput
 	// Comment identifier within an Issue. Must be unique in the current Issue.
-	CommentId pulumi.StringInput
+	CommentId pulumi.StringPtrInput
 	// Date and time when the comment was created.
 	CreatedDate pulumi.StringPtrInput
 	// Issue identifier. Must be unique in the current API Management service instance.

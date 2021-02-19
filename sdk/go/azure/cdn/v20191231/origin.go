@@ -52,9 +52,6 @@ func NewOrigin(ctx *pulumi.Context,
 	if args.HostName == nil {
 		return nil, errors.New("invalid value for required argument 'HostName'")
 	}
-	if args.OriginName == nil {
-		return nil, errors.New("invalid value for required argument 'OriginName'")
-	}
 	if args.ProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'ProfileName'")
 	}
@@ -174,7 +171,7 @@ type originArgs struct {
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// Name of the origin that is unique within the endpoint.
-	OriginName string `pulumi:"originName"`
+	OriginName *string `pulumi:"originName"`
 	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
 	Priority *int `pulumi:"priority"`
 	// Name of the CDN profile which is unique within the resource group.
@@ -200,7 +197,7 @@ type OriginArgs struct {
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
 	OriginHostHeader pulumi.StringPtrInput
 	// Name of the origin that is unique within the endpoint.
-	OriginName pulumi.StringInput
+	OriginName pulumi.StringPtrInput
 	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
 	Priority pulumi.IntPtrInput
 	// Name of the CDN profile which is unique within the resource group.

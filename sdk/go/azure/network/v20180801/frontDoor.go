@@ -52,9 +52,6 @@ func NewFrontDoor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FrontDoorName == nil {
-		return nil, errors.New("invalid value for required argument 'FrontDoorName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -177,7 +174,7 @@ type frontDoorArgs struct {
 	// A friendly name for the frontDoor
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Name of the Front Door which is globally unique.
-	FrontDoorName string `pulumi:"frontDoorName"`
+	FrontDoorName *string `pulumi:"frontDoorName"`
 	// Frontend endpoints available to routing rules.
 	FrontendEndpoints []FrontendEndpoint `pulumi:"frontendEndpoints"`
 	// Health probe settings associated with this Front Door instance.
@@ -203,7 +200,7 @@ type FrontDoorArgs struct {
 	// A friendly name for the frontDoor
 	FriendlyName pulumi.StringPtrInput
 	// Name of the Front Door which is globally unique.
-	FrontDoorName pulumi.StringInput
+	FrontDoorName pulumi.StringPtrInput
 	// Frontend endpoints available to routing rules.
 	FrontendEndpoints FrontendEndpointArrayInput
 	// Health probe settings associated with this Front Door instance.

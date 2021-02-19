@@ -400,8 +400,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// <summary>
         /// The name of the virtual machine.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The network interface properties.

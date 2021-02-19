@@ -61,8 +61,6 @@ class JobAgent(pulumi.CustomResource):
             if database_id is None and not opts.urn:
                 raise TypeError("Missing required property 'database_id'")
             __props__['database_id'] = database_id
-            if job_agent_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_agent_name'")
             __props__['job_agent_name'] = job_agent_name
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:

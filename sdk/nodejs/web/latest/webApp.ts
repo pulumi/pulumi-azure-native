@@ -243,9 +243,6 @@ export class WebApp extends pulumi.CustomResource {
         pulumi.log.warn("WebApp is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebApp'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -441,7 +438,7 @@ export interface WebAppArgs {
     /**
      * Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Site redundancy mode
      */

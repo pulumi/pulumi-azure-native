@@ -120,9 +120,6 @@ func NewWebAppSlot(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Slot == nil {
-		return nil, errors.New("invalid value for required argument 'Slot'")
-	}
 	if args.HyperV == nil {
 		args.HyperV = pulumi.BoolPtr(false)
 	}
@@ -428,7 +425,7 @@ type webAppSlotArgs struct {
 	// Configuration of the app.
 	SiteConfig *SiteConfig `pulumi:"siteConfig"`
 	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
-	Slot string `pulumi:"slot"`
+	Slot *string `pulumi:"slot"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -486,7 +483,7 @@ type WebAppSlotArgs struct {
 	// Configuration of the app.
 	SiteConfig SiteConfigPtrInput
 	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
-	Slot pulumi.StringInput
+	Slot pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

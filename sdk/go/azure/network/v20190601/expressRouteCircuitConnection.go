@@ -45,9 +45,6 @@ func NewExpressRouteCircuitConnection(ctx *pulumi.Context,
 	if args.CircuitName == nil {
 		return nil, errors.New("invalid value for required argument 'CircuitName'")
 	}
-	if args.ConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionName'")
-	}
 	if args.PeeringName == nil {
 		return nil, errors.New("invalid value for required argument 'PeeringName'")
 	}
@@ -201,7 +198,7 @@ type expressRouteCircuitConnectionArgs struct {
 	// The name of the express route circuit.
 	CircuitName string `pulumi:"circuitName"`
 	// The name of the express route circuit connection.
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
 	ExpressRouteCircuitPeering *SubResource `pulumi:"expressRouteCircuitPeering"`
 	// Resource ID.
@@ -225,7 +222,7 @@ type ExpressRouteCircuitConnectionArgs struct {
 	// The name of the express route circuit.
 	CircuitName pulumi.StringInput
 	// The name of the express route circuit connection.
-	ConnectionName pulumi.StringInput
+	ConnectionName pulumi.StringPtrInput
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
 	ExpressRouteCircuitPeering SubResourcePtrInput
 	// Resource ID.

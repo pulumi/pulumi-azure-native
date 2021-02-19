@@ -100,8 +100,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// <summary>
         /// Action ID
         /// </summary>
-        [Input("actionId", required: true)]
-        public Input<string> ActionId { get; set; } = null!;
+        [Input("actionId")]
+        public Input<string>? ActionId { get; set; }
 
         /// <summary>
         /// Etag of the azure resource

@@ -97,8 +97,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200601
         /// <summary>
         /// Name of the domain topic.
         /// </summary>
-        [Input("domainTopicName", required: true)]
-        public Input<string> DomainTopicName { get; set; } = null!;
+        [Input("domainTopicName")]
+        public Input<string>? DomainTopicName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

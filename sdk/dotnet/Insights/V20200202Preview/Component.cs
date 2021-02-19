@@ -316,8 +316,8 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
         /// <summary>
         /// The name of the Application Insights component resource.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.

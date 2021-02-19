@@ -42,9 +42,6 @@ func NewApplication(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.ApplicationName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -148,7 +145,7 @@ type applicationArgs struct {
 	// A value indicating whether packages within the application may be overwritten using the same version string.
 	AllowUpdates *bool `pulumi:"allowUpdates"`
 	// The name of the application. This must be unique within the account.
-	ApplicationName string `pulumi:"applicationName"`
+	ApplicationName *string `pulumi:"applicationName"`
 	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
 	DefaultVersion *string `pulumi:"defaultVersion"`
 	// The display name for the application.
@@ -164,7 +161,7 @@ type ApplicationArgs struct {
 	// A value indicating whether packages within the application may be overwritten using the same version string.
 	AllowUpdates pulumi.BoolPtrInput
 	// The name of the application. This must be unique within the account.
-	ApplicationName pulumi.StringInput
+	ApplicationName pulumi.StringPtrInput
 	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
 	DefaultVersion pulumi.StringPtrInput
 	// The display name for the application.

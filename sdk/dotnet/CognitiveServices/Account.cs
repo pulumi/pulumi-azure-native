@@ -124,8 +124,8 @@ namespace Pulumi.AzureNextGen.CognitiveServices
         /// <summary>
         /// The name of Cognitive Services account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The identity of Cognitive Services account.

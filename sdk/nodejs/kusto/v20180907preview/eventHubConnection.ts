@@ -87,9 +87,6 @@ export class EventHubConnection extends pulumi.CustomResource {
             if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.eventHubConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'eventHubConnectionName'");
-            }
             if ((!args || args.eventHubResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventHubResourceId'");
             }
@@ -154,7 +151,7 @@ export interface EventHubConnectionArgs {
     /**
      * The name of the event hub connection.
      */
-    readonly eventHubConnectionName: pulumi.Input<string>;
+    readonly eventHubConnectionName?: pulumi.Input<string>;
     /**
      * The resource ID of the event hub to be used to create a data connection.
      */

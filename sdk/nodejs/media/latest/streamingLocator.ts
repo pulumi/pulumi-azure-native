@@ -113,9 +113,6 @@ export class StreamingLocator extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.streamingLocatorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'streamingLocatorName'");
-            }
             if ((!args || args.streamingPolicyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'streamingPolicyName'");
             }
@@ -210,7 +207,7 @@ export interface StreamingLocatorArgs {
     /**
      * The Streaming Locator name.
      */
-    readonly streamingLocatorName: pulumi.Input<string>;
+    readonly streamingLocatorName?: pulumi.Input<string>;
     /**
      * Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
      */

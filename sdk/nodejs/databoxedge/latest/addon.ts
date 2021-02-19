@@ -68,9 +68,6 @@ export class Addon extends pulumi.CustomResource {
         pulumi.log.warn("Addon is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Addon'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.addonName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'addonName'");
-            }
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -117,7 +114,7 @@ export interface AddonArgs {
     /**
      * The addon name.
      */
-    readonly addonName: pulumi.Input<string>;
+    readonly addonName?: pulumi.Input<string>;
     /**
      * The device name.
      */

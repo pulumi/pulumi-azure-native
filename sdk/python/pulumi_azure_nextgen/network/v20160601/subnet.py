@@ -77,8 +77,6 @@ class Subnet(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_navigation_links'] = resource_navigation_links
             __props__['route_table'] = route_table
-            if subnet_name is None and not opts.urn:
-                raise TypeError("Missing required property 'subnet_name'")
             __props__['subnet_name'] = subnet_name
             if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")

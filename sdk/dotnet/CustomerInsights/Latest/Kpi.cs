@@ -305,8 +305,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// The name of the KPI.
         /// </summary>
-        [Input("kpiName", required: true)]
-        public Input<string> KpiName { get; set; } = null!;
+        [Input("kpiName")]
+        public Input<string>? KpiName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

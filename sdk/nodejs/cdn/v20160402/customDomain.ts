@@ -65,9 +65,6 @@ export class CustomDomain extends pulumi.CustomResource {
     constructor(name: string, args: CustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.customDomainName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'customDomainName'");
-            }
             if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpointName'");
             }
@@ -116,7 +113,7 @@ export interface CustomDomainArgs {
     /**
      * Name of the custom domain within an endpoint.
      */
-    readonly customDomainName: pulumi.Input<string>;
+    readonly customDomainName?: pulumi.Input<string>;
     /**
      * Name of the endpoint within the CDN profile.
      */

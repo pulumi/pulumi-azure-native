@@ -105,8 +105,8 @@ namespace Pulumi.AzureNextGen.Web
         /// <summary>
         /// API name
         /// </summary>
-        [Input("apiName", required: true)]
-        public Input<string> ApiName { get; set; } = null!;
+        [Input("apiName")]
+        public Input<string>? ApiName { get; set; }
 
         /// <summary>
         /// Resource ETag

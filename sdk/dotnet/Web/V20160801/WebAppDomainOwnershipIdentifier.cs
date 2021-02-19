@@ -92,8 +92,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <summary>
         /// Name of domain ownership identifier.
         /// </summary>
-        [Input("domainOwnershipIdentifierName", required: true)]
-        public Input<string> DomainOwnershipIdentifierName { get; set; } = null!;
+        [Input("domainOwnershipIdentifierName")]
+        public Input<string>? DomainOwnershipIdentifierName { get; set; }
 
         /// <summary>
         /// String representation of the identity.

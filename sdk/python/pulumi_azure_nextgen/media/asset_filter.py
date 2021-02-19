@@ -65,8 +65,6 @@ class AssetFilter(pulumi.CustomResource):
             if asset_name is None and not opts.urn:
                 raise TypeError("Missing required property 'asset_name'")
             __props__['asset_name'] = asset_name
-            if filter_name is None and not opts.urn:
-                raise TypeError("Missing required property 'filter_name'")
             __props__['filter_name'] = filter_name
             __props__['first_quality'] = first_quality
             __props__['presentation_time_range'] = presentation_time_range

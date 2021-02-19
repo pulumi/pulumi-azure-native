@@ -110,9 +110,6 @@ export class ProductApi extends pulumi.CustomResource {
     constructor(name: string, args: ProductApiArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'apiId'");
-            }
             if ((!args || args.productId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'productId'");
             }
@@ -180,7 +177,7 @@ export interface ProductApiArgs {
     /**
      * API identifier. Must be unique in the current API Management service instance.
      */
-    readonly apiId: pulumi.Input<string>;
+    readonly apiId?: pulumi.Input<string>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

@@ -56,9 +56,6 @@ func NewApi(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApiId == nil {
-		return nil, errors.New("invalid value for required argument 'ApiId'")
-	}
 	if args.Path == nil {
 		return nil, errors.New("invalid value for required argument 'Path'")
 	}
@@ -198,7 +195,7 @@ func (ApiState) ElementType() reflect.Type {
 
 type apiArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId string `pulumi:"apiId"`
+	ApiId *string `pulumi:"apiId"`
 	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
 	ApiRevision *string `pulumi:"apiRevision"`
 	// Type of API.
@@ -238,7 +235,7 @@ type apiArgs struct {
 // The set of arguments for constructing a Api resource.
 type ApiArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId pulumi.StringInput
+	ApiId pulumi.StringPtrInput
 	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
 	ApiRevision pulumi.StringPtrInput
 	// Type of API.

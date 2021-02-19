@@ -33,9 +33,6 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CertificateName == nil {
-		return nil, errors.New("invalid value for required argument 'CertificateName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -102,7 +99,7 @@ func (CertificateState) ElementType() reflect.Type {
 
 type certificateArgs struct {
 	// The name of the certificate resource.
-	CertificateName string `pulumi:"certificateName"`
+	CertificateName *string `pulumi:"certificateName"`
 	// Properties of the certificate resource payload.
 	Properties *CertificateProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -114,7 +111,7 @@ type certificateArgs struct {
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// The name of the certificate resource.
-	CertificateName pulumi.StringInput
+	CertificateName pulumi.StringPtrInput
 	// Properties of the certificate resource payload.
 	Properties CertificatePropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

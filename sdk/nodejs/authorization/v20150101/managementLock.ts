@@ -59,12 +59,9 @@ export class ManagementLock extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagementLockArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ManagementLockArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.lockName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'lockName'");
-            }
             inputs["level"] = args ? args.level : undefined;
             inputs["lockName"] = args ? args.lockName : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -100,7 +97,7 @@ export interface ManagementLockArgs {
     /**
      * The name of lock.
      */
-    readonly lockName: pulumi.Input<string>;
+    readonly lockName?: pulumi.Input<string>;
     /**
      * The name of the lock.
      */

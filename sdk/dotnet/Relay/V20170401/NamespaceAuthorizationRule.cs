@@ -87,8 +87,8 @@ namespace Pulumi.AzureNextGen.Relay.V20170401
         /// <summary>
         /// The authorization rule name.
         /// </summary>
-        [Input("authorizationRuleName", required: true)]
-        public Input<string> AuthorizationRuleName { get; set; } = null!;
+        [Input("authorizationRuleName")]
+        public Input<string>? AuthorizationRuleName { get; set; }
 
         /// <summary>
         /// The namespace name

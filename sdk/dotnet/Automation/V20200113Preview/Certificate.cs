@@ -130,8 +130,8 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
         /// <summary>
         /// The parameters supplied to the create or update certificate operation.
         /// </summary>
-        [Input("certificateName", required: true)]
-        public Input<string> CertificateName { get; set; } = null!;
+        [Input("certificateName")]
+        public Input<string>? CertificateName { get; set; }
 
         /// <summary>
         /// Gets or sets the description of the certificate.

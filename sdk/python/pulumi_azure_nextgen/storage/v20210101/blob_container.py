@@ -60,8 +60,6 @@ class BlobContainer(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if container_name is None and not opts.urn:
-                raise TypeError("Missing required property 'container_name'")
             __props__['container_name'] = container_name
             __props__['default_encryption_scope'] = default_encryption_scope
             __props__['deny_encryption_scope_override'] = deny_encryption_scope_override

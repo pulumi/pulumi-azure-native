@@ -317,8 +317,8 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// <summary>
         /// The name of the VpnServerConfiguration being created or updated.
         /// </summary>
-        [Input("vpnServerConfigurationName", required: true)]
-        public Input<string> VpnServerConfigurationName { get; set; } = null!;
+        [Input("vpnServerConfigurationName")]
+        public Input<string>? VpnServerConfigurationName { get; set; }
 
         public VpnServerConfigurationArgs()
         {

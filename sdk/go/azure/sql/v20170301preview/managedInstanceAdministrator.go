@@ -36,9 +36,6 @@ func NewManagedInstanceAdministrator(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AdministratorName == nil {
-		return nil, errors.New("invalid value for required argument 'AdministratorName'")
-	}
 	if args.AdministratorType == nil {
 		return nil, errors.New("invalid value for required argument 'AdministratorType'")
 	}
@@ -123,7 +120,7 @@ func (ManagedInstanceAdministratorState) ElementType() reflect.Type {
 
 type managedInstanceAdministratorArgs struct {
 	// The requested administrator name.
-	AdministratorName string `pulumi:"administratorName"`
+	AdministratorName *string `pulumi:"administratorName"`
 	// Type of the managed instance administrator.
 	AdministratorType string `pulumi:"administratorType"`
 	// Login name of the managed instance administrator.
@@ -141,7 +138,7 @@ type managedInstanceAdministratorArgs struct {
 // The set of arguments for constructing a ManagedInstanceAdministrator resource.
 type ManagedInstanceAdministratorArgs struct {
 	// The requested administrator name.
-	AdministratorName pulumi.StringInput
+	AdministratorName pulumi.StringPtrInput
 	// Type of the managed instance administrator.
 	AdministratorType pulumi.StringInput
 	// Login name of the managed instance administrator.

@@ -34,9 +34,6 @@ func NewCostAllocationRule(ctx *pulumi.Context,
 	if args.BillingAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'BillingAccountId'")
 	}
-	if args.RuleName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20200301preview:CostAllocationRule"),
@@ -92,7 +89,7 @@ type costAllocationRuleArgs struct {
 	// Cost allocation rule properties
 	Properties *CostAllocationRuleProperties `pulumi:"properties"`
 	// Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
-	RuleName string `pulumi:"ruleName"`
+	RuleName *string `pulumi:"ruleName"`
 }
 
 // The set of arguments for constructing a CostAllocationRule resource.
@@ -102,7 +99,7 @@ type CostAllocationRuleArgs struct {
 	// Cost allocation rule properties
 	Properties CostAllocationRulePropertiesPtrInput
 	// Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
-	RuleName pulumi.StringInput
+	RuleName pulumi.StringPtrInput
 }
 
 func (CostAllocationRuleArgs) ElementType() reflect.Type {

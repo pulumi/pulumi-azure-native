@@ -91,9 +91,6 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
         pulumi.log.warn("DisasterRecoveryConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:DisasterRecoveryConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.disasterRecoveryConfigurationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'disasterRecoveryConfigurationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -145,7 +142,7 @@ export interface DisasterRecoveryConfigurationArgs {
     /**
      * The name of the disaster recovery configuration to be created/updated.
      */
-    readonly disasterRecoveryConfigurationName: pulumi.Input<string>;
+    readonly disasterRecoveryConfigurationName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -52,9 +52,6 @@ func NewBillingRoleAssignmentByEnrollmentAccount(ctx *pulumi.Context,
 	if args.BillingAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'BillingAccountName'")
 	}
-	if args.BillingRoleAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'BillingRoleAssignmentName'")
-	}
 	if args.EnrollmentAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'EnrollmentAccountName'")
 	}
@@ -147,7 +144,7 @@ type billingRoleAssignmentByEnrollmentAccountArgs struct {
 	// The ID that uniquely identifies a billing account.
 	BillingAccountName string `pulumi:"billingAccountName"`
 	// The ID that uniquely identifies a role assignment.
-	BillingRoleAssignmentName string `pulumi:"billingRoleAssignmentName"`
+	BillingRoleAssignmentName *string `pulumi:"billingRoleAssignmentName"`
 	// The ID that uniquely identifies an enrollment account.
 	EnrollmentAccountName string `pulumi:"enrollmentAccountName"`
 	// The principal id of the user to whom the role was assigned.
@@ -167,7 +164,7 @@ type BillingRoleAssignmentByEnrollmentAccountArgs struct {
 	// The ID that uniquely identifies a billing account.
 	BillingAccountName pulumi.StringInput
 	// The ID that uniquely identifies a role assignment.
-	BillingRoleAssignmentName pulumi.StringInput
+	BillingRoleAssignmentName pulumi.StringPtrInput
 	// The ID that uniquely identifies an enrollment account.
 	EnrollmentAccountName pulumi.StringInput
 	// The principal id of the user to whom the role was assigned.

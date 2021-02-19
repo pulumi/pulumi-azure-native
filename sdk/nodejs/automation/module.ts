@@ -117,9 +117,6 @@ export class Module extends pulumi.CustomResource {
             if ((!args || args.contentLink === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contentLink'");
             }
-            if ((!args || args.moduleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'moduleName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -192,7 +189,7 @@ export interface ModuleArgs {
     /**
      * The name of module.
      */
-    readonly moduleName: pulumi.Input<string>;
+    readonly moduleName?: pulumi.Input<string>;
     /**
      * Gets or sets name of the resource.
      */

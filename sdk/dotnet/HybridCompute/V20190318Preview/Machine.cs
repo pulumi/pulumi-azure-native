@@ -199,8 +199,8 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190318Preview
         /// <summary>
         /// The name of the hybrid machine.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Resource's Physical Location

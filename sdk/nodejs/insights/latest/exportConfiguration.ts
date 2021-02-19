@@ -127,9 +127,6 @@ export class ExportConfiguration extends pulumi.CustomResource {
         pulumi.log.warn("ExportConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ExportConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.exportId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'exportId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -221,7 +218,7 @@ export interface ExportConfigurationArgs {
     /**
      * The Continuous Export configuration ID. This is unique within a Application Insights component.
      */
-    readonly exportId: pulumi.Input<string>;
+    readonly exportId?: pulumi.Input<string>;
     /**
      * Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
      */

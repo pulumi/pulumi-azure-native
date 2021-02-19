@@ -84,8 +84,6 @@ class ApplicationDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_definition_name is None and not opts.urn:
-                raise TypeError("Missing required property 'application_definition_name'")
             __props__['application_definition_name'] = application_definition_name
             __props__['artifacts'] = artifacts
             __props__['authorizations'] = authorizations

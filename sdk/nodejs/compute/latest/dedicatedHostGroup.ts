@@ -88,9 +88,6 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
         pulumi.log.warn("DedicatedHostGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHostGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.hostGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'hostGroupName'");
-            }
             if ((!args || args.platformFaultDomainCount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'platformFaultDomainCount'");
             }
@@ -139,7 +136,7 @@ export interface DedicatedHostGroupArgs {
     /**
      * The name of the dedicated host group.
      */
-    readonly hostGroupName: pulumi.Input<string>;
+    readonly hostGroupName?: pulumi.Input<string>;
     /**
      * Resource location
      */

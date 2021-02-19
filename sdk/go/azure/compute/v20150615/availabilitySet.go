@@ -40,9 +40,6 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -158,7 +155,7 @@ type availabilitySetArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the availability set.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Fault Domain count.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
 	// Update Domain count.
@@ -176,7 +173,7 @@ type AvailabilitySetArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the availability set.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Fault Domain count.
 	PlatformFaultDomainCount pulumi.IntPtrInput
 	// Update Domain count.

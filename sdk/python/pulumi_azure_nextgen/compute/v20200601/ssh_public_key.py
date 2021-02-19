@@ -56,8 +56,6 @@ class SshPublicKey(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if ssh_public_key_name is None and not opts.urn:
-                raise TypeError("Missing required property 'ssh_public_key_name'")
             __props__['ssh_public_key_name'] = ssh_public_key_name
             __props__['tags'] = tags
             __props__['name'] = None

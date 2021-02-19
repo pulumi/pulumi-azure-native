@@ -39,9 +39,6 @@ func NewSolution(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SolutionName == nil {
-		return nil, errors.New("invalid value for required argument 'SolutionName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:migrate/v20180901preview:Solution"),
@@ -105,7 +102,7 @@ type solutionArgs struct {
 	// Name of the Azure Resource Group that migrate project is part of.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Unique name of a migration solution within a migrate project.
-	SolutionName string `pulumi:"solutionName"`
+	SolutionName *string `pulumi:"solutionName"`
 }
 
 // The set of arguments for constructing a Solution resource.
@@ -119,7 +116,7 @@ type SolutionArgs struct {
 	// Name of the Azure Resource Group that migrate project is part of.
 	ResourceGroupName pulumi.StringInput
 	// Unique name of a migration solution within a migrate project.
-	SolutionName pulumi.StringInput
+	SolutionName pulumi.StringPtrInput
 }
 
 func (SolutionArgs) ElementType() reflect.Type {

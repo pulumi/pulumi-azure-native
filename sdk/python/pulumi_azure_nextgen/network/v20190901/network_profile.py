@@ -59,8 +59,6 @@ class NetworkProfile(pulumi.CustomResource):
             __props__['container_network_interface_configurations'] = container_network_interface_configurations
             __props__['id'] = id
             __props__['location'] = location
-            if network_profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_profile_name'")
             __props__['network_profile_name'] = network_profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

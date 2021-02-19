@@ -102,8 +102,6 @@ class AgentPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if agent_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'agent_pool_name'")
             __props__['agent_pool_name'] = agent_pool_name
             __props__['availability_zones'] = availability_zones
             __props__['count'] = count

@@ -57,9 +57,6 @@ func NewUser(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.UserName == nil {
-		return nil, errors.New("invalid value for required argument 'UserName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:labservices:User"),
@@ -164,7 +161,7 @@ type userArgs struct {
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 	// The name of the user.
-	UserName string `pulumi:"userName"`
+	UserName *string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -184,7 +181,7 @@ type UserArgs struct {
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier pulumi.StringPtrInput
 	// The name of the user.
-	UserName pulumi.StringInput
+	UserName pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

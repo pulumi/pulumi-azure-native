@@ -69,9 +69,6 @@ func NewAppServicePlan(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -241,7 +238,7 @@ type appServicePlanArgs struct {
 	// Resource Location.
 	Location *string `pulumi:"location"`
 	// Name for the App Service plan.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
 	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
 	PerSiteScaling *bool `pulumi:"perSiteScaling"`
@@ -276,7 +273,7 @@ type AppServicePlanArgs struct {
 	// Resource Location.
 	Location pulumi.StringPtrInput
 	// Name for the App Service plan.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
 	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
 	PerSiteScaling pulumi.BoolPtrInput

@@ -35,9 +35,6 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
-	if args.PrivateEndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -98,7 +95,7 @@ type privateEndpointArgs struct {
 	// The name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the private endpoint.
-	PrivateEndpointName string `pulumi:"privateEndpointName"`
+	PrivateEndpointName *string `pulumi:"privateEndpointName"`
 	// The properties associated with a private endpoint.
 	Properties *PrivateEndpointProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
@@ -110,7 +107,7 @@ type PrivateEndpointArgs struct {
 	// The name of the cluster.
 	ClusterName pulumi.StringInput
 	// The name of the private endpoint.
-	PrivateEndpointName pulumi.StringInput
+	PrivateEndpointName pulumi.StringPtrInput
 	// The properties associated with a private endpoint.
 	Properties PrivateEndpointPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.

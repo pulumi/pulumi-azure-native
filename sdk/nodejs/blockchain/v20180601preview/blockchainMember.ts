@@ -122,9 +122,6 @@ export class BlockchainMember extends pulumi.CustomResource {
     constructor(name: string, args: BlockchainMemberArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.blockchainMemberName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'blockchainMemberName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -190,7 +187,7 @@ export interface BlockchainMemberArgs {
     /**
      * Blockchain member name.
      */
-    readonly blockchainMemberName: pulumi.Input<string>;
+    readonly blockchainMemberName?: pulumi.Input<string>;
     /**
      * Gets or sets the consortium for the blockchain member.
      */

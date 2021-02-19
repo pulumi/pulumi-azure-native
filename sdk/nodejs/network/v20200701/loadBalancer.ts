@@ -110,9 +110,6 @@ export class LoadBalancer extends pulumi.CustomResource {
     constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.loadBalancerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'loadBalancerName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -197,7 +194,7 @@ export interface LoadBalancerArgs {
     /**
      * The name of the load balancer.
      */
-    readonly loadBalancerName: pulumi.Input<string>;
+    readonly loadBalancerName?: pulumi.Input<string>;
     /**
      * Object collection representing the load balancing rules Gets the provisioning.
      */

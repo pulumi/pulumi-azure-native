@@ -42,9 +42,6 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ClusterName == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -123,7 +120,7 @@ func (ClusterState) ElementType() reflect.Type {
 
 type clusterArgs struct {
 	// The name of the Event Hubs Cluster.
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName *string `pulumi:"clusterName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Name of the resource group within the azure subscription.
@@ -137,7 +134,7 @@ type clusterArgs struct {
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// The name of the Event Hubs Cluster.
-	ClusterName pulumi.StringInput
+	ClusterName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Name of the resource group within the azure subscription.

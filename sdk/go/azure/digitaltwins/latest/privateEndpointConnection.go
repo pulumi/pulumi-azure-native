@@ -32,9 +32,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -96,7 +93,7 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 
 type privateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName string                              `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string                             `pulumi:"privateEndpointConnectionName"`
 	Properties                    PrivateEndpointConnectionProperties `pulumi:"properties"`
 	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -107,7 +104,7 @@ type privateEndpointConnectionArgs struct {
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	Properties                    PrivateEndpointConnectionPropertiesInput
 	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName pulumi.StringInput

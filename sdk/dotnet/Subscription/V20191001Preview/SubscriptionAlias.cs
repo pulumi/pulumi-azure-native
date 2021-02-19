@@ -41,7 +41,7 @@ namespace Pulumi.AzureNextGen.Subscription.V20191001Preview
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SubscriptionAlias(string name, SubscriptionAliasArgs args, CustomResourceOptions? options = null)
+        public SubscriptionAlias(string name, SubscriptionAliasArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:subscription/v20191001preview:SubscriptionAlias", name, args ?? new SubscriptionAliasArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -87,8 +87,8 @@ namespace Pulumi.AzureNextGen.Subscription.V20191001Preview
         /// <summary>
         /// Alias Name
         /// </summary>
-        [Input("aliasName", required: true)]
-        public Input<string> AliasName { get; set; } = null!;
+        [Input("aliasName")]
+        public Input<string>? AliasName { get; set; }
 
         /// <summary>
         /// Put alias request properties.

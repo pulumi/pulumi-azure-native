@@ -219,8 +219,8 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201
         /// <summary>
         /// The name of the server.
         /// </summary>
-        [Input("serverName", required: true)]
-        public Input<string> ServerName { get; set; } = null!;
+        [Input("serverName")]
+        public Input<string>? ServerName { get; set; }
 
         /// <summary>
         /// The SKU (pricing tier) of the server.

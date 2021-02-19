@@ -113,8 +113,8 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// The name of the connection.
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// Resource ID.

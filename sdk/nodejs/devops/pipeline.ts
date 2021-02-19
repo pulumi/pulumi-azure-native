@@ -82,9 +82,6 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.bootstrapConfiguration === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bootstrapConfiguration'");
             }
-            if ((!args || args.pipelineName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'pipelineName'");
-            }
             if ((!args || args.pipelineType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'pipelineType'");
             }
@@ -139,7 +136,7 @@ export interface PipelineArgs {
     /**
      * The name of the Pipeline resource in ARM.
      */
-    readonly pipelineName: pulumi.Input<string>;
+    readonly pipelineName?: pulumi.Input<string>;
     /**
      * Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
      */

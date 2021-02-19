@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -28,12 +27,9 @@ type TenantConfiguration struct {
 func NewTenantConfiguration(ctx *pulumi.Context,
 	name string, args *TenantConfigurationArgs, opts ...pulumi.ResourceOption) (*TenantConfiguration, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &TenantConfigurationArgs{}
 	}
 
-	if args.ConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'ConfigurationName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:portal/v20190101preview:TenantConfiguration"),
@@ -88,7 +84,7 @@ func (TenantConfigurationState) ElementType() reflect.Type {
 
 type tenantConfigurationArgs struct {
 	// The configuration name. Value must be 'default'
-	ConfigurationName string `pulumi:"configurationName"`
+	ConfigurationName *string `pulumi:"configurationName"`
 	// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
 	EnforcePrivateMarkdownStorage *bool `pulumi:"enforcePrivateMarkdownStorage"`
 }
@@ -96,7 +92,7 @@ type tenantConfigurationArgs struct {
 // The set of arguments for constructing a TenantConfiguration resource.
 type TenantConfigurationArgs struct {
 	// The configuration name. Value must be 'default'
-	ConfigurationName pulumi.StringInput
+	ConfigurationName pulumi.StringPtrInput
 	// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
 	EnforcePrivateMarkdownStorage pulumi.BoolPtrInput
 }

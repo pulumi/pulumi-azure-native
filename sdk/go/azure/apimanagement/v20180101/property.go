@@ -39,9 +39,6 @@ func NewProperty(ctx *pulumi.Context,
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
-	if args.PropId == nil {
-		return nil, errors.New("invalid value for required argument 'PropId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -134,7 +131,7 @@ type propertyArgs struct {
 	// Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
 	DisplayName string `pulumi:"displayName"`
 	// Identifier of the property.
-	PropId string `pulumi:"propId"`
+	PropId *string `pulumi:"propId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
@@ -152,7 +149,7 @@ type PropertyArgs struct {
 	// Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
 	DisplayName pulumi.StringInput
 	// Identifier of the property.
-	PropId pulumi.StringInput
+	PropId pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Determines whether the value is a secret and should be encrypted or not. Default value is false.

@@ -208,8 +208,8 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
         /// <summary>
         /// The name of the Data Lake Store account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The default owner group for all new folders and files created in the Data Lake Store account.

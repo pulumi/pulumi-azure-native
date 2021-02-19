@@ -83,9 +83,6 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.base64Value === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'base64Value'");
             }
-            if ((!args || args.certificateName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'certificateName'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -142,7 +139,7 @@ export interface CertificateArgs {
     /**
      * The parameters supplied to the create or update certificate operation.
      */
-    readonly certificateName: pulumi.Input<string>;
+    readonly certificateName?: pulumi.Input<string>;
     /**
      * Gets or sets the description of the certificate.
      */

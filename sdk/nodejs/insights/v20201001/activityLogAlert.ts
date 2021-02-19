@@ -85,9 +85,6 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.activityLogAlertName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'activityLogAlertName'");
-            }
             if ((!args || args.condition === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'condition'");
             }
@@ -143,7 +140,7 @@ export interface ActivityLogAlertArgs {
     /**
      * The name of the Activity Log Alert rule.
      */
-    readonly activityLogAlertName: pulumi.Input<string>;
+    readonly activityLogAlertName?: pulumi.Input<string>;
     /**
      * The condition that will cause this alert to activate.
      */

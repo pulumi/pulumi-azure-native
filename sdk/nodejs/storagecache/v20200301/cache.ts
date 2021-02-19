@@ -110,9 +110,6 @@ export class Cache extends pulumi.CustomResource {
     constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.cacheName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'cacheName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -172,7 +169,7 @@ export interface CacheArgs {
     /**
      * Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
      */
-    readonly cacheName: pulumi.Input<string>;
+    readonly cacheName?: pulumi.Input<string>;
     /**
      * The size of this Cache, in GB.
      */

@@ -43,9 +43,6 @@ func NewRouteFilter(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RouteFilterName == nil {
-		return nil, errors.New("invalid value for required argument 'RouteFilterName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:RouteFilter"),
@@ -213,7 +210,7 @@ type routeFilterArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the route filter.
-	RouteFilterName string `pulumi:"routeFilterName"`
+	RouteFilterName *string `pulumi:"routeFilterName"`
 	// Collection of RouteFilterRules contained within a route filter.
 	Rules []RouteFilterRuleType `pulumi:"rules"`
 	// Resource tags.
@@ -229,7 +226,7 @@ type RouteFilterArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the route filter.
-	RouteFilterName pulumi.StringInput
+	RouteFilterName pulumi.StringPtrInput
 	// Collection of RouteFilterRules contained within a route filter.
 	Rules RouteFilterRuleTypeArrayInput
 	// Resource tags.

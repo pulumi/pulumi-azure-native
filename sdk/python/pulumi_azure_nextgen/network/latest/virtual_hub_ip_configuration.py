@@ -69,8 +69,6 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
-            if ip_config_name is None and not opts.urn:
-                raise TypeError("Missing required property 'ip_config_name'")
             __props__['ip_config_name'] = ip_config_name
             __props__['name'] = name
             __props__['private_ip_address'] = private_ip_address

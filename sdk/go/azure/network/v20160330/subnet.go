@@ -41,9 +41,6 @@ func NewSubnet(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SubnetName == nil {
-		return nil, errors.New("invalid value for required argument 'SubnetName'")
-	}
 	if args.VirtualNetworkName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkName'")
 	}
@@ -237,7 +234,7 @@ type subnetArgs struct {
 	// Gets or sets the reference of the RouteTable resource
 	RouteTable *RouteTableType `pulumi:"routeTable"`
 	// The name of the subnet.
-	SubnetName string `pulumi:"subnetName"`
+	SubnetName *string `pulumi:"subnetName"`
 	// The name of the virtual network.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 }
@@ -263,7 +260,7 @@ type SubnetArgs struct {
 	// Gets or sets the reference of the RouteTable resource
 	RouteTable RouteTableTypePtrInput
 	// The name of the subnet.
-	SubnetName pulumi.StringInput
+	SubnetName pulumi.StringPtrInput
 	// The name of the virtual network.
 	VirtualNetworkName pulumi.StringInput
 }

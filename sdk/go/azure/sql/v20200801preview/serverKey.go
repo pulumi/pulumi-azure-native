@@ -42,9 +42,6 @@ func NewServerKey(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.KeyName == nil {
-		return nil, errors.New("invalid value for required argument 'KeyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -135,7 +132,7 @@ func (ServerKeyState) ElementType() reflect.Type {
 
 type serverKeyArgs struct {
 	// The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion, then the server key name should be formatted as: YourVaultName_YourKeyName_YourKeyVersion
-	KeyName string `pulumi:"keyName"`
+	KeyName *string `pulumi:"keyName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The server key type like 'ServiceManaged', 'AzureKeyVault'.
@@ -149,7 +146,7 @@ type serverKeyArgs struct {
 // The set of arguments for constructing a ServerKey resource.
 type ServerKeyArgs struct {
 	// The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion, then the server key name should be formatted as: YourVaultName_YourKeyName_YourKeyVersion
-	KeyName pulumi.StringInput
+	KeyName pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The server key type like 'ServiceManaged', 'AzureKeyVault'.

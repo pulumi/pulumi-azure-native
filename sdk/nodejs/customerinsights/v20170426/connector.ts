@@ -98,9 +98,6 @@ export class Connector extends pulumi.CustomResource {
     constructor(name: string, args: ConnectorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.connectorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'connectorName'");
-            }
             if ((!args || args.connectorProperties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectorProperties'");
             }
@@ -163,7 +160,7 @@ export interface ConnectorArgs {
     /**
      * Name of the connector.
      */
-    readonly connectorName: pulumi.Input<string>;
+    readonly connectorName?: pulumi.Input<string>;
     /**
      * The connector properties.
      */

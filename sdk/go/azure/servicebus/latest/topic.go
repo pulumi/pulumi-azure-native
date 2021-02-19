@@ -69,9 +69,6 @@ func NewTopic(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TopicName == nil {
-		return nil, errors.New("invalid value for required argument 'TopicName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:servicebus:Topic"),
@@ -219,7 +216,7 @@ type topicArgs struct {
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering *bool `pulumi:"supportOrdering"`
 	// The topic name.
-	TopicName string `pulumi:"topicName"`
+	TopicName *string `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a Topic resource.
@@ -249,7 +246,7 @@ type TopicArgs struct {
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering pulumi.BoolPtrInput
 	// The topic name.
-	TopicName pulumi.StringInput
+	TopicName pulumi.StringPtrInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {

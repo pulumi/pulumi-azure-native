@@ -79,9 +79,6 @@ func NewJob(ctx *pulumi.Context,
 	if args.Cluster == nil {
 		return nil, errors.New("invalid value for required argument 'Cluster'")
 	}
-	if args.JobName == nil {
-		return nil, errors.New("invalid value for required argument 'JobName'")
-	}
 	if args.NodeCount == nil {
 		return nil, errors.New("invalid value for required argument 'NodeCount'")
 	}
@@ -258,7 +255,7 @@ type jobArgs struct {
 	ExperimentName   *string          `pulumi:"experimentName"`
 	InputDirectories []InputDirectory `pulumi:"inputDirectories"`
 	// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	JobName string `pulumi:"jobName"`
+	JobName *string `pulumi:"jobName"`
 	// The specified actions will run on all the nodes that are part of the job
 	JobPreparation *JobPreparation `pulumi:"jobPreparation"`
 	// The region in which to create the job.
@@ -302,7 +299,7 @@ type JobArgs struct {
 	ExperimentName   pulumi.StringPtrInput
 	InputDirectories InputDirectoryArrayInput
 	// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	JobName pulumi.StringInput
+	JobName pulumi.StringPtrInput
 	// The specified actions will run on all the nodes that are part of the job
 	JobPreparation JobPreparationPtrInput
 	// The region in which to create the job.

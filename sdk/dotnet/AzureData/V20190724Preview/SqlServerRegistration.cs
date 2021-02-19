@@ -140,8 +140,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
         /// <summary>
         /// Name of the SQL Server registration.
         /// </summary>
-        [Input("sqlServerRegistrationName", required: true)]
-        public Input<string> SqlServerRegistrationName { get; set; } = null!;
+        [Input("sqlServerRegistrationName")]
+        public Input<string>? SqlServerRegistrationName { get; set; }
 
         /// <summary>
         /// Subscription Id

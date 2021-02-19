@@ -84,9 +84,6 @@ export class Registration extends pulumi.CustomResource {
         pulumi.log.warn("Registration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:Registration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.registrationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'registrationName'");
-            }
             if ((!args || args.registrationToken === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registrationToken'");
             }
@@ -138,7 +135,7 @@ export interface RegistrationArgs {
     /**
      * Name of the Azure Stack registration.
      */
-    readonly registrationName: pulumi.Input<string>;
+    readonly registrationName?: pulumi.Input<string>;
     /**
      * The token identifying registered Azure Stack
      */

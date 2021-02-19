@@ -68,8 +68,6 @@ class DscNodeConfiguration(pulumi.CustomResource):
             __props__['configuration'] = configuration
             __props__['increment_node_configuration_build'] = increment_node_configuration_build
             __props__['name'] = name
-            if node_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'node_configuration_name'")
             __props__['node_configuration_name'] = node_configuration_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

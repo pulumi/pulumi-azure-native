@@ -135,8 +135,8 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         /// <summary>
         /// version of the published blueprint.
         /// </summary>
-        [Input("versionId", required: true)]
-        public Input<string> VersionId { get; set; } = null!;
+        [Input("versionId")]
+        public Input<string>? VersionId { get; set; }
 
         public PublishedBlueprintArgs()
         {

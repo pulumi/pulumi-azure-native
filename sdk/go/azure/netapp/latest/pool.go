@@ -52,9 +52,6 @@ func NewPool(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.PoolName == nil {
-		return nil, errors.New("invalid value for required argument 'PoolName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -202,7 +199,7 @@ type poolArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the capacity pool
-	PoolName string `pulumi:"poolName"`
+	PoolName *string `pulumi:"poolName"`
 	// The qos type of the pool
 	QosType *string `pulumi:"qosType"`
 	// The name of the resource group.
@@ -222,7 +219,7 @@ type PoolArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the capacity pool
-	PoolName pulumi.StringInput
+	PoolName pulumi.StringPtrInput
 	// The qos type of the pool
 	QosType pulumi.StringPtrInput
 	// The name of the resource group.

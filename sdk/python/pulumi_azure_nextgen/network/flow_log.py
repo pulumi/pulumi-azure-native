@@ -71,8 +71,6 @@ class FlowLog(pulumi.CustomResource):
 
             __props__['enabled'] = enabled
             __props__['flow_analytics_configuration'] = flow_analytics_configuration
-            if flow_log_name is None and not opts.urn:
-                raise TypeError("Missing required property 'flow_log_name'")
             __props__['flow_log_name'] = flow_log_name
             __props__['format'] = format
             __props__['id'] = id

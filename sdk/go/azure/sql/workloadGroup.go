@@ -59,9 +59,6 @@ func NewWorkloadGroup(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.WorkloadGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkloadGroupName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20190601preview:WorkloadGroup"),
@@ -157,7 +154,7 @@ type workloadGroupArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// The name of the workload group.
-	WorkloadGroupName string `pulumi:"workloadGroupName"`
+	WorkloadGroupName *string `pulumi:"workloadGroupName"`
 }
 
 // The set of arguments for constructing a WorkloadGroup resource.
@@ -181,7 +178,7 @@ type WorkloadGroupArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// The name of the workload group.
-	WorkloadGroupName pulumi.StringInput
+	WorkloadGroupName pulumi.StringPtrInput
 }
 
 func (WorkloadGroupArgs) ElementType() reflect.Type {

@@ -57,8 +57,6 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
 
             __props__['action'] = action
             __props__['filter_name'] = filter_name
-            if ip_filter_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'ip_filter_rule_name'")
             __props__['ip_filter_rule_name'] = ip_filter_rule_name
             __props__['ip_mask'] = ip_mask
             if namespace_name is None and not opts.urn:

@@ -43,9 +43,6 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.IpConfigName == nil {
-		return nil, errors.New("invalid value for required argument 'IpConfigName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -137,7 +134,7 @@ type virtualHubIpConfigurationArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the ipconfig.
-	IpConfigName string `pulumi:"ipConfigName"`
+	IpConfigName *string `pulumi:"ipConfigName"`
 	// Name of the Ip Configuration.
 	Name *string `pulumi:"name"`
 	// The private IP address of the IP configuration.
@@ -159,7 +156,7 @@ type VirtualHubIpConfigurationArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the ipconfig.
-	IpConfigName pulumi.StringInput
+	IpConfigName pulumi.StringPtrInput
 	// Name of the Ip Configuration.
 	Name pulumi.StringPtrInput
 	// The private IP address of the IP configuration.

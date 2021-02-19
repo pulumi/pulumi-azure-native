@@ -72,9 +72,6 @@ export class ReplicationvCenter extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.vCenterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'vCenterName'");
-            }
             inputs["fabricName"] = args ? args.fabricName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -125,5 +122,5 @@ export interface ReplicationvCenterArgs {
     /**
      * vCenter name.
      */
-    readonly vCenterName: pulumi.Input<string>;
+    readonly vCenterName?: pulumi.Input<string>;
 }

@@ -45,9 +45,6 @@ func NewFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RuleCollectionGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleCollectionGroupName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:FirewallPolicyRuleCollectionGroup"),
@@ -133,7 +130,7 @@ type firewallPolicyRuleCollectionGroupArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the FirewallPolicyRuleCollectionGroup.
-	RuleCollectionGroupName string `pulumi:"ruleCollectionGroupName"`
+	RuleCollectionGroupName *string `pulumi:"ruleCollectionGroupName"`
 	// Group of Firewall Policy rule collections.
 	RuleCollections []interface{} `pulumi:"ruleCollections"`
 }
@@ -151,7 +148,7 @@ type FirewallPolicyRuleCollectionGroupArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the FirewallPolicyRuleCollectionGroup.
-	RuleCollectionGroupName pulumi.StringInput
+	RuleCollectionGroupName pulumi.StringPtrInput
 	// Group of Firewall Policy rule collections.
 	RuleCollections pulumi.ArrayInput
 }

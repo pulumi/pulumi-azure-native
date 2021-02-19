@@ -106,9 +106,6 @@ export class LinkedSubscription extends pulumi.CustomResource {
             if ((!args || args.linkedSubscriptionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'linkedSubscriptionId'");
             }
-            if ((!args || args.linkedSubscriptionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'linkedSubscriptionName'");
-            }
             if ((!args || args.registrationResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registrationResourceId'");
             }
@@ -171,7 +168,7 @@ export interface LinkedSubscriptionArgs {
     /**
      * Name of the Linked Subscription resource.
      */
-    readonly linkedSubscriptionName: pulumi.Input<string>;
+    readonly linkedSubscriptionName?: pulumi.Input<string>;
     /**
      * Location of the resource.
      */

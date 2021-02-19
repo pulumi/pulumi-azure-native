@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// <summary>
         /// The name of the agent pool.
         /// </summary>
-        [Input("agentPoolName", required: true)]
-        public Input<string> AgentPoolName { get; set; } = null!;
+        [Input("agentPoolName")]
+        public Input<string>? AgentPoolName { get; set; }
 
         /// <summary>
         /// The count of agent machine

@@ -44,9 +44,6 @@ func NewBlueprint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BlueprintName == nil {
-		return nil, errors.New("invalid value for required argument 'BlueprintName'")
-	}
 	if args.ResourceScope == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceScope'")
 	}
@@ -132,7 +129,7 @@ func (BlueprintState) ElementType() reflect.Type {
 
 type blueprintArgs struct {
 	// Name of the blueprint definition.
-	BlueprintName string `pulumi:"blueprintName"`
+	BlueprintName *string `pulumi:"blueprintName"`
 	// Multi-line explain this resource.
 	Description *string `pulumi:"description"`
 	// One-liner string explain this resource.
@@ -154,7 +151,7 @@ type blueprintArgs struct {
 // The set of arguments for constructing a Blueprint resource.
 type BlueprintArgs struct {
 	// Name of the blueprint definition.
-	BlueprintName pulumi.StringInput
+	BlueprintName pulumi.StringPtrInput
 	// Multi-line explain this resource.
 	Description pulumi.StringPtrInput
 	// One-liner string explain this resource.

@@ -51,8 +51,6 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
 
             __props__['policy_id'] = policy_id
             __props__['role_definition_id'] = role_definition_id
-            if role_management_policy_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'role_management_policy_assignment_name'")
             __props__['role_management_policy_assignment_name'] = role_management_policy_assignment_name
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

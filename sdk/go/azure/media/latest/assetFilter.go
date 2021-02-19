@@ -45,9 +45,6 @@ func NewAssetFilter(ctx *pulumi.Context,
 	if args.AssetName == nil {
 		return nil, errors.New("invalid value for required argument 'AssetName'")
 	}
-	if args.FilterName == nil {
-		return nil, errors.New("invalid value for required argument 'FilterName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -124,7 +121,7 @@ type assetFilterArgs struct {
 	// The Asset name.
 	AssetName string `pulumi:"assetName"`
 	// The Asset Filter name
-	FilterName string `pulumi:"filterName"`
+	FilterName *string `pulumi:"filterName"`
 	// The first quality.
 	FirstQuality *FirstQuality `pulumi:"firstQuality"`
 	// The presentation time range.
@@ -142,7 +139,7 @@ type AssetFilterArgs struct {
 	// The Asset name.
 	AssetName pulumi.StringInput
 	// The Asset Filter name
-	FilterName pulumi.StringInput
+	FilterName pulumi.StringPtrInput
 	// The first quality.
 	FirstQuality FirstQualityPtrInput
 	// The presentation time range.

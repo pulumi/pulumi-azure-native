@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         /// <summary>
         /// Name of the security contact object
         /// </summary>
-        [Input("securityContactName", required: true)]
-        public Input<string> SecurityContactName { get; set; } = null!;
+        [Input("securityContactName")]
+        public Input<string>? SecurityContactName { get; set; }
 
         public SecurityContactArgs()
         {

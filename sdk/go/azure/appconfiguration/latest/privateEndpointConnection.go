@@ -40,9 +40,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args.ConfigStoreName == nil {
 		return nil, errors.New("invalid value for required argument 'ConfigStoreName'")
 	}
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.PrivateLinkServiceConnectionState == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateLinkServiceConnectionState'")
 	}
@@ -121,7 +118,7 @@ type privateEndpointConnectionArgs struct {
 	// The resource of private endpoint.
 	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
 	// Private endpoint connection name
-	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group to which the container registry belongs.
@@ -135,7 +132,7 @@ type PrivateEndpointConnectionArgs struct {
 	// The resource of private endpoint.
 	PrivateEndpoint PrivateEndpointPtrInput
 	// Private endpoint connection name
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	// The name of the resource group to which the container registry belongs.

@@ -47,9 +47,6 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionMonitorName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionMonitorName'")
-	}
 	if args.Destination == nil {
 		return nil, errors.New("invalid value for required argument 'Destination'")
 	}
@@ -230,7 +227,7 @@ type connectionMonitorArgs struct {
 	// Determines if the connection monitor will start automatically once created.
 	AutoStart *bool `pulumi:"autoStart"`
 	// The name of the connection monitor.
-	ConnectionMonitorName string `pulumi:"connectionMonitorName"`
+	ConnectionMonitorName *string `pulumi:"connectionMonitorName"`
 	// Describes the destination of connection monitor.
 	Destination ConnectionMonitorDestination `pulumi:"destination"`
 	// Connection monitor location.
@@ -252,7 +249,7 @@ type ConnectionMonitorArgs struct {
 	// Determines if the connection monitor will start automatically once created.
 	AutoStart pulumi.BoolPtrInput
 	// The name of the connection monitor.
-	ConnectionMonitorName pulumi.StringInput
+	ConnectionMonitorName pulumi.StringPtrInput
 	// Describes the destination of connection monitor.
 	Destination ConnectionMonitorDestinationInput
 	// Connection monitor location.

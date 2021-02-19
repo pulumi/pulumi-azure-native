@@ -72,8 +72,6 @@ class InterfaceEndpoint(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['fqdn'] = fqdn
             __props__['id'] = id
-            if interface_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'interface_endpoint_name'")
             __props__['interface_endpoint_name'] = interface_endpoint_name
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:

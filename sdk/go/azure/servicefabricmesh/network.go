@@ -35,9 +35,6 @@ func NewNetwork(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.NetworkResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'NetworkResourceName'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -108,7 +105,7 @@ type networkArgs struct {
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The identity of the network.
-	NetworkResourceName string `pulumi:"networkResourceName"`
+	NetworkResourceName *string `pulumi:"networkResourceName"`
 	// Describes properties of a network resource.
 	Properties NetworkResourceProperties `pulumi:"properties"`
 	// Azure resource group name
@@ -122,7 +119,7 @@ type NetworkArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The identity of the network.
-	NetworkResourceName pulumi.StringInput
+	NetworkResourceName pulumi.StringPtrInput
 	// Describes properties of a network resource.
 	Properties NetworkResourcePropertiesInput
 	// Azure resource group name

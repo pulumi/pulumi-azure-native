@@ -163,8 +163,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// <summary>
         /// Name of the Azure Migrate project.
         /// </summary>
-        [Input("projectName", required: true)]
-        public Input<string> ProjectName { get; set; } = null!;
+        [Input("projectName")]
+        public Input<string>? ProjectName { get; set; }
 
         /// <summary>
         /// Provisioning state of the project.

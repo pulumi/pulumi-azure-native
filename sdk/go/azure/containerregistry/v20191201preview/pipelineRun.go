@@ -38,9 +38,6 @@ func NewPipelineRun(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PipelineRunName == nil {
-		return nil, errors.New("invalid value for required argument 'PipelineRunName'")
-	}
 	if args.RegistryName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
@@ -119,7 +116,7 @@ type pipelineRunArgs struct {
 	// How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name of the pipeline run.
-	PipelineRunName string `pulumi:"pipelineRunName"`
+	PipelineRunName *string `pulumi:"pipelineRunName"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The request parameters for a pipeline run.
@@ -133,7 +130,7 @@ type PipelineRunArgs struct {
 	// How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The name of the pipeline run.
-	PipelineRunName pulumi.StringInput
+	PipelineRunName pulumi.StringPtrInput
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
 	// The request parameters for a pipeline run.

@@ -226,8 +226,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// <summary>
         /// The name of the rule.
         /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public Input<string>? RuleName { get; set; }
 
         [Input("scopes", required: true)]
         private InputList<string>? _scopes;

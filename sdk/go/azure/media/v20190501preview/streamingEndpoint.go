@@ -73,9 +73,6 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 	if args.ScaleUnits == nil {
 		return nil, errors.New("invalid value for required argument 'ScaleUnits'")
 	}
-	if args.StreamingEndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'StreamingEndpointName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:media:StreamingEndpoint"),
@@ -238,7 +235,7 @@ type streamingEndpointArgs struct {
 	// The number of scale units.  Use the Scale operation to adjust this value.
 	ScaleUnits int `pulumi:"scaleUnits"`
 	// The name of the StreamingEndpoint.
-	StreamingEndpointName string `pulumi:"streamingEndpointName"`
+	StreamingEndpointName *string `pulumi:"streamingEndpointName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -274,7 +271,7 @@ type StreamingEndpointArgs struct {
 	// The number of scale units.  Use the Scale operation to adjust this value.
 	ScaleUnits pulumi.IntInput
 	// The name of the StreamingEndpoint.
-	StreamingEndpointName pulumi.StringInput
+	StreamingEndpointName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

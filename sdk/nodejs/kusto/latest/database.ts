@@ -71,9 +71,6 @@ export class Database extends pulumi.CustomResource {
             if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'databaseName'");
-            }
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -117,7 +114,7 @@ export interface DatabaseArgs {
     /**
      * The name of the database in the Kusto cluster.
      */
-    readonly databaseName: pulumi.Input<string>;
+    readonly databaseName?: pulumi.Input<string>;
     /**
      * Kind of the database
      */

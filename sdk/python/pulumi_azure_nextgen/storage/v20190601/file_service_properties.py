@@ -57,8 +57,6 @@ class FileServiceProperties(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['cors'] = cors
-            if file_services_name is None and not opts.urn:
-                raise TypeError("Missing required property 'file_services_name'")
             __props__['file_services_name'] = file_services_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

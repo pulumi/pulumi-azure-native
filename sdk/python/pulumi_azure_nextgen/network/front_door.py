@@ -73,8 +73,6 @@ class FrontDoor(pulumi.CustomResource):
             __props__['backend_pools_settings'] = backend_pools_settings
             __props__['enabled_state'] = enabled_state
             __props__['friendly_name'] = friendly_name
-            if front_door_name is None and not opts.urn:
-                raise TypeError("Missing required property 'front_door_name'")
             __props__['front_door_name'] = front_door_name
             __props__['frontend_endpoints'] = frontend_endpoints
             __props__['health_probe_settings'] = health_probe_settings

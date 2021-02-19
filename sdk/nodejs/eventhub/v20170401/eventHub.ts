@@ -82,9 +82,6 @@ export class EventHub extends pulumi.CustomResource {
     constructor(name: string, args: EventHubArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.eventHubName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'eventHubName'");
-            }
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -138,7 +135,7 @@ export interface EventHubArgs {
     /**
      * The Event Hub name
      */
-    readonly eventHubName: pulumi.Input<string>;
+    readonly eventHubName?: pulumi.Input<string>;
     /**
      * Number of days to retain the events for this Event Hub, value should be 1 to 7 days
      */

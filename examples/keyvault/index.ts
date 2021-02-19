@@ -6,26 +6,15 @@ import * as keyvault from "@pulumi/azure-nextgen/keyvault";
 import * as managedidentity from "@pulumi/azure-nextgen/managedidentity";
 import * as resources from "@pulumi/azure-nextgen/resources";
 
-const randomString = new random.RandomString("random", {
-    length: 12,
-    special: false,
-    upper: false,
-    number: false,
-}).result;
-
-const resourceGroup = new resources.ResourceGroup("rg", {
-    resourceGroupName: randomString,
-});
+const resourceGroup = new resources.ResourceGroup("rg");
 
 const userIdentity = new managedidentity.UserAssignedIdentity("uai", {
     resourceGroupName: resourceGroup.name,
     location: resourceGroup.location,
-    resourceName: randomString,
 });
 
 const container = new containerinstance.ContainerGroup("containergroup", {
     resourceGroupName: resourceGroup.name,
-    containerGroupName: randomString,
     osType: containerinstance.OperatingSystemTypes.Linux,
     containers: [{
         name: "foo",
@@ -52,7 +41,6 @@ const config = pulumi.output(authorization.getClientConfig());
 const vault = new keyvault.Vault("vault", {
     resourceGroupName: resourceGroup.name,
     location: resourceGroup.location,
-    vaultName: randomString,
     properties: {
         accessPolicies: [{
             objectId: config.objectId,
@@ -93,7 +81,6 @@ const vault = new keyvault.Vault("vault", {
 const secret = new keyvault.Secret("mysecret", {
     resourceGroupName: resourceGroup.name,
     vaultName: vault.name,
-    secretName: "mysecret",
     properties: {
         value: "myvalue",
     },
@@ -102,7 +89,6 @@ const secret = new keyvault.Secret("mysecret", {
 const key = new keyvault.Key("mykey", {
     resourceGroupName: resourceGroup.name,
     vaultName: vault.name,
-    keyName: "mykey",
     properties: {
         kty: "RSA",
         keySize: 2048,

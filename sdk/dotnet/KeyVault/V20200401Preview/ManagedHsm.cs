@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
         /// <summary>
         /// Name of the managed HSM Pool
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Properties of the managed HSM

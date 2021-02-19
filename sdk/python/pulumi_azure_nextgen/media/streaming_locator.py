@@ -84,8 +84,6 @@ class StreamingLocator(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['start_time'] = start_time
             __props__['streaming_locator_id'] = streaming_locator_id
-            if streaming_locator_name is None and not opts.urn:
-                raise TypeError("Missing required property 'streaming_locator_name'")
             __props__['streaming_locator_name'] = streaming_locator_name
             if streaming_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'streaming_policy_name'")

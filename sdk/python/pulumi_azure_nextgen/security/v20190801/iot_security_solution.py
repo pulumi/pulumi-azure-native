@@ -86,8 +86,6 @@ class IotSecuritySolution(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if solution_name is None and not opts.urn:
-                raise TypeError("Missing required property 'solution_name'")
             __props__['solution_name'] = solution_name
             if status is None:
                 status = 'Enabled'

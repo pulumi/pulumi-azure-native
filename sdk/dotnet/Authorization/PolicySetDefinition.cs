@@ -184,8 +184,8 @@ namespace Pulumi.AzureNextGen.Authorization
         /// <summary>
         /// The name of the policy set definition to create.
         /// </summary>
-        [Input("policySetDefinitionName", required: true)]
-        public Input<string> PolicySetDefinitionName { get; set; } = null!;
+        [Input("policySetDefinitionName")]
+        public Input<string>? PolicySetDefinitionName { get; set; }
 
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.

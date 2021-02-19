@@ -140,8 +140,8 @@ namespace Pulumi.AzureNextGen.Security
         /// <summary>
         /// Name of the IoT sensor
         /// </summary>
-        [Input("iotSensorName", required: true)]
-        public Input<string> IotSensorName { get; set; } = null!;
+        [Input("iotSensorName")]
+        public Input<string>? IotSensorName { get; set; }
 
         /// <summary>
         /// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)

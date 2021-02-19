@@ -48,8 +48,6 @@ class HcxEnterpriseSite(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if hcx_enterprise_site_name is None and not opts.urn:
-                raise TypeError("Missing required property 'hcx_enterprise_site_name'")
             __props__['hcx_enterprise_site_name'] = hcx_enterprise_site_name
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")

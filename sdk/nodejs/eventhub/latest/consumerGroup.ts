@@ -71,9 +71,6 @@ export class ConsumerGroup extends pulumi.CustomResource {
         pulumi.log.warn("ConsumerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:ConsumerGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.consumerGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'consumerGroupName'");
-            }
             if ((!args || args.eventHubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventHubName'");
             }
@@ -119,7 +116,7 @@ export interface ConsumerGroupArgs {
     /**
      * The consumer group name
      */
-    readonly consumerGroupName: pulumi.Input<string>;
+    readonly consumerGroupName?: pulumi.Input<string>;
     /**
      * The Event Hub name
      */

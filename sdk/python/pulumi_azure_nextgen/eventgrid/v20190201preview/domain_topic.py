@@ -50,8 +50,6 @@ class DomainTopic(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
-            if domain_topic_name is None and not opts.urn:
-                raise TypeError("Missing required property 'domain_topic_name'")
             __props__['domain_topic_name'] = domain_topic_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -56,9 +56,6 @@ export class Console extends pulumi.CustomResource {
         pulumi.log.warn("Console is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:Console'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.consoleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'consoleName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -87,7 +84,7 @@ export interface ConsoleArgs {
     /**
      * The name of the console
      */
-    readonly consoleName: pulumi.Input<string>;
+    readonly consoleName?: pulumi.Input<string>;
     /**
      * Cloud shell properties for creating a console.
      */

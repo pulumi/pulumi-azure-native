@@ -52,8 +52,6 @@ class ManagementConfiguration(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['location'] = location
-            if management_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'management_configuration_name'")
             __props__['management_configuration_name'] = management_configuration_name
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

@@ -67,9 +67,6 @@ export class Database extends pulumi.CustomResource {
         pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:Database'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'databaseName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -117,7 +114,7 @@ export interface DatabaseArgs {
     /**
      * The name of the database.
      */
-    readonly databaseName: pulumi.Input<string>;
+    readonly databaseName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

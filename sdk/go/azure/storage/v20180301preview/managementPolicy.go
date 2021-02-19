@@ -35,9 +35,6 @@ func NewManagementPolicy(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.ManagementPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'ManagementPolicyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -116,7 +113,7 @@ type managementPolicyArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
 	// The name of the Storage Account Management Policy. It should always be 'default'
-	ManagementPolicyName string `pulumi:"managementPolicyName"`
+	ManagementPolicyName *string `pulumi:"managementPolicyName"`
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 	Policy interface{} `pulumi:"policy"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -128,7 +125,7 @@ type ManagementPolicyArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
 	// The name of the Storage Account Management Policy. It should always be 'default'
-	ManagementPolicyName pulumi.StringInput
+	ManagementPolicyName pulumi.StringPtrInput
 	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
 	Policy pulumi.Input
 	// The name of the resource group within the user's subscription. The name is case insensitive.

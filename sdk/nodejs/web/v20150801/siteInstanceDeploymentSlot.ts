@@ -101,9 +101,6 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
     constructor(name: string, args: SiteInstanceDeploymentSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'id'");
-            }
             if ((!args || args.instanceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceId'");
             }
@@ -194,7 +191,7 @@ export interface SiteInstanceDeploymentSlotArgs {
     /**
      * Resource Id
      */
-    readonly id: pulumi.Input<string>;
+    readonly id?: pulumi.Input<string>;
     /**
      * Id of web app instance
      */

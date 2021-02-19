@@ -45,9 +45,6 @@ func NewIntegrationAccountSession(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SessionName == nil {
-		return nil, errors.New("invalid value for required argument 'SessionName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationAccountSession"),
@@ -132,7 +129,7 @@ type integrationAccountSessionArgs struct {
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The integration account session name.
-	SessionName string `pulumi:"sessionName"`
+	SessionName *string `pulumi:"sessionName"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -148,7 +145,7 @@ type IntegrationAccountSessionArgs struct {
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The integration account session name.
-	SessionName pulumi.StringInput
+	SessionName pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 }

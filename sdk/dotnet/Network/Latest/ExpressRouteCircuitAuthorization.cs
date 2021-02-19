@@ -146,8 +146,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The name of the authorization.
         /// </summary>
-        [Input("authorizationName", required: true)]
-        public Input<string> AuthorizationName { get; set; } = null!;
+        [Input("authorizationName")]
+        public Input<string>? AuthorizationName { get; set; }
 
         /// <summary>
         /// The authorization use status.

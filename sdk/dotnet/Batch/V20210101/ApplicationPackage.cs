@@ -144,8 +144,8 @@ namespace Pulumi.AzureNextGen.Batch.V20210101
         /// <summary>
         /// The version of the application.
         /// </summary>
-        [Input("versionName", required: true)]
-        public Input<string> VersionName { get; set; } = null!;
+        [Input("versionName")]
+        public Input<string>? VersionName { get; set; }
 
         public ApplicationPackageArgs()
         {

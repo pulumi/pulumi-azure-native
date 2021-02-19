@@ -80,9 +80,6 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.privateEndpointConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,7 +126,7 @@ export interface WebAppPrivateEndpointConnectionArgs {
      * Name of the site.
      */
     readonly name: pulumi.Input<string>;
-    readonly privateEndpointConnectionName: pulumi.Input<string>;
+    readonly privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * The state of a private link connection
      */

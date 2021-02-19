@@ -79,8 +79,6 @@ class RelationshipLink(pulumi.CustomResource):
             if related_profile_property_references is None and not opts.urn:
                 raise TypeError("Missing required property 'related_profile_property_references'")
             __props__['related_profile_property_references'] = related_profile_property_references
-            if relationship_link_name is None and not opts.urn:
-                raise TypeError("Missing required property 'relationship_link_name'")
             __props__['relationship_link_name'] = relationship_link_name
             if relationship_name is None and not opts.urn:
                 raise TypeError("Missing required property 'relationship_name'")

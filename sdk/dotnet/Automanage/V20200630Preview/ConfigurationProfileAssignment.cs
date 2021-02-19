@@ -85,8 +85,8 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
         /// <summary>
         /// Name of the configuration profile assignment. Only default is supported.
         /// </summary>
-        [Input("configurationProfileAssignmentName", required: true)]
-        public Input<string> ConfigurationProfileAssignmentName { get; set; } = null!;
+        [Input("configurationProfileAssignmentName")]
+        public Input<string>? ConfigurationProfileAssignmentName { get; set; }
 
         /// <summary>
         /// Properties of the configuration profile assignment.

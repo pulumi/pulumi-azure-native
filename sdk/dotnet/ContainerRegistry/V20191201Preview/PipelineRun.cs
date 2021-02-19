@@ -116,8 +116,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The name of the pipeline run.
         /// </summary>
-        [Input("pipelineRunName", required: true)]
-        public Input<string> PipelineRunName { get; set; } = null!;
+        [Input("pipelineRunName")]
+        public Input<string>? PipelineRunName { get; set; }
 
         /// <summary>
         /// The name of the container registry.

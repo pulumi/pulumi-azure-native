@@ -72,9 +72,6 @@ export class SqlResourceSqlRoleAssignment extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.roleAssignmentId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'roleAssignmentId'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["principalId"] = args ? args.principalId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -122,7 +119,7 @@ export interface SqlResourceSqlRoleAssignmentArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    readonly roleAssignmentId: pulumi.Input<string>;
+    readonly roleAssignmentId?: pulumi.Input<string>;
     /**
      * The unique identifier for the associated Role Definition.
      */

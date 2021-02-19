@@ -64,8 +64,6 @@ class TrustedIdProvider(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if trusted_id_provider_name is None and not opts.urn:
-                raise TypeError("Missing required property 'trusted_id_provider_name'")
             __props__['trusted_id_provider_name'] = trusted_id_provider_name
             __props__['name'] = None
             __props__['type'] = None

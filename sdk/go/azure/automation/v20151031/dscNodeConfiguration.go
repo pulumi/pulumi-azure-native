@@ -43,9 +43,6 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
-	if args.NodeConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'NodeConfigurationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -131,7 +128,7 @@ type dscNodeConfigurationArgs struct {
 	// Name of the node configuration.
 	Name string `pulumi:"name"`
 	// The create or update parameters for configuration.
-	NodeConfigurationName string `pulumi:"nodeConfigurationName"`
+	NodeConfigurationName *string `pulumi:"nodeConfigurationName"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets the source.
@@ -149,7 +146,7 @@ type DscNodeConfigurationArgs struct {
 	// Name of the node configuration.
 	Name pulumi.StringInput
 	// The create or update parameters for configuration.
-	NodeConfigurationName pulumi.StringInput
+	NodeConfigurationName pulumi.StringPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets the source.

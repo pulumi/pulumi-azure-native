@@ -67,9 +67,6 @@ export class WorkspaceCollection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceCollectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'workspaceCollectionName'");
-            }
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -116,5 +113,5 @@ export interface WorkspaceCollectionArgs {
     /**
      * Power BI Embedded Workspace Collection name
      */
-    readonly workspaceCollectionName: pulumi.Input<string>;
+    readonly workspaceCollectionName?: pulumi.Input<string>;
 }

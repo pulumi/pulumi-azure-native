@@ -48,9 +48,6 @@ func NewVariable(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VariableName == nil {
-		return nil, errors.New("invalid value for required argument 'VariableName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Variable"),
@@ -139,7 +136,7 @@ type variableArgs struct {
 	// Gets or sets the value of the variable.
 	Value *string `pulumi:"value"`
 	// The variable name.
-	VariableName string `pulumi:"variableName"`
+	VariableName *string `pulumi:"variableName"`
 }
 
 // The set of arguments for constructing a Variable resource.
@@ -157,7 +154,7 @@ type VariableArgs struct {
 	// Gets or sets the value of the variable.
 	Value pulumi.StringPtrInput
 	// The variable name.
-	VariableName pulumi.StringInput
+	VariableName pulumi.StringPtrInput
 }
 
 func (VariableArgs) ElementType() reflect.Type {

@@ -104,9 +104,6 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
         pulumi.log.warn("IntegrationAccountAgreement is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAgreement'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.agreementName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'agreementName'");
-            }
             if ((!args || args.agreementType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'agreementType'");
             }
@@ -182,7 +179,7 @@ export interface IntegrationAccountAgreementArgs {
     /**
      * The integration account agreement name.
      */
-    readonly agreementName: pulumi.Input<string>;
+    readonly agreementName?: pulumi.Input<string>;
     /**
      * The agreement type.
      */

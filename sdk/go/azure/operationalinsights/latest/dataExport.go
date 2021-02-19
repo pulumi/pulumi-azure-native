@@ -45,9 +45,6 @@ func NewDataExport(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataExportName == nil {
-		return nil, errors.New("invalid value for required argument 'DataExportName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -148,7 +145,7 @@ type dataExportArgs struct {
 	// The data export rule ID.
 	DataExportId *string `pulumi:"dataExportId"`
 	// The data export rule name.
-	DataExportName string `pulumi:"dataExportName"`
+	DataExportName *string `pulumi:"dataExportName"`
 	// Active when enabled.
 	Enable *bool `pulumi:"enable"`
 	// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
@@ -172,7 +169,7 @@ type DataExportArgs struct {
 	// The data export rule ID.
 	DataExportId pulumi.StringPtrInput
 	// The data export rule name.
-	DataExportName pulumi.StringInput
+	DataExportName pulumi.StringPtrInput
 	// Active when enabled.
 	Enable pulumi.BoolPtrInput
 	// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.

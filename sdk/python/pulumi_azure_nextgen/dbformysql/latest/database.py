@@ -59,8 +59,6 @@ class Database(pulumi.CustomResource):
 
             __props__['charset'] = charset
             __props__['collation'] = collation
-            if database_name is None and not opts.urn:
-                raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

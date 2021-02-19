@@ -90,9 +90,6 @@ export class Backend extends pulumi.CustomResource {
     constructor(name: string, args: BackendArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.backendid === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'backendid'");
-            }
             if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'protocol'");
             }
@@ -152,7 +149,7 @@ export interface BackendArgs {
     /**
      * Identifier of the Backend entity. Must be unique in the current API Management service instance.
      */
-    readonly backendid: pulumi.Input<string>;
+    readonly backendid?: pulumi.Input<string>;
     /**
      * Backend Credentials Contract Properties
      */

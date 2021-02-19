@@ -194,8 +194,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
         /// <summary>
         /// The name of SQL Managed Instances
         /// </summary>
-        [Input("sqlManagedInstanceName", required: true)]
-        public Input<string> SqlManagedInstanceName { get; set; } = null!;
+        [Input("sqlManagedInstanceName")]
+        public Input<string>? SqlManagedInstanceName { get; set; }
 
         /// <summary>
         /// The instance start time

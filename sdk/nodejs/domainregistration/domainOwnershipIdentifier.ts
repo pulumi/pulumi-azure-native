@@ -70,9 +70,6 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
             if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -118,7 +115,7 @@ export interface DomainOwnershipIdentifierArgs {
     /**
      * Name of identifier.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Ownership Id.
      */

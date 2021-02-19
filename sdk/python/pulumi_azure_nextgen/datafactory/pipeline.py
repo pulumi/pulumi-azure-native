@@ -76,8 +76,6 @@ class Pipeline(pulumi.CustomResource):
             __props__['factory_name'] = factory_name
             __props__['folder'] = folder
             __props__['parameters'] = parameters
-            if pipeline_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pipeline_name'")
             __props__['pipeline_name'] = pipeline_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

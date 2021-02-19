@@ -52,8 +52,6 @@ class Connector(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authentication_details'] = authentication_details
-            if connector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connector_name'")
             __props__['connector_name'] = connector_name
             __props__['hybrid_compute_settings'] = hybrid_compute_settings
             __props__['name'] = None

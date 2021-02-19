@@ -386,8 +386,8 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// <summary>
         /// The name of the virtual machine.
         /// </summary>
-        [Input("vmName", required: true)]
-        public Input<string> VmName { get; set; } = null!;
+        [Input("vmName")]
+        public Input<string>? VmName { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;

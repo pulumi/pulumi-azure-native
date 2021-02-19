@@ -141,8 +141,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
         /// <summary>
         /// The name of the sql database.
         /// </summary>
-        [Input("sqlDatabaseName", required: true)]
-        public Input<string> SqlDatabaseName { get; set; } = null!;
+        [Input("sqlDatabaseName")]
+        public Input<string>? SqlDatabaseName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

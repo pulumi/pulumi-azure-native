@@ -64,8 +64,6 @@ class FirewallPolicy(pulumi.CustomResource):
 
             __props__['base_policy'] = base_policy
             __props__['dns_settings'] = dns_settings
-            if firewall_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'firewall_policy_name'")
             __props__['firewall_policy_name'] = firewall_policy_name
             __props__['id'] = id
             __props__['location'] = location

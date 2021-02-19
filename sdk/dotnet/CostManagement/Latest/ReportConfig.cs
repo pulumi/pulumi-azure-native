@@ -130,8 +130,8 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
         /// <summary>
         /// Report Config Name.
         /// </summary>
-        [Input("reportConfigName", required: true)]
-        public Input<string> ReportConfigName { get; set; } = null!;
+        [Input("reportConfigName")]
+        public Input<string>? ReportConfigName { get; set; }
 
         /// <summary>
         /// Has schedule information for the report config.

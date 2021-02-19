@@ -6,28 +6,16 @@ using Pulumi.AzureNextGen.Resources;
 using Pulumi.AzureNextGen.Web;
 using Pulumi.AzureNextGen.Web.Inputs;
 using Pulumi.Docker;
-using Pulumi.Random;
 
 class MyStack : Stack
 {
     public MyStack()
     {
-        var randomString = new RandomString("random", new RandomStringArgs
-        {
-            Length = 12,
-            Special = false,
-            Upper = false,
-        });
-
-        var resourceGroup = new ResourceGroup("resourceGroup", new ResourceGroupArgs
-        {
-            ResourceGroupName = Output.Format($"cs-appservice-docker-{randomString.Result}")
-        });
+        var resourceGroup = new ResourceGroup("resourceGroup");
 
         var plan = new AppServicePlan("linux-apps", new AppServicePlanArgs
         {
             ResourceGroupName = resourceGroup.Name,
-            Name = Output.Format($"linux-apps-{randomString.Result}"),
             Location = resourceGroup.Location,
             Kind = "Linux",
             Reserved = true,
@@ -49,7 +37,6 @@ class MyStack : Stack
         {
             ResourceGroupName = resourceGroup.Name,
             Location = plan.Location,
-            Name = Output.Format($"hello-app-{randomString.Result}"),
             ServerFarmId = plan.Id,
             SiteConfig = new SiteConfigArgs
             {
@@ -77,7 +64,6 @@ class MyStack : Stack
         var registry = new Registry("myregistry", new RegistryArgs
         {
             ResourceGroupName = resourceGroup.Name,
-            RegistryName = Output.Format($"registry{randomString.Result}"),
             Location = resourceGroup.Location,
             Sku = new SkuArgs { Name = SkuName.Basic },
             AdminUserEnabled = true
@@ -108,7 +94,6 @@ class MyStack : Stack
         {
             ResourceGroupName = resourceGroup.Name,
             Location = plan.Location,
-            Name = Output.Format($"get-started-{randomString.Result}"),
             ServerFarmId = plan.Id,
             SiteConfig = new SiteConfigArgs
             {

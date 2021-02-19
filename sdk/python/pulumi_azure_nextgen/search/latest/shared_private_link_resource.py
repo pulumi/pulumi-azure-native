@@ -65,8 +65,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             if search_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'search_service_name'")
             __props__['search_service_name'] = search_service_name
-            if shared_private_link_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'shared_private_link_resource_name'")
             __props__['shared_private_link_resource_name'] = shared_private_link_resource_name
             __props__['name'] = None
             __props__['type'] = None

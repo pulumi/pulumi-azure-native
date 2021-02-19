@@ -58,9 +58,6 @@ export class RegistrationAssignment extends pulumi.CustomResource {
     constructor(name: string, args: RegistrationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.registrationAssignmentId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'registrationAssignmentId'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -98,7 +95,7 @@ export interface RegistrationAssignmentArgs {
     /**
      * Guid of the registration assignment.
      */
-    readonly registrationAssignmentId: pulumi.Input<string>;
+    readonly registrationAssignmentId?: pulumi.Input<string>;
     /**
      * Scope of the resource.
      */

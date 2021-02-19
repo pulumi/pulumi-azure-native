@@ -68,9 +68,6 @@ export class ApiIssueComment extends pulumi.CustomResource {
             if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.commentId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'commentId'");
-            }
             if ((!args || args.issueId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'issueId'");
             }
@@ -127,7 +124,7 @@ export interface ApiIssueCommentArgs {
     /**
      * Comment identifier within an Issue. Must be unique in the current Issue.
      */
-    readonly commentId: pulumi.Input<string>;
+    readonly commentId?: pulumi.Input<string>;
     /**
      * Date and time when the comment was created.
      */

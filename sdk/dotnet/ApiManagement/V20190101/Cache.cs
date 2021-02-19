@@ -102,8 +102,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// <summary>
         /// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
         /// </summary>
-        [Input("cacheId", required: true)]
-        public Input<string> CacheId { get; set; } = null!;
+        [Input("cacheId")]
+        public Input<string>? CacheId { get; set; }
 
         /// <summary>
         /// Runtime connection string to cache

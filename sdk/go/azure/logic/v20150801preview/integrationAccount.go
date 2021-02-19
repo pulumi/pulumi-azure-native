@@ -33,9 +33,6 @@ func NewIntegrationAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.IntegrationAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -112,7 +109,7 @@ type integrationAccountArgs struct {
 	// The resource id.
 	Id *string `pulumi:"id"`
 	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
+	IntegrationAccountName *string `pulumi:"integrationAccountName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The resource name.
@@ -132,7 +129,7 @@ type IntegrationAccountArgs struct {
 	// The resource id.
 	Id pulumi.StringPtrInput
 	// The integration account name.
-	IntegrationAccountName pulumi.StringInput
+	IntegrationAccountName pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The resource name.

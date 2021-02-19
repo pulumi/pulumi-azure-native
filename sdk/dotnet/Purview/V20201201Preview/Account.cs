@@ -164,8 +164,8 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// <summary>
         /// The name of the account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// Identity Info on the tracked resource

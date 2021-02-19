@@ -56,9 +56,6 @@ export class ConsoleWithLocation extends pulumi.CustomResource {
         pulumi.log.warn("ConsoleWithLocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:ConsoleWithLocation'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.consoleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'consoleName'");
-            }
             if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
@@ -88,7 +85,7 @@ export interface ConsoleWithLocationArgs {
     /**
      * The name of the console
      */
-    readonly consoleName: pulumi.Input<string>;
+    readonly consoleName?: pulumi.Input<string>;
     /**
      * The provider location
      */

@@ -80,8 +80,6 @@ class ConnectorMapping(pulumi.CustomResource):
             if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
-            if mapping_name is None and not opts.urn:
-                raise TypeError("Missing required property 'mapping_name'")
             __props__['mapping_name'] = mapping_name
             if mapping_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'mapping_properties'")

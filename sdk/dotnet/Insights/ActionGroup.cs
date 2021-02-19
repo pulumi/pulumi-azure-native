@@ -169,8 +169,8 @@ namespace Pulumi.AzureNextGen.Insights
         /// <summary>
         /// The name of the action group.
         /// </summary>
-        [Input("actionGroupName", required: true)]
-        public Input<string> ActionGroupName { get; set; } = null!;
+        [Input("actionGroupName")]
+        public Input<string>? ActionGroupName { get; set; }
 
         [Input("armRoleReceivers")]
         private InputList<Inputs.ArmRoleReceiverArgs>? _armRoleReceivers;

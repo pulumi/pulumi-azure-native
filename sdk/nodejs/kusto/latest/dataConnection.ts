@@ -71,9 +71,6 @@ export class DataConnection extends pulumi.CustomResource {
             if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.dataConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dataConnectionName'");
-            }
             if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
@@ -121,7 +118,7 @@ export interface DataConnectionArgs {
     /**
      * The name of the data connection.
      */
-    readonly dataConnectionName: pulumi.Input<string>;
+    readonly dataConnectionName?: pulumi.Input<string>;
     /**
      * The name of the database in the Kusto cluster.
      */

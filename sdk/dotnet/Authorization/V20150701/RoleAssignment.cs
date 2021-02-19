@@ -97,8 +97,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20150701
         /// <summary>
         /// The name of the role assignment to create. It can be any valid GUID.
         /// </summary>
-        [Input("roleAssignmentName", required: true)]
-        public Input<string> RoleAssignmentName { get; set; } = null!;
+        [Input("roleAssignmentName")]
+        public Input<string>? RoleAssignmentName { get; set; }
 
         /// <summary>
         /// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.

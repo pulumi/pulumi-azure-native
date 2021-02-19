@@ -72,8 +72,6 @@ class LogProfile(pulumi.CustomResource):
             if locations is None and not opts.urn:
                 raise TypeError("Missing required property 'locations'")
             __props__['locations'] = locations
-            if log_profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'log_profile_name'")
             __props__['log_profile_name'] = log_profile_name
             if retention_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_policy'")

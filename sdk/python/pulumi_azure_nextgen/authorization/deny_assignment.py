@@ -66,8 +66,6 @@ class DenyAssignment(pulumi.CustomResource):
 
             __props__['condition'] = condition
             __props__['condition_version'] = condition_version
-            if deny_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'deny_assignment_name'")
             __props__['deny_assignment_name'] = deny_assignment_name
             __props__['description'] = description
             __props__['do_not_apply_to_child_scopes'] = do_not_apply_to_child_scopes

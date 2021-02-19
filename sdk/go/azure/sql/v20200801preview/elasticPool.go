@@ -52,9 +52,6 @@ func NewElasticPool(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ElasticPoolName == nil {
-		return nil, errors.New("invalid value for required argument 'ElasticPoolName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -168,7 +165,7 @@ func (ElasticPoolState) ElementType() reflect.Type {
 
 type elasticPoolArgs struct {
 	// The name of the elastic pool.
-	ElasticPoolName string `pulumi:"elasticPoolName"`
+	ElasticPoolName *string `pulumi:"elasticPoolName"`
 	// The license type to apply for this elastic pool.
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
@@ -196,7 +193,7 @@ type elasticPoolArgs struct {
 // The set of arguments for constructing a ElasticPool resource.
 type ElasticPoolArgs struct {
 	// The name of the elastic pool.
-	ElasticPoolName pulumi.StringInput
+	ElasticPoolName pulumi.StringPtrInput
 	// The license type to apply for this elastic pool.
 	LicenseType pulumi.StringPtrInput
 	// Resource location.

@@ -95,9 +95,6 @@ export class IpAllocation extends pulumi.CustomResource {
     constructor(name: string, args: IpAllocationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ipAllocationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ipAllocationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -158,7 +155,7 @@ export interface IpAllocationArgs {
     /**
      * The name of the IpAllocation.
      */
-    readonly ipAllocationName: pulumi.Input<string>;
+    readonly ipAllocationName?: pulumi.Input<string>;
     /**
      * The IPAM allocation ID.
      */

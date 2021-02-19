@@ -34,9 +34,6 @@ func NewBinding(ctx *pulumi.Context,
 	if args.AppName == nil {
 		return nil, errors.New("invalid value for required argument 'AppName'")
 	}
-	if args.BindingName == nil {
-		return nil, errors.New("invalid value for required argument 'BindingName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -105,7 +102,7 @@ type bindingArgs struct {
 	// The name of the App resource.
 	AppName string `pulumi:"appName"`
 	// The name of the Binding resource.
-	BindingName string `pulumi:"bindingName"`
+	BindingName *string `pulumi:"bindingName"`
 	// Properties of the Binding resource
 	Properties *BindingResourceProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -119,7 +116,7 @@ type BindingArgs struct {
 	// The name of the App resource.
 	AppName pulumi.StringInput
 	// The name of the Binding resource.
-	BindingName pulumi.StringInput
+	BindingName pulumi.StringPtrInput
 	// Properties of the Binding resource
 	Properties BindingResourcePropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

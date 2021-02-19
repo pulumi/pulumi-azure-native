@@ -56,9 +56,6 @@ func NewDenyAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DenyAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'DenyAssignmentName'")
-	}
 	if args.Permissions == nil {
 		return nil, errors.New("invalid value for required argument 'Permissions'")
 	}
@@ -175,7 +172,7 @@ type denyAssignmentArgs struct {
 	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion *string `pulumi:"conditionVersion"`
 	// The display name of the deny assignment.
-	DenyAssignmentName string `pulumi:"denyAssignmentName"`
+	DenyAssignmentName *string `pulumi:"denyAssignmentName"`
 	// The description of the deny assignment.
 	Description *string `pulumi:"description"`
 	// Determines if the deny assignment applies to child scopes. Default value is false.
@@ -199,7 +196,7 @@ type DenyAssignmentArgs struct {
 	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion pulumi.StringPtrInput
 	// The display name of the deny assignment.
-	DenyAssignmentName pulumi.StringInput
+	DenyAssignmentName pulumi.StringPtrInput
 	// The description of the deny assignment.
 	Description pulumi.StringPtrInput
 	// Determines if the deny assignment applies to child scopes. Default value is false.

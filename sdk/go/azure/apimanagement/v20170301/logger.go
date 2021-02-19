@@ -45,9 +45,6 @@ func NewLogger(ctx *pulumi.Context,
 	if args.LoggerType == nil {
 		return nil, errors.New("invalid value for required argument 'LoggerType'")
 	}
-	if args.Loggerid == nil {
-		return nil, errors.New("invalid value for required argument 'Loggerid'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -159,7 +156,7 @@ type loggerArgs struct {
 	// Logger type.
 	LoggerType string `pulumi:"loggerType"`
 	// Logger identifier. Must be unique in the API Management service instance.
-	Loggerid string `pulumi:"loggerid"`
+	Loggerid *string `pulumi:"loggerid"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sampling settings for an ApplicationInsights logger.
@@ -180,7 +177,7 @@ type LoggerArgs struct {
 	// Logger type.
 	LoggerType pulumi.StringInput
 	// Logger identifier. Must be unique in the API Management service instance.
-	Loggerid pulumi.StringInput
+	Loggerid pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Sampling settings for an ApplicationInsights logger.

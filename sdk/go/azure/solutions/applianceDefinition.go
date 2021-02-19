@@ -51,9 +51,6 @@ func NewApplianceDefinition(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplianceDefinitionName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplianceDefinitionName'")
-	}
 	if args.Authorizations == nil {
 		return nil, errors.New("invalid value for required argument 'Authorizations'")
 	}
@@ -154,7 +151,7 @@ func (ApplianceDefinitionState) ElementType() reflect.Type {
 
 type applianceDefinitionArgs struct {
 	// The name of the appliance definition.
-	ApplianceDefinitionName string `pulumi:"applianceDefinitionName"`
+	ApplianceDefinitionName *string `pulumi:"applianceDefinitionName"`
 	// The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
 	Artifacts []ApplianceArtifact `pulumi:"artifacts"`
 	// The appliance provider authorizations.
@@ -184,7 +181,7 @@ type applianceDefinitionArgs struct {
 // The set of arguments for constructing a ApplianceDefinition resource.
 type ApplianceDefinitionArgs struct {
 	// The name of the appliance definition.
-	ApplianceDefinitionName pulumi.StringInput
+	ApplianceDefinitionName pulumi.StringPtrInput
 	// The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
 	Artifacts ApplianceArtifactArrayInput
 	// The appliance provider authorizations.

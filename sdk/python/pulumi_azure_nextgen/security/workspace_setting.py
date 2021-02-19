@@ -54,8 +54,6 @@ class WorkspaceSetting(pulumi.CustomResource):
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__['workspace_id'] = workspace_id
-            if workspace_setting_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_setting_name'")
             __props__['workspace_setting_name'] = workspace_setting_name
             __props__['name'] = None
             __props__['type'] = None

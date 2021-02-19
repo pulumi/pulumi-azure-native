@@ -84,9 +84,6 @@ export class EmailTemplate extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.templateName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'templateName'");
-            }
             inputs["body"] = args ? args.body : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
@@ -152,7 +149,7 @@ export interface EmailTemplateArgs {
     /**
      * Email Template Name Identifier.
      */
-    readonly templateName: pulumi.Input<string>;
+    readonly templateName?: pulumi.Input<string>;
     /**
      * Title of the Template.
      */

@@ -79,9 +79,6 @@ export class DiagnosticLogger extends pulumi.CustomResource {
             if ((!args || args.diagnosticId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'diagnosticId'");
             }
-            if ((!args || args.loggerid === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'loggerid'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -130,7 +127,7 @@ export interface DiagnosticLoggerArgs {
     /**
      * Logger identifier. Must be unique in the API Management service instance.
      */
-    readonly loggerid: pulumi.Input<string>;
+    readonly loggerid?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

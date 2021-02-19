@@ -116,8 +116,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// <summary>
         /// Schema identifier within an API. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("schemaId", required: true)]
-        public Input<string> SchemaId { get; set; } = null!;
+        [Input("schemaId")]
+        public Input<string>? SchemaId { get; set; }
 
         /// <summary>
         /// The name of the API Management service.

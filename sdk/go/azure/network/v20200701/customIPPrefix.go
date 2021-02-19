@@ -46,9 +46,6 @@ func NewCustomIPPrefix(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CustomIpPrefixName == nil {
-		return nil, errors.New("invalid value for required argument 'CustomIpPrefixName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -148,7 +145,7 @@ type customIPPrefixArgs struct {
 	// The commissioned state of the Custom IP Prefix.
 	CommissionedState *string `pulumi:"commissionedState"`
 	// The name of the custom IP prefix.
-	CustomIpPrefixName string `pulumi:"customIpPrefixName"`
+	CustomIpPrefixName *string `pulumi:"customIpPrefixName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -168,7 +165,7 @@ type CustomIPPrefixArgs struct {
 	// The commissioned state of the Custom IP Prefix.
 	CommissionedState pulumi.StringPtrInput
 	// The name of the custom IP prefix.
-	CustomIpPrefixName pulumi.StringInput
+	CustomIpPrefixName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

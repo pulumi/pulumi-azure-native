@@ -56,9 +56,6 @@ func NewSqlPoolSensitivityLabel(ctx *pulumi.Context,
 	if args.SchemaName == nil {
 		return nil, errors.New("invalid value for required argument 'SchemaName'")
 	}
-	if args.SensitivityLabelSource == nil {
-		return nil, errors.New("invalid value for required argument 'SensitivityLabelSource'")
-	}
 	if args.SqlPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'SqlPoolName'")
 	}
@@ -174,7 +171,7 @@ type sqlPoolSensitivityLabelArgs struct {
 	// The name of the schema.
 	SchemaName string `pulumi:"schemaName"`
 	// The source of the sensitivity label.
-	SensitivityLabelSource string `pulumi:"sensitivityLabelSource"`
+	SensitivityLabelSource *string `pulumi:"sensitivityLabelSource"`
 	// SQL pool name
 	SqlPoolName string `pulumi:"sqlPoolName"`
 	// The name of the table.
@@ -201,7 +198,7 @@ type SqlPoolSensitivityLabelArgs struct {
 	// The name of the schema.
 	SchemaName pulumi.StringInput
 	// The source of the sensitivity label.
-	SensitivityLabelSource pulumi.StringInput
+	SensitivityLabelSource pulumi.StringPtrInput
 	// SQL pool name
 	SqlPoolName pulumi.StringInput
 	// The name of the table.

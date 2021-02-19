@@ -40,9 +40,6 @@ func NewIpGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.IpGroupsName == nil {
-		return nil, errors.New("invalid value for required argument 'IpGroupsName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -148,7 +145,7 @@ type ipGroupArgs struct {
 	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// The name of the ipGroups.
-	IpGroupsName string `pulumi:"ipGroupsName"`
+	IpGroupsName *string `pulumi:"ipGroupsName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource group.
@@ -164,7 +161,7 @@ type IpGroupArgs struct {
 	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
 	IpAddresses pulumi.StringArrayInput
 	// The name of the ipGroups.
-	IpGroupsName pulumi.StringInput
+	IpGroupsName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource group.

@@ -228,8 +228,8 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// The name of the virtual network.
         /// </summary>
-        [Input("virtualNetworkName", required: true)]
-        public Input<string> VirtualNetworkName { get; set; } = null!;
+        [Input("virtualNetworkName")]
+        public Input<string>? VirtualNetworkName { get; set; }
 
         public VirtualNetworkArgs()
         {

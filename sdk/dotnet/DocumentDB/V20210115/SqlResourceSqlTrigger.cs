@@ -155,8 +155,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20210115
         /// <summary>
         /// Cosmos DB trigger name.
         /// </summary>
-        [Input("triggerName", required: true)]
-        public Input<string> TriggerName { get; set; } = null!;
+        [Input("triggerName")]
+        public Input<string>? TriggerName { get; set; }
 
         public SqlResourceSqlTriggerArgs()
         {

@@ -67,9 +67,6 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
         pulumi.log.warn("HcxEnterpriseSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:HcxEnterpriseSite'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.hcxEnterpriseSiteName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'hcxEnterpriseSiteName'");
-            }
             if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -109,7 +106,7 @@ export interface HcxEnterpriseSiteArgs {
     /**
      * Name of the HCX Enterprise Site in the private cloud
      */
-    readonly hcxEnterpriseSiteName: pulumi.Input<string>;
+    readonly hcxEnterpriseSiteName?: pulumi.Input<string>;
     /**
      * The name of the private cloud.
      */

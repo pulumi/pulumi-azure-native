@@ -79,9 +79,6 @@ export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmGroupId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'vmGroupId'");
-            }
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["members"] = args ? args.members : undefined;
             inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
@@ -141,5 +138,5 @@ export interface WorkloadNetworkVMGroupArgs {
     /**
      * NSX VM Group identifier. Generally the same as the VM Group's display name
      */
-    readonly vmGroupId: pulumi.Input<string>;
+    readonly vmGroupId?: pulumi.Input<string>;
 }

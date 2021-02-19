@@ -70,9 +70,6 @@ export class CustomApi extends pulumi.CustomResource {
     constructor(name: string, args: CustomApiArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.apiName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'apiName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -113,7 +110,7 @@ export interface CustomApiArgs {
     /**
      * API name
      */
-    readonly apiName: pulumi.Input<string>;
+    readonly apiName?: pulumi.Input<string>;
     /**
      * Resource ETag
      */

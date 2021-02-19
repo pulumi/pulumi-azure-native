@@ -41,9 +41,6 @@ func NewApplicationSecurityGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationSecurityGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationSecurityGroupName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -192,7 +189,7 @@ func (ApplicationSecurityGroupState) ElementType() reflect.Type {
 
 type applicationSecurityGroupArgs struct {
 	// The name of the application security group.
-	ApplicationSecurityGroupName string `pulumi:"applicationSecurityGroupName"`
+	ApplicationSecurityGroupName *string `pulumi:"applicationSecurityGroupName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -206,7 +203,7 @@ type applicationSecurityGroupArgs struct {
 // The set of arguments for constructing a ApplicationSecurityGroup resource.
 type ApplicationSecurityGroupArgs struct {
 	// The name of the application security group.
-	ApplicationSecurityGroupName pulumi.StringInput
+	ApplicationSecurityGroupName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

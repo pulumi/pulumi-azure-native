@@ -33,9 +33,6 @@ func NewDataConnector(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataConnectorId == nil {
-		return nil, errors.New("invalid value for required argument 'DataConnectorId'")
-	}
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
@@ -103,7 +100,7 @@ func (DataConnectorState) ElementType() reflect.Type {
 
 type dataConnectorArgs struct {
 	// Connector ID
-	DataConnectorId string `pulumi:"dataConnectorId"`
+	DataConnectorId *string `pulumi:"dataConnectorId"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
 	// The data connector kind
@@ -117,7 +114,7 @@ type dataConnectorArgs struct {
 // The set of arguments for constructing a DataConnector resource.
 type DataConnectorArgs struct {
 	// Connector ID
-	DataConnectorId pulumi.StringInput
+	DataConnectorId pulumi.StringPtrInput
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
 	// The data connector kind

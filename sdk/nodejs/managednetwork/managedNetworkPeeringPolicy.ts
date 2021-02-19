@@ -66,9 +66,6 @@ export class ManagedNetworkPeeringPolicy extends pulumi.CustomResource {
             if ((!args || args.managedNetworkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedNetworkName'");
             }
-            if ((!args || args.managedNetworkPeeringPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'managedNetworkPeeringPolicyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -113,7 +110,7 @@ export interface ManagedNetworkPeeringPolicyArgs {
     /**
      * The name of the Managed Network Peering Policy.
      */
-    readonly managedNetworkPeeringPolicyName: pulumi.Input<string>;
+    readonly managedNetworkPeeringPolicyName?: pulumi.Input<string>;
     /**
      * Gets or sets the properties of a Managed Network Policy
      */

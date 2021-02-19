@@ -52,9 +52,6 @@ func NewSiteDeployment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Id == nil {
-		return nil, errors.New("invalid value for required argument 'Id'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -192,7 +189,7 @@ type siteDeploymentArgs struct {
 	// EndTime
 	EndTime *string `pulumi:"endTime"`
 	// Resource Id
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
@@ -228,7 +225,7 @@ type SiteDeploymentArgs struct {
 	// EndTime
 	EndTime pulumi.StringPtrInput
 	// Resource Id
-	Id pulumi.StringInput
+	Id pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location

@@ -39,9 +39,6 @@ func NewProtectionIntent(ctx *pulumi.Context,
 	if args.FabricName == nil {
 		return nil, errors.New("invalid value for required argument 'FabricName'")
 	}
-	if args.IntentObjectName == nil {
-		return nil, errors.New("invalid value for required argument 'IntentObjectName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -121,7 +118,7 @@ type protectionIntentArgs struct {
 	// Fabric name associated with the backup item.
 	FabricName string `pulumi:"fabricName"`
 	// Intent object name.
-	IntentObjectName string `pulumi:"intentObjectName"`
+	IntentObjectName *string `pulumi:"intentObjectName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// ProtectionIntentResource properties
@@ -141,7 +138,7 @@ type ProtectionIntentArgs struct {
 	// Fabric name associated with the backup item.
 	FabricName pulumi.StringInput
 	// Intent object name.
-	IntentObjectName pulumi.StringInput
+	IntentObjectName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// ProtectionIntentResource properties

@@ -96,9 +96,6 @@ export class IscsiDisk extends pulumi.CustomResource {
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.diskName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'diskName'");
-            }
             if ((!args || args.diskStatus === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'diskStatus'");
             }
@@ -180,7 +177,7 @@ export interface IscsiDiskArgs {
     /**
      * The disk name.
      */
-    readonly diskName: pulumi.Input<string>;
+    readonly diskName?: pulumi.Input<string>;
     /**
      * The disk status.
      */

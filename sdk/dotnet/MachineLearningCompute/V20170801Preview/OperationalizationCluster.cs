@@ -164,8 +164,8 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
         /// <summary>
         /// The name of the cluster.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The cluster type.

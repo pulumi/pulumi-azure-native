@@ -53,9 +53,6 @@ func NewWebhook(ctx *pulumi.Context,
 	if args.ServiceUri == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceUri'")
 	}
-	if args.WebhookName == nil {
-		return nil, errors.New("invalid value for required argument 'WebhookName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/latest:Webhook"),
@@ -160,7 +157,7 @@ type webhookArgs struct {
 	// The tags for the webhook.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the webhook.
-	WebhookName string `pulumi:"webhookName"`
+	WebhookName *string `pulumi:"webhookName"`
 }
 
 // The set of arguments for constructing a Webhook resource.
@@ -184,7 +181,7 @@ type WebhookArgs struct {
 	// The tags for the webhook.
 	Tags pulumi.StringMapInput
 	// The name of the webhook.
-	WebhookName pulumi.StringInput
+	WebhookName pulumi.StringPtrInput
 }
 
 func (WebhookArgs) ElementType() reflect.Type {

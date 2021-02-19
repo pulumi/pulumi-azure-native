@@ -84,9 +84,6 @@ export class AutoscaleSetting extends pulumi.CustomResource {
         pulumi.log.warn("AutoscaleSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AutoscaleSetting'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.autoscaleSettingName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'autoscaleSettingName'");
-            }
             if ((!args || args.profiles === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profiles'");
             }
@@ -133,7 +130,7 @@ export interface AutoscaleSettingArgs {
     /**
      * The autoscale setting name.
      */
-    readonly autoscaleSettingName: pulumi.Input<string>;
+    readonly autoscaleSettingName?: pulumi.Input<string>;
     /**
      * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
      */

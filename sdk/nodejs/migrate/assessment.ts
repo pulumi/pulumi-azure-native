@@ -63,9 +63,6 @@ export class Assessment extends pulumi.CustomResource {
     constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.assessmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'assessmentName'");
-            }
             if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupName'");
             }
@@ -112,7 +109,7 @@ export interface AssessmentArgs {
     /**
      * Unique name of an assessment within a project.
      */
-    readonly assessmentName: pulumi.Input<string>;
+    readonly assessmentName?: pulumi.Input<string>;
     /**
      * For optimistic concurrency control.
      */

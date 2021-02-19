@@ -76,9 +76,6 @@ export class Environment extends pulumi.CustomResource {
         pulumi.log.warn("Environment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:Environment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'environmentName'");
-            }
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -124,7 +121,7 @@ export interface EnvironmentArgs {
     /**
      * Name of the environment
      */
-    readonly environmentName: pulumi.Input<string>;
+    readonly environmentName?: pulumi.Input<string>;
     /**
      * The kind of the environment.
      */

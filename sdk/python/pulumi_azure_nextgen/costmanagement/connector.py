@@ -64,8 +64,6 @@ class Connector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connector_name'")
             __props__['connector_name'] = connector_name
             __props__['credentials_key'] = credentials_key
             __props__['credentials_secret'] = credentials_secret

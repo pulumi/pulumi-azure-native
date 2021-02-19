@@ -69,9 +69,6 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.jobAgentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
-            if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'jobName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -122,7 +119,7 @@ export interface JobArgs {
     /**
      * The name of the job to get.
      */
-    readonly jobName: pulumi.Input<string>;
+    readonly jobName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

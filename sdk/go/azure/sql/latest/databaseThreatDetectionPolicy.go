@@ -57,9 +57,6 @@ func NewDatabaseThreatDetectionPolicy(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SecurityAlertPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'SecurityAlertPolicyName'")
-	}
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
@@ -179,7 +176,7 @@ type databaseThreatDetectionPolicyArgs struct {
 	// Specifies the number of days to keep in the Threat Detection audit logs.
 	RetentionDays *int `pulumi:"retentionDays"`
 	// The name of the security alert policy.
-	SecurityAlertPolicyName string `pulumi:"securityAlertPolicyName"`
+	SecurityAlertPolicyName *string `pulumi:"securityAlertPolicyName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
@@ -209,7 +206,7 @@ type DatabaseThreatDetectionPolicyArgs struct {
 	// Specifies the number of days to keep in the Threat Detection audit logs.
 	RetentionDays pulumi.IntPtrInput
 	// The name of the security alert policy.
-	SecurityAlertPolicyName pulumi.StringInput
+	SecurityAlertPolicyName pulumi.StringPtrInput
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.

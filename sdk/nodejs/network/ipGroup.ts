@@ -83,9 +83,6 @@ export class IpGroup extends pulumi.CustomResource {
     constructor(name: string, args: IpGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ipGroupsName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ipGroupsName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -140,7 +137,7 @@ export interface IpGroupArgs {
     /**
      * The name of the ipGroups.
      */
-    readonly ipGroupsName: pulumi.Input<string>;
+    readonly ipGroupsName?: pulumi.Input<string>;
     /**
      * Resource location.
      */

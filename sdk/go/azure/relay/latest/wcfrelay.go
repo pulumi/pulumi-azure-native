@@ -50,9 +50,6 @@ func NewWCFRelay(ctx *pulumi.Context,
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
-	if args.RelayName == nil {
-		return nil, errors.New("invalid value for required argument 'RelayName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -143,7 +140,7 @@ type wcfrelayArgs struct {
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// The relay name.
-	RelayName string `pulumi:"relayName"`
+	RelayName *string `pulumi:"relayName"`
 	// WCF relay type.
 	RelayType *string `pulumi:"relayType"`
 	// Returns true if client authorization is needed for this relay; otherwise, false.
@@ -161,7 +158,7 @@ type WCFRelayArgs struct {
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// The relay name.
-	RelayName pulumi.StringInput
+	RelayName pulumi.StringPtrInput
 	// WCF relay type.
 	RelayType *Relaytype
 	// Returns true if client authorization is needed for this relay; otherwise, false.

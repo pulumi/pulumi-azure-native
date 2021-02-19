@@ -34,9 +34,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -96,7 +93,7 @@ type privateEndpointConnectionArgs struct {
 	// The name of Cognitive Services account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the private endpoint connection associated with the Cognitive Services Account
-	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// Resource properties.
 	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
@@ -108,7 +105,7 @@ type PrivateEndpointConnectionArgs struct {
 	// The name of Cognitive Services account.
 	AccountName pulumi.StringInput
 	// The name of the private endpoint connection associated with the Cognitive Services Account
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// Resource properties.
 	Properties PrivateEndpointConnectionPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.

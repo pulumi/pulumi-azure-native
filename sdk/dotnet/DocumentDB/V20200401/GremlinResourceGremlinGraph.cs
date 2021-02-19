@@ -116,8 +116,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401
         /// <summary>
         /// Cosmos DB graph name.
         /// </summary>
-        [Input("graphName", required: true)]
-        public Input<string> GraphName { get; set; } = null!;
+        [Input("graphName")]
+        public Input<string>? GraphName { get; set; }
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

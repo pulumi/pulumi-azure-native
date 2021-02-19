@@ -36,9 +36,6 @@ func NewMigrateProject(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.MigrateProjectName == nil {
-		return nil, errors.New("invalid value for required argument 'MigrateProjectName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -109,7 +106,7 @@ type migrateProjectArgs struct {
 	// Gets or sets the Azure location in which migrate project is created.
 	Location *string `pulumi:"location"`
 	// Name of the Azure Migrate project.
-	MigrateProjectName string `pulumi:"migrateProjectName"`
+	MigrateProjectName *string `pulumi:"migrateProjectName"`
 	// Gets or sets the nested properties.
 	Properties *MigrateProjectProperties `pulumi:"properties"`
 	// Name of the Azure Resource Group that migrate project is part of.
@@ -125,7 +122,7 @@ type MigrateProjectArgs struct {
 	// Gets or sets the Azure location in which migrate project is created.
 	Location pulumi.StringPtrInput
 	// Name of the Azure Migrate project.
-	MigrateProjectName pulumi.StringInput
+	MigrateProjectName pulumi.StringPtrInput
 	// Gets or sets the nested properties.
 	Properties MigrateProjectPropertiesPtrInput
 	// Name of the Azure Resource Group that migrate project is part of.

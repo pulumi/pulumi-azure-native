@@ -109,9 +109,6 @@ export class PrivateLinkService extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serviceName'");
-            }
             inputs["autoApproval"] = args ? args.autoApproval : undefined;
             inputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
             inputs["fqdns"] = args ? args.fqdns : undefined;
@@ -199,7 +196,7 @@ export interface PrivateLinkServiceArgs {
     /**
      * The name of the private link service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    readonly serviceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

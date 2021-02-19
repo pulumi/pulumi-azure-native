@@ -98,9 +98,6 @@ export class FirewallPolicy extends pulumi.CustomResource {
     constructor(name: string, args: FirewallPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.firewallPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'firewallPolicyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -163,7 +160,7 @@ export interface FirewallPolicyArgs {
     /**
      * The name of the Firewall Policy.
      */
-    readonly firewallPolicyName: pulumi.Input<string>;
+    readonly firewallPolicyName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

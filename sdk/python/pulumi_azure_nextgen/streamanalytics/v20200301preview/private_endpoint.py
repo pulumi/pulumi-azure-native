@@ -54,8 +54,6 @@ class PrivateEndpoint(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if private_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_endpoint_name'")
             __props__['private_endpoint_name'] = private_endpoint_name
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

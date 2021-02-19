@@ -77,8 +77,6 @@ class LiveOutput(pulumi.CustomResource):
             if live_event_name is None and not opts.urn:
                 raise TypeError("Missing required property 'live_event_name'")
             __props__['live_event_name'] = live_event_name
-            if live_output_name is None and not opts.urn:
-                raise TypeError("Missing required property 'live_output_name'")
             __props__['live_output_name'] = live_output_name
             __props__['manifest_name'] = manifest_name
             __props__['output_snap_time'] = output_snap_time

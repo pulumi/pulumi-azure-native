@@ -163,8 +163,8 @@ namespace Pulumi.AzureNextGen.SignalRService.V20180301Preview
         /// <summary>
         /// The name of the SignalR resource.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// The billing information of the resource.(e.g. basic vs. standard)

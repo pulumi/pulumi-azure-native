@@ -131,8 +131,8 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest
         /// <summary>
         /// The name of the web service.
         /// </summary>
-        [Input("webServiceName", required: true)]
-        public Input<string> WebServiceName { get; set; } = null!;
+        [Input("webServiceName")]
+        public Input<string>? WebServiceName { get; set; }
 
         public WebServiceArgs()
         {

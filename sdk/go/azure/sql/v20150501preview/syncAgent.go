@@ -46,9 +46,6 @@ func NewSyncAgent(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.SyncAgentName == nil {
-		return nil, errors.New("invalid value for required argument 'SyncAgentName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql:SyncAgent"),
@@ -130,7 +127,7 @@ type syncAgentArgs struct {
 	// The name of the server on which the sync agent is hosted.
 	ServerName string `pulumi:"serverName"`
 	// The name of the sync agent.
-	SyncAgentName string `pulumi:"syncAgentName"`
+	SyncAgentName *string `pulumi:"syncAgentName"`
 	// ARM resource id of the sync database in the sync agent.
 	SyncDatabaseId *string `pulumi:"syncDatabaseId"`
 }
@@ -142,7 +139,7 @@ type SyncAgentArgs struct {
 	// The name of the server on which the sync agent is hosted.
 	ServerName pulumi.StringInput
 	// The name of the sync agent.
-	SyncAgentName pulumi.StringInput
+	SyncAgentName pulumi.StringPtrInput
 	// ARM resource id of the sync database in the sync agent.
 	SyncDatabaseId pulumi.StringPtrInput
 }

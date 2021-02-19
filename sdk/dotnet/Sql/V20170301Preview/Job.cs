@@ -111,8 +111,8 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// <summary>
         /// The name of the job to get.
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -46,9 +46,6 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.Organization == nil {
 		return nil, errors.New("invalid value for required argument 'Organization'")
 	}
-	if args.PipelineName == nil {
-		return nil, errors.New("invalid value for required argument 'PipelineName'")
-	}
 	if args.Project == nil {
 		return nil, errors.New("invalid value for required argument 'Project'")
 	}
@@ -135,7 +132,7 @@ type pipelineArgs struct {
 	// Reference to the Azure DevOps Organization containing the Pipeline.
 	Organization OrganizationReference `pulumi:"organization"`
 	// The name of the Azure Pipeline resource in ARM.
-	PipelineName string `pulumi:"pipelineName"`
+	PipelineName *string `pulumi:"pipelineName"`
 	// Reference to the Azure DevOps Project containing the Pipeline.
 	Project ProjectReference `pulumi:"project"`
 	// Name of the resource group within the Azure subscription.
@@ -153,7 +150,7 @@ type PipelineArgs struct {
 	// Reference to the Azure DevOps Organization containing the Pipeline.
 	Organization OrganizationReferenceInput
 	// The name of the Azure Pipeline resource in ARM.
-	PipelineName pulumi.StringInput
+	PipelineName pulumi.StringPtrInput
 	// Reference to the Azure DevOps Project containing the Pipeline.
 	Project ProjectReferenceInput
 	// Name of the resource group within the Azure subscription.

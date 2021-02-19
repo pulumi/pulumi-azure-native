@@ -36,9 +36,6 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PrivateLinkHubName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateLinkHubName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -113,7 +110,7 @@ type privateLinkHubArgs struct {
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Name of the privateLinkHub
-	PrivateLinkHubName string `pulumi:"privateLinkHubName"`
+	PrivateLinkHubName *string `pulumi:"privateLinkHubName"`
 	// PrivateLinkHub provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
@@ -127,7 +124,7 @@ type PrivateLinkHubArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Name of the privateLinkHub
-	PrivateLinkHubName pulumi.StringInput
+	PrivateLinkHubName pulumi.StringPtrInput
 	// PrivateLinkHub provisioning state
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

@@ -45,9 +45,6 @@ func NewSecurityPartnerProvider(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SecurityPartnerProviderName == nil {
-		return nil, errors.New("invalid value for required argument 'SecurityPartnerProviderName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:SecurityPartnerProvider"),
@@ -147,7 +144,7 @@ type securityPartnerProviderArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Security Partner Provider.
-	SecurityPartnerProviderName string `pulumi:"securityPartnerProviderName"`
+	SecurityPartnerProviderName *string `pulumi:"securityPartnerProviderName"`
 	// The security provider name.
 	SecurityProviderName *string `pulumi:"securityProviderName"`
 	// Resource tags.
@@ -165,7 +162,7 @@ type SecurityPartnerProviderArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Security Partner Provider.
-	SecurityPartnerProviderName pulumi.StringInput
+	SecurityPartnerProviderName pulumi.StringPtrInput
 	// The security provider name.
 	SecurityProviderName pulumi.StringPtrInput
 	// Resource tags.

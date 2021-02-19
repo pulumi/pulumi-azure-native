@@ -37,9 +37,6 @@ func NewManagedHsm(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -108,7 +105,7 @@ type managedHsmArgs struct {
 	// The supported Azure location where the managed HSM Pool should be created.
 	Location *string `pulumi:"location"`
 	// Name of the managed HSM Pool
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Properties of the managed HSM
 	Properties *ManagedHsmProperties `pulumi:"properties"`
 	// Name of the resource group that contains the managed HSM pool.
@@ -124,7 +121,7 @@ type ManagedHsmArgs struct {
 	// The supported Azure location where the managed HSM Pool should be created.
 	Location pulumi.StringPtrInput
 	// Name of the managed HSM Pool
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Properties of the managed HSM
 	Properties ManagedHsmPropertiesPtrInput
 	// Name of the resource group that contains the managed HSM pool.

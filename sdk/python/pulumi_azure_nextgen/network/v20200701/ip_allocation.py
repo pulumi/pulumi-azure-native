@@ -67,8 +67,6 @@ class IpAllocation(pulumi.CustomResource):
 
             __props__['allocation_tags'] = allocation_tags
             __props__['id'] = id
-            if ip_allocation_name is None and not opts.urn:
-                raise TypeError("Missing required property 'ip_allocation_name'")
             __props__['ip_allocation_name'] = ip_allocation_name
             __props__['ipam_allocation_id'] = ipam_allocation_id
             __props__['location'] = location

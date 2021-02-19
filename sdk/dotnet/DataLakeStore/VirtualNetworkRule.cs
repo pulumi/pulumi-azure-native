@@ -105,8 +105,8 @@ namespace Pulumi.AzureNextGen.DataLakeStore
         /// <summary>
         /// The name of the virtual network rule to create or update.
         /// </summary>
-        [Input("virtualNetworkRuleName", required: true)]
-        public Input<string> VirtualNetworkRuleName { get; set; } = null!;
+        [Input("virtualNetworkRuleName")]
+        public Input<string>? VirtualNetworkRuleName { get; set; }
 
         public VirtualNetworkRuleArgs()
         {

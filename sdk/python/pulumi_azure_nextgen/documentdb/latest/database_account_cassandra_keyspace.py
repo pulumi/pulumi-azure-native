@@ -61,8 +61,6 @@ class DatabaseAccountCassandraKeyspace(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if keyspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'keyspace_name'")
             __props__['keyspace_name'] = keyspace_name
             if options is None and not opts.urn:
                 raise TypeError("Missing required property 'options'")

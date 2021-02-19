@@ -111,8 +111,8 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <summary>
         /// Attachment identifier within an Issue. Must be unique in the current Issue.
         /// </summary>
-        [Input("attachmentId", required: true)]
-        public Input<string> AttachmentId { get; set; } = null!;
+        [Input("attachmentId")]
+        public Input<string>? AttachmentId { get; set; }
 
         /// <summary>
         /// An HTTP link or Base64-encoded binary data.

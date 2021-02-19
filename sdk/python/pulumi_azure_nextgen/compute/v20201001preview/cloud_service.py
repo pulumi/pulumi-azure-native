@@ -54,8 +54,6 @@ class CloudService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cloud_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cloud_service_name'")
             __props__['cloud_service_name'] = cloud_service_name
             __props__['location'] = location
             __props__['properties'] = properties

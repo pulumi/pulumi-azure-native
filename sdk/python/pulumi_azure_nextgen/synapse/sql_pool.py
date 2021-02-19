@@ -90,8 +90,6 @@ class SqlPool(pulumi.CustomResource):
             __props__['restore_point_in_time'] = restore_point_in_time
             __props__['sku'] = sku
             __props__['source_database_id'] = source_database_id
-            if sql_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_pool_name'")
             __props__['sql_pool_name'] = sql_pool_name
             __props__['status'] = status
             __props__['storage_account_type'] = storage_account_type

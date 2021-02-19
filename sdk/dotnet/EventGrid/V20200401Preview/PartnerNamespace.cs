@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// <summary>
         /// Name of the partner namespace.
         /// </summary>
-        [Input("partnerNamespaceName", required: true)]
-        public Input<string> PartnerNamespaceName { get; set; } = null!;
+        [Input("partnerNamespaceName")]
+        public Input<string>? PartnerNamespaceName { get; set; }
 
         /// <summary>
         /// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:

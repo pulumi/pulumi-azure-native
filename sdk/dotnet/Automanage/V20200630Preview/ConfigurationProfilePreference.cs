@@ -97,8 +97,8 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
         /// <summary>
         /// Name of the configuration profile preference.
         /// </summary>
-        [Input("configurationProfilePreferenceName", required: true)]
-        public Input<string> ConfigurationProfilePreferenceName { get; set; } = null!;
+        [Input("configurationProfilePreferenceName")]
+        public Input<string>? ConfigurationProfilePreferenceName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -272,8 +272,8 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20190801
         /// <summary>
         /// Name of the domain.
         /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
 
         /// <summary>
         /// Kind of resource.

@@ -53,8 +53,6 @@ class PatchSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if default is None and not opts.urn:
-                raise TypeError("Missing required property 'default'")
             __props__['default'] = default
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

@@ -121,9 +121,6 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlVirtualMachineName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sqlVirtualMachineName'");
-            }
             inputs["autoBackupSettings"] = args ? args.autoBackupSettings : undefined;
             inputs["autoPatchingSettings"] = args ? args.autoPatchingSettings : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -232,7 +229,7 @@ export interface SqlVirtualMachineArgs {
     /**
      * Name of the SQL virtual machine.
      */
-    readonly sqlVirtualMachineName: pulumi.Input<string>;
+    readonly sqlVirtualMachineName?: pulumi.Input<string>;
     /**
      * Storage Configuration Settings.
      */

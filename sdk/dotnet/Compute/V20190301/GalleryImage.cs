@@ -192,8 +192,8 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
         /// <summary>
         /// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
         /// </summary>
-        [Input("galleryImageName", required: true)]
-        public Input<string> GalleryImageName { get; set; } = null!;
+        [Input("galleryImageName")]
+        public Input<string>? GalleryImageName { get; set; }
 
         /// <summary>
         /// The name of the Shared Image Gallery in which the Image Definition is to be created.

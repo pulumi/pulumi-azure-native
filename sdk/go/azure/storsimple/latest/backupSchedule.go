@@ -48,9 +48,6 @@ func NewBackupSchedule(ctx *pulumi.Context,
 	if args.BackupPolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'BackupPolicyName'")
 	}
-	if args.BackupScheduleName == nil {
-		return nil, errors.New("invalid value for required argument 'BackupScheduleName'")
-	}
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
@@ -149,7 +146,7 @@ type backupScheduleArgs struct {
 	// The backup policy name.
 	BackupPolicyName string `pulumi:"backupPolicyName"`
 	// The backup schedule name.
-	BackupScheduleName string `pulumi:"backupScheduleName"`
+	BackupScheduleName *string `pulumi:"backupScheduleName"`
 	// The type of backup which needs to be taken.
 	BackupType string `pulumi:"backupType"`
 	// The device name
@@ -175,7 +172,7 @@ type BackupScheduleArgs struct {
 	// The backup policy name.
 	BackupPolicyName pulumi.StringInput
 	// The backup schedule name.
-	BackupScheduleName pulumi.StringInput
+	BackupScheduleName pulumi.StringPtrInput
 	// The type of backup which needs to be taken.
 	BackupType BackupType
 	// The device name

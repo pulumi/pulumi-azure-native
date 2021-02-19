@@ -43,9 +43,6 @@ func NewSecretValue(ctx *pulumi.Context,
 	if args.SecretResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'SecretResourceName'")
 	}
-	if args.SecretValueResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'SecretValueResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:servicefabricmesh/v20180901preview:SecretValue"),
@@ -115,7 +112,7 @@ type secretValueArgs struct {
 	// The name of the secret resource.
 	SecretResourceName string `pulumi:"secretResourceName"`
 	// The name of the secret resource value which is typically the version identifier for the value.
-	SecretValueResourceName string `pulumi:"secretValueResourceName"`
+	SecretValueResourceName *string `pulumi:"secretValueResourceName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The actual value of the secret.
@@ -131,7 +128,7 @@ type SecretValueArgs struct {
 	// The name of the secret resource.
 	SecretResourceName pulumi.StringInput
 	// The name of the secret resource value which is typically the version identifier for the value.
-	SecretValueResourceName pulumi.StringInput
+	SecretValueResourceName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The actual value of the secret.

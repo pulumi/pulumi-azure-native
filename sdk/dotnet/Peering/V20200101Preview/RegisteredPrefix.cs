@@ -124,8 +124,8 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
         /// <summary>
         /// The name of the registered prefix.
         /// </summary>
-        [Input("registeredPrefixName", required: true)]
-        public Input<string> RegisteredPrefixName { get; set; } = null!;
+        [Input("registeredPrefixName")]
+        public Input<string>? RegisteredPrefixName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

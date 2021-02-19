@@ -90,8 +90,6 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['run_as_password'] = run_as_password
             __props__['run_as_user'] = run_as_user
-            if run_command_name is None and not opts.urn:
-                raise TypeError("Missing required property 'run_command_name'")
             __props__['run_command_name'] = run_command_name
             __props__['source'] = source
             __props__['tags'] = tags

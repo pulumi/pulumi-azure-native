@@ -59,8 +59,6 @@ class MoveCollection(pulumi.CustomResource):
 
             __props__['identity'] = identity
             __props__['location'] = location
-            if move_collection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'move_collection_name'")
             __props__['move_collection_name'] = move_collection_name
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

@@ -166,8 +166,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// <summary>
         /// Identity Provider Type identifier.
         /// </summary>
-        [Input("identityProviderName", required: true)]
-        public Input<string> IdentityProviderName { get; set; } = null!;
+        [Input("identityProviderName")]
+        public Input<string>? IdentityProviderName { get; set; }
 
         /// <summary>
         /// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.

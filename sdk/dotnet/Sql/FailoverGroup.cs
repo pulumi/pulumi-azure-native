@@ -142,8 +142,8 @@ namespace Pulumi.AzureNextGen.Sql
         /// <summary>
         /// The name of the failover group.
         /// </summary>
-        [Input("failoverGroupName", required: true)]
-        public Input<string> FailoverGroupName { get; set; } = null!;
+        [Input("failoverGroupName")]
+        public Input<string>? FailoverGroupName { get; set; }
 
         [Input("partnerServers", required: true)]
         private InputList<Inputs.PartnerInfoArgs>? _partnerServers;

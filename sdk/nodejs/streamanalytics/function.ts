@@ -59,9 +59,6 @@ export class Function extends pulumi.CustomResource {
     constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.functionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'functionName'");
-            }
             if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobName'");
             }
@@ -99,7 +96,7 @@ export interface FunctionArgs {
     /**
      * The name of the function.
      */
-    readonly functionName: pulumi.Input<string>;
+    readonly functionName?: pulumi.Input<string>;
     /**
      * The name of the streaming job.
      */

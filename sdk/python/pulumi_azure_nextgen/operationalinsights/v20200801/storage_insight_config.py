@@ -67,8 +67,6 @@ class StorageInsightConfig(pulumi.CustomResource):
             if storage_account is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account'")
             __props__['storage_account'] = storage_account
-            if storage_insight_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_insight_name'")
             __props__['storage_insight_name'] = storage_insight_name
             __props__['tables'] = tables
             __props__['tags'] = tags

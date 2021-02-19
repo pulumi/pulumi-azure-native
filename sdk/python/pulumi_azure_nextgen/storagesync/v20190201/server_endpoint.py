@@ -73,8 +73,6 @@ class ServerEndpoint(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'server_endpoint_name'")
             __props__['server_endpoint_name'] = server_endpoint_name
             __props__['server_local_path'] = server_local_path
             __props__['server_resource_id'] = server_resource_id

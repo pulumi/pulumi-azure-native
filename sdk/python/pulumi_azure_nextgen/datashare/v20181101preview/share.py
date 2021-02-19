@@ -62,8 +62,6 @@ class Share(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['share_kind'] = share_kind
-            if share_name is None and not opts.urn:
-                raise TypeError("Missing required property 'share_name'")
             __props__['share_name'] = share_name
             __props__['terms'] = terms
             __props__['created_at'] = None

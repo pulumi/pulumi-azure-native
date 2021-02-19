@@ -88,9 +88,6 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             if ((!args || args.metadataEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'metadataEndpoint'");
             }
-            if ((!args || args.opid === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'opid'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -156,7 +153,7 @@ export interface OpenIdConnectProviderArgs {
     /**
      * Identifier of the OpenID Connect Provider.
      */
-    readonly opid: pulumi.Input<string>;
+    readonly opid?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

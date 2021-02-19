@@ -63,9 +63,6 @@ func NewPython2Package(ctx *pulumi.Context,
 	if args.ContentLink == nil {
 		return nil, errors.New("invalid value for required argument 'ContentLink'")
 	}
-	if args.PackageName == nil {
-		return nil, errors.New("invalid value for required argument 'PackageName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -185,7 +182,7 @@ type python2PackageArgs struct {
 	// Gets or sets the module content link.
 	ContentLink ContentLink `pulumi:"contentLink"`
 	// The name of python package.
-	PackageName string `pulumi:"packageName"`
+	PackageName *string `pulumi:"packageName"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets the tags attached to the resource.
@@ -199,7 +196,7 @@ type Python2PackageArgs struct {
 	// Gets or sets the module content link.
 	ContentLink ContentLinkInput
 	// The name of python package.
-	PackageName pulumi.StringInput
+	PackageName pulumi.StringPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets the tags attached to the resource.

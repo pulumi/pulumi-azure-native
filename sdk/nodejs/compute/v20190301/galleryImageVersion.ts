@@ -81,9 +81,6 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             if ((!args || args.galleryImageName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryImageName'");
             }
-            if ((!args || args.galleryImageVersionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'galleryImageVersionName'");
-            }
             if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryName'");
             }
@@ -139,7 +136,7 @@ export interface GalleryImageVersionArgs {
     /**
      * The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
      */
-    readonly galleryImageVersionName: pulumi.Input<string>;
+    readonly galleryImageVersionName?: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery in which the Image Definition resides.
      */

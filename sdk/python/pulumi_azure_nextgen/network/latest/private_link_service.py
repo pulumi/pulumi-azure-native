@@ -85,8 +85,6 @@ class PrivateLinkService(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['tags'] = tags
             __props__['visibility'] = visibility

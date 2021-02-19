@@ -61,9 +61,6 @@ func NewVirtualMachineScaleSet(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VmScaleSetName == nil {
-		return nil, errors.New("invalid value for required argument 'VmScaleSetName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:compute:VirtualMachineScaleSet"),
@@ -234,7 +231,7 @@ type virtualMachineScaleSetArgs struct {
 	// The virtual machine profile.
 	VirtualMachineProfile *VirtualMachineScaleSetVMProfile `pulumi:"virtualMachineProfile"`
 	// The name of the VM scale set to create or update.
-	VmScaleSetName string `pulumi:"vmScaleSetName"`
+	VmScaleSetName *string `pulumi:"vmScaleSetName"`
 	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
@@ -268,7 +265,7 @@ type VirtualMachineScaleSetArgs struct {
 	// The virtual machine profile.
 	VirtualMachineProfile VirtualMachineScaleSetVMProfilePtrInput
 	// The name of the VM scale set to create or update.
-	VmScaleSetName pulumi.StringInput
+	VmScaleSetName pulumi.StringPtrInput
 	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
 	ZoneBalance pulumi.BoolPtrInput
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.

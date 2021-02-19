@@ -52,8 +52,6 @@ class CommunicationService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if communication_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'communication_service_name'")
             __props__['communication_service_name'] = communication_service_name
             if data_location is None and not opts.urn:
                 raise TypeError("Missing required property 'data_location'")

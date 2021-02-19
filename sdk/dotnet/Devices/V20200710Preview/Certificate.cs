@@ -106,8 +106,8 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview
         /// <summary>
         /// The name of the certificate
         /// </summary>
-        [Input("certificateName", required: true)]
-        public Input<string> CertificateName { get; set; } = null!;
+        [Input("certificateName")]
+        public Input<string>? CertificateName { get; set; }
 
         /// <summary>
         /// The description of an X509 CA Certificate.

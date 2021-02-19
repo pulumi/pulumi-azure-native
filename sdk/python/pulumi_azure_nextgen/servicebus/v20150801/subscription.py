@@ -95,8 +95,6 @@ class Subscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
-            if subscription_name is None and not opts.urn:
-                raise TypeError("Missing required property 'subscription_name'")
             __props__['subscription_name'] = subscription_name
             if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")

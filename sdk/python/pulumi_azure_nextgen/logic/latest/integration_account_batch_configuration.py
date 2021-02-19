@@ -62,8 +62,6 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if batch_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'batch_configuration_name'")
             __props__['batch_configuration_name'] = batch_configuration_name
             if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")

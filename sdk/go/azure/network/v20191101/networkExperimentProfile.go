@@ -38,9 +38,6 @@ func NewNetworkExperimentProfile(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ProfileName == nil {
-		return nil, errors.New("invalid value for required argument 'ProfileName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -122,7 +119,7 @@ type networkExperimentProfileArgs struct {
 	// The name of the Profile
 	Name *string `pulumi:"name"`
 	// The Profile identifier associated with the Tenant and Partner
-	ProfileName string `pulumi:"profileName"`
+	ProfileName *string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -140,7 +137,7 @@ type NetworkExperimentProfileArgs struct {
 	// The name of the Profile
 	Name pulumi.StringPtrInput
 	// The Profile identifier associated with the Tenant and Partner
-	ProfileName pulumi.StringInput
+	ProfileName pulumi.StringPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

@@ -67,9 +67,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.privateEndpointConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if ((!args || args.privateLinkServiceConnectionState === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateLinkServiceConnectionState'");
             }
@@ -118,7 +115,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName: pulumi.Input<string>;
+    readonly privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

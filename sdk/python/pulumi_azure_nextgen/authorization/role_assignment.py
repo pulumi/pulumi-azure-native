@@ -53,8 +53,6 @@ class RoleAssignment(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
-            if role_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'role_assignment_name'")
             __props__['role_assignment_name'] = role_assignment_name
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

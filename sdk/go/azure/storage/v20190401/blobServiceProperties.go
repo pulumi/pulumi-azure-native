@@ -41,9 +41,6 @@ func NewBlobServiceProperties(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.BlobServicesName == nil {
-		return nil, errors.New("invalid value for required argument 'BlobServicesName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -136,7 +133,7 @@ type blobServicePropertiesArgs struct {
 	// Automatic Snapshot is enabled if set to true.
 	AutomaticSnapshotPolicyEnabled *bool `pulumi:"automaticSnapshotPolicyEnabled"`
 	// The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
-	BlobServicesName string `pulumi:"blobServicesName"`
+	BlobServicesName *string `pulumi:"blobServicesName"`
 	// The blob service properties for change feed events.
 	ChangeFeed *ChangeFeed `pulumi:"changeFeed"`
 	// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
@@ -156,7 +153,7 @@ type BlobServicePropertiesArgs struct {
 	// Automatic Snapshot is enabled if set to true.
 	AutomaticSnapshotPolicyEnabled pulumi.BoolPtrInput
 	// The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
-	BlobServicesName pulumi.StringInput
+	BlobServicesName pulumi.StringPtrInput
 	// The blob service properties for change feed events.
 	ChangeFeed ChangeFeedPtrInput
 	// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.

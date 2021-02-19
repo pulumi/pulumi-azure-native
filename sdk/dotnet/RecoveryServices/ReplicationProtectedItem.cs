@@ -113,8 +113,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// <summary>
         /// A name for the replication protected item.
         /// </summary>
-        [Input("replicatedProtectedItemName", required: true)]
-        public Input<string> ReplicatedProtectedItemName { get; set; } = null!;
+        [Input("replicatedProtectedItemName")]
+        public Input<string>? ReplicatedProtectedItemName { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

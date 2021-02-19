@@ -61,9 +61,6 @@ func NewCache(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CacheName == nil {
-		return nil, errors.New("invalid value for required argument 'CacheName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -186,7 +183,7 @@ func (CacheState) ElementType() reflect.Type {
 
 type cacheArgs struct {
 	// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
-	CacheName string `pulumi:"cacheName"`
+	CacheName *string `pulumi:"cacheName"`
 	// The size of this Cache, in GB.
 	CacheSizeGB *int `pulumi:"cacheSizeGB"`
 	// Specifies Directory Services settings of the cache.
@@ -216,7 +213,7 @@ type cacheArgs struct {
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
 	// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
-	CacheName pulumi.StringInput
+	CacheName pulumi.StringPtrInput
 	// The size of this Cache, in GB.
 	CacheSizeGB pulumi.IntPtrInput
 	// Specifies Directory Services settings of the cache.

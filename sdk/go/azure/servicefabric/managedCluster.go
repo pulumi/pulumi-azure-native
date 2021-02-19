@@ -73,9 +73,6 @@ func NewManagedCluster(ctx *pulumi.Context,
 	if args.AdminUserName == nil {
 		return nil, errors.New("invalid value for required argument 'AdminUserName'")
 	}
-	if args.ClusterName == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
 	if args.DnsName == nil {
 		return nil, errors.New("invalid value for required argument 'DnsName'")
 	}
@@ -229,7 +226,7 @@ type managedClusterArgs struct {
 	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
 	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
 	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName *string `pulumi:"clusterName"`
 	// The cluster dns name.
 	DnsName string `pulumi:"dnsName"`
 	// The list of custom fabric settings to configure the cluster.
@@ -265,7 +262,7 @@ type ManagedClusterArgs struct {
 	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
 	ClusterCodeVersion pulumi.StringPtrInput
 	// The name of the cluster resource.
-	ClusterName pulumi.StringInput
+	ClusterName pulumi.StringPtrInput
 	// The cluster dns name.
 	DnsName pulumi.StringInput
 	// The list of custom fabric settings to configure the cluster.

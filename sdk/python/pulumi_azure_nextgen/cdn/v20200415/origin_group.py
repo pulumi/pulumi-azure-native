@@ -64,8 +64,6 @@ class OriginGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
             __props__['health_probe_settings'] = health_probe_settings
-            if origin_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'origin_group_name'")
             __props__['origin_group_name'] = origin_group_name
             if origins is None and not opts.urn:
                 raise TypeError("Missing required property 'origins'")

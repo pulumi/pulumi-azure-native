@@ -101,8 +101,6 @@ class StreamingJob(pulumi.CustomResource):
             __props__['functions'] = functions
             __props__['identity'] = identity
             __props__['inputs'] = inputs
-            if job_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
             __props__['job_storage_account'] = job_storage_account
             __props__['job_type'] = job_type

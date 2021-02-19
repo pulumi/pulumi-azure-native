@@ -139,8 +139,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
         /// </summary>
-        [Input("portMirroringId", required: true)]
-        public Input<string> PortMirroringId { get; set; } = null!;
+        [Input("portMirroringId")]
+        public Input<string>? PortMirroringId { get; set; }
 
         /// <summary>
         /// Name of the private cloud

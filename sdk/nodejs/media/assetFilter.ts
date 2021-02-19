@@ -77,9 +77,6 @@ export class AssetFilter extends pulumi.CustomResource {
             if ((!args || args.assetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'assetName'");
             }
-            if ((!args || args.filterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'filterName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,7 +126,7 @@ export interface AssetFilterArgs {
     /**
      * The Asset Filter name
      */
-    readonly filterName: pulumi.Input<string>;
+    readonly filterName?: pulumi.Input<string>;
     /**
      * The first quality.
      */

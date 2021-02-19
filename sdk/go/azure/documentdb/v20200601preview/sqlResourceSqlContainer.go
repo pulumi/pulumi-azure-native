@@ -39,9 +39,6 @@ func NewSqlResourceSqlContainer(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.ContainerName == nil {
-		return nil, errors.New("invalid value for required argument 'ContainerName'")
-	}
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
@@ -140,7 +137,7 @@ type sqlResourceSqlContainerArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB container name.
-	ContainerName string `pulumi:"containerName"`
+	ContainerName *string `pulumi:"containerName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
 	// Identity for the resource.
@@ -162,7 +159,7 @@ type SqlResourceSqlContainerArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
 	// Cosmos DB container name.
-	ContainerName pulumi.StringInput
+	ContainerName pulumi.StringPtrInput
 	// Cosmos DB database name.
 	DatabaseName pulumi.StringInput
 	// Identity for the resource.

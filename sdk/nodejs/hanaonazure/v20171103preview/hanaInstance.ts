@@ -102,9 +102,6 @@ export class HanaInstance extends pulumi.CustomResource {
     constructor(name: string, args: HanaInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.hanaInstanceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'hanaInstanceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -164,7 +161,7 @@ export interface HanaInstanceArgs {
     /**
      * Name of the SAP HANA on Azure instance.
      */
-    readonly hanaInstanceName: pulumi.Input<string>;
+    readonly hanaInstanceName?: pulumi.Input<string>;
     /**
      * Specifies the hardware settings for the HANA instance.
      */

@@ -92,9 +92,6 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
         pulumi.log.warn("LoadBalancerBackendAddressPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LoadBalancerBackendAddressPool'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.backendAddressPoolName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'backendAddressPoolName'");
-            }
             if ((!args || args.loadBalancerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
@@ -147,7 +144,7 @@ export interface LoadBalancerBackendAddressPoolArgs {
     /**
      * The name of the backend address pool.
      */
-    readonly backendAddressPoolName: pulumi.Input<string>;
+    readonly backendAddressPoolName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

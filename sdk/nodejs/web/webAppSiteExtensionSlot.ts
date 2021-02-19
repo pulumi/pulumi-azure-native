@@ -146,9 +146,6 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.siteExtensionId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'siteExtensionId'");
-            }
             if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'slot'");
             }
@@ -233,7 +230,7 @@ export interface WebAppSiteExtensionSlotArgs {
     /**
      * Site extension name.
      */
-    readonly siteExtensionId: pulumi.Input<string>;
+    readonly siteExtensionId?: pulumi.Input<string>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API uses the production slot.
      */

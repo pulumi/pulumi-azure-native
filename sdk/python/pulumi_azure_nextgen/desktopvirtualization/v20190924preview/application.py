@@ -67,8 +67,6 @@ class Application(pulumi.CustomResource):
             if application_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_group_name'")
             __props__['application_group_name'] = application_group_name
-            if application_name is None and not opts.urn:
-                raise TypeError("Missing required property 'application_name'")
             __props__['application_name'] = application_name
             __props__['command_line_arguments'] = command_line_arguments
             if command_line_setting is None and not opts.urn:

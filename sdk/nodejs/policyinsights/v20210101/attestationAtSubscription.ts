@@ -94,9 +94,6 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
     constructor(name: string, args: AttestationAtSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.attestationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'attestationName'");
-            }
             if ((!args || args.policyAssignmentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
@@ -145,7 +142,7 @@ export interface AttestationAtSubscriptionArgs {
     /**
      * The name of the attestation.
      */
-    readonly attestationName: pulumi.Input<string>;
+    readonly attestationName?: pulumi.Input<string>;
     /**
      * Comments describing why this attestation was created.
      */

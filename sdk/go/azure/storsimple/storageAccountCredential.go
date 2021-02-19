@@ -48,9 +48,6 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.StorageAccountCredentialName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageAccountCredentialName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:StorageAccountCredential"),
@@ -136,7 +133,7 @@ type storageAccountCredentialArgs struct {
 	// Signifies whether SSL needs to be enabled or not.
 	SslStatus string `pulumi:"sslStatus"`
 	// The storage account credential name.
-	StorageAccountCredentialName string `pulumi:"storageAccountCredentialName"`
+	StorageAccountCredentialName *string `pulumi:"storageAccountCredentialName"`
 }
 
 // The set of arguments for constructing a StorageAccountCredential resource.
@@ -154,7 +151,7 @@ type StorageAccountCredentialArgs struct {
 	// Signifies whether SSL needs to be enabled or not.
 	SslStatus SslStatus
 	// The storage account credential name.
-	StorageAccountCredentialName pulumi.StringInput
+	StorageAccountCredentialName pulumi.StringPtrInput
 }
 
 func (StorageAccountCredentialArgs) ElementType() reflect.Type {

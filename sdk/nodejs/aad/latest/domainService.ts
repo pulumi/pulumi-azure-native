@@ -132,9 +132,6 @@ export class DomainService extends pulumi.CustomResource {
         pulumi.log.warn("DomainService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aad:DomainService'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.domainServiceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'domainServiceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -214,7 +211,7 @@ export interface DomainServiceArgs {
     /**
      * The name of the domain service.
      */
-    readonly domainServiceName: pulumi.Input<string>;
+    readonly domainServiceName?: pulumi.Input<string>;
     /**
      * Resource etag
      */

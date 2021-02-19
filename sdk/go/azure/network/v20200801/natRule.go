@@ -47,9 +47,6 @@ func NewNatRule(ctx *pulumi.Context,
 	if args.GatewayName == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayName'")
 	}
-	if args.NatRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'NatRuleName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -149,7 +146,7 @@ type natRuleArgs struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The name of the nat rule.
-	NatRuleName string `pulumi:"natRuleName"`
+	NatRuleName *string `pulumi:"natRuleName"`
 	// The resource group name of the VpnGateway.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The type of NAT rule for VPN NAT.
@@ -173,7 +170,7 @@ type NatRuleArgs struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
 	// The name of the nat rule.
-	NatRuleName pulumi.StringInput
+	NatRuleName pulumi.StringPtrInput
 	// The resource group name of the VpnGateway.
 	ResourceGroupName pulumi.StringInput
 	// The type of NAT rule for VPN NAT.

@@ -134,9 +134,6 @@ export class Incident extends pulumi.CustomResource {
     constructor(name: string, args: IncidentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.incidentId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'incidentId'");
-            }
             if ((!args || args.operationalInsightsResourceProvider === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
@@ -247,7 +244,7 @@ export interface IncidentArgs {
     /**
      * Incident ID
      */
-    readonly incidentId: pulumi.Input<string>;
+    readonly incidentId?: pulumi.Input<string>;
     /**
      * List of labels relevant to this incident
      */

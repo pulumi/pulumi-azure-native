@@ -60,8 +60,6 @@ class WebAppPublicCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['public_certificate_location'] = public_certificate_location
-            if public_certificate_name is None and not opts.urn:
-                raise TypeError("Missing required property 'public_certificate_name'")
             __props__['public_certificate_name'] = public_certificate_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

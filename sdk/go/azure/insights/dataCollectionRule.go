@@ -46,9 +46,6 @@ func NewDataCollectionRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataCollectionRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'DataCollectionRuleName'")
-	}
 	if args.DataFlows == nil {
 		return nil, errors.New("invalid value for required argument 'DataFlows'")
 	}
@@ -139,7 +136,7 @@ func (DataCollectionRuleState) ElementType() reflect.Type {
 
 type dataCollectionRuleArgs struct {
 	// The name of the data collection rule. The name is case insensitive.
-	DataCollectionRuleName string `pulumi:"dataCollectionRuleName"`
+	DataCollectionRuleName *string `pulumi:"dataCollectionRuleName"`
 	// The specification of data flows.
 	DataFlows []DataFlow `pulumi:"dataFlows"`
 	// The specification of data sources.
@@ -160,7 +157,7 @@ type dataCollectionRuleArgs struct {
 // The set of arguments for constructing a DataCollectionRule resource.
 type DataCollectionRuleArgs struct {
 	// The name of the data collection rule. The name is case insensitive.
-	DataCollectionRuleName pulumi.StringInput
+	DataCollectionRuleName pulumi.StringPtrInput
 	// The specification of data flows.
 	DataFlows DataFlowArrayInput
 	// The specification of data sources.

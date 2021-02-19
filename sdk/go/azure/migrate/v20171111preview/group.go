@@ -38,9 +38,6 @@ func NewGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GroupName == nil {
-		return nil, errors.New("invalid value for required argument 'GroupName'")
-	}
 	if args.Machines == nil {
 		return nil, errors.New("invalid value for required argument 'Machines'")
 	}
@@ -119,7 +116,7 @@ type groupArgs struct {
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
 	// Unique name of a group within a project.
-	GroupName string `pulumi:"groupName"`
+	GroupName *string `pulumi:"groupName"`
 	// List of machine names that are part of this group.
 	Machines []string `pulumi:"machines"`
 	// Name of the Azure Migrate project.
@@ -133,7 +130,7 @@ type GroupArgs struct {
 	// For optimistic concurrency control.
 	ETag pulumi.StringPtrInput
 	// Unique name of a group within a project.
-	GroupName pulumi.StringInput
+	GroupName pulumi.StringPtrInput
 	// List of machine names that are part of this group.
 	Machines pulumi.StringArrayInput
 	// Name of the Azure Migrate project.

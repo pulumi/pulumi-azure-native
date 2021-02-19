@@ -62,8 +62,6 @@ class Export(pulumi.CustomResource):
             if delivery_info is None and not opts.urn:
                 raise TypeError("Missing required property 'delivery_info'")
             __props__['delivery_info'] = delivery_info
-            if export_name is None and not opts.urn:
-                raise TypeError("Missing required property 'export_name'")
             __props__['export_name'] = export_name
             __props__['format'] = format
             __props__['schedule'] = schedule

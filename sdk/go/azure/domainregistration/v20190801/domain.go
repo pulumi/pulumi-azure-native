@@ -89,9 +89,6 @@ func NewDomain(ctx *pulumi.Context,
 	if args.ContactTech == nil {
 		return nil, errors.New("invalid value for required argument 'ContactTech'")
 	}
-	if args.DomainName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -272,7 +269,7 @@ type domainArgs struct {
 	// Azure DNS Zone to use
 	DnsZoneId *string `pulumi:"dnsZoneId"`
 	// Name of the domain.
-	DomainName string `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
@@ -307,7 +304,7 @@ type DomainArgs struct {
 	// Azure DNS Zone to use
 	DnsZoneId pulumi.StringPtrInput
 	// Name of the domain.
-	DomainName pulumi.StringInput
+	DomainName pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.

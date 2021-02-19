@@ -77,9 +77,6 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             inputs["extensionProperties"] = args ? args.extensionProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maintenanceScope"] = args ? args.maintenanceScope : undefined;
@@ -138,7 +135,7 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Resource Identifier
      */
-    readonly resourceName: pulumi.Input<string>;
+    readonly resourceName?: pulumi.Input<string>;
     /**
      * Gets or sets tags of the resource
      */

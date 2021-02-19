@@ -34,9 +34,6 @@ func NewProviderInstance(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ProviderInstanceName == nil {
-		return nil, errors.New("invalid value for required argument 'ProviderInstanceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -106,7 +103,7 @@ type providerInstanceArgs struct {
 	// A JSON string containing the properties of the provider instance.
 	Properties *string `pulumi:"properties"`
 	// Name of the provider instance.
-	ProviderInstanceName string `pulumi:"providerInstanceName"`
+	ProviderInstanceName *string `pulumi:"providerInstanceName"`
 	// Name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the SAP monitor resource.
@@ -122,7 +119,7 @@ type ProviderInstanceArgs struct {
 	// A JSON string containing the properties of the provider instance.
 	Properties pulumi.StringPtrInput
 	// Name of the provider instance.
-	ProviderInstanceName pulumi.StringInput
+	ProviderInstanceName pulumi.StringPtrInput
 	// Name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Name of the SAP monitor resource.

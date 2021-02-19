@@ -81,8 +81,6 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if route_name is None and not opts.urn:
-                raise TypeError("Missing required property 'route_name'")
             __props__['route_name'] = route_name
             __props__['route_type'] = route_type
             __props__['start_address'] = start_address

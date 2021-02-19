@@ -53,8 +53,6 @@ class Container(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if container_name is None and not opts.urn:
-                raise TypeError("Missing required property 'container_name'")
             __props__['container_name'] = container_name
             if data_format is None and not opts.urn:
                 raise TypeError("Missing required property 'data_format'")

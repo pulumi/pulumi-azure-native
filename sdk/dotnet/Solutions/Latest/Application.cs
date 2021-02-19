@@ -223,8 +223,8 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// <summary>
         /// The name of the managed application.
         /// </summary>
-        [Input("applicationName", required: true)]
-        public Input<string> ApplicationName { get; set; } = null!;
+        [Input("applicationName")]
+        public Input<string>? ApplicationName { get; set; }
 
         /// <summary>
         /// The identity of the resource.

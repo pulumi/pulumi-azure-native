@@ -58,9 +58,6 @@ func NewExpressRoutePort(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ExpressRoutePortName == nil {
-		return nil, errors.New("invalid value for required argument 'ExpressRoutePortName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -229,7 +226,7 @@ type expressRoutePortArgs struct {
 	// Encapsulation method on physical ports.
 	Encapsulation *string `pulumi:"encapsulation"`
 	// The name of the ExpressRoutePort resource.
-	ExpressRoutePortName string `pulumi:"expressRoutePortName"`
+	ExpressRoutePortName *string `pulumi:"expressRoutePortName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The identity of ExpressRoutePort, if configured.
@@ -255,7 +252,7 @@ type ExpressRoutePortArgs struct {
 	// Encapsulation method on physical ports.
 	Encapsulation pulumi.StringPtrInput
 	// The name of the ExpressRoutePort resource.
-	ExpressRoutePortName pulumi.StringInput
+	ExpressRoutePortName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The identity of ExpressRoutePort, if configured.

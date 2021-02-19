@@ -34,9 +34,6 @@ func NewAction(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ActionId == nil {
-		return nil, errors.New("invalid value for required argument 'ActionId'")
-	}
 	if args.LogicAppResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'LogicAppResourceId'")
 	}
@@ -111,7 +108,7 @@ func (ActionState) ElementType() reflect.Type {
 
 type actionArgs struct {
 	// Action ID
-	ActionId string `pulumi:"actionId"`
+	ActionId *string `pulumi:"actionId"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
 	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
@@ -129,7 +126,7 @@ type actionArgs struct {
 // The set of arguments for constructing a Action resource.
 type ActionArgs struct {
 	// Action ID
-	ActionId pulumi.StringInput
+	ActionId pulumi.StringPtrInput
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
 	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.

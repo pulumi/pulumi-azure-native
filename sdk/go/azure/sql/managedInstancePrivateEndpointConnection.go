@@ -38,9 +38,6 @@ func NewManagedInstancePrivateEndpointConnection(ctx *pulumi.Context,
 	if args.ManagedInstanceName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedInstanceName'")
 	}
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -109,7 +106,7 @@ type managedInstancePrivateEndpointConnectionArgs struct {
 	ManagedInstanceName string `pulumi:"managedInstanceName"`
 	// Private endpoint which the connection belongs to.
 	PrivateEndpoint               *ManagedInstancePrivateEndpointProperty `pulumi:"privateEndpoint"`
-	PrivateEndpointConnectionName string                                  `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string                                 `pulumi:"privateEndpointConnectionName"`
 	// Connection State of the Private Endpoint Connection.
 	PrivateLinkServiceConnectionState *ManagedInstancePrivateLinkServiceConnectionStateProperty `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -122,7 +119,7 @@ type ManagedInstancePrivateEndpointConnectionArgs struct {
 	ManagedInstanceName pulumi.StringInput
 	// Private endpoint which the connection belongs to.
 	PrivateEndpoint               ManagedInstancePrivateEndpointPropertyPtrInput
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// Connection State of the Private Endpoint Connection.
 	PrivateLinkServiceConnectionState ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

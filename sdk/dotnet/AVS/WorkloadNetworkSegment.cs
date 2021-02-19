@@ -152,8 +152,8 @@ namespace Pulumi.AzureNextGen.AVS
         /// <summary>
         /// NSX Segment identifier. Generally the same as the Segment's display name
         /// </summary>
-        [Input("segmentId", required: true)]
-        public Input<string> SegmentId { get; set; } = null!;
+        [Input("segmentId")]
+        public Input<string>? SegmentId { get; set; }
 
         /// <summary>
         /// Subnet which to connect segment to.

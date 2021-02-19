@@ -61,8 +61,6 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if assembly_artifact_name is None and not opts.urn:
-                raise TypeError("Missing required property 'assembly_artifact_name'")
             __props__['assembly_artifact_name'] = assembly_artifact_name
             if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")

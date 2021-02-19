@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
         /// <summary>
         /// Name of the custom domain within an endpoint.
         /// </summary>
-        [Input("customDomainName", required: true)]
-        public Input<string> CustomDomainName { get; set; } = null!;
+        [Input("customDomainName")]
+        public Input<string>? CustomDomainName { get; set; }
 
         /// <summary>
         /// Name of the endpoint within the CDN profile.

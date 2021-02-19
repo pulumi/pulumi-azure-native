@@ -57,8 +57,6 @@ class DataFlow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if data_flow_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_flow_name'")
             __props__['data_flow_name'] = data_flow_name
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")

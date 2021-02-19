@@ -59,9 +59,6 @@ func NewWebhook(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.WebhookName == nil {
-		return nil, errors.New("invalid value for required argument 'WebhookName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation:Webhook"),
@@ -174,7 +171,7 @@ type webhookArgs struct {
 	// Gets or sets the uri.
 	Uri *string `pulumi:"uri"`
 	// The webhook name.
-	WebhookName string `pulumi:"webhookName"`
+	WebhookName *string `pulumi:"webhookName"`
 }
 
 // The set of arguments for constructing a Webhook resource.
@@ -198,7 +195,7 @@ type WebhookArgs struct {
 	// Gets or sets the uri.
 	Uri pulumi.StringPtrInput
 	// The webhook name.
-	WebhookName pulumi.StringInput
+	WebhookName pulumi.StringPtrInput
 }
 
 func (WebhookArgs) ElementType() reflect.Type {

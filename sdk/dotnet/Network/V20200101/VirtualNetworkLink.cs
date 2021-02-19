@@ -172,8 +172,8 @@ namespace Pulumi.AzureNextGen.Network.V20200101
         /// <summary>
         /// The name of the virtual network link.
         /// </summary>
-        [Input("virtualNetworkLinkName", required: true)]
-        public Input<string> VirtualNetworkLinkName { get; set; } = null!;
+        [Input("virtualNetworkLinkName")]
+        public Input<string>? VirtualNetworkLinkName { get; set; }
 
         public VirtualNetworkLinkArgs()
         {

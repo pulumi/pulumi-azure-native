@@ -46,9 +46,6 @@ func NewTemplateSpecVersion(ctx *pulumi.Context,
 	if args.TemplateSpecName == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateSpecName'")
 	}
-	if args.TemplateSpecVersion == nil {
-		return nil, errors.New("invalid value for required argument 'TemplateSpecVersion'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:resources:TemplateSpecVersion"),
@@ -134,7 +131,7 @@ type templateSpecVersionArgs struct {
 	// Name of the Template Spec.
 	TemplateSpecName string `pulumi:"templateSpecName"`
 	// The version of the Template Spec.
-	TemplateSpecVersion string `pulumi:"templateSpecVersion"`
+	TemplateSpecVersion *string `pulumi:"templateSpecVersion"`
 }
 
 // The set of arguments for constructing a TemplateSpecVersion resource.
@@ -154,7 +151,7 @@ type TemplateSpecVersionArgs struct {
 	// Name of the Template Spec.
 	TemplateSpecName pulumi.StringInput
 	// The version of the Template Spec.
-	TemplateSpecVersion pulumi.StringInput
+	TemplateSpecVersion pulumi.StringPtrInput
 }
 
 func (TemplateSpecVersionArgs) ElementType() reflect.Type {

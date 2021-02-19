@@ -169,8 +169,8 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
         /// <summary>
         /// The name of the rule.
         /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public Input<string>? RuleName { get; set; }
 
         [Input("scopes")]
         private InputList<string>? _scopes;

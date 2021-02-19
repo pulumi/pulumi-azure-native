@@ -102,9 +102,6 @@ export class DedicatedHost extends pulumi.CustomResource {
             if ((!args || args.hostGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostGroupName'");
             }
-            if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'hostName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -170,7 +167,7 @@ export interface DedicatedHostArgs {
     /**
      * The name of the dedicated host .
      */
-    readonly hostName: pulumi.Input<string>;
+    readonly hostName?: pulumi.Input<string>;
     /**
      * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
      */

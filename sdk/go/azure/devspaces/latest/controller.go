@@ -48,9 +48,6 @@ func NewController(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -151,7 +148,7 @@ type controllerArgs struct {
 	// Region where the Azure resource is located.
 	Location *string `pulumi:"location"`
 	// Name of the resource.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Model representing SKU for Azure Dev Spaces Controller.
@@ -169,7 +166,7 @@ type ControllerArgs struct {
 	// Region where the Azure resource is located.
 	Location pulumi.StringPtrInput
 	// Name of the resource.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Model representing SKU for Azure Dev Spaces Controller.

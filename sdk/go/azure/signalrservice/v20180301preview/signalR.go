@@ -52,9 +52,6 @@ func NewSignalR(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:signalrservice:SignalR"),
@@ -163,7 +160,7 @@ type signalRArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SignalR resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// The billing information of the resource.(e.g. basic vs. standard)
 	Sku *ResourceSku `pulumi:"sku"`
 	// A list of key value pairs that describe the resource.
@@ -180,7 +177,7 @@ type SignalRArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the SignalR resource.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// The billing information of the resource.(e.g. basic vs. standard)
 	Sku ResourceSkuPtrInput
 	// A list of key value pairs that describe the resource.

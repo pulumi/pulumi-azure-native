@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// <summary>
         /// Name of the private endpoint connection.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// The private link service connection state.

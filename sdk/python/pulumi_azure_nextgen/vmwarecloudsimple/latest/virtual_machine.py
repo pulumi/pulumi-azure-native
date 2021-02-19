@@ -105,8 +105,6 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['template_id'] = template_id
             __props__['username'] = username
             __props__['v_sphere_networks'] = v_sphere_networks
-            if virtual_machine_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_machine_name'")
             __props__['virtual_machine_name'] = virtual_machine_name
             __props__['controllers'] = None
             __props__['dnsname'] = None

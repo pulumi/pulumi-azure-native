@@ -138,9 +138,6 @@ export class Prediction extends pulumi.CustomResource {
             if ((!args || args.positiveOutcomeExpression === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'positiveOutcomeExpression'");
             }
-            if ((!args || args.predictionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'predictionName'");
-            }
             if ((!args || args.primaryProfileType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'primaryProfileType'");
             }
@@ -259,7 +256,7 @@ export interface PredictionArgs {
     /**
      * Name of the prediction.
      */
-    readonly predictionName: pulumi.Input<string>;
+    readonly predictionName?: pulumi.Input<string>;
     /**
      * Primary profile type.
      */

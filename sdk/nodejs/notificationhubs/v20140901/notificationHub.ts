@@ -69,9 +69,6 @@ export class NotificationHub extends pulumi.CustomResource {
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.notificationHubName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'notificationHubName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -121,7 +118,7 @@ export interface NotificationHubArgs {
     /**
      * The notification hub name.
      */
-    readonly notificationHubName: pulumi.Input<string>;
+    readonly notificationHubName?: pulumi.Input<string>;
     /**
      * Gets or sets properties of the NotificationHub.
      */

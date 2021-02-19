@@ -66,9 +66,6 @@ export class BandwidthSetting extends pulumi.CustomResource {
     constructor(name: string, args: BandwidthSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.bandwidthSettingName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'bandwidthSettingName'");
-            }
             if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
@@ -113,7 +110,7 @@ export interface BandwidthSettingArgs {
     /**
      * The bandwidth setting name.
      */
-    readonly bandwidthSettingName: pulumi.Input<string>;
+    readonly bandwidthSettingName?: pulumi.Input<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */

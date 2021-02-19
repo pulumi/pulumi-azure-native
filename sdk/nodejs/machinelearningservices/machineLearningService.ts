@@ -85,9 +85,6 @@ export class MachineLearningService extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serviceName'");
-            }
             if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -169,7 +166,7 @@ export interface MachineLearningServiceArgs {
     /**
      * Name of the Azure Machine Learning service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    readonly serviceName?: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */

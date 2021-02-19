@@ -140,8 +140,8 @@ namespace Pulumi.AzureNextGen.NetApp
         /// <summary>
         /// The name of the backup
         /// </summary>
-        [Input("backupName", required: true)]
-        public Input<string> BackupName { get; set; } = null!;
+        [Input("backupName")]
+        public Input<string>? BackupName { get; set; }
 
         /// <summary>
         /// Label for backup

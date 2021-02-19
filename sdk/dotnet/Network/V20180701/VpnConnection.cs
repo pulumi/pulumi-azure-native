@@ -160,8 +160,8 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// <summary>
         /// The name of the connection.
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// EnableBgp flag

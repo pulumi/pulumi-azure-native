@@ -189,8 +189,8 @@ namespace Pulumi.AzureNextGen.LabServices
         /// <summary>
         /// The name of the user.
         /// </summary>
-        [Input("userName", required: true)]
-        public Input<string> UserName { get; set; } = null!;
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public UserArgs()
         {

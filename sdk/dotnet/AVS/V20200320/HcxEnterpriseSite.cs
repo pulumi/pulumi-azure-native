@@ -93,8 +93,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
         /// <summary>
         /// Name of the HCX Enterprise Site in the private cloud
         /// </summary>
-        [Input("hcxEnterpriseSiteName", required: true)]
-        public Input<string> HcxEnterpriseSiteName { get; set; } = null!;
+        [Input("hcxEnterpriseSiteName")]
+        public Input<string>? HcxEnterpriseSiteName { get; set; }
 
         /// <summary>
         /// The name of the private cloud.

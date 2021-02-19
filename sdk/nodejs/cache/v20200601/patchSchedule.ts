@@ -58,9 +58,6 @@ export class PatchSchedule extends pulumi.CustomResource {
     constructor(name: string, args: PatchScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.default === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'default'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -100,7 +97,7 @@ export interface PatchScheduleArgs {
     /**
      * Default string modeled as parameter for auto generation to work correctly.
      */
-    readonly default: pulumi.Input<string>;
+    readonly default?: pulumi.Input<string>;
     /**
      * The name of the Redis cache.
      */

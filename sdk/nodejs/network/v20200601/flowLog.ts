@@ -98,9 +98,6 @@ export class FlowLog extends pulumi.CustomResource {
     constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.flowLogName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'flowLogName'");
-            }
             if ((!args || args.networkWatcherName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
@@ -173,7 +170,7 @@ export interface FlowLogArgs {
     /**
      * The name of the flow log.
      */
-    readonly flowLogName: pulumi.Input<string>;
+    readonly flowLogName?: pulumi.Input<string>;
     /**
      * Parameters that define the flow log format.
      */

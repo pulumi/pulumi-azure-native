@@ -113,8 +113,6 @@ class ManagedCluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['service_principal_profile'] = service_principal_profile
             __props__['sku'] = sku

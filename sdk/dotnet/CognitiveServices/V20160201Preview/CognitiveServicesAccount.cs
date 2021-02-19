@@ -123,8 +123,8 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
         /// <summary>
         /// The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// Required. Indicates the type of cognitive service account.

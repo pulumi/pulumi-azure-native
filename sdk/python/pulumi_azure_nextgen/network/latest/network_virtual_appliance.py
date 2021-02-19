@@ -80,8 +80,6 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__['id'] = id
             __props__['identity'] = identity
             __props__['location'] = location
-            if network_virtual_appliance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_virtual_appliance_name'")
             __props__['network_virtual_appliance_name'] = network_virtual_appliance_name
             __props__['nva_sku'] = nva_sku
             if resource_group_name is None and not opts.urn:

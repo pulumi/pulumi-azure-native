@@ -72,8 +72,6 @@ class MachineGroup(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = 'machineGroup'
-            if machine_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'machine_group_name'")
             __props__['machine_group_name'] = machine_group_name
             __props__['machines'] = machines
             if resource_group_name is None and not opts.urn:

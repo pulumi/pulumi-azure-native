@@ -54,12 +54,9 @@ export class TenantConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TenantConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: TenantConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.configurationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'configurationName'");
-            }
             inputs["configurationName"] = args ? args.configurationName : undefined;
             inputs["enforcePrivateMarkdownStorage"] = args ? args.enforcePrivateMarkdownStorage : undefined;
             inputs["name"] = undefined /*out*/;
@@ -89,7 +86,7 @@ export interface TenantConfigurationArgs {
     /**
      * The configuration name. Value must be 'default'
      */
-    readonly configurationName: pulumi.Input<string>;
+    readonly configurationName?: pulumi.Input<string>;
     /**
      * When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
      */

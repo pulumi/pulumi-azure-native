@@ -69,8 +69,6 @@ class StorageAccount(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_tier'] = access_tier
-            if account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['custom_domain'] = custom_domain
             if enable_https_traffic_only is None:

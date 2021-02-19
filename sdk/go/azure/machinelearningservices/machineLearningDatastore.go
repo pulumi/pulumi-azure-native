@@ -42,9 +42,6 @@ func NewMachineLearningDatastore(ctx *pulumi.Context,
 	if args.DataStoreType == nil {
 		return nil, errors.New("invalid value for required argument 'DataStoreType'")
 	}
-	if args.DatastoreName == nil {
-		return nil, errors.New("invalid value for required argument 'DatastoreName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -144,7 +141,7 @@ type machineLearningDatastoreArgs struct {
 	// The database name.
 	DatabaseName *string `pulumi:"databaseName"`
 	// The Datastore name.
-	DatastoreName string `pulumi:"datastoreName"`
+	DatastoreName *string `pulumi:"datastoreName"`
 	// The description of the datastore.
 	Description *string `pulumi:"description"`
 	// The endpoint of the server.
@@ -216,7 +213,7 @@ type MachineLearningDatastoreArgs struct {
 	// The database name.
 	DatabaseName pulumi.StringPtrInput
 	// The Datastore name.
-	DatastoreName pulumi.StringInput
+	DatastoreName pulumi.StringPtrInput
 	// The description of the datastore.
 	Description pulumi.StringPtrInput
 	// The endpoint of the server.

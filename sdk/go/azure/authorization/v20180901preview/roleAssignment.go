@@ -41,9 +41,6 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	if args.PrincipalId == nil {
 		return nil, errors.New("invalid value for required argument 'PrincipalId'")
 	}
-	if args.RoleAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'RoleAssignmentName'")
-	}
 	if args.RoleDefinitionId == nil {
 		return nil, errors.New("invalid value for required argument 'RoleDefinitionId'")
 	}
@@ -141,7 +138,7 @@ type roleAssignmentArgs struct {
 	// The principal type of the assigned principal ID.
 	PrincipalType *string `pulumi:"principalType"`
 	// The name of the role assignment to create. It can be any valid GUID.
-	RoleAssignmentName string `pulumi:"roleAssignmentName"`
+	RoleAssignmentName *string `pulumi:"roleAssignmentName"`
 	// The role definition ID used in the role assignment.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 	// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
@@ -157,7 +154,7 @@ type RoleAssignmentArgs struct {
 	// The principal type of the assigned principal ID.
 	PrincipalType pulumi.StringPtrInput
 	// The name of the role assignment to create. It can be any valid GUID.
-	RoleAssignmentName pulumi.StringInput
+	RoleAssignmentName pulumi.StringPtrInput
 	// The role definition ID used in the role assignment.
 	RoleDefinitionId pulumi.StringInput
 	// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.

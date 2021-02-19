@@ -71,9 +71,6 @@ func NewService(ctx *pulumi.Context,
 	if args.ServiceKind == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceKind'")
 	}
-	if args.ServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric:Service"),
@@ -217,7 +214,7 @@ type serviceArgs struct {
 	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
 	ServiceLoadMetrics []ServiceLoadMetricDescription `pulumi:"serviceLoadMetrics"`
 	// The name of the service resource in the format of {applicationName}~{serviceName}.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName *string `pulumi:"serviceName"`
 	// The activation Mode of the service package
 	ServicePackageActivationMode *string `pulumi:"servicePackageActivationMode"`
 	// A list that describes the correlation of the service with other services.
@@ -253,7 +250,7 @@ type ServiceArgs struct {
 	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
 	ServiceLoadMetrics ServiceLoadMetricDescriptionArrayInput
 	// The name of the service resource in the format of {applicationName}~{serviceName}.
-	ServiceName pulumi.StringInput
+	ServiceName pulumi.StringPtrInput
 	// The activation Mode of the service package
 	ServicePackageActivationMode pulumi.StringPtrInput
 	// A list that describes the correlation of the service with other services.

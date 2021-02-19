@@ -121,9 +121,6 @@ export class Server extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serverName'");
-            }
             inputs["location"] = args ? args.location : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -195,7 +192,7 @@ export interface ServerArgs {
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    readonly serverName?: pulumi.Input<string>;
     /**
      * The SKU (pricing tier) of the server.
      */

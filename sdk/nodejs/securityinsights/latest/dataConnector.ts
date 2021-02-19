@@ -68,9 +68,6 @@ export class DataConnector extends pulumi.CustomResource {
         pulumi.log.warn("DataConnector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:DataConnector'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dataConnectorId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dataConnectorId'");
-            }
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -113,7 +110,7 @@ export interface DataConnectorArgs {
     /**
      * Connector ID
      */
-    readonly dataConnectorId: pulumi.Input<string>;
+    readonly dataConnectorId?: pulumi.Input<string>;
     /**
      * Etag of the azure resource
      */

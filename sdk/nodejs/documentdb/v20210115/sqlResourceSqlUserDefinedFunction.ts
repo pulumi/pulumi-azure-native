@@ -78,9 +78,6 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userDefinedFunctionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'userDefinedFunctionName'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["containerName"] = args ? args.containerName : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -151,5 +148,5 @@ export interface SqlResourceSqlUserDefinedFunctionArgs {
     /**
      * Cosmos DB userDefinedFunction name.
      */
-    readonly userDefinedFunctionName: pulumi.Input<string>;
+    readonly userDefinedFunctionName?: pulumi.Input<string>;
 }

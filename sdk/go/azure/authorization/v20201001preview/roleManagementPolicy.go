@@ -42,9 +42,6 @@ func NewRoleManagementPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RoleManagementPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'RoleManagementPolicyName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -123,7 +120,7 @@ type roleManagementPolicyArgs struct {
 	// The role management policy is default policy.
 	IsOrganizationDefault *bool `pulumi:"isOrganizationDefault"`
 	// The name (guid) of the role management policy to upsert.
-	RoleManagementPolicyName string `pulumi:"roleManagementPolicyName"`
+	RoleManagementPolicyName *string `pulumi:"roleManagementPolicyName"`
 	// The rule applied to the policy.
 	Rules []interface{} `pulumi:"rules"`
 	// The role management policy scope.
@@ -139,7 +136,7 @@ type RoleManagementPolicyArgs struct {
 	// The role management policy is default policy.
 	IsOrganizationDefault pulumi.BoolPtrInput
 	// The name (guid) of the role management policy to upsert.
-	RoleManagementPolicyName pulumi.StringInput
+	RoleManagementPolicyName pulumi.StringPtrInput
 	// The rule applied to the policy.
 	Rules pulumi.ArrayInput
 	// The role management policy scope.

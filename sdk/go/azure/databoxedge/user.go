@@ -40,9 +40,6 @@ func NewUser(ctx *pulumi.Context,
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -131,7 +128,7 @@ type userArgs struct {
 	// The password details.
 	EncryptedPassword *AsymmetricEncryptedSecret `pulumi:"encryptedPassword"`
 	// The user name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Type of the user.
@@ -145,7 +142,7 @@ type UserArgs struct {
 	// The password details.
 	EncryptedPassword AsymmetricEncryptedSecretPtrInput
 	// The user name.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Type of the user.

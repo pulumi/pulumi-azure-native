@@ -74,9 +74,6 @@ export class ComputePolicy extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.computePolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'computePolicyName'");
-            }
             if ((!args || args.objectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'objectId'");
             }
@@ -127,7 +124,7 @@ export interface ComputePolicyArgs {
     /**
      * The name of the compute policy to create or update.
      */
-    readonly computePolicyName: pulumi.Input<string>;
+    readonly computePolicyName?: pulumi.Input<string>;
     /**
      * The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
      */

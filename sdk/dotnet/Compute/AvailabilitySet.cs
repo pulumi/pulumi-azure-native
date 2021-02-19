@@ -141,8 +141,8 @@ namespace Pulumi.AzureNextGen.Compute
         /// <summary>
         /// The name of the availability set.
         /// </summary>
-        [Input("availabilitySetName", required: true)]
-        public Input<string> AvailabilitySetName { get; set; } = null!;
+        [Input("availabilitySetName")]
+        public Input<string>? AvailabilitySetName { get; set; }
 
         /// <summary>
         /// Resource location

@@ -58,8 +58,6 @@ class ContentKeyPolicy(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if content_key_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'content_key_policy_name'")
             __props__['content_key_policy_name'] = content_key_policy_name
             __props__['description'] = description
             if options is None and not opts.urn:

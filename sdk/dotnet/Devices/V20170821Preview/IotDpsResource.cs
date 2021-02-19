@@ -127,8 +127,8 @@ namespace Pulumi.AzureNextGen.Devices.V20170821Preview
         /// <summary>
         /// Name of provisioning service to create or update.
         /// </summary>
-        [Input("provisioningServiceName", required: true)]
-        public Input<string> ProvisioningServiceName { get; set; } = null!;
+        [Input("provisioningServiceName")]
+        public Input<string>? ProvisioningServiceName { get; set; }
 
         /// <summary>
         /// Resource group identifier.

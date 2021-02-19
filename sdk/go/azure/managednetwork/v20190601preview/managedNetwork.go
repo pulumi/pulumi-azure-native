@@ -40,9 +40,6 @@ func NewManagedNetwork(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ManagedNetworkName == nil {
-		return nil, errors.New("invalid value for required argument 'ManagedNetworkName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -119,7 +116,7 @@ type managedNetworkArgs struct {
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the Managed Network.
-	ManagedNetworkName string `pulumi:"managedNetworkName"`
+	ManagedNetworkName *string `pulumi:"managedNetworkName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
@@ -133,7 +130,7 @@ type ManagedNetworkArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the Managed Network.
-	ManagedNetworkName pulumi.StringInput
+	ManagedNetworkName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network

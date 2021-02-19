@@ -41,9 +41,6 @@ func NewChannel(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ChannelName == nil {
-		return nil, errors.New("invalid value for required argument 'ChannelName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -130,7 +127,7 @@ func (ChannelState) ElementType() reflect.Type {
 
 type channelArgs struct {
 	// The name of the Channel resource.
-	ChannelName string `pulumi:"channelName"`
+	ChannelName *string `pulumi:"channelName"`
 	// Entity Tag
 	Etag *string `pulumi:"etag"`
 	// Required. Gets or sets the Kind of the resource.
@@ -152,7 +149,7 @@ type channelArgs struct {
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
 	// The name of the Channel resource.
-	ChannelName pulumi.StringInput
+	ChannelName pulumi.StringPtrInput
 	// Entity Tag
 	Etag pulumi.StringPtrInput
 	// Required. Gets or sets the Kind of the resource.

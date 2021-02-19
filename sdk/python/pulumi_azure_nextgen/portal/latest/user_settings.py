@@ -57,8 +57,6 @@ class UserSettings(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
-            if user_settings_name is None and not opts.urn:
-                raise TypeError("Missing required property 'user_settings_name'")
             __props__['user_settings_name'] = user_settings_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal:UserSettings"), pulumi.Alias(type_="azure-nextgen:portal/v20181001:UserSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

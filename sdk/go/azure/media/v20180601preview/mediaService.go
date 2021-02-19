@@ -36,9 +36,6 @@ func NewMediaService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -120,7 +117,7 @@ func (MediaServiceState) ElementType() reflect.Type {
 
 type mediaServiceArgs struct {
 	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// The Azure Region of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource group within the Azure subscription.
@@ -134,7 +131,7 @@ type mediaServiceArgs struct {
 // The set of arguments for constructing a MediaService resource.
 type MediaServiceArgs struct {
 	// The Media Services account name.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// The Azure Region of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource group within the Azure subscription.

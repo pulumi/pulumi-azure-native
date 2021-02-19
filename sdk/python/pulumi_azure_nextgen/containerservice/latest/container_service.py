@@ -77,8 +77,6 @@ class ContainerService(pulumi.CustomResource):
             if agent_pool_profiles is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_pool_profiles'")
             __props__['agent_pool_profiles'] = agent_pool_profiles
-            if container_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'container_service_name'")
             __props__['container_service_name'] = container_service_name
             __props__['custom_profile'] = custom_profile
             __props__['diagnostics_profile'] = diagnostics_profile

@@ -54,9 +54,6 @@ func NewOpenShiftCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:redhatopenshift/latest:OpenShiftCluster"),
@@ -169,7 +166,7 @@ type openShiftClusterArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the OpenShift cluster resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// The cluster service principal profile.
 	ServicePrincipalProfile *ServicePrincipalProfile `pulumi:"servicePrincipalProfile"`
 	// Resource tags.
@@ -199,7 +196,7 @@ type OpenShiftClusterArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the OpenShift cluster resource.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// The cluster service principal profile.
 	ServicePrincipalProfile ServicePrincipalProfilePtrInput
 	// Resource tags.

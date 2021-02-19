@@ -82,9 +82,6 @@ func NewStreamingJob(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.JobName == nil {
-		return nil, errors.New("invalid value for required argument 'JobName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -271,7 +268,7 @@ type streamingJobArgs struct {
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
 	Inputs []InputType `pulumi:"inputs"`
 	// The name of the streaming job.
-	JobName string `pulumi:"jobName"`
+	JobName *string `pulumi:"jobName"`
 	// The properties that are associated with an Azure Storage account with MSI
 	JobStorageAccount *JobStorageAccount `pulumi:"jobStorageAccount"`
 	// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
@@ -321,7 +318,7 @@ type StreamingJobArgs struct {
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
 	Inputs InputTypeArrayInput
 	// The name of the streaming job.
-	JobName pulumi.StringInput
+	JobName pulumi.StringPtrInput
 	// The properties that are associated with an Azure Storage account with MSI
 	JobStorageAccount JobStorageAccountPtrInput
 	// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.

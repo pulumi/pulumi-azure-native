@@ -323,8 +323,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301Preview
         /// <summary>
         /// The name of the cluster resource.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The storage account information for storing Service Fabric diagnostic logs.

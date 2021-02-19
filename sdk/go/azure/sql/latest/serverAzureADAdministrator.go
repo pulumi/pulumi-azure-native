@@ -39,9 +39,6 @@ func NewServerAzureADAdministrator(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AdministratorName == nil {
-		return nil, errors.New("invalid value for required argument 'AdministratorName'")
-	}
 	if args.AdministratorType == nil {
 		return nil, errors.New("invalid value for required argument 'AdministratorType'")
 	}
@@ -138,7 +135,7 @@ func (ServerAzureADAdministratorState) ElementType() reflect.Type {
 
 type serverAzureADAdministratorArgs struct {
 	// Name of the server administrator resource.
-	AdministratorName string `pulumi:"administratorName"`
+	AdministratorName *string `pulumi:"administratorName"`
 	// The type of administrator.
 	AdministratorType string `pulumi:"administratorType"`
 	// The server administrator login value.
@@ -156,7 +153,7 @@ type serverAzureADAdministratorArgs struct {
 // The set of arguments for constructing a ServerAzureADAdministrator resource.
 type ServerAzureADAdministratorArgs struct {
 	// Name of the server administrator resource.
-	AdministratorName pulumi.StringInput
+	AdministratorName pulumi.StringPtrInput
 	// The type of administrator.
 	AdministratorType pulumi.StringInput
 	// The server administrator login value.

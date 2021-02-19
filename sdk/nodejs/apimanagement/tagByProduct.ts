@@ -67,9 +67,6 @@ export class TagByProduct extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.tagId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'tagId'");
-            }
             inputs["productId"] = args ? args.productId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
@@ -114,5 +111,5 @@ export interface TagByProductArgs {
     /**
      * Tag identifier. Must be unique in the current API Management service instance.
      */
-    readonly tagId: pulumi.Input<string>;
+    readonly tagId?: pulumi.Input<string>;
 }

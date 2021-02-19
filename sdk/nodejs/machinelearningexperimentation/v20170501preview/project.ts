@@ -99,9 +99,6 @@ export class Project extends pulumi.CustomResource {
             if ((!args || args.friendlyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'friendlyName'");
             }
-            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'projectName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -178,7 +175,7 @@ export interface ProjectArgs {
     /**
      * The name of the machine learning project under a team account workspace.
      */
-    readonly projectName: pulumi.Input<string>;
+    readonly projectName?: pulumi.Input<string>;
     /**
      * The name of the resource group to which the machine learning team account belongs.
      */

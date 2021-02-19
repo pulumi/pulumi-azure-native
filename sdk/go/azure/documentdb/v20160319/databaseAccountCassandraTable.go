@@ -51,9 +51,6 @@ func NewDatabaseAccountCassandraTable(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TableName == nil {
-		return nil, errors.New("invalid value for required argument 'TableName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountCassandraTable"),
@@ -142,7 +139,7 @@ type databaseAccountCassandraTableArgs struct {
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Cosmos DB table name.
-	TableName string `pulumi:"tableName"`
+	TableName *string `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a DatabaseAccountCassandraTable resource.
@@ -158,7 +155,7 @@ type DatabaseAccountCassandraTableArgs struct {
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// Cosmos DB table name.
-	TableName pulumi.StringInput
+	TableName pulumi.StringPtrInput
 }
 
 func (DatabaseAccountCassandraTableArgs) ElementType() reflect.Type {

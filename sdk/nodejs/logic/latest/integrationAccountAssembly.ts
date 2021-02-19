@@ -72,9 +72,6 @@ export class IntegrationAccountAssembly extends pulumi.CustomResource {
         pulumi.log.warn("IntegrationAccountAssembly is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAssembly'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.assemblyArtifactName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'assemblyArtifactName'");
-            }
             if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
@@ -119,7 +116,7 @@ export interface IntegrationAccountAssemblyArgs {
     /**
      * The assembly artifact name.
      */
-    readonly assemblyArtifactName: pulumi.Input<string>;
+    readonly assemblyArtifactName?: pulumi.Input<string>;
     /**
      * The integration account name.
      */

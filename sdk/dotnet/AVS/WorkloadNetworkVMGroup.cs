@@ -146,8 +146,8 @@ namespace Pulumi.AzureNextGen.AVS
         /// <summary>
         /// NSX VM Group identifier. Generally the same as the VM Group's display name
         /// </summary>
-        [Input("vmGroupId", required: true)]
-        public Input<string> VmGroupId { get; set; } = null!;
+        [Input("vmGroupId")]
+        public Input<string>? VmGroupId { get; set; }
 
         public WorkloadNetworkVMGroupArgs()
         {

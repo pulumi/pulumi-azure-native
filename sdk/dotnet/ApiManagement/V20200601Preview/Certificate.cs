@@ -112,8 +112,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <summary>
         /// Identifier of the certificate entity. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("certificateId", required: true)]
-        public Input<string> CertificateId { get; set; } = null!;
+        [Input("certificateId")]
+        public Input<string>? CertificateId { get; set; }
 
         /// <summary>
         /// Base 64 encoded certificate using the application/x-pkcs12 representation.

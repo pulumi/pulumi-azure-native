@@ -30,9 +30,6 @@ func NewNotificationRegistration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.NotificationRegistrationName == nil {
-		return nil, errors.New("invalid value for required argument 'NotificationRegistrationName'")
-	}
 	if args.ProviderNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
 	}
@@ -88,7 +85,7 @@ func (NotificationRegistrationState) ElementType() reflect.Type {
 
 type notificationRegistrationArgs struct {
 	// The notification registration.
-	NotificationRegistrationName string                              `pulumi:"notificationRegistrationName"`
+	NotificationRegistrationName *string                             `pulumi:"notificationRegistrationName"`
 	Properties                   *NotificationRegistrationProperties `pulumi:"properties"`
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace string `pulumi:"providerNamespace"`
@@ -97,7 +94,7 @@ type notificationRegistrationArgs struct {
 // The set of arguments for constructing a NotificationRegistration resource.
 type NotificationRegistrationArgs struct {
 	// The notification registration.
-	NotificationRegistrationName pulumi.StringInput
+	NotificationRegistrationName pulumi.StringPtrInput
 	Properties                   NotificationRegistrationPropertiesPtrInput
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput

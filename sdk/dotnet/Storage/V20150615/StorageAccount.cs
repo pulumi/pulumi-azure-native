@@ -172,8 +172,8 @@ namespace Pulumi.AzureNextGen.Storage.V20150615
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.

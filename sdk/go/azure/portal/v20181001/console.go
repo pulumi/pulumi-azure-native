@@ -26,9 +26,6 @@ func NewConsole(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConsoleName == nil {
-		return nil, errors.New("invalid value for required argument 'ConsoleName'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -78,7 +75,7 @@ func (ConsoleState) ElementType() reflect.Type {
 
 type consoleArgs struct {
 	// The name of the console
-	ConsoleName string `pulumi:"consoleName"`
+	ConsoleName *string `pulumi:"consoleName"`
 	// Cloud shell properties for creating a console.
 	Properties ConsoleCreateProperties `pulumi:"properties"`
 }
@@ -86,7 +83,7 @@ type consoleArgs struct {
 // The set of arguments for constructing a Console resource.
 type ConsoleArgs struct {
 	// The name of the console
-	ConsoleName pulumi.StringInput
+	ConsoleName pulumi.StringPtrInput
 	// Cloud shell properties for creating a console.
 	Properties ConsoleCreatePropertiesInput
 }

@@ -36,9 +36,6 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 	if args.FabricName == nil {
 		return nil, errors.New("invalid value for required argument 'FabricName'")
 	}
-	if args.NetworkMappingName == nil {
-		return nil, errors.New("invalid value for required argument 'NetworkMappingName'")
-	}
 	if args.NetworkName == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkName'")
 	}
@@ -114,7 +111,7 @@ type replicationNetworkMappingArgs struct {
 	// Primary fabric name.
 	FabricName string `pulumi:"fabricName"`
 	// Network mapping name.
-	NetworkMappingName string `pulumi:"networkMappingName"`
+	NetworkMappingName *string `pulumi:"networkMappingName"`
 	// Primary network name.
 	NetworkName string `pulumi:"networkName"`
 	// Input properties for creating network mapping.
@@ -130,7 +127,7 @@ type ReplicationNetworkMappingArgs struct {
 	// Primary fabric name.
 	FabricName pulumi.StringInput
 	// Network mapping name.
-	NetworkMappingName pulumi.StringInput
+	NetworkMappingName pulumi.StringPtrInput
 	// Primary network name.
 	NetworkName pulumi.StringInput
 	// Input properties for creating network mapping.

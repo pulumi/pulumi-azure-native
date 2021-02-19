@@ -303,8 +303,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// <summary>
         /// The name of the workspace
         /// </summary>
-        [Input("workspaceName", required: true)]
-        public Input<string> WorkspaceName { get; set; } = null!;
+        [Input("workspaceName")]
+        public Input<string>? WorkspaceName { get; set; }
 
         /// <summary>
         /// Git integration settings

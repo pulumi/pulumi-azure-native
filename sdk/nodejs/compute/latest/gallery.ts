@@ -84,9 +84,6 @@ export class Gallery extends pulumi.CustomResource {
         pulumi.log.warn("Gallery is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Gallery'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'galleryName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +131,7 @@ export interface GalleryArgs {
     /**
      * The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
      */
-    readonly galleryName: pulumi.Input<string>;
+    readonly galleryName?: pulumi.Input<string>;
     /**
      * Resource location
      */

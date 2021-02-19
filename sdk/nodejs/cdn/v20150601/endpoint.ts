@@ -106,9 +106,6 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'endpointName'");
-            }
             if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'origins'");
             }
@@ -177,7 +174,7 @@ export interface EndpointArgs {
     /**
      * Name of the endpoint within the CDN profile.
      */
-    readonly endpointName: pulumi.Input<string>;
+    readonly endpointName?: pulumi.Input<string>;
     /**
      * Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
      */

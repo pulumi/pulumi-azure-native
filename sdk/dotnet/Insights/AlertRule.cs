@@ -196,8 +196,8 @@ namespace Pulumi.AzureNextGen.Insights
         /// <summary>
         /// The name of the rule.
         /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public Input<string>? RuleName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -94,9 +94,6 @@ export class ActionGroup extends pulumi.CustomResource {
     constructor(name: string, args: ActionGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.actionGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'actionGroupName'");
-            }
             if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enabled'");
             }
@@ -154,7 +151,7 @@ export interface ActionGroupArgs {
     /**
      * The name of the action group.
      */
-    readonly actionGroupName: pulumi.Input<string>;
+    readonly actionGroupName?: pulumi.Input<string>;
     /**
      * The list of AutomationRunbook receivers that are part of this action group.
      */

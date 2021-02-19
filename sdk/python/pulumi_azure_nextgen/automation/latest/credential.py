@@ -64,8 +64,6 @@ class Credential(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if credential_name is None and not opts.urn:
-                raise TypeError("Missing required property 'credential_name'")
             __props__['credential_name'] = credential_name
             __props__['description'] = description
             if name is None and not opts.urn:

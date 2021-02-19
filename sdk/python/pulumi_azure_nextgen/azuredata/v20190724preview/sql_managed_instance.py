@@ -70,8 +70,6 @@ class SqlManagedInstance(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sql_managed_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_managed_instance_name'")
             __props__['sql_managed_instance_name'] = sql_managed_instance_name
             __props__['start_time'] = start_time
             __props__['tags'] = tags

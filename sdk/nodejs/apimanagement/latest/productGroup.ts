@@ -75,9 +75,6 @@ export class ProductGroup extends pulumi.CustomResource {
         pulumi.log.warn("ProductGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ProductGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'groupId'");
-            }
             if ((!args || args.productId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'productId'");
             }
@@ -125,7 +122,7 @@ export interface ProductGroupArgs {
     /**
      * Group identifier. Must be unique in the current API Management service instance.
      */
-    readonly groupId: pulumi.Input<string>;
+    readonly groupId?: pulumi.Input<string>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

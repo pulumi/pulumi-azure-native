@@ -50,9 +50,6 @@ func NewBuildTask(ctx *pulumi.Context,
 	if args.Alias == nil {
 		return nil, errors.New("invalid value for required argument 'Alias'")
 	}
-	if args.BuildTaskName == nil {
-		return nil, errors.New("invalid value for required argument 'BuildTaskName'")
-	}
 	if args.Platform == nil {
 		return nil, errors.New("invalid value for required argument 'Platform'")
 	}
@@ -153,7 +150,7 @@ type buildTaskArgs struct {
 	// The alternative updatable name for a build task.
 	Alias string `pulumi:"alias"`
 	// The name of the container registry build task.
-	BuildTaskName string `pulumi:"buildTaskName"`
+	BuildTaskName *string `pulumi:"buildTaskName"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
 	// The platform properties against which the build has to happen.
@@ -177,7 +174,7 @@ type BuildTaskArgs struct {
 	// The alternative updatable name for a build task.
 	Alias pulumi.StringInput
 	// The name of the container registry build task.
-	BuildTaskName pulumi.StringInput
+	BuildTaskName pulumi.StringPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringPtrInput
 	// The platform properties against which the build has to happen.

@@ -344,8 +344,8 @@ namespace Pulumi.AzureNextGen.Compute.V20201201
         /// <summary>
         /// The name of the VM scale set to create or update.
         /// </summary>
-        [Input("vmScaleSetName", required: true)]
-        public Input<string> VmScaleSetName { get; set; } = null!;
+        [Input("vmScaleSetName")]
+        public Input<string>? VmScaleSetName { get; set; }
 
         /// <summary>
         /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.

@@ -40,9 +40,6 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AutoscaleSettingName == nil {
-		return nil, errors.New("invalid value for required argument 'AutoscaleSettingName'")
-	}
 	if args.Profiles == nil {
 		return nil, errors.New("invalid value for required argument 'Profiles'")
 	}
@@ -126,7 +123,7 @@ func (AutoscaleSettingState) ElementType() reflect.Type {
 
 type autoscaleSettingArgs struct {
 	// The autoscale setting name.
-	AutoscaleSettingName string `pulumi:"autoscaleSettingName"`
+	AutoscaleSettingName *string `pulumi:"autoscaleSettingName"`
 	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource location
@@ -148,7 +145,7 @@ type autoscaleSettingArgs struct {
 // The set of arguments for constructing a AutoscaleSetting resource.
 type AutoscaleSettingArgs struct {
 	// The autoscale setting name.
-	AutoscaleSettingName pulumi.StringInput
+	AutoscaleSettingName pulumi.StringPtrInput
 	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
 	Enabled pulumi.BoolPtrInput
 	// Resource location

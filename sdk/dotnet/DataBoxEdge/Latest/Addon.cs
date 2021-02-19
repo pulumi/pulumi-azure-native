@@ -95,8 +95,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// <summary>
         /// The addon name.
         /// </summary>
-        [Input("addonName", required: true)]
-        public Input<string> AddonName { get; set; } = null!;
+        [Input("addonName")]
+        public Input<string>? AddonName { get; set; }
 
         /// <summary>
         /// The device name.

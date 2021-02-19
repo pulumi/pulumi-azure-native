@@ -188,8 +188,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <summary>
         /// Resource Id
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// Id of web app instance

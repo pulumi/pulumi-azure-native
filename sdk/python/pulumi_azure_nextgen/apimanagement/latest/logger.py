@@ -70,8 +70,6 @@ class Logger(pulumi.CustomResource):
             __props__['credentials'] = credentials
             __props__['description'] = description
             __props__['is_buffered'] = is_buffered
-            if logger_id is None and not opts.urn:
-                raise TypeError("Missing required property 'logger_id'")
             __props__['logger_id'] = logger_id
             if logger_type is None and not opts.urn:
                 raise TypeError("Missing required property 'logger_type'")

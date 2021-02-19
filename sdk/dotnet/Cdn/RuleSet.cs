@@ -108,8 +108,8 @@ namespace Pulumi.AzureNextGen.Cdn
         /// <summary>
         /// Name of the rule set under the profile which is unique globally
         /// </summary>
-        [Input("ruleSetName", required: true)]
-        public Input<string> RuleSetName { get; set; } = null!;
+        [Input("ruleSetName")]
+        public Input<string>? RuleSetName { get; set; }
 
         public RuleSetArgs()
         {

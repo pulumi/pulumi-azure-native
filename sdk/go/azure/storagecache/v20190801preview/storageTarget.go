@@ -46,9 +46,6 @@ func NewStorageTarget(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.StorageTargetName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageTargetName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storagecache:StorageTarget"),
@@ -144,7 +141,7 @@ type storageTargetArgs struct {
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of storage target.
-	StorageTargetName string `pulumi:"storageTargetName"`
+	StorageTargetName *string `pulumi:"storageTargetName"`
 	// Type for storage target.
 	TargetType *string `pulumi:"targetType"`
 	// Properties when unknown target.
@@ -166,7 +163,7 @@ type StorageTargetArgs struct {
 	// Target resource group.
 	ResourceGroupName pulumi.StringInput
 	// Name of storage target.
-	StorageTargetName pulumi.StringInput
+	StorageTargetName pulumi.StringPtrInput
 	// Type for storage target.
 	TargetType pulumi.StringPtrInput
 	// Properties when unknown target.

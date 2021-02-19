@@ -320,8 +320,8 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
         /// <summary>
         /// The name of the server group.
         /// </summary>
-        [Input("serverGroupName", required: true)]
-        public Input<string> ServerGroupName { get; set; } = null!;
+        [Input("serverGroupName")]
+        public Input<string>? ServerGroupName { get; set; }
 
         [Input("serverRoleGroups")]
         private InputList<Inputs.ServerRoleGroupArgs>? _serverRoleGroups;

@@ -65,9 +65,6 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationDefinitionName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationDefinitionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -202,7 +199,7 @@ func (ApplicationDefinitionState) ElementType() reflect.Type {
 
 type applicationDefinitionArgs struct {
 	// The name of the managed application definition.
-	ApplicationDefinitionName string `pulumi:"applicationDefinitionName"`
+	ApplicationDefinitionName *string `pulumi:"applicationDefinitionName"`
 	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
 	Artifacts []ApplicationDefinitionArtifact `pulumi:"artifacts"`
 	// The managed application provider authorizations.
@@ -246,7 +243,7 @@ type applicationDefinitionArgs struct {
 // The set of arguments for constructing a ApplicationDefinition resource.
 type ApplicationDefinitionArgs struct {
 	// The name of the managed application definition.
-	ApplicationDefinitionName pulumi.StringInput
+	ApplicationDefinitionName pulumi.StringPtrInput
 	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
 	Artifacts ApplicationDefinitionArtifactArrayInput
 	// The managed application provider authorizations.

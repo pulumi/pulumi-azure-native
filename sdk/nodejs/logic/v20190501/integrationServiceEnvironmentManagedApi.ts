@@ -66,9 +66,6 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
     constructor(name: string, args: IntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.apiName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'apiName'");
-            }
             if ((!args || args.integrationServiceEnvironmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrationServiceEnvironmentName'");
             }
@@ -110,7 +107,7 @@ export interface IntegrationServiceEnvironmentManagedApiArgs {
     /**
      * The api name.
      */
-    readonly apiName: pulumi.Input<string>;
+    readonly apiName?: pulumi.Input<string>;
     /**
      * The integration service environment name.
      */

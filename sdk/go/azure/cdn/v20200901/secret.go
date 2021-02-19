@@ -41,9 +41,6 @@ func NewSecret(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SecretName == nil {
-		return nil, errors.New("invalid value for required argument 'SecretName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:cdn:Secret"),
@@ -114,7 +111,7 @@ type secretArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the Secret under the profile.
-	SecretName string `pulumi:"secretName"`
+	SecretName *string `pulumi:"secretName"`
 }
 
 // The set of arguments for constructing a Secret resource.
@@ -126,7 +123,7 @@ type SecretArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the Secret under the profile.
-	SecretName pulumi.StringInput
+	SecretName pulumi.StringPtrInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {

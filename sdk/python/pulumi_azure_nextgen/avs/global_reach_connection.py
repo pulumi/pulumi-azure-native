@@ -53,8 +53,6 @@ class GlobalReachConnection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authorization_key'] = authorization_key
-            if global_reach_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'global_reach_connection_name'")
             __props__['global_reach_connection_name'] = global_reach_connection_name
             __props__['peer_express_route_circuit'] = peer_express_route_circuit
             if private_cloud_name is None and not opts.urn:

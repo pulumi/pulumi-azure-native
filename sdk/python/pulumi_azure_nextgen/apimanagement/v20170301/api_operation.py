@@ -77,8 +77,6 @@ class ApiOperation(pulumi.CustomResource):
             if method is None and not opts.urn:
                 raise TypeError("Missing required property 'method'")
             __props__['method'] = method
-            if operation_id is None and not opts.urn:
-                raise TypeError("Missing required property 'operation_id'")
             __props__['operation_id'] = operation_id
             __props__['policies'] = policies
             __props__['request'] = request

@@ -165,8 +165,8 @@ namespace Pulumi.AzureNextGen.AzureData
         /// <summary>
         /// The name of SQL Server Instance
         /// </summary>
-        [Input("sqlServerInstanceName", required: true)]
-        public Input<string> SqlServerInstanceName { get; set; } = null!;
+        [Input("sqlServerInstanceName")]
+        public Input<string>? SqlServerInstanceName { get; set; }
 
         /// <summary>
         /// The cloud connectivity status.

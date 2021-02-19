@@ -56,9 +56,6 @@ func NewActionGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ActionGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ActionGroupName'")
-	}
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
 	}
@@ -189,7 +186,7 @@ func (ActionGroupState) ElementType() reflect.Type {
 
 type actionGroupArgs struct {
 	// The name of the action group.
-	ActionGroupName string `pulumi:"actionGroupName"`
+	ActionGroupName *string `pulumi:"actionGroupName"`
 	// The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
 	ArmRoleReceivers []ArmRoleReceiver `pulumi:"armRoleReceivers"`
 	// The list of AutomationRunbook receivers that are part of this action group.
@@ -225,7 +222,7 @@ type actionGroupArgs struct {
 // The set of arguments for constructing a ActionGroup resource.
 type ActionGroupArgs struct {
 	// The name of the action group.
-	ActionGroupName pulumi.StringInput
+	ActionGroupName pulumi.StringPtrInput
 	// The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
 	ArmRoleReceivers ArmRoleReceiverArrayInput
 	// The list of AutomationRunbook receivers that are part of this action group.

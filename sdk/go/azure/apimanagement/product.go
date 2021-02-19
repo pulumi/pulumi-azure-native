@@ -46,9 +46,6 @@ func NewProduct(ctx *pulumi.Context,
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
-	if args.ProductId == nil {
-		return nil, errors.New("invalid value for required argument 'ProductId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -163,7 +160,7 @@ type productArgs struct {
 	// Product name.
 	DisplayName string `pulumi:"displayName"`
 	// Product identifier. Must be unique in the current API Management service instance.
-	ProductId string `pulumi:"productId"`
+	ProductId *string `pulumi:"productId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -187,7 +184,7 @@ type ProductArgs struct {
 	// Product name.
 	DisplayName pulumi.StringInput
 	// Product identifier. Must be unique in the current API Management service instance.
-	ProductId pulumi.StringInput
+	ProductId pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

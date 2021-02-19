@@ -52,8 +52,6 @@ class Group(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['e_tag'] = e_tag
-            if group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'group_name'")
             __props__['group_name'] = group_name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

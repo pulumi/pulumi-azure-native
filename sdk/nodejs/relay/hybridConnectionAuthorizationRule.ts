@@ -59,9 +59,6 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, args: HybridConnectionAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.authorizationRuleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'authorizationRuleName'");
-            }
             if ((!args || args.hybridConnectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hybridConnectionName'");
             }
@@ -106,7 +103,7 @@ export interface HybridConnectionAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    readonly authorizationRuleName: pulumi.Input<string>;
+    readonly authorizationRuleName?: pulumi.Input<string>;
     /**
      * The hybrid connection name.
      */

@@ -79,8 +79,6 @@ class RegisteredServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['server_certificate'] = server_certificate
-            if server_id is None and not opts.urn:
-                raise TypeError("Missing required property 'server_id'")
             __props__['server_id'] = server_id
             __props__['server_managementt_error_code'] = server_managementt_error_code
             __props__['server_os_version'] = server_os_version

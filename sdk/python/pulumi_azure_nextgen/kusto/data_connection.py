@@ -58,8 +58,6 @@ class DataConnection(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if data_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_connection_name'")
             __props__['data_connection_name'] = data_connection_name
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")

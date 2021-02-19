@@ -101,8 +101,8 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <summary>
         /// The linked service name.
         /// </summary>
-        [Input("linkedServiceName", required: true)]
-        public Input<string> LinkedServiceName { get; set; } = null!;
+        [Input("linkedServiceName")]
+        public Input<string>? LinkedServiceName { get; set; }
 
         /// <summary>
         /// Properties of linked service.

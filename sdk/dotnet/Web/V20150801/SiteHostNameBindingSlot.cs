@@ -165,8 +165,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <summary>
         /// Name of host
         /// </summary>
-        [Input("hostName", required: true)]
-        public Input<string> HostName { get; set; } = null!;
+        [Input("hostName")]
+        public Input<string>? HostName { get; set; }
 
         /// <summary>
         /// Host name type

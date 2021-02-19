@@ -107,9 +107,6 @@ export class DscpConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: DscpConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dscpConfigurationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dscpConfigurationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -176,7 +173,7 @@ export interface DscpConfigurationArgs {
     /**
      * The name of the resource.
      */
-    readonly dscpConfigurationName: pulumi.Input<string>;
+    readonly dscpConfigurationName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

@@ -165,8 +165,8 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// <summary>
         /// The create or update parameters for configuration.
         /// </summary>
-        [Input("configurationName", required: true)]
-        public Input<string> ConfigurationName { get; set; } = null!;
+        [Input("configurationName")]
+        public Input<string>? ConfigurationName { get; set; }
 
         /// <summary>
         /// Gets or sets the description of the configuration.

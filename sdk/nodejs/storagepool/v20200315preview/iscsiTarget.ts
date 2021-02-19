@@ -73,9 +73,6 @@ export class IscsiTarget extends pulumi.CustomResource {
             if ((!args || args.diskPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'diskPoolName'");
             }
-            if ((!args || args.iscsiTargetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'iscsiTargetName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -123,7 +120,7 @@ export interface IscsiTargetArgs {
     /**
      * The name of the iSCSI target.
      */
-    readonly iscsiTargetName: pulumi.Input<string>;
+    readonly iscsiTargetName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

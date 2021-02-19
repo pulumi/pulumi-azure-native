@@ -164,8 +164,8 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <summary>
         /// The name of the environment.
         /// </summary>
-        [Input("environmentName", required: true)]
-        public Input<string> EnvironmentName { get; set; } = null!;
+        [Input("environmentName")]
+        public Input<string>? EnvironmentName { get; set; }
 
         /// <summary>
         /// The name of the environment Setting.

@@ -35,9 +35,6 @@ func NewDataSet(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.DataSetName == nil {
-		return nil, errors.New("invalid value for required argument 'DataSetName'")
-	}
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
@@ -116,7 +113,7 @@ type dataSetArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the dataSet.
-	DataSetName string `pulumi:"dataSetName"`
+	DataSetName *string `pulumi:"dataSetName"`
 	// Kind of data set.
 	Kind string `pulumi:"kind"`
 	// The resource group name.
@@ -130,7 +127,7 @@ type DataSetArgs struct {
 	// The name of the share account.
 	AccountName pulumi.StringInput
 	// The name of the dataSet.
-	DataSetName pulumi.StringInput
+	DataSetName pulumi.StringPtrInput
 	// Kind of data set.
 	Kind pulumi.StringInput
 	// The resource group name.

@@ -56,8 +56,6 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
             __props__['factory_name'] = factory_name
-            if managed_private_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_private_endpoint_name'")
             __props__['managed_private_endpoint_name'] = managed_private_endpoint_name
             if managed_virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_virtual_network_name'")

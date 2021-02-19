@@ -107,8 +107,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <summary>
         /// Recovery services provider name.
         /// </summary>
-        [Input("providerName", required: true)]
-        public Input<string> ProviderName { get; set; } = null!;
+        [Input("providerName")]
+        public Input<string>? ProviderName { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

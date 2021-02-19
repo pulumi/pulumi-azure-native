@@ -31,9 +31,6 @@ func NewArtifact(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ArtifactName == nil {
-		return nil, errors.New("invalid value for required argument 'ArtifactName'")
-	}
 	if args.BlueprintName == nil {
 		return nil, errors.New("invalid value for required argument 'BlueprintName'")
 	}
@@ -94,7 +91,7 @@ func (ArtifactState) ElementType() reflect.Type {
 
 type artifactArgs struct {
 	// Name of the blueprint artifact.
-	ArtifactName string `pulumi:"artifactName"`
+	ArtifactName *string `pulumi:"artifactName"`
 	// Name of the blueprint definition.
 	BlueprintName string `pulumi:"blueprintName"`
 	// Specifies the kind of blueprint artifact.
@@ -106,7 +103,7 @@ type artifactArgs struct {
 // The set of arguments for constructing a Artifact resource.
 type ArtifactArgs struct {
 	// Name of the blueprint artifact.
-	ArtifactName pulumi.StringInput
+	ArtifactName pulumi.StringPtrInput
 	// Name of the blueprint definition.
 	BlueprintName pulumi.StringInput
 	// Specifies the kind of blueprint artifact.

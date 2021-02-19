@@ -50,9 +50,6 @@ func NewTransform(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TransformName == nil {
-		return nil, errors.New("invalid value for required argument 'TransformName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:media:Transform"),
@@ -140,7 +137,7 @@ type transformArgs struct {
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Transform name.
-	TransformName string `pulumi:"transformName"`
+	TransformName *string `pulumi:"transformName"`
 }
 
 // The set of arguments for constructing a Transform resource.
@@ -154,7 +151,7 @@ type TransformArgs struct {
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The Transform name.
-	TransformName pulumi.StringInput
+	TransformName pulumi.StringPtrInput
 }
 
 func (TransformArgs) ElementType() reflect.Type {

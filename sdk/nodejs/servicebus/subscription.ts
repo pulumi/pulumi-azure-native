@@ -129,9 +129,6 @@ export class Subscription extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subscriptionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'subscriptionName'");
-            }
             if ((!args || args.topicName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'topicName'");
             }
@@ -255,7 +252,7 @@ export interface SubscriptionArgs {
     /**
      * The subscription name.
      */
-    readonly subscriptionName: pulumi.Input<string>;
+    readonly subscriptionName?: pulumi.Input<string>;
     /**
      * The topic name.
      */

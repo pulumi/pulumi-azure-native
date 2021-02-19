@@ -68,9 +68,6 @@ export class Dataset extends pulumi.CustomResource {
         pulumi.log.warn("Dataset is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Dataset'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.datasetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'datasetName'");
-            }
             if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'factoryName'");
             }
@@ -113,7 +110,7 @@ export interface DatasetArgs {
     /**
      * The dataset name.
      */
-    readonly datasetName: pulumi.Input<string>;
+    readonly datasetName?: pulumi.Input<string>;
     /**
      * The factory name.
      */

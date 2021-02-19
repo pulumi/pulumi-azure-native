@@ -178,8 +178,8 @@ namespace Pulumi.AzureNextGen.DevTestLab
         /// <summary>
         /// The name of the notification channel.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The locale to use when sending a notification (fallback for unsupported languages is EN).

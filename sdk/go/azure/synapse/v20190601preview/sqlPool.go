@@ -55,9 +55,6 @@ func NewSqlPool(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SqlPoolName == nil {
-		return nil, errors.New("invalid value for required argument 'SqlPoolName'")
-	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
@@ -187,7 +184,7 @@ type sqlPoolArgs struct {
 	// Source database to create from
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// SQL pool name
-	SqlPoolName string `pulumi:"sqlPoolName"`
+	SqlPoolName *string `pulumi:"sqlPoolName"`
 	// Resource status
 	Status *string `pulumi:"status"`
 	// Resource tags.
@@ -221,7 +218,7 @@ type SqlPoolArgs struct {
 	// Source database to create from
 	SourceDatabaseId pulumi.StringPtrInput
 	// SQL pool name
-	SqlPoolName pulumi.StringInput
+	SqlPoolName pulumi.StringPtrInput
 	// Resource status
 	Status pulumi.StringPtrInput
 	// Resource tags.

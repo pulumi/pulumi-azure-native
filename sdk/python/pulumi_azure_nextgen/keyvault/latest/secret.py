@@ -65,8 +65,6 @@ class Secret(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if secret_name is None and not opts.urn:
-                raise TypeError("Missing required property 'secret_name'")
             __props__['secret_name'] = secret_name
             __props__['tags'] = tags
             if vault_name is None and not opts.urn:

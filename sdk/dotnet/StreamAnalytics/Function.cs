@@ -88,8 +88,8 @@ namespace Pulumi.AzureNextGen.StreamAnalytics
         /// <summary>
         /// The name of the function.
         /// </summary>
-        [Input("functionName", required: true)]
-        public Input<string> FunctionName { get; set; } = null!;
+        [Input("functionName")]
+        public Input<string>? FunctionName { get; set; }
 
         /// <summary>
         /// The name of the streaming job.

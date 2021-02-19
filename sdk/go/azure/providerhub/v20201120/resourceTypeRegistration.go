@@ -31,9 +31,6 @@ func NewResourceTypeRegistration(ctx *pulumi.Context,
 	if args.ProviderNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
 	}
-	if args.ResourceType == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceType'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:providerhub:ResourceTypeRegistration"),
@@ -89,7 +86,7 @@ type resourceTypeRegistrationArgs struct {
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace string `pulumi:"providerNamespace"`
 	// The resource type.
-	ResourceType string `pulumi:"resourceType"`
+	ResourceType *string `pulumi:"resourceType"`
 }
 
 // The set of arguments for constructing a ResourceTypeRegistration resource.
@@ -98,7 +95,7 @@ type ResourceTypeRegistrationArgs struct {
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput
 	// The resource type.
-	ResourceType pulumi.StringInput
+	ResourceType pulumi.StringPtrInput
 }
 
 func (ResourceTypeRegistrationArgs) ElementType() reflect.Type {

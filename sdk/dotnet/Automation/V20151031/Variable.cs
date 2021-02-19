@@ -148,8 +148,8 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// <summary>
         /// The variable name.
         /// </summary>
-        [Input("variableName", required: true)]
-        public Input<string> VariableName { get; set; } = null!;
+        [Input("variableName")]
+        public Input<string>? VariableName { get; set; }
 
         public VariableArgs()
         {

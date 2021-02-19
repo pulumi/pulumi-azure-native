@@ -79,9 +79,6 @@ export class Manager extends pulumi.CustomResource {
     constructor(name: string, args: ManagerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'managerName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -137,7 +134,7 @@ export interface ManagerArgs {
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    readonly managerName?: pulumi.Input<string>;
     /**
      * Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
      */

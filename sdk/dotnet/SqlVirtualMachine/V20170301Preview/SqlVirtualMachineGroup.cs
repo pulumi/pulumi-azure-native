@@ -157,8 +157,8 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
         /// <summary>
         /// Name of the SQL virtual machine group.
         /// </summary>
-        [Input("sqlVirtualMachineGroupName", required: true)]
-        public Input<string> SqlVirtualMachineGroupName { get; set; } = null!;
+        [Input("sqlVirtualMachineGroupName")]
+        public Input<string>? SqlVirtualMachineGroupName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

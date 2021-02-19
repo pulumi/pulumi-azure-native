@@ -36,9 +36,6 @@ func NewThreatIntelligenceIndicator(ctx *pulumi.Context,
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.OperationalInsightsResourceProvider == nil {
 		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
 	}
@@ -137,7 +134,7 @@ type threatIntelligenceIndicatorArgs struct {
 	// Modified by
 	Modified *string `pulumi:"modified"`
 	// Threat intelligence indicator name field.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// Parsed patterns
@@ -201,7 +198,7 @@ type ThreatIntelligenceIndicatorArgs struct {
 	// Modified by
 	Modified pulumi.StringPtrInput
 	// Threat intelligence indicator name field.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider pulumi.StringInput
 	// Parsed patterns

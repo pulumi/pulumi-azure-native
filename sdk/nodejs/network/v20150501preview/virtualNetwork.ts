@@ -89,9 +89,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'virtualNetworkName'");
-            }
             inputs["addressSpace"] = args ? args.addressSpace : undefined;
             inputs["dhcpOptions"] = args ? args.dhcpOptions : undefined;
             inputs["etag"] = args ? args.etag : undefined;
@@ -172,5 +169,5 @@ export interface VirtualNetworkArgs {
     /**
      * The name of the virtual network.
      */
-    readonly virtualNetworkName: pulumi.Input<string>;
+    readonly virtualNetworkName?: pulumi.Input<string>;
 }

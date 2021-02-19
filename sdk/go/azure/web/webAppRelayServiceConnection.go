@@ -40,9 +40,6 @@ func NewWebAppRelayServiceConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EntityName == nil {
-		return nil, errors.New("invalid value for required argument 'EntityName'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -143,7 +140,7 @@ func (WebAppRelayServiceConnectionState) ElementType() reflect.Type {
 type webAppRelayServiceConnectionArgs struct {
 	BiztalkUri             *string `pulumi:"biztalkUri"`
 	EntityConnectionString *string `pulumi:"entityConnectionString"`
-	EntityName             string  `pulumi:"entityName"`
+	EntityName             *string `pulumi:"entityName"`
 	Hostname               *string `pulumi:"hostname"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
@@ -160,7 +157,7 @@ type webAppRelayServiceConnectionArgs struct {
 type WebAppRelayServiceConnectionArgs struct {
 	BiztalkUri             pulumi.StringPtrInput
 	EntityConnectionString pulumi.StringPtrInput
-	EntityName             pulumi.StringInput
+	EntityName             pulumi.StringPtrInput
 	Hostname               pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput

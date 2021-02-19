@@ -193,8 +193,8 @@ namespace Pulumi.AzureNextGen.ContainerService.V20170831
         /// <summary>
         /// The name of the managed cluster resource.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.

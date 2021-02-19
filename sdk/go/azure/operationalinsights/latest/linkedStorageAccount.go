@@ -35,9 +35,6 @@ func NewLinkedStorageAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataSourceType == nil {
-		return nil, errors.New("invalid value for required argument 'DataSourceType'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -108,7 +105,7 @@ func (LinkedStorageAccountState) ElementType() reflect.Type {
 
 type linkedStorageAccountArgs struct {
 	// Linked storage accounts type.
-	DataSourceType string `pulumi:"dataSourceType"`
+	DataSourceType *string `pulumi:"dataSourceType"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Linked storage accounts resources ids.
@@ -120,7 +117,7 @@ type linkedStorageAccountArgs struct {
 // The set of arguments for constructing a LinkedStorageAccount resource.
 type LinkedStorageAccountArgs struct {
 	// Linked storage accounts type.
-	DataSourceType pulumi.StringInput
+	DataSourceType pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Linked storage accounts resources ids.

@@ -128,9 +128,6 @@ export class AzureFirewall extends pulumi.CustomResource {
         pulumi.log.warn("AzureFirewall is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:AzureFirewall'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.azureFirewallName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'azureFirewallName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -205,7 +202,7 @@ export interface AzureFirewallArgs {
     /**
      * The name of the Azure Firewall.
      */
-    readonly azureFirewallName: pulumi.Input<string>;
+    readonly azureFirewallName?: pulumi.Input<string>;
     /**
      * The firewallPolicy associated with this azure firewall.
      */

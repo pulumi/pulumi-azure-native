@@ -417,8 +417,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <summary>
         /// Resource Name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("networkAccessControlList")]
         private InputList<Inputs.NetworkAccessControlEntryArgs>? _networkAccessControlList;

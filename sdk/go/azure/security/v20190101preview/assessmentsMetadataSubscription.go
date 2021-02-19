@@ -48,9 +48,6 @@ func NewAssessmentsMetadataSubscription(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AssessmentMetadataName == nil {
-		return nil, errors.New("invalid value for required argument 'AssessmentMetadataName'")
-	}
 	if args.AssessmentType == nil {
 		return nil, errors.New("invalid value for required argument 'AssessmentType'")
 	}
@@ -153,7 +150,7 @@ func (AssessmentsMetadataSubscriptionState) ElementType() reflect.Type {
 
 type assessmentsMetadataSubscriptionArgs struct {
 	// The Assessment Key - Unique key for the assessment type
-	AssessmentMetadataName string `pulumi:"assessmentMetadataName"`
+	AssessmentMetadataName *string `pulumi:"assessmentMetadataName"`
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType string   `pulumi:"assessmentType"`
 	Category       []string `pulumi:"category"`
@@ -177,7 +174,7 @@ type assessmentsMetadataSubscriptionArgs struct {
 // The set of arguments for constructing a AssessmentsMetadataSubscription resource.
 type AssessmentsMetadataSubscriptionArgs struct {
 	// The Assessment Key - Unique key for the assessment type
-	AssessmentMetadataName pulumi.StringInput
+	AssessmentMetadataName pulumi.StringPtrInput
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType pulumi.StringInput
 	Category       pulumi.StringArrayInput

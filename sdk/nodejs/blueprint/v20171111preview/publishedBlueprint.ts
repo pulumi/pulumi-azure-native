@@ -92,9 +92,6 @@ export class PublishedBlueprint extends pulumi.CustomResource {
             if ((!args || args.managementGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managementGroupName'");
             }
-            if ((!args || args.versionId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'versionId'");
-            }
             inputs["blueprintName"] = args ? args.blueprintName : undefined;
             inputs["managementGroupName"] = args ? args.managementGroupName : undefined;
             inputs["versionId"] = args ? args.versionId : undefined;
@@ -145,5 +142,5 @@ export interface PublishedBlueprintArgs {
     /**
      * version of the published blueprint.
      */
-    readonly versionId: pulumi.Input<string>;
+    readonly versionId?: pulumi.Input<string>;
 }

@@ -65,8 +65,6 @@ class WebService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if web_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'web_service_name'")
             __props__['web_service_name'] = web_service_name
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearning:WebService"), pulumi.Alias(type_="azure-nextgen:machinelearning/latest:WebService"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20170101:WebService")])

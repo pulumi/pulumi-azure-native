@@ -78,9 +78,6 @@ export class EnterprisePolicy extends pulumi.CustomResource {
     constructor(name: string, args: EnterprisePolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.enterprisePolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'enterprisePolicyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -126,7 +123,7 @@ export interface EnterprisePolicyArgs {
     /**
      * Name of the EnterprisePolicy.
      */
-    readonly enterprisePolicyName: pulumi.Input<string>;
+    readonly enterprisePolicyName?: pulumi.Input<string>;
     /**
      * The identity of the EnterprisePolicy.
      */

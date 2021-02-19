@@ -55,8 +55,6 @@ class BackupPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if backup_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'backup_policy_name'")
             __props__['backup_policy_name'] = backup_policy_name
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")

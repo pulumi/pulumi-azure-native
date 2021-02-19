@@ -40,9 +40,6 @@ func NewBackupScheduleGroup(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ScheduleGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ScheduleGroupName'")
-	}
 	if args.StartTime == nil {
 		return nil, errors.New("invalid value for required argument 'StartTime'")
 	}
@@ -106,7 +103,7 @@ type backupScheduleGroupArgs struct {
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the schedule group.
-	ScheduleGroupName string `pulumi:"scheduleGroupName"`
+	ScheduleGroupName *string `pulumi:"scheduleGroupName"`
 	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
 	StartTime Time `pulumi:"startTime"`
 }
@@ -120,7 +117,7 @@ type BackupScheduleGroupArgs struct {
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The name of the schedule group.
-	ScheduleGroupName pulumi.StringInput
+	ScheduleGroupName pulumi.StringPtrInput
 	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
 	StartTime TimeInput
 }

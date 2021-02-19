@@ -46,9 +46,6 @@ func NewService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/latest:Service"),
@@ -151,7 +148,7 @@ type serviceArgs struct {
 	// The name of the resource group that contains the service instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the service instance.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -171,7 +168,7 @@ type ServiceArgs struct {
 	// The name of the resource group that contains the service instance.
 	ResourceGroupName pulumi.StringInput
 	// The name of the service instance.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 }

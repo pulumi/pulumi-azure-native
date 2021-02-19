@@ -202,8 +202,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// <summary>
         /// The assignment name
         /// </summary>
-        [Input("assignmentName", required: true)]
-        public Input<string> AssignmentName { get; set; } = null!;
+        [Input("assignmentName")]
+        public Input<string>? AssignmentName { get; set; }
 
         /// <summary>
         /// Widget types set for the assignment.

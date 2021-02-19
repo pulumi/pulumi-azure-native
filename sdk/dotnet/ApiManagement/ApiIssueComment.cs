@@ -111,8 +111,8 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <summary>
         /// Comment identifier within an Issue. Must be unique in the current Issue.
         /// </summary>
-        [Input("commentId", required: true)]
-        public Input<string> CommentId { get; set; } = null!;
+        [Input("commentId")]
+        public Input<string>? CommentId { get; set; }
 
         /// <summary>
         /// Date and time when the comment was created.

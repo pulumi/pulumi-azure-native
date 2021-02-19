@@ -87,8 +87,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__['virtual_network_name'] = virtual_network_name
-            if virtual_network_peering_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_peering_name'")
             __props__['virtual_network_peering_name'] = virtual_network_peering_name
             __props__['etag'] = None
             __props__['provisioning_state'] = None

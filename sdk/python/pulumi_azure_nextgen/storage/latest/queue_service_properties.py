@@ -61,8 +61,6 @@ class QueueServiceProperties(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['cors'] = cors
-            if queue_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'queue_service_name'")
             __props__['queue_service_name'] = queue_service_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

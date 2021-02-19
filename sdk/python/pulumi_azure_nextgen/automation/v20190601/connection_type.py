@@ -58,8 +58,6 @@ class ConnectionType(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if connection_type_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_type_name'")
             __props__['connection_type_name'] = connection_type_name
             if field_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'field_definitions'")

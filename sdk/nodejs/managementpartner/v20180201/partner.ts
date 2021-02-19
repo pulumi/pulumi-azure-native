@@ -82,12 +82,9 @@ export class Partner extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PartnerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PartnerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.partnerId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'partnerId'");
-            }
             inputs["partnerId"] = args ? args.partnerId : undefined;
             inputs["createdTime"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
@@ -130,5 +127,5 @@ export interface PartnerArgs {
     /**
      * Id of the Partner
      */
-    readonly partnerId: pulumi.Input<string>;
+    readonly partnerId?: pulumi.Input<string>;
 }

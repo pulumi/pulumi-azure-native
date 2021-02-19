@@ -60,8 +60,6 @@ class Deployment(pulumi.CustomResource):
             if app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_name'")
             __props__['app_name'] = app_name
-            if deployment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'deployment_name'")
             __props__['deployment_name'] = deployment_name
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

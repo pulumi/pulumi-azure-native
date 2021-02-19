@@ -61,9 +61,6 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VirtualNetworkName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualNetworkName'")
-	}
 	if args.EnableDdosProtection == nil {
 		args.EnableDdosProtection = pulumi.BoolPtr(false)
 	}
@@ -308,7 +305,7 @@ type virtualNetworkArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the virtual network.
-	VirtualNetworkName string `pulumi:"virtualNetworkName"`
+	VirtualNetworkName *string `pulumi:"virtualNetworkName"`
 	// A list of peerings in a Virtual Network.
 	VirtualNetworkPeerings []VirtualNetworkPeeringType `pulumi:"virtualNetworkPeerings"`
 }
@@ -342,7 +339,7 @@ type VirtualNetworkArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the virtual network.
-	VirtualNetworkName pulumi.StringInput
+	VirtualNetworkName pulumi.StringPtrInput
 	// A list of peerings in a Virtual Network.
 	VirtualNetworkPeerings VirtualNetworkPeeringTypeArrayInput
 }

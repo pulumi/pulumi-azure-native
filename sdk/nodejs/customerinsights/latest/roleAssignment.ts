@@ -140,9 +140,6 @@ export class RoleAssignment extends pulumi.CustomResource {
         pulumi.log.warn("RoleAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RoleAssignment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.assignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'assignmentName'");
-            }
             if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hubName'");
             }
@@ -223,7 +220,7 @@ export interface RoleAssignmentArgs {
     /**
      * The assignment name
      */
-    readonly assignmentName: pulumi.Input<string>;
+    readonly assignmentName?: pulumi.Input<string>;
     /**
      * Widget types set for the assignment.
      */

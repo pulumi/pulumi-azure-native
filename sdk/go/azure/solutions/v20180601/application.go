@@ -52,9 +52,6 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationName'")
-	}
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
@@ -173,7 +170,7 @@ type applicationArgs struct {
 	// The fully qualified path of managed application definition Id.
 	ApplicationDefinitionId *string `pulumi:"applicationDefinitionId"`
 	// The name of the managed application.
-	ApplicationName string `pulumi:"applicationName"`
+	ApplicationName *string `pulumi:"applicationName"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -201,7 +198,7 @@ type ApplicationArgs struct {
 	// The fully qualified path of managed application definition Id.
 	ApplicationDefinitionId pulumi.StringPtrInput
 	// The name of the managed application.
-	ApplicationName pulumi.StringInput
+	ApplicationName pulumi.StringPtrInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.

@@ -125,8 +125,8 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// The name of the ipconfig.
         /// </summary>
-        [Input("ipConfigName", required: true)]
-        public Input<string> IpConfigName { get; set; } = null!;
+        [Input("ipConfigName")]
+        public Input<string>? IpConfigName { get; set; }
 
         /// <summary>
         /// Name of the Ip Configuration.

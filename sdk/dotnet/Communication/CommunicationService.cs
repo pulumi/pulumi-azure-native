@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.Communication
         /// <summary>
         /// The name of the CommunicationService resource.
         /// </summary>
-        [Input("communicationServiceName", required: true)]
-        public Input<string> CommunicationServiceName { get; set; } = null!;
+        [Input("communicationServiceName")]
+        public Input<string>? CommunicationServiceName { get; set; }
 
         /// <summary>
         /// The location where the communication service stores its data at rest.

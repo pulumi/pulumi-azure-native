@@ -88,13 +88,10 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtSubscription'. */
-    constructor(name: string, args: RemediationAtSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: RemediationAtSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RemediationAtSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtSubscription'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.remediationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'remediationName'");
-            }
             inputs["filters"] = args ? args.filters : undefined;
             inputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
             inputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
@@ -150,7 +147,7 @@ export interface RemediationAtSubscriptionArgs {
     /**
      * The name of the remediation.
      */
-    readonly remediationName: pulumi.Input<string>;
+    readonly remediationName?: pulumi.Input<string>;
     /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */

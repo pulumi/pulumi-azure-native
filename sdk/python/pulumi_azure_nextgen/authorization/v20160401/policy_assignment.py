@@ -58,8 +58,6 @@ class PolicyAssignment(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['id'] = id
             __props__['name'] = name
-            if policy_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_assignment_name'")
             __props__['policy_assignment_name'] = policy_assignment_name
             __props__['policy_definition_id'] = policy_definition_id
             if scope is None and not opts.urn:

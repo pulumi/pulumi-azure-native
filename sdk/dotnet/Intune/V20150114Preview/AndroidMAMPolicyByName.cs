@@ -212,8 +212,8 @@ namespace Pulumi.AzureNextGen.Intune.V20150114Preview
         /// <summary>
         /// Unique name for the policy
         /// </summary>
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         [Input("screenCapture")]
         public Input<string>? ScreenCapture { get; set; }

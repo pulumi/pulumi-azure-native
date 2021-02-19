@@ -164,9 +164,6 @@ export class Domain extends pulumi.CustomResource {
             if ((!args || args.contactTech === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contactTech'");
             }
-            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'domainName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -279,7 +276,7 @@ export interface DomainArgs {
     /**
      * Name of the domain.
      */
-    readonly domainName: pulumi.Input<string>;
+    readonly domainName?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */

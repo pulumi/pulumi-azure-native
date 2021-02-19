@@ -122,8 +122,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180915Preview
         /// <summary>
         /// Name of the domain
         /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
 
         /// <summary>
         /// This determines the format that Event Grid should expect for incoming events published to the domain.

@@ -39,9 +39,6 @@ func NewSharedPrivateLinkResource(ctx *pulumi.Context,
 	if args.SearchServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'SearchServiceName'")
 	}
-	if args.SharedPrivateLinkResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'SharedPrivateLinkResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:search:SharedPrivateLinkResource"),
@@ -105,7 +102,7 @@ type sharedPrivateLinkResourceArgs struct {
 	// The name of the Azure Cognitive Search service associated with the specified resource group.
 	SearchServiceName string `pulumi:"searchServiceName"`
 	// The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
-	SharedPrivateLinkResourceName string `pulumi:"sharedPrivateLinkResourceName"`
+	SharedPrivateLinkResourceName *string `pulumi:"sharedPrivateLinkResourceName"`
 }
 
 // The set of arguments for constructing a SharedPrivateLinkResource resource.
@@ -117,7 +114,7 @@ type SharedPrivateLinkResourceArgs struct {
 	// The name of the Azure Cognitive Search service associated with the specified resource group.
 	SearchServiceName pulumi.StringInput
 	// The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
-	SharedPrivateLinkResourceName pulumi.StringInput
+	SharedPrivateLinkResourceName pulumi.StringPtrInput
 }
 
 func (SharedPrivateLinkResourceArgs) ElementType() reflect.Type {

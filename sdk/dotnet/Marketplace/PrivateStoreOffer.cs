@@ -165,8 +165,8 @@ namespace Pulumi.AzureNextGen.Marketplace
         /// <summary>
         /// The offer ID to update or delete
         /// </summary>
-        [Input("offerId", required: true)]
-        public Input<string> OfferId { get; set; } = null!;
+        [Input("offerId")]
+        public Input<string>? OfferId { get; set; }
 
         [Input("plans")]
         private InputList<Inputs.PlanArgs>? _plans;

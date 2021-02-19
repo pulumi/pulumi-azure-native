@@ -63,9 +63,6 @@ func NewSqlVirtualMachine(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SqlVirtualMachineName == nil {
-		return nil, errors.New("invalid value for required argument 'SqlVirtualMachineName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sqlvirtualmachine:SqlVirtualMachine"),
@@ -201,7 +198,7 @@ type sqlVirtualMachineArgs struct {
 	// ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
 	SqlVirtualMachineGroupResourceId *string `pulumi:"sqlVirtualMachineGroupResourceId"`
 	// Name of the SQL virtual machine.
-	SqlVirtualMachineName string `pulumi:"sqlVirtualMachineName"`
+	SqlVirtualMachineName *string `pulumi:"sqlVirtualMachineName"`
 	// Storage Configuration Settings.
 	StorageConfigurationSettings *StorageConfigurationSettings `pulumi:"storageConfigurationSettings"`
 	// Resource tags.
@@ -239,7 +236,7 @@ type SqlVirtualMachineArgs struct {
 	// ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
 	SqlVirtualMachineGroupResourceId pulumi.StringPtrInput
 	// Name of the SQL virtual machine.
-	SqlVirtualMachineName pulumi.StringInput
+	SqlVirtualMachineName pulumi.StringPtrInput
 	// Storage Configuration Settings.
 	StorageConfigurationSettings StorageConfigurationSettingsPtrInput
 	// Resource tags.

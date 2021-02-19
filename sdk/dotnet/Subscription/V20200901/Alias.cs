@@ -87,8 +87,8 @@ namespace Pulumi.AzureNextGen.Subscription.V20200901
         /// <summary>
         /// Alias Name
         /// </summary>
-        [Input("aliasName", required: true)]
-        public Input<string> AliasName { get; set; } = null!;
+        [Input("aliasName")]
+        public Input<string>? AliasName { get; set; }
 
         /// <summary>
         /// Put alias request properties.

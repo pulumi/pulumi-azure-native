@@ -42,9 +42,6 @@ func NewFileServiceProperties(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.FileServicesName == nil {
-		return nil, errors.New("invalid value for required argument 'FileServicesName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -127,7 +124,7 @@ type fileServicePropertiesArgs struct {
 	// Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
 	Cors *CorsRules `pulumi:"cors"`
 	// The name of the file Service within the specified storage account. File Service Name must be "default"
-	FileServicesName string `pulumi:"fileServicesName"`
+	FileServicesName *string `pulumi:"fileServicesName"`
 	// Protocol settings for file service
 	ProtocolSettings *ProtocolSettings `pulumi:"protocolSettings"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -143,7 +140,7 @@ type FileServicePropertiesArgs struct {
 	// Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
 	Cors CorsRulesPtrInput
 	// The name of the file Service within the specified storage account. File Service Name must be "default"
-	FileServicesName pulumi.StringInput
+	FileServicesName pulumi.StringPtrInput
 	// Protocol settings for file service
 	ProtocolSettings ProtocolSettingsPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.

@@ -99,8 +99,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
         /// <summary>
         /// Name of the ExpressRoute Circuit Authorization in the private cloud
         /// </summary>
-        [Input("authorizationName", required: true)]
-        public Input<string> AuthorizationName { get; set; } = null!;
+        [Input("authorizationName")]
+        public Input<string>? AuthorizationName { get; set; }
 
         /// <summary>
         /// The name of the private cloud.

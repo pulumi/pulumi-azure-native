@@ -231,8 +231,8 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// <summary>
         /// The name of the peering.
         /// </summary>
-        [Input("virtualNetworkPeeringName", required: true)]
-        public Input<string> VirtualNetworkPeeringName { get; set; } = null!;
+        [Input("virtualNetworkPeeringName")]
+        public Input<string>? VirtualNetworkPeeringName { get; set; }
 
         public VirtualNetworkPeeringArgs()
         {

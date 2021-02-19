@@ -66,9 +66,6 @@ export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
     constructor(name: string, args: GuestDiagnosticsSettingsAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.associationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'associationName'");
-            }
             if ((!args || args.guestDiagnosticSettingsName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'guestDiagnosticSettingsName'");
             }
@@ -109,7 +106,7 @@ export interface GuestDiagnosticsSettingsAssociationArgs {
     /**
      * The name of the diagnostic settings association.
      */
-    readonly associationName: pulumi.Input<string>;
+    readonly associationName?: pulumi.Input<string>;
     /**
      * The guest diagnostic settings name.
      */

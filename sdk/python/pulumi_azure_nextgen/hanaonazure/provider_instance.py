@@ -56,8 +56,6 @@ class ProviderInstance(pulumi.CustomResource):
 
             __props__['metadata'] = metadata
             __props__['properties'] = properties
-            if provider_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'provider_instance_name'")
             __props__['provider_instance_name'] = provider_instance_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -77,9 +77,6 @@ export class Blob extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.blobName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'blobName'");
-            }
             if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containerName'");
             }
@@ -133,7 +130,7 @@ export interface BlobArgs {
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
-    readonly blobName: pulumi.Input<string>;
+    readonly blobName?: pulumi.Input<string>;
     /**
      * The name of the storage container in which this blob should be created.
      */

@@ -65,8 +65,6 @@ class EventHub(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['capture_description'] = capture_description
-            if event_hub_name is None and not opts.urn:
-                raise TypeError("Missing required property 'event_hub_name'")
             __props__['event_hub_name'] = event_hub_name
             __props__['message_retention_in_days'] = message_retention_in_days
             if namespace_name is None and not opts.urn:

@@ -61,9 +61,6 @@ func NewVpnServerConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VpnServerConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'VpnServerConfigurationName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:VpnServerConfiguration"),
@@ -233,7 +230,7 @@ type vpnServerConfigurationArgs struct {
 	// VPN protocols for the VpnServerConfiguration.
 	VpnProtocols []string `pulumi:"vpnProtocols"`
 	// The name of the VpnServerConfiguration being created or updated.
-	VpnServerConfigurationName string `pulumi:"vpnServerConfigurationName"`
+	VpnServerConfigurationName *string `pulumi:"vpnServerConfigurationName"`
 }
 
 // The set of arguments for constructing a VpnServerConfiguration resource.
@@ -271,7 +268,7 @@ type VpnServerConfigurationArgs struct {
 	// VPN protocols for the VpnServerConfiguration.
 	VpnProtocols pulumi.StringArrayInput
 	// The name of the VpnServerConfiguration being created or updated.
-	VpnServerConfigurationName pulumi.StringInput
+	VpnServerConfigurationName pulumi.StringPtrInput
 }
 
 func (VpnServerConfigurationArgs) ElementType() reflect.Type {

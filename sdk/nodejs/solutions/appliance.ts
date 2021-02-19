@@ -107,9 +107,6 @@ export class Appliance extends pulumi.CustomResource {
     constructor(name: string, args: ApplianceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.applianceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'applianceName'");
-            }
             if ((!args || args.managedResourceGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedResourceGroupId'");
             }
@@ -174,7 +171,7 @@ export interface ApplianceArgs {
     /**
      * The name of the appliance.
      */
-    readonly applianceName: pulumi.Input<string>;
+    readonly applianceName?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */

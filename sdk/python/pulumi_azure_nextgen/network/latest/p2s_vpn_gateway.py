@@ -72,8 +72,6 @@ class P2sVpnGateway(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['custom_dns_servers'] = custom_dns_servers
-            if gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gateway_name'")
             __props__['gateway_name'] = gateway_name
             __props__['id'] = id
             __props__['is_routing_preference_internet'] = is_routing_preference_internet

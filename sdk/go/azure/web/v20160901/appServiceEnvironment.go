@@ -104,9 +104,6 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -359,7 +356,7 @@ type appServiceEnvironmentArgs struct {
 	// Front-end VM size, e.g. "Medium", "Large".
 	MultiSize *string `pulumi:"multiSize"`
 	// Name of the App Service Environment.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Access control list for controlling traffic to the App Service Environment.
 	NetworkAccessControlList []NetworkAccessControlEntry `pulumi:"networkAccessControlList"`
 	// Name of the resource group to which the resource belongs.
@@ -409,7 +406,7 @@ type AppServiceEnvironmentArgs struct {
 	// Front-end VM size, e.g. "Medium", "Large".
 	MultiSize pulumi.StringPtrInput
 	// Name of the App Service Environment.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Access control list for controlling traffic to the App Service Environment.
 	NetworkAccessControlList NetworkAccessControlEntryArrayInput
 	// Name of the resource group to which the resource belongs.

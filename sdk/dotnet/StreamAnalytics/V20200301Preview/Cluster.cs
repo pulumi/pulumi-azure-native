@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
         /// <summary>
         /// The name of the cluster.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

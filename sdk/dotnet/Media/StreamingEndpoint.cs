@@ -289,8 +289,8 @@ namespace Pulumi.AzureNextGen.Media
         /// <summary>
         /// The name of the streaming endpoint, maximum length is 24.
         /// </summary>
-        [Input("streamingEndpointName", required: true)]
-        public Input<string> StreamingEndpointName { get; set; } = null!;
+        [Input("streamingEndpointName")]
+        public Input<string>? StreamingEndpointName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

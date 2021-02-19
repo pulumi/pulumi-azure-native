@@ -82,9 +82,6 @@ export class TemplateSpec extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.templateSpecName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'templateSpecName'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -145,5 +142,5 @@ export interface TemplateSpecArgs {
     /**
      * Name of the Template Spec.
      */
-    readonly templateSpecName: pulumi.Input<string>;
+    readonly templateSpecName?: pulumi.Input<string>;
 }

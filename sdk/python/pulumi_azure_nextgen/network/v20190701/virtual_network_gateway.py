@@ -96,8 +96,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__['resource_guid'] = resource_guid
             __props__['sku'] = sku
             __props__['tags'] = tags
-            if virtual_network_gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_gateway_name'")
             __props__['virtual_network_gateway_name'] = virtual_network_gateway_name
             __props__['vpn_client_configuration'] = vpn_client_configuration
             __props__['vpn_gateway_generation'] = vpn_gateway_generation

@@ -56,8 +56,6 @@ class GeoBackupPolicy(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
-            if geo_backup_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'geo_backup_policy_name'")
             __props__['geo_backup_policy_name'] = geo_backup_policy_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

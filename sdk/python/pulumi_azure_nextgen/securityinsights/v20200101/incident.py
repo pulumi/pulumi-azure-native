@@ -80,8 +80,6 @@ class Incident(pulumi.CustomResource):
             __props__['description'] = description
             __props__['etag'] = etag
             __props__['first_activity_time_utc'] = first_activity_time_utc
-            if incident_id is None and not opts.urn:
-                raise TypeError("Missing required property 'incident_id'")
             __props__['incident_id'] = incident_id
             __props__['labels'] = labels
             __props__['last_activity_time_utc'] = last_activity_time_utc

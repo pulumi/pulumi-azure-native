@@ -146,9 +146,6 @@ export class WebTest extends pulumi.CustomResource {
             if ((!args || args.webTestKind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'webTestKind'");
             }
-            if ((!args || args.webTestName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'webTestName'");
-            }
             inputs["configuration"] = args ? args.configuration : undefined;
             inputs["contentValidation"] = args ? args.contentValidation : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -292,5 +289,5 @@ export interface WebTestArgs {
     /**
      * User defined name if this WebTest.
      */
-    readonly webTestName: pulumi.Input<string>;
+    readonly webTestName?: pulumi.Input<string>;
 }

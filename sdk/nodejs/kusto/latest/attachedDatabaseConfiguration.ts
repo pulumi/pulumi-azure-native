@@ -84,9 +84,6 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
         pulumi.log.warn("AttachedDatabaseConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:AttachedDatabaseConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.attachedDatabaseConfigurationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'attachedDatabaseConfigurationName'");
-            }
             if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -143,7 +140,7 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * The name of the attached database configuration.
      */
-    readonly attachedDatabaseConfigurationName: pulumi.Input<string>;
+    readonly attachedDatabaseConfigurationName?: pulumi.Input<string>;
     /**
      * The name of the Kusto cluster.
      */

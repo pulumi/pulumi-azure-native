@@ -47,9 +47,6 @@ func NewMachineLearningService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceName'")
-	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
@@ -152,7 +149,7 @@ type machineLearningServiceArgs struct {
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the Azure Machine Learning service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName *string `pulumi:"serviceName"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
@@ -176,7 +173,7 @@ type MachineLearningServiceArgs struct {
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName pulumi.StringInput
 	// Name of the Azure Machine Learning service.
-	ServiceName pulumi.StringInput
+	ServiceName pulumi.StringPtrInput
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName pulumi.StringInput
 }

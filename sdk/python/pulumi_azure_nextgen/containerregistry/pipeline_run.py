@@ -56,8 +56,6 @@ class PipelineRun(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['force_update_tag'] = force_update_tag
-            if pipeline_run_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pipeline_run_name'")
             __props__['pipeline_run_name'] = pipeline_run_name
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")

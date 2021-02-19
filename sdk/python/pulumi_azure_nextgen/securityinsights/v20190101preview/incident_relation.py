@@ -65,8 +65,6 @@ class IncidentRelation(pulumi.CustomResource):
             if related_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'related_resource_id'")
             __props__['related_resource_id'] = related_resource_id
-            if relation_name is None and not opts.urn:
-                raise TypeError("Missing required property 'relation_name'")
             __props__['relation_name'] = relation_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

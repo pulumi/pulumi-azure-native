@@ -61,9 +61,6 @@ export class Association extends pulumi.CustomResource {
     constructor(name: string, args: AssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.associationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'associationName'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -99,7 +96,7 @@ export interface AssociationArgs {
     /**
      * The name of the association.
      */
-    readonly associationName: pulumi.Input<string>;
+    readonly associationName?: pulumi.Input<string>;
     /**
      * The scope of the association. The scope can be any valid REST resource instance. For example, use '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}' for a virtual machine resource.
      */

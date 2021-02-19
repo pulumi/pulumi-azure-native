@@ -44,9 +44,6 @@ func NewGalleryApplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GalleryApplicationName == nil {
-		return nil, errors.New("invalid value for required argument 'GalleryApplicationName'")
-	}
 	if args.GalleryName == nil {
 		return nil, errors.New("invalid value for required argument 'GalleryName'")
 	}
@@ -150,7 +147,7 @@ type galleryApplicationArgs struct {
 	// The Eula agreement for the gallery Application Definition.
 	Eula *string `pulumi:"eula"`
 	// The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-	GalleryApplicationName string `pulumi:"galleryApplicationName"`
+	GalleryApplicationName *string `pulumi:"galleryApplicationName"`
 	// The name of the Shared Application Gallery in which the Application Definition is to be created.
 	GalleryName string `pulumi:"galleryName"`
 	// Resource location
@@ -176,7 +173,7 @@ type GalleryApplicationArgs struct {
 	// The Eula agreement for the gallery Application Definition.
 	Eula pulumi.StringPtrInput
 	// The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-	GalleryApplicationName pulumi.StringInput
+	GalleryApplicationName pulumi.StringPtrInput
 	// The name of the Shared Application Gallery in which the Application Definition is to be created.
 	GalleryName pulumi.StringInput
 	// Resource location

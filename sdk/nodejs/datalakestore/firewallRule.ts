@@ -68,9 +68,6 @@ export class FirewallRule extends pulumi.CustomResource {
             if ((!args || args.endIpAddress === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if ((!args || args.firewallRuleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'firewallRuleName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -118,7 +115,7 @@ export interface FirewallRuleArgs {
     /**
      * The name of the firewall rule to create or update.
      */
-    readonly firewallRuleName: pulumi.Input<string>;
+    readonly firewallRuleName?: pulumi.Input<string>;
     /**
      * The name of the Azure resource group.
      */

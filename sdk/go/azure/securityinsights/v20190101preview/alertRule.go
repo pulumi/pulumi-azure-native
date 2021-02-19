@@ -41,9 +41,6 @@ func NewAlertRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RuleId == nil {
-		return nil, errors.New("invalid value for required argument 'RuleId'")
-	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
@@ -104,7 +101,7 @@ type alertRuleArgs struct {
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Alert rule ID
-	RuleId string `pulumi:"ruleId"`
+	RuleId *string `pulumi:"ruleId"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
@@ -120,7 +117,7 @@ type AlertRuleArgs struct {
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Alert rule ID
-	RuleId pulumi.StringInput
+	RuleId pulumi.StringPtrInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }

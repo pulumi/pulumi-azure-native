@@ -33,9 +33,6 @@ func NewDataFlow(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFlowName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFlowName'")
-	}
 	if args.FactoryName == nil {
 		return nil, errors.New("invalid value for required argument 'FactoryName'")
 	}
@@ -103,7 +100,7 @@ func (DataFlowState) ElementType() reflect.Type {
 
 type dataFlowArgs struct {
 	// The data flow name.
-	DataFlowName string `pulumi:"dataFlowName"`
+	DataFlowName *string `pulumi:"dataFlowName"`
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// Data flow properties.
@@ -115,7 +112,7 @@ type dataFlowArgs struct {
 // The set of arguments for constructing a DataFlow resource.
 type DataFlowArgs struct {
 	// The data flow name.
-	DataFlowName pulumi.StringInput
+	DataFlowName pulumi.StringPtrInput
 	// The factory name.
 	FactoryName pulumi.StringInput
 	// Data flow properties.

@@ -49,9 +49,6 @@ func NewAsset(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.AssetName == nil {
-		return nil, errors.New("invalid value for required argument 'AssetName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -154,7 +151,7 @@ type assetArgs struct {
 	// The alternate ID of the Asset.
 	AlternateId *string `pulumi:"alternateId"`
 	// The Asset name.
-	AssetName string `pulumi:"assetName"`
+	AssetName *string `pulumi:"assetName"`
 	// The name of the asset blob container.
 	Container *string `pulumi:"container"`
 	// The Asset description.
@@ -172,7 +169,7 @@ type AssetArgs struct {
 	// The alternate ID of the Asset.
 	AlternateId pulumi.StringPtrInput
 	// The Asset name.
-	AssetName pulumi.StringInput
+	AssetName pulumi.StringPtrInput
 	// The name of the asset blob container.
 	Container pulumi.StringPtrInput
 	// The Asset description.

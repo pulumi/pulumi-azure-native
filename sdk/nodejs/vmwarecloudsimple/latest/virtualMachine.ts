@@ -168,9 +168,6 @@ export class VirtualMachine extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualMachineName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'virtualMachineName'");
-            }
             inputs["amountOfRam"] = args ? args.amountOfRam : undefined;
             inputs["customization"] = args ? args.customization : undefined;
             inputs["disks"] = args ? args.disks : undefined;
@@ -307,5 +304,5 @@ export interface VirtualMachineArgs {
     /**
      * virtual machine name
      */
-    readonly virtualMachineName: pulumi.Input<string>;
+    readonly virtualMachineName?: pulumi.Input<string>;
 }

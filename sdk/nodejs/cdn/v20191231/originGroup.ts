@@ -81,9 +81,6 @@ export class OriginGroup extends pulumi.CustomResource {
             if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.originGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'originGroupName'");
-            }
             if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'origins'");
             }
@@ -143,7 +140,7 @@ export interface OriginGroupArgs {
     /**
      * Name of the origin group which is unique within the endpoint.
      */
-    readonly originGroupName: pulumi.Input<string>;
+    readonly originGroupName?: pulumi.Input<string>;
     /**
      * The source of the content being delivered via CDN within given origin group.
      */

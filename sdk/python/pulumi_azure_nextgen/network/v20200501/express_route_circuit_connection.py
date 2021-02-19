@@ -70,8 +70,6 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             if circuit_name is None and not opts.urn:
                 raise TypeError("Missing required property 'circuit_name'")
             __props__['circuit_name'] = circuit_name
-            if connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_name'")
             __props__['connection_name'] = connection_name
             __props__['express_route_circuit_peering'] = express_route_circuit_peering
             __props__['id'] = id

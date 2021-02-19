@@ -55,8 +55,6 @@ class Creator(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if creator_name is None and not opts.urn:
-                raise TypeError("Missing required property 'creator_name'")
             __props__['creator_name'] = creator_name
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:

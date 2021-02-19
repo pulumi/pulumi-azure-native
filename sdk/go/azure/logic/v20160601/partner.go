@@ -48,9 +48,6 @@ func NewPartner(ctx *pulumi.Context,
 	if args.IntegrationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
 	}
-	if args.PartnerName == nil {
-		return nil, errors.New("invalid value for required argument 'PartnerName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -149,7 +146,7 @@ type partnerArgs struct {
 	// The metadata.
 	Metadata interface{} `pulumi:"metadata"`
 	// The integration account partner name.
-	PartnerName string `pulumi:"partnerName"`
+	PartnerName *string `pulumi:"partnerName"`
 	// The partner type.
 	PartnerType string `pulumi:"partnerType"`
 	// The resource group name.
@@ -169,7 +166,7 @@ type PartnerArgs struct {
 	// The metadata.
 	Metadata pulumi.Input
 	// The integration account partner name.
-	PartnerName pulumi.StringInput
+	PartnerName pulumi.StringPtrInput
 	// The partner type.
 	PartnerType PartnerType
 	// The resource group name.

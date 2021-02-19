@@ -44,9 +44,6 @@ func NewBandwidthSchedule(ctx *pulumi.Context,
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RateInMbps == nil {
 		return nil, errors.New("invalid value for required argument 'RateInMbps'")
 	}
@@ -148,7 +145,7 @@ type bandwidthScheduleArgs struct {
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// The bandwidth schedule name which needs to be added/updated.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The bandwidth rate in Mbps.
 	RateInMbps int `pulumi:"rateInMbps"`
 	// The resource group name.
@@ -166,7 +163,7 @@ type BandwidthScheduleArgs struct {
 	// The device name.
 	DeviceName pulumi.StringInput
 	// The bandwidth schedule name which needs to be added/updated.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The bandwidth rate in Mbps.
 	RateInMbps pulumi.IntInput
 	// The resource group name.

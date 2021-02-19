@@ -81,9 +81,6 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
             if ((!args || args.ascLocation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ascLocation'");
             }
-            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'groupName'");
-            }
             inputs["ascLocation"] = args ? args.ascLocation : undefined;
             inputs["enforcementMode"] = args ? args.enforcementMode : undefined;
             inputs["groupName"] = args ? args.groupName : undefined;
@@ -138,7 +135,7 @@ export interface AdaptiveApplicationControlArgs {
     /**
      * Name of an application control VM/server group
      */
-    readonly groupName: pulumi.Input<string>;
+    readonly groupName?: pulumi.Input<string>;
     readonly pathRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20150601preview.PathRecommendation>[]>;
     /**
      * The protection mode of the group per collection type. Can also be defined for all collection types by using EnforcementMode

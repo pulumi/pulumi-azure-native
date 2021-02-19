@@ -43,9 +43,6 @@ func NewPacketCapture(ctx *pulumi.Context,
 	if args.NetworkWatcherName == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkWatcherName'")
 	}
-	if args.PacketCaptureName == nil {
-		return nil, errors.New("invalid value for required argument 'PacketCaptureName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -233,7 +230,7 @@ type packetCaptureArgs struct {
 	// The name of the network watcher.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
 	// The name of the packet capture session.
-	PacketCaptureName string `pulumi:"packetCaptureName"`
+	PacketCaptureName *string `pulumi:"packetCaptureName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Describes the storage location for a packet capture session.
@@ -254,7 +251,7 @@ type PacketCaptureArgs struct {
 	// The name of the network watcher.
 	NetworkWatcherName pulumi.StringInput
 	// The name of the packet capture session.
-	PacketCaptureName pulumi.StringInput
+	PacketCaptureName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Describes the storage location for a packet capture session.

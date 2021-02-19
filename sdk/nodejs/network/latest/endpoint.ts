@@ -104,9 +104,6 @@ export class Endpoint extends pulumi.CustomResource {
         pulumi.log.warn("Endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Endpoint'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'endpointName'");
-            }
             if ((!args || args.endpointType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpointType'");
             }
@@ -181,7 +178,7 @@ export interface EndpointArgs {
     /**
      * The name of the Traffic Manager endpoint to be created or updated.
      */
-    readonly endpointName: pulumi.Input<string>;
+    readonly endpointName?: pulumi.Input<string>;
     /**
      * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
      */

@@ -68,8 +68,6 @@ class Query(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if id is None and not opts.urn:
-                raise TypeError("Missing required property 'id'")
             __props__['id'] = id
             __props__['properties'] = properties
             if query_pack_name is None and not opts.urn:

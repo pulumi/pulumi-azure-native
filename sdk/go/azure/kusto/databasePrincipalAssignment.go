@@ -49,9 +49,6 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	if args.PrincipalAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'PrincipalAssignmentName'")
-	}
 	if args.PrincipalId == nil {
 		return nil, errors.New("invalid value for required argument 'PrincipalId'")
 	}
@@ -155,7 +152,7 @@ type databasePrincipalAssignmentArgs struct {
 	// The name of the database in the Kusto cluster.
 	DatabaseName string `pulumi:"databaseName"`
 	// The name of the Kusto principalAssignment.
-	PrincipalAssignmentName string `pulumi:"principalAssignmentName"`
+	PrincipalAssignmentName *string `pulumi:"principalAssignmentName"`
 	// The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
 	PrincipalId string `pulumi:"principalId"`
 	// Principal type.
@@ -175,7 +172,7 @@ type DatabasePrincipalAssignmentArgs struct {
 	// The name of the database in the Kusto cluster.
 	DatabaseName pulumi.StringInput
 	// The name of the Kusto principalAssignment.
-	PrincipalAssignmentName pulumi.StringInput
+	PrincipalAssignmentName pulumi.StringPtrInput
 	// The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
 	PrincipalId pulumi.StringInput
 	// Principal type.

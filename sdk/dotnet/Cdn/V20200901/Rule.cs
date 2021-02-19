@@ -167,8 +167,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// Name of the delivery rule which is unique within the endpoint.
         /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public Input<string>? RuleName { get; set; }
 
         /// <summary>
         /// Name of the rule set under the profile.

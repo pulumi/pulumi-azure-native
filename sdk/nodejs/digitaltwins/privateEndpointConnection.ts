@@ -56,9 +56,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.privateEndpointConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -99,7 +96,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName: pulumi.Input<string>;
+    readonly privateEndpointConnectionName?: pulumi.Input<string>;
     readonly properties: pulumi.Input<inputs.digitaltwins.PrivateEndpointConnectionProperties>;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.

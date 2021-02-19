@@ -135,8 +135,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <summary>
         /// The manager name
         /// </summary>
-        [Input("managerName", required: true)]
-        public Input<string> ManagerName { get; set; } = null!;
+        [Input("managerName")]
+        public Input<string>? ManagerName { get; set; }
 
         /// <summary>
         /// The resource group name

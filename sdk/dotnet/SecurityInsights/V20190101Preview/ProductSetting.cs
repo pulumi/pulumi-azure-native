@@ -115,8 +115,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <summary>
         /// The setting name. Supports - EyesOn, EntityAnalytics, Ueba
         /// </summary>
-        [Input("settingsName", required: true)]
-        public Input<string> SettingsName { get; set; } = null!;
+        [Input("settingsName")]
+        public Input<string>? SettingsName { get; set; }
 
         /// <summary>
         /// The name of the workspace.

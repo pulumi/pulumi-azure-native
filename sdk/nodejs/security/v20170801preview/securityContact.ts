@@ -79,9 +79,6 @@ export class SecurityContact extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.securityContactName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'securityContactName'");
-            }
             inputs["alertNotifications"] = args ? args.alertNotifications : undefined;
             inputs["alertsToAdmins"] = args ? args.alertsToAdmins : undefined;
             inputs["email"] = args ? args.email : undefined;
@@ -133,5 +130,5 @@ export interface SecurityContactArgs {
     /**
      * Name of the security contact object
      */
-    readonly securityContactName: pulumi.Input<string>;
+    readonly securityContactName?: pulumi.Input<string>;
 }

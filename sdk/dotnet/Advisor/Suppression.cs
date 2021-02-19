@@ -102,8 +102,8 @@ namespace Pulumi.AzureNextGen.Advisor
         /// <summary>
         /// The name of the suppression.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The recommendation ID.

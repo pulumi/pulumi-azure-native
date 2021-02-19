@@ -61,9 +61,6 @@ export class DataSetMapping extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.dataSetMappingName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dataSetMappingName'");
-            }
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -109,7 +106,7 @@ export interface DataSetMappingArgs {
     /**
      * The name of the data set mapping to be created.
      */
-    readonly dataSetMappingName: pulumi.Input<string>;
+    readonly dataSetMappingName?: pulumi.Input<string>;
     /**
      * Kind of data set mapping.
      */

@@ -91,8 +91,6 @@ class RecordSet(pulumi.CustomResource):
             if record_type is None and not opts.urn:
                 raise TypeError("Missing required property 'record_type'")
             __props__['record_type'] = record_type
-            if relative_record_set_name is None and not opts.urn:
-                raise TypeError("Missing required property 'relative_record_set_name'")
             __props__['relative_record_set_name'] = relative_record_set_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

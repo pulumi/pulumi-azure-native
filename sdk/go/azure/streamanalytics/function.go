@@ -31,9 +31,6 @@ func NewFunction(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FunctionName == nil {
-		return nil, errors.New("invalid value for required argument 'FunctionName'")
-	}
 	if args.JobName == nil {
 		return nil, errors.New("invalid value for required argument 'JobName'")
 	}
@@ -97,7 +94,7 @@ func (FunctionState) ElementType() reflect.Type {
 
 type functionArgs struct {
 	// The name of the function.
-	FunctionName string `pulumi:"functionName"`
+	FunctionName *string `pulumi:"functionName"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
 	// Resource name
@@ -111,7 +108,7 @@ type functionArgs struct {
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
 	// The name of the function.
-	FunctionName pulumi.StringInput
+	FunctionName pulumi.StringPtrInput
 	// The name of the streaming job.
 	JobName pulumi.StringInput
 	// Resource name

@@ -35,9 +35,6 @@ func NewApp(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AppName == nil {
-		return nil, errors.New("invalid value for required argument 'AppName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -112,7 +109,7 @@ func (AppState) ElementType() reflect.Type {
 
 type appArgs struct {
 	// The name of the App resource.
-	AppName string `pulumi:"appName"`
+	AppName *string `pulumi:"appName"`
 	// The Managed Identity type of the app resource
 	Identity *ManagedIdentityProperties `pulumi:"identity"`
 	// The GEO location of the application, always the same with its parent resource
@@ -128,7 +125,7 @@ type appArgs struct {
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
 	// The name of the App resource.
-	AppName pulumi.StringInput
+	AppName pulumi.StringPtrInput
 	// The Managed Identity type of the app resource
 	Identity ManagedIdentityPropertiesPtrInput
 	// The GEO location of the application, always the same with its parent resource

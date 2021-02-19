@@ -75,9 +75,6 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.clusterSize === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterSize'");
             }
@@ -129,7 +126,7 @@ export interface ClusterArgs {
     /**
      * Name of the cluster in the private cloud
      */
-    readonly clusterName: pulumi.Input<string>;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * The cluster size
      */

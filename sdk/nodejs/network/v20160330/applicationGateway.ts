@@ -122,9 +122,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.applicationGatewayName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'applicationGatewayName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -191,7 +188,7 @@ export interface ApplicationGatewayArgs {
     /**
      * The name of the ApplicationGateway.
      */
-    readonly applicationGatewayName: pulumi.Input<string>;
+    readonly applicationGatewayName?: pulumi.Input<string>;
     /**
      * Gets or sets backend address pool of application gateway resource
      */

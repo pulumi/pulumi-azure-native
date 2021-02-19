@@ -81,9 +81,6 @@ export class Network extends pulumi.CustomResource {
             if ((!args || args.addressPrefix === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'addressPrefix'");
             }
-            if ((!args || args.networkName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'networkName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -143,7 +140,7 @@ export interface NetworkArgs {
     /**
      * The identity of the network.
      */
-    readonly networkName: pulumi.Input<string>;
+    readonly networkName?: pulumi.Input<string>;
     /**
      * Azure resource group name
      */

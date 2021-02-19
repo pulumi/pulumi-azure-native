@@ -175,8 +175,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20200701
         /// <summary>
         /// The name of the snapshot policy target
         /// </summary>
-        [Input("snapshotPolicyName", required: true)]
-        public Input<string> SnapshotPolicyName { get; set; } = null!;
+        [Input("snapshotPolicyName")]
+        public Input<string>? SnapshotPolicyName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

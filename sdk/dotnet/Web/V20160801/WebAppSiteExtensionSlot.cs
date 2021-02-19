@@ -212,8 +212,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <summary>
         /// Site extension name.
         /// </summary>
-        [Input("siteExtensionId", required: true)]
-        public Input<string> SiteExtensionId { get; set; } = null!;
+        [Input("siteExtensionId")]
+        public Input<string>? SiteExtensionId { get; set; }
 
         /// <summary>
         /// Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.

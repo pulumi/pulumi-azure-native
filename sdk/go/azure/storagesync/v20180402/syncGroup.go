@@ -38,9 +38,6 @@ func NewSyncGroup(ctx *pulumi.Context,
 	if args.StorageSyncServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageSyncServiceName'")
 	}
-	if args.SyncGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'SyncGroupName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storagesync:SyncGroup"),
@@ -132,7 +129,7 @@ type syncGroupArgs struct {
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 	// Name of Sync Group resource.
-	SyncGroupName string `pulumi:"syncGroupName"`
+	SyncGroupName *string `pulumi:"syncGroupName"`
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -146,7 +143,7 @@ type SyncGroupArgs struct {
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName pulumi.StringInput
 	// Name of Sync Group resource.
-	SyncGroupName pulumi.StringInput
+	SyncGroupName pulumi.StringPtrInput
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
 	Tags pulumi.StringMapInput
 }

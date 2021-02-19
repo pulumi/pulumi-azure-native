@@ -151,8 +151,8 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// <summary>
         /// Name of the Template Spec.
         /// </summary>
-        [Input("templateSpecName", required: true)]
-        public Input<string> TemplateSpecName { get; set; } = null!;
+        [Input("templateSpecName")]
+        public Input<string>? TemplateSpecName { get; set; }
 
         public TemplateSpecArgs()
         {

@@ -123,8 +123,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
         /// <summary>
         /// The Move Collection Name.
         /// </summary>
-        [Input("moveCollectionName", required: true)]
-        public Input<string> MoveCollectionName { get; set; } = null!;
+        [Input("moveCollectionName")]
+        public Input<string>? MoveCollectionName { get; set; }
 
         /// <summary>
         /// Defines the move collection properties.

@@ -274,8 +274,8 @@ namespace Pulumi.AzureNextGen.Web
         /// <summary>
         /// Name of the certificate.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Certificate password.

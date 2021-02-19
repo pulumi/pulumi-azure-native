@@ -59,9 +59,6 @@ func NewPrivateLinkService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:PrivateLinkService"),
@@ -222,7 +219,7 @@ type privateLinkServiceArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the private link service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName *string `pulumi:"serviceName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The visibility list of the private link service.
@@ -250,7 +247,7 @@ type PrivateLinkServiceArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the private link service.
-	ServiceName pulumi.StringInput
+	ServiceName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The visibility list of the private link service.

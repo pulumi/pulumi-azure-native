@@ -37,9 +37,6 @@ func NewAccessControlRecord(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccessControlRecordName == nil {
-		return nil, errors.New("invalid value for required argument 'AccessControlRecordName'")
-	}
 	if args.InitiatorName == nil {
 		return nil, errors.New("invalid value for required argument 'InitiatorName'")
 	}
@@ -114,7 +111,7 @@ func (AccessControlRecordState) ElementType() reflect.Type {
 
 type accessControlRecordArgs struct {
 	// The name of the access control record.
-	AccessControlRecordName string `pulumi:"accessControlRecordName"`
+	AccessControlRecordName *string `pulumi:"accessControlRecordName"`
 	// The iSCSI initiator name (IQN).
 	InitiatorName string `pulumi:"initiatorName"`
 	// The Kind of the object. Currently only Series8000 is supported
@@ -128,7 +125,7 @@ type accessControlRecordArgs struct {
 // The set of arguments for constructing a AccessControlRecord resource.
 type AccessControlRecordArgs struct {
 	// The name of the access control record.
-	AccessControlRecordName pulumi.StringInput
+	AccessControlRecordName pulumi.StringPtrInput
 	// The iSCSI initiator name (IQN).
 	InitiatorName pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported

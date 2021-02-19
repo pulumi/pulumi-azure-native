@@ -88,9 +88,6 @@ export class Assessment extends pulumi.CustomResource {
         pulumi.log.warn("Assessment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:Assessment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.assessmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'assessmentName'");
-            }
             if ((!args || args.resourceDetails === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceDetails'");
             }
@@ -146,7 +143,7 @@ export interface AssessmentArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    readonly assessmentName: pulumi.Input<string>;
+    readonly assessmentName?: pulumi.Input<string>;
     /**
      * Describes properties of an assessment metadata.
      */

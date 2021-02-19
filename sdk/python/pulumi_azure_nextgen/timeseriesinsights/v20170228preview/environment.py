@@ -61,8 +61,6 @@ class Environment(pulumi.CustomResource):
             if data_retention_time is None and not opts.urn:
                 raise TypeError("Missing required property 'data_retention_time'")
             __props__['data_retention_time'] = data_retention_time
-            if environment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'environment_name'")
             __props__['environment_name'] = environment_name
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:

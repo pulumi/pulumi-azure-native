@@ -51,9 +51,6 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -159,7 +156,7 @@ func (SpatialAnchorsAccountState) ElementType() reflect.Type {
 
 type spatialAnchorsAccountArgs struct {
 	// Name of an Mixed Reality Account.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// The identity associated with this account
 	Identity *Identity `pulumi:"identity"`
 	// The kind of account, if supported
@@ -181,7 +178,7 @@ type spatialAnchorsAccountArgs struct {
 // The set of arguments for constructing a SpatialAnchorsAccount resource.
 type SpatialAnchorsAccountArgs struct {
 	// Name of an Mixed Reality Account.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// The identity associated with this account
 	Identity IdentityPtrInput
 	// The kind of account, if supported

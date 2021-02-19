@@ -172,8 +172,8 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <summary>
         /// The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// Setup to be performed on each compute node in the cluster.

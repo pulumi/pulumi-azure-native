@@ -39,9 +39,6 @@ func NewPeeringServicePrefix(ctx *pulumi.Context,
 	if args.PeeringServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'PeeringServiceName'")
 	}
-	if args.PrefixName == nil {
-		return nil, errors.New("invalid value for required argument 'PrefixName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -129,7 +126,7 @@ type peeringServicePrefixArgs struct {
 	// Valid route prefix
 	Prefix *string `pulumi:"prefix"`
 	// The prefix name
-	PrefixName string `pulumi:"prefixName"`
+	PrefixName *string `pulumi:"prefixName"`
 	// The prefix validation state
 	PrefixValidationState *string `pulumi:"prefixValidationState"`
 	// The resource group name.
@@ -145,7 +142,7 @@ type PeeringServicePrefixArgs struct {
 	// Valid route prefix
 	Prefix pulumi.StringPtrInput
 	// The prefix name
-	PrefixName pulumi.StringInput
+	PrefixName pulumi.StringPtrInput
 	// The prefix validation state
 	PrefixValidationState pulumi.StringPtrInput
 	// The resource group name.

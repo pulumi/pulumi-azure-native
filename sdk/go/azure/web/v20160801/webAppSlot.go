@@ -110,9 +110,6 @@ func NewWebAppSlot(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Slot == nil {
-		return nil, errors.New("invalid value for required argument 'Slot'")
-	}
 	if args.Reserved == nil {
 		args.Reserved = pulumi.BoolPtr(false)
 	}
@@ -389,7 +386,7 @@ type webAppSlotArgs struct {
 	//  only used for app creation.
 	SkipDnsRegistration *bool `pulumi:"skipDnsRegistration"`
 	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
-	Slot string `pulumi:"slot"`
+	Slot *string `pulumi:"slot"`
 	// If specified during app creation, the app is created from a previous snapshot.
 	SnapshotInfo *SnapshotRecoveryRequest `pulumi:"snapshotInfo"`
 	// Resource tags.
@@ -448,7 +445,7 @@ type WebAppSlotArgs struct {
 	//  only used for app creation.
 	SkipDnsRegistration pulumi.BoolPtrInput
 	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
-	Slot pulumi.StringInput
+	Slot pulumi.StringPtrInput
 	// If specified during app creation, the app is created from a previous snapshot.
 	SnapshotInfo SnapshotRecoveryRequestPtrInput
 	// Resource tags.

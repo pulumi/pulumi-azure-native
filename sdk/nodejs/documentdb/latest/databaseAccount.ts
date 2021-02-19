@@ -184,9 +184,6 @@ export class DatabaseAccount extends pulumi.CustomResource {
         pulumi.log.warn("DatabaseAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccount'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if ((!args || args.databaseAccountOfferType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseAccountOfferType'");
             }
@@ -286,7 +283,7 @@ export interface DatabaseAccountArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    readonly accountName?: pulumi.Input<string>;
     /**
      * API specific properties. Currently, supported only for MongoDB API.
      */

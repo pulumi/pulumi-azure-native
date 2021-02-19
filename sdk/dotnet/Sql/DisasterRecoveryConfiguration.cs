@@ -129,8 +129,8 @@ namespace Pulumi.AzureNextGen.Sql
         /// <summary>
         /// The name of the disaster recovery configuration to be created/updated.
         /// </summary>
-        [Input("disasterRecoveryConfigurationName", required: true)]
-        public Input<string> DisasterRecoveryConfigurationName { get; set; } = null!;
+        [Input("disasterRecoveryConfigurationName")]
+        public Input<string>? DisasterRecoveryConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

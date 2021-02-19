@@ -58,9 +58,6 @@ func NewIoMAMPolicyByName(ctx *pulumi.Context,
 	if args.HostName == nil {
 		return nil, errors.New("invalid value for required argument 'HostName'")
 	}
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
-	}
 	if args.AppSharingFromLevel == nil {
 		args.AppSharingFromLevel = pulumi.StringPtr("none")
 	}
@@ -212,7 +209,7 @@ type ioMAMPolicyByNameArgs struct {
 	Pin                *string `pulumi:"pin"`
 	PinNumRetry        *int    `pulumi:"pinNumRetry"`
 	// Unique name for the policy
-	PolicyName string `pulumi:"policyName"`
+	PolicyName *string `pulumi:"policyName"`
 	// Resource Tags
 	Tags    map[string]string `pulumi:"tags"`
 	TouchId *string           `pulumi:"touchId"`
@@ -241,7 +238,7 @@ type IoMAMPolicyByNameArgs struct {
 	Pin                pulumi.StringPtrInput
 	PinNumRetry        pulumi.IntPtrInput
 	// Unique name for the policy
-	PolicyName pulumi.StringInput
+	PolicyName pulumi.StringPtrInput
 	// Resource Tags
 	Tags    pulumi.StringMapInput
 	TouchId pulumi.StringPtrInput

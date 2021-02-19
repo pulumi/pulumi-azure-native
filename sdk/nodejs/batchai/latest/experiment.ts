@@ -71,9 +71,6 @@ export class Experiment extends pulumi.CustomResource {
         pulumi.log.warn("Experiment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Experiment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.experimentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'experimentName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,7 +112,7 @@ export interface ExperimentArgs {
     /**
      * The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly experimentName: pulumi.Input<string>;
+    readonly experimentName?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

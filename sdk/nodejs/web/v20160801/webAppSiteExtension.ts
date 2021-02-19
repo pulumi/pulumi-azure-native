@@ -135,9 +135,6 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.siteExtensionId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'siteExtensionId'");
-            }
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["siteExtensionId"] = args ? args.siteExtensionId : undefined;
@@ -212,5 +209,5 @@ export interface WebAppSiteExtensionArgs {
     /**
      * Site extension name.
      */
-    readonly siteExtensionId: pulumi.Input<string>;
+    readonly siteExtensionId?: pulumi.Input<string>;
 }

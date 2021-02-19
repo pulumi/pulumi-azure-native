@@ -54,9 +54,6 @@ func NewDatabaseAccountSqlContainer(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.ContainerName == nil {
-		return nil, errors.New("invalid value for required argument 'ContainerName'")
-	}
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
@@ -173,7 +170,7 @@ type databaseAccountSqlContainerArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB container name.
-	ContainerName string `pulumi:"containerName"`
+	ContainerName *string `pulumi:"containerName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
@@ -189,7 +186,7 @@ type DatabaseAccountSqlContainerArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
 	// Cosmos DB container name.
-	ContainerName pulumi.StringInput
+	ContainerName pulumi.StringPtrInput
 	// Cosmos DB database name.
 	DatabaseName pulumi.StringInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.

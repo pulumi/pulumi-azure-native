@@ -97,8 +97,6 @@ class Domain(pulumi.CustomResource):
             __props__['contact_tech'] = contact_tech
             __props__['dns_type'] = dns_type
             __props__['dns_zone_id'] = dns_zone_id
-            if domain_name is None and not opts.urn:
-                raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
             __props__['kind'] = kind
             __props__['location'] = location

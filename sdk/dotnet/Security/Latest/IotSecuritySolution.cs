@@ -245,8 +245,8 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// <summary>
         /// The name of the IoT Security solution.
         /// </summary>
-        [Input("solutionName", required: true)]
-        public Input<string> SolutionName { get; set; } = null!;
+        [Input("solutionName")]
+        public Input<string>? SolutionName { get; set; }
 
         /// <summary>
         /// Status of the IoT Security solution.

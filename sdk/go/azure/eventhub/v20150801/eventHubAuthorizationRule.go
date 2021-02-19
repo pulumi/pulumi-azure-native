@@ -32,9 +32,6 @@ func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AuthorizationRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'AuthorizationRuleName'")
-	}
 	if args.EventHubName == nil {
 		return nil, errors.New("invalid value for required argument 'EventHubName'")
 	}
@@ -114,7 +111,7 @@ func (EventHubAuthorizationRuleState) ElementType() reflect.Type {
 
 type eventHubAuthorizationRuleArgs struct {
 	// The authorization rule name.
-	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
+	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
 	// The Event Hub name
 	EventHubName string `pulumi:"eventHubName"`
 	// Data center location.
@@ -132,7 +129,7 @@ type eventHubAuthorizationRuleArgs struct {
 // The set of arguments for constructing a EventHubAuthorizationRule resource.
 type EventHubAuthorizationRuleArgs struct {
 	// The authorization rule name.
-	AuthorizationRuleName pulumi.StringInput
+	AuthorizationRuleName pulumi.StringPtrInput
 	// The Event Hub name
 	EventHubName pulumi.StringInput
 	// Data center location.

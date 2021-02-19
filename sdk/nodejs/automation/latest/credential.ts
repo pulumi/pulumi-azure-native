@@ -78,9 +78,6 @@ export class Credential extends pulumi.CustomResource {
             if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.credentialName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'credentialName'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -135,7 +132,7 @@ export interface CredentialArgs {
     /**
      * The parameters supplied to the create or update credential operation.
      */
-    readonly credentialName: pulumi.Input<string>;
+    readonly credentialName?: pulumi.Input<string>;
     /**
      * Gets or sets the description of the credential.
      */

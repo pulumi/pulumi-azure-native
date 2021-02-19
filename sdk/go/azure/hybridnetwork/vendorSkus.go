@@ -43,9 +43,6 @@ func NewVendorSkus(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.SkuName == nil {
-		return nil, errors.New("invalid value for required argument 'SkuName'")
-	}
 	if args.VendorName == nil {
 		return nil, errors.New("invalid value for required argument 'VendorName'")
 	}
@@ -134,7 +131,7 @@ type vendorSkusArgs struct {
 	// Indicates if the vendor sku is in preview mode.
 	Preview *bool `pulumi:"preview"`
 	// The name of the sku.
-	SkuName string `pulumi:"skuName"`
+	SkuName *string `pulumi:"skuName"`
 	// The sku type.
 	SkuType *string `pulumi:"skuType"`
 	// The name of the vendor.
@@ -154,7 +151,7 @@ type VendorSkusArgs struct {
 	// Indicates if the vendor sku is in preview mode.
 	Preview pulumi.BoolPtrInput
 	// The name of the sku.
-	SkuName pulumi.StringInput
+	SkuName pulumi.StringPtrInput
 	// The sku type.
 	SkuType pulumi.StringPtrInput
 	// The name of the vendor.

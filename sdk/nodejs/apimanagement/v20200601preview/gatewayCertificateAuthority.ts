@@ -57,9 +57,6 @@ export class GatewayCertificateAuthority extends pulumi.CustomResource {
     constructor(name: string, args: GatewayCertificateAuthorityArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.certificateId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'certificateId'");
-            }
             if ((!args || args.gatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayId'");
             }
@@ -101,7 +98,7 @@ export interface GatewayCertificateAuthorityArgs {
     /**
      * Identifier of the certificate entity. Must be unique in the current API Management service instance.
      */
-    readonly certificateId: pulumi.Input<string>;
+    readonly certificateId?: pulumi.Input<string>;
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */

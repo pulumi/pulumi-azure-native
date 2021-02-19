@@ -152,8 +152,8 @@ namespace Pulumi.AzureNextGen.Compute.V20160330
         /// <summary>
         /// The name of the VM scale set to create or update.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Specifies whether the Virtual Machine Scale Set should be overprovisioned.

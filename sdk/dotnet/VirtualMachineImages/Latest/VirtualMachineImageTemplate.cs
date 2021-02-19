@@ -187,8 +187,8 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
         /// <summary>
         /// The name of the image Template
         /// </summary>
-        [Input("imageTemplateName", required: true)]
-        public Input<string> ImageTemplateName { get; set; } = null!;
+        [Input("imageTemplateName")]
+        public Input<string>? ImageTemplateName { get; set; }
 
         /// <summary>
         /// Resource location

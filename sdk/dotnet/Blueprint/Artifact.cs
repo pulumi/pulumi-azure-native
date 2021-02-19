@@ -86,8 +86,8 @@ namespace Pulumi.AzureNextGen.Blueprint
         /// <summary>
         /// Name of the blueprint artifact.
         /// </summary>
-        [Input("artifactName", required: true)]
-        public Input<string> ArtifactName { get; set; } = null!;
+        [Input("artifactName")]
+        public Input<string>? ArtifactName { get; set; }
 
         /// <summary>
         /// Name of the blueprint definition.

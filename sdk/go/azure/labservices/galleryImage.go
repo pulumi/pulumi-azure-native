@@ -57,9 +57,6 @@ func NewGalleryImage(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GalleryImageName == nil {
-		return nil, errors.New("invalid value for required argument 'GalleryImageName'")
-	}
 	if args.LabAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'LabAccountName'")
 	}
@@ -172,7 +169,7 @@ func (GalleryImageState) ElementType() reflect.Type {
 
 type galleryImageArgs struct {
 	// The name of the gallery Image.
-	GalleryImageName string `pulumi:"galleryImageName"`
+	GalleryImageName *string `pulumi:"galleryImageName"`
 	// Indicates whether this gallery image is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// Indicates whether this gallery has been overridden for this lab account
@@ -196,7 +193,7 @@ type galleryImageArgs struct {
 // The set of arguments for constructing a GalleryImage resource.
 type GalleryImageArgs struct {
 	// The name of the gallery Image.
-	GalleryImageName pulumi.StringInput
+	GalleryImageName pulumi.StringPtrInput
 	// Indicates whether this gallery image is enabled.
 	IsEnabled pulumi.BoolPtrInput
 	// Indicates whether this gallery has been overridden for this lab account

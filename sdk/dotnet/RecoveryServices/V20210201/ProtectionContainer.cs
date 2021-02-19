@@ -108,8 +108,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20210201
         /// <summary>
         /// Name of the container to be registered.
         /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
+        [Input("containerName")]
+        public Input<string>? ContainerName { get; set; }
 
         /// <summary>
         /// Optional ETag.

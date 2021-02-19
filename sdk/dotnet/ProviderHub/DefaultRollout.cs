@@ -96,8 +96,8 @@ namespace Pulumi.AzureNextGen.ProviderHub
         /// <summary>
         /// The rollout name.
         /// </summary>
-        [Input("rolloutName", required: true)]
-        public Input<string> RolloutName { get; set; } = null!;
+        [Input("rolloutName")]
+        public Input<string>? RolloutName { get; set; }
 
         public DefaultRolloutArgs()
         {

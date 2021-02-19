@@ -63,9 +63,6 @@ export class AzureADMetric extends pulumi.CustomResource {
     constructor(name: string, args: AzureADMetricArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.azureADMetricsName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'azureADMetricsName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -103,7 +100,7 @@ export interface AzureADMetricArgs {
     /**
      * Name of the azureADMetrics instance.
      */
-    readonly azureADMetricsName: pulumi.Input<string>;
+    readonly azureADMetricsName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

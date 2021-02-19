@@ -143,8 +143,8 @@ namespace Pulumi.AzureNextGen.StorageSync.V20181001
         /// <summary>
         /// Name of Cloud Endpoint object.
         /// </summary>
-        [Input("cloudEndpointName", required: true)]
-        public Input<string> CloudEndpointName { get; set; } = null!;
+        [Input("cloudEndpointName")]
+        public Input<string>? CloudEndpointName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

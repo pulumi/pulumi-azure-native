@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.Storage.V20180701
         /// <summary>
         /// The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
         /// </summary>
-        [Input("blobServicesName", required: true)]
-        public Input<string> BlobServicesName { get; set; } = null!;
+        [Input("blobServicesName")]
+        public Input<string>? BlobServicesName { get; set; }
 
         /// <summary>
         /// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.

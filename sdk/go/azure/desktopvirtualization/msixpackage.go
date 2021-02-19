@@ -54,9 +54,6 @@ func NewMSIXPackage(ctx *pulumi.Context,
 	if args.HostPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'HostPoolName'")
 	}
-	if args.MsixPackageFullName == nil {
-		return nil, errors.New("invalid value for required argument 'MsixPackageFullName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -178,7 +175,7 @@ type msixpackageArgs struct {
 	// Date Package was last updated, found in the appxmanifest.xml.
 	LastUpdated *string `pulumi:"lastUpdated"`
 	// The version specific package full name of the MSIX package within specified hostpool
-	MsixPackageFullName string `pulumi:"msixPackageFullName"`
+	MsixPackageFullName *string `pulumi:"msixPackageFullName"`
 	// List of package applications.
 	PackageApplications []MsixPackageApplications `pulumi:"packageApplications"`
 	// List of package dependencies.
@@ -210,7 +207,7 @@ type MSIXPackageArgs struct {
 	// Date Package was last updated, found in the appxmanifest.xml.
 	LastUpdated pulumi.StringPtrInput
 	// The version specific package full name of the MSIX package within specified hostpool
-	MsixPackageFullName pulumi.StringInput
+	MsixPackageFullName pulumi.StringPtrInput
 	// List of package applications.
 	PackageApplications MsixPackageApplicationsArrayInput
 	// List of package dependencies.

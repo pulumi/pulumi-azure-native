@@ -519,8 +519,8 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         /// <summary>
         /// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         /// </summary>
-        [Input("slot", required: true)]
-        public Input<string> Slot { get; set; } = null!;
+        [Input("slot")]
+        public Input<string>? Slot { get; set; }
 
         /// <summary>
         /// Checks if Customer provided storage account is required

@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Connector(string name, ConnectorArgs args, CustomResourceOptions? options = null)
+        public Connector(string name, ConnectorArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:security/v20200101preview:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -97,8 +97,8 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         /// <summary>
         /// Name of the cloud account connector
         /// </summary>
-        [Input("connectorName", required: true)]
-        public Input<string> ConnectorName { get; set; } = null!;
+        [Input("connectorName")]
+        public Input<string>? ConnectorName { get; set; }
 
         /// <summary>
         /// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).

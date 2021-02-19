@@ -46,9 +46,6 @@ func NewVault(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VaultName == nil {
-		return nil, errors.New("invalid value for required argument 'VaultName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:Vault"),
@@ -147,7 +144,7 @@ type vaultArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the recovery services vault.
-	VaultName string `pulumi:"vaultName"`
+	VaultName *string `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a Vault resource.
@@ -167,7 +164,7 @@ type VaultArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the recovery services vault.
-	VaultName pulumi.StringInput
+	VaultName pulumi.StringPtrInput
 }
 
 func (VaultArgs) ElementType() reflect.Type {

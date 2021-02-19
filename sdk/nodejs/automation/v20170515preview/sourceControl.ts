@@ -96,9 +96,6 @@ export class SourceControl extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceControlName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sourceControlName'");
-            }
             inputs["autoSync"] = args ? args.autoSync : undefined;
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["branch"] = args ? args.branch : undefined;
@@ -183,7 +180,7 @@ export interface SourceControlArgs {
     /**
      * The source control name.
      */
-    readonly sourceControlName: pulumi.Input<string>;
+    readonly sourceControlName?: pulumi.Input<string>;
     /**
      * The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
      */

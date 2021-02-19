@@ -74,9 +74,6 @@ export class CommitmentPlan extends pulumi.CustomResource {
     constructor(name: string, args: CommitmentPlanArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.commitmentPlanName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'commitmentPlanName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -118,7 +115,7 @@ export interface CommitmentPlanArgs {
     /**
      * The Azure ML commitment plan name.
      */
-    readonly commitmentPlanName: pulumi.Input<string>;
+    readonly commitmentPlanName?: pulumi.Input<string>;
     /**
      * An entity tag used to enforce optimistic concurrency.
      */

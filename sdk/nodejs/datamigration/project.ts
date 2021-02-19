@@ -94,9 +94,6 @@ export class Project extends pulumi.CustomResource {
             if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'projectName'");
-            }
             if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
@@ -165,7 +162,7 @@ export interface ProjectArgs {
     /**
      * Name of the project
      */
-    readonly projectName: pulumi.Input<string>;
+    readonly projectName?: pulumi.Input<string>;
     /**
      * Name of the service
      */

@@ -81,9 +81,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.parentType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'parentType'");
             }
-            if ((!args || args.privateEndpointConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -141,7 +138,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection connection.
      */
-    readonly privateEndpointConnectionName: pulumi.Input<string>;
+    readonly privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Details about the state of the connection.
      */

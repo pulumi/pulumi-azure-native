@@ -77,9 +77,6 @@ func NewPool(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.PoolName == nil {
-		return nil, errors.New("invalid value for required argument 'PoolName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -268,7 +265,7 @@ type poolArgs struct {
 	// The network configuration for a pool.
 	NetworkConfiguration *NetworkConfiguration `pulumi:"networkConfiguration"`
 	// The pool name. This must be unique within the account.
-	PoolName string `pulumi:"poolName"`
+	PoolName *string `pulumi:"poolName"`
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
@@ -309,7 +306,7 @@ type PoolArgs struct {
 	// The network configuration for a pool.
 	NetworkConfiguration NetworkConfigurationPtrInput
 	// The pool name. This must be unique within the account.
-	PoolName pulumi.StringInput
+	PoolName pulumi.StringPtrInput
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName pulumi.StringInput
 	// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.

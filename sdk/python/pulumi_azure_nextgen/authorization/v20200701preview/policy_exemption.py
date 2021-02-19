@@ -72,8 +72,6 @@ class PolicyExemption(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_assignment_id'")
             __props__['policy_assignment_id'] = policy_assignment_id
             __props__['policy_definition_reference_ids'] = policy_definition_reference_ids
-            if policy_exemption_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_exemption_name'")
             __props__['policy_exemption_name'] = policy_exemption_name
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

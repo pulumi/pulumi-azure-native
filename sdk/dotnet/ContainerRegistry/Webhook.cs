@@ -193,8 +193,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// <summary>
         /// The name of the webhook.
         /// </summary>
-        [Input("webhookName", required: true)]
-        public Input<string> WebhookName { get; set; } = null!;
+        [Input("webhookName")]
+        public Input<string>? WebhookName { get; set; }
 
         public WebhookArgs()
         {

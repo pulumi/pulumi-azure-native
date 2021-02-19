@@ -29,9 +29,6 @@ func NewUserSettings(ctx *pulumi.Context,
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
-	if args.UserSettingsName == nil {
-		return nil, errors.New("invalid value for required argument 'UserSettingsName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:portal:UserSettings"),
@@ -80,7 +77,7 @@ type userSettingsArgs struct {
 	// The cloud shell user settings properties.
 	Properties UserProperties `pulumi:"properties"`
 	// The name of the user settings
-	UserSettingsName string `pulumi:"userSettingsName"`
+	UserSettingsName *string `pulumi:"userSettingsName"`
 }
 
 // The set of arguments for constructing a UserSettings resource.
@@ -88,7 +85,7 @@ type UserSettingsArgs struct {
 	// The cloud shell user settings properties.
 	Properties UserPropertiesInput
 	// The name of the user settings
-	UserSettingsName pulumi.StringInput
+	UserSettingsName pulumi.StringPtrInput
 }
 
 func (UserSettingsArgs) ElementType() reflect.Type {

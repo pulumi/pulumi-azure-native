@@ -41,9 +41,6 @@ func NewSyncGroup(ctx *pulumi.Context,
 	if args.StorageSyncServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageSyncServiceName'")
 	}
-	if args.SyncGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'SyncGroupName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storagesync:SyncGroup"),
@@ -133,7 +130,7 @@ type syncGroupArgs struct {
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 	// Name of Sync Group resource.
-	SyncGroupName string `pulumi:"syncGroupName"`
+	SyncGroupName *string `pulumi:"syncGroupName"`
 }
 
 // The set of arguments for constructing a SyncGroup resource.
@@ -143,7 +140,7 @@ type SyncGroupArgs struct {
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName pulumi.StringInput
 	// Name of Sync Group resource.
-	SyncGroupName pulumi.StringInput
+	SyncGroupName pulumi.StringPtrInput
 }
 
 func (SyncGroupArgs) ElementType() reflect.Type {

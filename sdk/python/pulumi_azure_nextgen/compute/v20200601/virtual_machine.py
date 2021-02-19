@@ -116,8 +116,6 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
             __props__['virtual_machine_scale_set'] = virtual_machine_scale_set
-            if vm_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vm_name'")
             __props__['vm_name'] = vm_name
             __props__['zones'] = zones
             __props__['instance_view'] = None

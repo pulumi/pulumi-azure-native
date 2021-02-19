@@ -162,8 +162,8 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview
         /// <summary>
         /// The name of the IoT hub.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// IotHub SKU info

@@ -137,8 +137,8 @@ namespace Pulumi.AzureNextGen.StorageCache.V20191101
         /// <summary>
         /// Name of Cache.
         /// </summary>
-        [Input("cacheName", required: true)]
-        public Input<string> CacheName { get; set; } = null!;
+        [Input("cacheName")]
+        public Input<string>? CacheName { get; set; }
 
         /// <summary>
         /// The size of this Cache, in GB.

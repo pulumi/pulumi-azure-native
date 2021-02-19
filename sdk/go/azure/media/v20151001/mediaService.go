@@ -36,9 +36,6 @@ func NewMediaService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.MediaServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'MediaServiceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -122,7 +119,7 @@ type mediaServiceArgs struct {
 	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
 	Location *string `pulumi:"location"`
 	// Name of the Media Service.
-	MediaServiceName string `pulumi:"mediaServiceName"`
+	MediaServiceName *string `pulumi:"mediaServiceName"`
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The storage accounts for this resource.
@@ -136,7 +133,7 @@ type MediaServiceArgs struct {
 	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
 	Location pulumi.StringPtrInput
 	// Name of the Media Service.
-	MediaServiceName pulumi.StringInput
+	MediaServiceName pulumi.StringPtrInput
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The storage accounts for this resource.

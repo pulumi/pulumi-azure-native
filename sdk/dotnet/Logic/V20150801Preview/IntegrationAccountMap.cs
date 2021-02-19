@@ -164,8 +164,8 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         /// <summary>
         /// The integration account map name.
         /// </summary>
-        [Input("mapName", required: true)]
-        public Input<string> MapName { get; set; } = null!;
+        [Input("mapName")]
+        public Input<string>? MapName { get; set; }
 
         /// <summary>
         /// The map type.

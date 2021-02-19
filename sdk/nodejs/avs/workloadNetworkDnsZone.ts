@@ -82,9 +82,6 @@ export class WorkloadNetworkDnsZone extends pulumi.CustomResource {
     constructor(name: string, args: WorkloadNetworkDnsZoneArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dnsZoneId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dnsZoneId'");
-            }
             if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -146,7 +143,7 @@ export interface WorkloadNetworkDnsZoneArgs {
     /**
      * NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
      */
-    readonly dnsZoneId: pulumi.Input<string>;
+    readonly dnsZoneId?: pulumi.Input<string>;
     /**
      * Domain names of the DNS Zone.
      */

@@ -76,8 +76,6 @@ class ServiceUnit(pulumi.CustomResource):
             if service_topology_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_topology_name'")
             __props__['service_topology_name'] = service_topology_name
-            if service_unit_name is None and not opts.urn:
-                raise TypeError("Missing required property 'service_unit_name'")
             __props__['service_unit_name'] = service_unit_name
             __props__['tags'] = tags
             if target_resource_group is None and not opts.urn:

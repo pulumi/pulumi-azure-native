@@ -95,9 +95,6 @@ export class WorkloadGroup extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.workloadGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'workloadGroupName'");
-            }
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["importance"] = args ? args.importance : undefined;
             inputs["maxResourcePercent"] = args ? args.maxResourcePercent : undefined;
@@ -176,5 +173,5 @@ export interface WorkloadGroupArgs {
     /**
      * The name of the workload group.
      */
-    readonly workloadGroupName: pulumi.Input<string>;
+    readonly workloadGroupName?: pulumi.Input<string>;
 }

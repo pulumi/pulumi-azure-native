@@ -59,8 +59,6 @@ class VMwareCollector(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if vm_ware_collector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vm_ware_collector_name'")
             __props__['vm_ware_collector_name'] = vm_ware_collector_name
             __props__['name'] = None
             __props__['type'] = None

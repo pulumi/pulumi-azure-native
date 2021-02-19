@@ -42,9 +42,6 @@ func NewConnection(ctx *pulumi.Context,
 	if args.AutomationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
 	}
-	if args.ConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionName'")
-	}
 	if args.ConnectionType == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionType'")
 	}
@@ -132,7 +129,7 @@ type connectionArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The parameters supplied to the create or update connection operation.
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// Gets or sets the connectionType of the connection.
 	ConnectionType ConnectionTypeAssociationProperty `pulumi:"connectionType"`
 	// Gets or sets the description of the connection.
@@ -150,7 +147,7 @@ type ConnectionArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
 	// The parameters supplied to the create or update connection operation.
-	ConnectionName pulumi.StringInput
+	ConnectionName pulumi.StringPtrInput
 	// Gets or sets the connectionType of the connection.
 	ConnectionType ConnectionTypeAssociationPropertyInput
 	// Gets or sets the description of the connection.

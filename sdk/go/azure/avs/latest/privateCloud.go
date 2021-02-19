@@ -71,9 +71,6 @@ func NewPrivateCloud(ctx *pulumi.Context,
 	if args.NetworkBlock == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkBlock'")
 	}
-	if args.PrivateCloudName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -216,7 +213,7 @@ type privateCloudArgs struct {
 	// Optionally, set the NSX-T Manager password when the private cloud is created
 	NsxtPassword *string `pulumi:"nsxtPassword"`
 	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
+	PrivateCloudName *string `pulumi:"privateCloudName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The private cloud SKU
@@ -242,7 +239,7 @@ type PrivateCloudArgs struct {
 	// Optionally, set the NSX-T Manager password when the private cloud is created
 	NsxtPassword pulumi.StringPtrInput
 	// Name of the private cloud
-	PrivateCloudName pulumi.StringInput
+	PrivateCloudName pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The private cloud SKU

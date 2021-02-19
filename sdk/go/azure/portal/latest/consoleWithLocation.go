@@ -29,9 +29,6 @@ func NewConsoleWithLocation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConsoleName == nil {
-		return nil, errors.New("invalid value for required argument 'ConsoleName'")
-	}
 	if args.Location == nil {
 		return nil, errors.New("invalid value for required argument 'Location'")
 	}
@@ -81,7 +78,7 @@ func (ConsoleWithLocationState) ElementType() reflect.Type {
 
 type consoleWithLocationArgs struct {
 	// The name of the console
-	ConsoleName string `pulumi:"consoleName"`
+	ConsoleName *string `pulumi:"consoleName"`
 	// The provider location
 	Location string `pulumi:"location"`
 }
@@ -89,7 +86,7 @@ type consoleWithLocationArgs struct {
 // The set of arguments for constructing a ConsoleWithLocation resource.
 type ConsoleWithLocationArgs struct {
 	// The name of the console
-	ConsoleName pulumi.StringInput
+	ConsoleName pulumi.StringPtrInput
 	// The provider location
 	Location pulumi.StringInput
 }

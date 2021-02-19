@@ -54,9 +54,6 @@ func NewQuery(ctx *pulumi.Context,
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
-	if args.Id == nil {
-		return nil, errors.New("invalid value for required argument 'Id'")
-	}
 	if args.QueryPackName == nil {
 		return nil, errors.New("invalid value for required argument 'QueryPackName'")
 	}
@@ -150,7 +147,7 @@ type queryArgs struct {
 	// Unique display name for your query within the Query Pack.
 	DisplayName string `pulumi:"displayName"`
 	// The id of a specific query defined in the Log Analytics QueryPack
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Additional properties that can be set for the query.
 	Properties interface{} `pulumi:"properties"`
 	// The name of the Log Analytics QueryPack resource.
@@ -172,7 +169,7 @@ type QueryArgs struct {
 	// Unique display name for your query within the Query Pack.
 	DisplayName pulumi.StringInput
 	// The id of a specific query defined in the Log Analytics QueryPack
-	Id pulumi.StringInput
+	Id pulumi.StringPtrInput
 	// Additional properties that can be set for the query.
 	Properties pulumi.Input
 	// The name of the Log Analytics QueryPack resource.

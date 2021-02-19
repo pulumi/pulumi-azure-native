@@ -68,9 +68,6 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'databaseName'");
-            }
             if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resource'");
             }
@@ -118,7 +115,7 @@ export interface SqlResourceSqlDatabaseArgs {
     /**
      * Cosmos DB database name.
      */
-    readonly databaseName: pulumi.Input<string>;
+    readonly databaseName?: pulumi.Input<string>;
     /**
      * The location of the resource group to which the resource belongs.
      */

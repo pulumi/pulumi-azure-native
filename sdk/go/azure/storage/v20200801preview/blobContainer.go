@@ -65,9 +65,6 @@ func NewBlobContainer(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.ContainerName == nil {
-		return nil, errors.New("invalid value for required argument 'ContainerName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -212,7 +209,7 @@ type blobContainerArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
 	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	ContainerName string `pulumi:"containerName"`
+	ContainerName *string `pulumi:"containerName"`
 	// Default the container to use specified encryption scope for all writes.
 	DefaultEncryptionScope *string `pulumi:"defaultEncryptionScope"`
 	// Block override of encryption scope from the container default.
@@ -230,7 +227,7 @@ type BlobContainerArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
 	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	ContainerName pulumi.StringInput
+	ContainerName pulumi.StringPtrInput
 	// Default the container to use specified encryption scope for all writes.
 	DefaultEncryptionScope pulumi.StringPtrInput
 	// Block override of encryption scope from the container default.

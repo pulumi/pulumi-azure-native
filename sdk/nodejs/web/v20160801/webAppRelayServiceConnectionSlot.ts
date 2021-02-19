@@ -64,9 +64,6 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
     constructor(name: string, args: WebAppRelayServiceConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.entityName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'entityName'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -119,7 +116,7 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
 export interface WebAppRelayServiceConnectionSlotArgs {
     readonly biztalkUri?: pulumi.Input<string>;
     readonly entityConnectionString?: pulumi.Input<string>;
-    readonly entityName: pulumi.Input<string>;
+    readonly entityName?: pulumi.Input<string>;
     readonly hostname?: pulumi.Input<string>;
     /**
      * Kind of resource.

@@ -30,9 +30,6 @@ func NewPatchSchedule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Default == nil {
-		return nil, errors.New("invalid value for required argument 'Default'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -105,7 +102,7 @@ func (PatchScheduleState) ElementType() reflect.Type {
 
 type patchScheduleArgs struct {
 	// Default string modeled as parameter for auto generation to work correctly.
-	Default string `pulumi:"default"`
+	Default *string `pulumi:"default"`
 	// The name of the Redis cache.
 	Name string `pulumi:"name"`
 	// The name of the resource group.
@@ -117,7 +114,7 @@ type patchScheduleArgs struct {
 // The set of arguments for constructing a PatchSchedule resource.
 type PatchScheduleArgs struct {
 	// Default string modeled as parameter for auto generation to work correctly.
-	Default pulumi.StringInput
+	Default pulumi.StringPtrInput
 	// The name of the Redis cache.
 	Name pulumi.StringInput
 	// The name of the resource group.

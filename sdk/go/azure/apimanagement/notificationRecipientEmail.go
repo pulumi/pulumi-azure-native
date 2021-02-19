@@ -31,9 +31,6 @@ func NewNotificationRecipientEmail(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Email == nil {
-		return nil, errors.New("invalid value for required argument 'Email'")
-	}
 	if args.NotificationName == nil {
 		return nil, errors.New("invalid value for required argument 'NotificationName'")
 	}
@@ -115,7 +112,7 @@ func (NotificationRecipientEmailState) ElementType() reflect.Type {
 
 type notificationRecipientEmailArgs struct {
 	// Email identifier.
-	Email string `pulumi:"email"`
+	Email *string `pulumi:"email"`
 	// Notification Name Identifier.
 	NotificationName string `pulumi:"notificationName"`
 	// The name of the resource group.
@@ -127,7 +124,7 @@ type notificationRecipientEmailArgs struct {
 // The set of arguments for constructing a NotificationRecipientEmail resource.
 type NotificationRecipientEmailArgs struct {
 	// Email identifier.
-	Email pulumi.StringInput
+	Email pulumi.StringPtrInput
 	// Notification Name Identifier.
 	NotificationName pulumi.StringInput
 	// The name of the resource group.

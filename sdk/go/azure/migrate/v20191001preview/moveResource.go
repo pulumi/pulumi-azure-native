@@ -33,9 +33,6 @@ func NewMoveResource(ctx *pulumi.Context,
 	if args.MoveCollectionName == nil {
 		return nil, errors.New("invalid value for required argument 'MoveCollectionName'")
 	}
-	if args.MoveResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'MoveResourceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -98,7 +95,7 @@ type moveResourceArgs struct {
 	// The Move Collection Name.
 	MoveCollectionName string `pulumi:"moveCollectionName"`
 	// The Move Resource Name.
-	MoveResourceName string `pulumi:"moveResourceName"`
+	MoveResourceName *string `pulumi:"moveResourceName"`
 	// Defines the move resource properties.
 	Properties *MoveResourceProperties `pulumi:"properties"`
 	// The Resource Group Name.
@@ -110,7 +107,7 @@ type MoveResourceArgs struct {
 	// The Move Collection Name.
 	MoveCollectionName pulumi.StringInput
 	// The Move Resource Name.
-	MoveResourceName pulumi.StringInput
+	MoveResourceName pulumi.StringPtrInput
 	// Defines the move resource properties.
 	Properties MoveResourcePropertiesPtrInput
 	// The Resource Group Name.

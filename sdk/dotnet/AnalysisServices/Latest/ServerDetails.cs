@@ -217,8 +217,8 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         /// <summary>
         /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("serverName", required: true)]
-        public Input<string> ServerName { get; set; } = null!;
+        [Input("serverName")]
+        public Input<string>? ServerName { get; set; }
 
         /// <summary>
         /// The SKU of the Analysis Services resource.

@@ -35,9 +35,6 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
-	if args.RecoveryPlanName == nil {
-		return nil, errors.New("invalid value for required argument 'RecoveryPlanName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -110,7 +107,7 @@ type replicationRecoveryPlanArgs struct {
 	// Recovery plan creation properties.
 	Properties CreateRecoveryPlanInputProperties `pulumi:"properties"`
 	// Recovery plan name.
-	RecoveryPlanName string `pulumi:"recoveryPlanName"`
+	RecoveryPlanName *string `pulumi:"recoveryPlanName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
@@ -122,7 +119,7 @@ type ReplicationRecoveryPlanArgs struct {
 	// Recovery plan creation properties.
 	Properties CreateRecoveryPlanInputPropertiesInput
 	// Recovery plan name.
-	RecoveryPlanName pulumi.StringInput
+	RecoveryPlanName pulumi.StringPtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// The name of the recovery services vault.

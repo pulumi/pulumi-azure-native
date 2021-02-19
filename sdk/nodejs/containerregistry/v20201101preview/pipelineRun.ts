@@ -74,9 +74,6 @@ export class PipelineRun extends pulumi.CustomResource {
     constructor(name: string, args: PipelineRunArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.pipelineRunName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'pipelineRunName'");
-            }
             if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
@@ -126,7 +123,7 @@ export interface PipelineRunArgs {
     /**
      * The name of the pipeline run.
      */
-    readonly pipelineRunName: pulumi.Input<string>;
+    readonly pipelineRunName?: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */

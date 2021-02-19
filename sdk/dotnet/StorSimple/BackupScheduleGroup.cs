@@ -105,8 +105,8 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// <summary>
         /// The name of the schedule group.
         /// </summary>
-        [Input("scheduleGroupName", required: true)]
-        public Input<string> ScheduleGroupName { get; set; } = null!;
+        [Input("scheduleGroupName")]
+        public Input<string>? ScheduleGroupName { get; set; }
 
         /// <summary>
         /// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.

@@ -73,8 +73,6 @@ class StorageAccountCredential(pulumi.CustomResource):
             if ssl_status is None and not opts.urn:
                 raise TypeError("Missing required property 'ssl_status'")
             __props__['ssl_status'] = ssl_status
-            if storage_account_credential_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_credential_name'")
             __props__['storage_account_credential_name'] = storage_account_credential_name
             __props__['name'] = None
             __props__['type'] = None

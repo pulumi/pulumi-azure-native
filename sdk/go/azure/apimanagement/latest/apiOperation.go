@@ -56,9 +56,6 @@ func NewApiOperation(ctx *pulumi.Context,
 	if args.Method == nil {
 		return nil, errors.New("invalid value for required argument 'Method'")
 	}
-	if args.OperationId == nil {
-		return nil, errors.New("invalid value for required argument 'OperationId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -182,7 +179,7 @@ type apiOperationArgs struct {
 	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
 	Method string `pulumi:"method"`
 	// Operation identifier within an API. Must be unique in the current API Management service instance.
-	OperationId string `pulumi:"operationId"`
+	OperationId *string `pulumi:"operationId"`
 	// Operation Policies
 	Policies *string `pulumi:"policies"`
 	// An entity containing request details.
@@ -210,7 +207,7 @@ type ApiOperationArgs struct {
 	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
 	Method pulumi.StringInput
 	// Operation identifier within an API. Must be unique in the current API Management service instance.
-	OperationId pulumi.StringInput
+	OperationId pulumi.StringPtrInput
 	// Operation Policies
 	Policies pulumi.StringPtrInput
 	// An entity containing request details.

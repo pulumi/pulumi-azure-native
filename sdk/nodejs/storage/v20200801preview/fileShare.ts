@@ -120,9 +120,6 @@ export class FileShare extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'shareName'");
-            }
             inputs["accessTier"] = args ? args.accessTier : undefined;
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["enabledProtocols"] = args ? args.enabledProtocols : undefined;
@@ -211,7 +208,7 @@ export interface FileShareArgs {
     /**
      * The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
-    readonly shareName: pulumi.Input<string>;
+    readonly shareName?: pulumi.Input<string>;
     /**
      * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
      */

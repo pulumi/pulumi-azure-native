@@ -35,9 +35,6 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 	if args.EventHubEndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'EventHubEndpointName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -152,7 +149,7 @@ type iotHubResourceEventHubConsumerGroupArgs struct {
 	// The name of the Event Hub-compatible endpoint in the IoT hub.
 	EventHubEndpointName string `pulumi:"eventHubEndpointName"`
 	// The name of the consumer group to add.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the IoT hub.
@@ -164,7 +161,7 @@ type IotHubResourceEventHubConsumerGroupArgs struct {
 	// The name of the Event Hub-compatible endpoint in the IoT hub.
 	EventHubEndpointName pulumi.StringInput
 	// The name of the consumer group to add.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName pulumi.StringInput
 	// The name of the IoT hub.

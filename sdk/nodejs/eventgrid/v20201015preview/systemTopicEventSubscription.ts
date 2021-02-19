@@ -106,9 +106,6 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
     constructor(name: string, args: SystemTopicEventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.eventSubscriptionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'eventSubscriptionName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -192,7 +189,7 @@ export interface SystemTopicEventSubscriptionArgs {
     /**
      * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
      */
-    readonly eventSubscriptionName: pulumi.Input<string>;
+    readonly eventSubscriptionName?: pulumi.Input<string>;
     /**
      * Expiration time of the event subscription.
      */

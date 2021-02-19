@@ -61,8 +61,6 @@ class ImportPipeline(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['identity'] = identity
-            if import_pipeline_name is None and not opts.urn:
-                raise TypeError("Missing required property 'import_pipeline_name'")
             __props__['import_pipeline_name'] = import_pipeline_name
             __props__['location'] = location
             __props__['options'] = options

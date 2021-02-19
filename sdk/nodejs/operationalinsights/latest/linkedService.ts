@@ -76,9 +76,6 @@ export class LinkedService extends pulumi.CustomResource {
         pulumi.log.warn("LinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedService'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.linkedServiceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'linkedServiceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -122,7 +119,7 @@ export interface LinkedServiceArgs {
     /**
      * Name of the linkedServices resource
      */
-    readonly linkedServiceName: pulumi.Input<string>;
+    readonly linkedServiceName?: pulumi.Input<string>;
     /**
      * The provisioning state of the linked service.
      */

@@ -52,9 +52,6 @@ func NewWebAppVnetConnectionSlot(ctx *pulumi.Context,
 	if args.Slot == nil {
 		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
-	if args.VnetName == nil {
-		return nil, errors.New("invalid value for required argument 'VnetName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:web:WebAppVnetConnectionSlot"),
@@ -169,7 +166,7 @@ type webAppVnetConnectionSlotArgs struct {
 	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
 	Slot string `pulumi:"slot"`
 	// Name of an existing Virtual Network.
-	VnetName string `pulumi:"vnetName"`
+	VnetName *string `pulumi:"vnetName"`
 	// The Virtual Network's resource ID.
 	VnetResourceId *string `pulumi:"vnetResourceId"`
 }
@@ -190,7 +187,7 @@ type WebAppVnetConnectionSlotArgs struct {
 	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
 	Slot pulumi.StringInput
 	// Name of an existing Virtual Network.
-	VnetName pulumi.StringInput
+	VnetName pulumi.StringPtrInput
 	// The Virtual Network's resource ID.
 	VnetResourceId pulumi.StringPtrInput
 }

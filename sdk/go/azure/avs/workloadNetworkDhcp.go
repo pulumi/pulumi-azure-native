@@ -39,9 +39,6 @@ func NewWorkloadNetworkDhcp(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DhcpId == nil {
-		return nil, errors.New("invalid value for required argument 'DhcpId'")
-	}
 	if args.DhcpType == nil {
 		return nil, errors.New("invalid value for required argument 'DhcpType'")
 	}
@@ -118,7 +115,7 @@ func (WorkloadNetworkDhcpState) ElementType() reflect.Type {
 
 type workloadNetworkDhcpArgs struct {
 	// NSX DHCP identifier. Generally the same as the DHCP display name
-	DhcpId string `pulumi:"dhcpId"`
+	DhcpId *string `pulumi:"dhcpId"`
 	// Type of DHCP: SERVER or RELAY.
 	DhcpType string `pulumi:"dhcpType"`
 	// Display name of the DHCP entity.
@@ -134,7 +131,7 @@ type workloadNetworkDhcpArgs struct {
 // The set of arguments for constructing a WorkloadNetworkDhcp resource.
 type WorkloadNetworkDhcpArgs struct {
 	// NSX DHCP identifier. Generally the same as the DHCP display name
-	DhcpId pulumi.StringInput
+	DhcpId pulumi.StringPtrInput
 	// Type of DHCP: SERVER or RELAY.
 	DhcpType pulumi.StringInput
 	// Display name of the DHCP entity.

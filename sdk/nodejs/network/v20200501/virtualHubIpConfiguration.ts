@@ -78,9 +78,6 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: VirtualHubIpConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ipConfigName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ipConfigName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -133,7 +130,7 @@ export interface VirtualHubIpConfigurationArgs {
     /**
      * The name of the ipconfig.
      */
-    readonly ipConfigName: pulumi.Input<string>;
+    readonly ipConfigName?: pulumi.Input<string>;
     /**
      * Name of the Ip Configuration.
      */

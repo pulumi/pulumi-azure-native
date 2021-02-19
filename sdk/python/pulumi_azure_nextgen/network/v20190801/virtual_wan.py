@@ -67,8 +67,6 @@ class VirtualWan(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if virtual_wan_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_wan_name'")
             __props__['virtual_wan_name'] = virtual_wan_name
             __props__['etag'] = None
             __props__['name'] = None

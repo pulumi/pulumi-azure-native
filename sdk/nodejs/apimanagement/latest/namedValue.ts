@@ -78,9 +78,6 @@ export class NamedValue extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.namedValueId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'namedValueId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -131,7 +128,7 @@ export interface NamedValueArgs {
     /**
      * Identifier of the NamedValue.
      */
-    readonly namedValueId: pulumi.Input<string>;
+    readonly namedValueId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

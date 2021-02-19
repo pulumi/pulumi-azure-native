@@ -74,9 +74,6 @@ export class ArtifactSource extends pulumi.CustomResource {
     constructor(name: string, args: ArtifactSourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.artifactSourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'artifactSourceName'");
-            }
             if ((!args || args.authentication === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authentication'");
             }
@@ -128,7 +125,7 @@ export interface ArtifactSourceArgs {
     /**
      * The name of the artifact source.
      */
-    readonly artifactSourceName: pulumi.Input<string>;
+    readonly artifactSourceName?: pulumi.Input<string>;
     /**
      * The authentication method to use to access the artifact source.
      */

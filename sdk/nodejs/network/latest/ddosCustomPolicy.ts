@@ -88,9 +88,6 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
         pulumi.log.warn("DdosCustomPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DdosCustomPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ddosCustomPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ddosCustomPolicyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -137,7 +134,7 @@ export interface DdosCustomPolicyArgs {
     /**
      * The name of the DDoS custom policy.
      */
-    readonly ddosCustomPolicyName: pulumi.Input<string>;
+    readonly ddosCustomPolicyName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

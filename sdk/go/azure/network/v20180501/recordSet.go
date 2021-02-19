@@ -63,9 +63,6 @@ func NewRecordSet(ctx *pulumi.Context,
 	if args.RecordType == nil {
 		return nil, errors.New("invalid value for required argument 'RecordType'")
 	}
-	if args.RelativeRecordSetName == nil {
-		return nil, errors.New("invalid value for required argument 'RelativeRecordSetName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -215,7 +212,7 @@ type recordSetArgs struct {
 	// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
 	RecordType string `pulumi:"recordType"`
 	// The name of the record set, relative to the name of the zone.
-	RelativeRecordSetName string `pulumi:"relativeRecordSetName"`
+	RelativeRecordSetName *string `pulumi:"relativeRecordSetName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SOA record in the record set.
@@ -255,7 +252,7 @@ type RecordSetArgs struct {
 	// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
 	RecordType pulumi.StringInput
 	// The name of the record set, relative to the name of the zone.
-	RelativeRecordSetName pulumi.StringInput
+	RelativeRecordSetName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The SOA record in the record set.

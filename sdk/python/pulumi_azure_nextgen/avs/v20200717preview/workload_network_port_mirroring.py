@@ -61,8 +61,6 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
             __props__['destination'] = destination
             __props__['direction'] = direction
             __props__['display_name'] = display_name
-            if port_mirroring_id is None and not opts.urn:
-                raise TypeError("Missing required property 'port_mirroring_id'")
             __props__['port_mirroring_id'] = port_mirroring_id
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")

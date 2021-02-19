@@ -51,9 +51,6 @@ func NewServerDetails(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServerName == nil {
-		return nil, errors.New("invalid value for required argument 'ServerName'")
-	}
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
@@ -174,7 +171,7 @@ type serverDetailsArgs struct {
 	// The server monitor mode for AS server
 	ServerMonitorMode *int `pulumi:"serverMonitorMode"`
 	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-	ServerName string `pulumi:"serverName"`
+	ServerName *string `pulumi:"serverName"`
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSku `pulumi:"sku"`
 	// Key-value pairs of additional resource provisioning properties.
@@ -196,7 +193,7 @@ type ServerDetailsArgs struct {
 	// The server monitor mode for AS server
 	ServerMonitorMode pulumi.IntPtrInput
 	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-	ServerName pulumi.StringInput
+	ServerName pulumi.StringPtrInput
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSkuInput
 	// Key-value pairs of additional resource provisioning properties.

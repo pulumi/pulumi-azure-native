@@ -110,8 +110,8 @@ namespace Pulumi.AzureNextGen.EdgeOrder
         /// <summary>
         /// The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         /// </summary>
-        [Input("addressName", required: true)]
-        public Input<string> AddressName { get; set; } = null!;
+        [Input("addressName")]
+        public Input<string>? AddressName { get; set; }
 
         /// <summary>
         /// Contact details for the address
