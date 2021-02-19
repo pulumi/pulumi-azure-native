@@ -46,9 +46,6 @@ func NewBatchAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -168,7 +165,7 @@ func (BatchAccountState) ElementType() reflect.Type {
 
 type batchAccountArgs struct {
 	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// The properties related to the auto-storage account.
 	AutoStorage *AutoStorageBaseProperties `pulumi:"autoStorage"`
 	// A reference to the Azure key vault associated with the Batch account.
@@ -186,7 +183,7 @@ type batchAccountArgs struct {
 // The set of arguments for constructing a BatchAccount resource.
 type BatchAccountArgs struct {
 	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// The properties related to the auto-storage account.
 	AutoStorage AutoStorageBasePropertiesPtrInput
 	// A reference to the Azure key vault associated with the Batch account.

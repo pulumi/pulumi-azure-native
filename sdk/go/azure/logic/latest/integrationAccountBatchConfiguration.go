@@ -37,9 +37,6 @@ func NewIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BatchConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'BatchConfigurationName'")
-	}
 	if args.IntegrationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
 	}
@@ -117,7 +114,7 @@ func (IntegrationAccountBatchConfigurationState) ElementType() reflect.Type {
 
 type integrationAccountBatchConfigurationArgs struct {
 	// The batch configuration name.
-	BatchConfigurationName string `pulumi:"batchConfigurationName"`
+	BatchConfigurationName *string `pulumi:"batchConfigurationName"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
@@ -133,7 +130,7 @@ type integrationAccountBatchConfigurationArgs struct {
 // The set of arguments for constructing a IntegrationAccountBatchConfiguration resource.
 type IntegrationAccountBatchConfigurationArgs struct {
 	// The batch configuration name.
-	BatchConfigurationName pulumi.StringInput
+	BatchConfigurationName pulumi.StringPtrInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.

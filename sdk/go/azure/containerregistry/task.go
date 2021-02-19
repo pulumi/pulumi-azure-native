@@ -66,9 +66,6 @@ func NewTask(ctx *pulumi.Context,
 	if args.Step == nil {
 		return nil, errors.New("invalid value for required argument 'Step'")
 	}
-	if args.TaskName == nil {
-		return nil, errors.New("invalid value for required argument 'TaskName'")
-	}
 	if args.Timeout == nil {
 		args.Timeout = pulumi.IntPtr(3600)
 	}
@@ -196,7 +193,7 @@ type taskArgs struct {
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the container registry task.
-	TaskName string `pulumi:"taskName"`
+	TaskName *string `pulumi:"taskName"`
 	// Run timeout in seconds.
 	Timeout *int `pulumi:"timeout"`
 	// The properties that describe all triggers for the task.
@@ -226,7 +223,7 @@ type TaskArgs struct {
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The name of the container registry task.
-	TaskName pulumi.StringInput
+	TaskName pulumi.StringPtrInput
 	// Run timeout in seconds.
 	Timeout pulumi.IntPtrInput
 	// The properties that describe all triggers for the task.

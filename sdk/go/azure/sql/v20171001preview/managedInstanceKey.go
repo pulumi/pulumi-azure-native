@@ -38,9 +38,6 @@ func NewManagedInstanceKey(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.KeyName == nil {
-		return nil, errors.New("invalid value for required argument 'KeyName'")
-	}
 	if args.ManagedInstanceName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedInstanceName'")
 	}
@@ -123,7 +120,7 @@ func (ManagedInstanceKeyState) ElementType() reflect.Type {
 
 type managedInstanceKeyArgs struct {
 	// The name of the managed instance key to be operated on (updated or created).
-	KeyName string `pulumi:"keyName"`
+	KeyName *string `pulumi:"keyName"`
 	// The name of the managed instance.
 	ManagedInstanceName string `pulumi:"managedInstanceName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -137,7 +134,7 @@ type managedInstanceKeyArgs struct {
 // The set of arguments for constructing a ManagedInstanceKey resource.
 type ManagedInstanceKeyArgs struct {
 	// The name of the managed instance key to be operated on (updated or created).
-	KeyName pulumi.StringInput
+	KeyName pulumi.StringPtrInput
 	// The name of the managed instance.
 	ManagedInstanceName pulumi.StringInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -46,9 +46,6 @@ func NewAutomation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AutomationName == nil {
-		return nil, errors.New("invalid value for required argument 'AutomationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -137,7 +134,7 @@ type automationArgs struct {
 	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
 	Actions []interface{} `pulumi:"actions"`
 	// The security automation name.
-	AutomationName string `pulumi:"automationName"`
+	AutomationName *string `pulumi:"automationName"`
 	// The security automation description.
 	Description *string `pulumi:"description"`
 	// Entity tag is used for comparing two or more entities from the same requested resource.
@@ -163,7 +160,7 @@ type AutomationArgs struct {
 	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
 	Actions pulumi.ArrayInput
 	// The security automation name.
-	AutomationName pulumi.StringInput
+	AutomationName pulumi.StringPtrInput
 	// The security automation description.
 	Description pulumi.StringPtrInput
 	// Entity tag is used for comparing two or more entities from the same requested resource.

@@ -99,9 +99,6 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationGatewayName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationGatewayName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -397,7 +394,7 @@ func (ApplicationGatewayState) ElementType() reflect.Type {
 
 type applicationGatewayArgs struct {
 	// The name of the application gateway.
-	ApplicationGatewayName string `pulumi:"applicationGatewayName"`
+	ApplicationGatewayName *string `pulumi:"applicationGatewayName"`
 	// Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
 	AuthenticationCertificates []ApplicationGatewayAuthenticationCertificate `pulumi:"authenticationCertificates"`
 	// Autoscale Configuration.
@@ -467,7 +464,7 @@ type applicationGatewayArgs struct {
 // The set of arguments for constructing a ApplicationGateway resource.
 type ApplicationGatewayArgs struct {
 	// The name of the application gateway.
-	ApplicationGatewayName pulumi.StringInput
+	ApplicationGatewayName pulumi.StringPtrInput
 	// Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
 	AuthenticationCertificates ApplicationGatewayAuthenticationCertificateArrayInput
 	// Autoscale Configuration.

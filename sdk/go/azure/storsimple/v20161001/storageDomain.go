@@ -43,9 +43,6 @@ func NewStorageDomain(ctx *pulumi.Context,
 	if args.StorageAccountCredentialIds == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountCredentialIds'")
 	}
-	if args.StorageDomainName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageDomainName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storsimple:StorageDomain"),
@@ -118,7 +115,7 @@ type storageDomainArgs struct {
 	// The storage account credentials.
 	StorageAccountCredentialIds []string `pulumi:"storageAccountCredentialIds"`
 	// The storage domain name.
-	StorageDomainName string `pulumi:"storageDomainName"`
+	StorageDomainName *string `pulumi:"storageDomainName"`
 }
 
 // The set of arguments for constructing a StorageDomain resource.
@@ -134,7 +131,7 @@ type StorageDomainArgs struct {
 	// The storage account credentials.
 	StorageAccountCredentialIds pulumi.StringArrayInput
 	// The storage domain name.
-	StorageDomainName pulumi.StringInput
+	StorageDomainName pulumi.StringPtrInput
 }
 
 func (StorageDomainArgs) ElementType() reflect.Type {

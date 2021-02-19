@@ -37,9 +37,6 @@ func NewExperiment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ExperimentName == nil {
-		return nil, errors.New("invalid value for required argument 'ExperimentName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -108,7 +105,7 @@ func (ExperimentState) ElementType() reflect.Type {
 
 type experimentArgs struct {
 	// The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	ExperimentName string `pulumi:"experimentName"`
+	ExperimentName *string `pulumi:"experimentName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
@@ -118,7 +115,7 @@ type experimentArgs struct {
 // The set of arguments for constructing a Experiment resource.
 type ExperimentArgs struct {
 	// The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	ExperimentName pulumi.StringInput
+	ExperimentName pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.

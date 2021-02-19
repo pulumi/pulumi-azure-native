@@ -38,9 +38,6 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ClusterName == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
 	if args.ClusterSize == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterSize'")
 	}
@@ -126,7 +123,7 @@ func (ClusterState) ElementType() reflect.Type {
 
 type clusterArgs struct {
 	// Name of the cluster in the private cloud
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName *string `pulumi:"clusterName"`
 	// The cluster size
 	ClusterSize int `pulumi:"clusterSize"`
 	// The name of the private cloud.
@@ -140,7 +137,7 @@ type clusterArgs struct {
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// Name of the cluster in the private cloud
-	ClusterName pulumi.StringInput
+	ClusterName pulumi.StringPtrInput
 	// The cluster size
 	ClusterSize pulumi.IntInput
 	// The name of the private cloud.

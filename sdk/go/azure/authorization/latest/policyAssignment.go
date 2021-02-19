@@ -53,9 +53,6 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PolicyAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyAssignmentName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -204,7 +201,7 @@ type policyAssignmentArgs struct {
 	// The parameter values for the assigned policy rule. The keys are the parameter names.
 	Parameters map[string]ParameterValuesValue `pulumi:"parameters"`
 	// The name of the policy assignment.
-	PolicyAssignmentName string `pulumi:"policyAssignmentName"`
+	PolicyAssignmentName *string `pulumi:"policyAssignmentName"`
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
@@ -232,7 +229,7 @@ type PolicyAssignmentArgs struct {
 	// The parameter values for the assigned policy rule. The keys are the parameter names.
 	Parameters ParameterValuesValueMapInput
 	// The name of the policy assignment.
-	PolicyAssignmentName pulumi.StringInput
+	PolicyAssignmentName pulumi.StringPtrInput
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'

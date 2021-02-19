@@ -42,9 +42,6 @@ func NewFactory(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'FactoryName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -129,7 +126,7 @@ func (FactoryState) ElementType() reflect.Type {
 
 type factoryArgs struct {
 	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
+	FactoryName *string `pulumi:"factoryName"`
 	// Managed service identity of the factory.
 	Identity *FactoryIdentity `pulumi:"identity"`
 	// The resource location.
@@ -145,7 +142,7 @@ type factoryArgs struct {
 // The set of arguments for constructing a Factory resource.
 type FactoryArgs struct {
 	// The factory name.
-	FactoryName pulumi.StringInput
+	FactoryName pulumi.StringPtrInput
 	// Managed service identity of the factory.
 	Identity FactoryIdentityPtrInput
 	// The resource location.

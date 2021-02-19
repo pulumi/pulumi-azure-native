@@ -48,9 +48,6 @@ func NewReportByBillingAccount(ctx *pulumi.Context,
 	if args.DeliveryInfo == nil {
 		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
 	}
-	if args.ReportName == nil {
-		return nil, errors.New("invalid value for required argument 'ReportName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount"),
@@ -126,7 +123,7 @@ type reportByBillingAccountArgs struct {
 	// The format of the report being delivered.
 	Format *string `pulumi:"format"`
 	// Report Name.
-	ReportName string `pulumi:"reportName"`
+	ReportName *string `pulumi:"reportName"`
 	// Has schedule information for the report.
 	Schedule *ReportSchedule `pulumi:"schedule"`
 }
@@ -142,7 +139,7 @@ type ReportByBillingAccountArgs struct {
 	// The format of the report being delivered.
 	Format pulumi.StringPtrInput
 	// Report Name.
-	ReportName pulumi.StringInput
+	ReportName pulumi.StringPtrInput
 	// Has schedule information for the report.
 	Schedule ReportSchedulePtrInput
 }

@@ -43,9 +43,6 @@ func NewBackup(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.BackupName == nil {
-		return nil, errors.New("invalid value for required argument 'BackupName'")
-	}
 	if args.PoolName == nil {
 		return nil, errors.New("invalid value for required argument 'PoolName'")
 	}
@@ -146,7 +143,7 @@ type backupArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
 	// The name of the backup
-	BackupName string `pulumi:"backupName"`
+	BackupName *string `pulumi:"backupName"`
 	// Label for backup
 	Label *string `pulumi:"label"`
 	// Resource location
@@ -164,7 +161,7 @@ type BackupArgs struct {
 	// The name of the NetApp account
 	AccountName pulumi.StringInput
 	// The name of the backup
-	BackupName pulumi.StringInput
+	BackupName pulumi.StringPtrInput
 	// Label for backup
 	Label pulumi.StringPtrInput
 	// Resource location

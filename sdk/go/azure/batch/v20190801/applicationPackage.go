@@ -49,9 +49,6 @@ func NewApplicationPackage(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VersionName == nil {
-		return nil, errors.New("invalid value for required argument 'VersionName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:batch:ApplicationPackage"),
@@ -162,7 +159,7 @@ type applicationPackageArgs struct {
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The version of the application.
-	VersionName string `pulumi:"versionName"`
+	VersionName *string `pulumi:"versionName"`
 }
 
 // The set of arguments for constructing a ApplicationPackage resource.
@@ -174,7 +171,7 @@ type ApplicationPackageArgs struct {
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName pulumi.StringInput
 	// The version of the application.
-	VersionName pulumi.StringInput
+	VersionName pulumi.StringPtrInput
 }
 
 func (ApplicationPackageArgs) ElementType() reflect.Type {

@@ -40,9 +40,6 @@ func NewExtension(ctx *pulumi.Context,
 	if args.AccountResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountResourceName'")
 	}
-	if args.ExtensionResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ExtensionResourceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -114,7 +111,7 @@ type extensionArgs struct {
 	// The name of the Visual Studio Team Services account resource.
 	AccountResourceName string `pulumi:"accountResourceName"`
 	// The name of the extension.
-	ExtensionResourceName string `pulumi:"extensionResourceName"`
+	ExtensionResourceName *string `pulumi:"extensionResourceName"`
 	// The Azure region of the Visual Studio account associated with this request (i.e 'southcentralus'.)
 	Location *string `pulumi:"location"`
 	// Extended information about the plan being purchased for this extension resource.
@@ -132,7 +129,7 @@ type ExtensionArgs struct {
 	// The name of the Visual Studio Team Services account resource.
 	AccountResourceName pulumi.StringInput
 	// The name of the extension.
-	ExtensionResourceName pulumi.StringInput
+	ExtensionResourceName pulumi.StringPtrInput
 	// The Azure region of the Visual Studio account associated with this request (i.e 'southcentralus'.)
 	Location pulumi.StringPtrInput
 	// Extended information about the plan being purchased for this extension resource.

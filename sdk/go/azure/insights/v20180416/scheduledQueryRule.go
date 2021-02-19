@@ -62,9 +62,6 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RuleName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleName'")
-	}
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
@@ -189,7 +186,7 @@ type scheduledQueryRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the rule.
-	RuleName string `pulumi:"ruleName"`
+	RuleName *string `pulumi:"ruleName"`
 	// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
 	Schedule *Schedule `pulumi:"schedule"`
 	// Data Source against which rule will Query Data
@@ -213,7 +210,7 @@ type ScheduledQueryRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the rule.
-	RuleName pulumi.StringInput
+	RuleName pulumi.StringPtrInput
 	// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
 	Schedule SchedulePtrInput
 	// Data Source against which rule will Query Data

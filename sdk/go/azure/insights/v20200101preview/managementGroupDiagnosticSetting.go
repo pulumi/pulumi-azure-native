@@ -45,9 +45,6 @@ func NewManagementGroupDiagnosticSetting(ctx *pulumi.Context,
 	if args.ManagementGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementGroupId'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource ManagementGroupDiagnosticSetting
 	err := ctx.RegisterResource("azure-nextgen:insights/v20200101preview:ManagementGroupDiagnosticSetting", name, args, &resource, opts...)
 	if err != nil {
@@ -127,7 +124,7 @@ type managementGroupDiagnosticSettingArgs struct {
 	// The management group id.
 	ManagementGroupId string `pulumi:"managementGroupId"`
 	// The name of the diagnostic setting.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
 	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
 	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
@@ -149,7 +146,7 @@ type ManagementGroupDiagnosticSettingArgs struct {
 	// The management group id.
 	ManagementGroupId pulumi.StringInput
 	// The name of the diagnostic setting.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
 	ServiceBusRuleId pulumi.StringPtrInput
 	// The resource ID of the storage account to which you would like to send Diagnostic Logs.

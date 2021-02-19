@@ -63,9 +63,6 @@ func NewBlockchainMember(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BlockchainMemberName == nil {
-		return nil, errors.New("invalid value for required argument 'BlockchainMemberName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -184,7 +181,7 @@ func (BlockchainMemberState) ElementType() reflect.Type {
 
 type blockchainMemberArgs struct {
 	// Blockchain member name.
-	BlockchainMemberName string `pulumi:"blockchainMemberName"`
+	BlockchainMemberName *string `pulumi:"blockchainMemberName"`
 	// Gets or sets the consortium for the blockchain member.
 	Consortium *string `pulumi:"consortium"`
 	// Sets the managed consortium management account password.
@@ -214,7 +211,7 @@ type blockchainMemberArgs struct {
 // The set of arguments for constructing a BlockchainMember resource.
 type BlockchainMemberArgs struct {
 	// Blockchain member name.
-	BlockchainMemberName pulumi.StringInput
+	BlockchainMemberName pulumi.StringPtrInput
 	// Gets or sets the consortium for the blockchain member.
 	Consortium pulumi.StringPtrInput
 	// Sets the managed consortium management account password.

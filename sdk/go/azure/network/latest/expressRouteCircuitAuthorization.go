@@ -39,9 +39,6 @@ func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AuthorizationName == nil {
-		return nil, errors.New("invalid value for required argument 'AuthorizationName'")
-	}
 	if args.CircuitName == nil {
 		return nil, errors.New("invalid value for required argument 'CircuitName'")
 	}
@@ -218,7 +215,7 @@ type expressRouteCircuitAuthorizationArgs struct {
 	// The authorization key.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// The name of the authorization.
-	AuthorizationName string `pulumi:"authorizationName"`
+	AuthorizationName *string `pulumi:"authorizationName"`
 	// The authorization use status.
 	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
 	// The name of the express route circuit.
@@ -236,7 +233,7 @@ type ExpressRouteCircuitAuthorizationArgs struct {
 	// The authorization key.
 	AuthorizationKey pulumi.StringPtrInput
 	// The name of the authorization.
-	AuthorizationName pulumi.StringInput
+	AuthorizationName pulumi.StringPtrInput
 	// The authorization use status.
 	AuthorizationUseStatus pulumi.StringPtrInput
 	// The name of the express route circuit.

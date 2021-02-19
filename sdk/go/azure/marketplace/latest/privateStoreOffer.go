@@ -53,9 +53,6 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.OfferId == nil {
-		return nil, errors.New("invalid value for required argument 'OfferId'")
-	}
 	if args.PrivateStoreId == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateStoreId'")
 	}
@@ -157,7 +154,7 @@ type privateStoreOfferArgs struct {
 	// Icon File Uris
 	IconFileUris map[string]string `pulumi:"iconFileUris"`
 	// The offer ID to update or delete
-	OfferId string `pulumi:"offerId"`
+	OfferId *string `pulumi:"offerId"`
 	// Offer plans
 	Plans []Plan `pulumi:"plans"`
 	// The store ID - must use the tenant ID
@@ -175,7 +172,7 @@ type PrivateStoreOfferArgs struct {
 	// Icon File Uris
 	IconFileUris pulumi.StringMapInput
 	// The offer ID to update or delete
-	OfferId pulumi.StringInput
+	OfferId pulumi.StringPtrInput
 	// Offer plans
 	Plans PlanArrayInput
 	// The store ID - must use the tenant ID

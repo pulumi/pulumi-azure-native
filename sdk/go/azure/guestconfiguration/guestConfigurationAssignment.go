@@ -33,9 +33,6 @@ func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GuestConfigurationAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'GuestConfigurationAssignmentName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -106,7 +103,7 @@ func (GuestConfigurationAssignmentState) ElementType() reflect.Type {
 
 type guestConfigurationAssignmentArgs struct {
 	// Name of the guest configuration assignment.
-	GuestConfigurationAssignmentName string `pulumi:"guestConfigurationAssignmentName"`
+	GuestConfigurationAssignmentName *string `pulumi:"guestConfigurationAssignmentName"`
 	// Region where the VM is located.
 	Location *string `pulumi:"location"`
 	// Name of the guest configuration assignment.
@@ -122,7 +119,7 @@ type guestConfigurationAssignmentArgs struct {
 // The set of arguments for constructing a GuestConfigurationAssignment resource.
 type GuestConfigurationAssignmentArgs struct {
 	// Name of the guest configuration assignment.
-	GuestConfigurationAssignmentName pulumi.StringInput
+	GuestConfigurationAssignmentName pulumi.StringPtrInput
 	// Region where the VM is located.
 	Location pulumi.StringPtrInput
 	// Name of the guest configuration assignment.

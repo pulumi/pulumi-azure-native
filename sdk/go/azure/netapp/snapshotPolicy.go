@@ -51,9 +51,6 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SnapshotPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'SnapshotPolicyName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:netapp/latest:SnapshotPolicy"),
@@ -165,7 +162,7 @@ type snapshotPolicyArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the snapshot policy target
-	SnapshotPolicyName string `pulumi:"snapshotPolicyName"`
+	SnapshotPolicyName *string `pulumi:"snapshotPolicyName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Schedule for weekly snapshots
@@ -189,7 +186,7 @@ type SnapshotPolicyArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the snapshot policy target
-	SnapshotPolicyName pulumi.StringInput
+	SnapshotPolicyName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Schedule for weekly snapshots

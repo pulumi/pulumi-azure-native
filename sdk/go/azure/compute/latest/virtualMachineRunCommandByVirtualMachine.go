@@ -60,9 +60,6 @@ func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RunCommandName == nil {
-		return nil, errors.New("invalid value for required argument 'RunCommandName'")
-	}
 	if args.VmName == nil {
 		return nil, errors.New("invalid value for required argument 'VmName'")
 	}
@@ -192,7 +189,7 @@ type virtualMachineRunCommandByVirtualMachineArgs struct {
 	// Specifies the user account on the VM when executing the run command.
 	RunAsUser *string `pulumi:"runAsUser"`
 	// The name of the virtual machine run command.
-	RunCommandName string `pulumi:"runCommandName"`
+	RunCommandName *string `pulumi:"runCommandName"`
 	// The source of the run command script.
 	Source *VirtualMachineRunCommandScriptSource `pulumi:"source"`
 	// Resource tags
@@ -224,7 +221,7 @@ type VirtualMachineRunCommandByVirtualMachineArgs struct {
 	// Specifies the user account on the VM when executing the run command.
 	RunAsUser pulumi.StringPtrInput
 	// The name of the virtual machine run command.
-	RunCommandName pulumi.StringInput
+	RunCommandName pulumi.StringPtrInput
 	// The source of the run command script.
 	Source VirtualMachineRunCommandScriptSourcePtrInput
 	// Resource tags

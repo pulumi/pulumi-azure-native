@@ -118,9 +118,6 @@ func NewDatabase(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DatabaseName == nil {
-		return nil, errors.New("invalid value for required argument 'DatabaseName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -396,7 +393,7 @@ type databaseArgs struct {
 	// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
 	CreateMode *string `pulumi:"createMode"`
 	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
+	DatabaseName *string `pulumi:"databaseName"`
 	// The resource identifier of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
@@ -468,7 +465,7 @@ type DatabaseArgs struct {
 	// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
 	CreateMode pulumi.StringPtrInput
 	// The name of the database.
-	DatabaseName pulumi.StringInput
+	DatabaseName pulumi.StringPtrInput
 	// The resource identifier of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
 	// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.

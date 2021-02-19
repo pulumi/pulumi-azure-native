@@ -36,9 +36,6 @@ func NewProductGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GroupId == nil {
-		return nil, errors.New("invalid value for required argument 'GroupId'")
-	}
 	if args.ProductId == nil {
 		return nil, errors.New("invalid value for required argument 'ProductId'")
 	}
@@ -132,7 +129,7 @@ func (ProductGroupState) ElementType() reflect.Type {
 
 type productGroupArgs struct {
 	// Group identifier. Must be unique in the current API Management service instance.
-	GroupId string `pulumi:"groupId"`
+	GroupId *string `pulumi:"groupId"`
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId string `pulumi:"productId"`
 	// The name of the resource group.
@@ -144,7 +141,7 @@ type productGroupArgs struct {
 // The set of arguments for constructing a ProductGroup resource.
 type ProductGroupArgs struct {
 	// Group identifier. Must be unique in the current API Management service instance.
-	GroupId pulumi.StringInput
+	GroupId pulumi.StringPtrInput
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId pulumi.StringInput
 	// The name of the resource group.

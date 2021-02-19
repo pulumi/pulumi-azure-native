@@ -44,9 +44,6 @@ func NewSkusNestedResourceTypeThird(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
-	if args.Sku == nil {
-		return nil, errors.New("invalid value for required argument 'Sku'")
-	}
 	if args.SkuSettings == nil {
 		return nil, errors.New("invalid value for required argument 'SkuSettings'")
 	}
@@ -112,7 +109,7 @@ type skusNestedResourceTypeThirdArgs struct {
 	// The resource type.
 	ResourceType string `pulumi:"resourceType"`
 	// The SKU.
-	Sku         string       `pulumi:"sku"`
+	Sku         *string      `pulumi:"sku"`
 	SkuSettings []SkuSetting `pulumi:"skuSettings"`
 }
 
@@ -129,7 +126,7 @@ type SkusNestedResourceTypeThirdArgs struct {
 	// The resource type.
 	ResourceType pulumi.StringInput
 	// The SKU.
-	Sku         pulumi.StringInput
+	Sku         pulumi.StringPtrInput
 	SkuSettings SkuSettingArrayInput
 }
 

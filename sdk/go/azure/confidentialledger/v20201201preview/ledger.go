@@ -36,9 +36,6 @@ func NewLedger(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LedgerName == nil {
-		return nil, errors.New("invalid value for required argument 'LedgerName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -105,7 +102,7 @@ func (LedgerState) ElementType() reflect.Type {
 
 type ledgerArgs struct {
 	// Name of the Confidential Ledger
-	LedgerName string `pulumi:"ledgerName"`
+	LedgerName *string `pulumi:"ledgerName"`
 	// The Azure location where the Confidential Ledger is running.
 	Location *string `pulumi:"location"`
 	// Properties of Confidential Ledger Resource.
@@ -119,7 +116,7 @@ type ledgerArgs struct {
 // The set of arguments for constructing a Ledger resource.
 type LedgerArgs struct {
 	// Name of the Confidential Ledger
-	LedgerName pulumi.StringInput
+	LedgerName pulumi.StringPtrInput
 	// The Azure location where the Confidential Ledger is running.
 	Location pulumi.StringPtrInput
 	// Properties of Confidential Ledger Resource.

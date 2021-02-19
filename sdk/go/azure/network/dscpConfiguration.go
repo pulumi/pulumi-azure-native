@@ -55,9 +55,6 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DscpConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'DscpConfigurationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -173,7 +170,7 @@ type dscpConfigurationArgs struct {
 	// Destination port ranges.
 	DestinationPortRanges []QosPortRange `pulumi:"destinationPortRanges"`
 	// The name of the resource.
-	DscpConfigurationName string `pulumi:"dscpConfigurationName"`
+	DscpConfigurationName *string `pulumi:"dscpConfigurationName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -199,7 +196,7 @@ type DscpConfigurationArgs struct {
 	// Destination port ranges.
 	DestinationPortRanges QosPortRangeArrayInput
 	// The name of the resource.
-	DscpConfigurationName pulumi.StringInput
+	DscpConfigurationName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

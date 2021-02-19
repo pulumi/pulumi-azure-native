@@ -47,9 +47,6 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SnapshotName == nil {
-		return nil, errors.New("invalid value for required argument 'SnapshotName'")
-	}
 	if args.VolumeName == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeName'")
 	}
@@ -175,7 +172,7 @@ type snapshotArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the mount target
-	SnapshotName string `pulumi:"snapshotName"`
+	SnapshotName *string `pulumi:"snapshotName"`
 	// The name of the volume
 	VolumeName string `pulumi:"volumeName"`
 }
@@ -193,7 +190,7 @@ type SnapshotArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the mount target
-	SnapshotName pulumi.StringInput
+	SnapshotName pulumi.StringPtrInput
 	// The name of the volume
 	VolumeName pulumi.StringInput
 }

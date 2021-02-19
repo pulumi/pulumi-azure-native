@@ -49,9 +49,6 @@ func NewVNetPeering(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PeeringName == nil {
-		return nil, errors.New("invalid value for required argument 'PeeringName'")
-	}
 	if args.RemoteVirtualNetwork == nil {
 		return nil, errors.New("invalid value for required argument 'RemoteVirtualNetwork'")
 	}
@@ -161,7 +158,7 @@ type vnetPeeringArgs struct {
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 	DatabricksVirtualNetwork *VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork `pulumi:"databricksVirtualNetwork"`
 	// The name of the workspace vNet peering.
-	PeeringName string `pulumi:"peeringName"`
+	PeeringName *string `pulumi:"peeringName"`
 	// The reference to the remote virtual network address space.
 	RemoteAddressSpace *AddressSpace `pulumi:"remoteAddressSpace"`
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
@@ -187,7 +184,7 @@ type VNetPeeringArgs struct {
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 	DatabricksVirtualNetwork VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrInput
 	// The name of the workspace vNet peering.
-	PeeringName pulumi.StringInput
+	PeeringName pulumi.StringPtrInput
 	// The reference to the remote virtual network address space.
 	RemoteAddressSpace AddressSpacePtrInput
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).

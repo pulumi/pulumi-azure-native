@@ -78,9 +78,6 @@ func NewWebAppSiteExtension(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SiteExtensionId == nil {
-		return nil, errors.New("invalid value for required argument 'SiteExtensionId'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppSiteExtension"),
@@ -239,7 +236,7 @@ type webAppSiteExtensionArgs struct {
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Site extension name.
-	SiteExtensionId string `pulumi:"siteExtensionId"`
+	SiteExtensionId *string `pulumi:"siteExtensionId"`
 }
 
 // The set of arguments for constructing a WebAppSiteExtension resource.
@@ -249,7 +246,7 @@ type WebAppSiteExtensionArgs struct {
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Site extension name.
-	SiteExtensionId pulumi.StringInput
+	SiteExtensionId pulumi.StringPtrInput
 }
 
 func (WebAppSiteExtensionArgs) ElementType() reflect.Type {

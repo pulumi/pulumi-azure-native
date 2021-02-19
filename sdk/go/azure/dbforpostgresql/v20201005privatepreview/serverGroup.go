@@ -81,9 +81,6 @@ func NewServerGroup(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServerGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ServerGroupName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:ServerGroup"),
@@ -261,7 +258,7 @@ type serverGroupArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server group.
-	ServerGroupName string `pulumi:"serverGroupName"`
+	ServerGroupName *string `pulumi:"serverGroupName"`
 	// The list of server role groups.
 	ServerRoleGroups []ServerRoleGroup `pulumi:"serverRoleGroups"`
 	// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
@@ -311,7 +308,7 @@ type ServerGroupArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server group.
-	ServerGroupName pulumi.StringInput
+	ServerGroupName pulumi.StringPtrInput
 	// The list of server role groups.
 	ServerRoleGroups ServerRoleGroupArrayInput
 	// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'

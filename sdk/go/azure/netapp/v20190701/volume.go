@@ -72,9 +72,6 @@ func NewVolume(ctx *pulumi.Context,
 	if args.UsageThreshold == nil {
 		return nil, errors.New("invalid value for required argument 'UsageThreshold'")
 	}
-	if args.VolumeName == nil {
-		return nil, errors.New("invalid value for required argument 'VolumeName'")
-	}
 	if args.ServiceLevel == nil {
 		args.ServiceLevel = pulumi.StringPtr("Premium")
 	}
@@ -251,7 +248,7 @@ type volumeArgs struct {
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold float64 `pulumi:"usageThreshold"`
 	// The name of the volume
-	VolumeName string `pulumi:"volumeName"`
+	VolumeName *string `pulumi:"volumeName"`
 }
 
 // The set of arguments for constructing a Volume resource.
@@ -283,7 +280,7 @@ type VolumeArgs struct {
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold pulumi.Float64Input
 	// The name of the volume
-	VolumeName pulumi.StringInput
+	VolumeName pulumi.StringPtrInput
 }
 
 func (VolumeArgs) ElementType() reflect.Type {

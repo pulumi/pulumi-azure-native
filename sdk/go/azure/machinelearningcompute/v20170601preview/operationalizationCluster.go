@@ -52,9 +52,6 @@ func NewOperationalizationCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ClusterName == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
 	if args.ClusterType == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterType'")
 	}
@@ -164,7 +161,7 @@ type operationalizationClusterArgs struct {
 	// AppInsights configuration
 	AppInsights *AppInsightsCredentials `pulumi:"appInsights"`
 	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName *string `pulumi:"clusterName"`
 	// The cluster type.
 	ClusterType string `pulumi:"clusterType"`
 	// Container Registry properties.
@@ -190,7 +187,7 @@ type OperationalizationClusterArgs struct {
 	// AppInsights configuration
 	AppInsights AppInsightsCredentialsPtrInput
 	// The name of the cluster.
-	ClusterName pulumi.StringInput
+	ClusterName pulumi.StringPtrInput
 	// The cluster type.
 	ClusterType pulumi.StringInput
 	// Container Registry properties.

@@ -37,9 +37,6 @@ func NewPrivateAtlase(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.PrivateAtlasName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateAtlasName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -106,7 +103,7 @@ type privateAtlaseArgs struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the Private Atlas instance.
-	PrivateAtlasName string `pulumi:"privateAtlasName"`
+	PrivateAtlasName *string `pulumi:"privateAtlasName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
@@ -120,7 +117,7 @@ type PrivateAtlaseArgs struct {
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the Private Atlas instance.
-	PrivateAtlasName pulumi.StringInput
+	PrivateAtlasName pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.

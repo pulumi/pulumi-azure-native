@@ -31,9 +31,6 @@ func NewLinkedWorkspace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LinkName == nil {
-		return nil, errors.New("invalid value for required argument 'LinkName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -94,7 +91,7 @@ func (LinkedWorkspaceState) ElementType() reflect.Type {
 
 type linkedWorkspaceArgs struct {
 	// Friendly name of the linked workspace
-	LinkName string `pulumi:"linkName"`
+	LinkName *string `pulumi:"linkName"`
 	// Friendly name of the linked workspace
 	Name *string `pulumi:"name"`
 	// LinkedWorkspace specific properties.
@@ -108,7 +105,7 @@ type linkedWorkspaceArgs struct {
 // The set of arguments for constructing a LinkedWorkspace resource.
 type LinkedWorkspaceArgs struct {
 	// Friendly name of the linked workspace
-	LinkName pulumi.StringInput
+	LinkName pulumi.StringPtrInput
 	// Friendly name of the linked workspace
 	Name pulumi.StringPtrInput
 	// LinkedWorkspace specific properties.

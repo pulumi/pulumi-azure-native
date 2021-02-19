@@ -47,9 +47,6 @@ func NewLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BackendAddressPoolName == nil {
-		return nil, errors.New("invalid value for required argument 'BackendAddressPoolName'")
-	}
 	if args.LoadBalancerName == nil {
 		return nil, errors.New("invalid value for required argument 'LoadBalancerName'")
 	}
@@ -150,7 +147,7 @@ func (LoadBalancerBackendAddressPoolState) ElementType() reflect.Type {
 
 type loadBalancerBackendAddressPoolArgs struct {
 	// The name of the backend address pool.
-	BackendAddressPoolName string `pulumi:"backendAddressPoolName"`
+	BackendAddressPoolName *string `pulumi:"backendAddressPoolName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// An array of backend addresses.
@@ -168,7 +165,7 @@ type loadBalancerBackendAddressPoolArgs struct {
 // The set of arguments for constructing a LoadBalancerBackendAddressPool resource.
 type LoadBalancerBackendAddressPoolArgs struct {
 	// The name of the backend address pool.
-	BackendAddressPoolName pulumi.StringInput
+	BackendAddressPoolName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// An array of backend addresses.

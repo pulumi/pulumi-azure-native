@@ -76,9 +76,6 @@ func NewQueue(ctx *pulumi.Context,
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
-	if args.QueueName == nil {
-		return nil, errors.New("invalid value for required argument 'QueueName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -251,7 +248,7 @@ type queueArgs struct {
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// The queue name.
-	QueueName string `pulumi:"queueName"`
+	QueueName *string `pulumi:"queueName"`
 	// A value indicating if this queue requires duplicate detection.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// A value that indicates whether the queue supports the concept of sessions.
@@ -291,7 +288,7 @@ type QueueArgs struct {
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// The queue name.
-	QueueName pulumi.StringInput
+	QueueName pulumi.StringPtrInput
 	// A value indicating if this queue requires duplicate detection.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	// A value that indicates whether the queue supports the concept of sessions.

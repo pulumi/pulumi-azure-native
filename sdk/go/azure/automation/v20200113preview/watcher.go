@@ -58,9 +58,6 @@ func NewWatcher(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.WatcherName == nil {
-		return nil, errors.New("invalid value for required argument 'WatcherName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation:Watcher"),
@@ -185,7 +182,7 @@ type watcherArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The watcher name.
-	WatcherName string `pulumi:"watcherName"`
+	WatcherName *string `pulumi:"watcherName"`
 }
 
 // The set of arguments for constructing a Watcher resource.
@@ -211,7 +208,7 @@ type WatcherArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The watcher name.
-	WatcherName pulumi.StringInput
+	WatcherName pulumi.StringPtrInput
 }
 
 func (WatcherArgs) ElementType() reflect.Type {

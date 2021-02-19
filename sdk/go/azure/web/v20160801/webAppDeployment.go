@@ -48,9 +48,6 @@ func NewWebAppDeployment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Id == nil {
-		return nil, errors.New("invalid value for required argument 'Id'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -180,7 +177,7 @@ type webAppDeploymentArgs struct {
 	// End time.
 	EndTime *string `pulumi:"endTime"`
 	// Identifier for deployment.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Details about deployment status.
@@ -210,7 +207,7 @@ type WebAppDeploymentArgs struct {
 	// End time.
 	EndTime pulumi.StringPtrInput
 	// Identifier for deployment.
-	Id pulumi.StringInput
+	Id pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Details about deployment status.

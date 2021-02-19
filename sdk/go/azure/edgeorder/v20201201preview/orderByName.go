@@ -48,9 +48,6 @@ func NewOrderByName(ctx *pulumi.Context,
 	if args.OrderDetails == nil {
 		return nil, errors.New("invalid value for required argument 'OrderDetails'")
 	}
-	if args.OrderName == nil {
-		return nil, errors.New("invalid value for required argument 'OrderName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -135,7 +132,7 @@ type orderByNameArgs struct {
 	// Represents order details.
 	OrderDetails OrderDetails `pulumi:"orderDetails"`
 	// The name of the order
-	OrderName string `pulumi:"orderName"`
+	OrderName *string `pulumi:"orderName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -151,7 +148,7 @@ type OrderByNameArgs struct {
 	// Represents order details.
 	OrderDetails OrderDetailsInput
 	// The name of the order
-	OrderName pulumi.StringInput
+	OrderName pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

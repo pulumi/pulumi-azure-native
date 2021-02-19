@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -38,12 +37,9 @@ type PeerAsn struct {
 func NewPeerAsn(ctx *pulumi.Context,
 	name string, args *PeerAsnArgs, opts ...pulumi.ResourceOption) (*PeerAsn, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PeerAsnArgs{}
 	}
 
-	if args.PeerAsnName == nil {
-		return nil, errors.New("invalid value for required argument 'PeerAsnName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:peering:PeerAsn"),
@@ -128,7 +124,7 @@ type peerAsnArgs struct {
 	// The Autonomous System Number (ASN) of the peer.
 	PeerAsn *int `pulumi:"peerAsn"`
 	// The peer ASN name.
-	PeerAsnName string `pulumi:"peerAsnName"`
+	PeerAsnName *string `pulumi:"peerAsnName"`
 	// The contact details of the peer.
 	PeerContactDetail []ContactDetail `pulumi:"peerContactDetail"`
 	// The name of the peer.
@@ -142,7 +138,7 @@ type PeerAsnArgs struct {
 	// The Autonomous System Number (ASN) of the peer.
 	PeerAsn pulumi.IntPtrInput
 	// The peer ASN name.
-	PeerAsnName pulumi.StringInput
+	PeerAsnName pulumi.StringPtrInput
 	// The contact details of the peer.
 	PeerContactDetail ContactDetailArrayInput
 	// The name of the peer.

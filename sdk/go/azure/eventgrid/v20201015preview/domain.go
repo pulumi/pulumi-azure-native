@@ -53,9 +53,6 @@ func NewDomain(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DomainName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -180,7 +177,7 @@ func (DomainState) ElementType() reflect.Type {
 
 type domainArgs struct {
 	// Name of the domain.
-	DomainName string `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
 	// Identity information for the resource.
 	Identity *IdentityInfo `pulumi:"identity"`
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
@@ -207,7 +204,7 @@ type domainArgs struct {
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// Name of the domain.
-	DomainName pulumi.StringInput
+	DomainName pulumi.StringPtrInput
 	// Identity information for the resource.
 	Identity IdentityInfoPtrInput
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.

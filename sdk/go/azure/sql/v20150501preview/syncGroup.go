@@ -53,9 +53,6 @@ func NewSyncGroup(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.SyncGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'SyncGroupName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql:SyncGroup"),
@@ -162,7 +159,7 @@ type syncGroupArgs struct {
 	// ARM resource id of the sync database in the sync group.
 	SyncDatabaseId *string `pulumi:"syncDatabaseId"`
 	// The name of the sync group.
-	SyncGroupName string `pulumi:"syncGroupName"`
+	SyncGroupName *string `pulumi:"syncGroupName"`
 }
 
 // The set of arguments for constructing a SyncGroup resource.
@@ -186,7 +183,7 @@ type SyncGroupArgs struct {
 	// ARM resource id of the sync database in the sync group.
 	SyncDatabaseId pulumi.StringPtrInput
 	// The name of the sync group.
-	SyncGroupName pulumi.StringInput
+	SyncGroupName pulumi.StringPtrInput
 }
 
 func (SyncGroupArgs) ElementType() reflect.Type {

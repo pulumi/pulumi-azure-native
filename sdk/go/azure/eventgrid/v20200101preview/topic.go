@@ -45,9 +45,6 @@ func NewTopic(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TopicName == nil {
-		return nil, errors.New("invalid value for required argument 'TopicName'")
-	}
 	if args.InputSchema == nil {
 		args.InputSchema = pulumi.StringPtr("EventGridSchema")
 	}
@@ -172,7 +169,7 @@ type topicArgs struct {
 	// Tags of the resource
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the topic
-	TopicName string `pulumi:"topicName"`
+	TopicName *string `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a Topic resource.
@@ -188,7 +185,7 @@ type TopicArgs struct {
 	// Tags of the resource
 	Tags pulumi.StringMapInput
 	// Name of the topic
-	TopicName pulumi.StringInput
+	TopicName pulumi.StringPtrInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {

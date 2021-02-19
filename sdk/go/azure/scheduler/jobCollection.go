@@ -34,9 +34,6 @@ func NewJobCollection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.JobCollectionName == nil {
-		return nil, errors.New("invalid value for required argument 'JobCollectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -108,7 +105,7 @@ func (JobCollectionState) ElementType() reflect.Type {
 
 type jobCollectionArgs struct {
 	// The job collection name.
-	JobCollectionName string `pulumi:"jobCollectionName"`
+	JobCollectionName *string `pulumi:"jobCollectionName"`
 	// Gets or sets the storage account location.
 	Location *string `pulumi:"location"`
 	// Gets or sets the job collection resource name.
@@ -124,7 +121,7 @@ type jobCollectionArgs struct {
 // The set of arguments for constructing a JobCollection resource.
 type JobCollectionArgs struct {
 	// The job collection name.
-	JobCollectionName pulumi.StringInput
+	JobCollectionName pulumi.StringPtrInput
 	// Gets or sets the storage account location.
 	Location pulumi.StringPtrInput
 	// Gets or sets the job collection resource name.

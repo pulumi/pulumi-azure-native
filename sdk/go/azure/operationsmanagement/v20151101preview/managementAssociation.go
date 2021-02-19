@@ -32,9 +32,6 @@ func NewManagementAssociation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ManagementAssociationName == nil {
-		return nil, errors.New("invalid value for required argument 'ManagementAssociationName'")
-	}
 	if args.ProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderName'")
 	}
@@ -104,7 +101,7 @@ type managementAssociationArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// User ManagementAssociation Name.
-	ManagementAssociationName string `pulumi:"managementAssociationName"`
+	ManagementAssociationName *string `pulumi:"managementAssociationName"`
 	// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
 	Properties *ManagementAssociationProperties `pulumi:"properties"`
 	// Provider name for the parent resource.
@@ -122,7 +119,7 @@ type ManagementAssociationArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// User ManagementAssociation Name.
-	ManagementAssociationName pulumi.StringInput
+	ManagementAssociationName pulumi.StringPtrInput
 	// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
 	Properties ManagementAssociationPropertiesPtrInput
 	// Provider name for the parent resource.

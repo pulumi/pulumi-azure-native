@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -33,12 +32,9 @@ type ManagementGroup struct {
 func NewManagementGroup(ctx *pulumi.Context,
 	name string, args *ManagementGroupArgs, opts ...pulumi.ResourceOption) (*ManagementGroup, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ManagementGroupArgs{}
 	}
 
-	if args.GroupId == nil {
-		return nil, errors.New("invalid value for required argument 'GroupId'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:management:ManagementGroup"),
@@ -122,7 +118,7 @@ type managementGroupArgs struct {
 	// The friendly name of the management group.
 	DisplayName *string `pulumi:"displayName"`
 	// Management Group ID.
-	GroupId string `pulumi:"groupId"`
+	GroupId *string `pulumi:"groupId"`
 	// (Optional) The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	ParentId *string `pulumi:"parentId"`
 }
@@ -132,7 +128,7 @@ type ManagementGroupArgs struct {
 	// The friendly name of the management group.
 	DisplayName pulumi.StringPtrInput
 	// Management Group ID.
-	GroupId pulumi.StringInput
+	GroupId pulumi.StringPtrInput
 	// (Optional) The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	ParentId pulumi.StringPtrInput
 }

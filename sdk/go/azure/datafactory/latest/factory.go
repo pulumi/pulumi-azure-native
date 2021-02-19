@@ -53,9 +53,6 @@ func NewFactory(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'FactoryName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -158,7 +155,7 @@ type factoryArgs struct {
 	// Properties to enable Customer Managed Key for the factory.
 	Encryption *EncryptionConfiguration `pulumi:"encryption"`
 	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
+	FactoryName *string `pulumi:"factoryName"`
 	// List of parameters for factory.
 	GlobalParameters map[string]GlobalParameterSpecification `pulumi:"globalParameters"`
 	// Managed service identity of the factory.
@@ -180,7 +177,7 @@ type FactoryArgs struct {
 	// Properties to enable Customer Managed Key for the factory.
 	Encryption EncryptionConfigurationPtrInput
 	// The factory name.
-	FactoryName pulumi.StringInput
+	FactoryName pulumi.StringPtrInput
 	// List of parameters for factory.
 	GlobalParameters GlobalParameterSpecificationMapInput
 	// Managed service identity of the factory.

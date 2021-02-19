@@ -45,9 +45,6 @@ func NewIscsiServer(ctx *pulumi.Context,
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
-	if args.IscsiServerName == nil {
-		return nil, errors.New("invalid value for required argument 'IscsiServerName'")
-	}
 	if args.ManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagerName'")
 	}
@@ -135,7 +132,7 @@ type iscsiServerArgs struct {
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// The iSCSI server name.
-	IscsiServerName string `pulumi:"iscsiServerName"`
+	IscsiServerName *string `pulumi:"iscsiServerName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The resource group name
@@ -157,7 +154,7 @@ type IscsiServerArgs struct {
 	// The device name.
 	DeviceName pulumi.StringInput
 	// The iSCSI server name.
-	IscsiServerName pulumi.StringInput
+	IscsiServerName pulumi.StringPtrInput
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name

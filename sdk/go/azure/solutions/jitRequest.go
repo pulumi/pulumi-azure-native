@@ -55,9 +55,6 @@ func NewJitRequest(ctx *pulumi.Context,
 	if args.JitAuthorizationPolicies == nil {
 		return nil, errors.New("invalid value for required argument 'JitAuthorizationPolicies'")
 	}
-	if args.JitRequestName == nil {
-		return nil, errors.New("invalid value for required argument 'JitRequestName'")
-	}
 	if args.JitSchedulingPolicy == nil {
 		return nil, errors.New("invalid value for required argument 'JitSchedulingPolicy'")
 	}
@@ -161,7 +158,7 @@ type jitRequestArgs struct {
 	// The JIT authorization policies.
 	JitAuthorizationPolicies []JitAuthorizationPolicies `pulumi:"jitAuthorizationPolicies"`
 	// The name of the JIT request.
-	JitRequestName string `pulumi:"jitRequestName"`
+	JitRequestName *string `pulumi:"jitRequestName"`
 	// The JIT request properties.
 	JitSchedulingPolicy JitSchedulingPolicy `pulumi:"jitSchedulingPolicy"`
 	// Resource location
@@ -179,7 +176,7 @@ type JitRequestArgs struct {
 	// The JIT authorization policies.
 	JitAuthorizationPolicies JitAuthorizationPoliciesArrayInput
 	// The name of the JIT request.
-	JitRequestName pulumi.StringInput
+	JitRequestName pulumi.StringPtrInput
 	// The JIT request properties.
 	JitSchedulingPolicy JitSchedulingPolicyInput
 	// Resource location

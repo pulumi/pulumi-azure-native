@@ -36,9 +36,6 @@ func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 	if args.FactoryName == nil {
 		return nil, errors.New("invalid value for required argument 'FactoryName'")
 	}
-	if args.ManagedPrivateEndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'ManagedPrivateEndpointName'")
-	}
 	if args.ManagedVirtualNetworkName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedVirtualNetworkName'")
 	}
@@ -108,7 +105,7 @@ type managedPrivateEndpointArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// Managed private endpoint name
-	ManagedPrivateEndpointName string `pulumi:"managedPrivateEndpointName"`
+	ManagedPrivateEndpointName *string `pulumi:"managedPrivateEndpointName"`
 	// Managed virtual network name
 	ManagedVirtualNetworkName string `pulumi:"managedVirtualNetworkName"`
 	// Managed private endpoint properties.
@@ -122,7 +119,7 @@ type ManagedPrivateEndpointArgs struct {
 	// The factory name.
 	FactoryName pulumi.StringInput
 	// Managed private endpoint name
-	ManagedPrivateEndpointName pulumi.StringInput
+	ManagedPrivateEndpointName pulumi.StringPtrInput
 	// Managed virtual network name
 	ManagedVirtualNetworkName pulumi.StringInput
 	// Managed private endpoint properties.

@@ -39,9 +39,6 @@ func NewProtectionContainer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ContainerName == nil {
-		return nil, errors.New("invalid value for required argument 'ContainerName'")
-	}
 	if args.FabricName == nil {
 		return nil, errors.New("invalid value for required argument 'FabricName'")
 	}
@@ -129,7 +126,7 @@ func (ProtectionContainerState) ElementType() reflect.Type {
 
 type protectionContainerArgs struct {
 	// Name of the container to be registered.
-	ContainerName string `pulumi:"containerName"`
+	ContainerName *string `pulumi:"containerName"`
 	// Optional ETag.
 	ETag *string `pulumi:"eTag"`
 	// Fabric name associated with the container.
@@ -149,7 +146,7 @@ type protectionContainerArgs struct {
 // The set of arguments for constructing a ProtectionContainer resource.
 type ProtectionContainerArgs struct {
 	// Name of the container to be registered.
-	ContainerName pulumi.StringInput
+	ContainerName pulumi.StringPtrInput
 	// Optional ETag.
 	ETag pulumi.StringPtrInput
 	// Fabric name associated with the container.

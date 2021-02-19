@@ -58,9 +58,6 @@ func NewWebAppFunction(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FunctionName == nil {
-		return nil, errors.New("invalid value for required argument 'FunctionName'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -203,7 +200,7 @@ type webAppFunctionArgs struct {
 	// Function App ID.
 	FunctionAppId *string `pulumi:"functionAppId"`
 	// Function name.
-	FunctionName string `pulumi:"functionName"`
+	FunctionName *string `pulumi:"functionName"`
 	// Function URI.
 	Href *string `pulumi:"href"`
 	// The invocation URL
@@ -241,7 +238,7 @@ type WebAppFunctionArgs struct {
 	// Function App ID.
 	FunctionAppId pulumi.StringPtrInput
 	// Function name.
-	FunctionName pulumi.StringInput
+	FunctionName pulumi.StringPtrInput
 	// Function URI.
 	Href pulumi.StringPtrInput
 	// The invocation URL

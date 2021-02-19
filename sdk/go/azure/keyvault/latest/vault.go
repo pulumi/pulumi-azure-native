@@ -43,9 +43,6 @@ func NewVault(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VaultName == nil {
-		return nil, errors.New("invalid value for required argument 'VaultName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:keyvault:Vault"),
@@ -131,7 +128,7 @@ type vaultArgs struct {
 	// The tags that will be assigned to the key vault.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the vault
-	VaultName string `pulumi:"vaultName"`
+	VaultName *string `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a Vault resource.
@@ -145,7 +142,7 @@ type VaultArgs struct {
 	// The tags that will be assigned to the key vault.
 	Tags pulumi.StringMapInput
 	// Name of the vault
-	VaultName pulumi.StringInput
+	VaultName pulumi.StringPtrInput
 }
 
 func (VaultArgs) ElementType() reflect.Type {

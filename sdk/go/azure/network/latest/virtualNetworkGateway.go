@@ -76,9 +76,6 @@ func NewVirtualNetworkGateway(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VirtualNetworkGatewayName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualNetworkGatewayName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:VirtualNetworkGateway"),
@@ -344,7 +341,7 @@ type virtualNetworkGatewayArgs struct {
 	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
 	VirtualNetworkExtendedLocationResourceId *string `pulumi:"virtualNetworkExtendedLocationResourceId"`
 	// The name of the virtual network gateway.
-	VirtualNetworkGatewayName string `pulumi:"virtualNetworkGatewayName"`
+	VirtualNetworkGatewayName *string `pulumi:"virtualNetworkGatewayName"`
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration *VpnClientConfiguration `pulumi:"vpnClientConfiguration"`
 	// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
@@ -388,7 +385,7 @@ type VirtualNetworkGatewayArgs struct {
 	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
 	VirtualNetworkExtendedLocationResourceId pulumi.StringPtrInput
 	// The name of the virtual network gateway.
-	VirtualNetworkGatewayName pulumi.StringInput
+	VirtualNetworkGatewayName pulumi.StringPtrInput
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration VpnClientConfigurationPtrInput
 	// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.

@@ -49,9 +49,6 @@ func NewVirtualNetworkLink(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VirtualNetworkLinkName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualNetworkLinkName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualNetworkLink"),
@@ -150,7 +147,7 @@ type virtualNetworkLinkArgs struct {
 	// The reference of the virtual network.
 	VirtualNetwork *SubResource `pulumi:"virtualNetwork"`
 	// The name of the virtual network link.
-	VirtualNetworkLinkName string `pulumi:"virtualNetworkLinkName"`
+	VirtualNetworkLinkName *string `pulumi:"virtualNetworkLinkName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkLink resource.
@@ -170,7 +167,7 @@ type VirtualNetworkLinkArgs struct {
 	// The reference of the virtual network.
 	VirtualNetwork SubResourcePtrInput
 	// The name of the virtual network link.
-	VirtualNetworkLinkName pulumi.StringInput
+	VirtualNetworkLinkName pulumi.StringPtrInput
 }
 
 func (VirtualNetworkLinkArgs) ElementType() reflect.Type {

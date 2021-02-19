@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -29,12 +28,9 @@ type ManagementLock struct {
 func NewManagementLock(ctx *pulumi.Context,
 	name string, args *ManagementLockArgs, opts ...pulumi.ResourceOption) (*ManagementLock, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ManagementLockArgs{}
 	}
 
-	if args.LockName == nil {
-		return nil, errors.New("invalid value for required argument 'LockName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:authorization:ManagementLock"),
@@ -98,7 +94,7 @@ type managementLockArgs struct {
 	// The lock level of the management lock.
 	Level *string `pulumi:"level"`
 	// The name of lock.
-	LockName string `pulumi:"lockName"`
+	LockName *string `pulumi:"lockName"`
 	// The name of the lock.
 	Name *string `pulumi:"name"`
 	// The notes of the management lock.
@@ -110,7 +106,7 @@ type ManagementLockArgs struct {
 	// The lock level of the management lock.
 	Level pulumi.StringPtrInput
 	// The name of lock.
-	LockName pulumi.StringInput
+	LockName pulumi.StringPtrInput
 	// The name of the lock.
 	Name pulumi.StringPtrInput
 	// The notes of the management lock.

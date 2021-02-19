@@ -36,9 +36,6 @@ func NewComponentLinkedStorageAccount(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
-	if args.StorageType == nil {
-		return nil, errors.New("invalid value for required argument 'StorageType'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:insights:ComponentLinkedStorageAccount"),
@@ -96,7 +93,7 @@ type componentLinkedStorageAccountArgs struct {
 	// The name of the Application Insights component resource.
 	ResourceName string `pulumi:"resourceName"`
 	// The type of the Application Insights component data source for the linked storage account.
-	StorageType string `pulumi:"storageType"`
+	StorageType *string `pulumi:"storageType"`
 }
 
 // The set of arguments for constructing a ComponentLinkedStorageAccount resource.
@@ -108,7 +105,7 @@ type ComponentLinkedStorageAccountArgs struct {
 	// The name of the Application Insights component resource.
 	ResourceName pulumi.StringInput
 	// The type of the Application Insights component data source for the linked storage account.
-	StorageType pulumi.StringInput
+	StorageType pulumi.StringPtrInput
 }
 
 func (ComponentLinkedStorageAccountArgs) ElementType() reflect.Type {

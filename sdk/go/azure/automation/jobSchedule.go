@@ -42,9 +42,6 @@ func NewJobSchedule(ctx *pulumi.Context,
 	if args.AutomationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
 	}
-	if args.JobScheduleId == nil {
-		return nil, errors.New("invalid value for required argument 'JobScheduleId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -132,7 +129,7 @@ type jobScheduleArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The job schedule name.
-	JobScheduleId string `pulumi:"jobScheduleId"`
+	JobScheduleId *string `pulumi:"jobScheduleId"`
 	// Gets or sets a list of job properties.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Name of an Azure Resource group.
@@ -150,7 +147,7 @@ type JobScheduleArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
 	// The job schedule name.
-	JobScheduleId pulumi.StringInput
+	JobScheduleId pulumi.StringPtrInput
 	// Gets or sets a list of job properties.
 	Parameters pulumi.StringMapInput
 	// Name of an Azure Resource group.

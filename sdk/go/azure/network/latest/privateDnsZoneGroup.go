@@ -35,9 +35,6 @@ func NewPrivateDnsZoneGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PrivateDnsZoneGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateDnsZoneGroupName'")
-	}
 	if args.PrivateEndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateEndpointName'")
 	}
@@ -123,7 +120,7 @@ type privateDnsZoneGroupArgs struct {
 	// A collection of private dns zone configurations of the private dns zone group.
 	PrivateDnsZoneConfigs []PrivateDnsZoneConfig `pulumi:"privateDnsZoneConfigs"`
 	// The name of the private dns zone group.
-	PrivateDnsZoneGroupName string `pulumi:"privateDnsZoneGroupName"`
+	PrivateDnsZoneGroupName *string `pulumi:"privateDnsZoneGroupName"`
 	// The name of the private endpoint.
 	PrivateEndpointName string `pulumi:"privateEndpointName"`
 	// The name of the resource group.
@@ -139,7 +136,7 @@ type PrivateDnsZoneGroupArgs struct {
 	// A collection of private dns zone configurations of the private dns zone group.
 	PrivateDnsZoneConfigs PrivateDnsZoneConfigArrayInput
 	// The name of the private dns zone group.
-	PrivateDnsZoneGroupName pulumi.StringInput
+	PrivateDnsZoneGroupName pulumi.StringPtrInput
 	// The name of the private endpoint.
 	PrivateEndpointName pulumi.StringInput
 	// The name of the resource group.

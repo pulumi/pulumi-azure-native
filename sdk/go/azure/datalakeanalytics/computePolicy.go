@@ -40,9 +40,6 @@ func NewComputePolicy(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.ComputePolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'ComputePolicyName'")
-	}
 	if args.ObjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ObjectId'")
 	}
@@ -123,7 +120,7 @@ type computePolicyArgs struct {
 	// The name of the Data Lake Analytics account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the compute policy to create or update.
-	ComputePolicyName string `pulumi:"computePolicyName"`
+	ComputePolicyName *string `pulumi:"computePolicyName"`
 	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
 	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
 	// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
@@ -141,7 +138,7 @@ type ComputePolicyArgs struct {
 	// The name of the Data Lake Analytics account.
 	AccountName pulumi.StringInput
 	// The name of the compute policy to create or update.
-	ComputePolicyName pulumi.StringInput
+	ComputePolicyName pulumi.StringPtrInput
 	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
 	MaxDegreeOfParallelismPerJob pulumi.IntPtrInput
 	// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.

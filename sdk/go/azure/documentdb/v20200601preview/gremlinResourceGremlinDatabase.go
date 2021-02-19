@@ -39,9 +39,6 @@ func NewGremlinResourceGremlinDatabase(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.DatabaseName == nil {
-		return nil, errors.New("invalid value for required argument 'DatabaseName'")
-	}
 	if args.Options == nil {
 		return nil, errors.New("invalid value for required argument 'Options'")
 	}
@@ -137,7 +134,7 @@ type gremlinResourceGremlinDatabaseArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB database name.
-	DatabaseName string `pulumi:"databaseName"`
+	DatabaseName *string `pulumi:"databaseName"`
 	// Identity for the resource.
 	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
@@ -157,7 +154,7 @@ type GremlinResourceGremlinDatabaseArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
 	// Cosmos DB database name.
-	DatabaseName pulumi.StringInput
+	DatabaseName pulumi.StringPtrInput
 	// Identity for the resource.
 	Identity ManagedServiceIdentityPtrInput
 	// The location of the resource group to which the resource belongs.

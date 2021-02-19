@@ -45,9 +45,6 @@ func NewRemediationAtResourceGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RemediationName == nil {
-		return nil, errors.New("invalid value for required argument 'RemediationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -142,7 +139,7 @@ type remediationAtResourceGroupArgs struct {
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 	// The name of the remediation.
-	RemediationName string `pulumi:"remediationName"`
+	RemediationName *string `pulumi:"remediationName"`
 	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 	// Resource group name.
@@ -158,7 +155,7 @@ type RemediationAtResourceGroupArgs struct {
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
 	// The name of the remediation.
-	RemediationName pulumi.StringInput
+	RemediationName pulumi.StringPtrInput
 	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 	// Resource group name.

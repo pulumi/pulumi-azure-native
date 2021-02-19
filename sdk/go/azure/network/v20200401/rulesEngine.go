@@ -38,9 +38,6 @@ func NewRulesEngine(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RulesEngineName == nil {
-		return nil, errors.New("invalid value for required argument 'RulesEngineName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:RulesEngine"),
@@ -111,7 +108,7 @@ type rulesEngineArgs struct {
 	// A list of rules that define a particular Rules Engine Configuration.
 	Rules []RulesEngineRule `pulumi:"rules"`
 	// Name of the Rules Engine which is unique within the Front Door.
-	RulesEngineName string `pulumi:"rulesEngineName"`
+	RulesEngineName *string `pulumi:"rulesEngineName"`
 }
 
 // The set of arguments for constructing a RulesEngine resource.
@@ -123,7 +120,7 @@ type RulesEngineArgs struct {
 	// A list of rules that define a particular Rules Engine Configuration.
 	Rules RulesEngineRuleArrayInput
 	// Name of the Rules Engine which is unique within the Front Door.
-	RulesEngineName pulumi.StringInput
+	RulesEngineName pulumi.StringPtrInput
 }
 
 func (RulesEngineArgs) ElementType() reflect.Type {

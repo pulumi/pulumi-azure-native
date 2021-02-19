@@ -43,9 +43,6 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 	if args.PolicyDefinitions == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDefinitions'")
 	}
-	if args.PolicySetDefinitionName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicySetDefinitionName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:authorization:PolicySetDefinition"),
@@ -151,7 +148,7 @@ type policySetDefinitionArgs struct {
 	// An array of policy definition references.
 	PolicyDefinitions []PolicyDefinitionReference `pulumi:"policyDefinitions"`
 	// The name of the policy set definition to create.
-	PolicySetDefinitionName string `pulumi:"policySetDefinitionName"`
+	PolicySetDefinitionName *string `pulumi:"policySetDefinitionName"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -169,7 +166,7 @@ type PolicySetDefinitionArgs struct {
 	// An array of policy definition references.
 	PolicyDefinitions PolicyDefinitionReferenceArrayInput
 	// The name of the policy set definition to create.
-	PolicySetDefinitionName pulumi.StringInput
+	PolicySetDefinitionName pulumi.StringPtrInput
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType pulumi.StringPtrInput
 }

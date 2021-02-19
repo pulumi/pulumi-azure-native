@@ -50,9 +50,6 @@ func NewRegistry(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RegistryName == nil {
-		return nil, errors.New("invalid value for required argument 'RegistryName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -182,7 +179,7 @@ type registryArgs struct {
 	// The policies for a container registry.
 	Policies *Policies `pulumi:"policies"`
 	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
+	RegistryName *string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the container registry.
@@ -204,7 +201,7 @@ type RegistryArgs struct {
 	// The policies for a container registry.
 	Policies PoliciesPtrInput
 	// The name of the container registry.
-	RegistryName pulumi.StringInput
+	RegistryName pulumi.StringPtrInput
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the container registry.

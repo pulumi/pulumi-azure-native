@@ -46,9 +46,6 @@ func NewP2sVpnGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GatewayName == nil {
-		return nil, errors.New("invalid value for required argument 'GatewayName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -189,7 +186,7 @@ func (P2sVpnGatewayState) ElementType() reflect.Type {
 
 type p2sVpnGatewayArgs struct {
 	// The name of the gateway.
-	GatewayName string `pulumi:"gatewayName"`
+	GatewayName *string `pulumi:"gatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -211,7 +208,7 @@ type p2sVpnGatewayArgs struct {
 // The set of arguments for constructing a P2sVpnGateway resource.
 type P2sVpnGatewayArgs struct {
 	// The name of the gateway.
-	GatewayName pulumi.StringInput
+	GatewayName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

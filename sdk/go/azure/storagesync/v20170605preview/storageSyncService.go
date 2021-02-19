@@ -39,9 +39,6 @@ func NewStorageSyncService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.StorageSyncServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageSyncServiceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storagesync:StorageSyncService"),
@@ -139,7 +136,7 @@ type storageSyncServiceArgs struct {
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of Storage Sync Service resource.
-	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
+	StorageSyncServiceName *string `pulumi:"storageSyncServiceName"`
 	// The tags of the resource.
 	Tags interface{} `pulumi:"tags"`
 }
@@ -151,7 +148,7 @@ type StorageSyncServiceArgs struct {
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Name of Storage Sync Service resource.
-	StorageSyncServiceName pulumi.StringInput
+	StorageSyncServiceName pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.Input
 }

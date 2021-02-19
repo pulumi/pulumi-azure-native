@@ -59,9 +59,6 @@ func NewIntegrationAccountSchema(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SchemaName == nil {
-		return nil, errors.New("invalid value for required argument 'SchemaName'")
-	}
 	if args.SchemaType == nil {
 		return nil, errors.New("invalid value for required argument 'SchemaType'")
 	}
@@ -188,7 +185,7 @@ type integrationAccountSchemaArgs struct {
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The integration account schema name.
-	SchemaName string `pulumi:"schemaName"`
+	SchemaName *string `pulumi:"schemaName"`
 	// The schema type.
 	SchemaType string `pulumi:"schemaType"`
 	// The resource tags.
@@ -216,7 +213,7 @@ type IntegrationAccountSchemaArgs struct {
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The integration account schema name.
-	SchemaName pulumi.StringInput
+	SchemaName pulumi.StringPtrInput
 	// The schema type.
 	SchemaType pulumi.StringInput
 	// The resource tags.

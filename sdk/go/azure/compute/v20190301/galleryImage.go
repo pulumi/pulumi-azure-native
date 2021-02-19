@@ -56,9 +56,6 @@ func NewGalleryImage(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GalleryImageName == nil {
-		return nil, errors.New("invalid value for required argument 'GalleryImageName'")
-	}
 	if args.GalleryName == nil {
 		return nil, errors.New("invalid value for required argument 'GalleryName'")
 	}
@@ -194,7 +191,7 @@ type galleryImageArgs struct {
 	// The Eula agreement for the gallery Image Definition.
 	Eula *string `pulumi:"eula"`
 	// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-	GalleryImageName string `pulumi:"galleryImageName"`
+	GalleryImageName *string `pulumi:"galleryImageName"`
 	// The name of the Shared Image Gallery in which the Image Definition is to be created.
 	GalleryName string `pulumi:"galleryName"`
 	// This is the gallery Image Definition identifier.
@@ -230,7 +227,7 @@ type GalleryImageArgs struct {
 	// The Eula agreement for the gallery Image Definition.
 	Eula pulumi.StringPtrInput
 	// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-	GalleryImageName pulumi.StringInput
+	GalleryImageName pulumi.StringPtrInput
 	// The name of the Shared Image Gallery in which the Image Definition is to be created.
 	GalleryName pulumi.StringInput
 	// This is the gallery Image Definition identifier.

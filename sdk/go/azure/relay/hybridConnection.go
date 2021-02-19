@@ -39,9 +39,6 @@ func NewHybridConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.HybridConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'HybridConnectionName'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -121,7 +118,7 @@ func (HybridConnectionState) ElementType() reflect.Type {
 
 type hybridConnectionArgs struct {
 	// The hybrid connection name.
-	HybridConnectionName string `pulumi:"hybridConnectionName"`
+	HybridConnectionName *string `pulumi:"hybridConnectionName"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Returns true if client authorization is needed for this hybrid connection; otherwise, false.
@@ -135,7 +132,7 @@ type hybridConnectionArgs struct {
 // The set of arguments for constructing a HybridConnection resource.
 type HybridConnectionArgs struct {
 	// The hybrid connection name.
-	HybridConnectionName pulumi.StringInput
+	HybridConnectionName pulumi.StringPtrInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// Returns true if client authorization is needed for this hybrid connection; otherwise, false.

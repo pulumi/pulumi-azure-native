@@ -47,9 +47,6 @@ func NewOrganization(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.OrganizationName == nil {
-		return nil, errors.New("invalid value for required argument 'OrganizationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -142,7 +139,7 @@ type organizationArgs struct {
 	// Confluent offer detail
 	OfferDetail *OrganizationResourcePropertiesOfferDetail `pulumi:"offerDetail"`
 	// Organization resource name
-	OrganizationName string `pulumi:"organizationName"`
+	OrganizationName *string `pulumi:"organizationName"`
 	// Resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Organization resource tags
@@ -158,7 +155,7 @@ type OrganizationArgs struct {
 	// Confluent offer detail
 	OfferDetail OrganizationResourcePropertiesOfferDetailPtrInput
 	// Organization resource name
-	OrganizationName pulumi.StringInput
+	OrganizationName pulumi.StringPtrInput
 	// Resource group name
 	ResourceGroupName pulumi.StringInput
 	// Organization resource tags

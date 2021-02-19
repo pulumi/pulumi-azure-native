@@ -43,9 +43,6 @@ func NewImportPipeline(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ImportPipelineName == nil {
-		return nil, errors.New("invalid value for required argument 'ImportPipelineName'")
-	}
 	if args.RegistryName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
@@ -135,7 +132,7 @@ type importPipelineArgs struct {
 	// The identity of the import pipeline.
 	Identity *IdentityProperties `pulumi:"identity"`
 	// The name of the import pipeline.
-	ImportPipelineName string `pulumi:"importPipelineName"`
+	ImportPipelineName *string `pulumi:"importPipelineName"`
 	// The location of the import pipeline.
 	Location *string `pulumi:"location"`
 	// The list of all options configured for the pipeline.
@@ -155,7 +152,7 @@ type ImportPipelineArgs struct {
 	// The identity of the import pipeline.
 	Identity IdentityPropertiesPtrInput
 	// The name of the import pipeline.
-	ImportPipelineName pulumi.StringInput
+	ImportPipelineName pulumi.StringPtrInput
 	// The location of the import pipeline.
 	Location pulumi.StringPtrInput
 	// The list of all options configured for the pipeline.

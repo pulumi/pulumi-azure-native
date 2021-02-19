@@ -70,9 +70,6 @@ func NewConnectorMapping(ctx *pulumi.Context,
 	if args.HubName == nil {
 		return nil, errors.New("invalid value for required argument 'HubName'")
 	}
-	if args.MappingName == nil {
-		return nil, errors.New("invalid value for required argument 'MappingName'")
-	}
 	if args.MappingProperties == nil {
 		return nil, errors.New("invalid value for required argument 'MappingProperties'")
 	}
@@ -206,7 +203,7 @@ type connectorMappingArgs struct {
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
 	// The name of the connector mapping.
-	MappingName string `pulumi:"mappingName"`
+	MappingName *string `pulumi:"mappingName"`
 	// The properties of the mapping.
 	MappingProperties ConnectorMappingProperties `pulumi:"mappingProperties"`
 	// The name of the resource group.
@@ -230,7 +227,7 @@ type ConnectorMappingArgs struct {
 	// The name of the hub.
 	HubName pulumi.StringInput
 	// The name of the connector mapping.
-	MappingName pulumi.StringInput
+	MappingName pulumi.StringPtrInput
 	// The properties of the mapping.
 	MappingProperties ConnectorMappingPropertiesInput
 	// The name of the resource group.

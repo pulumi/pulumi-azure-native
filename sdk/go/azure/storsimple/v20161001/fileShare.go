@@ -62,9 +62,6 @@ func NewFileShare(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ShareName == nil {
-		return nil, errors.New("invalid value for required argument 'ShareName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storsimple:FileShare"),
@@ -165,7 +162,7 @@ type fileShareArgs struct {
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The file share name.
-	ShareName string `pulumi:"shareName"`
+	ShareName *string `pulumi:"shareName"`
 	// The Share Status
 	ShareStatus string `pulumi:"shareStatus"`
 }
@@ -191,7 +188,7 @@ type FileShareArgs struct {
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The file share name.
-	ShareName pulumi.StringInput
+	ShareName pulumi.StringPtrInput
 	// The Share Status
 	ShareStatus ShareStatus
 }

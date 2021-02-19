@@ -59,9 +59,6 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SolutionName == nil {
-		return nil, errors.New("invalid value for required argument 'SolutionName'")
-	}
 	if args.Workspace == nil {
 		return nil, errors.New("invalid value for required argument 'Workspace'")
 	}
@@ -179,7 +176,7 @@ type iotSecuritySolutionArgs struct {
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The solution manager name
-	SolutionName string `pulumi:"solutionName"`
+	SolutionName *string `pulumi:"solutionName"`
 	// Security solution status
 	Status *string `pulumi:"status"`
 	// Resource tags
@@ -207,7 +204,7 @@ type IotSecuritySolutionArgs struct {
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The solution manager name
-	SolutionName pulumi.StringInput
+	SolutionName pulumi.StringPtrInput
 	// Security solution status
 	Status pulumi.StringPtrInput
 	// Resource tags

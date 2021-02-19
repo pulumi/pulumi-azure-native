@@ -34,9 +34,6 @@ func NewRoleManagementPolicyAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RoleManagementPolicyAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'RoleManagementPolicyAssignmentName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -97,7 +94,7 @@ type roleManagementPolicyAssignmentArgs struct {
 	// The role definition of management policy assignment.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
 	// The name of format {guid_guid} the role management policy assignment to upsert.
-	RoleManagementPolicyAssignmentName string `pulumi:"roleManagementPolicyAssignmentName"`
+	RoleManagementPolicyAssignmentName *string `pulumi:"roleManagementPolicyAssignmentName"`
 	// The role management policy scope.
 	Scope string `pulumi:"scope"`
 }
@@ -109,7 +106,7 @@ type RoleManagementPolicyAssignmentArgs struct {
 	// The role definition of management policy assignment.
 	RoleDefinitionId pulumi.StringPtrInput
 	// The name of format {guid_guid} the role management policy assignment to upsert.
-	RoleManagementPolicyAssignmentName pulumi.StringInput
+	RoleManagementPolicyAssignmentName pulumi.StringPtrInput
 	// The role management policy scope.
 	Scope pulumi.StringInput
 }

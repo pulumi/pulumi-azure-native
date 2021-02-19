@@ -60,9 +60,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.AadTenantId == nil {
 		return nil, errors.New("invalid value for required argument 'AadTenantId'")
 	}
-	if args.ClusterName == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -175,7 +172,7 @@ type clusterArgs struct {
 	// Tenant id of cluster AAD identity.
 	AadTenantId string `pulumi:"aadTenantId"`
 	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName *string `pulumi:"clusterName"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
@@ -191,7 +188,7 @@ type ClusterArgs struct {
 	// Tenant id of cluster AAD identity.
 	AadTenantId pulumi.StringInput
 	// The name of the cluster.
-	ClusterName pulumi.StringInput
+	ClusterName pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

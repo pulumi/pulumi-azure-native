@@ -52,9 +52,6 @@ func NewExpressRouteCircuit(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CircuitName == nil {
-		return nil, errors.New("invalid value for required argument 'CircuitName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -260,7 +257,7 @@ type expressRouteCircuitArgs struct {
 	// The list of authorizations.
 	Authorizations []ExpressRouteCircuitAuthorizationType `pulumi:"authorizations"`
 	// The name of the circuit.
-	CircuitName string `pulumi:"circuitName"`
+	CircuitName *string `pulumi:"circuitName"`
 	// The CircuitProvisioningState state of the resource.
 	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
@@ -294,7 +291,7 @@ type ExpressRouteCircuitArgs struct {
 	// The list of authorizations.
 	Authorizations ExpressRouteCircuitAuthorizationTypeArrayInput
 	// The name of the circuit.
-	CircuitName pulumi.StringInput
+	CircuitName pulumi.StringPtrInput
 	// The CircuitProvisioningState state of the resource.
 	CircuitProvisioningState pulumi.StringPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.

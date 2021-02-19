@@ -55,9 +55,6 @@ func NewSiteInstanceDeployment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Id == nil {
-		return nil, errors.New("invalid value for required argument 'Id'")
-	}
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
@@ -177,7 +174,7 @@ type siteInstanceDeploymentArgs struct {
 	// EndTime
 	EndTime *string `pulumi:"endTime"`
 	// Resource Id
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Id of web app instance
 	InstanceId string `pulumi:"instanceId"`
 	// Kind of resource
@@ -215,7 +212,7 @@ type SiteInstanceDeploymentArgs struct {
 	// EndTime
 	EndTime pulumi.StringPtrInput
 	// Resource Id
-	Id pulumi.StringInput
+	Id pulumi.StringPtrInput
 	// Id of web app instance
 	InstanceId pulumi.StringInput
 	// Kind of resource

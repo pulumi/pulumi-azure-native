@@ -42,9 +42,6 @@ func NewProfile(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ProfileName == nil {
-		return nil, errors.New("invalid value for required argument 'ProfileName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -149,7 +146,7 @@ type profileArgs struct {
 	// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
 	MonitorConfig *MonitorConfig `pulumi:"monitorConfig"`
 	// The name of the Traffic Manager profile.
-	ProfileName string `pulumi:"profileName"`
+	ProfileName *string `pulumi:"profileName"`
 	// Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
 	ProfileStatus *string `pulumi:"profileStatus"`
 	// The name of the resource group containing the Traffic Manager profile.
@@ -171,7 +168,7 @@ type ProfileArgs struct {
 	// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
 	MonitorConfig MonitorConfigPtrInput
 	// The name of the Traffic Manager profile.
-	ProfileName pulumi.StringInput
+	ProfileName pulumi.StringPtrInput
 	// Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
 	ProfileStatus pulumi.StringPtrInput
 	// The name of the resource group containing the Traffic Manager profile.

@@ -31,9 +31,6 @@ func NewContentItem(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ContentItemId == nil {
-		return nil, errors.New("invalid value for required argument 'ContentItemId'")
-	}
 	if args.ContentTypeId == nil {
 		return nil, errors.New("invalid value for required argument 'ContentTypeId'")
 	}
@@ -100,7 +97,7 @@ func (ContentItemState) ElementType() reflect.Type {
 
 type contentItemArgs struct {
 	// Content item identifier.
-	ContentItemId string `pulumi:"contentItemId"`
+	ContentItemId *string `pulumi:"contentItemId"`
 	// Content type identifier.
 	ContentTypeId string `pulumi:"contentTypeId"`
 	// The name of the resource group.
@@ -112,7 +109,7 @@ type contentItemArgs struct {
 // The set of arguments for constructing a ContentItem resource.
 type ContentItemArgs struct {
 	// Content item identifier.
-	ContentItemId pulumi.StringInput
+	ContentItemId pulumi.StringPtrInput
 	// Content type identifier.
 	ContentTypeId pulumi.StringInput
 	// The name of the resource group.

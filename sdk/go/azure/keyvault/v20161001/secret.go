@@ -40,9 +40,6 @@ func NewSecret(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SecretName == nil {
-		return nil, errors.New("invalid value for required argument 'SecretName'")
-	}
 	if args.VaultName == nil {
 		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
@@ -124,7 +121,7 @@ type secretArgs struct {
 	// The name of the Resource Group to which the vault belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the secret
-	SecretName string `pulumi:"secretName"`
+	SecretName *string `pulumi:"secretName"`
 	// The tags that will be assigned to the secret.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the vault
@@ -138,7 +135,7 @@ type SecretArgs struct {
 	// The name of the Resource Group to which the vault belongs.
 	ResourceGroupName pulumi.StringInput
 	// Name of the secret
-	SecretName pulumi.StringInput
+	SecretName pulumi.StringPtrInput
 	// The tags that will be assigned to the secret.
 	Tags pulumi.StringMapInput
 	// Name of the vault

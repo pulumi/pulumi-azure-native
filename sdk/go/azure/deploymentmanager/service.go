@@ -40,9 +40,6 @@ func NewService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceName'")
-	}
 	if args.ServiceTopologyName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceTopologyName'")
 	}
@@ -122,7 +119,7 @@ type serviceArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the service resource.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName *string `pulumi:"serviceName"`
 	// The name of the service topology .
 	ServiceTopologyName string `pulumi:"serviceTopologyName"`
 	// Resource tags.
@@ -140,7 +137,7 @@ type ServiceArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the service resource.
-	ServiceName pulumi.StringInput
+	ServiceName pulumi.StringPtrInput
 	// The name of the service topology .
 	ServiceTopologyName pulumi.StringInput
 	// Resource tags.

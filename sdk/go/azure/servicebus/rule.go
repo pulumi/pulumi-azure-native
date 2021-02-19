@@ -43,9 +43,6 @@ func NewRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RuleName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleName'")
-	}
 	if args.SubscriptionName == nil {
 		return nil, errors.New("invalid value for required argument 'SubscriptionName'")
 	}
@@ -131,7 +128,7 @@ type ruleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The rule name.
-	RuleName string `pulumi:"ruleName"`
+	RuleName *string `pulumi:"ruleName"`
 	// Properties of sqlFilter
 	SqlFilter *SqlFilter `pulumi:"sqlFilter"`
 	// The subscription name.
@@ -153,7 +150,7 @@ type RuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The rule name.
-	RuleName pulumi.StringInput
+	RuleName pulumi.StringPtrInput
 	// Properties of sqlFilter
 	SqlFilter SqlFilterPtrInput
 	// The subscription name.

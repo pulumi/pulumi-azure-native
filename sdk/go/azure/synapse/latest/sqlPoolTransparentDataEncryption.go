@@ -41,9 +41,6 @@ func NewSqlPoolTransparentDataEncryption(ctx *pulumi.Context,
 	if args.SqlPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'SqlPoolName'")
 	}
-	if args.TransparentDataEncryptionName == nil {
-		return nil, errors.New("invalid value for required argument 'TransparentDataEncryptionName'")
-	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
@@ -114,7 +111,7 @@ type sqlPoolTransparentDataEncryptionArgs struct {
 	// The status of the database transparent data encryption.
 	Status *string `pulumi:"status"`
 	// The name of the transparent data encryption configuration.
-	TransparentDataEncryptionName string `pulumi:"transparentDataEncryptionName"`
+	TransparentDataEncryptionName *string `pulumi:"transparentDataEncryptionName"`
 	// The name of the workspace
 	WorkspaceName string `pulumi:"workspaceName"`
 }
@@ -128,7 +125,7 @@ type SqlPoolTransparentDataEncryptionArgs struct {
 	// The status of the database transparent data encryption.
 	Status pulumi.StringPtrInput
 	// The name of the transparent data encryption configuration.
-	TransparentDataEncryptionName pulumi.StringInput
+	TransparentDataEncryptionName pulumi.StringPtrInput
 	// The name of the workspace
 	WorkspaceName pulumi.StringInput
 }

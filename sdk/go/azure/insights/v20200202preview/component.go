@@ -89,9 +89,6 @@ func NewComponent(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	if args.ApplicationType == nil {
 		args.ApplicationType = pulumi.String("web")
 	}
@@ -290,7 +287,7 @@ type componentArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// Resource tags
@@ -328,7 +325,7 @@ type ComponentArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Application Insights component resource.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
 	SamplingPercentage pulumi.Float64PtrInput
 	// Resource tags

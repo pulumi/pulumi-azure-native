@@ -36,9 +36,6 @@ func NewDataController(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataControllerName == nil {
-		return nil, errors.New("invalid value for required argument 'DataControllerName'")
-	}
 	if args.OnPremiseProperty == nil {
 		return nil, errors.New("invalid value for required argument 'OnPremiseProperty'")
 	}
@@ -110,7 +107,7 @@ func (DataControllerState) ElementType() reflect.Type {
 }
 
 type dataControllerArgs struct {
-	DataControllerName string `pulumi:"dataControllerName"`
+	DataControllerName *string `pulumi:"dataControllerName"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Properties from the on premise data controller
@@ -123,7 +120,7 @@ type dataControllerArgs struct {
 
 // The set of arguments for constructing a DataController resource.
 type DataControllerArgs struct {
-	DataControllerName pulumi.StringInput
+	DataControllerName pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Properties from the on premise data controller

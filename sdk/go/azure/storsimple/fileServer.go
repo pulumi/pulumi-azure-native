@@ -46,9 +46,6 @@ func NewFileServer(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
-	if args.FileServerName == nil {
-		return nil, errors.New("invalid value for required argument 'FileServerName'")
-	}
 	if args.ManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagerName'")
 	}
@@ -132,7 +129,7 @@ type fileServerArgs struct {
 	// Domain of the file server
 	DomainName string `pulumi:"domainName"`
 	// The file server name.
-	FileServerName string `pulumi:"fileServerName"`
+	FileServerName *string `pulumi:"fileServerName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The resource group name
@@ -152,7 +149,7 @@ type FileServerArgs struct {
 	// Domain of the file server
 	DomainName pulumi.StringInput
 	// The file server name.
-	FileServerName pulumi.StringInput
+	FileServerName pulumi.StringPtrInput
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name

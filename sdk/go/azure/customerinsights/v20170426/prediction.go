@@ -77,9 +77,6 @@ func NewPrediction(ctx *pulumi.Context,
 	if args.PositiveOutcomeExpression == nil {
 		return nil, errors.New("invalid value for required argument 'PositiveOutcomeExpression'")
 	}
-	if args.PredictionName == nil {
-		return nil, errors.New("invalid value for required argument 'PredictionName'")
-	}
 	if args.PrimaryProfileType == nil {
 		return nil, errors.New("invalid value for required argument 'PrimaryProfileType'")
 	}
@@ -232,7 +229,7 @@ type predictionArgs struct {
 	// Positive outcome expression.
 	PositiveOutcomeExpression string `pulumi:"positiveOutcomeExpression"`
 	// Name of the prediction.
-	PredictionName string `pulumi:"predictionName"`
+	PredictionName *string `pulumi:"predictionName"`
 	// Primary profile type.
 	PrimaryProfileType string `pulumi:"primaryProfileType"`
 	// The name of the resource group.
@@ -268,7 +265,7 @@ type PredictionArgs struct {
 	// Positive outcome expression.
 	PositiveOutcomeExpression pulumi.StringInput
 	// Name of the prediction.
-	PredictionName pulumi.StringInput
+	PredictionName pulumi.StringPtrInput
 	// Primary profile type.
 	PrimaryProfileType pulumi.StringInput
 	// The name of the resource group.

@@ -43,9 +43,6 @@ func NewMediaGraph(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.MediaGraphName == nil {
-		return nil, errors.New("invalid value for required argument 'MediaGraphName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -130,7 +127,7 @@ type mediaGraphArgs struct {
 	// Media Graph description.
 	Description *string `pulumi:"description"`
 	// The Media Graph name.
-	MediaGraphName string `pulumi:"mediaGraphName"`
+	MediaGraphName *string `pulumi:"mediaGraphName"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Media Graph sinks.
@@ -146,7 +143,7 @@ type MediaGraphArgs struct {
 	// Media Graph description.
 	Description pulumi.StringPtrInput
 	// The Media Graph name.
-	MediaGraphName pulumi.StringInput
+	MediaGraphName pulumi.StringPtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Media Graph sinks.

@@ -40,9 +40,6 @@ func NewIscsiTarget(ctx *pulumi.Context,
 	if args.DiskPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'DiskPoolName'")
 	}
-	if args.IscsiTargetName == nil {
-		return nil, errors.New("invalid value for required argument 'IscsiTargetName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -114,7 +111,7 @@ type iscsiTargetArgs struct {
 	// The name of the Disk pool.
 	DiskPoolName string `pulumi:"diskPoolName"`
 	// The name of the iSCSI target.
-	IscsiTargetName string `pulumi:"iscsiTargetName"`
+	IscsiTargetName *string `pulumi:"iscsiTargetName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
@@ -128,7 +125,7 @@ type IscsiTargetArgs struct {
 	// The name of the Disk pool.
 	DiskPoolName pulumi.StringInput
 	// The name of the iSCSI target.
-	IscsiTargetName pulumi.StringInput
+	IscsiTargetName pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".

@@ -52,9 +52,6 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.FactoryName == nil {
 		return nil, errors.New("invalid value for required argument 'FactoryName'")
 	}
-	if args.PipelineName == nil {
-		return nil, errors.New("invalid value for required argument 'PipelineName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -161,7 +158,7 @@ type pipelineArgs struct {
 	// List of parameters for pipeline.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// The pipeline name.
-	PipelineName string `pulumi:"pipelineName"`
+	PipelineName *string `pulumi:"pipelineName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Dimensions emitted by Pipeline.
@@ -187,7 +184,7 @@ type PipelineArgs struct {
 	// List of parameters for pipeline.
 	Parameters ParameterSpecificationMapInput
 	// The pipeline name.
-	PipelineName pulumi.StringInput
+	PipelineName pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Dimensions emitted by Pipeline.

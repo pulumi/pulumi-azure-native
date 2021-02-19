@@ -31,9 +31,6 @@ func NewServerDnsAlias(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DnsAliasName == nil {
-		return nil, errors.New("invalid value for required argument 'DnsAliasName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -97,7 +94,7 @@ func (ServerDnsAliasState) ElementType() reflect.Type {
 
 type serverDnsAliasArgs struct {
 	// The name of the server dns alias.
-	DnsAliasName string `pulumi:"dnsAliasName"`
+	DnsAliasName *string `pulumi:"dnsAliasName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server that the alias is pointing to.
@@ -107,7 +104,7 @@ type serverDnsAliasArgs struct {
 // The set of arguments for constructing a ServerDnsAlias resource.
 type ServerDnsAliasArgs struct {
 	// The name of the server dns alias.
-	DnsAliasName pulumi.StringInput
+	DnsAliasName pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server that the alias is pointing to.

@@ -41,9 +41,6 @@ func NewMigrationConfig(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConfigName == nil {
-		return nil, errors.New("invalid value for required argument 'ConfigName'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -129,7 +126,7 @@ func (MigrationConfigState) ElementType() reflect.Type {
 
 type migrationConfigArgs struct {
 	// The configuration name. Should always be "$default".
-	ConfigName string `pulumi:"configName"`
+	ConfigName *string `pulumi:"configName"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name to access Standard Namespace after migration
@@ -143,7 +140,7 @@ type migrationConfigArgs struct {
 // The set of arguments for constructing a MigrationConfig resource.
 type MigrationConfigArgs struct {
 	// The configuration name. Should always be "$default".
-	ConfigName pulumi.StringInput
+	ConfigName pulumi.StringPtrInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// Name to access Standard Namespace after migration

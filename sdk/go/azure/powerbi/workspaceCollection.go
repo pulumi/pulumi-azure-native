@@ -37,9 +37,6 @@ func NewWorkspaceCollection(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.WorkspaceCollectionName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkspaceCollectionName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:powerbi/latest:WorkspaceCollection"),
@@ -108,7 +105,7 @@ type workspaceCollectionArgs struct {
 	Sku               *AzureSku         `pulumi:"sku"`
 	Tags              map[string]string `pulumi:"tags"`
 	// Power BI Embedded Workspace Collection name
-	WorkspaceCollectionName string `pulumi:"workspaceCollectionName"`
+	WorkspaceCollectionName *string `pulumi:"workspaceCollectionName"`
 }
 
 // The set of arguments for constructing a WorkspaceCollection resource.
@@ -120,7 +117,7 @@ type WorkspaceCollectionArgs struct {
 	Sku               AzureSkuPtrInput
 	Tags              pulumi.StringMapInput
 	// Power BI Embedded Workspace Collection name
-	WorkspaceCollectionName pulumi.StringInput
+	WorkspaceCollectionName pulumi.StringPtrInput
 }
 
 func (WorkspaceCollectionArgs) ElementType() reflect.Type {

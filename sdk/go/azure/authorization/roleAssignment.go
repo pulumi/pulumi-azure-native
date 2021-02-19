@@ -34,9 +34,6 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
-	if args.RoleAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'RoleAssignmentName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -111,7 +108,7 @@ type roleAssignmentArgs struct {
 	// Role assignment properties.
 	Properties RoleAssignmentProperties `pulumi:"properties"`
 	// The name of the role assignment to create. It can be any valid GUID.
-	RoleAssignmentName string `pulumi:"roleAssignmentName"`
+	RoleAssignmentName *string `pulumi:"roleAssignmentName"`
 	// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
 	Scope string `pulumi:"scope"`
 }
@@ -121,7 +118,7 @@ type RoleAssignmentArgs struct {
 	// Role assignment properties.
 	Properties RoleAssignmentPropertiesInput
 	// The name of the role assignment to create. It can be any valid GUID.
-	RoleAssignmentName pulumi.StringInput
+	RoleAssignmentName pulumi.StringPtrInput
 	// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
 	Scope pulumi.StringInput
 }

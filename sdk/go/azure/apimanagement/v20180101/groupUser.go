@@ -53,9 +53,6 @@ func NewGroupUser(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
-	if args.Uid == nil {
-		return nil, errors.New("invalid value for required argument 'Uid'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement:GroupUser"),
@@ -162,7 +159,7 @@ type groupUserArgs struct {
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
 	// User identifier. Must be unique in the current API Management service instance.
-	Uid string `pulumi:"uid"`
+	Uid *string `pulumi:"uid"`
 }
 
 // The set of arguments for constructing a GroupUser resource.
@@ -174,7 +171,7 @@ type GroupUserArgs struct {
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 	// User identifier. Must be unique in the current API Management service instance.
-	Uid pulumi.StringInput
+	Uid pulumi.StringPtrInput
 }
 
 func (GroupUserArgs) ElementType() reflect.Type {

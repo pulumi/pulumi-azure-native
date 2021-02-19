@@ -33,9 +33,6 @@ func NewSupportPlanType(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PlanTypeName == nil {
-		return nil, errors.New("invalid value for required argument 'PlanTypeName'")
-	}
 	if args.ProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderName'")
 	}
@@ -96,7 +93,7 @@ func (SupportPlanTypeState) ElementType() reflect.Type {
 
 type supportPlanTypeArgs struct {
 	// The Canonical support plan type.
-	PlanTypeName string `pulumi:"planTypeName"`
+	PlanTypeName *string `pulumi:"planTypeName"`
 	// The support plan type. For now the only valid type is "canonical".
 	ProviderName string `pulumi:"providerName"`
 }
@@ -104,7 +101,7 @@ type supportPlanTypeArgs struct {
 // The set of arguments for constructing a SupportPlanType resource.
 type SupportPlanTypeArgs struct {
 	// The Canonical support plan type.
-	PlanTypeName pulumi.StringInput
+	PlanTypeName pulumi.StringPtrInput
 	// The support plan type. For now the only valid type is "canonical".
 	ProviderName pulumi.StringInput
 }

@@ -57,9 +57,6 @@ func NewVirtualHub(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VirtualHubName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualHubName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:VirtualHub"),
@@ -242,7 +239,7 @@ type virtualHubArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the VirtualHub.
-	VirtualHubName string `pulumi:"virtualHubName"`
+	VirtualHubName *string `pulumi:"virtualHubName"`
 	// List of all vnet connections with this VirtualHub.
 	VirtualNetworkConnections []HubVirtualNetworkConnection `pulumi:"virtualNetworkConnections"`
 	// The VirtualWAN to which the VirtualHub belongs.
@@ -274,7 +271,7 @@ type VirtualHubArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the VirtualHub.
-	VirtualHubName pulumi.StringInput
+	VirtualHubName pulumi.StringPtrInput
 	// List of all vnet connections with this VirtualHub.
 	VirtualNetworkConnections HubVirtualNetworkConnectionArrayInput
 	// The VirtualWAN to which the VirtualHub belongs.

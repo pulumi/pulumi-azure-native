@@ -39,9 +39,6 @@ func NewDataManager(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataManagerName == nil {
-		return nil, errors.New("invalid value for required argument 'DataManagerName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -120,7 +117,7 @@ func (DataManagerState) ElementType() reflect.Type {
 
 type dataManagerArgs struct {
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	DataManagerName string `pulumi:"dataManagerName"`
+	DataManagerName *string `pulumi:"dataManagerName"`
 	// Etag of the Resource.
 	Etag *string `pulumi:"etag"`
 	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
@@ -139,7 +136,7 @@ type dataManagerArgs struct {
 // The set of arguments for constructing a DataManager resource.
 type DataManagerArgs struct {
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	DataManagerName pulumi.StringInput
+	DataManagerName pulumi.StringPtrInput
 	// Etag of the Resource.
 	Etag pulumi.StringPtrInput
 	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East

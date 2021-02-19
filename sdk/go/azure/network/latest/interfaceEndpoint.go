@@ -49,9 +49,6 @@ func NewInterfaceEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.InterfaceEndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'InterfaceEndpointName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -161,7 +158,7 @@ type interfaceEndpointArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the interface endpoint.
-	InterfaceEndpointName string `pulumi:"interfaceEndpointName"`
+	InterfaceEndpointName *string `pulumi:"interfaceEndpointName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource group.
@@ -183,7 +180,7 @@ type InterfaceEndpointArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the interface endpoint.
-	InterfaceEndpointName pulumi.StringInput
+	InterfaceEndpointName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource group.

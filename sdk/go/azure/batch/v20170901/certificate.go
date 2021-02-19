@@ -53,9 +53,6 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.CertificateName == nil {
-		return nil, errors.New("invalid value for required argument 'CertificateName'")
-	}
 	if args.Data == nil {
 		return nil, errors.New("invalid value for required argument 'Data'")
 	}
@@ -179,7 +176,7 @@ type certificateArgs struct {
 	// The name of the Batch account.
 	AccountName string `pulumi:"accountName"`
 	// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
-	CertificateName string `pulumi:"certificateName"`
+	CertificateName *string `pulumi:"certificateName"`
 	// The maximum size is 10KB.
 	Data string `pulumi:"data"`
 	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
@@ -199,7 +196,7 @@ type CertificateArgs struct {
 	// The name of the Batch account.
 	AccountName pulumi.StringInput
 	// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
-	CertificateName pulumi.StringInput
+	CertificateName pulumi.StringPtrInput
 	// The maximum size is 10KB.
 	Data pulumi.StringInput
 	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.

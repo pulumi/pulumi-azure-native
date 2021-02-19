@@ -57,9 +57,6 @@ func NewSavedSearch(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SavedSearchId == nil {
-		return nil, errors.New("invalid value for required argument 'SavedSearchId'")
-	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
@@ -165,7 +162,7 @@ type savedSearchArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The id of the saved search.
-	SavedSearchId string `pulumi:"savedSearchId"`
+	SavedSearchId *string `pulumi:"savedSearchId"`
 	// The tags attached to the saved search.
 	Tags []Tag `pulumi:"tags"`
 	// The version number of the query language. The current version is 2 and is the default.
@@ -191,7 +188,7 @@ type SavedSearchArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The id of the saved search.
-	SavedSearchId pulumi.StringInput
+	SavedSearchId pulumi.StringPtrInput
 	// The tags attached to the saved search.
 	Tags TagArrayInput
 	// The version number of the query language. The current version is 2 and is the default.

@@ -38,9 +38,6 @@ func NewNotebookWorkspace(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.NotebookWorkspaceName == nil {
-		return nil, errors.New("invalid value for required argument 'NotebookWorkspaceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -122,7 +119,7 @@ type notebookWorkspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// The name of the notebook workspace resource.
-	NotebookWorkspaceName string `pulumi:"notebookWorkspaceName"`
+	NotebookWorkspaceName *string `pulumi:"notebookWorkspaceName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -132,7 +129,7 @@ type NotebookWorkspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
 	// The name of the notebook workspace resource.
-	NotebookWorkspaceName pulumi.StringInput
+	NotebookWorkspaceName pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

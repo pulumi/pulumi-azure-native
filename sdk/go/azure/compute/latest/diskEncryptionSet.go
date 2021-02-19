@@ -45,9 +45,6 @@ func NewDiskEncryptionSet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DiskEncryptionSetName == nil {
-		return nil, errors.New("invalid value for required argument 'DiskEncryptionSetName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -143,7 +140,7 @@ type diskEncryptionSetArgs struct {
 	// The key vault key which is currently used by this disk encryption set.
 	ActiveKey *KeyForDiskEncryptionSet `pulumi:"activeKey"`
 	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskEncryptionSetName string `pulumi:"diskEncryptionSetName"`
+	DiskEncryptionSetName *string `pulumi:"diskEncryptionSetName"`
 	// The type of key used to encrypt the data of the disk.
 	EncryptionType *string `pulumi:"encryptionType"`
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
@@ -161,7 +158,7 @@ type DiskEncryptionSetArgs struct {
 	// The key vault key which is currently used by this disk encryption set.
 	ActiveKey KeyForDiskEncryptionSetPtrInput
 	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskEncryptionSetName pulumi.StringInput
+	DiskEncryptionSetName pulumi.StringPtrInput
 	// The type of key used to encrypt the data of the disk.
 	EncryptionType pulumi.StringPtrInput
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.

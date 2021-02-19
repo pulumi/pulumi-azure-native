@@ -62,9 +62,6 @@ func NewAzureFirewall(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AzureFirewallName == nil {
-		return nil, errors.New("invalid value for required argument 'AzureFirewallName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -250,7 +247,7 @@ type azureFirewallArgs struct {
 	// Collection of application rule collections used by Azure Firewall.
 	ApplicationRuleCollections []AzureFirewallApplicationRuleCollection `pulumi:"applicationRuleCollections"`
 	// The name of the Azure Firewall.
-	AzureFirewallName string `pulumi:"azureFirewallName"`
+	AzureFirewallName *string `pulumi:"azureFirewallName"`
 	// The firewallPolicy associated with this azure firewall.
 	FirewallPolicy *SubResource `pulumi:"firewallPolicy"`
 	// IP addresses associated with AzureFirewall.
@@ -288,7 +285,7 @@ type AzureFirewallArgs struct {
 	// Collection of application rule collections used by Azure Firewall.
 	ApplicationRuleCollections AzureFirewallApplicationRuleCollectionArrayInput
 	// The name of the Azure Firewall.
-	AzureFirewallName pulumi.StringInput
+	AzureFirewallName pulumi.StringPtrInput
 	// The firewallPolicy associated with this azure firewall.
 	FirewallPolicy SubResourcePtrInput
 	// IP addresses associated with AzureFirewall.

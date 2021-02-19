@@ -36,9 +36,6 @@ func NewApplicationType(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationTypeName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationTypeName'")
-	}
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
@@ -126,7 +123,7 @@ func (ApplicationTypeState) ElementType() reflect.Type {
 
 type applicationTypeArgs struct {
 	// The name of the application type name resource.
-	ApplicationTypeName string `pulumi:"applicationTypeName"`
+	ApplicationTypeName *string `pulumi:"applicationTypeName"`
 	// The name of the cluster resource.
 	ClusterName string `pulumi:"clusterName"`
 	// Azure resource location.
@@ -140,7 +137,7 @@ type applicationTypeArgs struct {
 // The set of arguments for constructing a ApplicationType resource.
 type ApplicationTypeArgs struct {
 	// The name of the application type name resource.
-	ApplicationTypeName pulumi.StringInput
+	ApplicationTypeName pulumi.StringPtrInput
 	// The name of the cluster resource.
 	ClusterName pulumi.StringInput
 	// Azure resource location.

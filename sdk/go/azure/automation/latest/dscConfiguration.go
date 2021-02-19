@@ -60,9 +60,6 @@ func NewDscConfiguration(ctx *pulumi.Context,
 	if args.AutomationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
 	}
-	if args.ConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'ConfigurationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -176,7 +173,7 @@ type dscConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The create or update parameters for configuration.
-	ConfigurationName string `pulumi:"configurationName"`
+	ConfigurationName *string `pulumi:"configurationName"`
 	// Gets or sets the description of the configuration.
 	Description *string `pulumi:"description"`
 	// Gets or sets the location of the resource.
@@ -202,7 +199,7 @@ type DscConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
 	// The create or update parameters for configuration.
-	ConfigurationName pulumi.StringInput
+	ConfigurationName pulumi.StringPtrInput
 	// Gets or sets the description of the configuration.
 	Description pulumi.StringPtrInput
 	// Gets or sets the location of the resource.

@@ -48,9 +48,6 @@ func NewAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'AssignmentName'")
-	}
 	if args.Identity == nil {
 		return nil, errors.New("invalid value for required argument 'Identity'")
 	}
@@ -141,7 +138,7 @@ func (AssignmentState) ElementType() reflect.Type {
 
 type assignmentArgs struct {
 	// name of the assignment.
-	AssignmentName string `pulumi:"assignmentName"`
+	AssignmentName *string `pulumi:"assignmentName"`
 	// ID of the Blueprint definition resource.
 	BlueprintId *string `pulumi:"blueprintId"`
 	// Multi-line explain this resource.
@@ -165,7 +162,7 @@ type assignmentArgs struct {
 // The set of arguments for constructing a Assignment resource.
 type AssignmentArgs struct {
 	// name of the assignment.
-	AssignmentName pulumi.StringInput
+	AssignmentName pulumi.StringPtrInput
 	// ID of the Blueprint definition resource.
 	BlueprintId pulumi.StringPtrInput
 	// Multi-line explain this resource.

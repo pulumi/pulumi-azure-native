@@ -46,9 +46,6 @@ func NewMediaService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -144,7 +141,7 @@ func (MediaServiceState) ElementType() reflect.Type {
 
 type mediaServiceArgs struct {
 	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// The account encryption properties.
 	Encryption *AccountEncryption `pulumi:"encryption"`
 	// The Managed Identity for the Media Services account.
@@ -163,7 +160,7 @@ type mediaServiceArgs struct {
 // The set of arguments for constructing a MediaService resource.
 type MediaServiceArgs struct {
 	// The Media Services account name.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// The account encryption properties.
 	Encryption AccountEncryptionPtrInput
 	// The Managed Identity for the Media Services account.

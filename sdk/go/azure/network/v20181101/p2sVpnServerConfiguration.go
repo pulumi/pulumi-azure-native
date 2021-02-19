@@ -47,9 +47,6 @@ func NewP2sVpnServerConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.P2SVpnServerConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'P2SVpnServerConfigurationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -179,7 +176,7 @@ type p2sVpnServerConfigurationArgs struct {
 	// VPN client root certificate of P2SVpnServerConfiguration.
 	P2SVpnServerConfigVpnClientRootCertificates []P2SVpnServerConfigVpnClientRootCertificate `pulumi:"p2SVpnServerConfigVpnClientRootCertificates"`
 	// The name of the P2SVpnServerConfiguration.
-	P2SVpnServerConfigurationName string `pulumi:"p2SVpnServerConfigurationName"`
+	P2SVpnServerConfigurationName *string `pulumi:"p2SVpnServerConfigurationName"`
 	// The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
 	RadiusServerAddress *string `pulumi:"radiusServerAddress"`
 	// The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
@@ -211,7 +208,7 @@ type P2sVpnServerConfigurationArgs struct {
 	// VPN client root certificate of P2SVpnServerConfiguration.
 	P2SVpnServerConfigVpnClientRootCertificates P2SVpnServerConfigVpnClientRootCertificateArrayInput
 	// The name of the P2SVpnServerConfiguration.
-	P2SVpnServerConfigurationName pulumi.StringInput
+	P2SVpnServerConfigurationName pulumi.StringPtrInput
 	// The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
 	RadiusServerAddress pulumi.StringPtrInput
 	// The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.

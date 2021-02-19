@@ -64,9 +64,6 @@ func NewProductApi(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApiId == nil {
-		return nil, errors.New("invalid value for required argument 'ApiId'")
-	}
 	if args.ProductId == nil {
 		return nil, errors.New("invalid value for required argument 'ProductId'")
 	}
@@ -216,7 +213,7 @@ func (ProductApiState) ElementType() reflect.Type {
 
 type productApiArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId string `pulumi:"apiId"`
+	ApiId *string `pulumi:"apiId"`
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId string `pulumi:"productId"`
 	// The name of the resource group.
@@ -228,7 +225,7 @@ type productApiArgs struct {
 // The set of arguments for constructing a ProductApi resource.
 type ProductApiArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId pulumi.StringInput
+	ApiId pulumi.StringPtrInput
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId pulumi.StringInput
 	// The name of the resource group.

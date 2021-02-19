@@ -37,9 +37,6 @@ func NewServerCommunicationLink(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CommunicationLinkName == nil {
-		return nil, errors.New("invalid value for required argument 'CommunicationLinkName'")
-	}
 	if args.PartnerServer == nil {
 		return nil, errors.New("invalid value for required argument 'PartnerServer'")
 	}
@@ -115,7 +112,7 @@ func (ServerCommunicationLinkState) ElementType() reflect.Type {
 
 type serverCommunicationLinkArgs struct {
 	// The name of the server communication link.
-	CommunicationLinkName string `pulumi:"communicationLinkName"`
+	CommunicationLinkName *string `pulumi:"communicationLinkName"`
 	// The name of the partner server.
 	PartnerServer string `pulumi:"partnerServer"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -127,7 +124,7 @@ type serverCommunicationLinkArgs struct {
 // The set of arguments for constructing a ServerCommunicationLink resource.
 type ServerCommunicationLinkArgs struct {
 	// The name of the server communication link.
-	CommunicationLinkName pulumi.StringInput
+	CommunicationLinkName pulumi.StringPtrInput
 	// The name of the partner server.
 	PartnerServer pulumi.StringInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

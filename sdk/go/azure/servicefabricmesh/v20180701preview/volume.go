@@ -46,9 +46,6 @@ func NewVolume(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VolumeName == nil {
-		return nil, errors.New("invalid value for required argument 'VolumeName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:servicefabricmesh:Volume"),
@@ -135,7 +132,7 @@ type volumeArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The identity of the volume.
-	VolumeName string `pulumi:"volumeName"`
+	VolumeName *string `pulumi:"volumeName"`
 }
 
 // The set of arguments for constructing a Volume resource.
@@ -153,7 +150,7 @@ type VolumeArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The identity of the volume.
-	VolumeName pulumi.StringInput
+	VolumeName pulumi.StringPtrInput
 }
 
 func (VolumeArgs) ElementType() reflect.Type {

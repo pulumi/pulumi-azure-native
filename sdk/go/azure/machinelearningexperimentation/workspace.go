@@ -54,9 +54,6 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.WorkspaceName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningexperimentation/v20170501preview:Workspace"),
@@ -148,7 +145,7 @@ type workspaceArgs struct {
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the machine learning team account workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName *string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -166,7 +163,7 @@ type WorkspaceArgs struct {
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The name of the machine learning team account workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName pulumi.StringPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

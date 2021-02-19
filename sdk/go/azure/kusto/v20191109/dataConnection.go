@@ -35,9 +35,6 @@ func NewDataConnection(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
-	if args.DataConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'DataConnectionName'")
-	}
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
@@ -125,7 +122,7 @@ type dataConnectionArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the data connection.
-	DataConnectionName string `pulumi:"dataConnectionName"`
+	DataConnectionName *string `pulumi:"dataConnectionName"`
 	// The name of the database in the Kusto cluster.
 	DatabaseName string `pulumi:"databaseName"`
 	// Kind of the endpoint for the data connection
@@ -141,7 +138,7 @@ type DataConnectionArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName pulumi.StringInput
 	// The name of the data connection.
-	DataConnectionName pulumi.StringInput
+	DataConnectionName pulumi.StringPtrInput
 	// The name of the database in the Kusto cluster.
 	DatabaseName pulumi.StringInput
 	// Kind of the endpoint for the data connection

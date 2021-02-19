@@ -43,9 +43,6 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ComputeName == nil {
-		return nil, errors.New("invalid value for required argument 'ComputeName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -168,7 +165,7 @@ func (MachineLearningComputeState) ElementType() reflect.Type {
 
 type machineLearningComputeArgs struct {
 	// Name of the Azure Machine Learning compute.
-	ComputeName string `pulumi:"computeName"`
+	ComputeName *string `pulumi:"computeName"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
 	// Specifies the location of the resource.
@@ -188,7 +185,7 @@ type machineLearningComputeArgs struct {
 // The set of arguments for constructing a MachineLearningCompute resource.
 type MachineLearningComputeArgs struct {
 	// Name of the Azure Machine Learning compute.
-	ComputeName pulumi.StringInput
+	ComputeName pulumi.StringPtrInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// Specifies the location of the resource.

@@ -52,9 +52,6 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationResourceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -156,7 +153,7 @@ func (ApplicationState) ElementType() reflect.Type {
 
 type applicationArgs struct {
 	// The identity of the application.
-	ApplicationResourceName string `pulumi:"applicationResourceName"`
+	ApplicationResourceName *string `pulumi:"applicationResourceName"`
 	// Internal - used by Visual Studio to setup the debugging session on the local development environment.
 	DebugParams *string `pulumi:"debugParams"`
 	// User readable description of the application.
@@ -176,7 +173,7 @@ type applicationArgs struct {
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	// The identity of the application.
-	ApplicationResourceName pulumi.StringInput
+	ApplicationResourceName pulumi.StringPtrInput
 	// Internal - used by Visual Studio to setup the debugging session on the local development environment.
 	DebugParams pulumi.StringPtrInput
 	// User readable description of the application.

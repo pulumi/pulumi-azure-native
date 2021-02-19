@@ -49,9 +49,6 @@ func NewEventHubConnection(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	if args.EventHubConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'EventHubConnectionName'")
-	}
 	if args.EventHubResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'EventHubResourceId'")
 	}
@@ -140,7 +137,7 @@ type eventHubConnectionArgs struct {
 	// The name of the database in the Kusto cluster.
 	DatabaseName string `pulumi:"databaseName"`
 	// The name of the event hub connection.
-	EventHubConnectionName string `pulumi:"eventHubConnectionName"`
+	EventHubConnectionName *string `pulumi:"eventHubConnectionName"`
 	// The resource ID of the event hub to be used to create a data connection.
 	EventHubResourceId string `pulumi:"eventHubResourceId"`
 	// Resource location.
@@ -164,7 +161,7 @@ type EventHubConnectionArgs struct {
 	// The name of the database in the Kusto cluster.
 	DatabaseName pulumi.StringInput
 	// The name of the event hub connection.
-	EventHubConnectionName pulumi.StringInput
+	EventHubConnectionName pulumi.StringPtrInput
 	// The resource ID of the event hub to be used to create a data connection.
 	EventHubResourceId pulumi.StringInput
 	// Resource location.

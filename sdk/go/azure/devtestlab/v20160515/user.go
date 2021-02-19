@@ -45,9 +45,6 @@ func NewUser(ctx *pulumi.Context,
 	if args.LabName == nil {
 		return nil, errors.New("invalid value for required argument 'LabName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -138,7 +135,7 @@ type userArgs struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the user profile.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -160,7 +157,7 @@ type UserArgs struct {
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the user profile.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The provisioning status of the resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

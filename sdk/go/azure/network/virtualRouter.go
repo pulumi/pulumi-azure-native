@@ -50,9 +50,6 @@ func NewVirtualRouter(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VirtualRouterName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualRouterName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualRouter"),
@@ -185,7 +182,7 @@ type virtualRouterArgs struct {
 	// VirtualRouter IPs.
 	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 	// The name of the Virtual Router.
-	VirtualRouterName string `pulumi:"virtualRouterName"`
+	VirtualRouterName *string `pulumi:"virtualRouterName"`
 }
 
 // The set of arguments for constructing a VirtualRouter resource.
@@ -207,7 +204,7 @@ type VirtualRouterArgs struct {
 	// VirtualRouter IPs.
 	VirtualRouterIps pulumi.StringArrayInput
 	// The name of the Virtual Router.
-	VirtualRouterName pulumi.StringInput
+	VirtualRouterName pulumi.StringPtrInput
 }
 
 func (VirtualRouterArgs) ElementType() reflect.Type {

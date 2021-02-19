@@ -49,9 +49,6 @@ func NewScopeMap(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ScopeMapName == nil {
-		return nil, errors.New("invalid value for required argument 'ScopeMapName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry:ScopeMap"),
@@ -136,7 +133,7 @@ type scopeMapArgs struct {
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the scope map.
-	ScopeMapName string `pulumi:"scopeMapName"`
+	ScopeMapName *string `pulumi:"scopeMapName"`
 }
 
 // The set of arguments for constructing a ScopeMap resource.
@@ -152,7 +149,7 @@ type ScopeMapArgs struct {
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// The name of the scope map.
-	ScopeMapName pulumi.StringInput
+	ScopeMapName pulumi.StringPtrInput
 }
 
 func (ScopeMapArgs) ElementType() reflect.Type {

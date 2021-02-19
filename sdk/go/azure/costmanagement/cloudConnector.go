@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -58,12 +57,9 @@ type CloudConnector struct {
 func NewCloudConnector(ctx *pulumi.Context,
 	name string, args *CloudConnectorArgs, opts ...pulumi.ResourceOption) (*CloudConnector, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &CloudConnectorArgs{}
 	}
 
-	if args.ConnectorName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectorName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20190301preview:CloudConnector"),
@@ -177,7 +173,7 @@ type cloudConnectorArgs struct {
 	// Connector billing model
 	BillingModel *string `pulumi:"billingModel"`
 	// Connector Name.
-	ConnectorName string `pulumi:"connectorName"`
+	ConnectorName *string `pulumi:"connectorName"`
 	// Credentials authentication key (eg AWS ARN)
 	CredentialsKey *string `pulumi:"credentialsKey"`
 	// Credentials secret (eg AWS ExternalId)
@@ -199,7 +195,7 @@ type CloudConnectorArgs struct {
 	// Connector billing model
 	BillingModel pulumi.StringPtrInput
 	// Connector Name.
-	ConnectorName pulumi.StringInput
+	ConnectorName pulumi.StringPtrInput
 	// Credentials authentication key (eg AWS ARN)
 	CredentialsKey pulumi.StringPtrInput
 	// Credentials secret (eg AWS ExternalId)

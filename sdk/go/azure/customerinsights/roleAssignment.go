@@ -69,9 +69,6 @@ func NewRoleAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'AssignmentName'")
-	}
 	if args.HubName == nil {
 		return nil, errors.New("invalid value for required argument 'HubName'")
 	}
@@ -214,7 +211,7 @@ func (RoleAssignmentState) ElementType() reflect.Type {
 
 type roleAssignmentArgs struct {
 	// The assignment name
-	AssignmentName string `pulumi:"assignmentName"`
+	AssignmentName *string `pulumi:"assignmentName"`
 	// Widget types set for the assignment.
 	ConflationPolicies *ResourceSetDescription `pulumi:"conflationPolicies"`
 	// Connectors set for the assignment.
@@ -258,7 +255,7 @@ type roleAssignmentArgs struct {
 // The set of arguments for constructing a RoleAssignment resource.
 type RoleAssignmentArgs struct {
 	// The assignment name
-	AssignmentName pulumi.StringInput
+	AssignmentName pulumi.StringPtrInput
 	// Widget types set for the assignment.
 	ConflationPolicies ResourceSetDescriptionPtrInput
 	// Connectors set for the assignment.

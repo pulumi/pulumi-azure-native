@@ -32,9 +32,6 @@ func NewRegistrationDefinition(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RegistrationDefinitionId == nil {
-		return nil, errors.New("invalid value for required argument 'RegistrationDefinitionId'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -112,7 +109,7 @@ type registrationDefinitionArgs struct {
 	// Properties of a registration definition.
 	Properties *RegistrationDefinitionProperties `pulumi:"properties"`
 	// Guid of the registration definition.
-	RegistrationDefinitionId string `pulumi:"registrationDefinitionId"`
+	RegistrationDefinitionId *string `pulumi:"registrationDefinitionId"`
 	// Scope of the resource.
 	Scope string `pulumi:"scope"`
 }
@@ -124,7 +121,7 @@ type RegistrationDefinitionArgs struct {
 	// Properties of a registration definition.
 	Properties RegistrationDefinitionPropertiesPtrInput
 	// Guid of the registration definition.
-	RegistrationDefinitionId pulumi.StringInput
+	RegistrationDefinitionId pulumi.StringPtrInput
 	// Scope of the resource.
 	Scope pulumi.StringInput
 }

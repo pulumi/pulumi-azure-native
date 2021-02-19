@@ -47,9 +47,6 @@ func NewServiceUnit(ctx *pulumi.Context,
 	if args.ServiceTopologyName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceTopologyName'")
 	}
-	if args.ServiceUnitName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceUnitName'")
-	}
 	if args.TargetResourceGroup == nil {
 		return nil, errors.New("invalid value for required argument 'TargetResourceGroup'")
 	}
@@ -135,7 +132,7 @@ type serviceUnitArgs struct {
 	// The name of the service topology .
 	ServiceTopologyName string `pulumi:"serviceTopologyName"`
 	// The name of the service unit resource.
-	ServiceUnitName string `pulumi:"serviceUnitName"`
+	ServiceUnitName *string `pulumi:"serviceUnitName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
@@ -157,7 +154,7 @@ type ServiceUnitArgs struct {
 	// The name of the service topology .
 	ServiceTopologyName pulumi.StringInput
 	// The name of the service unit resource.
-	ServiceUnitName pulumi.StringInput
+	ServiceUnitName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.

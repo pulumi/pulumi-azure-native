@@ -63,9 +63,6 @@ func NewConnectedCluster(ctx *pulumi.Context,
 	if args.AgentPublicKeyCertificate == nil {
 		return nil, errors.New("invalid value for required argument 'AgentPublicKeyCertificate'")
 	}
-	if args.ClusterName == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
 	if args.Identity == nil {
 		return nil, errors.New("invalid value for required argument 'Identity'")
 	}
@@ -194,7 +191,7 @@ type connectedClusterArgs struct {
 	// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
 	AgentPublicKeyCertificate string `pulumi:"agentPublicKeyCertificate"`
 	// The name of the Kubernetes cluster on which get is called.
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName *string `pulumi:"clusterName"`
 	// The Kubernetes distribution running on this connected cluster.
 	Distribution *string `pulumi:"distribution"`
 	// The identity of the connected cluster.
@@ -216,7 +213,7 @@ type ConnectedClusterArgs struct {
 	// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
 	AgentPublicKeyCertificate pulumi.StringInput
 	// The name of the Kubernetes cluster on which get is called.
-	ClusterName pulumi.StringInput
+	ClusterName pulumi.StringPtrInput
 	// The Kubernetes distribution running on this connected cluster.
 	Distribution pulumi.StringPtrInput
 	// The identity of the connected cluster.

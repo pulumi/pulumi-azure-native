@@ -55,9 +55,6 @@ func NewDisk(ctx *pulumi.Context,
 	if args.LabName == nil {
 		return nil, errors.New("invalid value for required argument 'LabName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -183,7 +180,7 @@ type diskArgs struct {
 	// When backed by managed disk, this is the ID of the compute disk resource.
 	ManagedDiskId *string `pulumi:"managedDiskId"`
 	// The name of the disk.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -217,7 +214,7 @@ type DiskArgs struct {
 	// When backed by managed disk, this is the ID of the compute disk resource.
 	ManagedDiskId pulumi.StringPtrInput
 	// The name of the disk.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The provisioning status of the resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

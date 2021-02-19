@@ -43,9 +43,6 @@ func NewSqlServerRegistration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SqlServerRegistrationName == nil {
-		return nil, errors.New("invalid value for required argument 'SqlServerRegistrationName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:azuredata:SqlServerRegistration"),
@@ -128,7 +125,7 @@ type sqlServerRegistrationArgs struct {
 	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the SQL Server registration.
-	SqlServerRegistrationName string `pulumi:"sqlServerRegistrationName"`
+	SqlServerRegistrationName *string `pulumi:"sqlServerRegistrationName"`
 	// Subscription Id
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// Resource tags.
@@ -146,7 +143,7 @@ type SqlServerRegistrationArgs struct {
 	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// Name of the SQL Server registration.
-	SqlServerRegistrationName pulumi.StringInput
+	SqlServerRegistrationName pulumi.StringPtrInput
 	// Subscription Id
 	SubscriptionId pulumi.StringPtrInput
 	// Resource tags.

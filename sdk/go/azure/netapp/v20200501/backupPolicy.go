@@ -51,9 +51,6 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.BackupPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'BackupPolicyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -164,7 +161,7 @@ type backupPolicyArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
 	// Backup policy Name which uniquely identify backup policy.
-	BackupPolicyName string `pulumi:"backupPolicyName"`
+	BackupPolicyName *string `pulumi:"backupPolicyName"`
 	// Daily backups count to keep
 	DailyBackupsToKeep *int `pulumi:"dailyBackupsToKeep"`
 	// The property to decide policy is enabled or not
@@ -192,7 +189,7 @@ type BackupPolicyArgs struct {
 	// The name of the NetApp account
 	AccountName pulumi.StringInput
 	// Backup policy Name which uniquely identify backup policy.
-	BackupPolicyName pulumi.StringInput
+	BackupPolicyName pulumi.StringPtrInput
 	// Daily backups count to keep
 	DailyBackupsToKeep pulumi.IntPtrInput
 	// The property to decide policy is enabled or not

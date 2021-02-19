@@ -42,9 +42,6 @@ func NewServerKey(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.KeyName == nil {
-		return nil, errors.New("invalid value for required argument 'KeyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -137,7 +134,7 @@ type serverKeyArgs struct {
 	// The server key creation date.
 	CreationDate *string `pulumi:"creationDate"`
 	// The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901, then the server key name should be formatted as: YourVaultName_YourKeyName_01234567890123456789012345678901
-	KeyName string `pulumi:"keyName"`
+	KeyName *string `pulumi:"keyName"`
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.
 	Kind *string `pulumi:"kind"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -157,7 +154,7 @@ type ServerKeyArgs struct {
 	// The server key creation date.
 	CreationDate pulumi.StringPtrInput
 	// The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901, then the server key name should be formatted as: YourVaultName_YourKeyName_01234567890123456789012345678901
-	KeyName pulumi.StringInput
+	KeyName pulumi.StringPtrInput
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.
 	Kind pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

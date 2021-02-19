@@ -47,9 +47,6 @@ func NewFavorite(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FavoriteId == nil {
-		return nil, errors.New("invalid value for required argument 'FavoriteId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -146,7 +143,7 @@ type favoriteArgs struct {
 	// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
 	Config *string `pulumi:"config"`
 	// The Id of a specific favorite defined in the Application Insights component
-	FavoriteId string `pulumi:"favoriteId"`
+	FavoriteId *string `pulumi:"favoriteId"`
 	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
 	FavoriteType *string `pulumi:"favoriteType"`
 	// Flag denoting wether or not this favorite was generated from a template.
@@ -172,7 +169,7 @@ type FavoriteArgs struct {
 	// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
 	Config pulumi.StringPtrInput
 	// The Id of a specific favorite defined in the Application Insights component
-	FavoriteId pulumi.StringInput
+	FavoriteId pulumi.StringPtrInput
 	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
 	FavoriteType *FavoriteType
 	// Flag denoting wether or not this favorite was generated from a template.

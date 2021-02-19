@@ -54,9 +54,6 @@ func NewDedicatedHost(ctx *pulumi.Context,
 	if args.HostGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'HostGroupName'")
 	}
-	if args.HostName == nil {
-		return nil, errors.New("invalid value for required argument 'HostName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -173,7 +170,7 @@ type dedicatedHostArgs struct {
 	// The name of the dedicated host group.
 	HostGroupName string `pulumi:"hostGroupName"`
 	// The name of the dedicated host .
-	HostName string `pulumi:"hostName"`
+	HostName *string `pulumi:"hostName"`
 	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location
@@ -195,7 +192,7 @@ type DedicatedHostArgs struct {
 	// The name of the dedicated host group.
 	HostGroupName pulumi.StringInput
 	// The name of the dedicated host .
-	HostName pulumi.StringInput
+	HostName pulumi.StringPtrInput
 	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
 	LicenseType *DedicatedHostLicenseTypes
 	// Resource location

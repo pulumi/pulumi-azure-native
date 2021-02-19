@@ -56,9 +56,6 @@ func NewConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -175,7 +172,7 @@ type connectionArgs struct {
 	// Timestamp of last connection change.
 	ChangedTime *string `pulumi:"changedTime"`
 	// The connection name.
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// Timestamp of the connection creation
 	CreatedTime *string `pulumi:"createdTime"`
 	// Custom login setting values.
@@ -217,7 +214,7 @@ type ConnectionArgs struct {
 	// Timestamp of last connection change.
 	ChangedTime pulumi.StringPtrInput
 	// The connection name.
-	ConnectionName pulumi.StringInput
+	ConnectionName pulumi.StringPtrInput
 	// Timestamp of the connection creation
 	CreatedTime pulumi.StringPtrInput
 	// Custom login setting values.

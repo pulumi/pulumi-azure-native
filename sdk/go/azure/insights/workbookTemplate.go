@@ -49,9 +49,6 @@ func NewWorkbookTemplate(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	if args.TemplateData == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateData'")
 	}
@@ -142,7 +139,7 @@ type workbookTemplateArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Valid JSON object containing workbook template payload.
@@ -164,7 +161,7 @@ type WorkbookTemplateArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Application Insights component resource.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Valid JSON object containing workbook template payload.

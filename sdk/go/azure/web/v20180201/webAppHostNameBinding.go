@@ -48,9 +48,6 @@ func NewWebAppHostNameBinding(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.HostName == nil {
-		return nil, errors.New("invalid value for required argument 'HostName'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -176,7 +173,7 @@ type webAppHostNameBindingArgs struct {
 	// Fully qualified ARM domain resource URI.
 	DomainId *string `pulumi:"domainId"`
 	// Hostname in the hostname binding.
-	HostName string `pulumi:"hostName"`
+	HostName *string `pulumi:"hostName"`
 	// Hostname type.
 	HostNameType *string `pulumi:"hostNameType"`
 	// Kind of resource.
@@ -204,7 +201,7 @@ type WebAppHostNameBindingArgs struct {
 	// Fully qualified ARM domain resource URI.
 	DomainId pulumi.StringPtrInput
 	// Hostname in the hostname binding.
-	HostName pulumi.StringInput
+	HostName pulumi.StringPtrInput
 	// Hostname type.
 	HostNameType *HostNameType
 	// Kind of resource.

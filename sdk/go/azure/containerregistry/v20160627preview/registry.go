@@ -40,9 +40,6 @@ func NewRegistry(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RegistryName == nil {
-		return nil, errors.New("invalid value for required argument 'RegistryName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -148,7 +145,7 @@ type registryArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
 	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
+	RegistryName *string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
@@ -164,7 +161,7 @@ type RegistryArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringPtrInput
 	// The name of the container registry.
-	RegistryName pulumi.StringInput
+	RegistryName pulumi.StringPtrInput
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.

@@ -92,9 +92,6 @@ func NewJob(ctx *pulumi.Context,
 	if args.ExperimentName == nil {
 		return nil, errors.New("invalid value for required argument 'ExperimentName'")
 	}
-	if args.JobName == nil {
-		return nil, errors.New("invalid value for required argument 'JobName'")
-	}
 	if args.NodeCount == nil {
 		return nil, errors.New("invalid value for required argument 'NodeCount'")
 	}
@@ -302,7 +299,7 @@ type jobArgs struct {
 	// A list of input directories for the job.
 	InputDirectories []InputDirectory `pulumi:"inputDirectories"`
 	// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	JobName string `pulumi:"jobName"`
+	JobName *string `pulumi:"jobName"`
 	// A command line to be executed on each node allocated for the job before tool kit is launched.
 	JobPreparation *JobPreparation `pulumi:"jobPreparation"`
 	// Information on mount volumes to be used by the job. These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
@@ -356,7 +353,7 @@ type JobArgs struct {
 	// A list of input directories for the job.
 	InputDirectories InputDirectoryArrayInput
 	// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	JobName pulumi.StringInput
+	JobName pulumi.StringPtrInput
 	// A command line to be executed on each node allocated for the job before tool kit is launched.
 	JobPreparation JobPreparationPtrInput
 	// Information on mount volumes to be used by the job. These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.

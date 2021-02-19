@@ -85,9 +85,6 @@ func NewManagedInstance(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ManagedInstanceName == nil {
-		return nil, errors.New("invalid value for required argument 'ManagedInstanceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -285,7 +282,7 @@ type managedInstanceArgs struct {
 	// Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
 	ManagedInstanceCreateMode *string `pulumi:"managedInstanceCreateMode"`
 	// The name of the managed instance.
-	ManagedInstanceName string `pulumi:"managedInstanceName"`
+	ManagedInstanceName *string `pulumi:"managedInstanceName"`
 	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Connection type used for connecting to the instance.
@@ -344,7 +341,7 @@ type ManagedInstanceArgs struct {
 	// Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
 	ManagedInstanceCreateMode pulumi.StringPtrInput
 	// The name of the managed instance.
-	ManagedInstanceName pulumi.StringInput
+	ManagedInstanceName pulumi.StringPtrInput
 	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
 	MinimalTlsVersion pulumi.StringPtrInput
 	// Connection type used for connecting to the instance.

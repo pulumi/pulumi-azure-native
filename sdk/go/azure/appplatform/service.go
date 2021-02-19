@@ -40,9 +40,6 @@ func NewService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/latest:Service"),
@@ -121,7 +118,7 @@ type serviceArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Service resource.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName *string `pulumi:"serviceName"`
 	// Sku of the Service resource
 	Sku *Sku `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
@@ -137,7 +134,7 @@ type ServiceArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Service resource.
-	ServiceName pulumi.StringInput
+	ServiceName pulumi.StringPtrInput
 	// Sku of the Service resource
 	Sku SkuPtrInput
 	// Tags of the service which is a list of key value pairs that describe the resource.

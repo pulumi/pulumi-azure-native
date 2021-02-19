@@ -39,9 +39,6 @@ func NewMachineLearningDataset(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DatasetName == nil {
-		return nil, errors.New("invalid value for required argument 'DatasetName'")
-	}
 	if args.DatasetType == nil {
 		return nil, errors.New("invalid value for required argument 'DatasetType'")
 	}
@@ -127,7 +124,7 @@ func (MachineLearningDatasetState) ElementType() reflect.Type {
 
 type machineLearningDatasetArgs struct {
 	// The Dataset name.
-	DatasetName string `pulumi:"datasetName"`
+	DatasetName *string `pulumi:"datasetName"`
 	// Specifies dataset type.
 	DatasetType  string                           `pulumi:"datasetType"`
 	Parameters   DatasetCreateRequestParameters   `pulumi:"parameters"`
@@ -144,7 +141,7 @@ type machineLearningDatasetArgs struct {
 // The set of arguments for constructing a MachineLearningDataset resource.
 type MachineLearningDatasetArgs struct {
 	// The Dataset name.
-	DatasetName pulumi.StringInput
+	DatasetName pulumi.StringPtrInput
 	// Specifies dataset type.
 	DatasetType  pulumi.StringInput
 	Parameters   DatasetCreateRequestParametersInput

@@ -94,9 +94,6 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -321,7 +318,7 @@ func (DatabaseAccountState) ElementType() reflect.Type {
 
 type databaseAccountArgs struct {
 	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// Identity for the resource.
 	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// Indicates the type of database account. This can only be set at database account creation.
@@ -339,7 +336,7 @@ type databaseAccountArgs struct {
 // The set of arguments for constructing a DatabaseAccount resource.
 type DatabaseAccountArgs struct {
 	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// Identity for the resource.
 	Identity ManagedServiceIdentityPtrInput
 	// Indicates the type of database account. This can only be set at database account creation.

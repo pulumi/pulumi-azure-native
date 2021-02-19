@@ -39,9 +39,6 @@ func NewWebAppPublicCertificate(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
-	if args.PublicCertificateName == nil {
-		return nil, errors.New("invalid value for required argument 'PublicCertificateName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -137,7 +134,7 @@ type webAppPublicCertificateArgs struct {
 	// Public Certificate Location
 	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
 	// Public certificate name.
-	PublicCertificateName string `pulumi:"publicCertificateName"`
+	PublicCertificateName *string `pulumi:"publicCertificateName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -153,7 +150,7 @@ type WebAppPublicCertificateArgs struct {
 	// Public Certificate Location
 	PublicCertificateLocation *PublicCertificateLocation
 	// Public certificate name.
-	PublicCertificateName pulumi.StringInput
+	PublicCertificateName pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 }

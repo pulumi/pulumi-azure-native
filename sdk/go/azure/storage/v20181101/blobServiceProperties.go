@@ -37,9 +37,6 @@ func NewBlobServiceProperties(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.BlobServicesName == nil {
-		return nil, errors.New("invalid value for required argument 'BlobServicesName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -122,7 +119,7 @@ type blobServicePropertiesArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
 	// The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
-	BlobServicesName string `pulumi:"blobServicesName"`
+	BlobServicesName *string `pulumi:"blobServicesName"`
 	// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
 	Cors *CorsRules `pulumi:"cors"`
 	// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
@@ -138,7 +135,7 @@ type BlobServicePropertiesArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
 	// The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
-	BlobServicesName pulumi.StringInput
+	BlobServicesName pulumi.StringPtrInput
 	// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
 	Cors CorsRulesPtrInput
 	// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.

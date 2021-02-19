@@ -41,9 +41,6 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.VirtualNetworkRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualNetworkRuleName'")
-	}
 	if args.VirtualNetworkSubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkSubnetId'")
 	}
@@ -118,7 +115,7 @@ type virtualNetworkRuleArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// The name of the virtual network rule.
-	VirtualNetworkRuleName string `pulumi:"virtualNetworkRuleName"`
+	VirtualNetworkRuleName *string `pulumi:"virtualNetworkRuleName"`
 	// The ARM resource id of the virtual network subnet.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -132,7 +129,7 @@ type VirtualNetworkRuleArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// The name of the virtual network rule.
-	VirtualNetworkRuleName pulumi.StringInput
+	VirtualNetworkRuleName pulumi.StringPtrInput
 	// The ARM resource id of the virtual network subnet.
 	VirtualNetworkSubnetId pulumi.StringInput
 }

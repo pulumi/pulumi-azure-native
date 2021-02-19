@@ -36,9 +36,6 @@ func NewServerKey(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.KeyName == nil {
-		return nil, errors.New("invalid value for required argument 'KeyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -111,7 +108,7 @@ func (ServerKeyState) ElementType() reflect.Type {
 
 type serverKeyArgs struct {
 	// The name of the MariaDB Server key to be operated on (updated or created).
-	KeyName string `pulumi:"keyName"`
+	KeyName *string `pulumi:"keyName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The key type like  'AzureKeyVault'.
@@ -125,7 +122,7 @@ type serverKeyArgs struct {
 // The set of arguments for constructing a ServerKey resource.
 type ServerKeyArgs struct {
 	// The name of the MariaDB Server key to be operated on (updated or created).
-	KeyName pulumi.StringInput
+	KeyName pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The key type like  'AzureKeyVault'.

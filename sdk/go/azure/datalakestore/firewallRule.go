@@ -39,9 +39,6 @@ func NewFirewallRule(ctx *pulumi.Context,
 	if args.EndIpAddress == nil {
 		return nil, errors.New("invalid value for required argument 'EndIpAddress'")
 	}
-	if args.FirewallRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'FirewallRuleName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -110,7 +107,7 @@ type firewallRuleArgs struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 	EndIpAddress string `pulumi:"endIpAddress"`
 	// The name of the firewall rule to create or update.
-	FirewallRuleName string `pulumi:"firewallRuleName"`
+	FirewallRuleName *string `pulumi:"firewallRuleName"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
@@ -124,7 +121,7 @@ type FirewallRuleArgs struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 	EndIpAddress pulumi.StringInput
 	// The name of the firewall rule to create or update.
-	FirewallRuleName pulumi.StringInput
+	FirewallRuleName pulumi.StringPtrInput
 	// The name of the Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.

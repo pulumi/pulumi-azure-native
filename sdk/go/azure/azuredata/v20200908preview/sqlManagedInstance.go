@@ -53,9 +53,6 @@ func NewSqlManagedInstance(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SqlManagedInstanceName == nil {
-		return nil, errors.New("invalid value for required argument 'SqlManagedInstanceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:azuredata:SqlManagedInstance"),
@@ -166,7 +163,7 @@ type sqlManagedInstanceArgs struct {
 	// The name of the Azure resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of SQL Managed Instances
-	SqlManagedInstanceName string `pulumi:"sqlManagedInstanceName"`
+	SqlManagedInstanceName *string `pulumi:"sqlManagedInstanceName"`
 	// The instance start time
 	StartTime *string `pulumi:"startTime"`
 	// Resource tags.
@@ -194,7 +191,7 @@ type SqlManagedInstanceArgs struct {
 	// The name of the Azure resource group
 	ResourceGroupName pulumi.StringInput
 	// The name of SQL Managed Instances
-	SqlManagedInstanceName pulumi.StringInput
+	SqlManagedInstanceName pulumi.StringPtrInput
 	// The instance start time
 	StartTime pulumi.StringPtrInput
 	// Resource tags.

@@ -31,9 +31,6 @@ func NewWorkflowAccessKey(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccessKeyName == nil {
-		return nil, errors.New("invalid value for required argument 'AccessKeyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -95,7 +92,7 @@ func (WorkflowAccessKeyState) ElementType() reflect.Type {
 
 type workflowAccessKeyArgs struct {
 	// The workflow access key name.
-	AccessKeyName string `pulumi:"accessKeyName"`
+	AccessKeyName *string `pulumi:"accessKeyName"`
 	// Gets or sets the resource id.
 	Id *string `pulumi:"id"`
 	// Gets or sets the not-after time.
@@ -111,7 +108,7 @@ type workflowAccessKeyArgs struct {
 // The set of arguments for constructing a WorkflowAccessKey resource.
 type WorkflowAccessKeyArgs struct {
 	// The workflow access key name.
-	AccessKeyName pulumi.StringInput
+	AccessKeyName pulumi.StringPtrInput
 	// Gets or sets the resource id.
 	Id pulumi.StringPtrInput
 	// Gets or sets the not-after time.

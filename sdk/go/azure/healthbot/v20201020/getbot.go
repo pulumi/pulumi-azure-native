@@ -41,9 +41,6 @@ func NewGetbot(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:healthbot:getbot"),
@@ -127,7 +124,7 @@ type getbotArgs struct {
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Bot resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// SKU of the HealthBot.
 	Sku *Sku `pulumi:"sku"`
 	// Resource tags.
@@ -141,7 +138,7 @@ type GetbotArgs struct {
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Bot resource.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// SKU of the HealthBot.
 	Sku SkuPtrInput
 	// Resource tags.

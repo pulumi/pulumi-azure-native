@@ -34,9 +34,6 @@ func NewAzureADMetric(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AzureADMetricsName == nil {
-		return nil, errors.New("invalid value for required argument 'AzureADMetricsName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -97,7 +94,7 @@ func (AzureADMetricState) ElementType() reflect.Type {
 
 type azureADMetricArgs struct {
 	// Name of the azureADMetrics instance.
-	AzureADMetricsName string `pulumi:"azureADMetricsName"`
+	AzureADMetricsName *string `pulumi:"azureADMetricsName"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Name of an Azure resource group.
@@ -109,7 +106,7 @@ type azureADMetricArgs struct {
 // The set of arguments for constructing a AzureADMetric resource.
 type AzureADMetricArgs struct {
 	// Name of the azureADMetrics instance.
-	AzureADMetricsName pulumi.StringInput
+	AzureADMetricsName pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Name of an Azure resource group.

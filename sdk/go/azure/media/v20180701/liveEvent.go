@@ -60,9 +60,6 @@ func NewLiveEvent(ctx *pulumi.Context,
 	if args.Input == nil {
 		return nil, errors.New("invalid value for required argument 'Input'")
 	}
-	if args.LiveEventName == nil {
-		return nil, errors.New("invalid value for required argument 'LiveEventName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -192,7 +189,7 @@ type liveEventArgs struct {
 	// The Live Event input.
 	Input LiveEventInputType `pulumi:"input"`
 	// The name of the Live Event.
-	LiveEventName string `pulumi:"liveEventName"`
+	LiveEventName *string `pulumi:"liveEventName"`
 	// The Azure Region of the resource.
 	Location *string `pulumi:"location"`
 	// The Live Event preview.
@@ -222,7 +219,7 @@ type LiveEventArgs struct {
 	// The Live Event input.
 	Input LiveEventInputTypeInput
 	// The name of the Live Event.
-	LiveEventName pulumi.StringInput
+	LiveEventName pulumi.StringPtrInput
 	// The Azure Region of the resource.
 	Location pulumi.StringPtrInput
 	// The Live Event preview.

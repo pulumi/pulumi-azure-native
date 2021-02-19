@@ -35,9 +35,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args.AutomationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
 	}
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -100,7 +97,7 @@ type privateEndpointConnectionArgs struct {
 	// Private endpoint which the connection belongs to.
 	PrivateEndpoint *PrivateEndpointProperty `pulumi:"privateEndpoint"`
 	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// Connection State of the Private Endpoint Connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateProperty `pulumi:"privateLinkServiceConnectionState"`
 	// Name of an Azure Resource group.
@@ -114,7 +111,7 @@ type PrivateEndpointConnectionArgs struct {
 	// Private endpoint which the connection belongs to.
 	PrivateEndpoint PrivateEndpointPropertyPtrInput
 	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// Connection State of the Private Endpoint Connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyPtrInput
 	// Name of an Azure Resource group.

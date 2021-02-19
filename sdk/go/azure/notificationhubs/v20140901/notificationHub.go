@@ -37,9 +37,6 @@ func NewNotificationHub(ctx *pulumi.Context,
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
-	if args.NotificationHubName == nil {
-		return nil, errors.New("invalid value for required argument 'NotificationHubName'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -118,7 +115,7 @@ type notificationHubArgs struct {
 	// The namespace name.
 	NamespaceName string `pulumi:"namespaceName"`
 	// The notification hub name.
-	NotificationHubName string `pulumi:"notificationHubName"`
+	NotificationHubName *string `pulumi:"notificationHubName"`
 	// Gets or sets properties of the NotificationHub.
 	Properties NotificationHubProperties `pulumi:"properties"`
 	// The name of the resource group.
@@ -134,7 +131,7 @@ type NotificationHubArgs struct {
 	// The namespace name.
 	NamespaceName pulumi.StringInput
 	// The notification hub name.
-	NotificationHubName pulumi.StringInput
+	NotificationHubName pulumi.StringPtrInput
 	// Gets or sets properties of the NotificationHub.
 	Properties NotificationHubPropertiesInput
 	// The name of the resource group.

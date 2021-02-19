@@ -61,9 +61,6 @@ func NewAlertRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RuleName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:insights:AlertRule"),
@@ -171,7 +168,7 @@ type alertRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the rule.
-	RuleName string `pulumi:"ruleName"`
+	RuleName *string `pulumi:"ruleName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -197,7 +194,7 @@ type AlertRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the rule.
-	RuleName pulumi.StringInput
+	RuleName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

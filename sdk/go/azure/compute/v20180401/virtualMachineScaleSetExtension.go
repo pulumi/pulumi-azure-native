@@ -48,9 +48,6 @@ func NewVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 	if args.VmScaleSetName == nil {
 		return nil, errors.New("invalid value for required argument 'VmScaleSetName'")
 	}
-	if args.VmssExtensionName == nil {
-		return nil, errors.New("invalid value for required argument 'VmssExtensionName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:compute:VirtualMachineScaleSetExtension"),
@@ -176,7 +173,7 @@ type virtualMachineScaleSetExtensionArgs struct {
 	// The name of the VM scale set where the extension should be create or updated.
 	VmScaleSetName string `pulumi:"vmScaleSetName"`
 	// The name of the VM scale set extension.
-	VmssExtensionName string `pulumi:"vmssExtensionName"`
+	VmssExtensionName *string `pulumi:"vmssExtensionName"`
 }
 
 // The set of arguments for constructing a VirtualMachineScaleSetExtension resource.
@@ -202,7 +199,7 @@ type VirtualMachineScaleSetExtensionArgs struct {
 	// The name of the VM scale set where the extension should be create or updated.
 	VmScaleSetName pulumi.StringInput
 	// The name of the VM scale set extension.
-	VmssExtensionName pulumi.StringInput
+	VmssExtensionName pulumi.StringPtrInput
 }
 
 func (VirtualMachineScaleSetExtensionArgs) ElementType() reflect.Type {

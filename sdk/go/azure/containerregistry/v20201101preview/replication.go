@@ -45,9 +45,6 @@ func NewReplication(ctx *pulumi.Context,
 	if args.RegistryName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
-	if args.ReplicationName == nil {
-		return nil, errors.New("invalid value for required argument 'ReplicationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -153,7 +150,7 @@ type replicationArgs struct {
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the replication.
-	ReplicationName string `pulumi:"replicationName"`
+	ReplicationName *string `pulumi:"replicationName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
@@ -171,7 +168,7 @@ type ReplicationArgs struct {
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
 	// The name of the replication.
-	ReplicationName pulumi.StringInput
+	ReplicationName pulumi.StringPtrInput
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.

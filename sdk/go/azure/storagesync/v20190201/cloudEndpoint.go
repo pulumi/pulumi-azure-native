@@ -46,9 +46,6 @@ func NewCloudEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CloudEndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'CloudEndpointName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -173,7 +170,7 @@ type cloudEndpointArgs struct {
 	// Azure file share name
 	AzureFileShareName *string `pulumi:"azureFileShareName"`
 	// Name of Cloud Endpoint object.
-	CloudEndpointName string `pulumi:"cloudEndpointName"`
+	CloudEndpointName *string `pulumi:"cloudEndpointName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Storage Account Resource Id
@@ -191,7 +188,7 @@ type CloudEndpointArgs struct {
 	// Azure file share name
 	AzureFileShareName pulumi.StringPtrInput
 	// Name of Cloud Endpoint object.
-	CloudEndpointName pulumi.StringInput
+	CloudEndpointName pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Storage Account Resource Id

@@ -46,9 +46,6 @@ func NewSiteHostNameBinding(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.HostName == nil {
-		return nil, errors.New("invalid value for required argument 'HostName'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -170,7 +167,7 @@ type siteHostNameBindingArgs struct {
 	// Fully qualified ARM domain resource URI
 	DomainId *string `pulumi:"domainId"`
 	// Name of host
-	HostName string `pulumi:"hostName"`
+	HostName *string `pulumi:"hostName"`
 	// Host name type
 	HostNameType *string `pulumi:"hostNameType"`
 	// Resource Id
@@ -202,7 +199,7 @@ type SiteHostNameBindingArgs struct {
 	// Fully qualified ARM domain resource URI
 	DomainId pulumi.StringPtrInput
 	// Name of host
-	HostName pulumi.StringInput
+	HostName pulumi.StringPtrInput
 	// Host name type
 	HostNameType *HostNameType
 	// Resource Id

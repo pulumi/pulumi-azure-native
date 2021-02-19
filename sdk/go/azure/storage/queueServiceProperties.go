@@ -34,9 +34,6 @@ func NewQueueServiceProperties(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.QueueServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'QueueServiceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -104,7 +101,7 @@ type queueServicePropertiesArgs struct {
 	// Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
 	Cors *CorsRules `pulumi:"cors"`
 	// The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
-	QueueServiceName string `pulumi:"queueServiceName"`
+	QueueServiceName *string `pulumi:"queueServiceName"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -116,7 +113,7 @@ type QueueServicePropertiesArgs struct {
 	// Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
 	Cors CorsRulesPtrInput
 	// The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
-	QueueServiceName pulumi.StringInput
+	QueueServiceName pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

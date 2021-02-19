@@ -60,9 +60,6 @@ func NewRedis(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -205,7 +202,7 @@ type redisArgs struct {
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the Redis cache.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
 	// The name of the resource group.
@@ -231,7 +228,7 @@ type RedisArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the Redis cache.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration pulumi.StringMapInput
 	// The name of the resource group.

@@ -36,9 +36,6 @@ func NewTrigger(ctx *pulumi.Context,
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -115,7 +112,7 @@ type triggerArgs struct {
 	// Trigger Kind.
 	Kind string `pulumi:"kind"`
 	// The trigger name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -127,7 +124,7 @@ type TriggerArgs struct {
 	// Trigger Kind.
 	Kind pulumi.StringInput
 	// The trigger name.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 }

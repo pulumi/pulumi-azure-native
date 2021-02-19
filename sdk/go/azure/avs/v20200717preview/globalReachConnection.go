@@ -38,9 +38,6 @@ func NewGlobalReachConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GlobalReachConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'GlobalReachConnectionName'")
-	}
 	if args.PrivateCloudName == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
 	}
@@ -116,7 +113,7 @@ type globalReachConnectionArgs struct {
 	// Authorization key from the peer express route used for the global reach connection
 	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// Name of the global reach connection in the private cloud
-	GlobalReachConnectionName string `pulumi:"globalReachConnectionName"`
+	GlobalReachConnectionName *string `pulumi:"globalReachConnectionName"`
 	// Identifier of the ExpressRoute Circuit to peer with in the global reach connection
 	PeerExpressRouteCircuit *string `pulumi:"peerExpressRouteCircuit"`
 	// The name of the private cloud.
@@ -130,7 +127,7 @@ type GlobalReachConnectionArgs struct {
 	// Authorization key from the peer express route used for the global reach connection
 	AuthorizationKey pulumi.StringPtrInput
 	// Name of the global reach connection in the private cloud
-	GlobalReachConnectionName pulumi.StringInput
+	GlobalReachConnectionName pulumi.StringPtrInput
 	// Identifier of the ExpressRoute Circuit to peer with in the global reach connection
 	PeerExpressRouteCircuit pulumi.StringPtrInput
 	// The name of the private cloud.

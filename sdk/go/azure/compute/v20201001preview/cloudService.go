@@ -34,9 +34,6 @@ func NewCloudService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CloudServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'CloudServiceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -93,7 +90,7 @@ func (CloudServiceState) ElementType() reflect.Type {
 
 type cloudServiceArgs struct {
 	// Name of the cloud service.
-	CloudServiceName string `pulumi:"cloudServiceName"`
+	CloudServiceName *string `pulumi:"cloudServiceName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Cloud service properties
@@ -107,7 +104,7 @@ type cloudServiceArgs struct {
 // The set of arguments for constructing a CloudService resource.
 type CloudServiceArgs struct {
 	// Name of the cloud service.
-	CloudServiceName pulumi.StringInput
+	CloudServiceName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Cloud service properties

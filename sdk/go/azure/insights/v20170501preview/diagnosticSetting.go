@@ -44,9 +44,6 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceUri == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceUri'")
 	}
@@ -139,7 +136,7 @@ type diagnosticSettingArgs struct {
 	// The list of metric settings.
 	Metrics []MetricSettings `pulumi:"metrics"`
 	// The name of the diagnostic setting.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The identifier of the resource.
 	ResourceUri string `pulumi:"resourceUri"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
@@ -163,7 +160,7 @@ type DiagnosticSettingArgs struct {
 	// The list of metric settings.
 	Metrics MetricSettingsArrayInput
 	// The name of the diagnostic setting.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The identifier of the resource.
 	ResourceUri pulumi.StringInput
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.

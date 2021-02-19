@@ -37,9 +37,6 @@ func NewEventSource(ctx *pulumi.Context,
 	if args.EnvironmentName == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
 	}
-	if args.EventSourceName == nil {
-		return nil, errors.New("invalid value for required argument 'EventSourceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -116,7 +113,7 @@ type eventSourceArgs struct {
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName string `pulumi:"environmentName"`
 	// Name of the event source.
-	EventSourceName string `pulumi:"eventSourceName"`
+	EventSourceName *string `pulumi:"eventSourceName"`
 	// The kind of the event source.
 	Kind string `pulumi:"kind"`
 	// The location of the resource.
@@ -132,7 +129,7 @@ type EventSourceArgs struct {
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName pulumi.StringInput
 	// Name of the event source.
-	EventSourceName pulumi.StringInput
+	EventSourceName pulumi.StringPtrInput
 	// The kind of the event source.
 	Kind Kind
 	// The location of the resource.

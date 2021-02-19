@@ -35,9 +35,6 @@ func NewGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GatewayId == nil {
-		return nil, errors.New("invalid value for required argument 'GatewayId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -110,7 +107,7 @@ type gatewayArgs struct {
 	// Gateway description
 	Description *string `pulumi:"description"`
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId string `pulumi:"gatewayId"`
+	GatewayId *string `pulumi:"gatewayId"`
 	// Gateway location.
 	LocationData *ResourceLocationDataContract `pulumi:"locationData"`
 	// The name of the resource group.
@@ -124,7 +121,7 @@ type GatewayArgs struct {
 	// Gateway description
 	Description pulumi.StringPtrInput
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId pulumi.StringInput
+	GatewayId pulumi.StringPtrInput
 	// Gateway location.
 	LocationData ResourceLocationDataContractPtrInput
 	// The name of the resource group.

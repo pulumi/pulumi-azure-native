@@ -45,9 +45,6 @@ func NewIotHubResource(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	if args.Resourcegroup == nil {
 		return nil, errors.New("invalid value for required argument 'Resourcegroup'")
 	}
@@ -191,7 +188,7 @@ type iotHubResourceArgs struct {
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the IoT hub.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
 	Resourcegroup string `pulumi:"resourcegroup"`
 	// Information about the SKU of the IoT hub.
@@ -213,7 +210,7 @@ type IotHubResourceArgs struct {
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName pulumi.StringInput
 	// The name of the IoT hub.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
 	Resourcegroup pulumi.StringInput
 	// Information about the SKU of the IoT hub.

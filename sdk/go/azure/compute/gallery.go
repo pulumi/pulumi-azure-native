@@ -41,9 +41,6 @@ func NewGallery(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GalleryName == nil {
-		return nil, errors.New("invalid value for required argument 'GalleryName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -135,7 +132,7 @@ type galleryArgs struct {
 	// The description of this Shared Image Gallery resource. This property is updatable.
 	Description *string `pulumi:"description"`
 	// The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
-	GalleryName string `pulumi:"galleryName"`
+	GalleryName *string `pulumi:"galleryName"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the resource group.
@@ -151,7 +148,7 @@ type GalleryArgs struct {
 	// The description of this Shared Image Gallery resource. This property is updatable.
 	Description pulumi.StringPtrInput
 	// The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
-	GalleryName pulumi.StringInput
+	GalleryName pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the resource group.

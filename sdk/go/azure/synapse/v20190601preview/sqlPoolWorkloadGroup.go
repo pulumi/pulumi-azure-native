@@ -55,9 +55,6 @@ func NewSqlPoolWorkloadGroup(ctx *pulumi.Context,
 	if args.SqlPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'SqlPoolName'")
 	}
-	if args.WorkloadGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkloadGroupName'")
-	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
@@ -154,7 +151,7 @@ type sqlPoolWorkloadGroupArgs struct {
 	// SQL pool name
 	SqlPoolName string `pulumi:"sqlPoolName"`
 	// The name of the workload group.
-	WorkloadGroupName string `pulumi:"workloadGroupName"`
+	WorkloadGroupName *string `pulumi:"workloadGroupName"`
 	// The name of the workspace
 	WorkspaceName string `pulumi:"workspaceName"`
 }
@@ -178,7 +175,7 @@ type SqlPoolWorkloadGroupArgs struct {
 	// SQL pool name
 	SqlPoolName pulumi.StringInput
 	// The name of the workload group.
-	WorkloadGroupName pulumi.StringInput
+	WorkloadGroupName pulumi.StringPtrInput
 	// The name of the workspace
 	WorkspaceName pulumi.StringInput
 }

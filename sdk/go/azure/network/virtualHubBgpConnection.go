@@ -39,9 +39,6 @@ func NewVirtualHubBgpConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -127,7 +124,7 @@ func (VirtualHubBgpConnectionState) ElementType() reflect.Type {
 
 type virtualHubBgpConnectionArgs struct {
 	// The name of the connection.
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Name of the connection.
@@ -145,7 +142,7 @@ type virtualHubBgpConnectionArgs struct {
 // The set of arguments for constructing a VirtualHubBgpConnection resource.
 type VirtualHubBgpConnectionArgs struct {
 	// The name of the connection.
-	ConnectionName pulumi.StringInput
+	ConnectionName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Name of the connection.

@@ -59,9 +59,6 @@ func NewJobStep(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.StepName == nil {
-		return nil, errors.New("invalid value for required argument 'StepName'")
-	}
 	if args.TargetGroup == nil {
 		return nil, errors.New("invalid value for required argument 'TargetGroup'")
 	}
@@ -160,7 +157,7 @@ type jobStepArgs struct {
 	// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
 	StepId *int `pulumi:"stepId"`
 	// The name of the job step.
-	StepName string `pulumi:"stepName"`
+	StepName *string `pulumi:"stepName"`
 	// The resource ID of the target group that the job step will be executed on.
 	TargetGroup string `pulumi:"targetGroup"`
 }
@@ -186,7 +183,7 @@ type JobStepArgs struct {
 	// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
 	StepId pulumi.IntPtrInput
 	// The name of the job step.
-	StepName pulumi.StringInput
+	StepName pulumi.StringPtrInput
 	// The resource ID of the target group that the job step will be executed on.
 	TargetGroup pulumi.StringInput
 }

@@ -34,9 +34,6 @@ func NewConsumerGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConsumerGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ConsumerGroupName'")
-	}
 	if args.EventHubName == nil {
 		return nil, errors.New("invalid value for required argument 'EventHubName'")
 	}
@@ -117,7 +114,7 @@ func (ConsumerGroupState) ElementType() reflect.Type {
 
 type consumerGroupArgs struct {
 	// The consumer group name
-	ConsumerGroupName string `pulumi:"consumerGroupName"`
+	ConsumerGroupName *string `pulumi:"consumerGroupName"`
 	// The Event Hub name
 	EventHubName string `pulumi:"eventHubName"`
 	// The Namespace name
@@ -131,7 +128,7 @@ type consumerGroupArgs struct {
 // The set of arguments for constructing a ConsumerGroup resource.
 type ConsumerGroupArgs struct {
 	// The consumer group name
-	ConsumerGroupName pulumi.StringInput
+	ConsumerGroupName pulumi.StringPtrInput
 	// The Event Hub name
 	EventHubName pulumi.StringInput
 	// The Namespace name

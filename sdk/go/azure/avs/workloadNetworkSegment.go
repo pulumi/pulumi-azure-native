@@ -49,9 +49,6 @@ func NewWorkloadNetworkSegment(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SegmentId == nil {
-		return nil, errors.New("invalid value for required argument 'SegmentId'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:WorkloadNetworkSegment"),
@@ -137,7 +134,7 @@ type workloadNetworkSegmentArgs struct {
 	// NSX revision number.
 	Revision *float64 `pulumi:"revision"`
 	// NSX Segment identifier. Generally the same as the Segment's display name
-	SegmentId string `pulumi:"segmentId"`
+	SegmentId *string `pulumi:"segmentId"`
 	// Subnet which to connect segment to.
 	Subnet *WorkloadNetworkSegmentSubnet `pulumi:"subnet"`
 }
@@ -155,7 +152,7 @@ type WorkloadNetworkSegmentArgs struct {
 	// NSX revision number.
 	Revision pulumi.Float64PtrInput
 	// NSX Segment identifier. Generally the same as the Segment's display name
-	SegmentId pulumi.StringInput
+	SegmentId pulumi.StringPtrInput
 	// Subnet which to connect segment to.
 	Subnet WorkloadNetworkSegmentSubnetPtrInput
 }

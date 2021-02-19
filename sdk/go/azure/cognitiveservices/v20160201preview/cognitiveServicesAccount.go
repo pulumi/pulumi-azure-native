@@ -42,9 +42,6 @@ func NewCognitiveServicesAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
@@ -135,7 +132,7 @@ func (CognitiveServicesAccountState) ElementType() reflect.Type {
 
 type cognitiveServicesAccountArgs struct {
 	// The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// Required. Indicates the type of cognitive service account.
 	Kind string `pulumi:"kind"`
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update the request will succeed.
@@ -151,7 +148,7 @@ type cognitiveServicesAccountArgs struct {
 // The set of arguments for constructing a CognitiveServicesAccount resource.
 type CognitiveServicesAccountArgs struct {
 	// The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// Required. Indicates the type of cognitive service account.
 	Kind pulumi.StringInput
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update the request will succeed.

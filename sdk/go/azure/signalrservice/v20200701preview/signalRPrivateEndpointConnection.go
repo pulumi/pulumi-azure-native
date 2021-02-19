@@ -34,9 +34,6 @@ func NewSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -110,7 +107,7 @@ type signalRPrivateEndpointConnectionArgs struct {
 	// Private endpoint associated with the private endpoint connection
 	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
 	// The name of the private endpoint connection associated with the SignalR resource.
-	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// Connection state
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -124,7 +121,7 @@ type SignalRPrivateEndpointConnectionArgs struct {
 	// Private endpoint associated with the private endpoint connection
 	PrivateEndpoint PrivateEndpointPtrInput
 	// The name of the private endpoint connection associated with the SignalR resource.
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// Connection state
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

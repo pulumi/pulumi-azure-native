@@ -36,9 +36,6 @@ func NewSuppression(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RecommendationId == nil {
 		return nil, errors.New("invalid value for required argument 'RecommendationId'")
 	}
@@ -122,7 +119,7 @@ type suppressionArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
 	// The name of the suppression.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The recommendation ID.
 	RecommendationId string `pulumi:"recommendationId"`
 	// The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
@@ -140,7 +137,7 @@ type SuppressionArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringPtrInput
 	// The name of the suppression.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The recommendation ID.
 	RecommendationId pulumi.StringInput
 	// The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.

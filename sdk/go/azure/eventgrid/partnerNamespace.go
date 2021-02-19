@@ -40,9 +40,6 @@ func NewPartnerNamespace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PartnerNamespaceName == nil {
-		return nil, errors.New("invalid value for required argument 'PartnerNamespaceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -120,7 +117,7 @@ type partnerNamespaceArgs struct {
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// Name of the partner namespace.
-	PartnerNamespaceName string `pulumi:"partnerNamespaceName"`
+	PartnerNamespaceName *string `pulumi:"partnerNamespaceName"`
 	// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
 	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
 	PartnerRegistrationFullyQualifiedId *string `pulumi:"partnerRegistrationFullyQualifiedId"`
@@ -135,7 +132,7 @@ type PartnerNamespaceArgs struct {
 	// Location of the resource.
 	Location pulumi.StringPtrInput
 	// Name of the partner namespace.
-	PartnerNamespaceName pulumi.StringInput
+	PartnerNamespaceName pulumi.StringPtrInput
 	// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
 	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
 	PartnerRegistrationFullyQualifiedId pulumi.StringPtrInput

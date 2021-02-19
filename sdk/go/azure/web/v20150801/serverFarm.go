@@ -59,9 +59,6 @@ func NewServerFarm(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -209,7 +206,7 @@ type serverFarmArgs struct {
 	// Maximum number of instances that can be assigned to this App Service Plan
 	MaximumNumberOfWorkers *int `pulumi:"maximumNumberOfWorkers"`
 	// Resource Name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// If True apps assigned to this App Service Plan can be scaled independently
 	//             If False apps assigned to this App Service Plan will scale to all instances of the plan
 	PerSiteScaling *bool `pulumi:"perSiteScaling"`
@@ -244,7 +241,7 @@ type ServerFarmArgs struct {
 	// Maximum number of instances that can be assigned to this App Service Plan
 	MaximumNumberOfWorkers pulumi.IntPtrInput
 	// Resource Name
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// If True apps assigned to this App Service Plan can be scaled independently
 	//             If False apps assigned to this App Service Plan will scale to all instances of the plan
 	PerSiteScaling pulumi.BoolPtrInput

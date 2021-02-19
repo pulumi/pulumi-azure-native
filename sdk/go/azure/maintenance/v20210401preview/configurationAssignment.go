@@ -36,9 +36,6 @@ func NewConfigurationAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConfigurationAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'ConfigurationAssignmentName'")
-	}
 	if args.ProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderName'")
 	}
@@ -108,7 +105,7 @@ func (ConfigurationAssignmentState) ElementType() reflect.Type {
 
 type configurationAssignmentArgs struct {
 	// Configuration assignment name
-	ConfigurationAssignmentName string `pulumi:"configurationAssignmentName"`
+	ConfigurationAssignmentName *string `pulumi:"configurationAssignmentName"`
 	// Location of the resource
 	Location *string `pulumi:"location"`
 	// The maintenance configuration Id
@@ -128,7 +125,7 @@ type configurationAssignmentArgs struct {
 // The set of arguments for constructing a ConfigurationAssignment resource.
 type ConfigurationAssignmentArgs struct {
 	// Configuration assignment name
-	ConfigurationAssignmentName pulumi.StringInput
+	ConfigurationAssignmentName pulumi.StringPtrInput
 	// Location of the resource
 	Location pulumi.StringPtrInput
 	// The maintenance configuration Id

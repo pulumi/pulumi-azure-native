@@ -56,9 +56,6 @@ func NewVirtualMachineExtension(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VmExtensionName == nil {
-		return nil, errors.New("invalid value for required argument 'VmExtensionName'")
-	}
 	if args.VmName == nil {
 		return nil, errors.New("invalid value for required argument 'VmName'")
 	}
@@ -216,7 +213,7 @@ type virtualMachineExtensionArgs struct {
 	// Specifies the version of the script handler.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 	// The name of the virtual machine extension.
-	VmExtensionName string `pulumi:"vmExtensionName"`
+	VmExtensionName *string `pulumi:"vmExtensionName"`
 	// The name of the virtual machine where the extension should be created or updated.
 	VmName string `pulumi:"vmName"`
 }
@@ -248,7 +245,7 @@ type VirtualMachineExtensionArgs struct {
 	// Specifies the version of the script handler.
 	TypeHandlerVersion pulumi.StringPtrInput
 	// The name of the virtual machine extension.
-	VmExtensionName pulumi.StringInput
+	VmExtensionName pulumi.StringPtrInput
 	// The name of the virtual machine where the extension should be created or updated.
 	VmName pulumi.StringInput
 }

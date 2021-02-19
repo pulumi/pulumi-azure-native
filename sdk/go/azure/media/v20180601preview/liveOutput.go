@@ -60,9 +60,6 @@ func NewLiveOutput(ctx *pulumi.Context,
 	if args.LiveEventName == nil {
 		return nil, errors.New("invalid value for required argument 'LiveEventName'")
 	}
-	if args.LiveOutputName == nil {
-		return nil, errors.New("invalid value for required argument 'LiveOutputName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -180,7 +177,7 @@ type liveOutputArgs struct {
 	// The name of the Live Event.
 	LiveEventName string `pulumi:"liveEventName"`
 	// The name of the Live Output.
-	LiveOutputName string `pulumi:"liveOutputName"`
+	LiveOutputName *string `pulumi:"liveOutputName"`
 	// The manifest file name.
 	ManifestName *string `pulumi:"manifestName"`
 	// The output snapshot time.
@@ -204,7 +201,7 @@ type LiveOutputArgs struct {
 	// The name of the Live Event.
 	LiveEventName pulumi.StringInput
 	// The name of the Live Output.
-	LiveOutputName pulumi.StringInput
+	LiveOutputName pulumi.StringPtrInput
 	// The manifest file name.
 	ManifestName pulumi.StringPtrInput
 	// The output snapshot time.

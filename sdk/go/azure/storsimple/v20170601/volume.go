@@ -66,9 +66,6 @@ func NewVolume(ctx *pulumi.Context,
 	if args.VolumeContainerName == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeContainerName'")
 	}
-	if args.VolumeName == nil {
-		return nil, errors.New("invalid value for required argument 'VolumeName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storsimple:Volume"),
@@ -175,7 +172,7 @@ type volumeArgs struct {
 	// The volume container name.
 	VolumeContainerName string `pulumi:"volumeContainerName"`
 	// The volume name.
-	VolumeName string `pulumi:"volumeName"`
+	VolumeName *string `pulumi:"volumeName"`
 	// The volume status.
 	VolumeStatus string `pulumi:"volumeStatus"`
 	// The type of the volume.
@@ -201,7 +198,7 @@ type VolumeArgs struct {
 	// The volume container name.
 	VolumeContainerName pulumi.StringInput
 	// The volume name.
-	VolumeName pulumi.StringInput
+	VolumeName pulumi.StringPtrInput
 	// The volume status.
 	VolumeStatus VolumeStatus
 	// The type of the volume.

@@ -39,9 +39,6 @@ func NewDataSource(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataSourceName == nil {
-		return nil, errors.New("invalid value for required argument 'DataSourceName'")
-	}
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
@@ -126,7 +123,7 @@ func (DataSourceState) ElementType() reflect.Type {
 
 type dataSourceArgs struct {
 	// The name of the datasource resource.
-	DataSourceName string `pulumi:"dataSourceName"`
+	DataSourceName *string `pulumi:"dataSourceName"`
 	// The ETag of the data source.
 	Etag *string `pulumi:"etag"`
 	// The kind of the DataSource.
@@ -144,7 +141,7 @@ type dataSourceArgs struct {
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
 	// The name of the datasource resource.
-	DataSourceName pulumi.StringInput
+	DataSourceName pulumi.StringPtrInput
 	// The ETag of the data source.
 	Etag pulumi.StringPtrInput
 	// The kind of the DataSource.

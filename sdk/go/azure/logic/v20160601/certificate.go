@@ -42,9 +42,6 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CertificateName == nil {
-		return nil, errors.New("invalid value for required argument 'CertificateName'")
-	}
 	if args.IntegrationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
 	}
@@ -138,7 +135,7 @@ func (CertificateState) ElementType() reflect.Type {
 
 type certificateArgs struct {
 	// The integration account certificate name.
-	CertificateName string `pulumi:"certificateName"`
+	CertificateName *string `pulumi:"certificateName"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The key details in the key vault.
@@ -158,7 +155,7 @@ type certificateArgs struct {
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// The integration account certificate name.
-	CertificateName pulumi.StringInput
+	CertificateName pulumi.StringPtrInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The key details in the key vault.

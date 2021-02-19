@@ -53,9 +53,6 @@ func NewPrivateZone(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PrivateZoneName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateZoneName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -163,7 +160,7 @@ type privateZoneArgs struct {
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the Private DNS zone (without a terminating dot).
-	PrivateZoneName string `pulumi:"privateZoneName"`
+	PrivateZoneName *string `pulumi:"privateZoneName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -177,7 +174,7 @@ type PrivateZoneArgs struct {
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the Private DNS zone (without a terminating dot).
-	PrivateZoneName pulumi.StringInput
+	PrivateZoneName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

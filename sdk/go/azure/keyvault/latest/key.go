@@ -48,9 +48,6 @@ func NewKey(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.KeyName == nil {
-		return nil, errors.New("invalid value for required argument 'KeyName'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -144,7 +141,7 @@ func (KeyState) ElementType() reflect.Type {
 
 type keyArgs struct {
 	// The name of the key to be created.
-	KeyName string `pulumi:"keyName"`
+	KeyName *string `pulumi:"keyName"`
 	// The properties of the key to be created.
 	Properties KeyProperties `pulumi:"properties"`
 	// The name of the resource group which contains the specified key vault.
@@ -158,7 +155,7 @@ type keyArgs struct {
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
 	// The name of the key to be created.
-	KeyName pulumi.StringInput
+	KeyName pulumi.StringPtrInput
 	// The properties of the key to be created.
 	Properties KeyPropertiesInput
 	// The name of the resource group which contains the specified key vault.

@@ -43,9 +43,6 @@ func NewWorkloadNetworkDnsZone(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DnsZoneId == nil {
-		return nil, errors.New("invalid value for required argument 'DnsZoneId'")
-	}
 	if args.PrivateCloudName == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
 	}
@@ -133,7 +130,7 @@ type workloadNetworkDnsZoneArgs struct {
 	// Number of DNS Services using the DNS zone.
 	DnsServices *float64 `pulumi:"dnsServices"`
 	// NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
-	DnsZoneId string `pulumi:"dnsZoneId"`
+	DnsZoneId *string `pulumi:"dnsZoneId"`
 	// Domain names of the DNS Zone.
 	Domain []string `pulumi:"domain"`
 	// Name of the private cloud
@@ -155,7 +152,7 @@ type WorkloadNetworkDnsZoneArgs struct {
 	// Number of DNS Services using the DNS zone.
 	DnsServices pulumi.Float64PtrInput
 	// NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
-	DnsZoneId pulumi.StringInput
+	DnsZoneId pulumi.StringPtrInput
 	// Domain names of the DNS Zone.
 	Domain pulumi.StringArrayInput
 	// Name of the private cloud

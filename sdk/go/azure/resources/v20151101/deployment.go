@@ -28,9 +28,6 @@ func NewDeployment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DeploymentName == nil {
-		return nil, errors.New("invalid value for required argument 'DeploymentName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -129,7 +126,7 @@ func (DeploymentState) ElementType() reflect.Type {
 
 type deploymentArgs struct {
 	// The name of the deployment.
-	DeploymentName string `pulumi:"deploymentName"`
+	DeploymentName *string `pulumi:"deploymentName"`
 	// Gets or sets the deployment properties.
 	Properties *DeploymentProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
@@ -139,7 +136,7 @@ type deploymentArgs struct {
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
 	// The name of the deployment.
-	DeploymentName pulumi.StringInput
+	DeploymentName pulumi.StringPtrInput
 	// Gets or sets the deployment properties.
 	Properties DeploymentPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.

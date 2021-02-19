@@ -46,9 +46,6 @@ func NewEmailTemplate(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
-	if args.TemplateName == nil {
-		return nil, errors.New("invalid value for required argument 'TemplateName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement:EmailTemplate"),
@@ -153,7 +150,7 @@ type emailTemplateArgs struct {
 	// Subject of the Template.
 	Subject *string `pulumi:"subject"`
 	// Email Template Name Identifier.
-	TemplateName string `pulumi:"templateName"`
+	TemplateName *string `pulumi:"templateName"`
 	// Title of the Template.
 	Title *string `pulumi:"title"`
 }
@@ -173,7 +170,7 @@ type EmailTemplateArgs struct {
 	// Subject of the Template.
 	Subject pulumi.StringPtrInput
 	// Email Template Name Identifier.
-	TemplateName pulumi.StringInput
+	TemplateName pulumi.StringPtrInput
 	// Title of the Template.
 	Title pulumi.StringPtrInput
 }

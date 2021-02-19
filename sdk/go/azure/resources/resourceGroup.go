@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -34,12 +33,9 @@ type ResourceGroup struct {
 func NewResourceGroup(ctx *pulumi.Context,
 	name string, args *ResourceGroupArgs, opts ...pulumi.ResourceOption) (*ResourceGroup, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ResourceGroupArgs{}
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:resources/latest:ResourceGroup"),
@@ -155,7 +151,7 @@ type resourceGroupArgs struct {
 	// The ID of the resource that manages this resource group.
 	ManagedBy *string `pulumi:"managedBy"`
 	// The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The tags attached to the resource group.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -167,7 +163,7 @@ type ResourceGroupArgs struct {
 	// The ID of the resource that manages this resource group.
 	ManagedBy pulumi.StringPtrInput
 	// The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName pulumi.StringPtrInput
 	// The tags attached to the resource group.
 	Tags pulumi.StringMapInput
 }

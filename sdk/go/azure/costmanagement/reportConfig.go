@@ -45,9 +45,6 @@ func NewReportConfig(ctx *pulumi.Context,
 	if args.DeliveryInfo == nil {
 		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
 	}
-	if args.ReportConfigName == nil {
-		return nil, errors.New("invalid value for required argument 'ReportConfigName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/latest:ReportConfig"),
@@ -124,7 +121,7 @@ type reportConfigArgs struct {
 	// The format of the report being delivered.
 	Format *string `pulumi:"format"`
 	// Report Config Name.
-	ReportConfigName string `pulumi:"reportConfigName"`
+	ReportConfigName *string `pulumi:"reportConfigName"`
 	// Has schedule information for the report config.
 	Schedule *ReportConfigSchedule `pulumi:"schedule"`
 }
@@ -138,7 +135,7 @@ type ReportConfigArgs struct {
 	// The format of the report being delivered.
 	Format pulumi.StringPtrInput
 	// Report Config Name.
-	ReportConfigName pulumi.StringInput
+	ReportConfigName pulumi.StringPtrInput
 	// Has schedule information for the report config.
 	Schedule ReportConfigSchedulePtrInput
 }

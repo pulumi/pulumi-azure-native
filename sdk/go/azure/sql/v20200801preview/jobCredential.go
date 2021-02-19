@@ -32,9 +32,6 @@ func NewJobCredential(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CredentialName == nil {
-		return nil, errors.New("invalid value for required argument 'CredentialName'")
-	}
 	if args.JobAgentName == nil {
 		return nil, errors.New("invalid value for required argument 'JobAgentName'")
 	}
@@ -111,7 +108,7 @@ func (JobCredentialState) ElementType() reflect.Type {
 
 type jobCredentialArgs struct {
 	// The name of the credential.
-	CredentialName string `pulumi:"credentialName"`
+	CredentialName *string `pulumi:"credentialName"`
 	// The name of the job agent.
 	JobAgentName string `pulumi:"jobAgentName"`
 	// The credential password.
@@ -127,7 +124,7 @@ type jobCredentialArgs struct {
 // The set of arguments for constructing a JobCredential resource.
 type JobCredentialArgs struct {
 	// The name of the credential.
-	CredentialName pulumi.StringInput
+	CredentialName pulumi.StringPtrInput
 	// The name of the job agent.
 	JobAgentName pulumi.StringInput
 	// The credential password.

@@ -48,9 +48,6 @@ func NewMachineGroup(ctx *pulumi.Context,
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
-	if args.MachineGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'MachineGroupName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -142,7 +139,7 @@ type machineGroupArgs struct {
 	// Expected value is 'machineGroup'.
 	Kind string `pulumi:"kind"`
 	// Machine Group resource name.
-	MachineGroupName string `pulumi:"machineGroupName"`
+	MachineGroupName *string `pulumi:"machineGroupName"`
 	// References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
 	Machines []MachineReferenceWithHints `pulumi:"machines"`
 	// Resource group name within the specified subscriptionId.
@@ -165,7 +162,7 @@ type MachineGroupArgs struct {
 	// Expected value is 'machineGroup'.
 	Kind pulumi.StringInput
 	// Machine Group resource name.
-	MachineGroupName pulumi.StringInput
+	MachineGroupName pulumi.StringPtrInput
 	// References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
 	Machines MachineReferenceWithHintsArrayInput
 	// Resource group name within the specified subscriptionId.

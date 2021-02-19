@@ -30,9 +30,6 @@ func NewConfigurationProfileAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConfigurationProfileAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'ConfigurationProfileAssignmentName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -90,7 +87,7 @@ func (ConfigurationProfileAssignmentState) ElementType() reflect.Type {
 
 type configurationProfileAssignmentArgs struct {
 	// Name of the configuration profile assignment. Only default is supported.
-	ConfigurationProfileAssignmentName string `pulumi:"configurationProfileAssignmentName"`
+	ConfigurationProfileAssignmentName *string `pulumi:"configurationProfileAssignmentName"`
 	// Properties of the configuration profile assignment.
 	Properties *ConfigurationProfileAssignmentProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
@@ -102,7 +99,7 @@ type configurationProfileAssignmentArgs struct {
 // The set of arguments for constructing a ConfigurationProfileAssignment resource.
 type ConfigurationProfileAssignmentArgs struct {
 	// Name of the configuration profile assignment. Only default is supported.
-	ConfigurationProfileAssignmentName pulumi.StringInput
+	ConfigurationProfileAssignmentName pulumi.StringPtrInput
 	// Properties of the configuration profile assignment.
 	Properties ConfigurationProfileAssignmentPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.

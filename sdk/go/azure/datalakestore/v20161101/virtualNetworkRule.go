@@ -39,9 +39,6 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
-	if args.VirtualNetworkRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualNetworkRuleName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore:VirtualNetworkRule"),
@@ -102,7 +99,7 @@ type virtualNetworkRuleArgs struct {
 	// The resource identifier for the subnet.
 	SubnetId string `pulumi:"subnetId"`
 	// The name of the virtual network rule to create or update.
-	VirtualNetworkRuleName string `pulumi:"virtualNetworkRuleName"`
+	VirtualNetworkRuleName *string `pulumi:"virtualNetworkRuleName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkRule resource.
@@ -114,7 +111,7 @@ type VirtualNetworkRuleArgs struct {
 	// The resource identifier for the subnet.
 	SubnetId pulumi.StringInput
 	// The name of the virtual network rule to create or update.
-	VirtualNetworkRuleName pulumi.StringInput
+	VirtualNetworkRuleName pulumi.StringPtrInput
 }
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {

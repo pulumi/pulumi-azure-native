@@ -43,9 +43,6 @@ func NewIotDpsResource(ctx *pulumi.Context,
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
-	if args.ProvisioningServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'ProvisioningServiceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -149,7 +146,7 @@ type iotDpsResourceArgs struct {
 	// Service specific properties for a provisioning service
 	Properties IotDpsPropertiesDescription `pulumi:"properties"`
 	// Name of provisioning service to create or update.
-	ProvisioningServiceName string `pulumi:"provisioningServiceName"`
+	ProvisioningServiceName *string `pulumi:"provisioningServiceName"`
 	// Resource group identifier.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sku info for a provisioning Service.
@@ -169,7 +166,7 @@ type IotDpsResourceArgs struct {
 	// Service specific properties for a provisioning service
 	Properties IotDpsPropertiesDescriptionInput
 	// Name of provisioning service to create or update.
-	ProvisioningServiceName pulumi.StringInput
+	ProvisioningServiceName pulumi.StringPtrInput
 	// Resource group identifier.
 	ResourceGroupName pulumi.StringInput
 	// Sku info for a provisioning Service.

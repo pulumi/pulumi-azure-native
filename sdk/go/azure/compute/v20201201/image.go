@@ -42,9 +42,6 @@ func NewImage(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ImageName == nil {
-		return nil, errors.New("invalid value for required argument 'ImageName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -160,7 +157,7 @@ type imageArgs struct {
 	// Gets the HyperVGenerationType of the VirtualMachine created from the image
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// The name of the image.
-	ImageName string `pulumi:"imageName"`
+	ImageName *string `pulumi:"imageName"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the resource group.
@@ -180,7 +177,7 @@ type ImageArgs struct {
 	// Gets the HyperVGenerationType of the VirtualMachine created from the image
 	HyperVGeneration pulumi.StringPtrInput
 	// The name of the image.
-	ImageName pulumi.StringInput
+	ImageName pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the resource group.

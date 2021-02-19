@@ -57,9 +57,6 @@ func NewHealthAlert(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RuleName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:alertsmanagement/v20200804preview:HealthAlert"),
@@ -151,7 +148,7 @@ type healthAlertArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the rule.
-	RuleName string `pulumi:"ruleName"`
+	RuleName *string `pulumi:"ruleName"`
 	// the list of resource id's that this health alert is scoped to.
 	Scopes []string `pulumi:"scopes"`
 	// Resource tags
@@ -173,7 +170,7 @@ type HealthAlertArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the rule.
-	RuleName pulumi.StringInput
+	RuleName pulumi.StringPtrInput
 	// the list of resource id's that this health alert is scoped to.
 	Scopes pulumi.StringArrayInput
 	// Resource tags

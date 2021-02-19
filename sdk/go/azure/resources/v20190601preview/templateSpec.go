@@ -43,9 +43,6 @@ func NewTemplateSpec(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TemplateSpecName == nil {
-		return nil, errors.New("invalid value for required argument 'TemplateSpecName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:resources:TemplateSpec"),
@@ -127,7 +124,7 @@ type templateSpecArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the Template Spec.
-	TemplateSpecName string `pulumi:"templateSpecName"`
+	TemplateSpecName *string `pulumi:"templateSpecName"`
 }
 
 // The set of arguments for constructing a TemplateSpec resource.
@@ -143,7 +140,7 @@ type TemplateSpecArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Name of the Template Spec.
-	TemplateSpecName pulumi.StringInput
+	TemplateSpecName pulumi.StringPtrInput
 }
 
 func (TemplateSpecArgs) ElementType() reflect.Type {

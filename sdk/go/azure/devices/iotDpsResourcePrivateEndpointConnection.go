@@ -31,9 +31,6 @@ func NewIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -100,7 +97,7 @@ func (IotDpsResourcePrivateEndpointConnectionState) ElementType() reflect.Type {
 
 type iotDpsResourcePrivateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection
-	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// The properties of a private endpoint connection
 	Properties PrivateEndpointConnectionProperties `pulumi:"properties"`
 	// The name of the resource group that contains the provisioning service.
@@ -112,7 +109,7 @@ type iotDpsResourcePrivateEndpointConnectionArgs struct {
 // The set of arguments for constructing a IotDpsResourcePrivateEndpointConnection resource.
 type IotDpsResourcePrivateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// The properties of a private endpoint connection
 	Properties PrivateEndpointConnectionPropertiesInput
 	// The name of the resource group that contains the provisioning service.

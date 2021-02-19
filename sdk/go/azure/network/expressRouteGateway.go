@@ -43,9 +43,6 @@ func NewExpressRouteGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ExpressRouteGatewayName == nil {
-		return nil, errors.New("invalid value for required argument 'ExpressRouteGatewayName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -183,7 +180,7 @@ type expressRouteGatewayArgs struct {
 	// Configuration for auto scaling.
 	AutoScaleConfiguration *ExpressRouteGatewayPropertiesAutoScaleConfiguration `pulumi:"autoScaleConfiguration"`
 	// The name of the ExpressRoute gateway.
-	ExpressRouteGatewayName string `pulumi:"expressRouteGatewayName"`
+	ExpressRouteGatewayName *string `pulumi:"expressRouteGatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -201,7 +198,7 @@ type ExpressRouteGatewayArgs struct {
 	// Configuration for auto scaling.
 	AutoScaleConfiguration ExpressRouteGatewayPropertiesAutoScaleConfigurationPtrInput
 	// The name of the ExpressRoute gateway.
-	ExpressRouteGatewayName pulumi.StringInput
+	ExpressRouteGatewayName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

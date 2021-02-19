@@ -46,9 +46,6 @@ func NewAFDOriginGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.OriginGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'OriginGroupName'")
-	}
 	if args.ProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'ProfileName'")
 	}
@@ -139,7 +136,7 @@ type afdoriginGroupArgs struct {
 	// Load balancing settings for a backend pool
 	LoadBalancingSettings *LoadBalancingSettingsParameters `pulumi:"loadBalancingSettings"`
 	// Name of the origin group which is unique within the endpoint.
-	OriginGroupName string `pulumi:"originGroupName"`
+	OriginGroupName *string `pulumi:"originGroupName"`
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
@@ -159,7 +156,7 @@ type AFDOriginGroupArgs struct {
 	// Load balancing settings for a backend pool
 	LoadBalancingSettings LoadBalancingSettingsParametersPtrInput
 	// Name of the origin group which is unique within the endpoint.
-	OriginGroupName pulumi.StringInput
+	OriginGroupName pulumi.StringPtrInput
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.

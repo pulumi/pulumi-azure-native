@@ -50,9 +50,6 @@ func NewIscsiDisk(ctx *pulumi.Context,
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
-	if args.DiskName == nil {
-		return nil, errors.New("invalid value for required argument 'DiskName'")
-	}
 	if args.IscsiServerName == nil {
 		return nil, errors.New("invalid value for required argument 'IscsiServerName'")
 	}
@@ -155,7 +152,7 @@ type iscsiDiskArgs struct {
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// The disk name.
-	DiskName string `pulumi:"diskName"`
+	DiskName *string `pulumi:"diskName"`
 	// The disk status.
 	DiskStatus string `pulumi:"diskStatus"`
 	// The iSCSI server name.
@@ -181,7 +178,7 @@ type IscsiDiskArgs struct {
 	// The device name.
 	DeviceName pulumi.StringInput
 	// The disk name.
-	DiskName pulumi.StringInput
+	DiskName pulumi.StringPtrInput
 	// The disk status.
 	DiskStatus DiskStatus
 	// The iSCSI server name.

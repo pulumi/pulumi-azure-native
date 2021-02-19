@@ -30,9 +30,6 @@ func NewGatewayCertificateAuthority(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CertificateId == nil {
-		return nil, errors.New("invalid value for required argument 'CertificateId'")
-	}
 	if args.GatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayId'")
 	}
@@ -93,7 +90,7 @@ func (GatewayCertificateAuthorityState) ElementType() reflect.Type {
 
 type gatewayCertificateAuthorityArgs struct {
 	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	CertificateId string `pulumi:"certificateId"`
+	CertificateId *string `pulumi:"certificateId"`
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId string `pulumi:"gatewayId"`
 	// Determines whether certificate authority is trusted.
@@ -107,7 +104,7 @@ type gatewayCertificateAuthorityArgs struct {
 // The set of arguments for constructing a GatewayCertificateAuthority resource.
 type GatewayCertificateAuthorityArgs struct {
 	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	CertificateId pulumi.StringInput
+	CertificateId pulumi.StringPtrInput
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId pulumi.StringInput
 	// Determines whether certificate authority is trusted.

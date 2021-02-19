@@ -54,9 +54,6 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SnapshotName == nil {
-		return nil, errors.New("invalid value for required argument 'SnapshotName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:compute:Snapshot"),
@@ -191,7 +188,7 @@ type snapshotArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the snapshot within the given subscription and resource group.
-	SnapshotName string `pulumi:"snapshotName"`
+	SnapshotName *string `pulumi:"snapshotName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -213,7 +210,7 @@ type SnapshotArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the snapshot within the given subscription and resource group.
-	SnapshotName pulumi.StringInput
+	SnapshotName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

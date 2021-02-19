@@ -65,9 +65,6 @@ func NewVirtualNetworkGateway(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VirtualNetworkGatewayName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualNetworkGatewayName'")
-	}
 	if args.VpnType == nil {
 		return nil, errors.New("invalid value for required argument 'VpnType'")
 	}
@@ -302,7 +299,7 @@ type virtualNetworkGatewayArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the virtual network gateway.
-	VirtualNetworkGatewayName string `pulumi:"virtualNetworkGatewayName"`
+	VirtualNetworkGatewayName *string `pulumi:"virtualNetworkGatewayName"`
 	// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration *VpnClientConfiguration `pulumi:"vpnClientConfiguration"`
 	// The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
@@ -338,7 +335,7 @@ type VirtualNetworkGatewayArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the virtual network gateway.
-	VirtualNetworkGatewayName pulumi.StringInput
+	VirtualNetworkGatewayName pulumi.StringPtrInput
 	// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration VpnClientConfigurationPtrInput
 	// The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.

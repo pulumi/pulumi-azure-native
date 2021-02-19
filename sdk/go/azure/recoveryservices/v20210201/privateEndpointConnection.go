@@ -36,9 +36,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -127,7 +124,7 @@ type privateEndpointConnectionArgs struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// PrivateEndpointConnectionResource properties
 	Properties *PrivateEndpointConnectionType `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
@@ -145,7 +142,7 @@ type PrivateEndpointConnectionArgs struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the private endpoint connection.
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// PrivateEndpointConnectionResource properties
 	Properties PrivateEndpointConnectionTypePtrInput
 	// The name of the resource group where the recovery services vault is present.

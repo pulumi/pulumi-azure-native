@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -44,12 +43,9 @@ type Partner struct {
 func NewPartner(ctx *pulumi.Context,
 	name string, args *PartnerArgs, opts ...pulumi.ResourceOption) (*Partner, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PartnerArgs{}
 	}
 
-	if args.PartnerId == nil {
-		return nil, errors.New("invalid value for required argument 'PartnerId'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:managementpartner:Partner"),
@@ -132,13 +128,13 @@ func (PartnerState) ElementType() reflect.Type {
 
 type partnerArgs struct {
 	// Id of the Partner
-	PartnerId string `pulumi:"partnerId"`
+	PartnerId *string `pulumi:"partnerId"`
 }
 
 // The set of arguments for constructing a Partner resource.
 type PartnerArgs struct {
 	// Id of the Partner
-	PartnerId pulumi.StringInput
+	PartnerId pulumi.StringPtrInput
 }
 
 func (PartnerArgs) ElementType() reflect.Type {

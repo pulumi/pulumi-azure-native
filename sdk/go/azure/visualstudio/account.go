@@ -38,9 +38,6 @@ func NewAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:visualstudio/v20140401preview:Account"),
@@ -113,7 +110,7 @@ type accountArgs struct {
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// The custom tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -131,7 +128,7 @@ type AccountArgs struct {
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the resource.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// The custom tags of the resource.
 	Tags pulumi.StringMapInput
 }

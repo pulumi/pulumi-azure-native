@@ -42,9 +42,6 @@ func NewAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.Identity == nil {
 		return nil, errors.New("invalid value for required argument 'Identity'")
 	}
@@ -138,7 +135,7 @@ func (AccountState) ElementType() reflect.Type {
 
 type accountArgs struct {
 	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// Identity Info on the Account
 	Identity Identity `pulumi:"identity"`
 	// Location of the azure resource.
@@ -152,7 +149,7 @@ type accountArgs struct {
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
 	// The name of the share account.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// Identity Info on the Account
 	Identity IdentityInput
 	// Location of the azure resource.

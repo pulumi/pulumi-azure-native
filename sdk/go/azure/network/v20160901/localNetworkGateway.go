@@ -47,9 +47,6 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 	if args.LocalNetworkAddressSpace == nil {
 		return nil, errors.New("invalid value for required argument 'LocalNetworkAddressSpace'")
 	}
-	if args.LocalNetworkGatewayName == nil {
-		return nil, errors.New("invalid value for required argument 'LocalNetworkGatewayName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -244,7 +241,7 @@ type localNetworkGatewayArgs struct {
 	// Local network site address space.
 	LocalNetworkAddressSpace AddressSpace `pulumi:"localNetworkAddressSpace"`
 	// The name of the local network gateway.
-	LocalNetworkGatewayName string `pulumi:"localNetworkGatewayName"`
+	LocalNetworkGatewayName *string `pulumi:"localNetworkGatewayName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource group.
@@ -268,7 +265,7 @@ type LocalNetworkGatewayArgs struct {
 	// Local network site address space.
 	LocalNetworkAddressSpace AddressSpaceInput
 	// The name of the local network gateway.
-	LocalNetworkGatewayName pulumi.StringInput
+	LocalNetworkGatewayName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource group.

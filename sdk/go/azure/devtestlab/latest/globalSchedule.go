@@ -57,9 +57,6 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -174,7 +171,7 @@ type globalScheduleArgs struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the schedule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Notification settings.
 	NotificationSettings *NotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group.
@@ -202,7 +199,7 @@ type GlobalScheduleArgs struct {
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the schedule.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Notification settings.
 	NotificationSettings NotificationSettingsPtrInput
 	// The name of the resource group.

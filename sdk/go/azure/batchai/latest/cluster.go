@@ -61,9 +61,6 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ClusterName == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -190,7 +187,7 @@ func (ClusterState) ElementType() reflect.Type {
 
 type clusterArgs struct {
 	// The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName *string `pulumi:"clusterName"`
 	// Setup to be performed on each compute node in the cluster.
 	NodeSetup *NodeSetup `pulumi:"nodeSetup"`
 	// Name of the resource group to which the resource belongs.
@@ -214,7 +211,7 @@ type clusterArgs struct {
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	ClusterName pulumi.StringInput
+	ClusterName pulumi.StringPtrInput
 	// Setup to be performed on each compute node in the cluster.
 	NodeSetup NodeSetupPtrInput
 	// Name of the resource group to which the resource belongs.

@@ -77,9 +77,6 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.WorkspaceName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
-	}
 	if args.AllowPublicAccessWhenBehindVnet == nil {
 		args.AllowPublicAccessWhenBehindVnet = pulumi.BoolPtr(false)
 	}
@@ -304,7 +301,7 @@ type workspaceArgs struct {
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName *string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -344,7 +341,7 @@ type WorkspaceArgs struct {
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapInput
 	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName pulumi.StringPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

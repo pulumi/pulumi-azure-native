@@ -40,9 +40,6 @@ func NewConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'ConfigurationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -126,7 +123,7 @@ func (ConfigurationState) ElementType() reflect.Type {
 
 type configurationArgs struct {
 	// The name of the server configuration.
-	ConfigurationName string `pulumi:"configurationName"`
+	ConfigurationName *string `pulumi:"configurationName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -140,7 +137,7 @@ type configurationArgs struct {
 // The set of arguments for constructing a Configuration resource.
 type ConfigurationArgs struct {
 	// The name of the server configuration.
-	ConfigurationName pulumi.StringInput
+	ConfigurationName pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

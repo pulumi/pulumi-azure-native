@@ -55,9 +55,6 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	if args.ScheduleInfo == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduleInfo'")
 	}
-	if args.SoftwareUpdateConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'SoftwareUpdateConfigurationName'")
-	}
 	if args.UpdateConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'UpdateConfiguration'")
 	}
@@ -158,7 +155,7 @@ type softwareUpdateConfigurationByNameArgs struct {
 	// Schedule information for the Software update configuration
 	ScheduleInfo ScheduleProperties `pulumi:"scheduleInfo"`
 	// The name of the software update configuration to be created.
-	SoftwareUpdateConfigurationName string `pulumi:"softwareUpdateConfigurationName"`
+	SoftwareUpdateConfigurationName *string `pulumi:"softwareUpdateConfigurationName"`
 	// Tasks information for the Software update configuration.
 	Tasks *SoftwareUpdateConfigurationTasks `pulumi:"tasks"`
 	// update specific properties for the Software update configuration
@@ -176,7 +173,7 @@ type SoftwareUpdateConfigurationByNameArgs struct {
 	// Schedule information for the Software update configuration
 	ScheduleInfo SchedulePropertiesInput
 	// The name of the software update configuration to be created.
-	SoftwareUpdateConfigurationName pulumi.StringInput
+	SoftwareUpdateConfigurationName pulumi.StringPtrInput
 	// Tasks information for the Software update configuration.
 	Tasks SoftwareUpdateConfigurationTasksPtrInput
 	// update specific properties for the Software update configuration

@@ -49,9 +49,6 @@ func NewIotSensor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.IotSensorName == nil {
-		return nil, errors.New("invalid value for required argument 'IotSensorName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -142,7 +139,7 @@ func (IotSensorState) ElementType() reflect.Type {
 
 type iotSensorArgs struct {
 	// Name of the IoT sensor
-	IotSensorName string `pulumi:"iotSensorName"`
+	IotSensorName *string `pulumi:"iotSensorName"`
 	// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
 	Scope string `pulumi:"scope"`
 	// TI Automatic mode status of the IoT sensor
@@ -154,7 +151,7 @@ type iotSensorArgs struct {
 // The set of arguments for constructing a IotSensor resource.
 type IotSensorArgs struct {
 	// Name of the IoT sensor
-	IotSensorName pulumi.StringInput
+	IotSensorName pulumi.StringPtrInput
 	// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
 	Scope pulumi.StringInput
 	// TI Automatic mode status of the IoT sensor

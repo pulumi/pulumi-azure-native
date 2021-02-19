@@ -43,9 +43,6 @@ func NewWorkloadNetworkPortMirroring(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PortMirroringId == nil {
-		return nil, errors.New("invalid value for required argument 'PortMirroringId'")
-	}
 	if args.PrivateCloudName == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
 	}
@@ -133,7 +130,7 @@ type workloadNetworkPortMirroringArgs struct {
 	// Display name of the port mirroring profile.
 	DisplayName *string `pulumi:"displayName"`
 	// NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
-	PortMirroringId string `pulumi:"portMirroringId"`
+	PortMirroringId *string `pulumi:"portMirroringId"`
 	// Name of the private cloud
 	PrivateCloudName string `pulumi:"privateCloudName"`
 	// The name of the resource group. The name is case insensitive.
@@ -153,7 +150,7 @@ type WorkloadNetworkPortMirroringArgs struct {
 	// Display name of the port mirroring profile.
 	DisplayName pulumi.StringPtrInput
 	// NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
-	PortMirroringId pulumi.StringInput
+	PortMirroringId pulumi.StringPtrInput
 	// Name of the private cloud
 	PrivateCloudName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.

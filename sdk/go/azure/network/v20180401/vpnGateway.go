@@ -44,9 +44,6 @@ func NewVpnGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GatewayName == nil {
-		return nil, errors.New("invalid value for required argument 'GatewayName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -196,7 +193,7 @@ type vpnGatewayArgs struct {
 	// list of all vpn connections to the gateway.
 	Connections []VpnConnectionType `pulumi:"connections"`
 	// The name of the gateway.
-	GatewayName string `pulumi:"gatewayName"`
+	GatewayName *string `pulumi:"gatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -218,7 +215,7 @@ type VpnGatewayArgs struct {
 	// list of all vpn connections to the gateway.
 	Connections VpnConnectionTypeArrayInput
 	// The name of the gateway.
-	GatewayName pulumi.StringInput
+	GatewayName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

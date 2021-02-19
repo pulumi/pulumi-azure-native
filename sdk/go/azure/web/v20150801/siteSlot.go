@@ -100,9 +100,6 @@ func NewSiteSlot(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Slot == nil {
-		return nil, errors.New("invalid value for required argument 'Slot'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:web:SiteSlot"),
@@ -352,7 +349,7 @@ type siteSlotArgs struct {
 	//             only used for app creation
 	SkipDnsRegistration *string `pulumi:"skipDnsRegistration"`
 	// Name of web app slot. If not specified then will default to production slot.
-	Slot string `pulumi:"slot"`
+	Slot *string `pulumi:"slot"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Time to live in seconds for web app's default domain name
@@ -410,7 +407,7 @@ type SiteSlotArgs struct {
 	//             only used for app creation
 	SkipDnsRegistration pulumi.StringPtrInput
 	// Name of web app slot. If not specified then will default to production slot.
-	Slot pulumi.StringInput
+	Slot pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Time to live in seconds for web app's default domain name

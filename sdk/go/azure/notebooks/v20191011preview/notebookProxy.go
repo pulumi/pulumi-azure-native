@@ -35,9 +35,6 @@ func NewNotebookProxy(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:notebooks:NotebookProxy"),
@@ -97,7 +94,7 @@ type notebookProxyArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a NotebookProxy resource.
@@ -107,7 +104,7 @@ type NotebookProxyArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 }
 
 func (NotebookProxyArgs) ElementType() reflect.Type {

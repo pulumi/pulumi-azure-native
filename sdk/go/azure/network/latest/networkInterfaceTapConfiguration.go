@@ -43,9 +43,6 @@ func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TapConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'TapConfigurationName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:NetworkInterfaceTapConfiguration"),
@@ -167,7 +164,7 @@ type networkInterfaceTapConfigurationArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the tap configuration.
-	TapConfigurationName string `pulumi:"tapConfigurationName"`
+	TapConfigurationName *string `pulumi:"tapConfigurationName"`
 	// The reference to the Virtual Network Tap resource.
 	VirtualNetworkTap *VirtualNetworkTapType `pulumi:"virtualNetworkTap"`
 }
@@ -183,7 +180,7 @@ type NetworkInterfaceTapConfigurationArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the tap configuration.
-	TapConfigurationName pulumi.StringInput
+	TapConfigurationName pulumi.StringPtrInput
 	// The reference to the Virtual Network Tap resource.
 	VirtualNetworkTap VirtualNetworkTapTypePtrInput
 }

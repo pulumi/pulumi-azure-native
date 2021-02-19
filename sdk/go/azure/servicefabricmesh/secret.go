@@ -41,9 +41,6 @@ func NewSecret(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SecretResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'SecretResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:servicefabricmesh/v20180901preview:Secret"),
@@ -109,7 +106,7 @@ type secretArgs struct {
 	// Azure resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the secret resource.
-	SecretResourceName string `pulumi:"secretResourceName"`
+	SecretResourceName *string `pulumi:"secretResourceName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -123,7 +120,7 @@ type SecretArgs struct {
 	// Azure resource group name
 	ResourceGroupName pulumi.StringInput
 	// The name of the secret resource.
-	SecretResourceName pulumi.StringInput
+	SecretResourceName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

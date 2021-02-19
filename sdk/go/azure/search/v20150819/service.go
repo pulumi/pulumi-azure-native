@@ -51,9 +51,6 @@ func NewService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SearchServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'SearchServiceName'")
-	}
 	if args.HostingMode == nil {
 		e := HostingMode("default")
 		args.HostingMode = &e
@@ -178,7 +175,7 @@ type serviceArgs struct {
 	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
-	SearchServiceName string `pulumi:"searchServiceName"`
+	SearchServiceName *string `pulumi:"searchServiceName"`
 	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
 	Sku *Sku `pulumi:"sku"`
 	// Tags to help categorize the resource in the Azure portal.
@@ -200,7 +197,7 @@ type ServiceArgs struct {
 	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
-	SearchServiceName pulumi.StringInput
+	SearchServiceName pulumi.StringPtrInput
 	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
 	Sku SkuPtrInput
 	// Tags to help categorize the resource in the Azure portal.

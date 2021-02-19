@@ -43,9 +43,6 @@ func NewApiSchema(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SchemaId == nil {
-		return nil, errors.New("invalid value for required argument 'SchemaId'")
-	}
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
@@ -137,7 +134,7 @@ type apiSchemaArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Schema identifier within an API. Must be unique in the current API Management service instance.
-	SchemaId string `pulumi:"schemaId"`
+	SchemaId *string `pulumi:"schemaId"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
 	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
@@ -155,7 +152,7 @@ type ApiSchemaArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Schema identifier within an API. Must be unique in the current API Management service instance.
-	SchemaId pulumi.StringInput
+	SchemaId pulumi.StringPtrInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.

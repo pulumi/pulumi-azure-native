@@ -47,9 +47,6 @@ func NewApiDiagnostic(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
-	if args.DiagnosticId == nil {
-		return nil, errors.New("invalid value for required argument 'DiagnosticId'")
-	}
 	if args.LoggerId == nil {
 		return nil, errors.New("invalid value for required argument 'LoggerId'")
 	}
@@ -165,7 +162,7 @@ type apiDiagnosticArgs struct {
 	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
 	Backend *PipelineDiagnosticSettings `pulumi:"backend"`
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId string `pulumi:"diagnosticId"`
+	DiagnosticId *string `pulumi:"diagnosticId"`
 	// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
 	EnableHttpCorrelationHeaders *bool `pulumi:"enableHttpCorrelationHeaders"`
 	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
@@ -193,7 +190,7 @@ type ApiDiagnosticArgs struct {
 	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
 	Backend PipelineDiagnosticSettingsPtrInput
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId pulumi.StringInput
+	DiagnosticId pulumi.StringPtrInput
 	// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
 	EnableHttpCorrelationHeaders pulumi.BoolPtrInput
 	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.

@@ -55,9 +55,6 @@ func NewLinkedSubscription(ctx *pulumi.Context,
 	if args.LinkedSubscriptionId == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedSubscriptionId'")
 	}
-	if args.LinkedSubscriptionName == nil {
-		return nil, errors.New("invalid value for required argument 'LinkedSubscriptionName'")
-	}
 	if args.RegistrationResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'RegistrationResourceId'")
 	}
@@ -161,7 +158,7 @@ type linkedSubscriptionArgs struct {
 	// The identifier associated with the device subscription.
 	LinkedSubscriptionId string `pulumi:"linkedSubscriptionId"`
 	// Name of the Linked Subscription resource.
-	LinkedSubscriptionName string `pulumi:"linkedSubscriptionName"`
+	LinkedSubscriptionName *string `pulumi:"linkedSubscriptionName"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// The identifier associated with the device registration.
@@ -175,7 +172,7 @@ type LinkedSubscriptionArgs struct {
 	// The identifier associated with the device subscription.
 	LinkedSubscriptionId pulumi.StringInput
 	// Name of the Linked Subscription resource.
-	LinkedSubscriptionName pulumi.StringInput
+	LinkedSubscriptionName pulumi.StringPtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
 	// The identifier associated with the device registration.

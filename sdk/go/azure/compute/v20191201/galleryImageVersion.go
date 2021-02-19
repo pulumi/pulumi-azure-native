@@ -43,9 +43,6 @@ func NewGalleryImageVersion(ctx *pulumi.Context,
 	if args.GalleryImageName == nil {
 		return nil, errors.New("invalid value for required argument 'GalleryImageName'")
 	}
-	if args.GalleryImageVersionName == nil {
-		return nil, errors.New("invalid value for required argument 'GalleryImageVersionName'")
-	}
 	if args.GalleryName == nil {
 		return nil, errors.New("invalid value for required argument 'GalleryName'")
 	}
@@ -143,7 +140,7 @@ type galleryImageVersionArgs struct {
 	// The name of the gallery Image Definition in which the Image Version is to be created.
 	GalleryImageName string `pulumi:"galleryImageName"`
 	// The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
-	GalleryImageVersionName string `pulumi:"galleryImageVersionName"`
+	GalleryImageVersionName *string `pulumi:"galleryImageVersionName"`
 	// The name of the Shared Image Gallery in which the Image Definition resides.
 	GalleryName string `pulumi:"galleryName"`
 	// Resource location
@@ -163,7 +160,7 @@ type GalleryImageVersionArgs struct {
 	// The name of the gallery Image Definition in which the Image Version is to be created.
 	GalleryImageName pulumi.StringInput
 	// The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
-	GalleryImageVersionName pulumi.StringInput
+	GalleryImageVersionName pulumi.StringPtrInput
 	// The name of the Shared Image Gallery in which the Image Definition resides.
 	GalleryName pulumi.StringInput
 	// Resource location

@@ -42,9 +42,6 @@ func NewLogger(ctx *pulumi.Context,
 	if args.Credentials == nil {
 		return nil, errors.New("invalid value for required argument 'Credentials'")
 	}
-	if args.LoggerId == nil {
-		return nil, errors.New("invalid value for required argument 'LoggerId'")
-	}
 	if args.LoggerType == nil {
 		return nil, errors.New("invalid value for required argument 'LoggerType'")
 	}
@@ -157,7 +154,7 @@ type loggerArgs struct {
 	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
 	IsBuffered *bool `pulumi:"isBuffered"`
 	// Logger identifier. Must be unique in the API Management service instance.
-	LoggerId string `pulumi:"loggerId"`
+	LoggerId *string `pulumi:"loggerId"`
 	// Logger type.
 	LoggerType string `pulumi:"loggerType"`
 	// The name of the resource group.
@@ -178,7 +175,7 @@ type LoggerArgs struct {
 	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
 	IsBuffered pulumi.BoolPtrInput
 	// Logger identifier. Must be unique in the API Management service instance.
-	LoggerId pulumi.StringInput
+	LoggerId pulumi.StringPtrInput
 	// Logger type.
 	LoggerType pulumi.StringInput
 	// The name of the resource group.

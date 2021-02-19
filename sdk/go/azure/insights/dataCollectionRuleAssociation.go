@@ -37,9 +37,6 @@ func NewDataCollectionRuleAssociation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AssociationName == nil {
-		return nil, errors.New("invalid value for required argument 'AssociationName'")
-	}
 	if args.DataCollectionRuleId == nil {
 		return nil, errors.New("invalid value for required argument 'DataCollectionRuleId'")
 	}
@@ -109,7 +106,7 @@ func (DataCollectionRuleAssociationState) ElementType() reflect.Type {
 
 type dataCollectionRuleAssociationArgs struct {
 	// The name of the association.
-	AssociationName string `pulumi:"associationName"`
+	AssociationName *string `pulumi:"associationName"`
 	// The resource ID of the data collection rule that is to be associated.
 	DataCollectionRuleId string `pulumi:"dataCollectionRuleId"`
 	// Description of the association.
@@ -121,7 +118,7 @@ type dataCollectionRuleAssociationArgs struct {
 // The set of arguments for constructing a DataCollectionRuleAssociation resource.
 type DataCollectionRuleAssociationArgs struct {
 	// The name of the association.
-	AssociationName pulumi.StringInput
+	AssociationName pulumi.StringPtrInput
 	// The resource ID of the data collection rule that is to be associated.
 	DataCollectionRuleId pulumi.StringInput
 	// Description of the association.

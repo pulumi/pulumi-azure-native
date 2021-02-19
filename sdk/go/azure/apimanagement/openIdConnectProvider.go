@@ -48,9 +48,6 @@ func NewOpenIdConnectProvider(ctx *pulumi.Context,
 	if args.MetadataEndpoint == nil {
 		return nil, errors.New("invalid value for required argument 'MetadataEndpoint'")
 	}
-	if args.Opid == nil {
-		return nil, errors.New("invalid value for required argument 'Opid'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -161,7 +158,7 @@ type openIdConnectProviderArgs struct {
 	// Metadata endpoint URI.
 	MetadataEndpoint string `pulumi:"metadataEndpoint"`
 	// Identifier of the OpenID Connect Provider.
-	Opid string `pulumi:"opid"`
+	Opid *string `pulumi:"opid"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -181,7 +178,7 @@ type OpenIdConnectProviderArgs struct {
 	// Metadata endpoint URI.
 	MetadataEndpoint pulumi.StringInput
 	// Identifier of the OpenID Connect Provider.
-	Opid pulumi.StringInput
+	Opid pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

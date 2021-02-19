@@ -33,9 +33,6 @@ func NewHybridConnectionAuthorizationRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AuthorizationRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'AuthorizationRuleName'")
-	}
 	if args.HybridConnectionName == nil {
 		return nil, errors.New("invalid value for required argument 'HybridConnectionName'")
 	}
@@ -105,7 +102,7 @@ func (HybridConnectionAuthorizationRuleState) ElementType() reflect.Type {
 
 type hybridConnectionAuthorizationRuleArgs struct {
 	// The authorization rule name.
-	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
+	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
 	// The hybrid connection name.
 	HybridConnectionName string `pulumi:"hybridConnectionName"`
 	// The namespace name
@@ -119,7 +116,7 @@ type hybridConnectionAuthorizationRuleArgs struct {
 // The set of arguments for constructing a HybridConnectionAuthorizationRule resource.
 type HybridConnectionAuthorizationRuleArgs struct {
 	// The authorization rule name.
-	AuthorizationRuleName pulumi.StringInput
+	AuthorizationRuleName pulumi.StringPtrInput
 	// The hybrid connection name.
 	HybridConnectionName pulumi.StringInput
 	// The namespace name

@@ -43,9 +43,6 @@ func NewWebService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.WebServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'WebServiceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:machinelearning:WebService"),
@@ -119,7 +116,7 @@ type webServiceArgs struct {
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the web service.
-	WebServiceName string `pulumi:"webServiceName"`
+	WebServiceName *string `pulumi:"webServiceName"`
 }
 
 // The set of arguments for constructing a WebService resource.
@@ -133,7 +130,7 @@ type WebServiceArgs struct {
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapInput
 	// The name of the web service.
-	WebServiceName pulumi.StringInput
+	WebServiceName pulumi.StringPtrInput
 }
 
 func (WebServiceArgs) ElementType() reflect.Type {

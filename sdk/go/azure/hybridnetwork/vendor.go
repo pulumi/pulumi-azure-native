@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -30,12 +29,9 @@ type Vendor struct {
 func NewVendor(ctx *pulumi.Context,
 	name string, args *VendorArgs, opts ...pulumi.ResourceOption) (*Vendor, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &VendorArgs{}
 	}
 
-	if args.VendorName == nil {
-		return nil, errors.New("invalid value for required argument 'VendorName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:hybridnetwork/v20200101preview:Vendor"),
@@ -91,13 +87,13 @@ func (VendorState) ElementType() reflect.Type {
 
 type vendorArgs struct {
 	// The name of the vendor.
-	VendorName string `pulumi:"vendorName"`
+	VendorName *string `pulumi:"vendorName"`
 }
 
 // The set of arguments for constructing a Vendor resource.
 type VendorArgs struct {
 	// The name of the vendor.
-	VendorName pulumi.StringInput
+	VendorName pulumi.StringPtrInput
 }
 
 func (VendorArgs) ElementType() reflect.Type {

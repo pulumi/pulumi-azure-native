@@ -48,9 +48,6 @@ func NewIpAllocation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.IpAllocationName == nil {
-		return nil, errors.New("invalid value for required argument 'IpAllocationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -166,7 +163,7 @@ type ipAllocationArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the IpAllocation.
-	IpAllocationName string `pulumi:"ipAllocationName"`
+	IpAllocationName *string `pulumi:"ipAllocationName"`
 	// The IPAM allocation ID.
 	IpamAllocationId *string `pulumi:"ipamAllocationId"`
 	// Resource location.
@@ -192,7 +189,7 @@ type IpAllocationArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the IpAllocation.
-	IpAllocationName pulumi.StringInput
+	IpAllocationName pulumi.StringPtrInput
 	// The IPAM allocation ID.
 	IpamAllocationId pulumi.StringPtrInput
 	// Resource location.

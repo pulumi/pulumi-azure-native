@@ -53,9 +53,6 @@ func NewStreamingLocator(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.StreamingLocatorName == nil {
-		return nil, errors.New("invalid value for required argument 'StreamingLocatorName'")
-	}
 	if args.StreamingPolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'StreamingPolicyName'")
 	}
@@ -166,7 +163,7 @@ type streamingLocatorArgs struct {
 	// StreamingLocatorId of Streaming Locator
 	StreamingLocatorId *string `pulumi:"streamingLocatorId"`
 	// The Streaming Locator name.
-	StreamingLocatorName string `pulumi:"streamingLocatorName"`
+	StreamingLocatorName *string `pulumi:"streamingLocatorName"`
 	// Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'
 	StreamingPolicyName string `pulumi:"streamingPolicyName"`
 }
@@ -190,7 +187,7 @@ type StreamingLocatorArgs struct {
 	// StreamingLocatorId of Streaming Locator
 	StreamingLocatorId pulumi.StringPtrInput
 	// The Streaming Locator name.
-	StreamingLocatorName pulumi.StringInput
+	StreamingLocatorName pulumi.StringPtrInput
 	// Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'
 	StreamingPolicyName pulumi.StringInput
 }

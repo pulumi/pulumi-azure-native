@@ -48,9 +48,6 @@ func NewAttestationAtResourceGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AttestationName == nil {
-		return nil, errors.New("invalid value for required argument 'AttestationName'")
-	}
 	if args.PolicyAssignmentId == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyAssignmentId'")
 	}
@@ -138,7 +135,7 @@ func (AttestationAtResourceGroupState) ElementType() reflect.Type {
 
 type attestationAtResourceGroupArgs struct {
 	// The name of the attestation.
-	AttestationName string `pulumi:"attestationName"`
+	AttestationName *string `pulumi:"attestationName"`
 	// Comments describing why this attestation was created.
 	Comments *string `pulumi:"comments"`
 	// The compliance state that should be set on the resource.
@@ -160,7 +157,7 @@ type attestationAtResourceGroupArgs struct {
 // The set of arguments for constructing a AttestationAtResourceGroup resource.
 type AttestationAtResourceGroupArgs struct {
 	// The name of the attestation.
-	AttestationName pulumi.StringInput
+	AttestationName pulumi.StringPtrInput
 	// Comments describing why this attestation was created.
 	Comments pulumi.StringPtrInput
 	// The compliance state that should be set on the resource.

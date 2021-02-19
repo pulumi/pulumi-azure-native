@@ -59,9 +59,6 @@ func NewBookmark(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BookmarkId == nil {
-		return nil, errors.New("invalid value for required argument 'BookmarkId'")
-	}
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
@@ -180,7 +177,7 @@ func (BookmarkState) ElementType() reflect.Type {
 
 type bookmarkArgs struct {
 	// Bookmark ID
-	BookmarkId string `pulumi:"bookmarkId"`
+	BookmarkId *string `pulumi:"bookmarkId"`
 	// The time the bookmark was created
 	Created *string `pulumi:"created"`
 	// Describes a user that created the bookmark
@@ -218,7 +215,7 @@ type bookmarkArgs struct {
 // The set of arguments for constructing a Bookmark resource.
 type BookmarkArgs struct {
 	// Bookmark ID
-	BookmarkId pulumi.StringInput
+	BookmarkId pulumi.StringPtrInput
 	// The time the bookmark was created
 	Created pulumi.StringPtrInput
 	// Describes a user that created the bookmark

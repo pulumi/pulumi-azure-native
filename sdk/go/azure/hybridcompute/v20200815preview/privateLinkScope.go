@@ -41,9 +41,6 @@ func NewPrivateLinkScope(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ScopeName == nil {
-		return nil, errors.New("invalid value for required argument 'ScopeName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute:PrivateLinkScope"),
@@ -117,7 +114,7 @@ type privateLinkScopeArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Azure Arc PrivateLinkScope resource.
-	ScopeName string `pulumi:"scopeName"`
+	ScopeName *string `pulumi:"scopeName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -131,7 +128,7 @@ type PrivateLinkScopeArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Azure Arc PrivateLinkScope resource.
-	ScopeName pulumi.StringInput
+	ScopeName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

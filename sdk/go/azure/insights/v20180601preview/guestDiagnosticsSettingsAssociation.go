@@ -34,9 +34,6 @@ func NewGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AssociationName == nil {
-		return nil, errors.New("invalid value for required argument 'AssociationName'")
-	}
 	if args.GuestDiagnosticSettingsName == nil {
 		return nil, errors.New("invalid value for required argument 'GuestDiagnosticSettingsName'")
 	}
@@ -102,7 +99,7 @@ func (GuestDiagnosticsSettingsAssociationState) ElementType() reflect.Type {
 
 type guestDiagnosticsSettingsAssociationArgs struct {
 	// The name of the diagnostic settings association.
-	AssociationName string `pulumi:"associationName"`
+	AssociationName *string `pulumi:"associationName"`
 	// The guest diagnostic settings name.
 	GuestDiagnosticSettingsName string `pulumi:"guestDiagnosticSettingsName"`
 	// Resource location
@@ -116,7 +113,7 @@ type guestDiagnosticsSettingsAssociationArgs struct {
 // The set of arguments for constructing a GuestDiagnosticsSettingsAssociation resource.
 type GuestDiagnosticsSettingsAssociationArgs struct {
 	// The name of the diagnostic settings association.
-	AssociationName pulumi.StringInput
+	AssociationName pulumi.StringPtrInput
 	// The guest diagnostic settings name.
 	GuestDiagnosticSettingsName pulumi.StringInput
 	// Resource location

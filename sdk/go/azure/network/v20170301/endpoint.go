@@ -46,9 +46,6 @@ func NewEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'EndpointName'")
-	}
 	if args.EndpointType == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointType'")
 	}
@@ -163,7 +160,7 @@ type endpointArgs struct {
 	// Gets or sets the monitoring status of the endpoint.
 	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
 	// The name of the Traffic Manager endpoint to be created or updated.
-	EndpointName string `pulumi:"endpointName"`
+	EndpointName *string `pulumi:"endpointName"`
 	// Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
 	EndpointStatus *string `pulumi:"endpointStatus"`
 	// The type of the Traffic Manager endpoint to be created or updated.
@@ -199,7 +196,7 @@ type EndpointArgs struct {
 	// Gets or sets the monitoring status of the endpoint.
 	EndpointMonitorStatus pulumi.StringPtrInput
 	// The name of the Traffic Manager endpoint to be created or updated.
-	EndpointName pulumi.StringInput
+	EndpointName pulumi.StringPtrInput
 	// Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
 	EndpointStatus pulumi.StringPtrInput
 	// The type of the Traffic Manager endpoint to be created or updated.

@@ -44,9 +44,6 @@ func NewConnectionType(ctx *pulumi.Context,
 	if args.AutomationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
 	}
-	if args.ConnectionTypeName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionTypeName'")
-	}
 	if args.FieldDefinitions == nil {
 		return nil, errors.New("invalid value for required argument 'FieldDefinitions'")
 	}
@@ -134,7 +131,7 @@ type connectionTypeArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The parameters supplied to the create or update connection type operation.
-	ConnectionTypeName string `pulumi:"connectionTypeName"`
+	ConnectionTypeName *string `pulumi:"connectionTypeName"`
 	// Gets or sets the field definitions of the connection type.
 	FieldDefinitions map[string]FieldDefinition `pulumi:"fieldDefinitions"`
 	// Gets or sets a Boolean value to indicate if the connection type is global.
@@ -150,7 +147,7 @@ type ConnectionTypeArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
 	// The parameters supplied to the create or update connection type operation.
-	ConnectionTypeName pulumi.StringInput
+	ConnectionTypeName pulumi.StringPtrInput
 	// Gets or sets the field definitions of the connection type.
 	FieldDefinitions FieldDefinitionMapInput
 	// Gets or sets a Boolean value to indicate if the connection type is global.

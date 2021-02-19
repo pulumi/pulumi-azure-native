@@ -53,9 +53,6 @@ func NewStorageTarget(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.StorageTargetName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageTargetName'")
-	}
 	if args.TargetType == nil {
 		return nil, errors.New("invalid value for required argument 'TargetType'")
 	}
@@ -162,7 +159,7 @@ type storageTargetArgs struct {
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
-	StorageTargetName string `pulumi:"storageTargetName"`
+	StorageTargetName *string `pulumi:"storageTargetName"`
 	// Type of the Storage Target.
 	TargetType string `pulumi:"targetType"`
 	// Properties when targetType is unknown.
@@ -184,7 +181,7 @@ type StorageTargetArgs struct {
 	// Target resource group.
 	ResourceGroupName pulumi.StringInput
 	// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
-	StorageTargetName pulumi.StringInput
+	StorageTargetName pulumi.StringPtrInput
 	// Type of the Storage Target.
 	TargetType pulumi.StringInput
 	// Properties when targetType is unknown.

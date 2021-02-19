@@ -69,9 +69,6 @@ func NewShareSubscription(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ShareSubscriptionName == nil {
-		return nil, errors.New("invalid value for required argument 'ShareSubscriptionName'")
-	}
 	if args.SourceShareLocation == nil {
 		return nil, errors.New("invalid value for required argument 'SourceShareLocation'")
 	}
@@ -206,7 +203,7 @@ type shareSubscriptionArgs struct {
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the shareSubscription.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
+	ShareSubscriptionName *string `pulumi:"shareSubscriptionName"`
 	// Source share location.
 	SourceShareLocation string `pulumi:"sourceShareLocation"`
 }
@@ -222,7 +219,7 @@ type ShareSubscriptionArgs struct {
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The name of the shareSubscription.
-	ShareSubscriptionName pulumi.StringInput
+	ShareSubscriptionName pulumi.StringPtrInput
 	// Source share location.
 	SourceShareLocation pulumi.StringInput
 }

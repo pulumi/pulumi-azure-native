@@ -54,9 +54,6 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SnapshotName == nil {
-		return nil, errors.New("invalid value for required argument 'SnapshotName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:compute:Snapshot"),
@@ -191,7 +188,7 @@ type snapshotArgs struct {
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 	Sku *SnapshotSku `pulumi:"sku"`
 	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
-	SnapshotName string `pulumi:"snapshotName"`
+	SnapshotName *string `pulumi:"snapshotName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -213,7 +210,7 @@ type SnapshotArgs struct {
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 	Sku SnapshotSkuPtrInput
 	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
-	SnapshotName pulumi.StringInput
+	SnapshotName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

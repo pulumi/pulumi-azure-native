@@ -40,9 +40,6 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
-	if args.AttachmentId == nil {
-		return nil, errors.New("invalid value for required argument 'AttachmentId'")
-	}
 	if args.Content == nil {
 		return nil, errors.New("invalid value for required argument 'Content'")
 	}
@@ -143,7 +140,7 @@ type apiIssueAttachmentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
 	// Attachment identifier within an Issue. Must be unique in the current Issue.
-	AttachmentId string `pulumi:"attachmentId"`
+	AttachmentId *string `pulumi:"attachmentId"`
 	// An HTTP link or Base64-encoded binary data.
 	Content string `pulumi:"content"`
 	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
@@ -163,7 +160,7 @@ type ApiIssueAttachmentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId pulumi.StringInput
 	// Attachment identifier within an Issue. Must be unique in the current Issue.
-	AttachmentId pulumi.StringInput
+	AttachmentId pulumi.StringPtrInput
 	// An HTTP link or Base64-encoded binary data.
 	Content pulumi.StringInput
 	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.

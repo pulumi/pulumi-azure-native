@@ -36,9 +36,6 @@ func NewNamespaceVirtualNetworkRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VirtualNetworkRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualNetworkRuleName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:eventhub:NamespaceVirtualNetworkRule"),
@@ -94,7 +91,7 @@ type namespaceVirtualNetworkRuleArgs struct {
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Virtual Network Rule name.
-	VirtualNetworkRuleName string `pulumi:"virtualNetworkRuleName"`
+	VirtualNetworkRuleName *string `pulumi:"virtualNetworkRuleName"`
 	// ARM ID of Virtual Network Subnet
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -106,7 +103,7 @@ type NamespaceVirtualNetworkRuleArgs struct {
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The Virtual Network Rule name.
-	VirtualNetworkRuleName pulumi.StringInput
+	VirtualNetworkRuleName pulumi.StringPtrInput
 	// ARM ID of Virtual Network Subnet
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 }

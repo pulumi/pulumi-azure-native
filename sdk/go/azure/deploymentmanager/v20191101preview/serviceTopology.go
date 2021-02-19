@@ -37,9 +37,6 @@ func NewServiceTopology(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServiceTopologyName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceTopologyName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager:ServiceTopology"),
@@ -108,7 +105,7 @@ type serviceTopologyArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the service topology .
-	ServiceTopologyName string `pulumi:"serviceTopologyName"`
+	ServiceTopologyName *string `pulumi:"serviceTopologyName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -122,7 +119,7 @@ type ServiceTopologyArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the service topology .
-	ServiceTopologyName pulumi.StringInput
+	ServiceTopologyName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

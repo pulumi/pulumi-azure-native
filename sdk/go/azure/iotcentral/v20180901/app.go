@@ -45,9 +45,6 @@ func NewApp(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
@@ -138,7 +135,7 @@ type appArgs struct {
 	// The name of the resource group that contains the IoT Central application.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ARM resource name of the IoT Central application.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// A valid instance SKU.
 	Sku AppSkuInfo `pulumi:"sku"`
 	// The subdomain of the application.
@@ -158,7 +155,7 @@ type AppArgs struct {
 	// The name of the resource group that contains the IoT Central application.
 	ResourceGroupName pulumi.StringInput
 	// The ARM resource name of the IoT Central application.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// A valid instance SKU.
 	Sku AppSkuInfoInput
 	// The subdomain of the application.

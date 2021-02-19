@@ -34,9 +34,6 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PolicyAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyAssignmentName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -138,7 +135,7 @@ type policyAssignmentArgs struct {
 	// The name of the policy assignment.
 	Name *string `pulumi:"name"`
 	// The name of the policy assignment.
-	PolicyAssignmentName string `pulumi:"policyAssignmentName"`
+	PolicyAssignmentName *string `pulumi:"policyAssignmentName"`
 	// The ID of the policy definition.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -156,7 +153,7 @@ type PolicyAssignmentArgs struct {
 	// The name of the policy assignment.
 	Name pulumi.StringPtrInput
 	// The name of the policy assignment.
-	PolicyAssignmentName pulumi.StringInput
+	PolicyAssignmentName pulumi.StringPtrInput
 	// The ID of the policy definition.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The scope for the policy assignment.

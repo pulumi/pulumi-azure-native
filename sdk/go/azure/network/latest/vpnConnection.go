@@ -67,9 +67,6 @@ func NewVpnConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionName'")
-	}
 	if args.GatewayName == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayName'")
 	}
@@ -260,7 +257,7 @@ type vpnConnectionArgs struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
 	// The name of the connection.
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// DPD timeout in seconds for vpn connection.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// EnableBgp flag.
@@ -302,7 +299,7 @@ type VpnConnectionArgs struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth pulumi.IntPtrInput
 	// The name of the connection.
-	ConnectionName pulumi.StringInput
+	ConnectionName pulumi.StringPtrInput
 	// DPD timeout in seconds for vpn connection.
 	DpdTimeoutSeconds pulumi.IntPtrInput
 	// EnableBgp flag.

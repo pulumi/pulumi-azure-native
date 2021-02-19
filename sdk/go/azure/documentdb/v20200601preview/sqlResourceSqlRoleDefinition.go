@@ -40,9 +40,6 @@ func NewSqlResourceSqlRoleDefinition(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RoleDefinitionId == nil {
-		return nil, errors.New("invalid value for required argument 'RoleDefinitionId'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlRoleDefinition"),
@@ -110,7 +107,7 @@ type sqlResourceSqlRoleDefinitionArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The GUID for the Role Definition.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
 	// A user-friendly name for the Role Definition. Must be unique for the database account.
 	RoleName *string `pulumi:"roleName"`
 	// Indicates whether the Role Definition was built-in or user created.
@@ -128,7 +125,7 @@ type SqlResourceSqlRoleDefinitionArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The GUID for the Role Definition.
-	RoleDefinitionId pulumi.StringInput
+	RoleDefinitionId pulumi.StringPtrInput
 	// A user-friendly name for the Role Definition. Must be unique for the database account.
 	RoleName pulumi.StringPtrInput
 	// Indicates whether the Role Definition was built-in or user created.

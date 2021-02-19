@@ -51,9 +51,6 @@ func NewPublishedBlueprint(ctx *pulumi.Context,
 	if args.ResourceScope == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceScope'")
 	}
-	if args.VersionId == nil {
-		return nil, errors.New("invalid value for required argument 'VersionId'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:blueprint/v20181101preview:PublishedBlueprint"),
@@ -149,7 +146,7 @@ type publishedBlueprintArgs struct {
 	// The scope where this blueprint definition can be assigned.
 	TargetScope *string `pulumi:"targetScope"`
 	// Version of the published blueprint definition.
-	VersionId string `pulumi:"versionId"`
+	VersionId *string `pulumi:"versionId"`
 }
 
 // The set of arguments for constructing a PublishedBlueprint resource.
@@ -171,7 +168,7 @@ type PublishedBlueprintArgs struct {
 	// The scope where this blueprint definition can be assigned.
 	TargetScope pulumi.StringPtrInput
 	// Version of the published blueprint definition.
-	VersionId pulumi.StringInput
+	VersionId pulumi.StringPtrInput
 }
 
 func (PublishedBlueprintArgs) ElementType() reflect.Type {

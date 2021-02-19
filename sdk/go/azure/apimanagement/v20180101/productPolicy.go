@@ -35,9 +35,6 @@ func NewProductPolicy(ctx *pulumi.Context,
 	if args.PolicyContent == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyContent'")
 	}
-	if args.PolicyId == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyId'")
-	}
 	if args.ProductId == nil {
 		return nil, errors.New("invalid value for required argument 'ProductId'")
 	}
@@ -130,7 +127,7 @@ type productPolicyArgs struct {
 	// Json escaped Xml Encoded contents of the Policy.
 	PolicyContent string `pulumi:"policyContent"`
 	// The identifier of the Policy.
-	PolicyId string `pulumi:"policyId"`
+	PolicyId *string `pulumi:"policyId"`
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId string `pulumi:"productId"`
 	// The name of the resource group.
@@ -146,7 +143,7 @@ type ProductPolicyArgs struct {
 	// Json escaped Xml Encoded contents of the Policy.
 	PolicyContent pulumi.StringInput
 	// The identifier of the Policy.
-	PolicyId pulumi.StringInput
+	PolicyId pulumi.StringPtrInput
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId pulumi.StringInput
 	// The name of the resource group.

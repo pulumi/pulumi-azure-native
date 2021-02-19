@@ -40,9 +40,6 @@ func NewSqlResourceSqlRoleAssignment(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RoleAssignmentId == nil {
-		return nil, errors.New("invalid value for required argument 'RoleAssignmentId'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlRoleAssignment"),
@@ -108,7 +105,7 @@ type sqlResourceSqlRoleAssignmentArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The GUID for the Role Assignment.
-	RoleAssignmentId string `pulumi:"roleAssignmentId"`
+	RoleAssignmentId *string `pulumi:"roleAssignmentId"`
 	// The unique identifier for the associated Role Definition.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
 	// The data plane resource path for which access is being granted through this Role Assignment.
@@ -124,7 +121,7 @@ type SqlResourceSqlRoleAssignmentArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The GUID for the Role Assignment.
-	RoleAssignmentId pulumi.StringInput
+	RoleAssignmentId pulumi.StringPtrInput
 	// The unique identifier for the associated Role Definition.
 	RoleDefinitionId pulumi.StringPtrInput
 	// The data plane resource path for which access is being granted through this Role Assignment.

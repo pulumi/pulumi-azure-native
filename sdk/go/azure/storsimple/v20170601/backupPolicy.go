@@ -44,9 +44,6 @@ func NewBackupPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BackupPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'BackupPolicyName'")
-	}
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
@@ -141,7 +138,7 @@ func (BackupPolicyState) ElementType() reflect.Type {
 
 type backupPolicyArgs struct {
 	// The name of the backup policy to be created/updated.
-	BackupPolicyName string `pulumi:"backupPolicyName"`
+	BackupPolicyName *string `pulumi:"backupPolicyName"`
 	// The device name
 	DeviceName string `pulumi:"deviceName"`
 	// The Kind of the object. Currently only Series8000 is supported
@@ -157,7 +154,7 @@ type backupPolicyArgs struct {
 // The set of arguments for constructing a BackupPolicy resource.
 type BackupPolicyArgs struct {
 	// The name of the backup policy to be created/updated.
-	BackupPolicyName pulumi.StringInput
+	BackupPolicyName pulumi.StringPtrInput
 	// The device name
 	DeviceName pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported

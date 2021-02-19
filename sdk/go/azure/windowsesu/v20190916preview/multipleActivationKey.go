@@ -47,9 +47,6 @@ func NewMultipleActivationKey(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.MultipleActivationKeyName == nil {
-		return nil, errors.New("invalid value for required argument 'MultipleActivationKeyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -149,7 +146,7 @@ type multipleActivationKeyArgs struct {
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the MAK key.
-	MultipleActivationKeyName string `pulumi:"multipleActivationKeyName"`
+	MultipleActivationKeyName *string `pulumi:"multipleActivationKeyName"`
 	// Type of OS for which the key is requested.
 	OsType *string `pulumi:"osType"`
 	// The name of the resource group. The name is case insensitive.
@@ -171,7 +168,7 @@ type MultipleActivationKeyArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the MAK key.
-	MultipleActivationKeyName pulumi.StringInput
+	MultipleActivationKeyName pulumi.StringPtrInput
 	// Type of OS for which the key is requested.
 	OsType pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

@@ -48,9 +48,6 @@ func NewCloudEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CloudEndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'CloudEndpointName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -177,7 +174,7 @@ func (CloudEndpointState) ElementType() reflect.Type {
 
 type cloudEndpointArgs struct {
 	// Name of Cloud Endpoint object.
-	CloudEndpointName string `pulumi:"cloudEndpointName"`
+	CloudEndpointName *string `pulumi:"cloudEndpointName"`
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
 	// CloudEndpoint lastWorkflowId
@@ -207,7 +204,7 @@ type cloudEndpointArgs struct {
 // The set of arguments for constructing a CloudEndpoint resource.
 type CloudEndpointArgs struct {
 	// Name of Cloud Endpoint object.
-	CloudEndpointName pulumi.StringInput
+	CloudEndpointName pulumi.StringPtrInput
 	// Friendly Name
 	FriendlyName pulumi.StringPtrInput
 	// CloudEndpoint lastWorkflowId

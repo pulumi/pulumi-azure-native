@@ -27,9 +27,6 @@ func NewHyperVCollector(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.HyperVCollectorName == nil {
-		return nil, errors.New("invalid value for required argument 'HyperVCollectorName'")
-	}
 	if args.ProjectName == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectName'")
 	}
@@ -87,7 +84,7 @@ func (HyperVCollectorState) ElementType() reflect.Type {
 type hyperVCollectorArgs struct {
 	ETag *string `pulumi:"eTag"`
 	// Unique name of a Hyper-V collector within a project.
-	HyperVCollectorName string `pulumi:"hyperVCollectorName"`
+	HyperVCollectorName *string `pulumi:"hyperVCollectorName"`
 	// Name of the Azure Migrate project.
 	ProjectName string               `pulumi:"projectName"`
 	Properties  *CollectorProperties `pulumi:"properties"`
@@ -99,7 +96,7 @@ type hyperVCollectorArgs struct {
 type HyperVCollectorArgs struct {
 	ETag pulumi.StringPtrInput
 	// Unique name of a Hyper-V collector within a project.
-	HyperVCollectorName pulumi.StringInput
+	HyperVCollectorName pulumi.StringPtrInput
 	// Name of the Azure Migrate project.
 	ProjectName pulumi.StringInput
 	Properties  CollectorPropertiesPtrInput

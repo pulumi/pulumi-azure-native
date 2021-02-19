@@ -35,9 +35,6 @@ func NewAssessment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AssessmentName == nil {
-		return nil, errors.New("invalid value for required argument 'AssessmentName'")
-	}
 	if args.GroupName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupName'")
 	}
@@ -108,7 +105,7 @@ func (AssessmentState) ElementType() reflect.Type {
 
 type assessmentArgs struct {
 	// Unique name of an assessment within a project.
-	AssessmentName string `pulumi:"assessmentName"`
+	AssessmentName *string `pulumi:"assessmentName"`
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
 	// Unique name of a group within a project.
@@ -124,7 +121,7 @@ type assessmentArgs struct {
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
 	// Unique name of an assessment within a project.
-	AssessmentName pulumi.StringInput
+	AssessmentName pulumi.StringPtrInput
 	// For optimistic concurrency control.
 	ETag pulumi.StringPtrInput
 	// Unique name of a group within a project.

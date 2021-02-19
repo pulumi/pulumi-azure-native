@@ -54,9 +54,6 @@ func NewNetworkFunction(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.NetworkFunctionName == nil {
-		return nil, errors.New("invalid value for required argument 'NetworkFunctionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -167,7 +164,7 @@ type networkFunctionArgs struct {
 	// The parameters for the managed application.
 	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// Resource name for the network function resource.
-	NetworkFunctionName string `pulumi:"networkFunctionName"`
+	NetworkFunctionName *string `pulumi:"networkFunctionName"`
 	// The network function configurations from the user.
 	NetworkFunctionUserConfigurations []NetworkFunctionUserConfiguration `pulumi:"networkFunctionUserConfigurations"`
 	// The name of the resource group. The name is case insensitive.
@@ -191,7 +188,7 @@ type NetworkFunctionArgs struct {
 	// The parameters for the managed application.
 	ManagedApplicationParameters pulumi.Input
 	// Resource name for the network function resource.
-	NetworkFunctionName pulumi.StringInput
+	NetworkFunctionName pulumi.StringPtrInput
 	// The network function configurations from the user.
 	NetworkFunctionUserConfigurations NetworkFunctionUserConfigurationArrayInput
 	// The name of the resource group. The name is case insensitive.

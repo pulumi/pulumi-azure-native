@@ -37,9 +37,6 @@ func NewEventSource(ctx *pulumi.Context,
 	if args.EnvironmentName == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
 	}
-	if args.EventSourceName == nil {
-		return nil, errors.New("invalid value for required argument 'EventSourceName'")
-	}
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
@@ -119,7 +116,7 @@ type eventSourceArgs struct {
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName string `pulumi:"environmentName"`
 	// Name of the event source.
-	EventSourceName string `pulumi:"eventSourceName"`
+	EventSourceName *string `pulumi:"eventSourceName"`
 	// The kind of the event source.
 	Kind string `pulumi:"kind"`
 	// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
@@ -137,7 +134,7 @@ type EventSourceArgs struct {
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName pulumi.StringInput
 	// Name of the event source.
-	EventSourceName pulumi.StringInput
+	EventSourceName pulumi.StringPtrInput
 	// The kind of the event source.
 	Kind pulumi.StringInput
 	// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.

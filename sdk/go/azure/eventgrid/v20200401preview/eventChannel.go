@@ -44,9 +44,6 @@ func NewEventChannel(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EventChannelName == nil {
-		return nil, errors.New("invalid value for required argument 'EventChannelName'")
-	}
 	if args.PartnerNamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'PartnerNamespaceName'")
 	}
@@ -137,7 +134,7 @@ type eventChannelArgs struct {
 	// Represents the destination of an event channel.
 	Destination *EventChannelDestination `pulumi:"destination"`
 	// Name of the event channel.
-	EventChannelName string `pulumi:"eventChannelName"`
+	EventChannelName *string `pulumi:"eventChannelName"`
 	// Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
 	// the event channel and corresponding partner topic are deleted.
 	ExpirationTimeIfNotActivatedUtc *string `pulumi:"expirationTimeIfNotActivatedUtc"`
@@ -159,7 +156,7 @@ type EventChannelArgs struct {
 	// Represents the destination of an event channel.
 	Destination EventChannelDestinationPtrInput
 	// Name of the event channel.
-	EventChannelName pulumi.StringInput
+	EventChannelName pulumi.StringPtrInput
 	// Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
 	// the event channel and corresponding partner topic are deleted.
 	ExpirationTimeIfNotActivatedUtc pulumi.StringPtrInput

@@ -48,9 +48,6 @@ func NewDatabase(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
-	if args.DatabaseName == nil {
-		return nil, errors.New("invalid value for required argument 'DatabaseName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -145,7 +142,7 @@ type databaseArgs struct {
 	// Clustering policy - default is OSSCluster. Specified at create time.
 	ClusteringPolicy *string `pulumi:"clusteringPolicy"`
 	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
+	DatabaseName *string `pulumi:"databaseName"`
 	// Redis eviction policy - default is VolatileLRU
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Optional set of redis modules to enable in this database - modules can only be added at creation time.
@@ -167,7 +164,7 @@ type DatabaseArgs struct {
 	// Clustering policy - default is OSSCluster. Specified at create time.
 	ClusteringPolicy pulumi.StringPtrInput
 	// The name of the database.
-	DatabaseName pulumi.StringInput
+	DatabaseName pulumi.StringPtrInput
 	// Redis eviction policy - default is VolatileLRU
 	EvictionPolicy pulumi.StringPtrInput
 	// Optional set of redis modules to enable in this database - modules can only be added at creation time.

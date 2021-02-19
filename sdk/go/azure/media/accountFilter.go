@@ -40,9 +40,6 @@ func NewAccountFilter(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.FilterName == nil {
-		return nil, errors.New("invalid value for required argument 'FilterName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -117,7 +114,7 @@ type accountFilterArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
 	// The Account Filter name
-	FilterName string `pulumi:"filterName"`
+	FilterName *string `pulumi:"filterName"`
 	// The first quality.
 	FirstQuality *FirstQuality `pulumi:"firstQuality"`
 	// The presentation time range.
@@ -133,7 +130,7 @@ type AccountFilterArgs struct {
 	// The Media Services account name.
 	AccountName pulumi.StringInput
 	// The Account Filter name
-	FilterName pulumi.StringInput
+	FilterName pulumi.StringPtrInput
 	// The first quality.
 	FirstQuality FirstQualityPtrInput
 	// The presentation time range.

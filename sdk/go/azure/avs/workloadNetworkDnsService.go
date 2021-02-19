@@ -45,9 +45,6 @@ func NewWorkloadNetworkDnsService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DnsServiceId == nil {
-		return nil, errors.New("invalid value for required argument 'DnsServiceId'")
-	}
 	if args.PrivateCloudName == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
 	}
@@ -137,7 +134,7 @@ type workloadNetworkDnsServiceArgs struct {
 	// Display name of the DNS Service.
 	DisplayName *string `pulumi:"displayName"`
 	// NSX DNS Service identifier. Generally the same as the DNS Service's display name
-	DnsServiceId string `pulumi:"dnsServiceId"`
+	DnsServiceId *string `pulumi:"dnsServiceId"`
 	// DNS service IP of the DNS Service.
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
 	// FQDN zones of the DNS Service.
@@ -159,7 +156,7 @@ type WorkloadNetworkDnsServiceArgs struct {
 	// Display name of the DNS Service.
 	DisplayName pulumi.StringPtrInput
 	// NSX DNS Service identifier. Generally the same as the DNS Service's display name
-	DnsServiceId pulumi.StringInput
+	DnsServiceId pulumi.StringPtrInput
 	// DNS service IP of the DNS Service.
 	DnsServiceIp pulumi.StringPtrInput
 	// FQDN zones of the DNS Service.

@@ -53,9 +53,6 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -171,7 +168,7 @@ type storageAccountCredentialArgs struct {
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// The storage account credential name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Signifies whether SSL needs to be enabled or not.
@@ -197,7 +194,7 @@ type StorageAccountCredentialArgs struct {
 	// The device name.
 	DeviceName pulumi.StringInput
 	// The storage account credential name.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Signifies whether SSL needs to be enabled or not.

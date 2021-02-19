@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -32,12 +31,9 @@ type ConfigurationProfile struct {
 func NewConfigurationProfile(ctx *pulumi.Context,
 	name string, args *ConfigurationProfileArgs, opts ...pulumi.ResourceOption) (*ConfigurationProfile, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ConfigurationProfileArgs{}
 	}
 
-	if args.ProfileName == nil {
-		return nil, errors.New("invalid value for required argument 'ProfileName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile"),
@@ -99,7 +95,7 @@ type configurationProfileArgs struct {
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity *ResourceIdentity `pulumi:"identity"`
 	// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
-	ProfileName string `pulumi:"profileName"`
+	ProfileName *string `pulumi:"profileName"`
 	// The properties of a configuration profile.
 	Properties *ConfigurationProfileResourceProperties `pulumi:"properties"`
 }
@@ -109,7 +105,7 @@ type ConfigurationProfileArgs struct {
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity ResourceIdentityPtrInput
 	// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
-	ProfileName pulumi.StringInput
+	ProfileName pulumi.StringPtrInput
 	// The properties of a configuration profile.
 	Properties ConfigurationProfileResourcePropertiesPtrInput
 }

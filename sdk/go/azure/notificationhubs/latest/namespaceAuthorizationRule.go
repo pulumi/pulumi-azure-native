@@ -55,9 +55,6 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AuthorizationRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'AuthorizationRuleName'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -168,7 +165,7 @@ func (NamespaceAuthorizationRuleState) ElementType() reflect.Type {
 
 type namespaceAuthorizationRuleArgs struct {
 	// Authorization Rule Name.
-	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
+	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
 	// The namespace name.
 	NamespaceName string `pulumi:"namespaceName"`
 	// Properties of the Namespace AuthorizationRules.
@@ -180,7 +177,7 @@ type namespaceAuthorizationRuleArgs struct {
 // The set of arguments for constructing a NamespaceAuthorizationRule resource.
 type NamespaceAuthorizationRuleArgs struct {
 	// Authorization Rule Name.
-	AuthorizationRuleName pulumi.StringInput
+	AuthorizationRuleName pulumi.StringPtrInput
 	// The namespace name.
 	NamespaceName pulumi.StringInput
 	// Properties of the Namespace AuthorizationRules.

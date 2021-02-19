@@ -41,9 +41,6 @@ func NewManager(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ManagerName == nil {
-		return nil, errors.New("invalid value for required argument 'ManagerName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -130,7 +127,7 @@ type managerArgs struct {
 	// The geo location of the resource.
 	Location *string `pulumi:"location"`
 	// The manager name
-	ManagerName string `pulumi:"managerName"`
+	ManagerName *string `pulumi:"managerName"`
 	// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name
@@ -150,7 +147,7 @@ type ManagerArgs struct {
 	// The geo location of the resource.
 	Location pulumi.StringPtrInput
 	// The manager name
-	ManagerName pulumi.StringInput
+	ManagerName pulumi.StringPtrInput
 	// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
 	ProvisioningState pulumi.StringPtrInput
 	// The resource group name

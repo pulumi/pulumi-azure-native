@@ -35,9 +35,6 @@ func NewHcxEnterpriseSite(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.HcxEnterpriseSiteName == nil {
-		return nil, errors.New("invalid value for required argument 'HcxEnterpriseSiteName'")
-	}
 	if args.PrivateCloudName == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
 	}
@@ -105,7 +102,7 @@ func (HcxEnterpriseSiteState) ElementType() reflect.Type {
 
 type hcxEnterpriseSiteArgs struct {
 	// Name of the HCX Enterprise Site in the private cloud
-	HcxEnterpriseSiteName string `pulumi:"hcxEnterpriseSiteName"`
+	HcxEnterpriseSiteName *string `pulumi:"hcxEnterpriseSiteName"`
 	// The name of the private cloud.
 	PrivateCloudName string `pulumi:"privateCloudName"`
 	// The name of the resource group. The name is case insensitive.
@@ -115,7 +112,7 @@ type hcxEnterpriseSiteArgs struct {
 // The set of arguments for constructing a HcxEnterpriseSite resource.
 type HcxEnterpriseSiteArgs struct {
 	// Name of the HCX Enterprise Site in the private cloud
-	HcxEnterpriseSiteName pulumi.StringInput
+	HcxEnterpriseSiteName pulumi.StringPtrInput
 	// The name of the private cloud.
 	PrivateCloudName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.

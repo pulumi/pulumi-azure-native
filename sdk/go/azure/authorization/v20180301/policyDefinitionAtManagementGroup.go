@@ -45,9 +45,6 @@ func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 	if args.ManagementGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementGroupId'")
 	}
-	if args.PolicyDefinitionName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyDefinitionName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:authorization:PolicyDefinitionAtManagementGroup"),
@@ -159,7 +156,7 @@ type policyDefinitionAtManagementGroupArgs struct {
 	// Required if a parameter is used in policy rule.
 	Parameters interface{} `pulumi:"parameters"`
 	// The name of the policy definition to create.
-	PolicyDefinitionName string `pulumi:"policyDefinitionName"`
+	PolicyDefinitionName *string `pulumi:"policyDefinitionName"`
 	// The policy rule.
 	PolicyRule interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -181,7 +178,7 @@ type PolicyDefinitionAtManagementGroupArgs struct {
 	// Required if a parameter is used in policy rule.
 	Parameters pulumi.Input
 	// The name of the policy definition to create.
-	PolicyDefinitionName pulumi.StringInput
+	PolicyDefinitionName pulumi.StringPtrInput
 	// The policy rule.
 	PolicyRule pulumi.Input
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.

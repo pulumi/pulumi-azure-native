@@ -34,9 +34,6 @@ func NewCache(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CacheId == nil {
-		return nil, errors.New("invalid value for required argument 'CacheId'")
-	}
 	if args.ConnectionString == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionString'")
 	}
@@ -120,7 +117,7 @@ func (CacheState) ElementType() reflect.Type {
 
 type cacheArgs struct {
 	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
-	CacheId string `pulumi:"cacheId"`
+	CacheId *string `pulumi:"cacheId"`
 	// Runtime connection string to cache
 	ConnectionString string `pulumi:"connectionString"`
 	// Cache description
@@ -136,7 +133,7 @@ type cacheArgs struct {
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
 	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
-	CacheId pulumi.StringInput
+	CacheId pulumi.StringPtrInput
 	// Runtime connection string to cache
 	ConnectionString pulumi.StringInput
 	// Cache description

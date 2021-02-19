@@ -47,9 +47,6 @@ func NewIncidentRelation(ctx *pulumi.Context,
 	if args.RelatedResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'RelatedResourceId'")
 	}
-	if args.RelationName == nil {
-		return nil, errors.New("invalid value for required argument 'RelationName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -131,7 +128,7 @@ type incidentRelationArgs struct {
 	// The resource ID of the related resource
 	RelatedResourceId string `pulumi:"relatedResourceId"`
 	// Relation Name
-	RelationName string `pulumi:"relationName"`
+	RelationName *string `pulumi:"relationName"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.
@@ -149,7 +146,7 @@ type IncidentRelationArgs struct {
 	// The resource ID of the related resource
 	RelatedResourceId pulumi.StringInput
 	// Relation Name
-	RelationName pulumi.StringInput
+	RelationName pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the workspace.

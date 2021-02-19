@@ -52,9 +52,6 @@ func NewConnectedRegistry(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectedRegistryName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectedRegistryName'")
-	}
 	if args.Mode == nil {
 		return nil, errors.New("invalid value for required argument 'Mode'")
 	}
@@ -164,7 +161,7 @@ type connectedRegistryArgs struct {
 	// The list of the ACR token resource IDs used to authenticate clients to the connected registry.
 	ClientTokenIds []string `pulumi:"clientTokenIds"`
 	// The name of the connected registry.
-	ConnectedRegistryName string `pulumi:"connectedRegistryName"`
+	ConnectedRegistryName *string `pulumi:"connectedRegistryName"`
 	// The logging properties of the connected registry.
 	Logging *LoggingProperties `pulumi:"logging"`
 	// The mode of the connected registry resource that indicates the permissions of the registry.
@@ -182,7 +179,7 @@ type ConnectedRegistryArgs struct {
 	// The list of the ACR token resource IDs used to authenticate clients to the connected registry.
 	ClientTokenIds pulumi.StringArrayInput
 	// The name of the connected registry.
-	ConnectedRegistryName pulumi.StringInput
+	ConnectedRegistryName pulumi.StringPtrInput
 	// The logging properties of the connected registry.
 	Logging LoggingPropertiesPtrInput
 	// The mode of the connected registry resource that indicates the permissions of the registry.

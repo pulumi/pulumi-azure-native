@@ -35,9 +35,6 @@ func NewDeployment(ctx *pulumi.Context,
 	if args.AppName == nil {
 		return nil, errors.New("invalid value for required argument 'AppName'")
 	}
-	if args.DeploymentName == nil {
-		return nil, errors.New("invalid value for required argument 'DeploymentName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -110,7 +107,7 @@ type deploymentArgs struct {
 	// The name of the App resource.
 	AppName string `pulumi:"appName"`
 	// The name of the Deployment resource.
-	DeploymentName string `pulumi:"deploymentName"`
+	DeploymentName *string `pulumi:"deploymentName"`
 	// Properties of the Deployment resource
 	Properties *DeploymentResourceProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -126,7 +123,7 @@ type DeploymentArgs struct {
 	// The name of the App resource.
 	AppName pulumi.StringInput
 	// The name of the Deployment resource.
-	DeploymentName pulumi.StringInput
+	DeploymentName pulumi.StringPtrInput
 	// Properties of the Deployment resource
 	Properties DeploymentResourcePropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -30,9 +30,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -104,7 +101,7 @@ type privateEndpointConnectionArgs struct {
 	// The ID of the private endpoint connection. This can be used with the Azure Resource Manager to link resources together.
 	Id *string `pulumi:"id"`
 	// The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
-	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
 	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -118,7 +115,7 @@ type PrivateEndpointConnectionArgs struct {
 	// The ID of the private endpoint connection. This can be used with the Azure Resource Manager to link resources together.
 	Id pulumi.StringPtrInput
 	// The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 	Properties PrivateEndpointConnectionPropertiesPtrInput
 	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.

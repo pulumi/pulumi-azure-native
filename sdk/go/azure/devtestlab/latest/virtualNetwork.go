@@ -54,9 +54,6 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 	if args.LabName == nil {
 		return nil, errors.New("invalid value for required argument 'LabName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -166,7 +163,7 @@ type virtualNetworkArgs struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the virtual network.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The subnet overrides of the virtual network.
@@ -188,7 +185,7 @@ type VirtualNetworkArgs struct {
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the virtual network.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The subnet overrides of the virtual network.

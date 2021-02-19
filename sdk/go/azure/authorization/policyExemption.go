@@ -51,9 +51,6 @@ func NewPolicyExemption(ctx *pulumi.Context,
 	if args.PolicyAssignmentId == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyAssignmentId'")
 	}
-	if args.PolicyExemptionName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyExemptionName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -150,7 +147,7 @@ type policyExemptionArgs struct {
 	// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
 	PolicyDefinitionReferenceIds []string `pulumi:"policyDefinitionReferenceIds"`
 	// The name of the policy exemption to delete.
-	PolicyExemptionName string `pulumi:"policyExemptionName"`
+	PolicyExemptionName *string `pulumi:"policyExemptionName"`
 	// The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
 	Scope string `pulumi:"scope"`
 }
@@ -172,7 +169,7 @@ type PolicyExemptionArgs struct {
 	// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
 	PolicyDefinitionReferenceIds pulumi.StringArrayInput
 	// The name of the policy exemption to delete.
-	PolicyExemptionName pulumi.StringInput
+	PolicyExemptionName pulumi.StringPtrInput
 	// The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
 	Scope pulumi.StringInput
 }

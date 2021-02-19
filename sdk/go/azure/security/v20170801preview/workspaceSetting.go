@@ -38,9 +38,6 @@ func NewWorkspaceSetting(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
-	if args.WorkspaceSettingName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkspaceSettingName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:security:WorkspaceSetting"),
@@ -100,7 +97,7 @@ type workspaceSettingArgs struct {
 	// The full Azure ID of the workspace to save the data in
 	WorkspaceId string `pulumi:"workspaceId"`
 	// Name of the security setting
-	WorkspaceSettingName string `pulumi:"workspaceSettingName"`
+	WorkspaceSettingName *string `pulumi:"workspaceSettingName"`
 }
 
 // The set of arguments for constructing a WorkspaceSetting resource.
@@ -110,7 +107,7 @@ type WorkspaceSettingArgs struct {
 	// The full Azure ID of the workspace to save the data in
 	WorkspaceId pulumi.StringInput
 	// Name of the security setting
-	WorkspaceSettingName pulumi.StringInput
+	WorkspaceSettingName pulumi.StringPtrInput
 }
 
 func (WorkspaceSettingArgs) ElementType() reflect.Type {

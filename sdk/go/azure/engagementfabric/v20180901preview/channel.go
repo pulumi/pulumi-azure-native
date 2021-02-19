@@ -37,9 +37,6 @@ func NewChannel(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.ChannelName == nil {
-		return nil, errors.New("invalid value for required argument 'ChannelName'")
-	}
 	if args.ChannelType == nil {
 		return nil, errors.New("invalid value for required argument 'ChannelType'")
 	}
@@ -109,7 +106,7 @@ type channelArgs struct {
 	// The functions to be enabled for the channel
 	ChannelFunctions []string `pulumi:"channelFunctions"`
 	// Channel Name
-	ChannelName string `pulumi:"channelName"`
+	ChannelName *string `pulumi:"channelName"`
 	// The channel type
 	ChannelType string `pulumi:"channelType"`
 	// The channel credentials
@@ -125,7 +122,7 @@ type ChannelArgs struct {
 	// The functions to be enabled for the channel
 	ChannelFunctions pulumi.StringArrayInput
 	// Channel Name
-	ChannelName pulumi.StringInput
+	ChannelName pulumi.StringPtrInput
 	// The channel type
 	ChannelType pulumi.StringInput
 	// The channel credentials

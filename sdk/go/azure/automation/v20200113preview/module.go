@@ -62,9 +62,6 @@ func NewModule(ctx *pulumi.Context,
 	if args.ContentLink == nil {
 		return nil, errors.New("invalid value for required argument 'ContentLink'")
 	}
-	if args.ModuleName == nil {
-		return nil, errors.New("invalid value for required argument 'ModuleName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -186,7 +183,7 @@ type moduleArgs struct {
 	// Gets or sets the location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of module.
-	ModuleName string `pulumi:"moduleName"`
+	ModuleName *string `pulumi:"moduleName"`
 	// Gets or sets name of the resource.
 	Name *string `pulumi:"name"`
 	// Name of an Azure Resource group.
@@ -204,7 +201,7 @@ type ModuleArgs struct {
 	// Gets or sets the location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of module.
-	ModuleName pulumi.StringInput
+	ModuleName pulumi.StringPtrInput
 	// Gets or sets name of the resource.
 	Name pulumi.StringPtrInput
 	// Name of an Azure Resource group.

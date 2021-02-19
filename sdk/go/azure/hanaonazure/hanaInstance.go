@@ -53,9 +53,6 @@ func NewHanaInstance(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.HanaInstanceName == nil {
-		return nil, errors.New("invalid value for required argument 'HanaInstanceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -156,7 +153,7 @@ type hanaInstanceArgs struct {
 	// Specifies the HANA instance unique ID.
 	HanaInstanceId *string `pulumi:"hanaInstanceId"`
 	// Name of the SAP HANA on Azure instance.
-	HanaInstanceName string `pulumi:"hanaInstanceName"`
+	HanaInstanceName *string `pulumi:"hanaInstanceName"`
 	// Specifies the hardware settings for the HANA instance.
 	HardwareProfile *HardwareProfile `pulumi:"hardwareProfile"`
 	// Hardware revision of a HANA instance
@@ -188,7 +185,7 @@ type HanaInstanceArgs struct {
 	// Specifies the HANA instance unique ID.
 	HanaInstanceId pulumi.StringPtrInput
 	// Name of the SAP HANA on Azure instance.
-	HanaInstanceName pulumi.StringInput
+	HanaInstanceName pulumi.StringPtrInput
 	// Specifies the hardware settings for the HANA instance.
 	HardwareProfile HardwareProfilePtrInput
 	// Hardware revision of a HANA instance

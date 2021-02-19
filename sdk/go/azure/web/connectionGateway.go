@@ -36,9 +36,6 @@ func NewConnectionGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionGatewayName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionGatewayName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -106,7 +103,7 @@ func (ConnectionGatewayState) ElementType() reflect.Type {
 
 type connectionGatewayArgs struct {
 	// The connection gateway name
-	ConnectionGatewayName string `pulumi:"connectionGatewayName"`
+	ConnectionGatewayName *string `pulumi:"connectionGatewayName"`
 	// Resource ETag
 	Etag *string `pulumi:"etag"`
 	// Resource location
@@ -123,7 +120,7 @@ type connectionGatewayArgs struct {
 // The set of arguments for constructing a ConnectionGateway resource.
 type ConnectionGatewayArgs struct {
 	// The connection gateway name
-	ConnectionGatewayName pulumi.StringInput
+	ConnectionGatewayName pulumi.StringPtrInput
 	// Resource ETag
 	Etag pulumi.StringPtrInput
 	// Resource location

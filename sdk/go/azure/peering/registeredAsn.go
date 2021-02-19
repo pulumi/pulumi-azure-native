@@ -38,9 +38,6 @@ func NewRegisteredAsn(ctx *pulumi.Context,
 	if args.PeeringName == nil {
 		return nil, errors.New("invalid value for required argument 'PeeringName'")
 	}
-	if args.RegisteredAsnName == nil {
-		return nil, errors.New("invalid value for required argument 'RegisteredAsnName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -116,7 +113,7 @@ type registeredAsnArgs struct {
 	// The name of the peering.
 	PeeringName string `pulumi:"peeringName"`
 	// The name of the ASN.
-	RegisteredAsnName string `pulumi:"registeredAsnName"`
+	RegisteredAsnName *string `pulumi:"registeredAsnName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -128,7 +125,7 @@ type RegisteredAsnArgs struct {
 	// The name of the peering.
 	PeeringName pulumi.StringInput
 	// The name of the ASN.
-	RegisteredAsnName pulumi.StringInput
+	RegisteredAsnName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

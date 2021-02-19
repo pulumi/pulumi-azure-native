@@ -45,9 +45,6 @@ func NewNetworkProfile(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.NetworkProfileName == nil {
-		return nil, errors.New("invalid value for required argument 'NetworkProfileName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -186,7 +183,7 @@ type networkProfileArgs struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the network profile.
-	NetworkProfileName string `pulumi:"networkProfileName"`
+	NetworkProfileName *string `pulumi:"networkProfileName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -202,7 +199,7 @@ type NetworkProfileArgs struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the network profile.
-	NetworkProfileName pulumi.StringInput
+	NetworkProfileName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

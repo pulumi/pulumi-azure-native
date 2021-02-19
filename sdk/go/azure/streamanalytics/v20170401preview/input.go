@@ -30,9 +30,6 @@ func NewInput(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.InputName == nil {
-		return nil, errors.New("invalid value for required argument 'InputName'")
-	}
 	if args.JobName == nil {
 		return nil, errors.New("invalid value for required argument 'JobName'")
 	}
@@ -96,7 +93,7 @@ func (InputState) ElementType() reflect.Type {
 
 type inputArgs struct {
 	// The name of the input.
-	InputName string `pulumi:"inputName"`
+	InputName *string `pulumi:"inputName"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
 	// Resource name
@@ -110,7 +107,7 @@ type inputArgs struct {
 // The set of arguments for constructing a Input resource.
 type InputArgs struct {
 	// The name of the input.
-	InputName pulumi.StringInput
+	InputName pulumi.StringPtrInput
 	// The name of the streaming job.
 	JobName pulumi.StringInput
 	// Resource name

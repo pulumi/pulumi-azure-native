@@ -35,9 +35,6 @@ func NewIntegrationAccountAssembly(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AssemblyArtifactName == nil {
-		return nil, errors.New("invalid value for required argument 'AssemblyArtifactName'")
-	}
 	if args.IntegrationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
 	}
@@ -115,7 +112,7 @@ func (IntegrationAccountAssemblyState) ElementType() reflect.Type {
 
 type integrationAccountAssemblyArgs struct {
 	// The assembly artifact name.
-	AssemblyArtifactName string `pulumi:"assemblyArtifactName"`
+	AssemblyArtifactName *string `pulumi:"assemblyArtifactName"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
@@ -131,7 +128,7 @@ type integrationAccountAssemblyArgs struct {
 // The set of arguments for constructing a IntegrationAccountAssembly resource.
 type IntegrationAccountAssemblyArgs struct {
 	// The assembly artifact name.
-	AssemblyArtifactName pulumi.StringInput
+	AssemblyArtifactName pulumi.StringPtrInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.

@@ -36,9 +36,6 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.KeyspaceName == nil {
-		return nil, errors.New("invalid value for required argument 'KeyspaceName'")
-	}
 	if args.Options == nil {
 		return nil, errors.New("invalid value for required argument 'Options'")
 	}
@@ -128,7 +125,7 @@ type cassandraResourceCassandraKeyspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB keyspace name.
-	KeyspaceName string `pulumi:"keyspaceName"`
+	KeyspaceName *string `pulumi:"keyspaceName"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
@@ -146,7 +143,7 @@ type CassandraResourceCassandraKeyspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
 	// Cosmos DB keyspace name.
-	KeyspaceName pulumi.StringInput
+	KeyspaceName pulumi.StringPtrInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.

@@ -62,9 +62,6 @@ func NewManagedDatabaseSensitivityLabel(ctx *pulumi.Context,
 	if args.SchemaName == nil {
 		return nil, errors.New("invalid value for required argument 'SchemaName'")
 	}
-	if args.SensitivityLabelSource == nil {
-		return nil, errors.New("invalid value for required argument 'SensitivityLabelSource'")
-	}
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
@@ -178,7 +175,7 @@ type managedDatabaseSensitivityLabelArgs struct {
 	// The name of the schema.
 	SchemaName string `pulumi:"schemaName"`
 	// The source of the sensitivity label.
-	SensitivityLabelSource string `pulumi:"sensitivityLabelSource"`
+	SensitivityLabelSource *string `pulumi:"sensitivityLabelSource"`
 	// The name of the table.
 	TableName string `pulumi:"tableName"`
 }
@@ -205,7 +202,7 @@ type ManagedDatabaseSensitivityLabelArgs struct {
 	// The name of the schema.
 	SchemaName pulumi.StringInput
 	// The source of the sensitivity label.
-	SensitivityLabelSource pulumi.StringInput
+	SensitivityLabelSource pulumi.StringPtrInput
 	// The name of the table.
 	TableName pulumi.StringInput
 }

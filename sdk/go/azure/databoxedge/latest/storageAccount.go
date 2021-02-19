@@ -54,9 +54,6 @@ func NewStorageAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.StorageAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge:StorageAccount"),
@@ -154,7 +151,7 @@ type storageAccountArgs struct {
 	// Storage Account Credential Id
 	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
 	// The StorageAccount name.
-	StorageAccountName string `pulumi:"storageAccountName"`
+	StorageAccountName *string `pulumi:"storageAccountName"`
 	// Current status of the storage account
 	StorageAccountStatus *string `pulumi:"storageAccountStatus"`
 }
@@ -172,7 +169,7 @@ type StorageAccountArgs struct {
 	// Storage Account Credential Id
 	StorageAccountCredentialId pulumi.StringPtrInput
 	// The StorageAccount name.
-	StorageAccountName pulumi.StringInput
+	StorageAccountName pulumi.StringPtrInput
 	// Current status of the storage account
 	StorageAccountStatus pulumi.StringPtrInput
 }

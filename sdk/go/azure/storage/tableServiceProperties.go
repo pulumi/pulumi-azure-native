@@ -37,9 +37,6 @@ func NewTableServiceProperties(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TableServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'TableServiceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storage/latest:TableServiceProperties"),
@@ -106,7 +103,7 @@ type tableServicePropertiesArgs struct {
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Table Service within the specified storage account. Table Service Name must be 'default'
-	TableServiceName string `pulumi:"tableServiceName"`
+	TableServiceName *string `pulumi:"tableServiceName"`
 }
 
 // The set of arguments for constructing a TableServiceProperties resource.
@@ -118,7 +115,7 @@ type TableServicePropertiesArgs struct {
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Table Service within the specified storage account. Table Service Name must be 'default'
-	TableServiceName pulumi.StringInput
+	TableServiceName pulumi.StringPtrInput
 }
 
 func (TableServicePropertiesArgs) ElementType() reflect.Type {

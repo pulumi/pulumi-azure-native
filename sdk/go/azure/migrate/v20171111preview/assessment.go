@@ -68,9 +68,6 @@ func NewAssessment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AssessmentName == nil {
-		return nil, errors.New("invalid value for required argument 'AssessmentName'")
-	}
 	if args.AzureHybridUseBenefit == nil {
 		return nil, errors.New("invalid value for required argument 'AzureHybridUseBenefit'")
 	}
@@ -240,7 +237,7 @@ func (AssessmentState) ElementType() reflect.Type {
 
 type assessmentArgs struct {
 	// Unique name of an assessment within a project.
-	AssessmentName string `pulumi:"assessmentName"`
+	AssessmentName *string `pulumi:"assessmentName"`
 	// AHUB discount on windows virtual machines.
 	AzureHybridUseBenefit string `pulumi:"azureHybridUseBenefit"`
 	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
@@ -276,7 +273,7 @@ type assessmentArgs struct {
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
 	// Unique name of an assessment within a project.
-	AssessmentName pulumi.StringInput
+	AssessmentName pulumi.StringPtrInput
 	// AHUB discount on windows virtual machines.
 	AzureHybridUseBenefit pulumi.StringInput
 	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.

@@ -40,9 +40,6 @@ func NewSshPublicKey(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SshPublicKeyName == nil {
-		return nil, errors.New("invalid value for required argument 'SshPublicKeyName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:compute:SshPublicKey"),
@@ -117,7 +114,7 @@ type sshPublicKeyArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SSH public key.
-	SshPublicKeyName string `pulumi:"sshPublicKeyName"`
+	SshPublicKeyName *string `pulumi:"sshPublicKeyName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -131,7 +128,7 @@ type SshPublicKeyArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the SSH public key.
-	SshPublicKeyName pulumi.StringInput
+	SshPublicKeyName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

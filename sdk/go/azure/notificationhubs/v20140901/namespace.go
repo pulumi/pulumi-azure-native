@@ -34,9 +34,6 @@ func NewNamespace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.NamespaceName == nil {
-		return nil, errors.New("invalid value for required argument 'NamespaceName'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -113,7 +110,7 @@ type namespaceArgs struct {
 	// Gets or sets Namespace data center location.
 	Location *string `pulumi:"location"`
 	// The namespace name.
-	NamespaceName string `pulumi:"namespaceName"`
+	NamespaceName *string `pulumi:"namespaceName"`
 	// Gets or sets properties of the Namespace.
 	Properties NamespaceProperties `pulumi:"properties"`
 	// The name of the resource group.
@@ -127,7 +124,7 @@ type NamespaceArgs struct {
 	// Gets or sets Namespace data center location.
 	Location pulumi.StringPtrInput
 	// The namespace name.
-	NamespaceName pulumi.StringInput
+	NamespaceName pulumi.StringPtrInput
 	// Gets or sets properties of the Namespace.
 	Properties NamespacePropertiesInput
 	// The name of the resource group.

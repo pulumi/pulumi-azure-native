@@ -68,9 +68,6 @@ func NewSchedule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ScheduleName == nil {
-		return nil, errors.New("invalid value for required argument 'ScheduleName'")
-	}
 	if args.StartTime == nil {
 		return nil, errors.New("invalid value for required argument 'StartTime'")
 	}
@@ -202,7 +199,7 @@ type scheduleArgs struct {
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The schedule name.
-	ScheduleName string `pulumi:"scheduleName"`
+	ScheduleName *string `pulumi:"scheduleName"`
 	// Gets or sets the start time of the schedule.
 	StartTime string `pulumi:"startTime"`
 	// Gets or sets the time zone of the schedule.
@@ -228,7 +225,7 @@ type ScheduleArgs struct {
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// The schedule name.
-	ScheduleName pulumi.StringInput
+	ScheduleName pulumi.StringPtrInput
 	// Gets or sets the start time of the schedule.
 	StartTime pulumi.StringInput
 	// Gets or sets the time zone of the schedule.

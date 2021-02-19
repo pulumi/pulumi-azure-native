@@ -46,9 +46,6 @@ func NewCloudEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CloudEndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'CloudEndpointName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -171,7 +168,7 @@ func (CloudEndpointState) ElementType() reflect.Type {
 
 type cloudEndpointArgs struct {
 	// Name of Cloud Endpoint object.
-	CloudEndpointName string `pulumi:"cloudEndpointName"`
+	CloudEndpointName *string `pulumi:"cloudEndpointName"`
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
@@ -193,7 +190,7 @@ type cloudEndpointArgs struct {
 // The set of arguments for constructing a CloudEndpoint resource.
 type CloudEndpointArgs struct {
 	// Name of Cloud Endpoint object.
-	CloudEndpointName pulumi.StringInput
+	CloudEndpointName pulumi.StringPtrInput
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

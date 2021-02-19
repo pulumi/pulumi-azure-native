@@ -47,9 +47,6 @@ func NewWebAppPremierAddOnSlot(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
-	if args.PremierAddOnName == nil {
-		return nil, errors.New("invalid value for required argument 'PremierAddOnName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -169,7 +166,7 @@ type webAppPremierAddOnSlotArgs struct {
 	// Name of the app.
 	Name string `pulumi:"name"`
 	// Add-on name.
-	PremierAddOnName string `pulumi:"premierAddOnName"`
+	PremierAddOnName *string `pulumi:"premierAddOnName"`
 	// Premier add on Product.
 	Product *string `pulumi:"product"`
 	// Name of the resource group to which the resource belongs.
@@ -197,7 +194,7 @@ type WebAppPremierAddOnSlotArgs struct {
 	// Name of the app.
 	Name pulumi.StringInput
 	// Add-on name.
-	PremierAddOnName pulumi.StringInput
+	PremierAddOnName pulumi.StringPtrInput
 	// Premier add on Product.
 	Product pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.

@@ -34,9 +34,6 @@ func NewContentType(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ContentTypeId == nil {
-		return nil, errors.New("invalid value for required argument 'ContentTypeId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -108,7 +105,7 @@ func (ContentTypeState) ElementType() reflect.Type {
 
 type contentTypeArgs struct {
 	// Content type identifier.
-	ContentTypeId string `pulumi:"contentTypeId"`
+	ContentTypeId *string `pulumi:"contentTypeId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -118,7 +115,7 @@ type contentTypeArgs struct {
 // The set of arguments for constructing a ContentType resource.
 type ContentTypeArgs struct {
 	// Content type identifier.
-	ContentTypeId pulumi.StringInput
+	ContentTypeId pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

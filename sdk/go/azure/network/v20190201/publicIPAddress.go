@@ -60,9 +60,6 @@ func NewPublicIPAddress(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PublicIpAddressName == nil {
-		return nil, errors.New("invalid value for required argument 'PublicIpAddressName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -306,7 +303,7 @@ type publicIPAddressArgs struct {
 	// The Public IP Prefix this Public IP Address should be allocated from.
 	PublicIPPrefix *SubResource `pulumi:"publicIPPrefix"`
 	// The name of the public IP address.
-	PublicIpAddressName string `pulumi:"publicIpAddressName"`
+	PublicIpAddressName *string `pulumi:"publicIpAddressName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource GUID property of the public IP resource.
@@ -346,7 +343,7 @@ type PublicIPAddressArgs struct {
 	// The Public IP Prefix this Public IP Address should be allocated from.
 	PublicIPPrefix SubResourcePtrInput
 	// The name of the public IP address.
-	PublicIpAddressName pulumi.StringInput
+	PublicIpAddressName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource GUID property of the public IP resource.

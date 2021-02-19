@@ -58,9 +58,6 @@ func NewSyncMember(ctx *pulumi.Context,
 	if args.SyncGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'SyncGroupName'")
 	}
-	if args.SyncMemberName == nil {
-		return nil, errors.New("invalid value for required argument 'SyncMemberName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql:SyncMember"),
@@ -171,7 +168,7 @@ type syncMemberArgs struct {
 	// The name of the sync group on which the sync member is hosted.
 	SyncGroupName string `pulumi:"syncGroupName"`
 	// The name of the sync member.
-	SyncMemberName string `pulumi:"syncMemberName"`
+	SyncMemberName *string `pulumi:"syncMemberName"`
 	// User name of the member database in the sync member.
 	UserName *string `pulumi:"userName"`
 }
@@ -197,7 +194,7 @@ type SyncMemberArgs struct {
 	// The name of the sync group on which the sync member is hosted.
 	SyncGroupName pulumi.StringInput
 	// The name of the sync member.
-	SyncMemberName pulumi.StringInput
+	SyncMemberName pulumi.StringPtrInput
 	// User name of the member database in the sync member.
 	UserName pulumi.StringPtrInput
 }

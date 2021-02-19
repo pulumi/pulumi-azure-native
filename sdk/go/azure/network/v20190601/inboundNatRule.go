@@ -48,9 +48,6 @@ func NewInboundNatRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.InboundNatRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'InboundNatRuleName'")
-	}
 	if args.LoadBalancerName == nil {
 		return nil, errors.New("invalid value for required argument 'LoadBalancerName'")
 	}
@@ -244,7 +241,7 @@ type inboundNatRuleArgs struct {
 	// The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The name of the inbound nat rule.
-	InboundNatRuleName string `pulumi:"inboundNatRuleName"`
+	InboundNatRuleName *string `pulumi:"inboundNatRuleName"`
 	// The name of the load balancer.
 	LoadBalancerName string `pulumi:"loadBalancerName"`
 	// Gets name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
@@ -276,7 +273,7 @@ type InboundNatRuleArgs struct {
 	// The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// The name of the inbound nat rule.
-	InboundNatRuleName pulumi.StringInput
+	InboundNatRuleName pulumi.StringPtrInput
 	// The name of the load balancer.
 	LoadBalancerName pulumi.StringInput
 	// Gets name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.

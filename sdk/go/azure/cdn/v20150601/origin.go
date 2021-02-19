@@ -44,9 +44,6 @@ func NewOrigin(ctx *pulumi.Context,
 	if args.HostName == nil {
 		return nil, errors.New("invalid value for required argument 'HostName'")
 	}
-	if args.OriginName == nil {
-		return nil, errors.New("invalid value for required argument 'OriginName'")
-	}
 	if args.ProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'ProfileName'")
 	}
@@ -146,7 +143,7 @@ type originArgs struct {
 	// The value of the HTTPS port. Must be between 1 and 65535.
 	HttpsPort *int `pulumi:"httpsPort"`
 	// Name of the origin, an arbitrary value but it needs to be unique under endpoint
-	OriginName string `pulumi:"originName"`
+	OriginName *string `pulumi:"originName"`
 	// Name of the CDN profile within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the resource group within the Azure subscription.
@@ -164,7 +161,7 @@ type OriginArgs struct {
 	// The value of the HTTPS port. Must be between 1 and 65535.
 	HttpsPort pulumi.IntPtrInput
 	// Name of the origin, an arbitrary value but it needs to be unique under endpoint
-	OriginName pulumi.StringInput
+	OriginName pulumi.StringPtrInput
 	// Name of the CDN profile within the resource group.
 	ProfileName pulumi.StringInput
 	// Name of the resource group within the Azure subscription.

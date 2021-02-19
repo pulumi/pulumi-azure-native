@@ -75,9 +75,6 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RuleName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleName'")
-	}
 	if args.Scopes == nil {
 		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
@@ -229,7 +226,7 @@ type scheduledQueryRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the rule.
-	RuleName string `pulumi:"ruleName"`
+	RuleName *string `pulumi:"ruleName"`
 	// The list of resource id's that this scheduled query rule is scoped to.
 	Scopes []string `pulumi:"scopes"`
 	// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
@@ -264,7 +261,7 @@ type ScheduledQueryRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the rule.
-	RuleName pulumi.StringInput
+	RuleName pulumi.StringPtrInput
 	// The list of resource id's that this scheduled query rule is scoped to.
 	Scopes pulumi.StringArrayInput
 	// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest

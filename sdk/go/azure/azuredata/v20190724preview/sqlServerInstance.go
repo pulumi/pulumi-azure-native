@@ -57,9 +57,6 @@ func NewSqlServerInstance(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SqlServerInstanceName == nil {
-		return nil, errors.New("invalid value for required argument 'SqlServerInstanceName'")
-	}
 	if args.Status == nil {
 		return nil, errors.New("invalid value for required argument 'Status'")
 	}
@@ -167,7 +164,7 @@ type sqlServerInstanceArgs struct {
 	// The name of the Azure resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of SQL Server Instance
-	SqlServerInstanceName string `pulumi:"sqlServerInstanceName"`
+	SqlServerInstanceName *string `pulumi:"sqlServerInstanceName"`
 	// The cloud connectivity status.
 	Status string `pulumi:"status"`
 	// Resource tags.
@@ -189,7 +186,7 @@ type SqlServerInstanceArgs struct {
 	// The name of the Azure resource group
 	ResourceGroupName pulumi.StringInput
 	// The name of SQL Server Instance
-	SqlServerInstanceName pulumi.StringInput
+	SqlServerInstanceName pulumi.StringPtrInput
 	// The cloud connectivity status.
 	Status pulumi.StringInput
 	// Resource tags.

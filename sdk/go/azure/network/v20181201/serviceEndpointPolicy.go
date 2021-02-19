@@ -45,9 +45,6 @@ func NewServiceEndpointPolicy(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServiceEndpointPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceEndpointPolicyName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:ServiceEndpointPolicy"),
@@ -190,7 +187,7 @@ type serviceEndpointPolicyArgs struct {
 	// A collection of service endpoint policy definitions of the service endpoint policy.
 	ServiceEndpointPolicyDefinitions []ServiceEndpointPolicyDefinitionType `pulumi:"serviceEndpointPolicyDefinitions"`
 	// The name of the service endpoint policy.
-	ServiceEndpointPolicyName string `pulumi:"serviceEndpointPolicyName"`
+	ServiceEndpointPolicyName *string `pulumi:"serviceEndpointPolicyName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -208,7 +205,7 @@ type ServiceEndpointPolicyArgs struct {
 	// A collection of service endpoint policy definitions of the service endpoint policy.
 	ServiceEndpointPolicyDefinitions ServiceEndpointPolicyDefinitionTypeArrayInput
 	// The name of the service endpoint policy.
-	ServiceEndpointPolicyName pulumi.StringInput
+	ServiceEndpointPolicyName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

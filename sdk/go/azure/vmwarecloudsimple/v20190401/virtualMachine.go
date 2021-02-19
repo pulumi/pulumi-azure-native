@@ -88,9 +88,6 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VirtualMachineName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualMachineName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:VirtualMachine"),
@@ -267,7 +264,7 @@ type virtualMachineArgs struct {
 	// The list of Virtual VSphere Networks
 	VSphereNetworks []string `pulumi:"vSphereNetworks"`
 	// virtual machine name
-	VirtualMachineName string `pulumi:"virtualMachineName"`
+	VirtualMachineName *string `pulumi:"virtualMachineName"`
 }
 
 // The set of arguments for constructing a VirtualMachine resource.
@@ -303,7 +300,7 @@ type VirtualMachineArgs struct {
 	// The list of Virtual VSphere Networks
 	VSphereNetworks pulumi.StringArrayInput
 	// virtual machine name
-	VirtualMachineName pulumi.StringInput
+	VirtualMachineName pulumi.StringPtrInput
 }
 
 func (VirtualMachineArgs) ElementType() reflect.Type {

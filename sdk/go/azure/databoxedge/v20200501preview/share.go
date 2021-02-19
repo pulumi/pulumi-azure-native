@@ -57,9 +57,6 @@ func NewShare(ctx *pulumi.Context,
 	if args.MonitoringStatus == nil {
 		return nil, errors.New("invalid value for required argument 'MonitoringStatus'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -185,7 +182,7 @@ type shareArgs struct {
 	// Current monitoring status of the share.
 	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The share name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Details of the refresh job on this share.
 	RefreshDetails *RefreshDetails `pulumi:"refreshDetails"`
 	// The resource group name.
@@ -213,7 +210,7 @@ type ShareArgs struct {
 	// Current monitoring status of the share.
 	MonitoringStatus pulumi.StringInput
 	// The share name.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Details of the refresh job on this share.
 	RefreshDetails RefreshDetailsPtrInput
 	// The resource group name.

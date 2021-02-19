@@ -45,9 +45,6 @@ func NewSynchronizationSetting(ctx *pulumi.Context,
 	if args.ShareName == nil {
 		return nil, errors.New("invalid value for required argument 'ShareName'")
 	}
-	if args.SynchronizationSettingName == nil {
-		return nil, errors.New("invalid value for required argument 'SynchronizationSettingName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:datashare/latest:SynchronizationSetting"),
@@ -123,7 +120,7 @@ type synchronizationSettingArgs struct {
 	// The name of the share to add the synchronization setting to.
 	ShareName string `pulumi:"shareName"`
 	// The name of the synchronizationSetting.
-	SynchronizationSettingName string `pulumi:"synchronizationSettingName"`
+	SynchronizationSettingName *string `pulumi:"synchronizationSettingName"`
 }
 
 // The set of arguments for constructing a SynchronizationSetting resource.
@@ -137,7 +134,7 @@ type SynchronizationSettingArgs struct {
 	// The name of the share to add the synchronization setting to.
 	ShareName pulumi.StringInput
 	// The name of the synchronizationSetting.
-	SynchronizationSettingName pulumi.StringInput
+	SynchronizationSettingName pulumi.StringPtrInput
 }
 
 func (SynchronizationSettingArgs) ElementType() reflect.Type {

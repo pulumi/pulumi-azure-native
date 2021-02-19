@@ -50,9 +50,6 @@ func NewPublishedBlueprint(ctx *pulumi.Context,
 	if args.ManagementGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementGroupName'")
 	}
-	if args.VersionId == nil {
-		return nil, errors.New("invalid value for required argument 'VersionId'")
-	}
 	var resource PublishedBlueprint
 	err := ctx.RegisterResource("azure-nextgen:blueprint/v20171111preview:PublishedBlueprint", name, args, &resource, opts...)
 	if err != nil {
@@ -130,7 +127,7 @@ type publishedBlueprintArgs struct {
 	// ManagementGroup where blueprint stores.
 	ManagementGroupName string `pulumi:"managementGroupName"`
 	// version of the published blueprint.
-	VersionId string `pulumi:"versionId"`
+	VersionId *string `pulumi:"versionId"`
 }
 
 // The set of arguments for constructing a PublishedBlueprint resource.
@@ -140,7 +137,7 @@ type PublishedBlueprintArgs struct {
 	// ManagementGroup where blueprint stores.
 	ManagementGroupName pulumi.StringInput
 	// version of the published blueprint.
-	VersionId pulumi.StringInput
+	VersionId pulumi.StringPtrInput
 }
 
 func (PublishedBlueprintArgs) ElementType() reflect.Type {

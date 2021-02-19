@@ -30,9 +30,6 @@ func NewManagedInstanceAzureADOnlyAuthentication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AuthenticationName == nil {
-		return nil, errors.New("invalid value for required argument 'AuthenticationName'")
-	}
 	if args.AzureADOnlyAuthentication == nil {
 		return nil, errors.New("invalid value for required argument 'AzureADOnlyAuthentication'")
 	}
@@ -96,7 +93,7 @@ func (ManagedInstanceAzureADOnlyAuthenticationState) ElementType() reflect.Type 
 
 type managedInstanceAzureADOnlyAuthenticationArgs struct {
 	// The name of server azure active directory only authentication.
-	AuthenticationName string `pulumi:"authenticationName"`
+	AuthenticationName *string `pulumi:"authenticationName"`
 	// Azure Active Directory only Authentication enabled.
 	AzureADOnlyAuthentication bool `pulumi:"azureADOnlyAuthentication"`
 	// The name of the managed instance.
@@ -108,7 +105,7 @@ type managedInstanceAzureADOnlyAuthenticationArgs struct {
 // The set of arguments for constructing a ManagedInstanceAzureADOnlyAuthentication resource.
 type ManagedInstanceAzureADOnlyAuthenticationArgs struct {
 	// The name of server azure active directory only authentication.
-	AuthenticationName pulumi.StringInput
+	AuthenticationName pulumi.StringPtrInput
 	// Azure Active Directory only Authentication enabled.
 	AzureADOnlyAuthentication pulumi.BoolInput
 	// The name of the managed instance.

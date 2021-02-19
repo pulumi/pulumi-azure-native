@@ -63,9 +63,6 @@ func NewExportConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ExportId == nil {
-		return nil, errors.New("invalid value for required argument 'ExportId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -200,7 +197,7 @@ type exportConfigurationArgs struct {
 	// The Continuous Export destination type. This has to be 'Blob'.
 	DestinationType *string `pulumi:"destinationType"`
 	// The Continuous Export configuration ID. This is unique within a Application Insights component.
-	ExportId string `pulumi:"exportId"`
+	ExportId *string `pulumi:"exportId"`
 	// Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
 	IsEnabled *string `pulumi:"isEnabled"`
 	// Deprecated
@@ -228,7 +225,7 @@ type ExportConfigurationArgs struct {
 	// The Continuous Export destination type. This has to be 'Blob'.
 	DestinationType pulumi.StringPtrInput
 	// The Continuous Export configuration ID. This is unique within a Application Insights component.
-	ExportId pulumi.StringInput
+	ExportId pulumi.StringPtrInput
 	// Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
 	IsEnabled pulumi.StringPtrInput
 	// Deprecated

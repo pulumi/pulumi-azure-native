@@ -44,9 +44,6 @@ func NewExport(ctx *pulumi.Context,
 	if args.DeliveryInfo == nil {
 		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
 	}
-	if args.ExportName == nil {
-		return nil, errors.New("invalid value for required argument 'ExportName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -136,7 +133,7 @@ type exportArgs struct {
 	// Has delivery information for the export.
 	DeliveryInfo ExportDeliveryInfo `pulumi:"deliveryInfo"`
 	// Export Name.
-	ExportName string `pulumi:"exportName"`
+	ExportName *string `pulumi:"exportName"`
 	// The format of the export being delivered.
 	Format *string `pulumi:"format"`
 	// Has schedule information for the export.
@@ -152,7 +149,7 @@ type ExportArgs struct {
 	// Has delivery information for the export.
 	DeliveryInfo ExportDeliveryInfoInput
 	// Export Name.
-	ExportName pulumi.StringInput
+	ExportName pulumi.StringPtrInput
 	// The format of the export being delivered.
 	Format pulumi.StringPtrInput
 	// Has schedule information for the export.

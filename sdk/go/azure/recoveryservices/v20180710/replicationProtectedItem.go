@@ -38,9 +38,6 @@ func NewReplicationProtectedItem(ctx *pulumi.Context,
 	if args.ProtectionContainerName == nil {
 		return nil, errors.New("invalid value for required argument 'ProtectionContainerName'")
 	}
-	if args.ReplicatedProtectedItemName == nil {
-		return nil, errors.New("invalid value for required argument 'ReplicatedProtectedItemName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -117,7 +114,7 @@ type replicationProtectedItemArgs struct {
 	// Protection container name.
 	ProtectionContainerName string `pulumi:"protectionContainerName"`
 	// A name for the replication protected item.
-	ReplicatedProtectedItemName string `pulumi:"replicatedProtectedItemName"`
+	ReplicatedProtectedItemName *string `pulumi:"replicatedProtectedItemName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
@@ -133,7 +130,7 @@ type ReplicationProtectedItemArgs struct {
 	// Protection container name.
 	ProtectionContainerName pulumi.StringInput
 	// A name for the replication protected item.
-	ReplicatedProtectedItemName pulumi.StringInput
+	ReplicatedProtectedItemName pulumi.StringPtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// The name of the recovery services vault.

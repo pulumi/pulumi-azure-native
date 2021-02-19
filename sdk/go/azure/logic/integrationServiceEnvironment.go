@@ -37,9 +37,6 @@ func NewIntegrationServiceEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.IntegrationServiceEnvironmentName == nil {
-		return nil, errors.New("invalid value for required argument 'IntegrationServiceEnvironmentName'")
-	}
 	if args.ResourceGroup == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroup'")
 	}
@@ -109,7 +106,7 @@ func (IntegrationServiceEnvironmentState) ElementType() reflect.Type {
 
 type integrationServiceEnvironmentArgs struct {
 	// The integration service environment name.
-	IntegrationServiceEnvironmentName string `pulumi:"integrationServiceEnvironmentName"`
+	IntegrationServiceEnvironmentName *string `pulumi:"integrationServiceEnvironmentName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The integration service environment properties.
@@ -125,7 +122,7 @@ type integrationServiceEnvironmentArgs struct {
 // The set of arguments for constructing a IntegrationServiceEnvironment resource.
 type IntegrationServiceEnvironmentArgs struct {
 	// The integration service environment name.
-	IntegrationServiceEnvironmentName pulumi.StringInput
+	IntegrationServiceEnvironmentName pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The integration service environment properties.

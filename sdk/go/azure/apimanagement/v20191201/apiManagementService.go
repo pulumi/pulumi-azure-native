@@ -93,9 +93,6 @@ func NewApiManagementService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceName'")
-	}
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
@@ -320,7 +317,7 @@ type apiManagementServiceArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName *string `pulumi:"serviceName"`
 	// SKU properties of the API Management service.
 	Sku ApiManagementServiceSkuProperties `pulumi:"sku"`
 	// Resource tags.
@@ -360,7 +357,7 @@ type ApiManagementServiceArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName pulumi.StringPtrInput
 	// SKU properties of the API Management service.
 	Sku ApiManagementServiceSkuPropertiesInput
 	// Resource tags.

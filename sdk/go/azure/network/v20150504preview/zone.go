@@ -39,9 +39,6 @@ func NewZone(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ZoneName == nil {
-		return nil, errors.New("invalid value for required argument 'ZoneName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:Zone"),
@@ -133,7 +130,7 @@ type zoneArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the zone without a terminating dot.
-	ZoneName string `pulumi:"zoneName"`
+	ZoneName *string `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a Zone resource.
@@ -149,7 +146,7 @@ type ZoneArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the zone without a terminating dot.
-	ZoneName pulumi.StringInput
+	ZoneName pulumi.StringPtrInput
 }
 
 func (ZoneArgs) ElementType() reflect.Type {

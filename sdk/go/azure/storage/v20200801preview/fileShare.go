@@ -64,9 +64,6 @@ func NewFileShare(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ShareName == nil {
-		return nil, errors.New("invalid value for required argument 'ShareName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storage:FileShare"),
@@ -200,7 +197,7 @@ type fileShareArgs struct {
 	// The property is for NFS share only. The default is NoRootSquash.
 	RootSquash *string `pulumi:"rootSquash"`
 	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	ShareName string `pulumi:"shareName"`
+	ShareName *string `pulumi:"shareName"`
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
 	ShareQuota *int `pulumi:"shareQuota"`
 }
@@ -222,7 +219,7 @@ type FileShareArgs struct {
 	// The property is for NFS share only. The default is NoRootSquash.
 	RootSquash pulumi.StringPtrInput
 	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	ShareName pulumi.StringInput
+	ShareName pulumi.StringPtrInput
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
 	ShareQuota pulumi.IntPtrInput
 }

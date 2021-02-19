@@ -85,9 +85,6 @@ func NewAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountName == nil {
-		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
 	if args.DataLakeStoreAccounts == nil {
 		return nil, errors.New("invalid value for required argument 'DataLakeStoreAccounts'")
 	}
@@ -267,7 +264,7 @@ func (AccountState) ElementType() reflect.Type {
 
 type accountArgs struct {
 	// The name of the Data Lake Analytics account.
-	AccountName string `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
 	// The list of compute policies associated with this account.
 	ComputePolicies []CreateComputePolicyWithAccountParameters `pulumi:"computePolicies"`
 	// The list of Data Lake Store accounts associated with this account.
@@ -305,7 +302,7 @@ type accountArgs struct {
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
 	// The name of the Data Lake Analytics account.
-	AccountName pulumi.StringInput
+	AccountName pulumi.StringPtrInput
 	// The list of compute policies associated with this account.
 	ComputePolicies CreateComputePolicyWithAccountParametersArrayInput
 	// The list of Data Lake Store accounts associated with this account.

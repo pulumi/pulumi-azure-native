@@ -49,9 +49,6 @@ func NewScalingPlan(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ScalingPlanName == nil {
-		return nil, errors.New("invalid value for required argument 'ScalingPlanName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization:ScalingPlan"),
@@ -155,7 +152,7 @@ type scalingPlanArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the scaling plan.
-	ScalingPlanName string `pulumi:"scalingPlanName"`
+	ScalingPlanName *string `pulumi:"scalingPlanName"`
 	// List of ScalingSchedule definitions.
 	Schedules []ScalingSchedule `pulumi:"schedules"`
 	// Resource tags.
@@ -181,7 +178,7 @@ type ScalingPlanArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the scaling plan.
-	ScalingPlanName pulumi.StringInput
+	ScalingPlanName pulumi.StringPtrInput
 	// List of ScalingSchedule definitions.
 	Schedules ScalingScheduleArrayInput
 	// Resource tags.

@@ -31,9 +31,6 @@ func NewAlias(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AliasName == nil {
-		return nil, errors.New("invalid value for required argument 'AliasName'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -94,7 +91,7 @@ func (AliasState) ElementType() reflect.Type {
 
 type aliasArgs struct {
 	// Alias Name
-	AliasName string `pulumi:"aliasName"`
+	AliasName *string `pulumi:"aliasName"`
 	// Put alias request properties.
 	Properties PutAliasRequestProperties `pulumi:"properties"`
 }
@@ -102,7 +99,7 @@ type aliasArgs struct {
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
 	// Alias Name
-	AliasName pulumi.StringInput
+	AliasName pulumi.StringPtrInput
 	// Put alias request properties.
 	Properties PutAliasRequestPropertiesInput
 }

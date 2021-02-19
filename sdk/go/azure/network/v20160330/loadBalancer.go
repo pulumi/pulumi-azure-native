@@ -52,9 +52,6 @@ func NewLoadBalancer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LoadBalancerName == nil {
-		return nil, errors.New("invalid value for required argument 'LoadBalancerName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -270,7 +267,7 @@ type loadBalancerArgs struct {
 	// Gets or sets list of inbound rules
 	InboundNatRules []InboundNatRule `pulumi:"inboundNatRules"`
 	// The name of the loadBalancer.
-	LoadBalancerName string `pulumi:"loadBalancerName"`
+	LoadBalancerName *string `pulumi:"loadBalancerName"`
 	// Gets or sets load balancing rules
 	LoadBalancingRules []LoadBalancingRule `pulumi:"loadBalancingRules"`
 	// Resource location
@@ -304,7 +301,7 @@ type LoadBalancerArgs struct {
 	// Gets or sets list of inbound rules
 	InboundNatRules InboundNatRuleArrayInput
 	// The name of the loadBalancer.
-	LoadBalancerName pulumi.StringInput
+	LoadBalancerName pulumi.StringPtrInput
 	// Gets or sets load balancing rules
 	LoadBalancingRules LoadBalancingRuleArrayInput
 	// Resource location

@@ -42,9 +42,6 @@ func NewApplicationGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationGroupName'")
-	}
 	if args.ApplicationGroupType == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationGroupType'")
 	}
@@ -153,7 +150,7 @@ func (ApplicationGroupState) ElementType() reflect.Type {
 
 type applicationGroupArgs struct {
 	// The name of the application group
-	ApplicationGroupName string `pulumi:"applicationGroupName"`
+	ApplicationGroupName *string `pulumi:"applicationGroupName"`
 	// Resource Type of ApplicationGroup.
 	ApplicationGroupType string `pulumi:"applicationGroupType"`
 	// Description of ApplicationGroup.
@@ -173,7 +170,7 @@ type applicationGroupArgs struct {
 // The set of arguments for constructing a ApplicationGroup resource.
 type ApplicationGroupArgs struct {
 	// The name of the application group
-	ApplicationGroupName pulumi.StringInput
+	ApplicationGroupName pulumi.StringPtrInput
 	// Resource Type of ApplicationGroup.
 	ApplicationGroupType pulumi.StringInput
 	// Description of ApplicationGroup.

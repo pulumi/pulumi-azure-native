@@ -33,9 +33,6 @@ func NewChapSetting(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ChapUserName == nil {
-		return nil, errors.New("invalid value for required argument 'ChapUserName'")
-	}
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
@@ -102,7 +99,7 @@ func (ChapSettingState) ElementType() reflect.Type {
 
 type chapSettingArgs struct {
 	// The chap user name.
-	ChapUserName string `pulumi:"chapUserName"`
+	ChapUserName *string `pulumi:"chapUserName"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// The manager name
@@ -116,7 +113,7 @@ type chapSettingArgs struct {
 // The set of arguments for constructing a ChapSetting resource.
 type ChapSettingArgs struct {
 	// The chap user name.
-	ChapUserName pulumi.StringInput
+	ChapUserName pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringInput
 	// The manager name

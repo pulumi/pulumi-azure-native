@@ -68,9 +68,6 @@ func NewIncident(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.IncidentId == nil {
-		return nil, errors.New("invalid value for required argument 'IncidentId'")
-	}
 	if args.OperationalInsightsResourceProvider == nil {
 		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
 	}
@@ -222,7 +219,7 @@ type incidentArgs struct {
 	// The time of the first activity in the incident
 	FirstActivityTimeUtc *string `pulumi:"firstActivityTimeUtc"`
 	// Incident ID
-	IncidentId string `pulumi:"incidentId"`
+	IncidentId *string `pulumi:"incidentId"`
 	// List of labels relevant to this incident
 	Labels []IncidentLabel `pulumi:"labels"`
 	// The time of the last activity in the incident
@@ -262,7 +259,7 @@ type IncidentArgs struct {
 	// The time of the first activity in the incident
 	FirstActivityTimeUtc pulumi.StringPtrInput
 	// Incident ID
-	IncidentId pulumi.StringInput
+	IncidentId pulumi.StringPtrInput
 	// List of labels relevant to this incident
 	Labels IncidentLabelArrayInput
 	// The time of the last activity in the incident

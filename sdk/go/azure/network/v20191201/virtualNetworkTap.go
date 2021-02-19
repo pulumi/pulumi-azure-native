@@ -49,9 +49,6 @@ func NewVirtualNetworkTap(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.TapName == nil {
-		return nil, errors.New("invalid value for required argument 'TapName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:VirtualNetworkTap"),
@@ -203,7 +200,7 @@ type virtualNetworkTapArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the virtual network tap.
-	TapName string `pulumi:"tapName"`
+	TapName *string `pulumi:"tapName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkTap resource.
@@ -223,7 +220,7 @@ type VirtualNetworkTapArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the virtual network tap.
-	TapName pulumi.StringInput
+	TapName pulumi.StringPtrInput
 }
 
 func (VirtualNetworkTapArgs) ElementType() reflect.Type {

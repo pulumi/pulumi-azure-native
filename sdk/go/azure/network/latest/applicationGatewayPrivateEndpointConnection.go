@@ -44,9 +44,6 @@ func NewApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 	if args.ApplicationGatewayName == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationGatewayName'")
 	}
-	if args.ConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -131,7 +128,7 @@ type applicationGatewayPrivateEndpointConnectionArgs struct {
 	// The name of the application gateway.
 	ApplicationGatewayName string `pulumi:"applicationGatewayName"`
 	// The name of the application gateway private endpoint connection.
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Name of the private endpoint connection on an application gateway.
@@ -147,7 +144,7 @@ type ApplicationGatewayPrivateEndpointConnectionArgs struct {
 	// The name of the application gateway.
 	ApplicationGatewayName pulumi.StringInput
 	// The name of the application gateway private endpoint connection.
-	ConnectionName pulumi.StringInput
+	ConnectionName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Name of the private endpoint connection on an application gateway.

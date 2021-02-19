@@ -60,9 +60,6 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:containerservice:OpenShiftManagedCluster"),
@@ -190,7 +187,7 @@ type openShiftManagedClusterArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the OpenShift managed cluster resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// Configuration for OpenShift router(s).
 	RouterProfiles []OpenShiftRouterProfile `pulumi:"routerProfiles"`
 	// Resource tags
@@ -216,7 +213,7 @@ type OpenShiftManagedClusterArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the OpenShift managed cluster resource.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// Configuration for OpenShift router(s).
 	RouterProfiles OpenShiftRouterProfileArrayInput
 	// Resource tags

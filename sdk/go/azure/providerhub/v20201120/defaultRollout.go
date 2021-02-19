@@ -34,9 +34,6 @@ func NewDefaultRollout(ctx *pulumi.Context,
 	if args.ProviderNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
 	}
-	if args.RolloutName == nil {
-		return nil, errors.New("invalid value for required argument 'RolloutName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:providerhub:DefaultRollout"),
@@ -95,7 +92,7 @@ type defaultRolloutArgs struct {
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace string `pulumi:"providerNamespace"`
 	// The rollout name.
-	RolloutName string `pulumi:"rolloutName"`
+	RolloutName *string `pulumi:"rolloutName"`
 }
 
 // The set of arguments for constructing a DefaultRollout resource.
@@ -103,7 +100,7 @@ type DefaultRolloutArgs struct {
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput
 	// The rollout name.
-	RolloutName pulumi.StringInput
+	RolloutName pulumi.StringPtrInput
 }
 
 func (DefaultRolloutArgs) ElementType() reflect.Type {

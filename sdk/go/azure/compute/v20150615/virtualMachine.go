@@ -57,9 +57,6 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VmName == nil {
-		return nil, errors.New("invalid value for required argument 'VmName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:compute:VirtualMachine"),
@@ -220,7 +217,7 @@ type virtualMachineArgs struct {
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the virtual machine.
-	VmName string `pulumi:"vmName"`
+	VmName *string `pulumi:"vmName"`
 }
 
 // The set of arguments for constructing a VirtualMachine resource.
@@ -248,7 +245,7 @@ type VirtualMachineArgs struct {
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// The name of the virtual machine.
-	VmName pulumi.StringInput
+	VmName pulumi.StringPtrInput
 }
 
 func (VirtualMachineArgs) ElementType() reflect.Type {

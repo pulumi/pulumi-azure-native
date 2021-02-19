@@ -58,9 +58,6 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FirewallPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'FirewallPolicyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -211,7 +208,7 @@ type firewallPolicyArgs struct {
 	// DNS Proxy Settings definition.
 	DnsSettings *DnsSettings `pulumi:"dnsSettings"`
 	// The name of the Firewall Policy.
-	FirewallPolicyName string `pulumi:"firewallPolicyName"`
+	FirewallPolicyName *string `pulumi:"firewallPolicyName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The identity of the firewall policy.
@@ -241,7 +238,7 @@ type FirewallPolicyArgs struct {
 	// DNS Proxy Settings definition.
 	DnsSettings DnsSettingsPtrInput
 	// The name of the Firewall Policy.
-	FirewallPolicyName pulumi.StringInput
+	FirewallPolicyName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The identity of the firewall policy.

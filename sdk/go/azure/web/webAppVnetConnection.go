@@ -54,9 +54,6 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VnetName == nil {
-		return nil, errors.New("invalid value for required argument 'VnetName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppVnetConnection"),
@@ -179,7 +176,7 @@ type webAppVnetConnectionArgs struct {
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of an existing Virtual Network.
-	VnetName string `pulumi:"vnetName"`
+	VnetName *string `pulumi:"vnetName"`
 	// The Virtual Network's resource ID.
 	VnetResourceId *string `pulumi:"vnetResourceId"`
 }
@@ -200,7 +197,7 @@ type WebAppVnetConnectionArgs struct {
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Name of an existing Virtual Network.
-	VnetName pulumi.StringInput
+	VnetName pulumi.StringPtrInput
 	// The Virtual Network's resource ID.
 	VnetResourceId pulumi.StringPtrInput
 }

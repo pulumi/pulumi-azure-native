@@ -77,9 +77,6 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 	if args.ResponderRoleSettings == nil {
 		return nil, errors.New("invalid value for required argument 'ResponderRoleSettings'")
 	}
-	if args.RosettaNetProcessConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'RosettaNetProcessConfigurationName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:logic/latest:RosettaNetProcessConfiguration"),
@@ -200,7 +197,7 @@ type rosettaNetProcessConfigurationArgs struct {
 	// The RosettaNet responder role settings.
 	ResponderRoleSettings RosettaNetPipRoleSettings `pulumi:"responderRoleSettings"`
 	// The integration account RosettaNet ProcessConfiguration name.
-	RosettaNetProcessConfigurationName string `pulumi:"rosettaNetProcessConfigurationName"`
+	RosettaNetProcessConfigurationName *string `pulumi:"rosettaNetProcessConfigurationName"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -230,7 +227,7 @@ type RosettaNetProcessConfigurationArgs struct {
 	// The RosettaNet responder role settings.
 	ResponderRoleSettings RosettaNetPipRoleSettingsInput
 	// The integration account RosettaNet ProcessConfiguration name.
-	RosettaNetProcessConfigurationName pulumi.StringInput
+	RosettaNetProcessConfigurationName pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 }

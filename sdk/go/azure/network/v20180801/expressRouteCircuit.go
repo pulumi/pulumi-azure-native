@@ -64,9 +64,6 @@ func NewExpressRouteCircuit(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CircuitName == nil {
-		return nil, errors.New("invalid value for required argument 'CircuitName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -302,7 +299,7 @@ type expressRouteCircuitArgs struct {
 	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
 	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
 	// The name of the circuit.
-	CircuitName string `pulumi:"circuitName"`
+	CircuitName *string `pulumi:"circuitName"`
 	// The CircuitProvisioningState state of the resource.
 	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
 	// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
@@ -344,7 +341,7 @@ type ExpressRouteCircuitArgs struct {
 	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
 	BandwidthInGbps pulumi.Float64PtrInput
 	// The name of the circuit.
-	CircuitName pulumi.StringInput
+	CircuitName pulumi.StringPtrInput
 	// The CircuitProvisioningState state of the resource.
 	CircuitProvisioningState pulumi.StringPtrInput
 	// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.

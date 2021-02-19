@@ -47,9 +47,6 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.Base64Value == nil {
 		return nil, errors.New("invalid value for required argument 'Base64Value'")
 	}
-	if args.CertificateName == nil {
-		return nil, errors.New("invalid value for required argument 'CertificateName'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -140,7 +137,7 @@ type certificateArgs struct {
 	// Gets or sets the base64 encoded value of the certificate.
 	Base64Value string `pulumi:"base64Value"`
 	// The parameters supplied to the create or update certificate operation.
-	CertificateName string `pulumi:"certificateName"`
+	CertificateName *string `pulumi:"certificateName"`
 	// Gets or sets the description of the certificate.
 	Description *string `pulumi:"description"`
 	// Gets or sets the is exportable flag of the certificate.
@@ -160,7 +157,7 @@ type CertificateArgs struct {
 	// Gets or sets the base64 encoded value of the certificate.
 	Base64Value pulumi.StringInput
 	// The parameters supplied to the create or update certificate operation.
-	CertificateName pulumi.StringInput
+	CertificateName pulumi.StringPtrInput
 	// Gets or sets the description of the certificate.
 	Description pulumi.StringPtrInput
 	// Gets or sets the is exportable flag of the certificate.

@@ -52,9 +52,6 @@ func NewWorkloadClassifier(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.WorkloadClassifierName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkloadClassifierName'")
-	}
 	if args.WorkloadGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkloadGroupName'")
 	}
@@ -153,7 +150,7 @@ type workloadClassifierArgs struct {
 	// The workload classifier start time for classification.
 	StartTime *string `pulumi:"startTime"`
 	// The name of the workload classifier to create/update.
-	WorkloadClassifierName string `pulumi:"workloadClassifierName"`
+	WorkloadClassifierName *string `pulumi:"workloadClassifierName"`
 	// The name of the workload group from which to receive the classifier from.
 	WorkloadGroupName string `pulumi:"workloadGroupName"`
 }
@@ -179,7 +176,7 @@ type WorkloadClassifierArgs struct {
 	// The workload classifier start time for classification.
 	StartTime pulumi.StringPtrInput
 	// The name of the workload classifier to create/update.
-	WorkloadClassifierName pulumi.StringInput
+	WorkloadClassifierName pulumi.StringPtrInput
 	// The name of the workload group from which to receive the classifier from.
 	WorkloadGroupName pulumi.StringInput
 }

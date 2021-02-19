@@ -35,9 +35,6 @@ func NewManagedNetworkPeeringPolicy(ctx *pulumi.Context,
 	if args.ManagedNetworkName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedNetworkName'")
 	}
-	if args.ManagedNetworkPeeringPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'ManagedNetworkPeeringPolicyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -100,7 +97,7 @@ type managedNetworkPeeringPolicyArgs struct {
 	// The name of the Managed Network.
 	ManagedNetworkName string `pulumi:"managedNetworkName"`
 	// The name of the Managed Network Peering Policy.
-	ManagedNetworkPeeringPolicyName string `pulumi:"managedNetworkPeeringPolicyName"`
+	ManagedNetworkPeeringPolicyName *string `pulumi:"managedNetworkPeeringPolicyName"`
 	// Gets or sets the properties of a Managed Network Policy
 	Properties *ManagedNetworkPeeringPolicyProperties `pulumi:"properties"`
 	// The name of the resource group.
@@ -114,7 +111,7 @@ type ManagedNetworkPeeringPolicyArgs struct {
 	// The name of the Managed Network.
 	ManagedNetworkName pulumi.StringInput
 	// The name of the Managed Network Peering Policy.
-	ManagedNetworkPeeringPolicyName pulumi.StringInput
+	ManagedNetworkPeeringPolicyName pulumi.StringPtrInput
 	// Gets or sets the properties of a Managed Network Policy
 	Properties ManagedNetworkPeeringPolicyPropertiesPtrInput
 	// The name of the resource group.

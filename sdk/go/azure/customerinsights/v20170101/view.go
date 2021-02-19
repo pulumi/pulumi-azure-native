@@ -51,9 +51,6 @@ func NewView(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ViewName == nil {
-		return nil, errors.New("invalid value for required argument 'ViewName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights:View"),
@@ -145,7 +142,7 @@ type viewArgs struct {
 	// the user ID.
 	UserId *string `pulumi:"userId"`
 	// The name of the view.
-	ViewName string `pulumi:"viewName"`
+	ViewName *string `pulumi:"viewName"`
 }
 
 // The set of arguments for constructing a View resource.
@@ -161,7 +158,7 @@ type ViewArgs struct {
 	// the user ID.
 	UserId pulumi.StringPtrInput
 	// The name of the view.
-	ViewName pulumi.StringInput
+	ViewName pulumi.StringPtrInput
 }
 
 func (ViewArgs) ElementType() reflect.Type {

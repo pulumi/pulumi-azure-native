@@ -61,9 +61,6 @@ func NewLiveOutput(ctx *pulumi.Context,
 	if args.LiveEventName == nil {
 		return nil, errors.New("invalid value for required argument 'LiveEventName'")
 	}
-	if args.LiveOutputName == nil {
-		return nil, errors.New("invalid value for required argument 'LiveOutputName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -181,7 +178,7 @@ type liveOutputArgs struct {
 	// The name of the live event, maximum length is 32.
 	LiveEventName string `pulumi:"liveEventName"`
 	// The name of the live output.
-	LiveOutputName string `pulumi:"liveOutputName"`
+	LiveOutputName *string `pulumi:"liveOutputName"`
 	// The manifest file name. If not provided, the service will generate one automatically.
 	ManifestName *string `pulumi:"manifestName"`
 	// The initial timestamp that the live output will start at, any content before this value will not be archived.
@@ -205,7 +202,7 @@ type LiveOutputArgs struct {
 	// The name of the live event, maximum length is 32.
 	LiveEventName pulumi.StringInput
 	// The name of the live output.
-	LiveOutputName pulumi.StringInput
+	LiveOutputName pulumi.StringPtrInput
 	// The manifest file name. If not provided, the service will generate one automatically.
 	ManifestName pulumi.StringPtrInput
 	// The initial timestamp that the live output will start at, any content before this value will not be archived.

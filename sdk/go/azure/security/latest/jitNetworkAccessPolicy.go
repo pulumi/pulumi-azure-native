@@ -42,9 +42,6 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 	if args.AscLocation == nil {
 		return nil, errors.New("invalid value for required argument 'AscLocation'")
 	}
-	if args.JitNetworkAccessPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'JitNetworkAccessPolicyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -124,7 +121,7 @@ type jitNetworkAccessPolicyArgs struct {
 	// The location where ASC stores the data of the subscription. can be retrieved from Get locations
 	AscLocation string `pulumi:"ascLocation"`
 	// Name of a Just-in-Time access configuration policy.
-	JitNetworkAccessPolicyName string `pulumi:"jitNetworkAccessPolicyName"`
+	JitNetworkAccessPolicyName *string `pulumi:"jitNetworkAccessPolicyName"`
 	// Kind of the resource
 	Kind     *string                   `pulumi:"kind"`
 	Requests []JitNetworkAccessRequest `pulumi:"requests"`
@@ -139,7 +136,7 @@ type JitNetworkAccessPolicyArgs struct {
 	// The location where ASC stores the data of the subscription. can be retrieved from Get locations
 	AscLocation pulumi.StringInput
 	// Name of a Just-in-Time access configuration policy.
-	JitNetworkAccessPolicyName pulumi.StringInput
+	JitNetworkAccessPolicyName pulumi.StringPtrInput
 	// Kind of the resource
 	Kind     pulumi.StringPtrInput
 	Requests JitNetworkAccessRequestArrayInput

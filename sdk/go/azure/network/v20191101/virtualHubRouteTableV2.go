@@ -37,9 +37,6 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RouteTableName == nil {
-		return nil, errors.New("invalid value for required argument 'RouteTableName'")
-	}
 	if args.VirtualHubName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualHubName'")
 	}
@@ -137,7 +134,7 @@ type virtualHubRouteTableV2Args struct {
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the VirtualHubRouteTableV2.
-	RouteTableName string `pulumi:"routeTableName"`
+	RouteTableName *string `pulumi:"routeTableName"`
 	// List of all routes.
 	Routes []VirtualHubRouteV2 `pulumi:"routes"`
 	// The name of the VirtualHub.
@@ -155,7 +152,7 @@ type VirtualHubRouteTableV2Args struct {
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
 	// The name of the VirtualHubRouteTableV2.
-	RouteTableName pulumi.StringInput
+	RouteTableName pulumi.StringPtrInput
 	// List of all routes.
 	Routes VirtualHubRouteV2ArrayInput
 	// The name of the VirtualHub.

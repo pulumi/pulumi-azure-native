@@ -41,9 +41,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
-	if args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -120,7 +117,7 @@ type privateEndpointConnectionArgs struct {
 	// Properties of the private endpoint object.
 	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
 	// The PrivateEndpointConnection name.
-	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// Name of the Resource group within the Azure subscription.
@@ -138,7 +135,7 @@ type PrivateEndpointConnectionArgs struct {
 	// Properties of the private endpoint object.
 	PrivateEndpoint PrivateEndpointPtrInput
 	// The PrivateEndpointConnection name.
-	PrivateEndpointConnectionName pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// Approval state of the private link connection.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
 	// Name of the Resource group within the Azure subscription.

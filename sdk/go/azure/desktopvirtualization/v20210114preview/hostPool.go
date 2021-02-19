@@ -70,9 +70,6 @@ func NewHostPool(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.HostPoolName == nil {
-		return nil, errors.New("invalid value for required argument 'HostPoolName'")
-	}
 	if args.HostPoolType == nil {
 		return nil, errors.New("invalid value for required argument 'HostPoolType'")
 	}
@@ -246,7 +243,7 @@ type hostPoolArgs struct {
 	// Friendly name of HostPool.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// The name of the host pool within the specified resource group
-	HostPoolName string `pulumi:"hostPoolName"`
+	HostPoolName *string `pulumi:"hostPoolName"`
 	// HostPool type for desktop.
 	HostPoolType string `pulumi:"hostPoolType"`
 	// The type of the load balancer.
@@ -294,7 +291,7 @@ type HostPoolArgs struct {
 	// Friendly name of HostPool.
 	FriendlyName pulumi.StringPtrInput
 	// The name of the host pool within the specified resource group
-	HostPoolName pulumi.StringInput
+	HostPoolName pulumi.StringPtrInput
 	// HostPool type for desktop.
 	HostPoolType pulumi.StringInput
 	// The type of the load balancer.

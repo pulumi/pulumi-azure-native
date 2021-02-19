@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -25,12 +24,9 @@ type OnPremiseIotSensor struct {
 func NewOnPremiseIotSensor(ctx *pulumi.Context,
 	name string, args *OnPremiseIotSensorArgs, opts ...pulumi.ResourceOption) (*OnPremiseIotSensor, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &OnPremiseIotSensorArgs{}
 	}
 
-	if args.OnPremiseIotSensorName == nil {
-		return nil, errors.New("invalid value for required argument 'OnPremiseIotSensorName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:security:OnPremiseIotSensor"),
@@ -78,13 +74,13 @@ func (OnPremiseIotSensorState) ElementType() reflect.Type {
 
 type onPremiseIotSensorArgs struct {
 	// Name of the on-premise IoT sensor
-	OnPremiseIotSensorName string `pulumi:"onPremiseIotSensorName"`
+	OnPremiseIotSensorName *string `pulumi:"onPremiseIotSensorName"`
 }
 
 // The set of arguments for constructing a OnPremiseIotSensor resource.
 type OnPremiseIotSensorArgs struct {
 	// Name of the on-premise IoT sensor
-	OnPremiseIotSensorName pulumi.StringInput
+	OnPremiseIotSensorName pulumi.StringPtrInput
 }
 
 func (OnPremiseIotSensorArgs) ElementType() reflect.Type {

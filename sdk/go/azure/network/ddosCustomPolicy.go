@@ -43,9 +43,6 @@ func NewDdosCustomPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DdosCustomPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'DdosCustomPolicyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -172,7 +169,7 @@ func (DdosCustomPolicyState) ElementType() reflect.Type {
 
 type ddosCustomPolicyArgs struct {
 	// The name of the DDoS custom policy.
-	DdosCustomPolicyName string `pulumi:"ddosCustomPolicyName"`
+	DdosCustomPolicyName *string `pulumi:"ddosCustomPolicyName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -188,7 +185,7 @@ type ddosCustomPolicyArgs struct {
 // The set of arguments for constructing a DdosCustomPolicy resource.
 type DdosCustomPolicyArgs struct {
 	// The name of the DDoS custom policy.
-	DdosCustomPolicyName pulumi.StringInput
+	DdosCustomPolicyName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

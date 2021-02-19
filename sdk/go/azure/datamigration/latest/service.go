@@ -50,9 +50,6 @@ func NewService(ctx *pulumi.Context,
 	if args.GroupName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupName'")
 	}
-	if args.ServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceName'")
-	}
 	if args.VirtualSubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualSubnetId'")
 	}
@@ -160,7 +157,7 @@ type serviceArgs struct {
 	// The public key of the service, used to encrypt secrets sent to the service
 	PublicKey *string `pulumi:"publicKey"`
 	// Name of the service
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName *string `pulumi:"serviceName"`
 	// Service SKU
 	Sku *ServiceSku `pulumi:"sku"`
 	// Resource tags.
@@ -182,7 +179,7 @@ type ServiceArgs struct {
 	// The public key of the service, used to encrypt secrets sent to the service
 	PublicKey pulumi.StringPtrInput
 	// Name of the service
-	ServiceName pulumi.StringInput
+	ServiceName pulumi.StringPtrInput
 	// Service SKU
 	Sku ServiceSkuPtrInput
 	// Resource tags.

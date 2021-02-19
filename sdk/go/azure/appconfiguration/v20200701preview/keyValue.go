@@ -51,9 +51,6 @@ func NewKeyValue(ctx *pulumi.Context,
 	if args.ConfigStoreName == nil {
 		return nil, errors.New("invalid value for required argument 'ConfigStoreName'")
 	}
-	if args.KeyValueName == nil {
-		return nil, errors.New("invalid value for required argument 'KeyValueName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -149,7 +146,7 @@ type keyValueArgs struct {
 	// Providing a proper content-type can enable transformations of values when they are retrieved by applications.
 	ContentType *string `pulumi:"contentType"`
 	// Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
-	KeyValueName string `pulumi:"keyValueName"`
+	KeyValueName *string `pulumi:"keyValueName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A dictionary of tags that can help identify what a key-value may be applicable for.
@@ -166,7 +163,7 @@ type KeyValueArgs struct {
 	// Providing a proper content-type can enable transformations of values when they are retrieved by applications.
 	ContentType pulumi.StringPtrInput
 	// Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
-	KeyValueName pulumi.StringInput
+	KeyValueName pulumi.StringPtrInput
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// A dictionary of tags that can help identify what a key-value may be applicable for.

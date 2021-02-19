@@ -42,9 +42,6 @@ func NewReplicationvCenter(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
-	if args.VCenterName == nil {
-		return nil, errors.New("invalid value for required argument 'VCenterName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationvCenter"),
@@ -117,7 +114,7 @@ type replicationvCenterArgs struct {
 	// The name of the recovery services vault.
 	ResourceName string `pulumi:"resourceName"`
 	// vCenter name.
-	VCenterName string `pulumi:"vCenterName"`
+	VCenterName *string `pulumi:"vCenterName"`
 }
 
 // The set of arguments for constructing a ReplicationvCenter resource.
@@ -131,7 +128,7 @@ type ReplicationvCenterArgs struct {
 	// The name of the recovery services vault.
 	ResourceName pulumi.StringInput
 	// vCenter name.
-	VCenterName pulumi.StringInput
+	VCenterName pulumi.StringPtrInput
 }
 
 func (ReplicationvCenterArgs) ElementType() reflect.Type {

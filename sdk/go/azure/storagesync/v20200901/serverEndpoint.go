@@ -69,9 +69,6 @@ func NewServerEndpoint(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServerEndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'ServerEndpointName'")
-	}
 	if args.StorageSyncServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageSyncServiceName'")
 	}
@@ -245,7 +242,7 @@ type serverEndpointArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of Server Endpoint object.
-	ServerEndpointName string `pulumi:"serverEndpointName"`
+	ServerEndpointName *string `pulumi:"serverEndpointName"`
 	// Server Local path.
 	ServerLocalPath *string `pulumi:"serverLocalPath"`
 	// Server Resource Id.
@@ -277,7 +274,7 @@ type ServerEndpointArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Name of Server Endpoint object.
-	ServerEndpointName pulumi.StringInput
+	ServerEndpointName pulumi.StringPtrInput
 	// Server Local path.
 	ServerLocalPath pulumi.StringPtrInput
 	// Server Resource Id.

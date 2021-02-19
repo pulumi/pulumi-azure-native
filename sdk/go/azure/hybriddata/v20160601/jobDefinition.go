@@ -58,9 +58,6 @@ func NewJobDefinition(ctx *pulumi.Context,
 	if args.DataSourceId == nil {
 		return nil, errors.New("invalid value for required argument 'DataSourceId'")
 	}
-	if args.JobDefinitionName == nil {
-		return nil, errors.New("invalid value for required argument 'JobDefinitionName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -169,7 +166,7 @@ type jobDefinitionArgs struct {
 	// Data Source Id associated to the job definition.
 	DataSourceId string `pulumi:"dataSourceId"`
 	// The job definition name to be created or updated.
-	JobDefinitionName string `pulumi:"jobDefinitionName"`
+	JobDefinitionName *string `pulumi:"jobDefinitionName"`
 	// Last modified time of the job definition.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The Resource Group Name
@@ -199,7 +196,7 @@ type JobDefinitionArgs struct {
 	// Data Source Id associated to the job definition.
 	DataSourceId pulumi.StringInput
 	// The job definition name to be created or updated.
-	JobDefinitionName pulumi.StringInput
+	JobDefinitionName pulumi.StringPtrInput
 	// Last modified time of the job definition.
 	LastModifiedTime pulumi.StringPtrInput
 	// The Resource Group Name

@@ -40,9 +40,6 @@ func NewInstanceFailoverGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FailoverGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'FailoverGroupName'")
-	}
 	if args.LocationName == nil {
 		return nil, errors.New("invalid value for required argument 'LocationName'")
 	}
@@ -135,7 +132,7 @@ func (InstanceFailoverGroupState) ElementType() reflect.Type {
 
 type instanceFailoverGroupArgs struct {
 	// The name of the failover group.
-	FailoverGroupName string `pulumi:"failoverGroupName"`
+	FailoverGroupName *string `pulumi:"failoverGroupName"`
 	// The name of the region where the resource is located.
 	LocationName string `pulumi:"locationName"`
 	// List of managed instance pairs in the failover group.
@@ -153,7 +150,7 @@ type instanceFailoverGroupArgs struct {
 // The set of arguments for constructing a InstanceFailoverGroup resource.
 type InstanceFailoverGroupArgs struct {
 	// The name of the failover group.
-	FailoverGroupName pulumi.StringInput
+	FailoverGroupName pulumi.StringPtrInput
 	// The name of the region where the resource is located.
 	LocationName pulumi.StringInput
 	// List of managed instance pairs in the failover group.

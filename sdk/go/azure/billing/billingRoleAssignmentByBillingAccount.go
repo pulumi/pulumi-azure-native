@@ -52,9 +52,6 @@ func NewBillingRoleAssignmentByBillingAccount(ctx *pulumi.Context,
 	if args.BillingAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'BillingAccountName'")
 	}
-	if args.BillingRoleAssignmentName == nil {
-		return nil, errors.New("invalid value for required argument 'BillingRoleAssignmentName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByBillingAccount"),
@@ -144,7 +141,7 @@ type billingRoleAssignmentByBillingAccountArgs struct {
 	// The ID that uniquely identifies a billing account.
 	BillingAccountName string `pulumi:"billingAccountName"`
 	// The ID that uniquely identifies a role assignment.
-	BillingRoleAssignmentName string `pulumi:"billingRoleAssignmentName"`
+	BillingRoleAssignmentName *string `pulumi:"billingRoleAssignmentName"`
 	// The principal id of the user to whom the role was assigned.
 	PrincipalId *string `pulumi:"principalId"`
 	// The principal tenant id of the user to whom the role was assigned.
@@ -162,7 +159,7 @@ type BillingRoleAssignmentByBillingAccountArgs struct {
 	// The ID that uniquely identifies a billing account.
 	BillingAccountName pulumi.StringInput
 	// The ID that uniquely identifies a role assignment.
-	BillingRoleAssignmentName pulumi.StringInput
+	BillingRoleAssignmentName pulumi.StringPtrInput
 	// The principal id of the user to whom the role was assigned.
 	PrincipalId pulumi.StringPtrInput
 	// The principal tenant id of the user to whom the role was assigned.

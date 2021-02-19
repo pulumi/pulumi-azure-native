@@ -37,9 +37,6 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CertificateId == nil {
-		return nil, errors.New("invalid value for required argument 'CertificateId'")
-	}
 	if args.Data == nil {
 		return nil, errors.New("invalid value for required argument 'Data'")
 	}
@@ -138,7 +135,7 @@ func (CertificateState) ElementType() reflect.Type {
 
 type certificateArgs struct {
 	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	CertificateId string `pulumi:"certificateId"`
+	CertificateId *string `pulumi:"certificateId"`
 	// Base 64 encoded certificate using the application/x-pkcs12 representation.
 	Data string `pulumi:"data"`
 	// Password for the Certificate
@@ -152,7 +149,7 @@ type certificateArgs struct {
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
-	CertificateId pulumi.StringInput
+	CertificateId pulumi.StringPtrInput
 	// Base 64 encoded certificate using the application/x-pkcs12 representation.
 	Data pulumi.StringInput
 	// Password for the Certificate

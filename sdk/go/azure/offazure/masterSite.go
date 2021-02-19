@@ -38,9 +38,6 @@ func NewMasterSite(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SiteName == nil {
-		return nil, errors.New("invalid value for required argument 'SiteName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:offazure/latest:MasterSite"),
@@ -113,7 +110,7 @@ type masterSiteArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Site name.
-	SiteName string `pulumi:"siteName"`
+	SiteName *string `pulumi:"siteName"`
 }
 
 // The set of arguments for constructing a MasterSite resource.
@@ -129,7 +126,7 @@ type MasterSiteArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Site name.
-	SiteName pulumi.StringInput
+	SiteName pulumi.StringPtrInput
 }
 
 func (MasterSiteArgs) ElementType() reflect.Type {

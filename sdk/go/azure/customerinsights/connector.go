@@ -51,9 +51,6 @@ func NewConnector(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectorName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectorName'")
-	}
 	if args.ConnectorProperties == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectorProperties'")
 	}
@@ -163,7 +160,7 @@ func (ConnectorState) ElementType() reflect.Type {
 
 type connectorArgs struct {
 	// Name of the connector.
-	ConnectorName string `pulumi:"connectorName"`
+	ConnectorName *string `pulumi:"connectorName"`
 	// The connector properties.
 	ConnectorProperties map[string]interface{} `pulumi:"connectorProperties"`
 	// Type of connector.
@@ -183,7 +180,7 @@ type connectorArgs struct {
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
 	// Name of the connector.
-	ConnectorName pulumi.StringInput
+	ConnectorName pulumi.StringPtrInput
 	// The connector properties.
 	ConnectorProperties pulumi.MapInput
 	// Type of connector.

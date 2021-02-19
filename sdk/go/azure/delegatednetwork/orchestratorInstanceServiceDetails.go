@@ -60,9 +60,6 @@ func NewOrchestratorInstanceServiceDetails(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"),
@@ -172,7 +169,7 @@ type orchestratorInstanceServiceDetailsArgs struct {
 	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -198,7 +195,7 @@ type OrchestratorInstanceServiceDetailsArgs struct {
 	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 }

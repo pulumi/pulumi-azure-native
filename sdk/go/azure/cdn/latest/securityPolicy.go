@@ -44,9 +44,6 @@ func NewSecurityPolicy(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SecurityPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'SecurityPolicyName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:cdn:SecurityPolicy"),
@@ -117,7 +114,7 @@ type securityPolicyArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the security policy under the profile.
-	SecurityPolicyName string `pulumi:"securityPolicyName"`
+	SecurityPolicyName *string `pulumi:"securityPolicyName"`
 }
 
 // The set of arguments for constructing a SecurityPolicy resource.
@@ -129,7 +126,7 @@ type SecurityPolicyArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the security policy under the profile.
-	SecurityPolicyName pulumi.StringInput
+	SecurityPolicyName pulumi.StringPtrInput
 }
 
 func (SecurityPolicyArgs) ElementType() reflect.Type {

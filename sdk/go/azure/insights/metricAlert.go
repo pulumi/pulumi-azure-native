@@ -71,9 +71,6 @@ func NewMetricAlert(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RuleName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleName'")
-	}
 	if args.Scopes == nil {
 		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
@@ -209,7 +206,7 @@ type metricAlertArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the rule.
-	RuleName string `pulumi:"ruleName"`
+	RuleName *string `pulumi:"ruleName"`
 	// the list of resource id's that this metric alert is scoped to.
 	Scopes []string `pulumi:"scopes"`
 	// Alert severity {0, 1, 2, 3, 4}
@@ -243,7 +240,7 @@ type MetricAlertArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the rule.
-	RuleName pulumi.StringInput
+	RuleName pulumi.StringPtrInput
 	// the list of resource id's that this metric alert is scoped to.
 	Scopes pulumi.StringArrayInput
 	// Alert severity {0, 1, 2, 3, 4}

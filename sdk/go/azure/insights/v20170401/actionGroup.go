@@ -48,9 +48,6 @@ func NewActionGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ActionGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ActionGroupName'")
-	}
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
 	}
@@ -165,7 +162,7 @@ func (ActionGroupState) ElementType() reflect.Type {
 
 type actionGroupArgs struct {
 	// The name of the action group.
-	ActionGroupName string `pulumi:"actionGroupName"`
+	ActionGroupName *string `pulumi:"actionGroupName"`
 	// The list of AutomationRunbook receivers that are part of this action group.
 	AutomationRunbookReceivers []AutomationRunbookReceiver `pulumi:"automationRunbookReceivers"`
 	// The list of AzureAppPush receivers that are part of this action group.
@@ -193,7 +190,7 @@ type actionGroupArgs struct {
 // The set of arguments for constructing a ActionGroup resource.
 type ActionGroupArgs struct {
 	// The name of the action group.
-	ActionGroupName pulumi.StringInput
+	ActionGroupName pulumi.StringPtrInput
 	// The list of AutomationRunbook receivers that are part of this action group.
 	AutomationRunbookReceivers AutomationRunbookReceiverArrayInput
 	// The list of AzureAppPush receivers that are part of this action group.

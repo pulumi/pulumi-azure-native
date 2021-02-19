@@ -41,9 +41,6 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.ContentKeyPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'ContentKeyPolicyName'")
-	}
 	if args.Options == nil {
 		return nil, errors.New("invalid value for required argument 'Options'")
 	}
@@ -131,7 +128,7 @@ type contentKeyPolicyArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
 	// The Content Key Policy name.
-	ContentKeyPolicyName string `pulumi:"contentKeyPolicyName"`
+	ContentKeyPolicyName *string `pulumi:"contentKeyPolicyName"`
 	// A description for the Policy.
 	Description *string `pulumi:"description"`
 	// The Key Policy options.
@@ -145,7 +142,7 @@ type ContentKeyPolicyArgs struct {
 	// The Media Services account name.
 	AccountName pulumi.StringInput
 	// The Content Key Policy name.
-	ContentKeyPolicyName pulumi.StringInput
+	ContentKeyPolicyName pulumi.StringPtrInput
 	// A description for the Policy.
 	Description pulumi.StringPtrInput
 	// The Key Policy options.

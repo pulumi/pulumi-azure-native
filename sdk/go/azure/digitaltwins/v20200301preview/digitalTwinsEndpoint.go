@@ -30,9 +30,6 @@ func NewDigitalTwinsEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'EndpointName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -99,7 +96,7 @@ func (DigitalTwinsEndpointState) ElementType() reflect.Type {
 
 type digitalTwinsEndpointArgs struct {
 	// Name of Endpoint Resource.
-	EndpointName string `pulumi:"endpointName"`
+	EndpointName *string `pulumi:"endpointName"`
 	// DigitalTwinsInstance endpoint resource properties.
 	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group that contains the DigitalTwinsInstance.
@@ -111,7 +108,7 @@ type digitalTwinsEndpointArgs struct {
 // The set of arguments for constructing a DigitalTwinsEndpoint resource.
 type DigitalTwinsEndpointArgs struct {
 	// Name of Endpoint Resource.
-	EndpointName pulumi.StringInput
+	EndpointName pulumi.StringPtrInput
 	// DigitalTwinsInstance endpoint resource properties.
 	Properties pulumi.Input
 	// The name of the resource group that contains the DigitalTwinsInstance.

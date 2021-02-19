@@ -47,9 +47,6 @@ func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 	if args.ActionGroups == nil {
 		return nil, errors.New("invalid value for required argument 'ActionGroups'")
 	}
-	if args.AlertRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'AlertRuleName'")
-	}
 	if args.Detector == nil {
 		return nil, errors.New("invalid value for required argument 'Detector'")
 	}
@@ -155,7 +152,7 @@ type smartDetectorAlertRuleArgs struct {
 	// The alert rule actions.
 	ActionGroups ActionGroupsInformation `pulumi:"actionGroups"`
 	// The name of the alert rule.
-	AlertRuleName string `pulumi:"alertRuleName"`
+	AlertRuleName *string `pulumi:"alertRuleName"`
 	// The alert rule description.
 	Description *string `pulumi:"description"`
 	// The alert rule's detector.
@@ -179,7 +176,7 @@ type SmartDetectorAlertRuleArgs struct {
 	// The alert rule actions.
 	ActionGroups ActionGroupsInformationInput
 	// The name of the alert rule.
-	AlertRuleName pulumi.StringInput
+	AlertRuleName pulumi.StringPtrInput
 	// The alert rule description.
 	Description pulumi.StringPtrInput
 	// The alert rule's detector.

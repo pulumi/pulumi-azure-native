@@ -41,9 +41,6 @@ func NewBlob(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.BlobName == nil {
-		return nil, errors.New("invalid value for required argument 'BlobName'")
-	}
 	if args.ContainerName == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerName'")
 	}
@@ -119,7 +116,7 @@ type blobArgs struct {
 	// Specifies the storage account in which to create the storage container.
 	AccountName string `pulumi:"accountName"`
 	// The name of the storage blob. Must be unique within the storage container the blob is located.
-	BlobName string `pulumi:"blobName"`
+	BlobName *string `pulumi:"blobName"`
 	// The name of the storage container in which this blob should be created.
 	ContainerName string `pulumi:"containerName"`
 	// The MD5 sum of the blob contents. Cannot be defined if blob type is Append.
@@ -143,7 +140,7 @@ type BlobArgs struct {
 	// Specifies the storage account in which to create the storage container.
 	AccountName pulumi.StringInput
 	// The name of the storage blob. Must be unique within the storage container the blob is located.
-	BlobName pulumi.StringInput
+	BlobName pulumi.StringPtrInput
 	// The name of the storage container in which this blob should be created.
 	ContainerName pulumi.StringInput
 	// The MD5 sum of the blob contents. Cannot be defined if blob type is Append.

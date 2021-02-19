@@ -45,9 +45,6 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DeviceName == nil {
-		return nil, errors.New("invalid value for required argument 'DeviceName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -140,7 +137,7 @@ type serviceArgs struct {
 	// Windows IoT Device Service ODM AAD domain
 	BillingDomainName *string `pulumi:"billingDomainName"`
 	// The name of the Windows IoT Device Service.
-	DeviceName string `pulumi:"deviceName"`
+	DeviceName *string `pulumi:"deviceName"`
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag *string `pulumi:"etag"`
 	// The Azure Region where the resource lives
@@ -162,7 +159,7 @@ type ServiceArgs struct {
 	// Windows IoT Device Service ODM AAD domain
 	BillingDomainName pulumi.StringPtrInput
 	// The name of the Windows IoT Device Service.
-	DeviceName pulumi.StringInput
+	DeviceName pulumi.StringPtrInput
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag pulumi.StringPtrInput
 	// The Azure Region where the resource lives

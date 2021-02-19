@@ -28,9 +28,6 @@ func NewVendorSkuPreview(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PreviewSubscription == nil {
-		return nil, errors.New("invalid value for required argument 'PreviewSubscription'")
-	}
 	if args.SkuName == nil {
 		return nil, errors.New("invalid value for required argument 'SkuName'")
 	}
@@ -84,7 +81,7 @@ func (VendorSkuPreviewState) ElementType() reflect.Type {
 
 type vendorSkuPreviewArgs struct {
 	// Preview subscription ID.
-	PreviewSubscription string `pulumi:"previewSubscription"`
+	PreviewSubscription *string `pulumi:"previewSubscription"`
 	// The name of the vendor sku.
 	SkuName string `pulumi:"skuName"`
 	// The name of the vendor.
@@ -94,7 +91,7 @@ type vendorSkuPreviewArgs struct {
 // The set of arguments for constructing a VendorSkuPreview resource.
 type VendorSkuPreviewArgs struct {
 	// Preview subscription ID.
-	PreviewSubscription pulumi.StringInput
+	PreviewSubscription pulumi.StringPtrInput
 	// The name of the vendor sku.
 	SkuName pulumi.StringInput
 	// The name of the vendor.

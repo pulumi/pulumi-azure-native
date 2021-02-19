@@ -44,9 +44,6 @@ func NewB2CTenant(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ResourceName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
@@ -122,7 +119,7 @@ type b2ctenantArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The initial domain name of the B2C tenant.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName *string `pulumi:"resourceName"`
 	// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 	Sku B2CResourceSKU `pulumi:"sku"`
 	// Resource Tags
@@ -137,7 +134,7 @@ type B2CTenantArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The initial domain name of the B2C tenant.
-	ResourceName pulumi.StringInput
+	ResourceName pulumi.StringPtrInput
 	// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 	Sku B2CResourceSKUInput
 	// Resource Tags

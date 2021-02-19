@@ -42,9 +42,6 @@ func NewApiRelease(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
-	if args.ReleaseId == nil {
-		return nil, errors.New("invalid value for required argument 'ReleaseId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -139,7 +136,7 @@ type apiReleaseArgs struct {
 	// Release Notes
 	Notes *string `pulumi:"notes"`
 	// Release identifier within an API. Must be unique in the current API Management service instance.
-	ReleaseId string `pulumi:"releaseId"`
+	ReleaseId *string `pulumi:"releaseId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -153,7 +150,7 @@ type ApiReleaseArgs struct {
 	// Release Notes
 	Notes pulumi.StringPtrInput
 	// Release identifier within an API. Must be unique in the current API Management service instance.
-	ReleaseId pulumi.StringInput
+	ReleaseId pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

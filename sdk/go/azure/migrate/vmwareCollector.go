@@ -34,9 +34,6 @@ func NewVMwareCollector(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VmWareCollectorName == nil {
-		return nil, errors.New("invalid value for required argument 'VmWareCollectorName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:migrate/latest:VMwareCollector"),
@@ -93,7 +90,7 @@ type vmwareCollectorArgs struct {
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Unique name of a VMware collector within a project.
-	VmWareCollectorName string `pulumi:"vmWareCollectorName"`
+	VmWareCollectorName *string `pulumi:"vmWareCollectorName"`
 }
 
 // The set of arguments for constructing a VMwareCollector resource.
@@ -105,7 +102,7 @@ type VMwareCollectorArgs struct {
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName pulumi.StringInput
 	// Unique name of a VMware collector within a project.
-	VmWareCollectorName pulumi.StringInput
+	VmWareCollectorName pulumi.StringPtrInput
 }
 
 func (VMwareCollectorArgs) ElementType() reflect.Type {

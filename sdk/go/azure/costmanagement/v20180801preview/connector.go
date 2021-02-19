@@ -52,9 +52,6 @@ func NewConnector(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectorName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectorName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -153,7 +150,7 @@ func (ConnectorState) ElementType() reflect.Type {
 
 type connectorArgs struct {
 	// Connector Name.
-	ConnectorName string `pulumi:"connectorName"`
+	ConnectorName *string `pulumi:"connectorName"`
 	// Credentials authentication key (eg AWS ARN)
 	CredentialsKey *string `pulumi:"credentialsKey"`
 	// Credentials secret (eg AWS ExternalId)
@@ -177,7 +174,7 @@ type connectorArgs struct {
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
 	// Connector Name.
-	ConnectorName pulumi.StringInput
+	ConnectorName pulumi.StringPtrInput
 	// Credentials authentication key (eg AWS ARN)
 	CredentialsKey pulumi.StringPtrInput
 	// Credentials secret (eg AWS ExternalId)

@@ -44,9 +44,6 @@ func NewExport(ctx *pulumi.Context,
 	if args.DeliveryInfo == nil {
 		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
 	}
-	if args.ExportName == nil {
-		return nil, errors.New("invalid value for required argument 'ExportName'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -138,7 +135,7 @@ type exportArgs struct {
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
 	// Export Name.
-	ExportName string `pulumi:"exportName"`
+	ExportName *string `pulumi:"exportName"`
 	// The format of the export being delivered.
 	Format *string `pulumi:"format"`
 	// Has schedule information for the export.
@@ -156,7 +153,7 @@ type ExportArgs struct {
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
 	// Export Name.
-	ExportName pulumi.StringInput
+	ExportName pulumi.StringPtrInput
 	// The format of the export being delivered.
 	Format pulumi.StringPtrInput
 	// Has schedule information for the export.

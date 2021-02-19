@@ -40,9 +40,6 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CredentialName == nil {
-		return nil, errors.New("invalid value for required argument 'CredentialName'")
-	}
 	if args.EndPoint == nil {
 		return nil, errors.New("invalid value for required argument 'EndPoint'")
 	}
@@ -136,7 +133,7 @@ type storageAccountCredentialArgs struct {
 	// The cloud service provider
 	CloudType string `pulumi:"cloudType"`
 	// The credential name.
-	CredentialName string `pulumi:"credentialName"`
+	CredentialName *string `pulumi:"credentialName"`
 	// SSL needs to be enabled or not
 	EnableSSL string `pulumi:"enableSSL"`
 	// The storage endpoint
@@ -158,7 +155,7 @@ type StorageAccountCredentialArgs struct {
 	// The cloud service provider
 	CloudType CloudType
 	// The credential name.
-	CredentialName pulumi.StringInput
+	CredentialName pulumi.StringPtrInput
 	// SSL needs to be enabled or not
 	EnableSSL SslStatus
 	// The storage endpoint

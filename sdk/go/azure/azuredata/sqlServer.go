@@ -42,9 +42,6 @@ func NewSqlServer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SqlServerName == nil {
-		return nil, errors.New("invalid value for required argument 'SqlServerName'")
-	}
 	if args.SqlServerRegistrationName == nil {
 		return nil, errors.New("invalid value for required argument 'SqlServerRegistrationName'")
 	}
@@ -128,7 +125,7 @@ type sqlServerArgs struct {
 	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the SQL Server.
-	SqlServerName string `pulumi:"sqlServerName"`
+	SqlServerName *string `pulumi:"sqlServerName"`
 	// Name of the SQL Server registration.
 	SqlServerRegistrationName string `pulumi:"sqlServerRegistrationName"`
 	// Version of the Sql Server.
@@ -148,7 +145,7 @@ type SqlServerArgs struct {
 	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// Name of the SQL Server.
-	SqlServerName pulumi.StringInput
+	SqlServerName pulumi.StringPtrInput
 	// Name of the SQL Server registration.
 	SqlServerRegistrationName pulumi.StringInput
 	// Version of the Sql Server.

@@ -51,9 +51,6 @@ func NewApplication(ctx *pulumi.Context,
 	if args.ApplicationGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationGroupName'")
 	}
-	if args.ApplicationName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationName'")
-	}
 	if args.CommandLineSetting == nil {
 		return nil, errors.New("invalid value for required argument 'CommandLineSetting'")
 	}
@@ -173,7 +170,7 @@ type applicationArgs struct {
 	// The name of the application group
 	ApplicationGroupName string `pulumi:"applicationGroupName"`
 	// The name of the application within the specified application group
-	ApplicationName string `pulumi:"applicationName"`
+	ApplicationName *string `pulumi:"applicationName"`
 	// Command Line Arguments for Application.
 	CommandLineArguments *string `pulumi:"commandLineArguments"`
 	// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
@@ -199,7 +196,7 @@ type ApplicationArgs struct {
 	// The name of the application group
 	ApplicationGroupName pulumi.StringInput
 	// The name of the application within the specified application group
-	ApplicationName pulumi.StringInput
+	ApplicationName pulumi.StringPtrInput
 	// Command Line Arguments for Application.
 	CommandLineArguments pulumi.StringPtrInput
 	// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.

@@ -53,9 +53,6 @@ func NewRule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RuleName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleName'")
-	}
 	if args.RuleSetName == nil {
 		return nil, errors.New("invalid value for required argument 'RuleSetName'")
 	}
@@ -147,7 +144,7 @@ type ruleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the delivery rule which is unique within the endpoint.
-	RuleName string `pulumi:"ruleName"`
+	RuleName *string `pulumi:"ruleName"`
 	// Name of the rule set under the profile.
 	RuleSetName string `pulumi:"ruleSetName"`
 }
@@ -167,7 +164,7 @@ type RuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the delivery rule which is unique within the endpoint.
-	RuleName pulumi.StringInput
+	RuleName pulumi.StringPtrInput
 	// Name of the rule set under the profile.
 	RuleSetName pulumi.StringInput
 }

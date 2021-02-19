@@ -54,9 +54,6 @@ func NewPublicIPPrefix(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PublicIpPrefixName == nil {
-		return nil, errors.New("invalid value for required argument 'PublicIpPrefixName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -234,7 +231,7 @@ type publicIPPrefixArgs struct {
 	// The list of all referenced PublicIPAddresses
 	PublicIPAddresses []ReferencedPublicIpAddress `pulumi:"publicIPAddresses"`
 	// The name of the public IP prefix.
-	PublicIpPrefixName string `pulumi:"publicIpPrefixName"`
+	PublicIpPrefixName *string `pulumi:"publicIpPrefixName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource GUID property of the public IP prefix resource.
@@ -268,7 +265,7 @@ type PublicIPPrefixArgs struct {
 	// The list of all referenced PublicIPAddresses
 	PublicIPAddresses ReferencedPublicIpAddressArrayInput
 	// The name of the public IP prefix.
-	PublicIpPrefixName pulumi.StringInput
+	PublicIpPrefixName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource GUID property of the public IP prefix resource.

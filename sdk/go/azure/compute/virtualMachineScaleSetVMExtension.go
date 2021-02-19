@@ -53,9 +53,6 @@ func NewVirtualMachineScaleSetVMExtension(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VmExtensionName == nil {
-		return nil, errors.New("invalid value for required argument 'VmExtensionName'")
-	}
 	if args.VmScaleSetName == nil {
 		return nil, errors.New("invalid value for required argument 'VmScaleSetName'")
 	}
@@ -176,7 +173,7 @@ type virtualMachineScaleSetVMExtensionArgs struct {
 	// Specifies the version of the script handler.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 	// The name of the virtual machine extension.
-	VmExtensionName string `pulumi:"vmExtensionName"`
+	VmExtensionName *string `pulumi:"vmExtensionName"`
 	// The name of the VM scale set.
 	VmScaleSetName string `pulumi:"vmScaleSetName"`
 }
@@ -206,7 +203,7 @@ type VirtualMachineScaleSetVMExtensionArgs struct {
 	// Specifies the version of the script handler.
 	TypeHandlerVersion pulumi.StringPtrInput
 	// The name of the virtual machine extension.
-	VmExtensionName pulumi.StringInput
+	VmExtensionName pulumi.StringPtrInput
 	// The name of the VM scale set.
 	VmScaleSetName pulumi.StringInput
 }

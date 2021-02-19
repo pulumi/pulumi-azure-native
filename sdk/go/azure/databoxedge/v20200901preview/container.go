@@ -38,9 +38,6 @@ func NewContainer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ContainerName == nil {
-		return nil, errors.New("invalid value for required argument 'ContainerName'")
-	}
 	if args.DataFormat == nil {
 		return nil, errors.New("invalid value for required argument 'DataFormat'")
 	}
@@ -132,7 +129,7 @@ func (ContainerState) ElementType() reflect.Type {
 
 type containerArgs struct {
 	// The container name.
-	ContainerName string `pulumi:"containerName"`
+	ContainerName *string `pulumi:"containerName"`
 	// DataFormat for Container
 	DataFormat string `pulumi:"dataFormat"`
 	// The device name.
@@ -146,7 +143,7 @@ type containerArgs struct {
 // The set of arguments for constructing a Container resource.
 type ContainerArgs struct {
 	// The container name.
-	ContainerName pulumi.StringInput
+	ContainerName pulumi.StringPtrInput
 	// DataFormat for Container
 	DataFormat pulumi.StringInput
 	// The device name.

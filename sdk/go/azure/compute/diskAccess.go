@@ -39,9 +39,6 @@ func NewDiskAccess(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DiskAccessName == nil {
-		return nil, errors.New("invalid value for required argument 'DiskAccessName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -121,7 +118,7 @@ func (DiskAccessState) ElementType() reflect.Type {
 
 type diskAccessArgs struct {
 	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskAccessName string `pulumi:"diskAccessName"`
+	DiskAccessName *string `pulumi:"diskAccessName"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the resource group.
@@ -133,7 +130,7 @@ type diskAccessArgs struct {
 // The set of arguments for constructing a DiskAccess resource.
 type DiskAccessArgs struct {
 	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskAccessName pulumi.StringInput
+	DiskAccessName pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the resource group.

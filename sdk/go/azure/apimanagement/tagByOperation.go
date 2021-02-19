@@ -43,9 +43,6 @@ func NewTagByOperation(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
-	if args.TagId == nil {
-		return nil, errors.New("invalid value for required argument 'TagId'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:TagByOperation"),
@@ -126,7 +123,7 @@ type tagByOperationArgs struct {
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
 	// Tag identifier. Must be unique in the current API Management service instance.
-	TagId string `pulumi:"tagId"`
+	TagId *string `pulumi:"tagId"`
 }
 
 // The set of arguments for constructing a TagByOperation resource.
@@ -140,7 +137,7 @@ type TagByOperationArgs struct {
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 	// Tag identifier. Must be unique in the current API Management service instance.
-	TagId pulumi.StringInput
+	TagId pulumi.StringPtrInput
 }
 
 func (TagByOperationArgs) ElementType() reflect.Type {

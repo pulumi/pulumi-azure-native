@@ -36,9 +36,6 @@ func NewOrderCollectionByName(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.OrderCollectionName == nil {
-		return nil, errors.New("invalid value for required argument 'OrderCollectionName'")
-	}
 	if args.OrderIds == nil {
 		return nil, errors.New("invalid value for required argument 'OrderIds'")
 	}
@@ -110,7 +107,7 @@ type orderCollectionByNameArgs struct {
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the order collection
-	OrderCollectionName string `pulumi:"orderCollectionName"`
+	OrderCollectionName *string `pulumi:"orderCollectionName"`
 	// List of order ARM Ids which are part of an order collection.
 	OrderIds []string `pulumi:"orderIds"`
 	// The name of the resource group. The name is case insensitive.
@@ -124,7 +121,7 @@ type OrderCollectionByNameArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the order collection
-	OrderCollectionName pulumi.StringInput
+	OrderCollectionName pulumi.StringPtrInput
 	// List of order ARM Ids which are part of an order collection.
 	OrderIds pulumi.StringArrayInput
 	// The name of the resource group. The name is case insensitive.

@@ -45,9 +45,6 @@ func NewReportConfigByResourceGroupName(ctx *pulumi.Context,
 	if args.DeliveryInfo == nil {
 		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
 	}
-	if args.ReportConfigName == nil {
-		return nil, errors.New("invalid value for required argument 'ReportConfigName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -127,7 +124,7 @@ type reportConfigByResourceGroupNameArgs struct {
 	// The format of the report being delivered.
 	Format *string `pulumi:"format"`
 	// Report Config Name.
-	ReportConfigName string `pulumi:"reportConfigName"`
+	ReportConfigName *string `pulumi:"reportConfigName"`
 	// Azure Resource Group Name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Has schedule information for the report config.
@@ -143,7 +140,7 @@ type ReportConfigByResourceGroupNameArgs struct {
 	// The format of the report being delivered.
 	Format pulumi.StringPtrInput
 	// Report Config Name.
-	ReportConfigName pulumi.StringInput
+	ReportConfigName pulumi.StringPtrInput
 	// Azure Resource Group Name.
 	ResourceGroupName pulumi.StringInput
 	// Has schedule information for the report config.

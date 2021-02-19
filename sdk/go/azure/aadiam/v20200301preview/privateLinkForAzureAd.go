@@ -42,9 +42,6 @@ func NewPrivateLinkForAzureAd(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -129,7 +126,7 @@ type privateLinkForAzureAdArgs struct {
 	// Guid of the owner tenant
 	OwnerTenantId *string `pulumi:"ownerTenantId"`
 	// The name of the private link policy in Azure AD.
-	PolicyName string `pulumi:"policyName"`
+	PolicyName *string `pulumi:"policyName"`
 	// Name of the resource group
 	ResourceGroup *string `pulumi:"resourceGroup"`
 	// Name of an Azure resource group.
@@ -153,7 +150,7 @@ type PrivateLinkForAzureAdArgs struct {
 	// Guid of the owner tenant
 	OwnerTenantId pulumi.StringPtrInput
 	// The name of the private link policy in Azure AD.
-	PolicyName pulumi.StringInput
+	PolicyName pulumi.StringPtrInput
 	// Name of the resource group
 	ResourceGroup pulumi.StringPtrInput
 	// Name of an Azure resource group.

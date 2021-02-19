@@ -74,9 +74,6 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CertificateOrderName == nil {
-		return nil, errors.New("invalid value for required argument 'CertificateOrderName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -248,7 +245,7 @@ type appServiceCertificateOrderArgs struct {
 	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
 	AutoRenew *bool `pulumi:"autoRenew"`
 	// Name of the certificate order.
-	CertificateOrderName string `pulumi:"certificateOrderName"`
+	CertificateOrderName *string `pulumi:"certificateOrderName"`
 	// State of the Key Vault secret.
 	Certificates map[string]AppServiceCertificate `pulumi:"certificates"`
 	// Last CSR that was created for this order.
@@ -276,7 +273,7 @@ type AppServiceCertificateOrderArgs struct {
 	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
 	AutoRenew pulumi.BoolPtrInput
 	// Name of the certificate order.
-	CertificateOrderName pulumi.StringInput
+	CertificateOrderName pulumi.StringPtrInput
 	// State of the Key Vault secret.
 	Certificates AppServiceCertificateMapInput
 	// Last CSR that was created for this order.

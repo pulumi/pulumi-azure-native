@@ -38,9 +38,6 @@ func NewDomainOwnershipIdentifier(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -125,7 +122,7 @@ type domainOwnershipIdentifierArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Name of identifier.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Ownership Id.
 	OwnershipId *string `pulumi:"ownershipId"`
 	// Name of the resource group to which the resource belongs.
@@ -139,7 +136,7 @@ type DomainOwnershipIdentifierArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Name of identifier.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Ownership Id.
 	OwnershipId pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.

@@ -40,9 +40,6 @@ func NewRuleSet(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RuleSetName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleSetName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:RuleSet"),
@@ -107,7 +104,7 @@ type ruleSetArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the rule set under the profile which is unique globally
-	RuleSetName string `pulumi:"ruleSetName"`
+	RuleSetName *string `pulumi:"ruleSetName"`
 }
 
 // The set of arguments for constructing a RuleSet resource.
@@ -117,7 +114,7 @@ type RuleSetArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the rule set under the profile which is unique globally
-	RuleSetName pulumi.StringInput
+	RuleSetName pulumi.StringPtrInput
 }
 
 func (RuleSetArgs) ElementType() reflect.Type {

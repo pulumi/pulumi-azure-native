@@ -36,9 +36,6 @@ func NewDomain(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DomainName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -126,7 +123,7 @@ func (DomainState) ElementType() reflect.Type {
 
 type domainArgs struct {
 	// Name of the domain.
-	DomainName string `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource group within the user's subscription.
@@ -138,7 +135,7 @@ type domainArgs struct {
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// Name of the domain.
-	DomainName pulumi.StringInput
+	DomainName pulumi.StringPtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription.

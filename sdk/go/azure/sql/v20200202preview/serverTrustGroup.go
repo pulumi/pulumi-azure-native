@@ -41,9 +41,6 @@ func NewServerTrustGroup(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServerTrustGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ServerTrustGroupName'")
-	}
 	if args.TrustScopes == nil {
 		return nil, errors.New("invalid value for required argument 'TrustScopes'")
 	}
@@ -111,7 +108,7 @@ type serverTrustGroupArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server trust group.
-	ServerTrustGroupName string `pulumi:"serverTrustGroupName"`
+	ServerTrustGroupName *string `pulumi:"serverTrustGroupName"`
 	// Trust scope of the server trust group.
 	TrustScopes []string `pulumi:"trustScopes"`
 }
@@ -125,7 +122,7 @@ type ServerTrustGroupArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server trust group.
-	ServerTrustGroupName pulumi.StringInput
+	ServerTrustGroupName pulumi.StringPtrInput
 	// Trust scope of the server trust group.
 	TrustScopes pulumi.StringArrayInput
 }

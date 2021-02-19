@@ -53,9 +53,6 @@ func NewShare(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ShareName == nil {
-		return nil, errors.New("invalid value for required argument 'ShareName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:datashare:Share"),
@@ -155,7 +152,7 @@ type shareArgs struct {
 	// Share kind.
 	ShareKind *string `pulumi:"shareKind"`
 	// The name of the share.
-	ShareName string `pulumi:"shareName"`
+	ShareName *string `pulumi:"shareName"`
 	// Share terms.
 	Terms *string `pulumi:"terms"`
 }
@@ -171,7 +168,7 @@ type ShareArgs struct {
 	// Share kind.
 	ShareKind pulumi.StringPtrInput
 	// The name of the share.
-	ShareName pulumi.StringInput
+	ShareName pulumi.StringPtrInput
 	// Share terms.
 	Terms pulumi.StringPtrInput
 }

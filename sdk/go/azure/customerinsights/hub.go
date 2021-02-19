@@ -43,9 +43,6 @@ func NewHub(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.HubName == nil {
-		return nil, errors.New("invalid value for required argument 'HubName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -132,7 +129,7 @@ type hubArgs struct {
 	// Billing settings of the hub.
 	HubBillingInfo *HubBillingInfoFormat `pulumi:"hubBillingInfo"`
 	// The name of the Hub.
-	HubName string `pulumi:"hubName"`
+	HubName *string `pulumi:"hubName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource group.
@@ -148,7 +145,7 @@ type HubArgs struct {
 	// Billing settings of the hub.
 	HubBillingInfo HubBillingInfoFormatPtrInput
 	// The name of the Hub.
-	HubName pulumi.StringInput
+	HubName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource group.

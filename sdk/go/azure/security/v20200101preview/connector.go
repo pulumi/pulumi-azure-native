@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -29,12 +28,9 @@ type Connector struct {
 func NewConnector(ctx *pulumi.Context,
 	name string, args *ConnectorArgs, opts ...pulumi.ResourceOption) (*Connector, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ConnectorArgs{}
 	}
 
-	if args.ConnectorName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectorName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:security:Connector"),
@@ -92,7 +88,7 @@ type connectorArgs struct {
 	// Settings for authentication management, these settings are relevant only for the cloud connector.
 	AuthenticationDetails interface{} `pulumi:"authenticationDetails"`
 	// Name of the cloud account connector
-	ConnectorName string `pulumi:"connectorName"`
+	ConnectorName *string `pulumi:"connectorName"`
 	// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
 	HybridComputeSettings *HybridComputeSettingsProperties `pulumi:"hybridComputeSettings"`
 }
@@ -102,7 +98,7 @@ type ConnectorArgs struct {
 	// Settings for authentication management, these settings are relevant only for the cloud connector.
 	AuthenticationDetails pulumi.Input
 	// Name of the cloud account connector
-	ConnectorName pulumi.StringInput
+	ConnectorName pulumi.StringPtrInput
 	// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
 	HybridComputeSettings HybridComputeSettingsPropertiesPtrInput
 }

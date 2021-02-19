@@ -45,9 +45,6 @@ func NewDedicatedHsm(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -135,7 +132,7 @@ type dedicatedHsmArgs struct {
 	// The supported Azure location where the dedicated HSM should be created.
 	Location *string `pulumi:"location"`
 	// Name of the dedicated Hsm
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Specifies the network interfaces of the dedicated hsm.
 	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group to which the resource belongs.
@@ -155,7 +152,7 @@ type DedicatedHsmArgs struct {
 	// The supported Azure location where the dedicated HSM should be created.
 	Location pulumi.StringPtrInput
 	// Name of the dedicated Hsm
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Specifies the network interfaces of the dedicated hsm.
 	NetworkProfile NetworkProfilePtrInput
 	// The name of the Resource Group to which the resource belongs.

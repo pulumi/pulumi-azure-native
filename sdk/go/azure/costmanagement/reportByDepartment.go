@@ -48,9 +48,6 @@ func NewReportByDepartment(ctx *pulumi.Context,
 	if args.DepartmentId == nil {
 		return nil, errors.New("invalid value for required argument 'DepartmentId'")
 	}
-	if args.ReportName == nil {
-		return nil, errors.New("invalid value for required argument 'ReportName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20180801preview:ReportByDepartment"),
@@ -126,7 +123,7 @@ type reportByDepartmentArgs struct {
 	// The format of the report being delivered.
 	Format *string `pulumi:"format"`
 	// Report Name.
-	ReportName string `pulumi:"reportName"`
+	ReportName *string `pulumi:"reportName"`
 	// Has schedule information for the report.
 	Schedule *ReportSchedule `pulumi:"schedule"`
 }
@@ -142,7 +139,7 @@ type ReportByDepartmentArgs struct {
 	// The format of the report being delivered.
 	Format pulumi.StringPtrInput
 	// Report Name.
-	ReportName pulumi.StringInput
+	ReportName pulumi.StringPtrInput
 	// Has schedule information for the report.
 	Schedule ReportSchedulePtrInput
 }

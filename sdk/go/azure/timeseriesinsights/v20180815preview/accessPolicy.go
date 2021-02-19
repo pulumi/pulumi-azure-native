@@ -34,9 +34,6 @@ func NewAccessPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccessPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'AccessPolicyName'")
-	}
 	if args.EnvironmentName == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
 	}
@@ -114,7 +111,7 @@ func (AccessPolicyState) ElementType() reflect.Type {
 
 type accessPolicyArgs struct {
 	// Name of the access policy.
-	AccessPolicyName string `pulumi:"accessPolicyName"`
+	AccessPolicyName *string `pulumi:"accessPolicyName"`
 	// An description of the access policy.
 	Description *string `pulumi:"description"`
 	// The name of the Time Series Insights environment associated with the specified resource group.
@@ -130,7 +127,7 @@ type accessPolicyArgs struct {
 // The set of arguments for constructing a AccessPolicy resource.
 type AccessPolicyArgs struct {
 	// Name of the access policy.
-	AccessPolicyName pulumi.StringInput
+	AccessPolicyName pulumi.StringPtrInput
 	// An description of the access policy.
 	Description pulumi.StringPtrInput
 	// The name of the Time Series Insights environment associated with the specified resource group.

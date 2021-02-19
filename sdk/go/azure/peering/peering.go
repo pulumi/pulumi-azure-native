@@ -48,9 +48,6 @@ func NewPeering(ctx *pulumi.Context,
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
-	if args.PeeringName == nil {
-		return nil, errors.New("invalid value for required argument 'PeeringName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -161,7 +158,7 @@ type peeringArgs struct {
 	// The location of the peering.
 	PeeringLocation *string `pulumi:"peeringLocation"`
 	// The name of the peering.
-	PeeringName string `pulumi:"peeringName"`
+	PeeringName *string `pulumi:"peeringName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU that defines the tier and kind of the peering.
@@ -183,7 +180,7 @@ type PeeringArgs struct {
 	// The location of the peering.
 	PeeringLocation pulumi.StringPtrInput
 	// The name of the peering.
-	PeeringName pulumi.StringInput
+	PeeringName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The SKU that defines the tier and kind of the peering.

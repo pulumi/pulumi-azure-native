@@ -38,9 +38,6 @@ func NewDatabaseSecurityAlertPolicy(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SecurityAlertPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'SecurityAlertPolicyName'")
-	}
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
@@ -115,7 +112,7 @@ type databaseSecurityAlertPolicyArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the security alert policy.
-	SecurityAlertPolicyName string `pulumi:"securityAlertPolicyName"`
+	SecurityAlertPolicyName *string `pulumi:"securityAlertPolicyName"`
 	// The name of the  server.
 	ServerName string `pulumi:"serverName"`
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
@@ -129,7 +126,7 @@ type DatabaseSecurityAlertPolicyArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the security alert policy.
-	SecurityAlertPolicyName pulumi.StringInput
+	SecurityAlertPolicyName pulumi.StringPtrInput
 	// The name of the  server.
 	ServerName pulumi.StringInput
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.

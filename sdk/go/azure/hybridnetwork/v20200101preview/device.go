@@ -42,9 +42,6 @@ func NewDevice(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DeviceName == nil {
-		return nil, errors.New("invalid value for required argument 'DeviceName'")
-	}
 	if args.DeviceType == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceType'")
 	}
@@ -128,7 +125,7 @@ type deviceArgs struct {
 	// The reference to the Azure stack edge device.
 	AzureStackEdge *SubResource `pulumi:"azureStackEdge"`
 	// Resource name for the device resource.
-	DeviceName string `pulumi:"deviceName"`
+	DeviceName *string `pulumi:"deviceName"`
 	// The type of the device.
 	DeviceType string `pulumi:"deviceType"`
 	// The geo-location where the resource lives
@@ -144,7 +141,7 @@ type DeviceArgs struct {
 	// The reference to the Azure stack edge device.
 	AzureStackEdge SubResourcePtrInput
 	// Resource name for the device resource.
-	DeviceName pulumi.StringInput
+	DeviceName pulumi.StringPtrInput
 	// The type of the device.
 	DeviceType pulumi.StringInput
 	// The geo-location where the resource lives

@@ -38,9 +38,6 @@ func NewBlobInventoryPolicy(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.BlobInventoryPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'BlobInventoryPolicyName'")
-	}
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
@@ -117,7 +114,7 @@ type blobInventoryPolicyArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
 	// The name of the storage account blob inventory policy. It should always be 'default'
-	BlobInventoryPolicyName string `pulumi:"blobInventoryPolicyName"`
+	BlobInventoryPolicyName *string `pulumi:"blobInventoryPolicyName"`
 	// The storage account blob inventory policy object. It is composed of policy rules.
 	Policy BlobInventoryPolicySchema `pulumi:"policy"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -129,7 +126,7 @@ type BlobInventoryPolicyArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
 	// The name of the storage account blob inventory policy. It should always be 'default'
-	BlobInventoryPolicyName pulumi.StringInput
+	BlobInventoryPolicyName pulumi.StringPtrInput
 	// The storage account blob inventory policy object. It is composed of policy rules.
 	Policy BlobInventoryPolicySchemaInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.

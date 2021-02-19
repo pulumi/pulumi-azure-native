@@ -54,9 +54,6 @@ func NewVirtualWan(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.VirtualWANName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualWANName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:VirtualWan"),
@@ -231,7 +228,7 @@ type virtualWanArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the VirtualWAN being created or updated.
-	VirtualWANName string `pulumi:"virtualWANName"`
+	VirtualWANName *string `pulumi:"virtualWANName"`
 }
 
 // The set of arguments for constructing a VirtualWan resource.
@@ -255,7 +252,7 @@ type VirtualWanArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the VirtualWAN being created or updated.
-	VirtualWANName pulumi.StringInput
+	VirtualWANName pulumi.StringPtrInput
 }
 
 func (VirtualWanArgs) ElementType() reflect.Type {
