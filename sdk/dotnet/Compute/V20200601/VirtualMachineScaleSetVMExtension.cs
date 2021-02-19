@@ -203,8 +203,8 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// <summary>
         /// The name of the virtual machine extension.
         /// </summary>
-        [Input("vmExtensionName", required: true)]
-        public Input<string> VmExtensionName { get; set; } = null!;
+        [Input("vmExtensionName")]
+        public Input<string>? VmExtensionName { get; set; }
 
         /// <summary>
         /// The name of the VM scale set.

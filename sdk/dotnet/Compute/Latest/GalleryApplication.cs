@@ -151,8 +151,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <summary>
         /// The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
         /// </summary>
-        [Input("galleryApplicationName", required: true)]
-        public Input<string> GalleryApplicationName { get; set; } = null!;
+        [Input("galleryApplicationName")]
+        public Input<string>? GalleryApplicationName { get; set; }
 
         /// <summary>
         /// The name of the Shared Application Gallery in which the Application Definition is to be created.

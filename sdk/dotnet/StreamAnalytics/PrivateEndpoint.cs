@@ -98,8 +98,8 @@ namespace Pulumi.AzureNextGen.StreamAnalytics
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
-        [Input("privateEndpointName", required: true)]
-        public Input<string> PrivateEndpointName { get; set; } = null!;
+        [Input("privateEndpointName")]
+        public Input<string>? PrivateEndpointName { get; set; }
 
         /// <summary>
         /// The properties associated with a private endpoint.

@@ -122,8 +122,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// <summary>
         /// Release identifier within an API. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("releaseId", required: true)]
-        public Input<string> ReleaseId { get; set; } = null!;
+        [Input("releaseId")]
+        public Input<string>? ReleaseId { get; set; }
 
         /// <summary>
         /// The name of the resource group.

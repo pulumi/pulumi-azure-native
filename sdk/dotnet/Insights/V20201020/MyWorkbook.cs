@@ -219,8 +219,8 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         /// <summary>
         /// The name of the Application Insights component resource.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// Configuration of this particular private workbook. Configuration data is a string containing valid JSON

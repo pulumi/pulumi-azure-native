@@ -166,8 +166,8 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// <summary>
         /// The name of the environment Setting.
         /// </summary>
-        [Input("environmentSettingName", required: true)]
-        public Input<string> EnvironmentSettingName { get; set; } = null!;
+        [Input("environmentSettingName")]
+        public Input<string>? EnvironmentSettingName { get; set; }
 
         /// <summary>
         /// The name of the lab Account.

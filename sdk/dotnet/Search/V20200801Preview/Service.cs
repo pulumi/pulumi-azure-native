@@ -216,8 +216,8 @@ namespace Pulumi.AzureNextGen.Search.V20200801Preview
         /// <summary>
         /// The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://&lt;name&gt;.search.windows.net). You cannot change the service name after the service is created.
         /// </summary>
-        [Input("searchServiceName", required: true)]
-        public Input<string> SearchServiceName { get; set; } = null!;
+        [Input("searchServiceName")]
+        public Input<string>? SearchServiceName { get; set; }
 
         /// <summary>
         /// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.

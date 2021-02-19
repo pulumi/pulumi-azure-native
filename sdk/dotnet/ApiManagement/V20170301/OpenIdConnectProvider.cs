@@ -148,8 +148,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         /// <summary>
         /// Identifier of the OpenID Connect Provider.
         /// </summary>
-        [Input("opid", required: true)]
-        public Input<string> Opid { get; set; } = null!;
+        [Input("opid")]
+        public Input<string>? Opid { get; set; }
 
         /// <summary>
         /// The name of the resource group.

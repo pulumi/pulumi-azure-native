@@ -204,8 +204,8 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
         /// <summary>
         /// The name of the Live Event.
         /// </summary>
-        [Input("liveEventName", required: true)]
-        public Input<string> LiveEventName { get; set; } = null!;
+        [Input("liveEventName")]
+        public Input<string>? LiveEventName { get; set; }
 
         /// <summary>
         /// The Azure Region of the resource.

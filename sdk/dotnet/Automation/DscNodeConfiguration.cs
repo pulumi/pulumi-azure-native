@@ -144,8 +144,8 @@ namespace Pulumi.AzureNextGen.Automation
         /// <summary>
         /// The Dsc node configuration name.
         /// </summary>
-        [Input("nodeConfigurationName", required: true)]
-        public Input<string> NodeConfigurationName { get; set; } = null!;
+        [Input("nodeConfigurationName")]
+        public Input<string>? NodeConfigurationName { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

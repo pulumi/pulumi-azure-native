@@ -181,8 +181,8 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <summary>
         /// Resource name for the network function resource.
         /// </summary>
-        [Input("networkFunctionName", required: true)]
-        public Input<string> NetworkFunctionName { get; set; } = null!;
+        [Input("networkFunctionName")]
+        public Input<string>? NetworkFunctionName { get; set; }
 
         [Input("networkFunctionUserConfigurations")]
         private InputList<Inputs.NetworkFunctionUserConfigurationArgs>? _networkFunctionUserConfigurations;

@@ -169,8 +169,8 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// <summary>
         /// The name of the route filter.
         /// </summary>
-        [Input("routeFilterName", required: true)]
-        public Input<string> RouteFilterName { get; set; } = null!;
+        [Input("routeFilterName")]
+        public Input<string>? RouteFilterName { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.RouteFilterRuleArgs>? _rules;

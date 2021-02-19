@@ -113,8 +113,8 @@ namespace Pulumi.AzureNextGen.AppConfiguration
         /// <summary>
         /// Private endpoint connection name
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.

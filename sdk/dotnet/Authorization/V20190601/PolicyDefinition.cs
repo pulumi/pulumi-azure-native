@@ -77,7 +77,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20190601
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PolicyDefinition(string name, PolicyDefinitionArgs args, CustomResourceOptions? options = null)
+        public PolicyDefinition(string name, PolicyDefinitionArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:authorization/v20190601:PolicyDefinition", name, args ?? new PolicyDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -161,8 +161,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20190601
         /// <summary>
         /// The name of the policy definition to create.
         /// </summary>
-        [Input("policyDefinitionName", required: true)]
-        public Input<string> PolicyDefinitionName { get; set; } = null!;
+        [Input("policyDefinitionName")]
+        public Input<string>? PolicyDefinitionName { get; set; }
 
         /// <summary>
         /// The policy rule.

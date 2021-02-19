@@ -176,8 +176,8 @@ namespace Pulumi.AzureNextGen.Authorization
         /// <summary>
         /// The display name of the deny assignment.
         /// </summary>
-        [Input("denyAssignmentName", required: true)]
-        public Input<string> DenyAssignmentName { get; set; } = null!;
+        [Input("denyAssignmentName")]
+        public Input<string>? DenyAssignmentName { get; set; }
 
         /// <summary>
         /// The description of the deny assignment.

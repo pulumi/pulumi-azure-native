@@ -110,8 +110,8 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine
         /// <summary>
         /// Name of the availability group listener.
         /// </summary>
-        [Input("availabilityGroupListenerName", required: true)]
-        public Input<string> AvailabilityGroupListenerName { get; set; } = null!;
+        [Input("availabilityGroupListenerName")]
+        public Input<string>? AvailabilityGroupListenerName { get; set; }
 
         /// <summary>
         /// Name of the availability group.

@@ -136,8 +136,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
         /// <summary>
         /// Name of the event channel.
         /// </summary>
-        [Input("eventChannelName", required: true)]
-        public Input<string> EventChannelName { get; set; } = null!;
+        [Input("eventChannelName")]
+        public Input<string>? EventChannelName { get; set; }
 
         /// <summary>
         /// Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,

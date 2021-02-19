@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// The name of the job agent to be created or updated.
         /// </summary>
-        [Input("jobAgentName", required: true)]
-        public Input<string> JobAgentName { get; set; } = null!;
+        [Input("jobAgentName")]
+        public Input<string>? JobAgentName { get; set; }
 
         /// <summary>
         /// Resource location.

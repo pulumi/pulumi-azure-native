@@ -194,8 +194,8 @@ namespace Pulumi.AzureNextGen.Cache.V20150801
         /// <summary>
         /// The name of the Redis cache.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("redisConfiguration")]
         private InputMap<string>? _redisConfiguration;

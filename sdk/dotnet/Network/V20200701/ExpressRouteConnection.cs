@@ -133,8 +133,8 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// The name of the connection subresource.
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// Enable internet security.

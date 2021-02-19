@@ -155,8 +155,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// <summary>
         /// Cosmos DB storedProcedure name.
         /// </summary>
-        [Input("storedProcedureName", required: true)]
-        public Input<string> StoredProcedureName { get; set; } = null!;
+        [Input("storedProcedureName")]
+        public Input<string>? StoredProcedureName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

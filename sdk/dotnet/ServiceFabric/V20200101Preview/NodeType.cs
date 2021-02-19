@@ -217,8 +217,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
         /// <summary>
         /// The name of the node type.
         /// </summary>
-        [Input("nodeTypeName", required: true)]
-        public Input<string> NodeTypeName { get; set; } = null!;
+        [Input("nodeTypeName")]
+        public Input<string>? NodeTypeName { get; set; }
 
         [Input("placementProperties")]
         private InputMap<string>? _placementProperties;

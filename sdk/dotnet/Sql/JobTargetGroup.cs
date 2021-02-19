@@ -118,8 +118,8 @@ namespace Pulumi.AzureNextGen.Sql
         /// <summary>
         /// The name of the target group.
         /// </summary>
-        [Input("targetGroupName", required: true)]
-        public Input<string> TargetGroupName { get; set; } = null!;
+        [Input("targetGroupName")]
+        public Input<string>? TargetGroupName { get; set; }
 
         public JobTargetGroupArgs()
         {

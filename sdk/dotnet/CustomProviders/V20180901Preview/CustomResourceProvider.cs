@@ -139,8 +139,8 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
         /// <summary>
         /// The name of the resource provider.
         /// </summary>
-        [Input("resourceProviderName", required: true)]
-        public Input<string> ResourceProviderName { get; set; } = null!;
+        [Input("resourceProviderName")]
+        public Input<string>? ResourceProviderName { get; set; }
 
         [Input("resourceTypes")]
         private InputList<Inputs.CustomRPResourceTypeRouteDefinitionArgs>? _resourceTypes;

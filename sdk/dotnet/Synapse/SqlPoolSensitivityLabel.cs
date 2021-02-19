@@ -184,8 +184,8 @@ namespace Pulumi.AzureNextGen.Synapse
         /// <summary>
         /// The source of the sensitivity label.
         /// </summary>
-        [Input("sensitivityLabelSource", required: true)]
-        public Input<string> SensitivityLabelSource { get; set; } = null!;
+        [Input("sensitivityLabelSource")]
+        public Input<string>? SensitivityLabelSource { get; set; }
 
         /// <summary>
         /// SQL pool name

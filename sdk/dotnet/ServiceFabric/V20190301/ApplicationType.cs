@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301
         /// <summary>
         /// The name of the application type name resource.
         /// </summary>
-        [Input("applicationTypeName", required: true)]
-        public Input<string> ApplicationTypeName { get; set; } = null!;
+        [Input("applicationTypeName")]
+        public Input<string>? ApplicationTypeName { get; set; }
 
         /// <summary>
         /// The name of the cluster resource.

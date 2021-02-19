@@ -161,8 +161,8 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         /// <summary>
         /// The Streaming Policy name.
         /// </summary>
-        [Input("streamingPolicyName", required: true)]
-        public Input<string> StreamingPolicyName { get; set; } = null!;
+        [Input("streamingPolicyName")]
+        public Input<string>? StreamingPolicyName { get; set; }
 
         public StreamingPolicyArgs()
         {

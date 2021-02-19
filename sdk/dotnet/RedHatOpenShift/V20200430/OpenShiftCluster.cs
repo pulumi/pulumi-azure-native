@@ -206,8 +206,8 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
         /// <summary>
         /// The name of the OpenShift cluster resource.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// The cluster service principal profile.

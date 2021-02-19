@@ -111,8 +111,8 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// <summary>
         /// Cosmos DB database name.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

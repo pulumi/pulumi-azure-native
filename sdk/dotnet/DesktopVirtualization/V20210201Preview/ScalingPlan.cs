@@ -183,8 +183,8 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210201Preview
         /// <summary>
         /// The name of the scaling plan.
         /// </summary>
-        [Input("scalingPlanName", required: true)]
-        public Input<string> ScalingPlanName { get; set; } = null!;
+        [Input("scalingPlanName")]
+        public Input<string>? ScalingPlanName { get; set; }
 
         [Input("schedules")]
         private InputList<Inputs.ScalingScheduleArgs>? _schedules;

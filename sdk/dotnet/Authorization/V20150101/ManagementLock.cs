@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20150101
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ManagementLock(string name, ManagementLockArgs args, CustomResourceOptions? options = null)
+        public ManagementLock(string name, ManagementLockArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:authorization/v20150101:ManagementLock", name, args ?? new ManagementLockArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -99,8 +99,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20150101
         /// <summary>
         /// The name of lock.
         /// </summary>
-        [Input("lockName", required: true)]
-        public Input<string> LockName { get; set; } = null!;
+        [Input("lockName")]
+        public Input<string>? LockName { get; set; }
 
         /// <summary>
         /// The name of the lock.

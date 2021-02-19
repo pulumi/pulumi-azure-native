@@ -41,7 +41,7 @@ namespace Pulumi.AzureNextGen.Portal.V20190101Preview
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TenantConfiguration(string name, TenantConfigurationArgs args, CustomResourceOptions? options = null)
+        public TenantConfiguration(string name, TenantConfigurationArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:portal/v20190101preview:TenantConfiguration", name, args ?? new TenantConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNextGen.Portal.V20190101Preview
         /// <summary>
         /// The configuration name. Value must be 'default'
         /// </summary>
-        [Input("configurationName", required: true)]
-        public Input<string> ConfigurationName { get; set; } = null!;
+        [Input("configurationName")]
+        public Input<string>? ConfigurationName { get; set; }
 
         /// <summary>
         /// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.

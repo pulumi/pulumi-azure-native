@@ -209,8 +209,8 @@ namespace Pulumi.AzureNextGen.Network.V20200401
         /// <summary>
         /// The name of the inbound nat rule.
         /// </summary>
-        [Input("inboundNatRuleName", required: true)]
-        public Input<string> InboundNatRuleName { get; set; } = null!;
+        [Input("inboundNatRuleName")]
+        public Input<string>? InboundNatRuleName { get; set; }
 
         /// <summary>
         /// The name of the load balancer.

@@ -121,8 +121,8 @@ namespace Pulumi.AzureNextGen.Kusto
         /// <summary>
         /// The name of the attached database configuration.
         /// </summary>
-        [Input("attachedDatabaseConfigurationName", required: true)]
-        public Input<string> AttachedDatabaseConfigurationName { get; set; } = null!;
+        [Input("attachedDatabaseConfigurationName")]
+        public Input<string>? AttachedDatabaseConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the Kusto cluster.

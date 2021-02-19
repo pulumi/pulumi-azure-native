@@ -177,8 +177,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         /// <summary>
         /// The connection name.
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// Timestamp of the connection creation

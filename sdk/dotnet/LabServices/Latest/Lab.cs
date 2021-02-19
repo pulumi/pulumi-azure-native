@@ -166,8 +166,8 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// <summary>
         /// The name of the lab.
         /// </summary>
-        [Input("labName", required: true)]
-        public Input<string> LabName { get; set; } = null!;
+        [Input("labName")]
+        public Input<string>? LabName { get; set; }
 
         /// <summary>
         /// The location of the resource.

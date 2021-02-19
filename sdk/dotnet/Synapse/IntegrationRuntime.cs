@@ -94,8 +94,8 @@ namespace Pulumi.AzureNextGen.Synapse
         /// <summary>
         /// Integration runtime name
         /// </summary>
-        [Input("integrationRuntimeName", required: true)]
-        public Input<string> IntegrationRuntimeName { get; set; } = null!;
+        [Input("integrationRuntimeName")]
+        public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
         /// Integration runtime properties.

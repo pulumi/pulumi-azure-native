@@ -158,8 +158,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// <summary>
         /// Cosmos DB graph name.
         /// </summary>
-        [Input("graphName", required: true)]
-        public Input<string> GraphName { get; set; } = null!;
+        [Input("graphName")]
+        public Input<string>? GraphName { get; set; }
 
         [Input("options", required: true)]
         private InputMap<string>? _options;

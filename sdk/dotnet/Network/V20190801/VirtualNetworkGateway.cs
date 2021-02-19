@@ -323,8 +323,8 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The name of the virtual network gateway.
         /// </summary>
-        [Input("virtualNetworkGatewayName", required: true)]
-        public Input<string> VirtualNetworkGatewayName { get; set; } = null!;
+        [Input("virtualNetworkGatewayName")]
+        public Input<string>? VirtualNetworkGatewayName { get; set; }
 
         /// <summary>
         /// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.

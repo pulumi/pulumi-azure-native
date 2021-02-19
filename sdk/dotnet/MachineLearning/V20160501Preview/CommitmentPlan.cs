@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview
         /// <summary>
         /// The Azure ML commitment plan name.
         /// </summary>
-        [Input("commitmentPlanName", required: true)]
-        public Input<string> CommitmentPlanName { get; set; } = null!;
+        [Input("commitmentPlanName")]
+        public Input<string>? CommitmentPlanName { get; set; }
 
         /// <summary>
         /// An entity tag used to enforce optimistic concurrency.

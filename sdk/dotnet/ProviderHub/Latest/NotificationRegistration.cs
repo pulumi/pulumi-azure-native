@@ -85,8 +85,8 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
         /// <summary>
         /// The notification registration.
         /// </summary>
-        [Input("notificationRegistrationName", required: true)]
-        public Input<string> NotificationRegistrationName { get; set; } = null!;
+        [Input("notificationRegistrationName")]
+        public Input<string>? NotificationRegistrationName { get; set; }
 
         [Input("properties")]
         public Input<Inputs.NotificationRegistrationPropertiesArgs>? Properties { get; set; }

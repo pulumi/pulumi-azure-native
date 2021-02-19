@@ -145,8 +145,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
         /// </summary>
-        [Input("dnsZoneId", required: true)]
-        public Input<string> DnsZoneId { get; set; } = null!;
+        [Input("dnsZoneId")]
+        public Input<string>? DnsZoneId { get; set; }
 
         [Input("domain")]
         private InputList<string>? _domain;

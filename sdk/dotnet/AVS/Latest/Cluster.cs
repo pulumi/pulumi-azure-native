@@ -113,8 +113,8 @@ namespace Pulumi.AzureNextGen.AVS.Latest
         /// <summary>
         /// Name of the cluster in the private cloud
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The cluster size

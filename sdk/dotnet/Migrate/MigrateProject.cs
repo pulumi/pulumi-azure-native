@@ -116,8 +116,8 @@ namespace Pulumi.AzureNextGen.Migrate
         /// <summary>
         /// Name of the Azure Migrate project.
         /// </summary>
-        [Input("migrateProjectName", required: true)]
-        public Input<string> MigrateProjectName { get; set; } = null!;
+        [Input("migrateProjectName")]
+        public Input<string>? MigrateProjectName { get; set; }
 
         /// <summary>
         /// Gets or sets the nested properties.

@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// <summary>
         /// The name of the firewall rule.
         /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
+        [Input("ruleName")]
+        public Input<string>? RuleName { get; set; }
 
         /// <summary>
         /// lowest IP address included in the range

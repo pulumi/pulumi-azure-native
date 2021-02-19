@@ -191,8 +191,8 @@ namespace Pulumi.AzureNextGen.Resources.V20160201
         /// <summary>
         /// Resource identity.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// Resource identity.

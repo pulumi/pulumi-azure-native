@@ -185,7 +185,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180501Preview
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AccessReviewScheduleDefinitionById(string name, AccessReviewScheduleDefinitionByIdArgs args, CustomResourceOptions? options = null)
+        public AccessReviewScheduleDefinitionById(string name, AccessReviewScheduleDefinitionByIdArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById", name, args ?? new AccessReviewScheduleDefinitionByIdArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -337,8 +337,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20180501Preview
         /// <summary>
         /// The id of the access review schedule definition.
         /// </summary>
-        [Input("scheduleDefinitionId", required: true)]
-        public Input<string> ScheduleDefinitionId { get; set; } = null!;
+        [Input("scheduleDefinitionId")]
+        public Input<string>? ScheduleDefinitionId { get; set; }
 
         /// <summary>
         /// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.

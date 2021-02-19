@@ -130,8 +130,8 @@ namespace Pulumi.AzureNextGen.OffAzure.Latest
         /// <summary>
         /// Site name.
         /// </summary>
-        [Input("siteName", required: true)]
-        public Input<string> SiteName { get; set; } = null!;
+        [Input("siteName")]
+        public Input<string>? SiteName { get; set; }
 
         public MasterSiteArgs()
         {

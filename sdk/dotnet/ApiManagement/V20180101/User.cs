@@ -202,8 +202,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// <summary>
         /// User identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("uid", required: true)]
-        public Input<string> Uid { get; set; } = null!;
+        [Input("uid")]
+        public Input<string>? Uid { get; set; }
 
         public UserArgs()
         {

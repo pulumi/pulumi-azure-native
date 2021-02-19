@@ -129,8 +129,8 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
         /// <summary>
         /// The data store/repository name to be created or updated.
         /// </summary>
-        [Input("dataStoreName", required: true)]
-        public Input<string> DataStoreName { get; set; } = null!;
+        [Input("dataStoreName")]
+        public Input<string>? DataStoreName { get; set; }
 
         /// <summary>
         /// The arm id of the data store type.

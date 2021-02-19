@@ -135,8 +135,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20201001Preview
         /// <summary>
         /// The name (guid) of the role management policy to upsert.
         /// </summary>
-        [Input("roleManagementPolicyName", required: true)]
-        public Input<string> RoleManagementPolicyName { get; set; } = null!;
+        [Input("roleManagementPolicyName")]
+        public Input<string>? RoleManagementPolicyName { get; set; }
 
         [Input("rules")]
         private InputList<object>? _rules;

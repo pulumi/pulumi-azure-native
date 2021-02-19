@@ -172,8 +172,8 @@ namespace Pulumi.AzureNextGen.Network.V20190401
         /// <summary>
         /// The name of the Azure Firewall.
         /// </summary>
-        [Input("azureFirewallName", required: true)]
-        public Input<string> AzureFirewallName { get; set; } = null!;
+        [Input("azureFirewallName")]
+        public Input<string>? AzureFirewallName { get; set; }
 
         /// <summary>
         /// Resource ID.

@@ -144,8 +144,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// <summary>
         /// Cosmos DB table name.
         /// </summary>
-        [Input("tableName", required: true)]
-        public Input<string> TableName { get; set; } = null!;
+        [Input("tableName")]
+        public Input<string>? TableName { get; set; }
 
         public DatabaseAccountCassandraTableArgs()
         {

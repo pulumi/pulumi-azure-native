@@ -136,8 +136,8 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview
         /// <summary>
         /// The name of the DigitalTwinsInstance.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// This property is reserved for future use, and will be ignored/omitted

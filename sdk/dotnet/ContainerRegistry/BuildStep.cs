@@ -104,8 +104,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// <summary>
         /// The name of a build step for a container registry build task.
         /// </summary>
-        [Input("stepName", required: true)]
-        public Input<string> StepName { get; set; } = null!;
+        [Input("stepName")]
+        public Input<string>? StepName { get; set; }
 
         public BuildStepArgs()
         {

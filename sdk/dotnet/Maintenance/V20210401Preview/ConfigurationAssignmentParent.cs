@@ -99,8 +99,8 @@ namespace Pulumi.AzureNextGen.Maintenance.V20210401Preview
         /// <summary>
         /// Configuration assignment name
         /// </summary>
-        [Input("configurationAssignmentName", required: true)]
-        public Input<string> ConfigurationAssignmentName { get; set; } = null!;
+        [Input("configurationAssignmentName")]
+        public Input<string>? ConfigurationAssignmentName { get; set; }
 
         /// <summary>
         /// Location of the resource

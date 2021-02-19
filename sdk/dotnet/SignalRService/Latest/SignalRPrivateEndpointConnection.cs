@@ -107,8 +107,8 @@ namespace Pulumi.AzureNextGen.SignalRService.Latest
         /// <summary>
         /// The name of the private endpoint connection associated with the SignalR resource.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// Connection state

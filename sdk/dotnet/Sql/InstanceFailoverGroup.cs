@@ -118,8 +118,8 @@ namespace Pulumi.AzureNextGen.Sql
         /// <summary>
         /// The name of the failover group.
         /// </summary>
-        [Input("failoverGroupName", required: true)]
-        public Input<string> FailoverGroupName { get; set; } = null!;
+        [Input("failoverGroupName")]
+        public Input<string>? FailoverGroupName { get; set; }
 
         /// <summary>
         /// The name of the region where the resource is located.

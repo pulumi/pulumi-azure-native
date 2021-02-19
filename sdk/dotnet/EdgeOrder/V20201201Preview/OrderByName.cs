@@ -139,8 +139,8 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
         /// <summary>
         /// The name of the order
         /// </summary>
-        [Input("orderName", required: true)]
-        public Input<string> OrderName { get; set; } = null!;
+        [Input("orderName")]
+        public Input<string>? OrderName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

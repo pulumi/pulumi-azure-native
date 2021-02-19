@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
         /// <summary>
         /// The name of the data collection rule. The name is case insensitive.
         /// </summary>
-        [Input("dataCollectionRuleName", required: true)]
-        public Input<string> DataCollectionRuleName { get; set; } = null!;
+        [Input("dataCollectionRuleName")]
+        public Input<string>? DataCollectionRuleName { get; set; }
 
         [Input("dataFlows", required: true)]
         private InputList<Inputs.DataFlowArgs>? _dataFlows;

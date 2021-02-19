@@ -114,8 +114,8 @@ namespace Pulumi.AzureNextGen.Batch.V20170101
         /// <summary>
         /// The ID of the application.
         /// </summary>
-        [Input("applicationId", required: true)]
-        public Input<string> ApplicationId { get; set; } = null!;
+        [Input("applicationId")]
+        public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
         /// The display name for the application.

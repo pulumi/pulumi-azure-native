@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// <summary>
         /// The name of the backup policy to be created/updated.
         /// </summary>
-        [Input("backupPolicyName", required: true)]
-        public Input<string> BackupPolicyName { get; set; } = null!;
+        [Input("backupPolicyName")]
+        public Input<string>? BackupPolicyName { get; set; }
 
         /// <summary>
         /// The device name

@@ -134,8 +134,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <summary>
         /// The iSCSI server name.
         /// </summary>
-        [Input("iscsiServerName", required: true)]
-        public Input<string> IscsiServerName { get; set; } = null!;
+        [Input("iscsiServerName")]
+        public Input<string>? IscsiServerName { get; set; }
 
         /// <summary>
         /// The manager name

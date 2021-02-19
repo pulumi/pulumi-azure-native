@@ -154,8 +154,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
         /// <summary>
         /// The name of the sql pool.
         /// </summary>
-        [Input("sqlPoolName", required: true)]
-        public Input<string> SqlPoolName { get; set; } = null!;
+        [Input("sqlPoolName")]
+        public Input<string>? SqlPoolName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

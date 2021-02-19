@@ -147,8 +147,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// <summary>
         /// The name of the token.
         /// </summary>
-        [Input("tokenName", required: true)]
-        public Input<string> TokenName { get; set; } = null!;
+        [Input("tokenName")]
+        public Input<string>? TokenName { get; set; }
 
         public TokenArgs()
         {

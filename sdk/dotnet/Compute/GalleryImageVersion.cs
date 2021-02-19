@@ -127,8 +127,8 @@ namespace Pulumi.AzureNextGen.Compute
         /// <summary>
         /// The name of the gallery image version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: &lt;MajorVersion&gt;.&lt;MinorVersion&gt;.&lt;Patch&gt;
         /// </summary>
-        [Input("galleryImageVersionName", required: true)]
-        public Input<string> GalleryImageVersionName { get; set; } = null!;
+        [Input("galleryImageVersionName")]
+        public Input<string>? GalleryImageVersionName { get; set; }
 
         /// <summary>
         /// The name of the Shared Image Gallery in which the Image Definition resides.

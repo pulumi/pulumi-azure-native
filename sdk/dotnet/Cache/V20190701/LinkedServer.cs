@@ -120,8 +120,8 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
         /// <summary>
         /// The name of the linked server that is being added to the Redis cache.
         /// </summary>
-        [Input("linkedServerName", required: true)]
-        public Input<string> LinkedServerName { get; set; } = null!;
+        [Input("linkedServerName")]
+        public Input<string>? LinkedServerName { get; set; }
 
         /// <summary>
         /// The name of the Redis cache.

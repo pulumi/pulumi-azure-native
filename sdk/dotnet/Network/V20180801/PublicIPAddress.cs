@@ -276,8 +276,8 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// The name of the public IP address.
         /// </summary>
-        [Input("publicIpAddressName", required: true)]
-        public Input<string> PublicIpAddressName { get; set; } = null!;
+        [Input("publicIpAddressName")]
+        public Input<string>? PublicIpAddressName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

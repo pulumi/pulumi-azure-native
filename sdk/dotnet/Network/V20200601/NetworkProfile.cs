@@ -163,8 +163,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <summary>
         /// The name of the network profile.
         /// </summary>
-        [Input("networkProfileName", required: true)]
-        public Input<string> NetworkProfileName { get; set; } = null!;
+        [Input("networkProfileName")]
+        public Input<string>? NetworkProfileName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

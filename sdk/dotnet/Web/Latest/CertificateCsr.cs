@@ -172,8 +172,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// Resource Name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// PFX password

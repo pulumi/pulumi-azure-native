@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
         /// <summary>
         /// The name of the order collection
         /// </summary>
-        [Input("orderCollectionName", required: true)]
-        public Input<string> OrderCollectionName { get; set; } = null!;
+        [Input("orderCollectionName")]
+        public Input<string>? OrderCollectionName { get; set; }
 
         [Input("orderIds", required: true)]
         private InputList<string>? _orderIds;

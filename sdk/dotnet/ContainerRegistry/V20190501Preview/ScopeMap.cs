@@ -144,8 +144,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
         /// <summary>
         /// The name of the scope map.
         /// </summary>
-        [Input("scopeMapName", required: true)]
-        public Input<string> ScopeMapName { get; set; } = null!;
+        [Input("scopeMapName")]
+        public Input<string>? ScopeMapName { get; set; }
 
         public ScopeMapArgs()
         {

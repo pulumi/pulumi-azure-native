@@ -135,8 +135,8 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20210101
         /// <summary>
         /// The name of the attestation.
         /// </summary>
-        [Input("attestationName", required: true)]
-        public Input<string> AttestationName { get; set; } = null!;
+        [Input("attestationName")]
+        public Input<string>? AttestationName { get; set; }
 
         /// <summary>
         /// Comments describing why this attestation was created.

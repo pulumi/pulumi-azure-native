@@ -145,8 +145,8 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview
         /// <summary>
         /// The name of the zone without a terminating dot.
         /// </summary>
-        [Input("zoneName", required: true)]
-        public Input<string> ZoneName { get; set; } = null!;
+        [Input("zoneName")]
+        public Input<string>? ZoneName { get; set; }
 
         public ZoneArgs()
         {

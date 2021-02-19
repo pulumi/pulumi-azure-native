@@ -136,8 +136,8 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// <summary>
         /// The name of the automation account.
         /// </summary>
-        [Input("automationAccountName", required: true)]
-        public Input<string> AutomationAccountName { get; set; } = null!;
+        [Input("automationAccountName")]
+        public Input<string>? AutomationAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the location of the resource.

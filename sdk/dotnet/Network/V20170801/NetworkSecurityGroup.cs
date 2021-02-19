@@ -198,8 +198,8 @@ namespace Pulumi.AzureNextGen.Network.V20170801
         /// <summary>
         /// The name of the network security group.
         /// </summary>
-        [Input("networkSecurityGroupName", required: true)]
-        public Input<string> NetworkSecurityGroupName { get; set; } = null!;
+        [Input("networkSecurityGroupName")]
+        public Input<string>? NetworkSecurityGroupName { get; set; }
 
         /// <summary>
         /// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

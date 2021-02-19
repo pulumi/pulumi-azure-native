@@ -140,8 +140,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// <summary>
         /// The name of the container registry build task.
         /// </summary>
-        [Input("buildTaskName", required: true)]
-        public Input<string> BuildTaskName { get; set; } = null!;
+        [Input("buildTaskName")]
+        public Input<string>? BuildTaskName { get; set; }
 
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.

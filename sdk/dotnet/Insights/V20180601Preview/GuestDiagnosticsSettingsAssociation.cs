@@ -97,8 +97,8 @@ namespace Pulumi.AzureNextGen.Insights.V20180601Preview
         /// <summary>
         /// The name of the diagnostic settings association.
         /// </summary>
-        [Input("associationName", required: true)]
-        public Input<string> AssociationName { get; set; } = null!;
+        [Input("associationName")]
+        public Input<string>? AssociationName { get; set; }
 
         /// <summary>
         /// The guest diagnostic settings name.

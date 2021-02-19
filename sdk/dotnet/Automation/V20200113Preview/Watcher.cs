@@ -226,8 +226,8 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
         /// <summary>
         /// The watcher name.
         /// </summary>
-        [Input("watcherName", required: true)]
-        public Input<string> WatcherName { get; set; } = null!;
+        [Input("watcherName")]
+        public Input<string>? WatcherName { get; set; }
 
         public WatcherArgs()
         {

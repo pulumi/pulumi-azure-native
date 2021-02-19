@@ -101,8 +101,8 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.

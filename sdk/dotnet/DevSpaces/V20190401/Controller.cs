@@ -137,8 +137,8 @@ namespace Pulumi.AzureNextGen.DevSpaces.V20190401
         /// <summary>
         /// Name of the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Resource group to which the resource belongs.

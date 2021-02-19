@@ -143,8 +143,8 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
         /// <summary>
         /// Name of the environment
         /// </summary>
-        [Input("environmentName", required: true)]
-        public Input<string> EnvironmentName { get; set; } = null!;
+        [Input("environmentName")]
+        public Input<string>? EnvironmentName { get; set; }
 
         /// <summary>
         /// The location of the resource.

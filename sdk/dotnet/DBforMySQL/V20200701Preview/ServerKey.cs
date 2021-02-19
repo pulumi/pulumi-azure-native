@@ -103,8 +103,8 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701Preview
         /// <summary>
         /// The name of the server key.
         /// </summary>
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

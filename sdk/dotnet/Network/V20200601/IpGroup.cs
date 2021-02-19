@@ -142,8 +142,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <summary>
         /// The name of the ipGroups.
         /// </summary>
-        [Input("ipGroupsName", required: true)]
-        public Input<string> IpGroupsName { get; set; } = null!;
+        [Input("ipGroupsName")]
+        public Input<string>? IpGroupsName { get; set; }
 
         /// <summary>
         /// Resource location.

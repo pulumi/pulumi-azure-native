@@ -98,8 +98,8 @@ namespace Pulumi.AzureNextGen.OperationsManagement
         /// <summary>
         /// User Management Configuration Name.
         /// </summary>
-        [Input("managementConfigurationName", required: true)]
-        public Input<string> ManagementConfigurationName { get; set; } = null!;
+        [Input("managementConfigurationName")]
+        public Input<string>? ManagementConfigurationName { get; set; }
 
         /// <summary>
         /// Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.

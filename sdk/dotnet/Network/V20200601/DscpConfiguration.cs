@@ -184,8 +184,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <summary>
         /// The name of the resource.
         /// </summary>
-        [Input("dscpConfigurationName", required: true)]
-        public Input<string> DscpConfigurationName { get; set; } = null!;
+        [Input("dscpConfigurationName")]
+        public Input<string>? DscpConfigurationName { get; set; }
 
         /// <summary>
         /// Resource ID.

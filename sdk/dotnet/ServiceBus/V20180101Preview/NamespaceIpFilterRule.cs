@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// <summary>
         /// The IP Filter Rule name.
         /// </summary>
-        [Input("ipFilterRuleName", required: true)]
-        public Input<string> IpFilterRuleName { get; set; } = null!;
+        [Input("ipFilterRuleName")]
+        public Input<string>? IpFilterRuleName { get; set; }
 
         /// <summary>
         /// IP Mask

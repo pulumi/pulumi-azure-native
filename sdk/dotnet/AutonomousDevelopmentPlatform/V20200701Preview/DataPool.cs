@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
         /// <summary>
         /// The name of the Data Pool.
         /// </summary>
-        [Input("dataPoolName", required: true)]
-        public Input<string> DataPoolName { get; set; } = null!;
+        [Input("dataPoolName")]
+        public Input<string>? DataPoolName { get; set; }
 
         [Input("locations", required: true)]
         private InputList<Inputs.DataPoolLocationArgs>? _locations;

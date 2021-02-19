@@ -137,8 +137,8 @@ namespace Pulumi.AzureNextGen.Resources.Latest
         /// <summary>
         /// Name of the deployment script.
         /// </summary>
-        [Input("scriptName", required: true)]
-        public Input<string> ScriptName { get; set; } = null!;
+        [Input("scriptName")]
+        public Input<string>? ScriptName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -214,8 +214,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// The name of the sync member.
         /// </summary>
-        [Input("syncMemberName", required: true)]
-        public Input<string> SyncMemberName { get; set; } = null!;
+        [Input("syncMemberName")]
+        public Input<string>? SyncMemberName { get; set; }
 
         /// <summary>
         /// Whether to use private link connection.

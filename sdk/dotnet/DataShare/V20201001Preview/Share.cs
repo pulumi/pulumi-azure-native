@@ -155,8 +155,8 @@ namespace Pulumi.AzureNextGen.DataShare.V20201001Preview
         /// <summary>
         /// The name of the share.
         /// </summary>
-        [Input("shareName", required: true)]
-        public Input<string> ShareName { get; set; } = null!;
+        [Input("shareName")]
+        public Input<string>? ShareName { get; set; }
 
         /// <summary>
         /// Share terms.

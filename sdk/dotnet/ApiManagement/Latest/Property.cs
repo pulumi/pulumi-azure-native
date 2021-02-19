@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <summary>
         /// Identifier of the property.
         /// </summary>
-        [Input("propId", required: true)]
-        public Input<string> PropId { get; set; } = null!;
+        [Input("propId")]
+        public Input<string>? PropId { get; set; }
 
         /// <summary>
         /// The name of the resource group.

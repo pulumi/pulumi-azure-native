@@ -172,8 +172,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
         /// <summary>
         /// The name of the recovery services vault.
         /// </summary>
-        [Input("vaultName", required: true)]
-        public Input<string> VaultName { get; set; } = null!;
+        [Input("vaultName")]
+        public Input<string>? VaultName { get; set; }
 
         public VaultArgs()
         {

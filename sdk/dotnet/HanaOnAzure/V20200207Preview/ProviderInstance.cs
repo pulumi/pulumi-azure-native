@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
         /// <summary>
         /// Name of the provider instance.
         /// </summary>
-        [Input("providerInstanceName", required: true)]
-        public Input<string> ProviderInstanceName { get; set; } = null!;
+        [Input("providerInstanceName")]
+        public Input<string>? ProviderInstanceName { get; set; }
 
         /// <summary>
         /// Name of the resource group.

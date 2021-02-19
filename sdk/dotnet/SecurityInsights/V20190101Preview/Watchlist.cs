@@ -325,8 +325,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <summary>
         /// The alias of the watchlist
         /// </summary>
-        [Input("watchlistAlias", required: true)]
-        public Input<string> WatchlistAlias { get; set; } = null!;
+        [Input("watchlistAlias")]
+        public Input<string>? WatchlistAlias { get; set; }
 
         /// <summary>
         /// The id (a Guid) of the watchlist

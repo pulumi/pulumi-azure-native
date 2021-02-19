@@ -103,8 +103,8 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// <summary>
         /// The name of the dataSet.
         /// </summary>
-        [Input("dataSetName", required: true)]
-        public Input<string> DataSetName { get; set; } = null!;
+        [Input("dataSetName")]
+        public Input<string>? DataSetName { get; set; }
 
         /// <summary>
         /// Kind of data set.

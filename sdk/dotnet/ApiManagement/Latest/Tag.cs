@@ -112,8 +112,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <summary>
         /// Tag identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("tagId", required: true)]
-        public Input<string> TagId { get; set; } = null!;
+        [Input("tagId")]
+        public Input<string>? TagId { get; set; }
 
         public TagArgs()
         {

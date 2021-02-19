@@ -160,8 +160,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// <summary>
         /// Operation identifier within an API. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("operationId", required: true)]
-        public Input<string> OperationId { get; set; } = null!;
+        [Input("operationId")]
+        public Input<string>? OperationId { get; set; }
 
         /// <summary>
         /// Operation Policies

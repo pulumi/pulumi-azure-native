@@ -162,8 +162,8 @@ namespace Pulumi.AzureNextGen.Network.V20181101
         /// <summary>
         /// The name of the interface endpoint.
         /// </summary>
-        [Input("interfaceEndpointName", required: true)]
-        public Input<string> InterfaceEndpointName { get; set; } = null!;
+        [Input("interfaceEndpointName")]
+        public Input<string>? InterfaceEndpointName { get; set; }
 
         /// <summary>
         /// Resource location.

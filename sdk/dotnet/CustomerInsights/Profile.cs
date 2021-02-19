@@ -286,8 +286,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// <summary>
         /// The name of the profile.
         /// </summary>
-        [Input("profileName", required: true)]
-        public Input<string> ProfileName { get; set; } = null!;
+        [Input("profileName")]
+        public Input<string>? ProfileName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

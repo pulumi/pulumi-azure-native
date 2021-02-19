@@ -141,8 +141,8 @@ namespace Pulumi.AzureNextGen.Confluent.V20200301
         /// <summary>
         /// Organization resource name
         /// </summary>
-        [Input("organizationName", required: true)]
-        public Input<string> OrganizationName { get; set; } = null!;
+        [Input("organizationName")]
+        public Input<string>? OrganizationName { get; set; }
 
         /// <summary>
         /// Resource group name

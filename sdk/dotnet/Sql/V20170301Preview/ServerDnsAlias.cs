@@ -87,8 +87,8 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// <summary>
         /// The name of the server DNS alias.
         /// </summary>
-        [Input("dnsAliasName", required: true)]
-        public Input<string> DnsAliasName { get; set; } = null!;
+        [Input("dnsAliasName")]
+        public Input<string>? DnsAliasName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

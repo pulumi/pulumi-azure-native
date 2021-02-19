@@ -116,8 +116,8 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
         /// <summary>
         /// The name of the artifact source.
         /// </summary>
-        [Input("artifactSourceName", required: true)]
-        public Input<string> ArtifactSourceName { get; set; } = null!;
+        [Input("artifactSourceName")]
+        public Input<string>? ArtifactSourceName { get; set; }
 
         /// <summary>
         /// The authentication method to use to access the artifact source.

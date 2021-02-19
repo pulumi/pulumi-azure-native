@@ -115,8 +115,8 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
         /// <summary>
         /// The name of the Azure Monitor PrivateLinkScope resource.
         /// </summary>
-        [Input("scopeName", required: true)]
-        public Input<string> ScopeName { get; set; } = null!;
+        [Input("scopeName")]
+        public Input<string>? ScopeName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

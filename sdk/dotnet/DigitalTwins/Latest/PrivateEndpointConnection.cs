@@ -85,8 +85,8 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
         /// <summary>
         /// The name of the private endpoint connection.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         [Input("properties", required: true)]
         public Input<Inputs.PrivateEndpointConnectionPropertiesArgs> Properties { get; set; } = null!;

@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.DeploymentManager
         /// <summary>
         /// The name of the service topology .
         /// </summary>
-        [Input("serviceTopologyName", required: true)]
-        public Input<string> ServiceTopologyName { get; set; } = null!;
+        [Input("serviceTopologyName")]
+        public Input<string>? ServiceTopologyName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

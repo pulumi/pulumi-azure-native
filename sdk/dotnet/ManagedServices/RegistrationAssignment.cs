@@ -97,8 +97,8 @@ namespace Pulumi.AzureNextGen.ManagedServices
         /// <summary>
         /// Guid of the registration assignment.
         /// </summary>
-        [Input("registrationAssignmentId", required: true)]
-        public Input<string> RegistrationAssignmentId { get; set; } = null!;
+        [Input("registrationAssignmentId")]
+        public Input<string>? RegistrationAssignmentId { get; set; }
 
         /// <summary>
         /// Scope of the resource.

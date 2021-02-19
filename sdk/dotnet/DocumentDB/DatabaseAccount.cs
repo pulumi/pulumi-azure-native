@@ -278,8 +278,8 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// <summary>
         /// Cosmos DB database account name.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// API specific properties. Currently, supported only for MongoDB API.

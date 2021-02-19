@@ -114,8 +114,8 @@ namespace Pulumi.AzureNextGen.Devices.V20200831Preview
         /// <summary>
         /// The name of the consumer group to add.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The EventHub consumer group name.

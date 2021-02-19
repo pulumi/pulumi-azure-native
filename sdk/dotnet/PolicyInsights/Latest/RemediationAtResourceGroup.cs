@@ -149,8 +149,8 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest
         /// <summary>
         /// The name of the remediation.
         /// </summary>
-        [Input("remediationName", required: true)]
-        public Input<string> RemediationName { get; set; } = null!;
+        [Input("remediationName")]
+        public Input<string>? RemediationName { get; set; }
 
         /// <summary>
         /// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.

@@ -134,8 +134,8 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork
         /// <summary>
         /// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// orchestrator details

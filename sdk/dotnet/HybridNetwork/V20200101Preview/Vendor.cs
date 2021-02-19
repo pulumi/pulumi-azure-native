@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Vendor(string name, VendorArgs args, CustomResourceOptions? options = null)
+        public Vendor(string name, VendorArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:hybridnetwork/v20200101preview:Vendor", name, args ?? new VendorArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -91,8 +91,8 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <summary>
         /// The name of the vendor.
         /// </summary>
-        [Input("vendorName", required: true)]
-        public Input<string> VendorName { get; set; } = null!;
+        [Input("vendorName")]
+        public Input<string>? VendorName { get; set; }
 
         public VendorArgs()
         {

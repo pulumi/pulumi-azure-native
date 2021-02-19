@@ -163,8 +163,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301
         /// <summary>
         /// The application type version.
         /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public ApplicationTypeVersionArgs()
         {

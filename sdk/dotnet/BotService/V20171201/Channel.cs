@@ -118,8 +118,8 @@ namespace Pulumi.AzureNextGen.BotService.V20171201
         /// <summary>
         /// The name of the Channel resource.
         /// </summary>
-        [Input("channelName", required: true)]
-        public Input<string> ChannelName { get; set; } = null!;
+        [Input("channelName")]
+        public Input<string>? ChannelName { get; set; }
 
         /// <summary>
         /// Entity Tag

@@ -132,8 +132,8 @@ namespace Pulumi.AzureNextGen.Cdn
         /// <summary>
         /// Name of the domain under the profile which is unique globally
         /// </summary>
-        [Input("customDomainName", required: true)]
-        public Input<string> CustomDomainName { get; set; } = null!;
+        [Input("customDomainName")]
+        public Input<string>? CustomDomainName { get; set; }
 
         /// <summary>
         /// The host name of the domain. Must be a domain name.

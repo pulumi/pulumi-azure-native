@@ -145,8 +145,8 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// <summary>
         /// The security automation name.
         /// </summary>
-        [Input("automationName", required: true)]
-        public Input<string> AutomationName { get; set; } = null!;
+        [Input("automationName")]
+        public Input<string>? AutomationName { get; set; }
 
         /// <summary>
         /// The security automation description.

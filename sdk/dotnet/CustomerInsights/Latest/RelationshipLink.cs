@@ -221,8 +221,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// The name of the relationship link.
         /// </summary>
-        [Input("relationshipLinkName", required: true)]
-        public Input<string> RelationshipLinkName { get; set; } = null!;
+        [Input("relationshipLinkName")]
+        public Input<string>? RelationshipLinkName { get; set; }
 
         /// <summary>
         /// The Relationship associated with the Link.

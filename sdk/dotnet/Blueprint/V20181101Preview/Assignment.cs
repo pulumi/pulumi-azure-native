@@ -145,8 +145,8 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         /// <summary>
         /// Name of the blueprint assignment.
         /// </summary>
-        [Input("assignmentName", required: true)]
-        public Input<string> AssignmentName { get; set; } = null!;
+        [Input("assignmentName")]
+        public Input<string>? AssignmentName { get; set; }
 
         /// <summary>
         /// ID of the published version of a blueprint definition.

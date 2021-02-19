@@ -100,8 +100,8 @@ namespace Pulumi.AzureNextGen.Synapse
         /// <summary>
         /// The name of the workspace key
         /// </summary>
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         /// <summary>
         /// The Key Vault Url of the workspace key.

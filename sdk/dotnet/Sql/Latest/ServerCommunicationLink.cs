@@ -106,8 +106,8 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// <summary>
         /// The name of the server communication link.
         /// </summary>
-        [Input("communicationLinkName", required: true)]
-        public Input<string> CommunicationLinkName { get; set; } = null!;
+        [Input("communicationLinkName")]
+        public Input<string>? CommunicationLinkName { get; set; }
 
         /// <summary>
         /// The name of the partner server.

@@ -274,8 +274,8 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
         /// <summary>
         /// The name of the agent pool.
         /// </summary>
-        [Input("agentPoolName", required: true)]
-        public Input<string> AgentPoolName { get; set; } = null!;
+        [Input("agentPoolName")]
+        public Input<string>? AgentPoolName { get; set; }
 
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;

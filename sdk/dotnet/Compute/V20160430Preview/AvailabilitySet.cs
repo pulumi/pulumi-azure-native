@@ -152,8 +152,8 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview
         /// <summary>
         /// The name of the availability set.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Fault Domain count.

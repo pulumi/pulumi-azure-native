@@ -298,8 +298,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20191101
         /// <summary>
         /// The name of the volume
         /// </summary>
-        [Input("volumeName", required: true)]
-        public Input<string> VolumeName { get; set; } = null!;
+        [Input("volumeName")]
+        public Input<string>? VolumeName { get; set; }
 
         /// <summary>
         /// What type of volume is this

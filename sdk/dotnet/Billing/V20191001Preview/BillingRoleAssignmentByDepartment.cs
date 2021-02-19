@@ -145,8 +145,8 @@ namespace Pulumi.AzureNextGen.Billing.V20191001Preview
         /// <summary>
         /// The ID that uniquely identifies a role assignment.
         /// </summary>
-        [Input("billingRoleAssignmentName", required: true)]
-        public Input<string> BillingRoleAssignmentName { get; set; } = null!;
+        [Input("billingRoleAssignmentName")]
+        public Input<string>? BillingRoleAssignmentName { get; set; }
 
         /// <summary>
         /// The ID that uniquely identifies a department.

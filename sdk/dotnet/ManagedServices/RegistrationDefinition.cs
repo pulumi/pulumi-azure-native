@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.ManagedServices
         /// <summary>
         /// Guid of the registration definition.
         /// </summary>
-        [Input("registrationDefinitionId", required: true)]
-        public Input<string> RegistrationDefinitionId { get; set; } = null!;
+        [Input("registrationDefinitionId")]
+        public Input<string>? RegistrationDefinitionId { get; set; }
 
         /// <summary>
         /// Scope of the resource.

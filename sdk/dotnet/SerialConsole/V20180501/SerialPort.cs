@@ -110,8 +110,8 @@ namespace Pulumi.AzureNextGen.SerialConsole.V20180501
         /// <summary>
         /// The name of the serial port to create.
         /// </summary>
-        [Input("serialPort", required: true)]
-        public Input<string> SerialPort { get; set; } = null!;
+        [Input("serialPort")]
+        public Input<string>? SerialPort { get; set; }
 
         /// <summary>
         /// Specifies whether the port is enabled for a serial console connection.

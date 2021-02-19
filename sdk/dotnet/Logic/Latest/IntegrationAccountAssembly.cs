@@ -102,8 +102,8 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <summary>
         /// The assembly artifact name.
         /// </summary>
-        [Input("assemblyArtifactName", required: true)]
-        public Input<string> AssemblyArtifactName { get; set; } = null!;
+        [Input("assemblyArtifactName")]
+        public Input<string>? AssemblyArtifactName { get; set; }
 
         /// <summary>
         /// The integration account name.

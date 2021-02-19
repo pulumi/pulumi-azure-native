@@ -146,8 +146,8 @@ namespace Pulumi.AzureNextGen.Web
         /// <summary>
         /// Name of the Virtual Network route.
         /// </summary>
-        [Input("routeName", required: true)]
-        public Input<string> RouteName { get; set; } = null!;
+        [Input("routeName")]
+        public Input<string>? RouteName { get; set; }
 
         /// <summary>
         /// The type of route this is:

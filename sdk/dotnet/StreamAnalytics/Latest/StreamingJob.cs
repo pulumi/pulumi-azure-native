@@ -263,8 +263,8 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
         /// <summary>
         /// The name of the streaming job.
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// Resource location. Required on PUT (CreateOrReplace) requests.

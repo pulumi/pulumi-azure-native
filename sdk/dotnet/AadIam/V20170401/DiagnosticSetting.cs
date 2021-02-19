@@ -71,7 +71,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20170401
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DiagnosticSetting(string name, DiagnosticSettingArgs args, CustomResourceOptions? options = null)
+        public DiagnosticSetting(string name, DiagnosticSettingArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:aadiam/v20170401:DiagnosticSetting", name, args ?? new DiagnosticSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -140,8 +140,8 @@ namespace Pulumi.AzureNextGen.AadIam.V20170401
         /// <summary>
         /// The name of the diagnostic setting.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.

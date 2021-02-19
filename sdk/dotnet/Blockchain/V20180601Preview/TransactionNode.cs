@@ -157,8 +157,8 @@ namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
         /// <summary>
         /// Transaction node name.
         /// </summary>
-        [Input("transactionNodeName", required: true)]
-        public Input<string> TransactionNodeName { get; set; } = null!;
+        [Input("transactionNodeName")]
+        public Input<string>? TransactionNodeName { get; set; }
 
         public TransactionNodeArgs()
         {

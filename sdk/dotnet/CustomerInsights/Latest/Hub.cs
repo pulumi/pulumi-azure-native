@@ -131,8 +131,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// The name of the Hub.
         /// </summary>
-        [Input("hubName", required: true)]
-        public Input<string> HubName { get; set; } = null!;
+        [Input("hubName")]
+        public Input<string>? HubName { get; set; }
 
         /// <summary>
         /// Resource location.

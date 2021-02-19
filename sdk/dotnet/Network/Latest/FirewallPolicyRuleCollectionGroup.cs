@@ -139,8 +139,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The name of the FirewallPolicyRuleCollectionGroup.
         /// </summary>
-        [Input("ruleCollectionGroupName", required: true)]
-        public Input<string> RuleCollectionGroupName { get; set; } = null!;
+        [Input("ruleCollectionGroupName")]
+        public Input<string>? RuleCollectionGroupName { get; set; }
 
         [Input("ruleCollections")]
         private InputList<Union<Inputs.FirewallPolicyFilterRuleCollectionArgs, Inputs.FirewallPolicyNatRuleCollectionArgs>>? _ruleCollections;

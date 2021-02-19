@@ -118,8 +118,8 @@ namespace Pulumi.AzureNextGen.Insights.V20180601Preview
         /// <summary>
         /// The name of the diagnostic setting.
         /// </summary>
-        [Input("diagnosticSettingsName", required: true)]
-        public Input<string> DiagnosticSettingsName { get; set; } = null!;
+        [Input("diagnosticSettingsName")]
+        public Input<string>? DiagnosticSettingsName { get; set; }
 
         /// <summary>
         /// Resource location

@@ -194,8 +194,8 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// The name of Network Virtual Appliance.
         /// </summary>
-        [Input("networkVirtualApplianceName", required: true)]
-        public Input<string> NetworkVirtualApplianceName { get; set; } = null!;
+        [Input("networkVirtualApplianceName")]
+        public Input<string>? NetworkVirtualApplianceName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

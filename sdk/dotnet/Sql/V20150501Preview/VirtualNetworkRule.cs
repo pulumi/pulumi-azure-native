@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
         /// <summary>
         /// The name of the virtual network rule.
         /// </summary>
-        [Input("virtualNetworkRuleName", required: true)]
-        public Input<string> VirtualNetworkRuleName { get; set; } = null!;
+        [Input("virtualNetworkRuleName")]
+        public Input<string>? VirtualNetworkRuleName { get; set; }
 
         /// <summary>
         /// The ARM resource id of the virtual network subnet.

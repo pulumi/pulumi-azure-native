@@ -79,8 +79,8 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <summary>
         /// Preview subscription ID.
         /// </summary>
-        [Input("previewSubscription", required: true)]
-        public Input<string> PreviewSubscription { get; set; } = null!;
+        [Input("previewSubscription")]
+        public Input<string>? PreviewSubscription { get; set; }
 
         /// <summary>
         /// The name of the vendor sku.

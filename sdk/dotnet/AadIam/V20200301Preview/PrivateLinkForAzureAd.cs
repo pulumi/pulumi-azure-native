@@ -139,8 +139,8 @@ namespace Pulumi.AzureNextGen.AadIam.V20200301Preview
         /// <summary>
         /// The name of the private link policy in Azure AD.
         /// </summary>
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         /// <summary>
         /// Name of the resource group

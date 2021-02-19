@@ -143,8 +143,8 @@ namespace Pulumi.AzureNextGen.WindowsIoT.Latest
         /// <summary>
         /// The name of the Windows IoT Device Service.
         /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
+        [Input("deviceName")]
+        public Input<string>? DeviceName { get; set; }
 
         /// <summary>
         /// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.

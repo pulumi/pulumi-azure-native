@@ -108,8 +108,8 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// <summary>
         /// The name of the storage account blob inventory policy. It should always be 'default'
         /// </summary>
-        [Input("blobInventoryPolicyName", required: true)]
-        public Input<string> BlobInventoryPolicyName { get; set; } = null!;
+        [Input("blobInventoryPolicyName")]
+        public Input<string>? BlobInventoryPolicyName { get; set; }
 
         /// <summary>
         /// The storage account blob inventory policy object. It is composed of policy rules.

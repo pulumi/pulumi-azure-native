@@ -112,8 +112,8 @@ namespace Pulumi.AzureNextGen.Sql
         /// <summary>
         /// The name of the managed instance key to be operated on (updated or created).
         /// </summary>
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         /// <summary>
         /// The name of the managed instance.

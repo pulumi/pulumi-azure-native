@@ -105,8 +105,8 @@ namespace Pulumi.AzureNextGen.Kusto
         /// <summary>
         /// The name of the data connection.
         /// </summary>
-        [Input("dataConnectionName", required: true)]
-        public Input<string> DataConnectionName { get; set; } = null!;
+        [Input("dataConnectionName")]
+        public Input<string>? DataConnectionName { get; set; }
 
         /// <summary>
         /// The name of the database in the Kusto cluster.

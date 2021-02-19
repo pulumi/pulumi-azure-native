@@ -105,8 +105,8 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
 
     public sealed class ServerAzureADAdministratorArgs : Pulumi.ResourceArgs
     {
-        [Input("administratorName", required: true)]
-        public Input<string> AdministratorName { get; set; } = null!;
+        [Input("administratorName")]
+        public Input<string>? AdministratorName { get; set; }
 
         /// <summary>
         /// Type of the sever administrator.

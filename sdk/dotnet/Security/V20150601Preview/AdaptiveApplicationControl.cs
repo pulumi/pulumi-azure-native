@@ -135,8 +135,8 @@ namespace Pulumi.AzureNextGen.Security.V20150601Preview
         /// <summary>
         /// Name of an application control VM/server group
         /// </summary>
-        [Input("groupName", required: true)]
-        public Input<string> GroupName { get; set; } = null!;
+        [Input("groupName")]
+        public Input<string>? GroupName { get; set; }
 
         [Input("pathRecommendations")]
         private InputList<Inputs.PathRecommendationArgs>? _pathRecommendations;

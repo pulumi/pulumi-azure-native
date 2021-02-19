@@ -134,8 +134,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <summary>
         /// The storage domain name.
         /// </summary>
-        [Input("storageDomainName", required: true)]
-        public Input<string> StorageDomainName { get; set; } = null!;
+        [Input("storageDomainName")]
+        public Input<string>? StorageDomainName { get; set; }
 
         public StorageDomainArgs()
         {

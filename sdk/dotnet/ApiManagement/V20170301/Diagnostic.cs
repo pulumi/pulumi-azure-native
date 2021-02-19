@@ -92,8 +92,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         /// <summary>
         /// Diagnostic identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("diagnosticId", required: true)]
-        public Input<string> DiagnosticId { get; set; } = null!;
+        [Input("diagnosticId")]
+        public Input<string>? DiagnosticId { get; set; }
 
         /// <summary>
         /// Indicates whether a diagnostic should receive data or not.

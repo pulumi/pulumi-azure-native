@@ -175,8 +175,8 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// <summary>
         /// The name of the elastic pool to be operated on (updated or created).
         /// </summary>
-        [Input("elasticPoolName", required: true)]
-        public Input<string> ElasticPoolName { get; set; } = null!;
+        [Input("elasticPoolName")]
+        public Input<string>? ElasticPoolName { get; set; }
 
         /// <summary>
         /// Resource location.

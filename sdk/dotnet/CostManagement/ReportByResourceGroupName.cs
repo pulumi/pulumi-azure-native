@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// <summary>
         /// Report Name.
         /// </summary>
-        [Input("reportName", required: true)]
-        public Input<string> ReportName { get; set; } = null!;
+        [Input("reportName")]
+        public Input<string>? ReportName { get; set; }
 
         /// <summary>
         /// Azure Resource Group Name.

@@ -182,8 +182,8 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// The name of the live output.
         /// </summary>
-        [Input("liveOutputName", required: true)]
-        public Input<string> LiveOutputName { get; set; } = null!;
+        [Input("liveOutputName")]
+        public Input<string>? LiveOutputName { get; set; }
 
         /// <summary>
         /// The manifest file name. If not provided, the service will generate one automatically.

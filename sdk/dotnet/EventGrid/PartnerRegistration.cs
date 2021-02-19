@@ -240,8 +240,8 @@ namespace Pulumi.AzureNextGen.EventGrid
         /// <summary>
         /// Name of the partner registration.
         /// </summary>
-        [Input("partnerRegistrationName", required: true)]
-        public Input<string> PartnerRegistrationName { get; set; } = null!;
+        [Input("partnerRegistrationName")]
+        public Input<string>? PartnerRegistrationName { get; set; }
 
         /// <summary>
         /// Short description of the partner resource type. The length of this description should not exceed 256 characters.

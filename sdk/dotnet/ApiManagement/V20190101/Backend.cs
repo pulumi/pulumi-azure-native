@@ -142,8 +142,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// <summary>
         /// Identifier of the Backend entity. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("backendId", required: true)]
-        public Input<string> BackendId { get; set; } = null!;
+        [Input("backendId")]
+        public Input<string>? BackendId { get; set; }
 
         /// <summary>
         /// Backend Credentials Contract Properties

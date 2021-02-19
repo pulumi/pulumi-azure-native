@@ -126,8 +126,8 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190101
         /// <summary>
         /// Export Name.
         /// </summary>
-        [Input("exportName", required: true)]
-        public Input<string> ExportName { get; set; } = null!;
+        [Input("exportName")]
+        public Input<string>? ExportName { get; set; }
 
         /// <summary>
         /// The format of the export being delivered.

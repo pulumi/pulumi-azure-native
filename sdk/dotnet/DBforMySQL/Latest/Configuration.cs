@@ -119,8 +119,8 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
         /// <summary>
         /// The name of the server configuration.
         /// </summary>
-        [Input("configurationName", required: true)]
-        public Input<string> ConfigurationName { get; set; } = null!;
+        [Input("configurationName")]
+        public Input<string>? ConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -113,8 +113,8 @@ namespace Pulumi.AzureNextGen.ImportExport
         /// <summary>
         /// The name of the import/export job.
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the job should be created

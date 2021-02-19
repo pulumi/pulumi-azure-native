@@ -108,8 +108,8 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200701
         /// <summary>
         /// The name of the private endpoint connection.
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.

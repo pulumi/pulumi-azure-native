@@ -286,8 +286,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// Name of the prediction.
         /// </summary>
-        [Input("predictionName", required: true)]
-        public Input<string> PredictionName { get; set; } = null!;
+        [Input("predictionName")]
+        public Input<string>? PredictionName { get; set; }
 
         /// <summary>
         /// Primary profile type.

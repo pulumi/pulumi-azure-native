@@ -286,8 +286,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200101
         /// <summary>
         /// Name of Azure Machine Learning workspace.
         /// </summary>
-        [Input("workspaceName", required: true)]
-        public Input<string> WorkspaceName { get; set; } = null!;
+        [Input("workspaceName")]
+        public Input<string>? WorkspaceName { get; set; }
 
         public WorkspaceArgs()
         {

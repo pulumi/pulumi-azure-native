@@ -116,8 +116,8 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
         /// <summary>
         /// The name of the secret resource.
         /// </summary>
-        [Input("secretResourceName", required: true)]
-        public Input<string> SecretResourceName { get; set; } = null!;
+        [Input("secretResourceName")]
+        public Input<string>? SecretResourceName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

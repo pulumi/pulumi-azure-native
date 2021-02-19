@@ -85,8 +85,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview
         /// <summary>
         /// Friendly name of the linked workspace
         /// </summary>
-        [Input("linkName", required: true)]
-        public Input<string> LinkName { get; set; } = null!;
+        [Input("linkName")]
+        public Input<string>? LinkName { get; set; }
 
         /// <summary>
         /// Friendly name of the linked workspace

@@ -209,8 +209,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
         /// <summary>
         /// The name of the container registry task.
         /// </summary>
-        [Input("taskName", required: true)]
-        public Input<string> TaskName { get; set; } = null!;
+        [Input("taskName")]
+        public Input<string>? TaskName { get; set; }
 
         /// <summary>
         /// Run timeout in seconds.

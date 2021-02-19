@@ -136,8 +136,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20190121
         /// <summary>
         /// The name of the Kusto cluster.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

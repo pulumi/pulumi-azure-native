@@ -220,8 +220,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <summary>
         /// SQL pool name
         /// </summary>
-        [Input("sqlPoolName", required: true)]
-        public Input<string> SqlPoolName { get; set; } = null!;
+        [Input("sqlPoolName")]
+        public Input<string>? SqlPoolName { get; set; }
 
         /// <summary>
         /// Resource status

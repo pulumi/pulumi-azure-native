@@ -159,8 +159,8 @@ namespace Pulumi.AzureNextGen.Network
         /// <summary>
         /// The Experiment identifier associated with the Experiment
         /// </summary>
-        [Input("experimentName", required: true)]
-        public Input<string> ExperimentName { get; set; } = null!;
+        [Input("experimentName")]
+        public Input<string>? ExperimentName { get; set; }
 
         /// <summary>
         /// Resource location.

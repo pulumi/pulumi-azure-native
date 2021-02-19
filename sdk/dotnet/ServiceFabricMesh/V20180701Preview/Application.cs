@@ -152,8 +152,8 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
         /// <summary>
         /// The identity of the application.
         /// </summary>
-        [Input("applicationName", required: true)]
-        public Input<string> ApplicationName { get; set; } = null!;
+        [Input("applicationName")]
+        public Input<string>? ApplicationName { get; set; }
 
         /// <summary>
         /// Internal use.

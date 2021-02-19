@@ -99,8 +99,8 @@ namespace Pulumi.AzureNextGen.Migrate
         /// <summary>
         /// Unique name of a group within a project.
         /// </summary>
-        [Input("groupName", required: true)]
-        public Input<string> GroupName { get; set; } = null!;
+        [Input("groupName")]
+        public Input<string>? GroupName { get; set; }
 
         /// <summary>
         /// Name of the Azure Migrate project.

@@ -145,8 +145,8 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
         /// <summary>
         /// The name of the appliance definition.
         /// </summary>
-        [Input("applianceDefinitionName", required: true)]
-        public Input<string> ApplianceDefinitionName { get; set; } = null!;
+        [Input("applianceDefinitionName")]
+        public Input<string>? ApplianceDefinitionName { get; set; }
 
         [Input("artifacts")]
         private InputList<Inputs.ApplianceArtifactArgs>? _artifacts;

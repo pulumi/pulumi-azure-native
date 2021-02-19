@@ -103,8 +103,8 @@ namespace Pulumi.AzureNextGen.Sql
 
     public sealed class ManagedInstanceAdministratorArgs : Pulumi.ResourceArgs
     {
-        [Input("administratorName", required: true)]
-        public Input<string> AdministratorName { get; set; } = null!;
+        [Input("administratorName")]
+        public Input<string>? AdministratorName { get; set; }
 
         /// <summary>
         /// Type of the managed instance administrator.

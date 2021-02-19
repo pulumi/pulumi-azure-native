@@ -105,8 +105,8 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200101
         /// <summary>
         /// The name of the MySQL Server key to be operated on (updated or created).
         /// </summary>
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

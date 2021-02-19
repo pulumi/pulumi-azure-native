@@ -95,8 +95,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
         /// <summary>
         /// Name of the linkedServices resource
         /// </summary>
-        [Input("linkedServiceName", required: true)]
-        public Input<string> LinkedServiceName { get; set; } = null!;
+        [Input("linkedServiceName")]
+        public Input<string>? LinkedServiceName { get; set; }
 
         /// <summary>
         /// The name of the resource group to get. The name is case insensitive.

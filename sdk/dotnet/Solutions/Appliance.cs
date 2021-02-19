@@ -164,8 +164,8 @@ namespace Pulumi.AzureNextGen.Solutions
         /// <summary>
         /// The name of the appliance.
         /// </summary>
-        [Input("applianceName", required: true)]
-        public Input<string> ApplianceName { get; set; } = null!;
+        [Input("applianceName")]
+        public Input<string>? ApplianceName { get; set; }
 
         /// <summary>
         /// The identity of the resource.

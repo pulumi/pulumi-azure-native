@@ -102,8 +102,8 @@ namespace Pulumi.AzureNextGen.Web.V20160601
         /// <summary>
         /// Connection name
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// Resource ETag

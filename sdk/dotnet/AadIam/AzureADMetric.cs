@@ -95,8 +95,8 @@ namespace Pulumi.AzureNextGen.AadIam
         /// <summary>
         /// Name of the azureADMetrics instance.
         /// </summary>
-        [Input("azureADMetricsName", required: true)]
-        public Input<string> AzureADMetricsName { get; set; } = null!;
+        [Input("azureADMetricsName")]
+        public Input<string>? AzureADMetricsName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

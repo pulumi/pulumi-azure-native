@@ -277,8 +277,8 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// <summary>
         /// The name of the server.
         /// </summary>
-        [Input("serverName", required: true)]
-        public Input<string> ServerName { get; set; } = null!;
+        [Input("serverName")]
+        public Input<string>? ServerName { get; set; }
 
         /// <summary>
         /// The SKU (pricing tier) of the server.

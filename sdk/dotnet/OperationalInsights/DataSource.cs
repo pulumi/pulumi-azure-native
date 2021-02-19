@@ -107,8 +107,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights
         /// <summary>
         /// The name of the datasource resource.
         /// </summary>
-        [Input("dataSourceName", required: true)]
-        public Input<string> DataSourceName { get; set; } = null!;
+        [Input("dataSourceName")]
+        public Input<string>? DataSourceName { get; set; }
 
         /// <summary>
         /// The ETag of the data source.

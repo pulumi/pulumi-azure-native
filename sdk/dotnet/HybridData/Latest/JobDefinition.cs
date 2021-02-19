@@ -179,8 +179,8 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
         /// <summary>
         /// The job definition name to be created or updated.
         /// </summary>
-        [Input("jobDefinitionName", required: true)]
-        public Input<string> JobDefinitionName { get; set; } = null!;
+        [Input("jobDefinitionName")]
+        public Input<string>? JobDefinitionName { get; set; }
 
         /// <summary>
         /// Last modified time of the job definition.

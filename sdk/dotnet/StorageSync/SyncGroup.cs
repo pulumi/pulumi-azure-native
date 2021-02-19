@@ -114,8 +114,8 @@ namespace Pulumi.AzureNextGen.StorageSync
         /// <summary>
         /// Name of Sync Group resource.
         /// </summary>
-        [Input("syncGroupName", required: true)]
-        public Input<string> SyncGroupName { get; set; } = null!;
+        [Input("syncGroupName")]
+        public Input<string>? SyncGroupName { get; set; }
 
         public SyncGroupArgs()
         {

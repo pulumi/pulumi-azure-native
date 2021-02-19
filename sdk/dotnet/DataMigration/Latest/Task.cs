@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
         /// <summary>
         /// Name of the Task
         /// </summary>
-        [Input("taskName", required: true)]
-        public Input<string> TaskName { get; set; } = null!;
+        [Input("taskName")]
+        public Input<string>? TaskName { get; set; }
 
         public TaskArgs()
         {

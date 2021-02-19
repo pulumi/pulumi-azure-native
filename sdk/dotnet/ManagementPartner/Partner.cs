@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.ManagementPartner
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Partner(string name, PartnerArgs args, CustomResourceOptions? options = null)
+        public Partner(string name, PartnerArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:managementpartner:Partner", name, args ?? new PartnerArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -129,8 +129,8 @@ namespace Pulumi.AzureNextGen.ManagementPartner
         /// <summary>
         /// Id of the Partner
         /// </summary>
-        [Input("partnerId", required: true)]
-        public Input<string> PartnerId { get; set; } = null!;
+        [Input("partnerId")]
+        public Input<string>? PartnerId { get; set; }
 
         public PartnerArgs()
         {

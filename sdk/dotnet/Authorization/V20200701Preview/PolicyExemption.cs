@@ -175,8 +175,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         /// <summary>
         /// The name of the policy exemption to delete.
         /// </summary>
-        [Input("policyExemptionName", required: true)]
-        public Input<string> PolicyExemptionName { get; set; } = null!;
+        [Input("policyExemptionName")]
+        public Input<string>? PolicyExemptionName { get; set; }
 
         /// <summary>
         /// The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'

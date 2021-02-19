@@ -202,8 +202,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         /// <summary>
         /// Identifier of the authorization server.
         /// </summary>
-        [Input("authsid", required: true)]
-        public Input<string> Authsid { get; set; } = null!;
+        [Input("authsid")]
+        public Input<string>? Authsid { get; set; }
 
         [Input("bearerTokenSendingMethods")]
         private InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.V20170301.BearerTokenSendingMethod>>? _bearerTokenSendingMethods;

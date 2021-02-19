@@ -252,8 +252,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// <summary>
         /// The runbook name.
         /// </summary>
-        [Input("runbookName", required: true)]
-        public Input<string> RunbookName { get; set; } = null!;
+        [Input("runbookName")]
+        public Input<string>? RunbookName { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the runbook.

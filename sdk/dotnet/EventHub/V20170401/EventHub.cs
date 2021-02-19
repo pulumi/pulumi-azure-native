@@ -131,8 +131,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// <summary>
         /// The Event Hub name
         /// </summary>
-        [Input("eventHubName", required: true)]
-        public Input<string> EventHubName { get; set; } = null!;
+        [Input("eventHubName")]
+        public Input<string>? EventHubName { get; set; }
 
         /// <summary>
         /// Number of days to retain the events for this Event Hub, value should be 1 to 7 days

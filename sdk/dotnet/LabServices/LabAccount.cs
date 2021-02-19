@@ -129,8 +129,8 @@ namespace Pulumi.AzureNextGen.LabServices
         /// <summary>
         /// The name of the lab Account.
         /// </summary>
-        [Input("labAccountName", required: true)]
-        public Input<string> LabAccountName { get; set; } = null!;
+        [Input("labAccountName")]
+        public Input<string>? LabAccountName { get; set; }
 
         /// <summary>
         /// The location of the resource.

@@ -113,8 +113,8 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201208
         /// <summary>
         /// The name of the Bot resource.
         /// </summary>
-        [Input("botName", required: true)]
-        public Input<string> BotName { get; set; } = null!;
+        [Input("botName")]
+        public Input<string>? BotName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

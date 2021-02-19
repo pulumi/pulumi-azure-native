@@ -155,8 +155,8 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// <summary>
         /// The name of the express route circuit connection.
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.

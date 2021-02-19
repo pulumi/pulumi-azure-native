@@ -114,8 +114,8 @@ namespace Pulumi.AzureNextGen.Media.V20151001
         /// <summary>
         /// Name of the Media Service.
         /// </summary>
-        [Input("mediaServiceName", required: true)]
-        public Input<string> MediaServiceName { get; set; } = null!;
+        [Input("mediaServiceName")]
+        public Input<string>? MediaServiceName { get; set; }
 
         /// <summary>
         /// Name of the resource group within the Azure subscription.

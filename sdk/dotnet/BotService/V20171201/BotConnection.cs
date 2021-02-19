@@ -118,8 +118,8 @@ namespace Pulumi.AzureNextGen.BotService.V20171201
         /// <summary>
         /// The name of the Bot Service Connection Setting resource
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// Entity Tag

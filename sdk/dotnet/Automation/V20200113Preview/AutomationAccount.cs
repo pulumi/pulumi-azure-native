@@ -160,8 +160,8 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
         /// <summary>
         /// The name of the automation account.
         /// </summary>
-        [Input("automationAccountName", required: true)]
-        public Input<string> AutomationAccountName { get; set; } = null!;
+        [Input("automationAccountName")]
+        public Input<string>? AutomationAccountName { get; set; }
 
         /// <summary>
         /// Set the encryption properties for the automation account

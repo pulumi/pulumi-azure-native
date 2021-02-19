@@ -142,8 +142,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <summary>
         /// Issue identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("issueId", required: true)]
-        public Input<string> IssueId { get; set; } = null!;
+        [Input("issueId")]
+        public Input<string>? IssueId { get; set; }
 
         /// <summary>
         /// The name of the resource group.

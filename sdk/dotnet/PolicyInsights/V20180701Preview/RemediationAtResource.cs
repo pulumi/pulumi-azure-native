@@ -147,8 +147,8 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
         /// <summary>
         /// The name of the remediation.
         /// </summary>
-        [Input("remediationName", required: true)]
-        public Input<string> RemediationName { get; set; } = null!;
+        [Input("remediationName")]
+        public Input<string>? RemediationName { get; set; }
 
         /// <summary>
         /// Resource ID.

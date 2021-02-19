@@ -213,8 +213,8 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         /// <summary>
         /// The solution manager name
         /// </summary>
-        [Input("solutionName", required: true)]
-        public Input<string> SolutionName { get; set; } = null!;
+        [Input("solutionName")]
+        public Input<string>? SolutionName { get; set; }
 
         /// <summary>
         /// Security solution status

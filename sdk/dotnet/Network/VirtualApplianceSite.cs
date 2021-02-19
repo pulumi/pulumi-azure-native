@@ -144,8 +144,8 @@ namespace Pulumi.AzureNextGen.Network
         /// <summary>
         /// The name of the site.
         /// </summary>
-        [Input("siteName", required: true)]
-        public Input<string> SiteName { get; set; } = null!;
+        [Input("siteName")]
+        public Input<string>? SiteName { get; set; }
 
         public VirtualApplianceSiteArgs()
         {

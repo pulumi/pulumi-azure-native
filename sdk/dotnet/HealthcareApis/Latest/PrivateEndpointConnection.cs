@@ -107,8 +107,8 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
         /// </summary>
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.

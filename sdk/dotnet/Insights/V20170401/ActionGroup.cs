@@ -144,8 +144,8 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
         /// <summary>
         /// The name of the action group.
         /// </summary>
-        [Input("actionGroupName", required: true)]
-        public Input<string> ActionGroupName { get; set; } = null!;
+        [Input("actionGroupName")]
+        public Input<string>? ActionGroupName { get; set; }
 
         [Input("automationRunbookReceivers")]
         private InputList<Inputs.AutomationRunbookReceiverArgs>? _automationRunbookReceivers;

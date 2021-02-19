@@ -115,8 +115,8 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <summary>
         /// The integration account name.
         /// </summary>
-        [Input("integrationAccountName", required: true)]
-        public Input<string> IntegrationAccountName { get; set; } = null!;
+        [Input("integrationAccountName")]
+        public Input<string>? IntegrationAccountName { get; set; }
 
         /// <summary>
         /// The integration service environment.

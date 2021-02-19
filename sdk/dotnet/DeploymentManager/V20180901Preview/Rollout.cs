@@ -152,8 +152,8 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
         /// <summary>
         /// The rollout name.
         /// </summary>
-        [Input("rolloutName", required: true)]
-        public Input<string> RolloutName { get; set; } = null!;
+        [Input("rolloutName")]
+        public Input<string>? RolloutName { get; set; }
 
         [Input("stepGroups", required: true)]
         private InputList<Inputs.StepArgs>? _stepGroups;

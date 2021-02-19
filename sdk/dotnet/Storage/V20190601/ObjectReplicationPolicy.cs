@@ -124,8 +124,8 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         /// <summary>
         /// The ID of object replication policy or 'default' if the policy ID is unknown.
         /// </summary>
-        [Input("objectReplicationPolicyId", required: true)]
-        public Input<string> ObjectReplicationPolicyId { get; set; } = null!;
+        [Input("objectReplicationPolicyId")]
+        public Input<string>? ObjectReplicationPolicyId { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

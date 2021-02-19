@@ -137,8 +137,8 @@ namespace Pulumi.AzureNextGen.Network
         /// <summary>
         /// The name of the VirtualHubRouteTableV2.
         /// </summary>
-        [Input("routeTableName", required: true)]
-        public Input<string> RouteTableName { get; set; } = null!;
+        [Input("routeTableName")]
+        public Input<string>? RouteTableName { get; set; }
 
         [Input("routes")]
         private InputList<Inputs.VirtualHubRouteV2Args>? _routes;

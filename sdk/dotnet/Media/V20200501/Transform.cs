@@ -143,8 +143,8 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// <summary>
         /// The Transform name.
         /// </summary>
-        [Input("transformName", required: true)]
-        public Input<string> TransformName { get; set; } = null!;
+        [Input("transformName")]
+        public Input<string>? TransformName { get; set; }
 
         public TransformArgs()
         {

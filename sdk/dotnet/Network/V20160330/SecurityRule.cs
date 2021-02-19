@@ -252,8 +252,8 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// <summary>
         /// The name of the security rule.
         /// </summary>
-        [Input("securityRuleName", required: true)]
-        public Input<string> SecurityRuleName { get; set; } = null!;
+        [Input("securityRuleName")]
+        public Input<string>? SecurityRuleName { get; set; }
 
         /// <summary>
         /// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 

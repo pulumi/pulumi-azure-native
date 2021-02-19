@@ -200,8 +200,8 @@ namespace Pulumi.AzureNextGen.Network
         /// <summary>
         /// The name of the ExpressRoutePort resource.
         /// </summary>
-        [Input("expressRoutePortName", required: true)]
-        public Input<string> ExpressRoutePortName { get; set; } = null!;
+        [Input("expressRoutePortName")]
+        public Input<string>? ExpressRoutePortName { get; set; }
 
         /// <summary>
         /// Resource ID.

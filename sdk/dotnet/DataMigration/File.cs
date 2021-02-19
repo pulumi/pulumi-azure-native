@@ -98,8 +98,8 @@ namespace Pulumi.AzureNextGen.DataMigration
         /// <summary>
         /// Name of the File
         /// </summary>
-        [Input("fileName", required: true)]
-        public Input<string> FileName { get; set; } = null!;
+        [Input("fileName")]
+        public Input<string>? FileName { get; set; }
 
         /// <summary>
         /// Name of the resource group

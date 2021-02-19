@@ -143,8 +143,8 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// <summary>
         /// The Asset name.
         /// </summary>
-        [Input("assetName", required: true)]
-        public Input<string> AssetName { get; set; } = null!;
+        [Input("assetName")]
+        public Input<string>? AssetName { get; set; }
 
         /// <summary>
         /// The name of the asset blob container.

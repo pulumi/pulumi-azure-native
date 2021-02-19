@@ -125,8 +125,8 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// <summary>
         /// The create or update parameters for configuration.
         /// </summary>
-        [Input("nodeConfigurationName", required: true)]
-        public Input<string> NodeConfigurationName { get; set; } = null!;
+        [Input("nodeConfigurationName")]
+        public Input<string>? NodeConfigurationName { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

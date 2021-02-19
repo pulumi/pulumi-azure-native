@@ -146,8 +146,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <summary>
         /// Logger identifier. Must be unique in the API Management service instance.
         /// </summary>
-        [Input("loggerId", required: true)]
-        public Input<string> LoggerId { get; set; } = null!;
+        [Input("loggerId")]
+        public Input<string>? LoggerId { get; set; }
 
         /// <summary>
         /// Logger type.

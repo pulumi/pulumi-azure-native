@@ -141,8 +141,8 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
-        [Input("profileName", required: true)]
-        public Input<string> ProfileName { get; set; } = null!;
+        [Input("profileName")]
+        public Input<string>? ProfileName { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

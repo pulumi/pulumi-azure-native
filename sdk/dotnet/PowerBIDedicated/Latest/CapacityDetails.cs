@@ -124,8 +124,8 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
         /// <summary>
         /// The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("dedicatedCapacityName", required: true)]
-        public Input<string> DedicatedCapacityName { get; set; } = null!;
+        [Input("dedicatedCapacityName")]
+        public Input<string>? DedicatedCapacityName { get; set; }
 
         /// <summary>
         /// Location of the PowerBI Dedicated resource.

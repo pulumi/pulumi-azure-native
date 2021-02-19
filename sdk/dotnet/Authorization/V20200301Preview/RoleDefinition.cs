@@ -142,8 +142,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301Preview
         /// <summary>
         /// The name of the role definition to delete.
         /// </summary>
-        [Input("roleDefinitionName", required: true)]
-        public Input<string> RoleDefinitionName { get; set; } = null!;
+        [Input("roleDefinitionName")]
+        public Input<string>? RoleDefinitionName { get; set; }
 
         /// <summary>
         /// The role name.

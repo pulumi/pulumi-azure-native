@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Security
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SecurityContact(string name, SecurityContactArgs args, CustomResourceOptions? options = null)
+        public SecurityContact(string name, SecurityContactArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:security:SecurityContact", name, args ?? new SecurityContactArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -129,8 +129,8 @@ namespace Pulumi.AzureNextGen.Security
         /// <summary>
         /// Name of the security contact object
         /// </summary>
-        [Input("securityContactName", required: true)]
-        public Input<string> SecurityContactName { get; set; } = null!;
+        [Input("securityContactName")]
+        public Input<string>? SecurityContactName { get; set; }
 
         public SecurityContactArgs()
         {

@@ -125,8 +125,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
         [Input("entityConnectionString")]
         public Input<string>? EntityConnectionString { get; set; }
 
-        [Input("entityName", required: true)]
-        public Input<string> EntityName { get; set; } = null!;
+        [Input("entityName")]
+        public Input<string>? EntityName { get; set; }
 
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }

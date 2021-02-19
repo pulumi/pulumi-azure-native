@@ -221,8 +221,8 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180930Preview
         /// <summary>
         /// The name of the OpenShift managed cluster resource.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         [Input("routerProfiles")]
         private InputList<Inputs.OpenShiftRouterProfileArgs>? _routerProfiles;

@@ -122,8 +122,8 @@ namespace Pulumi.AzureNextGen.ManagedNetwork
         /// <summary>
         /// The name of the scope assignment to create.
         /// </summary>
-        [Input("scopeAssignmentName", required: true)]
-        public Input<string> ScopeAssignmentName { get; set; } = null!;
+        [Input("scopeAssignmentName")]
+        public Input<string>? ScopeAssignmentName { get; set; }
 
         public ScopeAssignmentArgs()
         {

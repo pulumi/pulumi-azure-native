@@ -202,8 +202,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20200614
         /// <summary>
         /// The name of the Kusto cluster.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// A boolean value that indicates if the cluster's disks are encrypted.

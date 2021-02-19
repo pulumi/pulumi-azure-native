@@ -162,8 +162,8 @@ namespace Pulumi.AzureNextGen.ContainerService
         /// <summary>
         /// The name of the container service in the specified subscription and resource group.
         /// </summary>
-        [Input("containerServiceName", required: true)]
-        public Input<string> ContainerServiceName { get; set; } = null!;
+        [Input("containerServiceName")]
+        public Input<string>? ContainerServiceName { get; set; }
 
         /// <summary>
         /// Properties for custom clusters.

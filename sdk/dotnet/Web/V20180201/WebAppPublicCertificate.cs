@@ -134,8 +134,8 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// <summary>
         /// Public certificate name.
         /// </summary>
-        [Input("publicCertificateName", required: true)]
-        public Input<string> PublicCertificateName { get; set; } = null!;
+        [Input("publicCertificateName")]
+        public Input<string>? PublicCertificateName { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

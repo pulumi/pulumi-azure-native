@@ -110,8 +110,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190601
         /// <summary>
         /// Name of the domain.
         /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
 
         /// <summary>
         /// Location of the resource.

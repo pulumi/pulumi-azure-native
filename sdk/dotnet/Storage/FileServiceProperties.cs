@@ -120,8 +120,8 @@ namespace Pulumi.AzureNextGen.Storage
         /// <summary>
         /// The name of the file Service within the specified storage account. File Service Name must be "default"
         /// </summary>
-        [Input("fileServicesName", required: true)]
-        public Input<string> FileServicesName { get; set; } = null!;
+        [Input("fileServicesName")]
+        public Input<string>? FileServicesName { get; set; }
 
         /// <summary>
         /// Protocol settings for file service

@@ -119,8 +119,8 @@ namespace Pulumi.AzureNextGen.Compute
         /// <summary>
         /// The name of the SSH public key.
         /// </summary>
-        [Input("sshPublicKeyName", required: true)]
-        public Input<string> SshPublicKeyName { get; set; } = null!;
+        [Input("sshPublicKeyName")]
+        public Input<string>? SshPublicKeyName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

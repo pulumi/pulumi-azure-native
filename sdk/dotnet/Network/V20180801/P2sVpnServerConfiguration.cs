@@ -210,8 +210,8 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// The name of the P2SVpnServerConfiguration.
         /// </summary>
-        [Input("p2SVpnServerConfigurationName", required: true)]
-        public Input<string> P2SVpnServerConfigurationName { get; set; } = null!;
+        [Input("p2SVpnServerConfigurationName")]
+        public Input<string>? P2SVpnServerConfigurationName { get; set; }
 
         /// <summary>
         /// The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.

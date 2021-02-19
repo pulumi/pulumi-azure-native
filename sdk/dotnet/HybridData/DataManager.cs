@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.HybridData
         /// <summary>
         /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         /// </summary>
-        [Input("dataManagerName", required: true)]
-        public Input<string> DataManagerName { get; set; } = null!;
+        [Input("dataManagerName")]
+        public Input<string>? DataManagerName { get; set; }
 
         /// <summary>
         /// Etag of the Resource.

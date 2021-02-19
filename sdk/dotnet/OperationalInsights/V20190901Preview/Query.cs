@@ -153,8 +153,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190901Preview
         /// <summary>
         /// The id of a specific query defined in the Log Analytics QueryPack
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// Additional properties that can be set for the query.

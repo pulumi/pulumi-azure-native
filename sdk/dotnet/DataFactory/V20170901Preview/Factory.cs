@@ -123,8 +123,8 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         /// <summary>
         /// The factory name.
         /// </summary>
-        [Input("factoryName", required: true)]
-        public Input<string> FactoryName { get; set; } = null!;
+        [Input("factoryName")]
+        public Input<string>? FactoryName { get; set; }
 
         /// <summary>
         /// Managed service identity of the factory.

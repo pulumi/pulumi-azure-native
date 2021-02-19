@@ -124,8 +124,8 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory
         /// <summary>
         /// The initial domain name of the B2C tenant.
         /// </summary>
-        [Input("resourceName", required: true)]
-        public Input<string> ResourceName { get; set; } = null!;
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).

@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.Blueprint
         /// <summary>
         /// Name of the blueprint definition.
         /// </summary>
-        [Input("blueprintName", required: true)]
-        public Input<string> BlueprintName { get; set; } = null!;
+        [Input("blueprintName")]
+        public Input<string>? BlueprintName { get; set; }
 
         /// <summary>
         /// Multi-line explain this resource.

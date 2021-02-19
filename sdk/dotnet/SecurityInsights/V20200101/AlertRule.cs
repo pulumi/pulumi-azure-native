@@ -110,8 +110,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20200101
         /// <summary>
         /// Alert rule ID
         /// </summary>
-        [Input("ruleId", required: true)]
-        public Input<string> RuleId { get; set; } = null!;
+        [Input("ruleId")]
+        public Input<string>? RuleId { get; set; }
 
         /// <summary>
         /// The name of the workspace.

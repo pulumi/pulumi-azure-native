@@ -248,8 +248,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The name of the container registry.
         /// </summary>
-        [Input("registryName", required: true)]
-        public Input<string> RegistryName { get; set; } = null!;
+        [Input("registryName")]
+        public Input<string>? RegistryName { get; set; }
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

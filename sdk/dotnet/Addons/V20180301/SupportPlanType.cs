@@ -87,8 +87,8 @@ namespace Pulumi.AzureNextGen.Addons.V20180301
         /// <summary>
         /// The Canonical support plan type.
         /// </summary>
-        [Input("planTypeName", required: true)]
-        public Input<string> PlanTypeName { get; set; } = null!;
+        [Input("planTypeName")]
+        public Input<string>? PlanTypeName { get; set; }
 
         /// <summary>
         /// The support plan type. For now the only valid type is "canonical".

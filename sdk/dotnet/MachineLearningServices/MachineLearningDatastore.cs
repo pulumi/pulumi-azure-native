@@ -170,8 +170,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
         /// <summary>
         /// The Datastore name.
         /// </summary>
-        [Input("datastoreName", required: true)]
-        public Input<string> DatastoreName { get; set; } = null!;
+        [Input("datastoreName")]
+        public Input<string>? DatastoreName { get; set; }
 
         /// <summary>
         /// The description of the datastore.

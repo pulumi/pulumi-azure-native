@@ -105,8 +105,8 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// <summary>
         /// The Account Filter name
         /// </summary>
-        [Input("filterName", required: true)]
-        public Input<string> FilterName { get; set; } = null!;
+        [Input("filterName")]
+        public Input<string>? FilterName { get; set; }
 
         /// <summary>
         /// The first quality.

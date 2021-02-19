@@ -114,8 +114,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <summary>
         /// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
         /// </summary>
-        [Input("hcId", required: true)]
-        public Input<string> HcId { get; set; } = null!;
+        [Input("hcId")]
+        public Input<string>? HcId { get; set; }
 
         /// <summary>
         /// Hostname value. Supports valid domain name, partial or full wildcard

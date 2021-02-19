@@ -147,8 +147,8 @@ namespace Pulumi.AzureNextGen.DataCatalog
         /// <summary>
         /// The name of the data catalog in the specified subscription and resource group.
         /// </summary>
-        [Input("catalogName", required: true)]
-        public Input<string> CatalogName { get; set; } = null!;
+        [Input("catalogName")]
+        public Input<string>? CatalogName { get; set; }
 
         /// <summary>
         /// Automatic unit adjustment enabled or not.

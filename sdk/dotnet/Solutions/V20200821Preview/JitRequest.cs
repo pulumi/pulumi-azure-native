@@ -159,8 +159,8 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
         /// <summary>
         /// The name of the JIT request.
         /// </summary>
-        [Input("jitRequestName", required: true)]
-        public Input<string> JitRequestName { get; set; } = null!;
+        [Input("jitRequestName")]
+        public Input<string>? JitRequestName { get; set; }
 
         /// <summary>
         /// The JIT request properties.

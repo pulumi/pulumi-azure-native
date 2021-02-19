@@ -135,8 +135,8 @@ namespace Pulumi.AzureNextGen.Network.V20181201
         /// <summary>
         /// The name of the application security group.
         /// </summary>
-        [Input("applicationSecurityGroupName", required: true)]
-        public Input<string> ApplicationSecurityGroupName { get; set; } = null!;
+        [Input("applicationSecurityGroupName")]
+        public Input<string>? ApplicationSecurityGroupName { get; set; }
 
         /// <summary>
         /// Resource ID.

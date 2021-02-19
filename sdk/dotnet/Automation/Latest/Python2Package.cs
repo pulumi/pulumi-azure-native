@@ -180,8 +180,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// <summary>
         /// The name of python package.
         /// </summary>
-        [Input("packageName", required: true)]
-        public Input<string> PackageName { get; set; } = null!;
+        [Input("packageName")]
+        public Input<string>? PackageName { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

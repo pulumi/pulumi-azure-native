@@ -136,8 +136,8 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
         /// <summary>
         /// The Namespace Name
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

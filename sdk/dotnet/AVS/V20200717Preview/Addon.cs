@@ -97,8 +97,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// Name of the addon for the private cloud
         /// </summary>
-        [Input("addonName", required: true)]
-        public Input<string> AddonName { get; set; } = null!;
+        [Input("addonName")]
+        public Input<string>? AddonName { get; set; }
 
         /// <summary>
         /// The type of private cloud addon

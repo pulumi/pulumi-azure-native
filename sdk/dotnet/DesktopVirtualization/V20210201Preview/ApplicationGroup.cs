@@ -129,8 +129,8 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210201Preview
         /// <summary>
         /// The name of the application group
         /// </summary>
-        [Input("applicationGroupName", required: true)]
-        public Input<string> ApplicationGroupName { get; set; } = null!;
+        [Input("applicationGroupName")]
+        public Input<string>? ApplicationGroupName { get; set; }
 
         /// <summary>
         /// Resource Type of ApplicationGroup.

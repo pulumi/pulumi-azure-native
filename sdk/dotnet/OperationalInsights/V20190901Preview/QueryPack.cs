@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190901Preview
         /// <summary>
         /// The name of the Log Analytics QueryPack resource.
         /// </summary>
-        [Input("queryPackName", required: true)]
-        public Input<string> QueryPackName { get; set; } = null!;
+        [Input("queryPackName")]
+        public Input<string>? QueryPackName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

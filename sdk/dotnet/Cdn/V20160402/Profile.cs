@@ -127,8 +127,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402
         /// <summary>
         /// Name of the CDN profile within the resource group.
         /// </summary>
-        [Input("profileName", required: true)]
-        public Input<string> ProfileName { get; set; } = null!;
+        [Input("profileName")]
+        public Input<string>? ProfileName { get; set; }
 
         /// <summary>
         /// Name of the resource group within the Azure subscription.

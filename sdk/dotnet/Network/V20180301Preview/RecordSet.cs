@@ -269,8 +269,8 @@ namespace Pulumi.AzureNextGen.Network.V20180301Preview
         /// <summary>
         /// The name of the record set, relative to the name of the zone.
         /// </summary>
-        [Input("relativeRecordSetName", required: true)]
-        public Input<string> RelativeRecordSetName { get; set; } = null!;
+        [Input("relativeRecordSetName")]
+        public Input<string>? RelativeRecordSetName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

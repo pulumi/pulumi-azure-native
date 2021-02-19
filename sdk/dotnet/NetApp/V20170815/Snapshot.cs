@@ -154,8 +154,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20170815
         /// <summary>
         /// The name of the mount target
         /// </summary>
-        [Input("snapshotName", required: true)]
-        public Input<string> SnapshotName { get; set; } = null!;
+        [Input("snapshotName")]
+        public Input<string>? SnapshotName { get; set; }
 
         /// <summary>
         /// The name of the volume

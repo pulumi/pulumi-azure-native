@@ -98,8 +98,8 @@ namespace Pulumi.AzureNextGen.Automanage
         /// <summary>
         /// Name of the Automanage account.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The identity of the Automanage account.

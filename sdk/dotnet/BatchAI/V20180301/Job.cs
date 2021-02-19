@@ -321,8 +321,8 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301
         /// <summary>
         /// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// The specified actions will run on all the nodes that are part of the job

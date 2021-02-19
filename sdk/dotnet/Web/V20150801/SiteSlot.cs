@@ -409,8 +409,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <summary>
         /// Name of web app slot. If not specified then will default to production slot.
         /// </summary>
-        [Input("slot", required: true)]
-        public Input<string> Slot { get; set; } = null!;
+        [Input("slot")]
+        public Input<string>? Slot { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

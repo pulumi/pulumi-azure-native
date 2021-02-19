@@ -173,8 +173,8 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// <summary>
         /// The name of the policy definition to create.
         /// </summary>
-        [Input("policyDefinitionName", required: true)]
-        public Input<string> PolicyDefinitionName { get; set; } = null!;
+        [Input("policyDefinitionName")]
+        public Input<string>? PolicyDefinitionName { get; set; }
 
         /// <summary>
         /// The policy rule.

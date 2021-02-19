@@ -127,8 +127,8 @@ namespace Pulumi.AzureNextGen.Batch
         /// <summary>
         /// The name of the application. This must be unique within the account.
         /// </summary>
-        [Input("applicationName", required: true)]
-        public Input<string> ApplicationName { get; set; } = null!;
+        [Input("applicationName")]
+        public Input<string>? ApplicationName { get; set; }
 
         /// <summary>
         /// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.

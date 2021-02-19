@@ -173,8 +173,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// <summary>
         /// The Namespace name
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.

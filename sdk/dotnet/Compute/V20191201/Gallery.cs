@@ -120,8 +120,8 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// <summary>
         /// The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
         /// </summary>
-        [Input("galleryName", required: true)]
-        public Input<string> GalleryName { get; set; } = null!;
+        [Input("galleryName")]
+        public Input<string>? GalleryName { get; set; }
 
         /// <summary>
         /// Resource location

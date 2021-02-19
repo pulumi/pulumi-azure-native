@@ -251,8 +251,8 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301
         /// <summary>
         /// Registered Server serverId
         /// </summary>
-        [Input("serverId", required: true)]
-        public Input<string> ServerId { get; set; } = null!;
+        [Input("serverId")]
+        public Input<string>? ServerId { get; set; }
 
         /// <summary>
         /// Registered Server OS Version

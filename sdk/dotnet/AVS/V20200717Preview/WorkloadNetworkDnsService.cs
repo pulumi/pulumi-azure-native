@@ -139,8 +139,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// NSX DNS Service identifier. Generally the same as the DNS Service's display name
         /// </summary>
-        [Input("dnsServiceId", required: true)]
-        public Input<string> DnsServiceId { get; set; } = null!;
+        [Input("dnsServiceId")]
+        public Input<string>? DnsServiceId { get; set; }
 
         /// <summary>
         /// DNS service IP of the DNS Service.

@@ -214,8 +214,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// <summary>
         /// The name of the connector mapping.
         /// </summary>
-        [Input("mappingName", required: true)]
-        public Input<string> MappingName { get; set; } = null!;
+        [Input("mappingName")]
+        public Input<string>? MappingName { get; set; }
 
         /// <summary>
         /// The properties of the mapping.

@@ -246,8 +246,8 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// <summary>
         /// The name of the subnet.
         /// </summary>
-        [Input("subnetName", required: true)]
-        public Input<string> SubnetName { get; set; } = null!;
+        [Input("subnetName")]
+        public Input<string>? SubnetName { get; set; }
 
         /// <summary>
         /// The name of the virtual network.

@@ -132,8 +132,8 @@ namespace Pulumi.AzureNextGen.Kusto
         /// <summary>
         /// The name of the Kusto principalAssignment.
         /// </summary>
-        [Input("principalAssignmentName", required: true)]
-        public Input<string> PrincipalAssignmentName { get; set; } = null!;
+        [Input("principalAssignmentName")]
+        public Input<string>? PrincipalAssignmentName { get; set; }
 
         /// <summary>
         /// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.

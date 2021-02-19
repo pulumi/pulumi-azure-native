@@ -126,8 +126,8 @@ namespace Pulumi.AzureNextGen.Media
         /// <summary>
         /// The Content Key Policy name.
         /// </summary>
-        [Input("contentKeyPolicyName", required: true)]
-        public Input<string> ContentKeyPolicyName { get; set; } = null!;
+        [Input("contentKeyPolicyName")]
+        public Input<string>? ContentKeyPolicyName { get; set; }
 
         /// <summary>
         /// A description for the Policy.

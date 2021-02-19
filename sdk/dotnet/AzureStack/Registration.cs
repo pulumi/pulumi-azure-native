@@ -125,8 +125,8 @@ namespace Pulumi.AzureNextGen.AzureStack
         /// <summary>
         /// Name of the Azure Stack registration.
         /// </summary>
-        [Input("registrationName", required: true)]
-        public Input<string> RegistrationName { get; set; } = null!;
+        [Input("registrationName")]
+        public Input<string>? RegistrationName { get; set; }
 
         /// <summary>
         /// The token identifying registered Azure Stack

@@ -129,8 +129,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <summary>
         /// The credential name.
         /// </summary>
-        [Input("credentialName", required: true)]
-        public Input<string> CredentialName { get; set; } = null!;
+        [Input("credentialName")]
+        public Input<string>? CredentialName { get; set; }
 
         /// <summary>
         /// SSL needs to be enabled or not

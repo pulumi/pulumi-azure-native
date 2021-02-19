@@ -197,8 +197,8 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         /// <summary>
         /// The Streaming Locator name.
         /// </summary>
-        [Input("streamingLocatorName", required: true)]
-        public Input<string> StreamingLocatorName { get; set; } = null!;
+        [Input("streamingLocatorName")]
+        public Input<string>? StreamingLocatorName { get; set; }
 
         /// <summary>
         /// Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'

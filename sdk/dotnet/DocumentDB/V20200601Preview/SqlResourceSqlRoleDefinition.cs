@@ -133,8 +133,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// <summary>
         /// The GUID for the Role Definition.
         /// </summary>
-        [Input("roleDefinitionId", required: true)]
-        public Input<string> RoleDefinitionId { get; set; } = null!;
+        [Input("roleDefinitionId")]
+        public Input<string>? RoleDefinitionId { get; set; }
 
         /// <summary>
         /// A user-friendly name for the Role Definition. Must be unique for the database account.

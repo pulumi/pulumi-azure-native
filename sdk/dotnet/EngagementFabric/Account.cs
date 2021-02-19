@@ -98,8 +98,8 @@ namespace Pulumi.AzureNextGen.EngagementFabric
         /// <summary>
         /// Account Name
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The location of the resource

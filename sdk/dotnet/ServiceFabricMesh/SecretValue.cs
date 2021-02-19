@@ -122,8 +122,8 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
         /// <summary>
         /// The name of the secret resource value which is typically the version identifier for the value.
         /// </summary>
-        [Input("secretValueResourceName", required: true)]
-        public Input<string> SecretValueResourceName { get; set; } = null!;
+        [Input("secretValueResourceName")]
+        public Input<string>? SecretValueResourceName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

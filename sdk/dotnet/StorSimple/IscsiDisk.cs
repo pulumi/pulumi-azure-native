@@ -159,8 +159,8 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// <summary>
         /// The disk name.
         /// </summary>
-        [Input("diskName", required: true)]
-        public Input<string> DiskName { get; set; } = null!;
+        [Input("diskName")]
+        public Input<string>? DiskName { get; set; }
 
         /// <summary>
         /// The disk status.

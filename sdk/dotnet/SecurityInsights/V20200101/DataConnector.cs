@@ -92,8 +92,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20200101
         /// <summary>
         /// Connector ID
         /// </summary>
-        [Input("dataConnectorId", required: true)]
-        public Input<string> DataConnectorId { get; set; } = null!;
+        [Input("dataConnectorId")]
+        public Input<string>? DataConnectorId { get; set; }
 
         /// <summary>
         /// Etag of the azure resource

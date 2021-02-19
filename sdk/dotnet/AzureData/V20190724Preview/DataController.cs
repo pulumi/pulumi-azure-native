@@ -101,8 +101,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
 
     public sealed class DataControllerArgs : Pulumi.ResourceArgs
     {
-        [Input("dataControllerName", required: true)]
-        public Input<string> DataControllerName { get; set; } = null!;
+        [Input("dataControllerName")]
+        public Input<string>? DataControllerName { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

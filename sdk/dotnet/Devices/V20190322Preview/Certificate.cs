@@ -112,8 +112,8 @@ namespace Pulumi.AzureNextGen.Devices.V20190322Preview
         /// <summary>
         /// The name of the certificate
         /// </summary>
-        [Input("certificateName", required: true)]
-        public Input<string> CertificateName { get; set; } = null!;
+        [Input("certificateName")]
+        public Input<string>? CertificateName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the IoT hub.

@@ -103,8 +103,8 @@ namespace Pulumi.AzureNextGen.Maps.V20200201Preview
         /// <summary>
         /// The name of the Maps Creator instance.
         /// </summary>
-        [Input("creatorName", required: true)]
-        public Input<string> CreatorName { get; set; } = null!;
+        [Input("creatorName")]
+        public Input<string>? CreatorName { get; set; }
 
         /// <summary>
         /// The location of the resource.

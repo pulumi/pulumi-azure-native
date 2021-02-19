@@ -130,8 +130,8 @@ namespace Pulumi.AzureNextGen.Media
         /// <summary>
         /// The Media Services account name.
         /// </summary>
-        [Input("accountName", required: true)]
-        public Input<string> AccountName { get; set; } = null!;
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The account encryption properties.

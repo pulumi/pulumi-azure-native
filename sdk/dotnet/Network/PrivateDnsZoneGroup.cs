@@ -122,8 +122,8 @@ namespace Pulumi.AzureNextGen.Network
         /// <summary>
         /// The name of the private dns zone group.
         /// </summary>
-        [Input("privateDnsZoneGroupName", required: true)]
-        public Input<string> PrivateDnsZoneGroupName { get; set; } = null!;
+        [Input("privateDnsZoneGroupName")]
+        public Input<string>? PrivateDnsZoneGroupName { get; set; }
 
         /// <summary>
         /// The name of the private endpoint.

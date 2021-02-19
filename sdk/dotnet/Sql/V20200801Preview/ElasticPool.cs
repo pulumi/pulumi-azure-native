@@ -155,8 +155,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// The name of the elastic pool.
         /// </summary>
-        [Input("elasticPoolName", required: true)]
-        public Input<string> ElasticPoolName { get; set; } = null!;
+        [Input("elasticPoolName")]
+        public Input<string>? ElasticPoolName { get; set; }
 
         /// <summary>
         /// The license type to apply for this elastic pool.

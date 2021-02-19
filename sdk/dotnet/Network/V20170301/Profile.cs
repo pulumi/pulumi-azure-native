@@ -157,8 +157,8 @@ namespace Pulumi.AzureNextGen.Network.V20170301
         /// <summary>
         /// The name of the Traffic Manager profile.
         /// </summary>
-        [Input("profileName", required: true)]
-        public Input<string> ProfileName { get; set; } = null!;
+        [Input("profileName")]
+        public Input<string>? ProfileName { get; set; }
 
         /// <summary>
         /// Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.

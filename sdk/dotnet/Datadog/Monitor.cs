@@ -103,8 +103,8 @@ namespace Pulumi.AzureNextGen.Datadog
         /// <summary>
         /// Monitor resource name
         /// </summary>
-        [Input("monitorName", required: true)]
-        public Input<string> MonitorName { get; set; } = null!;
+        [Input("monitorName")]
+        public Input<string>? MonitorName { get; set; }
 
         /// <summary>
         /// Properties specific to the monitor resource.

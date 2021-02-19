@@ -104,8 +104,8 @@ namespace Pulumi.AzureNextGen.ConfidentialLedger
         /// <summary>
         /// Name of the Confidential Ledger
         /// </summary>
-        [Input("ledgerName", required: true)]
-        public Input<string> LedgerName { get; set; } = null!;
+        [Input("ledgerName")]
+        public Input<string>? LedgerName { get; set; }
 
         /// <summary>
         /// The Azure location where the Confidential Ledger is running.

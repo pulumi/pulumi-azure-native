@@ -103,8 +103,8 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20200101PrivatePreview
         /// <summary>
         /// The name of the MariaDB Server key to be operated on (updated or created).
         /// </summary>
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

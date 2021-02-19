@@ -114,8 +114,8 @@ namespace Pulumi.AzureNextGen.AzureData
 
     public sealed class DataControllerArgs : Pulumi.ResourceArgs
     {
-        [Input("dataControllerName", required: true)]
-        public Input<string> DataControllerName { get; set; } = null!;
+        [Input("dataControllerName")]
+        public Input<string>? DataControllerName { get; set; }
 
         /// <summary>
         /// The raw kubernetes information

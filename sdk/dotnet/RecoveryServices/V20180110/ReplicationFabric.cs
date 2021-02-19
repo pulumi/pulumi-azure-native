@@ -94,8 +94,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
         /// <summary>
         /// Name of the ASR fabric.
         /// </summary>
-        [Input("fabricName", required: true)]
-        public Input<string> FabricName { get; set; } = null!;
+        [Input("fabricName")]
+        public Input<string>? FabricName { get; set; }
 
         /// <summary>
         /// Fabric creation input.

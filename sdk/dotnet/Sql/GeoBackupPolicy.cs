@@ -111,8 +111,8 @@ namespace Pulumi.AzureNextGen.Sql
         /// <summary>
         /// The name of the geo backup policy.
         /// </summary>
-        [Input("geoBackupPolicyName", required: true)]
-        public Input<string> GeoBackupPolicyName { get; set; } = null!;
+        [Input("geoBackupPolicyName")]
+        public Input<string>? GeoBackupPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

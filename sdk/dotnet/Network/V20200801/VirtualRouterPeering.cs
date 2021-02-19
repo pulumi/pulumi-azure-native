@@ -138,8 +138,8 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// The name of the Virtual Router Peering.
         /// </summary>
-        [Input("peeringName", required: true)]
-        public Input<string> PeeringName { get; set; } = null!;
+        [Input("peeringName")]
+        public Input<string>? PeeringName { get; set; }
 
         /// <summary>
         /// The name of the resource group.

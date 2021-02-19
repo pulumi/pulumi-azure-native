@@ -199,8 +199,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// <summary>
         /// Unique name of an assessment within a project.
         /// </summary>
-        [Input("assessmentName", required: true)]
-        public Input<string> AssessmentName { get; set; } = null!;
+        [Input("assessmentName")]
+        public Input<string>? AssessmentName { get; set; }
 
         /// <summary>
         /// AHUB discount on windows virtual machines.

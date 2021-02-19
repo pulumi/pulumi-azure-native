@@ -133,8 +133,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview
         /// <summary>
         /// Name of the custom domain within an endpoint.
         /// </summary>
-        [Input("customDomainName", required: true)]
-        public Input<string> CustomDomainName { get; set; } = null!;
+        [Input("customDomainName")]
+        public Input<string>? CustomDomainName { get; set; }
 
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.

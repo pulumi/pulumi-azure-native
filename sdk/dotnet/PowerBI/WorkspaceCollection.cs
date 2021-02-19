@@ -121,8 +121,8 @@ namespace Pulumi.AzureNextGen.PowerBI
         /// <summary>
         /// Power BI Embedded Workspace Collection name
         /// </summary>
-        [Input("workspaceCollectionName", required: true)]
-        public Input<string> WorkspaceCollectionName { get; set; } = null!;
+        [Input("workspaceCollectionName")]
+        public Input<string>? WorkspaceCollectionName { get; set; }
 
         public WorkspaceCollectionArgs()
         {

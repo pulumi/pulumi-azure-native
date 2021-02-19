@@ -134,8 +134,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The name of the backend address pool.
         /// </summary>
-        [Input("backendAddressPoolName", required: true)]
-        public Input<string> BackendAddressPoolName { get; set; } = null!;
+        [Input("backendAddressPoolName")]
+        public Input<string>? BackendAddressPoolName { get; set; }
 
         /// <summary>
         /// Resource ID.

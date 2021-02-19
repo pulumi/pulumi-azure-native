@@ -113,8 +113,8 @@ namespace Pulumi.AzureNextGen.Resources.V20200601
         /// <summary>
         /// The name of the deployment.
         /// </summary>
-        [Input("deploymentName", required: true)]
-        public Input<string> DeploymentName { get; set; } = null!;
+        [Input("deploymentName")]
+        public Input<string>? DeploymentName { get; set; }
 
         /// <summary>
         /// The location to store the deployment data.

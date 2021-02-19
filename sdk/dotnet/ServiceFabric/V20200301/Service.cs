@@ -247,8 +247,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200301
         /// <summary>
         /// The name of the service resource in the format of {applicationName}~{serviceName}.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public Input<string> ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
 
         /// <summary>
         /// The activation Mode of the service package

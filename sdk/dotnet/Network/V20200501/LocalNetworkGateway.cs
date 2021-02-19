@@ -197,8 +197,8 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// <summary>
         /// The name of the local network gateway.
         /// </summary>
-        [Input("localNetworkGatewayName", required: true)]
-        public Input<string> LocalNetworkGatewayName { get; set; } = null!;
+        [Input("localNetworkGatewayName")]
+        public Input<string>? LocalNetworkGatewayName { get; set; }
 
         /// <summary>
         /// Resource location.

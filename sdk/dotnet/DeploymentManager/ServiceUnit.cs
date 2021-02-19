@@ -147,8 +147,8 @@ namespace Pulumi.AzureNextGen.DeploymentManager
         /// <summary>
         /// The name of the service unit resource.
         /// </summary>
-        [Input("serviceUnitName", required: true)]
-        public Input<string> ServiceUnitName { get; set; } = null!;
+        [Input("serviceUnitName")]
+        public Input<string>? ServiceUnitName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

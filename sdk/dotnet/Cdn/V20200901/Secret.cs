@@ -119,8 +119,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// Name of the Secret under the profile.
         /// </summary>
-        [Input("secretName", required: true)]
-        public Input<string> SecretName { get; set; } = null!;
+        [Input("secretName")]
+        public Input<string>? SecretName { get; set; }
 
         public SecretArgs()
         {

@@ -149,8 +149,8 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20180815Preview
         /// <summary>
         /// Name of the reference data set.
         /// </summary>
-        [Input("referenceDataSetName", required: true)]
-        public Input<string> ReferenceDataSetName { get; set; } = null!;
+        [Input("referenceDataSetName")]
+        public Input<string>? ReferenceDataSetName { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

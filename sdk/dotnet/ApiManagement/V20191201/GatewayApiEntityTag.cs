@@ -190,8 +190,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("apiId", required: true)]
-        public Input<string> ApiId { get; set; } = null!;
+        [Input("apiId")]
+        public Input<string>? ApiId { get; set; }
 
         /// <summary>
         /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'

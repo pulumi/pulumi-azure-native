@@ -119,8 +119,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
         /// <summary>
         /// Friendly name of the workspace connection
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
         /// Friendly name of the workspace connection

@@ -141,8 +141,8 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// <summary>
         /// The Assessment Key - Unique key for the assessment type
         /// </summary>
-        [Input("assessmentMetadataName", required: true)]
-        public Input<string> AssessmentMetadataName { get; set; } = null!;
+        [Input("assessmentMetadataName")]
+        public Input<string>? AssessmentMetadataName { get; set; }
 
         /// <summary>
         /// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition

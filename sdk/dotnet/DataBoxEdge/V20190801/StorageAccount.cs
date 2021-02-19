@@ -149,8 +149,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// <summary>
         /// The StorageAccount name.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
         /// Current status of the storage account

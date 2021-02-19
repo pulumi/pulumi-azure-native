@@ -94,8 +94,8 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.V20181120
         /// <summary>
         /// Name of the guest configuration assignment.
         /// </summary>
-        [Input("guestConfigurationAssignmentName", required: true)]
-        public Input<string> GuestConfigurationAssignmentName { get; set; } = null!;
+        [Input("guestConfigurationAssignmentName")]
+        public Input<string>? GuestConfigurationAssignmentName { get; set; }
 
         /// <summary>
         /// Region where the VM is located.

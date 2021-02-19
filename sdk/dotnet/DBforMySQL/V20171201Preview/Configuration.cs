@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
         /// <summary>
         /// The name of the server configuration.
         /// </summary>
-        [Input("configurationName", required: true)]
-        public Input<string> ConfigurationName { get; set; } = null!;
+        [Input("configurationName")]
+        public Input<string>? ConfigurationName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

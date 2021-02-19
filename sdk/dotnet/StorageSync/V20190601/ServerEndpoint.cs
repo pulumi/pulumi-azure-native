@@ -215,8 +215,8 @@ namespace Pulumi.AzureNextGen.StorageSync.V20190601
         /// <summary>
         /// Name of Server Endpoint object.
         /// </summary>
-        [Input("serverEndpointName", required: true)]
-        public Input<string> ServerEndpointName { get; set; } = null!;
+        [Input("serverEndpointName")]
+        public Input<string>? ServerEndpointName { get; set; }
 
         /// <summary>
         /// Server Local path.

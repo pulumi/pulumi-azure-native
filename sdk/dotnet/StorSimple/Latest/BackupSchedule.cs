@@ -130,8 +130,8 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The backup schedule name.
         /// </summary>
-        [Input("backupScheduleName", required: true)]
-        public Input<string> BackupScheduleName { get; set; } = null!;
+        [Input("backupScheduleName")]
+        public Input<string>? BackupScheduleName { get; set; }
 
         /// <summary>
         /// The type of backup which needs to be taken.

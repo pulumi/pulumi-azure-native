@@ -39,7 +39,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ProviderRegistration(string name, ProviderRegistrationArgs args, CustomResourceOptions? options = null)
+        public ProviderRegistration(string name, ProviderRegistrationArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:providerhub/latest:ProviderRegistration", name, args ?? new ProviderRegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -87,8 +87,8 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
         /// </summary>
-        [Input("providerNamespace", required: true)]
-        public Input<string> ProviderNamespace { get; set; } = null!;
+        [Input("providerNamespace")]
+        public Input<string>? ProviderNamespace { get; set; }
 
         public ProviderRegistrationArgs()
         {

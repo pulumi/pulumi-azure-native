@@ -59,7 +59,7 @@ namespace Pulumi.AzureNextGen.Management.V20171101Preview
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ManagementGroup(string name, ManagementGroupArgs args, CustomResourceOptions? options = null)
+        public ManagementGroup(string name, ManagementGroupArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-nextgen:management/v20171101preview:ManagementGroup", name, args ?? new ManagementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -115,8 +115,8 @@ namespace Pulumi.AzureNextGen.Management.V20171101Preview
         /// <summary>
         /// Management Group ID.
         /// </summary>
-        [Input("groupId", required: true)]
-        public Input<string> GroupId { get; set; } = null!;
+        [Input("groupId")]
+        public Input<string>? GroupId { get; set; }
 
         /// <summary>
         /// (Optional) The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000

@@ -132,8 +132,8 @@ namespace Pulumi.AzureNextGen.MixedReality.V20190228Preview
         /// <summary>
         /// Name of an Mixed Reality Spatial Anchors Account.
         /// </summary>
-        [Input("spatialAnchorsAccountName", required: true)]
-        public Input<string> SpatialAnchorsAccountName { get; set; } = null!;
+        [Input("spatialAnchorsAccountName")]
+        public Input<string>? SpatialAnchorsAccountName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

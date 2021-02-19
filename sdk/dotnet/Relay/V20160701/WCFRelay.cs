@@ -135,8 +135,8 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
         /// <summary>
         /// The relay name
         /// </summary>
-        [Input("relayName", required: true)]
-        public Input<string> RelayName { get; set; } = null!;
+        [Input("relayName")]
+        public Input<string>? RelayName { get; set; }
 
         /// <summary>
         /// WCFRelay Type.

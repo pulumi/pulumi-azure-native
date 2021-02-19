@@ -94,8 +94,8 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
         /// <summary>
         /// The name of the Binding resource.
         /// </summary>
-        [Input("bindingName", required: true)]
-        public Input<string> BindingName { get; set; } = null!;
+        [Input("bindingName")]
+        public Input<string>? BindingName { get; set; }
 
         /// <summary>
         /// Properties of the Binding resource

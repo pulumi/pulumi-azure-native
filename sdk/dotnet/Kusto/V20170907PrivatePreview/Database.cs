@@ -136,8 +136,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview
         /// <summary>
         /// The name of the database in the Kusto cluster.
         /// </summary>
-        [Input("databaseName", required: true)]
-        public Input<string> DatabaseName { get; set; } = null!;
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// The number of days of data that should be kept in cache for fast queries.

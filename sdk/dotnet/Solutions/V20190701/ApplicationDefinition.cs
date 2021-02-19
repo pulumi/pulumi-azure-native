@@ -191,8 +191,8 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701
         /// <summary>
         /// The name of the managed application definition.
         /// </summary>
-        [Input("applicationDefinitionName", required: true)]
-        public Input<string> ApplicationDefinitionName { get; set; } = null!;
+        [Input("applicationDefinitionName")]
+        public Input<string>? ApplicationDefinitionName { get; set; }
 
         [Input("artifacts")]
         private InputList<Inputs.ApplicationDefinitionArtifactArgs>? _artifacts;

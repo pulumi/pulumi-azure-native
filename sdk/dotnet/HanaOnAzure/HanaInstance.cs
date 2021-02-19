@@ -158,8 +158,8 @@ namespace Pulumi.AzureNextGen.HanaOnAzure
         /// <summary>
         /// Name of the SAP HANA on Azure instance.
         /// </summary>
-        [Input("hanaInstanceName", required: true)]
-        public Input<string> HanaInstanceName { get; set; } = null!;
+        [Input("hanaInstanceName")]
+        public Input<string>? HanaInstanceName { get; set; }
 
         /// <summary>
         /// Specifies the hardware settings for the HANA instance.

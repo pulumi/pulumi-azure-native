@@ -109,8 +109,8 @@ namespace Pulumi.AzureNextGen.Sql
         /// <summary>
         /// Name of the server administrator resource.
         /// </summary>
-        [Input("administratorName", required: true)]
-        public Input<string> AdministratorName { get; set; } = null!;
+        [Input("administratorName")]
+        public Input<string>? AdministratorName { get; set; }
 
         /// <summary>
         /// The type of administrator.

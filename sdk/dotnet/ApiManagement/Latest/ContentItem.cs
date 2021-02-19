@@ -89,8 +89,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <summary>
         /// Content item identifier.
         /// </summary>
-        [Input("contentItemId", required: true)]
-        public Input<string> ContentItemId { get; set; } = null!;
+        [Input("contentItemId")]
+        public Input<string>? ContentItemId { get; set; }
 
         /// <summary>
         /// Content type identifier.

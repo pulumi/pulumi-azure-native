@@ -139,8 +139,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// <summary>
         /// The namespace name.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

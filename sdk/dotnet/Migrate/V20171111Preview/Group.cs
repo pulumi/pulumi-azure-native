@@ -115,8 +115,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// <summary>
         /// Unique name of a group within a project.
         /// </summary>
-        [Input("groupName", required: true)]
-        public Input<string> GroupName { get; set; } = null!;
+        [Input("groupName")]
+        public Input<string>? GroupName { get; set; }
 
         [Input("machines", required: true)]
         private InputList<string>? _machines;

@@ -177,8 +177,8 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         /// <summary>
         /// Hostname in the hostname binding.
         /// </summary>
-        [Input("hostName", required: true)]
-        public Input<string> HostName { get; set; } = null!;
+        [Input("hostName")]
+        public Input<string>? HostName { get; set; }
 
         /// <summary>
         /// Hostname type.

@@ -107,8 +107,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         [Input("privateEndpoint")]
         public Input<Inputs.ManagedInstancePrivateEndpointPropertyArgs>? PrivateEndpoint { get; set; }
 
-        [Input("privateEndpointConnectionName", required: true)]
-        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
+        [Input("privateEndpointConnectionName")]
+        public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
         /// Connection State of the Private Endpoint Connection.

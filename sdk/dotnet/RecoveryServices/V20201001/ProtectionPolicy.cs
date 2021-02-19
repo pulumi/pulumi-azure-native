@@ -120,8 +120,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
         /// <summary>
         /// Backup policy to be created.
         /// </summary>
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         /// <summary>
         /// ProtectionPolicyResource properties

@@ -233,8 +233,8 @@ namespace Pulumi.AzureNextGen.Sql
         /// <summary>
         /// The name of the sync group.
         /// </summary>
-        [Input("syncGroupName", required: true)]
-        public Input<string> SyncGroupName { get; set; } = null!;
+        [Input("syncGroupName")]
+        public Input<string>? SyncGroupName { get; set; }
 
         /// <summary>
         /// If use private link connection is enabled.
