@@ -78,9 +78,6 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'databaseName'");
-            }
             if ((!args || args.options === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'options'");
             }
@@ -135,7 +132,7 @@ export interface DatabaseAccountGremlinDatabaseArgs {
     /**
      * Cosmos DB database name.
      */
-    readonly databaseName: pulumi.Input<string>;
+    readonly databaseName?: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */

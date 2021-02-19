@@ -96,9 +96,6 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
         pulumi.log.warn("LocalNetworkGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:LocalNetworkGateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.localNetworkGatewayName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'localNetworkGatewayName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -169,7 +166,7 @@ export interface LocalNetworkGatewayArgs {
     /**
      * The name of the local network gateway.
      */
-    readonly localNetworkGatewayName: pulumi.Input<string>;
+    readonly localNetworkGatewayName?: pulumi.Input<string>;
     /**
      * Resource location.
      */

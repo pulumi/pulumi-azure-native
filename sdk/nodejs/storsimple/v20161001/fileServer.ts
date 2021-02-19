@@ -78,9 +78,6 @@ export class FileServer extends pulumi.CustomResource {
             if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.fileServerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'fileServerName'");
-            }
             if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
@@ -144,7 +141,7 @@ export interface FileServerArgs {
     /**
      * The file server name.
      */
-    readonly fileServerName: pulumi.Input<string>;
+    readonly fileServerName?: pulumi.Input<string>;
     /**
      * The manager name
      */

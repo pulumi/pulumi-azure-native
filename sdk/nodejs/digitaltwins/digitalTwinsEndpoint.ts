@@ -59,9 +59,6 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: DigitalTwinsEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'endpointName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -102,7 +99,7 @@ export interface DigitalTwinsEndpointArgs {
     /**
      * Name of Endpoint Resource.
      */
-    readonly endpointName: pulumi.Input<string>;
+    readonly endpointName?: pulumi.Input<string>;
     /**
      * DigitalTwinsInstance endpoint resource properties.
      */

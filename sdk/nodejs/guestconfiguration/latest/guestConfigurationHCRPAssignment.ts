@@ -68,9 +68,6 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
         pulumi.log.warn("GuestConfigurationHCRPAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.guestConfigurationAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'guestConfigurationAssignmentName'");
-            }
             if ((!args || args.machineName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'machineName'");
             }
@@ -110,7 +107,7 @@ export interface GuestConfigurationHCRPAssignmentArgs {
     /**
      * Name of the guest configuration assignment.
      */
-    readonly guestConfigurationAssignmentName: pulumi.Input<string>;
+    readonly guestConfigurationAssignmentName?: pulumi.Input<string>;
     /**
      * Region where the VM is located.
      */

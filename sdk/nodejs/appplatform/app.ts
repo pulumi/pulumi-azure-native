@@ -67,9 +67,6 @@ export class App extends pulumi.CustomResource {
     constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.appName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'appName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -111,7 +108,7 @@ export interface AppArgs {
     /**
      * The name of the App resource.
      */
-    readonly appName: pulumi.Input<string>;
+    readonly appName?: pulumi.Input<string>;
     /**
      * The Managed Identity type of the app resource
      */

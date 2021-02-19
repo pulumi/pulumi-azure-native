@@ -73,9 +73,6 @@ export class Step extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.stepName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'stepName'");
-            }
             inputs["location"] = args ? args.location : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -122,7 +119,7 @@ export interface StepArgs {
     /**
      * The name of the deployment step.
      */
-    readonly stepName: pulumi.Input<string>;
+    readonly stepName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

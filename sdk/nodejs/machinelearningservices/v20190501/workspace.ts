@@ -109,9 +109,6 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'workspaceName'");
-            }
             inputs["applicationInsights"] = args ? args.applicationInsights : undefined;
             inputs["containerRegistry"] = args ? args.containerRegistry : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -210,5 +207,5 @@ export interface WorkspaceArgs {
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    readonly workspaceName?: pulumi.Input<string>;
 }

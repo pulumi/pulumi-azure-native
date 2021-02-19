@@ -117,9 +117,6 @@ export class Python2Package extends pulumi.CustomResource {
             if ((!args || args.contentLink === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contentLink'");
             }
-            if ((!args || args.packageName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'packageName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -188,7 +185,7 @@ export interface Python2PackageArgs {
     /**
      * The name of python package.
      */
-    readonly packageName: pulumi.Input<string>;
+    readonly packageName?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

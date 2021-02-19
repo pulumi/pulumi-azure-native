@@ -83,9 +83,6 @@ export class Configuration extends pulumi.CustomResource {
         pulumi.log.warn("Configuration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:Configuration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.configurationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'configurationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -133,7 +130,7 @@ export interface ConfigurationArgs {
     /**
      * The name of the server configuration.
      */
-    readonly configurationName: pulumi.Input<string>;
+    readonly configurationName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

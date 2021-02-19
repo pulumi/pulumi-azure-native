@@ -81,9 +81,6 @@ export class ReportByResourceGroupName extends pulumi.CustomResource {
             if ((!args || args.deliveryInfo === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
-            if ((!args || args.reportName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'reportName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -137,7 +134,7 @@ export interface ReportByResourceGroupNameArgs {
     /**
      * Report Name.
      */
-    readonly reportName: pulumi.Input<string>;
+    readonly reportName?: pulumi.Input<string>;
     /**
      * Azure Resource Group Name.
      */

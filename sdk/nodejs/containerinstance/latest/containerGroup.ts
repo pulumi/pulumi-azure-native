@@ -131,9 +131,6 @@ export class ContainerGroup extends pulumi.CustomResource {
         pulumi.log.warn("ContainerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerinstance:ContainerGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.containerGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'containerGroupName'");
-            }
             if ((!args || args.containers === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containers'");
             }
@@ -205,7 +202,7 @@ export interface ContainerGroupArgs {
     /**
      * The name of the container group.
      */
-    readonly containerGroupName: pulumi.Input<string>;
+    readonly containerGroupName?: pulumi.Input<string>;
     /**
      * The containers within the container group.
      */

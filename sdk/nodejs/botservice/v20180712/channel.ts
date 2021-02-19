@@ -78,9 +78,6 @@ export class Channel extends pulumi.CustomResource {
     constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.channelName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'channelName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -128,7 +125,7 @@ export interface ChannelArgs {
     /**
      * The name of the Channel resource.
      */
-    readonly channelName: pulumi.Input<string>;
+    readonly channelName?: pulumi.Input<string>;
     /**
      * Entity Tag
      */

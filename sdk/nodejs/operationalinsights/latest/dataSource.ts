@@ -76,9 +76,6 @@ export class DataSource extends pulumi.CustomResource {
         pulumi.log.warn("DataSource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataSource'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dataSourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dataSourceName'");
-            }
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -128,7 +125,7 @@ export interface DataSourceArgs {
     /**
      * The name of the datasource resource.
      */
-    readonly dataSourceName: pulumi.Input<string>;
+    readonly dataSourceName?: pulumi.Input<string>;
     /**
      * The ETag of the data source.
      */

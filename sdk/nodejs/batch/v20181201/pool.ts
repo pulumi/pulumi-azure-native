@@ -127,9 +127,6 @@ export class Pool extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.poolName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'poolName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -249,7 +246,7 @@ export interface PoolArgs {
     /**
      * The pool name. This must be unique within the account.
      */
-    readonly poolName: pulumi.Input<string>;
+    readonly poolName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the Batch account.
      */

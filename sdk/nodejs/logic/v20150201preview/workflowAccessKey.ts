@@ -58,9 +58,6 @@ export class WorkflowAccessKey extends pulumi.CustomResource {
     constructor(name: string, args: WorkflowAccessKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.accessKeyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'accessKeyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -101,7 +98,7 @@ export interface WorkflowAccessKeyArgs {
     /**
      * The workflow access key name.
      */
-    readonly accessKeyName: pulumi.Input<string>;
+    readonly accessKeyName?: pulumi.Input<string>;
     /**
      * Gets or sets the resource id.
      */

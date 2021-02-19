@@ -107,9 +107,6 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             inputs["apiServerEndpoint"] = args ? args.apiServerEndpoint : undefined;
             inputs["clusterRootCA"] = args ? args.clusterRootCA : undefined;
             inputs["controllerDetails"] = args ? args.controllerDetails : undefined;
@@ -196,7 +193,7 @@ export interface OrchestratorInstanceServiceDetailsArgs {
     /**
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    readonly resourceName: pulumi.Input<string>;
+    readonly resourceName?: pulumi.Input<string>;
     /**
      * The resource tags.
      */

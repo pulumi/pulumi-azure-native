@@ -101,9 +101,6 @@ export class MSIXPackage extends pulumi.CustomResource {
             if ((!args || args.hostPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostPoolName'");
             }
-            if ((!args || args.msixPackageFullName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'msixPackageFullName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -182,7 +179,7 @@ export interface MSIXPackageArgs {
     /**
      * The version specific package full name of the MSIX package within specified hostpool
      */
-    readonly msixPackageFullName: pulumi.Input<string>;
+    readonly msixPackageFullName?: pulumi.Input<string>;
     /**
      * List of package applications. 
      */

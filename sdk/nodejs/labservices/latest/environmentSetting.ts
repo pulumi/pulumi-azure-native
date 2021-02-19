@@ -108,9 +108,6 @@ export class EnvironmentSetting extends pulumi.CustomResource {
         pulumi.log.warn("EnvironmentSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:EnvironmentSetting'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.environmentSettingName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'environmentSettingName'");
-            }
             if ((!args || args.labAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labAccountName'");
             }
@@ -185,7 +182,7 @@ export interface EnvironmentSettingArgs {
     /**
      * The name of the environment Setting.
      */
-    readonly environmentSettingName: pulumi.Input<string>;
+    readonly environmentSettingName?: pulumi.Input<string>;
     /**
      * The name of the lab Account.
      */

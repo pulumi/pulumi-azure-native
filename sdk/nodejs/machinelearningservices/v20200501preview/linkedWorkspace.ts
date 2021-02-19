@@ -58,9 +58,6 @@ export class LinkedWorkspace extends pulumi.CustomResource {
     constructor(name: string, args: LinkedWorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.linkName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'linkName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -98,7 +95,7 @@ export interface LinkedWorkspaceArgs {
     /**
      * Friendly name of the linked workspace
      */
-    readonly linkName: pulumi.Input<string>;
+    readonly linkName?: pulumi.Input<string>;
     /**
      * Friendly name of the linked workspace
      */

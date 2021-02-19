@@ -130,9 +130,6 @@ export class ApplicationDefinition extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.applicationDefinitionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'applicationDefinitionName'");
-            }
             if ((!args || args.lockLevel === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lockLevel'");
             }
@@ -205,7 +202,7 @@ export interface ApplicationDefinitionArgs {
     /**
      * The name of the managed application definition.
      */
-    readonly applicationDefinitionName: pulumi.Input<string>;
+    readonly applicationDefinitionName?: pulumi.Input<string>;
     /**
      * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
      */

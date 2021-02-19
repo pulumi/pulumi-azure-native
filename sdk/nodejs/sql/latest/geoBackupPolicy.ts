@@ -79,9 +79,6 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
             if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.geoBackupPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'geoBackupPolicyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -133,7 +130,7 @@ export interface GeoBackupPolicyArgs {
     /**
      * The name of the geo backup policy.
      */
-    readonly geoBackupPolicyName: pulumi.Input<string>;
+    readonly geoBackupPolicyName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -97,9 +97,6 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'schemaName'");
-            }
             inputs["content"] = args ? args.content : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -182,7 +179,7 @@ export interface IntegrationAccountSchemaArgs {
     /**
      * The integration account schema name.
      */
-    readonly schemaName: pulumi.Input<string>;
+    readonly schemaName?: pulumi.Input<string>;
     /**
      * The schema type.
      */

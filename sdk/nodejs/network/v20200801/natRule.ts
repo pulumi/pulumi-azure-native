@@ -89,9 +89,6 @@ export class NatRule extends pulumi.CustomResource {
             if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.natRuleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'natRuleName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -169,7 +166,7 @@ export interface NatRuleArgs {
     /**
      * The name of the nat rule.
      */
-    readonly natRuleName: pulumi.Input<string>;
+    readonly natRuleName?: pulumi.Input<string>;
     /**
      * The resource group name of the VpnGateway.
      */

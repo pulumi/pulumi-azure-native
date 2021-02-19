@@ -111,9 +111,6 @@ export class DenyAssignment extends pulumi.CustomResource {
     constructor(name: string, args: DenyAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.denyAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'denyAssignmentName'");
-            }
             if ((!args || args.permissions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'permissions'");
             }
@@ -185,7 +182,7 @@ export interface DenyAssignmentArgs {
     /**
      * The display name of the deny assignment.
      */
-    readonly denyAssignmentName: pulumi.Input<string>;
+    readonly denyAssignmentName?: pulumi.Input<string>;
     /**
      * The description of the deny assignment.
      */

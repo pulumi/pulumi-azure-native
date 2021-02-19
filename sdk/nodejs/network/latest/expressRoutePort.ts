@@ -120,9 +120,6 @@ export class ExpressRoutePort extends pulumi.CustomResource {
         pulumi.log.warn("ExpressRoutePort is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRoutePort'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.expressRoutePortName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'expressRoutePortName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -193,7 +190,7 @@ export interface ExpressRoutePortArgs {
     /**
      * The name of the ExpressRoutePort resource.
      */
-    readonly expressRoutePortName: pulumi.Input<string>;
+    readonly expressRoutePortName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

@@ -87,13 +87,10 @@ export class Partner extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managementpartner:Partner'. */
-    constructor(name: string, args: PartnerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PartnerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Partner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managementpartner:Partner'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.partnerId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'partnerId'");
-            }
             inputs["partnerId"] = args ? args.partnerId : undefined;
             inputs["createdTime"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
@@ -136,5 +133,5 @@ export interface PartnerArgs {
     /**
      * Id of the Partner
      */
-    readonly partnerId: pulumi.Input<string>;
+    readonly partnerId?: pulumi.Input<string>;
 }

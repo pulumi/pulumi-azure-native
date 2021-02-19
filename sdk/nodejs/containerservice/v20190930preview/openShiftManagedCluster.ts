@@ -116,9 +116,6 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
             inputs["authProfile"] = args ? args.authProfile : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -211,7 +208,7 @@ export interface OpenShiftManagedClusterArgs {
     /**
      * The name of the OpenShift managed cluster resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    readonly resourceName?: pulumi.Input<string>;
     /**
      * Configuration for OpenShift router(s).
      */

@@ -101,9 +101,6 @@ export class Domain extends pulumi.CustomResource {
         pulumi.log.warn("Domain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:Domain'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'domainName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -155,7 +152,7 @@ export interface DomainArgs {
     /**
      * Name of the domain.
      */
-    readonly domainName: pulumi.Input<string>;
+    readonly domainName?: pulumi.Input<string>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */

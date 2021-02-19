@@ -130,9 +130,6 @@ export class LiveEvent extends pulumi.CustomResource {
             if ((!args || args.input === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'input'");
             }
-            if ((!args || args.liveEventName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'liveEventName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -226,7 +223,7 @@ export interface LiveEventArgs {
     /**
      * The name of the live event, maximum length is 32.
      */
-    readonly liveEventName: pulumi.Input<string>;
+    readonly liveEventName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

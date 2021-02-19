@@ -72,9 +72,6 @@ export class StorageSyncService extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageSyncServiceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'storageSyncServiceName'");
-            }
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
@@ -119,7 +116,7 @@ export interface StorageSyncServiceArgs {
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName: pulumi.Input<string>;
+    readonly storageSyncServiceName?: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */

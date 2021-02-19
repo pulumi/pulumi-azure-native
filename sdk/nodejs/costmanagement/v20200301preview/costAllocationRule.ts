@@ -61,9 +61,6 @@ export class CostAllocationRule extends pulumi.CustomResource {
             if ((!args || args.billingAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'billingAccountId'");
             }
-            if ((!args || args.ruleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ruleName'");
-            }
             inputs["billingAccountId"] = args ? args.billingAccountId : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["ruleName"] = args ? args.ruleName : undefined;
@@ -102,5 +99,5 @@ export interface CostAllocationRuleArgs {
     /**
      * Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
      */
-    readonly ruleName: pulumi.Input<string>;
+    readonly ruleName?: pulumi.Input<string>;
 }

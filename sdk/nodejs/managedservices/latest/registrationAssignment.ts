@@ -64,9 +64,6 @@ export class RegistrationAssignment extends pulumi.CustomResource {
         pulumi.log.warn("RegistrationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationAssignment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.registrationAssignmentId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'registrationAssignmentId'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -104,7 +101,7 @@ export interface RegistrationAssignmentArgs {
     /**
      * Guid of the registration assignment.
      */
-    readonly registrationAssignmentId: pulumi.Input<string>;
+    readonly registrationAssignmentId?: pulumi.Input<string>;
     /**
      * Scope of the resource.
      */

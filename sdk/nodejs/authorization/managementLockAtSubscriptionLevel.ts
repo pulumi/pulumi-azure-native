@@ -70,9 +70,6 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
             if ((!args || args.level === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'level'");
             }
-            if ((!args || args.lockName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'lockName'");
-            }
             inputs["level"] = args ? args.level : undefined;
             inputs["lockName"] = args ? args.lockName : undefined;
             inputs["notes"] = args ? args.notes : undefined;
@@ -110,7 +107,7 @@ export interface ManagementLockAtSubscriptionLevelArgs {
     /**
      * The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
      */
-    readonly lockName: pulumi.Input<string>;
+    readonly lockName?: pulumi.Input<string>;
     /**
      * Notes about the lock. Maximum of 512 characters.
      */

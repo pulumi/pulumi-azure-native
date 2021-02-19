@@ -69,9 +69,6 @@ export class RoleAssignment extends pulumi.CustomResource {
     constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.roleAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'roleAssignmentName'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -118,7 +115,7 @@ export interface RoleAssignmentArgs {
     /**
      * The name of the role assignment to create. It can be any valid GUID.
      */
-    readonly roleAssignmentName: pulumi.Input<string>;
+    readonly roleAssignmentName?: pulumi.Input<string>;
     /**
      * The role definition ID used in the role assignment.
      */

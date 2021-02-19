@@ -73,9 +73,6 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, args: GroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'groupName'");
-            }
             if ((!args || args.machines === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'machines'");
             }
@@ -128,7 +125,7 @@ export interface GroupArgs {
     /**
      * Unique name of a group within a project.
      */
-    readonly groupName: pulumi.Input<string>;
+    readonly groupName?: pulumi.Input<string>;
     /**
      * List of machine names that are part of this group.
      */

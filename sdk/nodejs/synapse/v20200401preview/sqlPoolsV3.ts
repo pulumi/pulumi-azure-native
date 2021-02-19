@@ -93,9 +93,6 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlPoolName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sqlPoolName'");
-            }
             if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -158,7 +155,7 @@ export interface SqlPoolsV3Args {
     /**
      * The name of the sql pool.
      */
-    readonly sqlPoolName: pulumi.Input<string>;
+    readonly sqlPoolName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

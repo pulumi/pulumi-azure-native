@@ -68,9 +68,6 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
             if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.attachmentId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'attachmentId'");
-            }
             if ((!args || args.content === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'content'");
             }
@@ -130,7 +127,7 @@ export interface ApiIssueAttachmentArgs {
     /**
      * Attachment identifier within an Issue. Must be unique in the current Issue.
      */
-    readonly attachmentId: pulumi.Input<string>;
+    readonly attachmentId?: pulumi.Input<string>;
     /**
      * An HTTP link or Base64-encoded binary data.
      */

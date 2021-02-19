@@ -86,9 +86,6 @@ export class Prefix extends pulumi.CustomResource {
             if ((!args || args.peeringServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peeringServiceName'");
             }
-            if ((!args || args.prefixName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'prefixName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -147,7 +144,7 @@ export interface PrefixArgs {
     /**
      * The name of the prefix.
      */
-    readonly prefixName: pulumi.Input<string>;
+    readonly prefixName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

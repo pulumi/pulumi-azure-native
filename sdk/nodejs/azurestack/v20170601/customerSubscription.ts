@@ -61,9 +61,6 @@ export class CustomerSubscription extends pulumi.CustomResource {
     constructor(name: string, args: CustomerSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.customerSubscriptionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'customerSubscriptionName'");
-            }
             if ((!args || args.registrationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registrationName'");
             }
@@ -103,7 +100,7 @@ export interface CustomerSubscriptionArgs {
     /**
      * Name of the product.
      */
-    readonly customerSubscriptionName: pulumi.Input<string>;
+    readonly customerSubscriptionName?: pulumi.Input<string>;
     /**
      * The entity tag used for optimistic concurrency when modifying the resource.
      */

@@ -74,9 +74,6 @@ export class RoleDefinition extends pulumi.CustomResource {
     constructor(name: string, args: RoleDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.roleDefinitionId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'roleDefinitionId'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -130,7 +127,7 @@ export interface RoleDefinitionArgs {
     /**
      * The ID of the role definition.
      */
-    readonly roleDefinitionId: pulumi.Input<string>;
+    readonly roleDefinitionId?: pulumi.Input<string>;
     /**
      * The role name.
      */

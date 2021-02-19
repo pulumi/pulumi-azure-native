@@ -67,9 +67,6 @@ export class ConfigurationProfilePreference extends pulumi.CustomResource {
     constructor(name: string, args: ConfigurationProfilePreferenceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.configurationProfilePreferenceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'configurationProfilePreferenceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -107,7 +104,7 @@ export interface ConfigurationProfilePreferenceArgs {
     /**
      * Name of the configuration profile preference.
      */
-    readonly configurationProfilePreferenceName: pulumi.Input<string>;
+    readonly configurationProfilePreferenceName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

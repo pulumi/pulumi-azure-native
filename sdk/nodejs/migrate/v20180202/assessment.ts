@@ -142,9 +142,6 @@ export class Assessment extends pulumi.CustomResource {
     constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.assessmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'assessmentName'");
-            }
             if ((!args || args.azureHybridUseBenefit === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'azureHybridUseBenefit'");
             }
@@ -264,7 +261,7 @@ export interface AssessmentArgs {
     /**
      * Unique name of an assessment within a project.
      */
-    readonly assessmentName: pulumi.Input<string>;
+    readonly assessmentName?: pulumi.Input<string>;
     /**
      * AHUB discount on windows virtual machines.
      */

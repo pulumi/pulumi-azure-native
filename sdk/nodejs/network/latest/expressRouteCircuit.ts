@@ -132,9 +132,6 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
         pulumi.log.warn("ExpressRouteCircuit is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteCircuit'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.circuitName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'circuitName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -215,7 +212,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * The name of the circuit.
      */
-    readonly circuitName: pulumi.Input<string>;
+    readonly circuitName?: pulumi.Input<string>;
     /**
      * The CircuitProvisioningState state of the resource.
      */

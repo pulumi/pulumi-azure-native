@@ -124,9 +124,6 @@ export class Topic extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.topicName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'topicName'");
-            }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
             inputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
             inputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
@@ -236,5 +233,5 @@ export interface TopicArgs {
     /**
      * The topic name.
      */
-    readonly topicName: pulumi.Input<string>;
+    readonly topicName?: pulumi.Input<string>;
 }

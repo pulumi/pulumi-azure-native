@@ -77,9 +77,6 @@ export class PrivateLinkScope extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopeName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'scopeName'");
-            }
             inputs["location"] = args ? args.location : undefined;
             inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -130,7 +127,7 @@ export interface PrivateLinkScopeArgs {
     /**
      * The name of the Azure Arc PrivateLinkScope resource.
      */
-    readonly scopeName: pulumi.Input<string>;
+    readonly scopeName?: pulumi.Input<string>;
     /**
      * Resource tags
      */

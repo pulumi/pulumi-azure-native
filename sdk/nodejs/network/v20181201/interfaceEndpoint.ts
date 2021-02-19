@@ -90,9 +90,6 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: InterfaceEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.interfaceEndpointName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'interfaceEndpointName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -159,7 +156,7 @@ export interface InterfaceEndpointArgs {
     /**
      * The name of the interface endpoint.
      */
-    readonly interfaceEndpointName: pulumi.Input<string>;
+    readonly interfaceEndpointName?: pulumi.Input<string>;
     /**
      * Resource location.
      */

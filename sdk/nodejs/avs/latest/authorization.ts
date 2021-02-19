@@ -71,9 +71,6 @@ export class Authorization extends pulumi.CustomResource {
         pulumi.log.warn("Authorization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.authorizationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'authorizationName'");
-            }
             if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -115,7 +112,7 @@ export interface AuthorizationArgs {
     /**
      * Name of the ExpressRoute Circuit Authorization in the private cloud
      */
-    readonly authorizationName: pulumi.Input<string>;
+    readonly authorizationName?: pulumi.Input<string>;
     /**
      * The name of the private cloud.
      */

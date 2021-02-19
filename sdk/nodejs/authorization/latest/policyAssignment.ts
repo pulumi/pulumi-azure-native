@@ -104,9 +104,6 @@ export class PolicyAssignment extends pulumi.CustomResource {
         pulumi.log.warn("PolicyAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicyAssignment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.policyAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyAssignmentName'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -195,7 +192,7 @@ export interface PolicyAssignmentArgs {
     /**
      * The name of the policy assignment.
      */
-    readonly policyAssignmentName: pulumi.Input<string>;
+    readonly policyAssignmentName?: pulumi.Input<string>;
     /**
      * The ID of the policy definition or policy set definition being assigned.
      */

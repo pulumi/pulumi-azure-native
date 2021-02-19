@@ -62,9 +62,6 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
     constructor(name: string, args: ManagementLockAtResourceGroupLevelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.lockName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'lockName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -104,7 +101,7 @@ export interface ManagementLockAtResourceGroupLevelArgs {
     /**
      * The lock name.
      */
-    readonly lockName: pulumi.Input<string>;
+    readonly lockName?: pulumi.Input<string>;
     /**
      * The name of the lock.
      */

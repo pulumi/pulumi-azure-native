@@ -104,9 +104,6 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'userName'");
-            }
             inputs["labAccountName"] = args ? args.labAccountName : undefined;
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -185,5 +182,5 @@ export interface UserArgs {
     /**
      * The name of the user.
      */
-    readonly userName: pulumi.Input<string>;
+    readonly userName?: pulumi.Input<string>;
 }

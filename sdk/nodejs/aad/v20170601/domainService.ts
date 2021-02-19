@@ -146,9 +146,6 @@ export class DomainService extends pulumi.CustomResource {
     constructor(name: string, args: DomainServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.domainServiceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'domainServiceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -238,7 +235,7 @@ export interface DomainServiceArgs {
     /**
      * The name of the domain service.
      */
-    readonly domainServiceName: pulumi.Input<string>;
+    readonly domainServiceName?: pulumi.Input<string>;
     /**
      * Resource etag
      */

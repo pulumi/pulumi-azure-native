@@ -67,9 +67,6 @@ export class RoleAssignment extends pulumi.CustomResource {
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.roleAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'roleAssignmentName'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -107,7 +104,7 @@ export interface RoleAssignmentArgs {
     /**
      * The name of the role assignment to create. It can be any valid GUID.
      */
-    readonly roleAssignmentName: pulumi.Input<string>;
+    readonly roleAssignmentName?: pulumi.Input<string>;
     /**
      * The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
      */

@@ -64,9 +64,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:PrivateEndpointConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.privateEndpointConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -104,7 +101,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
      */
-    readonly privateEndpointConnectionName: pulumi.Input<string>;
+    readonly privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
      */

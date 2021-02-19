@@ -152,9 +152,6 @@ export class Device extends pulumi.CustomResource {
         pulumi.log.warn("Device is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Device'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'deviceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -236,7 +233,7 @@ export interface DeviceArgs {
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    readonly deviceName?: pulumi.Input<string>;
     /**
      * The etag for the devices.
      */

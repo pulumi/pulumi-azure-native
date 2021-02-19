@@ -88,9 +88,6 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
         pulumi.log.warn("IntegrationAccountCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountCertificate'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.certificateName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'certificateName'");
-            }
             if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
@@ -140,7 +137,7 @@ export interface IntegrationAccountCertificateArgs {
     /**
      * The integration account certificate name.
      */
-    readonly certificateName: pulumi.Input<string>;
+    readonly certificateName?: pulumi.Input<string>;
     /**
      * The integration account name.
      */

@@ -93,9 +93,6 @@ export class PolicyExemption extends pulumi.CustomResource {
             if ((!args || args.policyAssignmentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
-            if ((!args || args.policyExemptionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyExemptionName'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -171,7 +168,7 @@ export interface PolicyExemptionArgs {
     /**
      * The name of the policy exemption to delete.
      */
-    readonly policyExemptionName: pulumi.Input<string>;
+    readonly policyExemptionName?: pulumi.Input<string>;
     /**
      * The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */

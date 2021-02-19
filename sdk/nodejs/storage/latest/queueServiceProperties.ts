@@ -67,9 +67,6 @@ export class QueueServiceProperties extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.queueServiceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'queueServiceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +109,7 @@ export interface QueueServicePropertiesArgs {
     /**
      * The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
      */
-    readonly queueServiceName: pulumi.Input<string>;
+    readonly queueServiceName?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

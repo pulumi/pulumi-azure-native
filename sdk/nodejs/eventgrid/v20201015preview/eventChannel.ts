@@ -88,9 +88,6 @@ export class EventChannel extends pulumi.CustomResource {
     constructor(name: string, args: EventChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.eventChannelName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'eventChannelName'");
-            }
             if ((!args || args.partnerNamespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partnerNamespaceName'");
             }
@@ -146,7 +143,7 @@ export interface EventChannelArgs {
     /**
      * Name of the event channel.
      */
-    readonly eventChannelName: pulumi.Input<string>;
+    readonly eventChannelName?: pulumi.Input<string>;
     /**
      * Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
      * the event channel and corresponding partner topic are deleted.

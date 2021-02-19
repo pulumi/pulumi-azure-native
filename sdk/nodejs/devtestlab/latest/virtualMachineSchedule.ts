@@ -115,9 +115,6 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -195,7 +192,7 @@ export interface VirtualMachineScheduleArgs {
     /**
      * The name of the schedule.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Notification settings.
      */

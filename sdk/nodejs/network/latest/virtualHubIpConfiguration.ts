@@ -84,9 +84,6 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
         pulumi.log.warn("VirtualHubIpConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualHubIpConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ipConfigName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ipConfigName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -139,7 +136,7 @@ export interface VirtualHubIpConfigurationArgs {
     /**
      * The name of the ipconfig.
      */
-    readonly ipConfigName: pulumi.Input<string>;
+    readonly ipConfigName?: pulumi.Input<string>;
     /**
      * Name of the Ip Configuration.
      */

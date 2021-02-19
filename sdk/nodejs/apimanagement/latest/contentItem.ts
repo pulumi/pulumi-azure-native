@@ -63,9 +63,6 @@ export class ContentItem extends pulumi.CustomResource {
         pulumi.log.warn("ContentItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ContentItem'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.contentItemId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'contentItemId'");
-            }
             if ((!args || args.contentTypeId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contentTypeId'");
             }
@@ -107,7 +104,7 @@ export interface ContentItemArgs {
     /**
      * Content item identifier.
      */
-    readonly contentItemId: pulumi.Input<string>;
+    readonly contentItemId?: pulumi.Input<string>;
     /**
      * Content type identifier.
      */

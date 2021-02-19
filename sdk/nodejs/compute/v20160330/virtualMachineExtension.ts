@@ -97,9 +97,6 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmExtensionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'vmExtensionName'");
-            }
             if ((!args || args.vmName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vmName'");
             }
@@ -196,7 +193,7 @@ export interface VirtualMachineExtensionArgs {
     /**
      * The name of the virtual machine extension.
      */
-    readonly vmExtensionName: pulumi.Input<string>;
+    readonly vmExtensionName?: pulumi.Input<string>;
     /**
      * The name of the virtual machine where the extension should be created or updated.
      */

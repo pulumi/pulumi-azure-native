@@ -121,9 +121,6 @@ export class Volume extends pulumi.CustomResource {
             if ((!args || args.volumeContainerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'volumeContainerName'");
             }
-            if ((!args || args.volumeName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'volumeName'");
-            }
             if ((!args || args.volumeStatus === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'volumeStatus'");
             }
@@ -213,7 +210,7 @@ export interface VolumeArgs {
     /**
      * The volume name.
      */
-    readonly volumeName: pulumi.Input<string>;
+    readonly volumeName?: pulumi.Input<string>;
     /**
      * The volume status.
      */

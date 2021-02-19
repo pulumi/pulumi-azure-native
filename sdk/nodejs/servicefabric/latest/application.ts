@@ -116,9 +116,6 @@ export class Application extends pulumi.CustomResource {
         pulumi.log.warn("Application is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Application'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.applicationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'applicationName'");
-            }
             if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -182,7 +179,7 @@ export interface ApplicationArgs {
     /**
      * The name of the application resource.
      */
-    readonly applicationName: pulumi.Input<string>;
+    readonly applicationName?: pulumi.Input<string>;
     /**
      * The name of the cluster resource.
      */

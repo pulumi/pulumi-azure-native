@@ -84,9 +84,6 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
         pulumi.log.warn("DdosProtectionPlan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DdosProtectionPlan'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ddosProtectionPlanName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ddosProtectionPlanName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -130,7 +127,7 @@ export interface DdosProtectionPlanArgs {
     /**
      * The name of the DDoS protection plan.
      */
-    readonly ddosProtectionPlanName: pulumi.Input<string>;
+    readonly ddosProtectionPlanName?: pulumi.Input<string>;
     /**
      * Resource location.
      */

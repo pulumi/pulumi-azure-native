@@ -83,9 +83,6 @@ export class Variable extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.variableName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'variableName'");
-            }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["isEncrypted"] = args ? args.isEncrypted : undefined;
@@ -149,5 +146,5 @@ export interface VariableArgs {
     /**
      * The variable name.
      */
-    readonly variableName: pulumi.Input<string>;
+    readonly variableName?: pulumi.Input<string>;
 }

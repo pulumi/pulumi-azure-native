@@ -76,13 +76,10 @@ export class PeerAsn extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeerAsn'. */
-    constructor(name: string, args: PeerAsnArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PeerAsnArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PeerAsn is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeerAsn'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.peerAsnName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'peerAsnName'");
-            }
             inputs["peerAsn"] = args ? args.peerAsn : undefined;
             inputs["peerAsnName"] = args ? args.peerAsnName : undefined;
             inputs["peerContactDetail"] = args ? args.peerContactDetail : undefined;
@@ -124,7 +121,7 @@ export interface PeerAsnArgs {
     /**
      * The peer ASN name.
      */
-    readonly peerAsnName: pulumi.Input<string>;
+    readonly peerAsnName?: pulumi.Input<string>;
     /**
      * The contact details of the peer.
      */

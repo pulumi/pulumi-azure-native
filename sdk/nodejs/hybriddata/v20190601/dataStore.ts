@@ -77,9 +77,6 @@ export class DataStore extends pulumi.CustomResource {
             if ((!args || args.dataManagerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataManagerName'");
             }
-            if ((!args || args.dataStoreName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dataStoreName'");
-            }
             if ((!args || args.dataStoreTypeId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataStoreTypeId'");
             }
@@ -136,7 +133,7 @@ export interface DataStoreArgs {
     /**
      * The data store/repository name to be created or updated.
      */
-    readonly dataStoreName: pulumi.Input<string>;
+    readonly dataStoreName?: pulumi.Input<string>;
     /**
      * The arm id of the data store type.
      */

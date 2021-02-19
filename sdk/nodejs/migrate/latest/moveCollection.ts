@@ -80,9 +80,6 @@ export class MoveCollection extends pulumi.CustomResource {
         pulumi.log.warn("MoveCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveCollection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.moveCollectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'moveCollectionName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,7 +129,7 @@ export interface MoveCollectionArgs {
     /**
      * The Move Collection Name.
      */
-    readonly moveCollectionName: pulumi.Input<string>;
+    readonly moveCollectionName?: pulumi.Input<string>;
     /**
      * Defines the move collection properties.
      */

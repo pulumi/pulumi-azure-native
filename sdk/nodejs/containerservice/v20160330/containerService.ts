@@ -93,9 +93,6 @@ export class ContainerService extends pulumi.CustomResource {
             if ((!args || args.agentPoolProfiles === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'agentPoolProfiles'");
             }
-            if ((!args || args.containerServiceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'containerServiceName'");
-            }
             if ((!args || args.linuxProfile === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'linuxProfile'");
             }
@@ -155,7 +152,7 @@ export interface ContainerServiceArgs {
     /**
      * The name of the container service in the specified subscription and resource group.
      */
-    readonly containerServiceName: pulumi.Input<string>;
+    readonly containerServiceName?: pulumi.Input<string>;
     /**
      * Properties of the diagnostic agent.
      */

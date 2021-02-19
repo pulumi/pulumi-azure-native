@@ -63,9 +63,6 @@ export class JobCollection extends pulumi.CustomResource {
     constructor(name: string, args: JobCollectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.jobCollectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'jobCollectionName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -103,7 +100,7 @@ export interface JobCollectionArgs {
     /**
      * The job collection name.
      */
-    readonly jobCollectionName: pulumi.Input<string>;
+    readonly jobCollectionName?: pulumi.Input<string>;
     /**
      * Gets or sets the storage account location.
      */

@@ -77,9 +77,6 @@ export class QueryPack extends pulumi.CustomResource {
     constructor(name: string, args: QueryPackArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.queryPackName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'queryPackName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -125,7 +122,7 @@ export interface QueryPackArgs {
     /**
      * The name of the Log Analytics QueryPack resource.
      */
-    readonly queryPackName: pulumi.Input<string>;
+    readonly queryPackName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

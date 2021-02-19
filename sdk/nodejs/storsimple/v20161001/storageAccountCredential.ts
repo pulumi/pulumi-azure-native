@@ -81,9 +81,6 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             if ((!args || args.cloudType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cloudType'");
             }
-            if ((!args || args.credentialName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'credentialName'");
-            }
             if ((!args || args.enableSSL === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enableSSL'");
             }
@@ -148,7 +145,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * The credential name.
      */
-    readonly credentialName: pulumi.Input<string>;
+    readonly credentialName?: pulumi.Input<string>;
     /**
      * SSL needs to be enabled or not
      */

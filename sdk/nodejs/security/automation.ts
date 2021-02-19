@@ -91,9 +91,6 @@ export class Automation extends pulumi.CustomResource {
     constructor(name: string, args: AutomationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.automationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'automationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -147,7 +144,7 @@ export interface AutomationArgs {
     /**
      * The security automation name.
      */
-    readonly automationName: pulumi.Input<string>;
+    readonly automationName?: pulumi.Input<string>;
     /**
      * The security automation description.
      */

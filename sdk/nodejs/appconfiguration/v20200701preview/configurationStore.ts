@@ -94,9 +94,6 @@ export class ConfigurationStore extends pulumi.CustomResource {
     constructor(name: string, args: ConfigurationStoreArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.configStoreName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'configStoreName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -151,7 +148,7 @@ export interface ConfigurationStoreArgs {
     /**
      * The name of the configuration store.
      */
-    readonly configStoreName: pulumi.Input<string>;
+    readonly configStoreName?: pulumi.Input<string>;
     /**
      * The encryption settings of the configuration store.
      */

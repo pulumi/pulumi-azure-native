@@ -116,9 +116,6 @@ export class GalleryImage extends pulumi.CustomResource {
         pulumi.log.warn("GalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:GalleryImage'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.galleryImageName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'galleryImageName'");
-            }
             if ((!args || args.labAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labAccountName'");
             }
@@ -182,7 +179,7 @@ export interface GalleryImageArgs {
     /**
      * The name of the gallery Image.
      */
-    readonly galleryImageName: pulumi.Input<string>;
+    readonly galleryImageName?: pulumi.Input<string>;
     /**
      * Indicates whether this gallery image is enabled.
      */

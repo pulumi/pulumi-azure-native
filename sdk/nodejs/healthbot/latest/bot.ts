@@ -80,9 +80,6 @@ export class Bot extends pulumi.CustomResource {
         pulumi.log.warn("Bot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthbot:Bot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.botName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'botName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -127,7 +124,7 @@ export interface BotArgs {
     /**
      * The name of the Bot resource.
      */
-    readonly botName: pulumi.Input<string>;
+    readonly botName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

@@ -112,9 +112,6 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.aadTenantId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'aadTenantId'");
             }
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -180,7 +177,7 @@ export interface ClusterArgs {
     /**
      * The name of the cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

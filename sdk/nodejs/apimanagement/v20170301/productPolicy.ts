@@ -60,9 +60,6 @@ export class ProductPolicy extends pulumi.CustomResource {
             if ((!args || args.policyContent === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyContent'");
             }
-            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyId'");
-            }
             if ((!args || args.productId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'productId'");
             }
@@ -108,7 +105,7 @@ export interface ProductPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    readonly policyId: pulumi.Input<string>;
+    readonly policyId?: pulumi.Input<string>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

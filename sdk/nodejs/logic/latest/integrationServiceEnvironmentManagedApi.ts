@@ -72,9 +72,6 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
         pulumi.log.warn("IntegrationServiceEnvironmentManagedApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.apiName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'apiName'");
-            }
             if ((!args || args.integrationServiceEnvironmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrationServiceEnvironmentName'");
             }
@@ -116,7 +113,7 @@ export interface IntegrationServiceEnvironmentManagedApiArgs {
     /**
      * The api name.
      */
-    readonly apiName: pulumi.Input<string>;
+    readonly apiName?: pulumi.Input<string>;
     /**
      * The integration service environment name.
      */

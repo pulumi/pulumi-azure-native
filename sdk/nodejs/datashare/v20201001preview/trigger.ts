@@ -74,9 +74,6 @@ export class Trigger extends pulumi.CustomResource {
             if ((!args || args.shareSubscriptionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
-            if ((!args || args.triggerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'triggerName'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -127,5 +124,5 @@ export interface TriggerArgs {
     /**
      * The name of the trigger.
      */
-    readonly triggerName: pulumi.Input<string>;
+    readonly triggerName?: pulumi.Input<string>;
 }

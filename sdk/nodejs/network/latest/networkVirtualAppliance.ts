@@ -120,9 +120,6 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
         pulumi.log.warn("NetworkVirtualAppliance is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkVirtualAppliance'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.networkVirtualApplianceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'networkVirtualApplianceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -209,7 +206,7 @@ export interface NetworkVirtualApplianceArgs {
     /**
      * The name of Network Virtual Appliance.
      */
-    readonly networkVirtualApplianceName: pulumi.Input<string>;
+    readonly networkVirtualApplianceName?: pulumi.Input<string>;
     /**
      * Network Virtual Appliance SKU.
      */

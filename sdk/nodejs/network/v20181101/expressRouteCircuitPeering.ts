@@ -133,9 +133,6 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             if ((!args || args.circuitName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'peeringName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -247,7 +244,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The name of the peering.
      */
-    readonly peeringName: pulumi.Input<string>;
+    readonly peeringName?: pulumi.Input<string>;
     /**
      * The peering type.
      */

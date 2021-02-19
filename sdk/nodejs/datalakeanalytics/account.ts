@@ -163,9 +163,6 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if ((!args || args.dataLakeStoreAccounts === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataLakeStoreAccounts'");
             }
@@ -257,7 +254,7 @@ export interface AccountArgs {
     /**
      * The name of the Data Lake Analytics account.
      */
-    readonly accountName: pulumi.Input<string>;
+    readonly accountName?: pulumi.Input<string>;
     /**
      * The list of compute policies associated with this account.
      */

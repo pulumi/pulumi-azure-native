@@ -62,9 +62,6 @@ export class JobCredential extends pulumi.CustomResource {
     constructor(name: string, args: JobCredentialArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.credentialName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'credentialName'");
-            }
             if ((!args || args.jobAgentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
@@ -114,7 +111,7 @@ export interface JobCredentialArgs {
     /**
      * The name of the credential.
      */
-    readonly credentialName: pulumi.Input<string>;
+    readonly credentialName?: pulumi.Input<string>;
     /**
      * The name of the job agent.
      */

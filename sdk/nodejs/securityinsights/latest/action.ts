@@ -71,9 +71,6 @@ export class Action extends pulumi.CustomResource {
         pulumi.log.warn("Action is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Action'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.actionId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'actionId'");
-            }
             if ((!args || args.logicAppResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logicAppResourceId'");
             }
@@ -123,7 +120,7 @@ export interface ActionArgs {
     /**
      * Action ID
      */
-    readonly actionId: pulumi.Input<string>;
+    readonly actionId?: pulumi.Input<string>;
     /**
      * Etag of the azure resource
      */

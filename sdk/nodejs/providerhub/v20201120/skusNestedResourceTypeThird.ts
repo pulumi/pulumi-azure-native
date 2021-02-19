@@ -67,9 +67,6 @@ export class SkusNestedResourceTypeThird extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sku'");
-            }
             if ((!args || args.skuSettings === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuSettings'");
             }
@@ -128,6 +125,6 @@ export interface SkusNestedResourceTypeThirdArgs {
     /**
      * The SKU.
      */
-    readonly sku: pulumi.Input<string>;
+    readonly sku?: pulumi.Input<string>;
     readonly skuSettings: pulumi.Input<pulumi.Input<inputs.providerhub.v20201120.SkuSetting>[]>;
 }

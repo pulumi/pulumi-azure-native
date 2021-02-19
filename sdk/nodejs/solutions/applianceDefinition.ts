@@ -99,9 +99,6 @@ export class ApplianceDefinition extends pulumi.CustomResource {
     constructor(name: string, args: ApplianceDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.applianceDefinitionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'applianceDefinitionName'");
-            }
             if ((!args || args.authorizations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizations'");
             }
@@ -164,7 +161,7 @@ export interface ApplianceDefinitionArgs {
     /**
      * The name of the appliance definition.
      */
-    readonly applianceDefinitionName: pulumi.Input<string>;
+    readonly applianceDefinitionName?: pulumi.Input<string>;
     /**
      * The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
      */

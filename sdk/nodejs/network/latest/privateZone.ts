@@ -103,9 +103,6 @@ export class PrivateZone extends pulumi.CustomResource {
         pulumi.log.warn("PrivateZone is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateZone'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.privateZoneName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateZoneName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -167,7 +164,7 @@ export interface PrivateZoneArgs {
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
-    readonly privateZoneName: pulumi.Input<string>;
+    readonly privateZoneName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

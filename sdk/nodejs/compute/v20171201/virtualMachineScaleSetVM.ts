@@ -122,9 +122,6 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     constructor(name: string, args: VirtualMachineScaleSetVMArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.instanceId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'instanceId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -205,7 +202,7 @@ export interface VirtualMachineScaleSetVMArgs {
     /**
      * The instance ID of the virtual machine.
      */
-    readonly instanceId: pulumi.Input<string>;
+    readonly instanceId?: pulumi.Input<string>;
     /**
      * Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
      */

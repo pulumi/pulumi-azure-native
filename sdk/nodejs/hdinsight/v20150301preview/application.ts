@@ -66,9 +66,6 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.applicationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'applicationName'");
-            }
             if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -110,7 +107,7 @@ export interface ApplicationArgs {
     /**
      * The constant value for the application name.
      */
-    readonly applicationName: pulumi.Input<string>;
+    readonly applicationName?: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */

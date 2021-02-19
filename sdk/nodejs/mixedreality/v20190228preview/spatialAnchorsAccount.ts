@@ -77,9 +77,6 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.spatialAnchorsAccountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'spatialAnchorsAccountName'");
-            }
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -130,7 +127,7 @@ export interface SpatialAnchorsAccountArgs {
     /**
      * Name of an Mixed Reality Spatial Anchors Account.
      */
-    readonly spatialAnchorsAccountName: pulumi.Input<string>;
+    readonly spatialAnchorsAccountName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

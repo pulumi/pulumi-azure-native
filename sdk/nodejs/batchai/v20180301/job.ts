@@ -167,9 +167,6 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.cluster === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cluster'");
             }
-            if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'jobName'");
-            }
             if ((!args || args.nodeCount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nodeCount'");
             }
@@ -307,7 +304,7 @@ export interface JobArgs {
     /**
      * The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly jobName: pulumi.Input<string>;
+    readonly jobName?: pulumi.Input<string>;
     /**
      * The specified actions will run on all the nodes that are part of the job
      */

@@ -72,9 +72,6 @@ export class ApiRelease extends pulumi.CustomResource {
             if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.releaseId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'releaseId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -126,7 +123,7 @@ export interface ApiReleaseArgs {
     /**
      * Release identifier within an API. Must be unique in the current API Management service instance.
      */
-    readonly releaseId: pulumi.Input<string>;
+    readonly releaseId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

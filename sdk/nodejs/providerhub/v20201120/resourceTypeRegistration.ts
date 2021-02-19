@@ -55,9 +55,6 @@ export class ResourceTypeRegistration extends pulumi.CustomResource {
             if ((!args || args.providerNamespace === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
-            if ((!args || args.resourceType === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceType'");
-            }
             inputs["properties"] = args ? args.properties : undefined;
             inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
@@ -93,5 +90,5 @@ export interface ResourceTypeRegistrationArgs {
     /**
      * The resource type.
      */
-    readonly resourceType: pulumi.Input<string>;
+    readonly resourceType?: pulumi.Input<string>;
 }

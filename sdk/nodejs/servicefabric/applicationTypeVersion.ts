@@ -90,9 +90,6 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'version'");
-            }
             inputs["appPackageUrl"] = args ? args.appPackageUrl : undefined;
             inputs["applicationTypeName"] = args ? args.applicationTypeName : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -159,5 +156,5 @@ export interface ApplicationTypeVersionArgs {
     /**
      * The application type version.
      */
-    readonly version: pulumi.Input<string>;
+    readonly version?: pulumi.Input<string>;
 }

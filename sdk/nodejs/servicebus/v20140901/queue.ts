@@ -149,9 +149,6 @@ export class Queue extends pulumi.CustomResource {
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.queueName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'queueName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -290,7 +287,7 @@ export interface QueueArgs {
     /**
      * The queue name.
      */
-    readonly queueName: pulumi.Input<string>;
+    readonly queueName?: pulumi.Input<string>;
     /**
      * A value indicating if this queue requires duplicate detection.
      */

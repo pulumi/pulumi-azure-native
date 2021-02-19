@@ -78,9 +78,6 @@ export class BastionHost extends pulumi.CustomResource {
     constructor(name: string, args: BastionHostArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.bastionHostName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'bastionHostName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -125,7 +122,7 @@ export interface BastionHostArgs {
     /**
      * The name of the Bastion Host.
      */
-    readonly bastionHostName: pulumi.Input<string>;
+    readonly bastionHostName?: pulumi.Input<string>;
     /**
      * FQDN for the endpoint on which bastion host is accessible.
      */

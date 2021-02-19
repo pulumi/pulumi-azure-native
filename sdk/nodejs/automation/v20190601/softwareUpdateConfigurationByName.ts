@@ -99,9 +99,6 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
             if ((!args || args.scheduleInfo === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scheduleInfo'");
             }
-            if ((!args || args.softwareUpdateConfigurationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'softwareUpdateConfigurationName'");
-            }
             if ((!args || args.updateConfiguration === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'updateConfiguration'");
             }
@@ -168,7 +165,7 @@ export interface SoftwareUpdateConfigurationByNameArgs {
     /**
      * The name of the software update configuration to be created.
      */
-    readonly softwareUpdateConfigurationName: pulumi.Input<string>;
+    readonly softwareUpdateConfigurationName?: pulumi.Input<string>;
     /**
      * Tasks information for the Software update configuration.
      */

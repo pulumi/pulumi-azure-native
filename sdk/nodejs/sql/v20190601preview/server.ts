@@ -105,9 +105,6 @@ export class Server extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serverName'");
-            }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -188,7 +185,7 @@ export interface ServerArgs {
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    readonly serverName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

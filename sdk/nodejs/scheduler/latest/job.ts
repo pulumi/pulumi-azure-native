@@ -66,9 +66,6 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.jobCollectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobCollectionName'");
             }
-            if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'jobName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -107,7 +104,7 @@ export interface JobArgs {
     /**
      * The job name.
      */
-    readonly jobName: pulumi.Input<string>;
+    readonly jobName?: pulumi.Input<string>;
     /**
      * Gets or sets the job properties.
      */

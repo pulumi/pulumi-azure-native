@@ -61,9 +61,6 @@ export class DataSet extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.dataSetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dataSetName'");
-            }
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -109,7 +106,7 @@ export interface DataSetArgs {
     /**
      * The name of the dataSet.
      */
-    readonly dataSetName: pulumi.Input<string>;
+    readonly dataSetName?: pulumi.Input<string>;
     /**
      * Kind of data set.
      */

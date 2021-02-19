@@ -70,9 +70,6 @@ export class FirewallRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ruleName'");
-            }
             if ((!args || args.startIP === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'startIP'");
             }
@@ -121,7 +118,7 @@ export interface FirewallRuleArgs {
     /**
      * The name of the firewall rule.
      */
-    readonly ruleName: pulumi.Input<string>;
+    readonly ruleName?: pulumi.Input<string>;
     /**
      * lowest IP address included in the range
      */

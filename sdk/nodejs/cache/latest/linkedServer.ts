@@ -82,9 +82,6 @@ export class LinkedServer extends pulumi.CustomResource {
             if ((!args || args.linkedRedisCacheLocation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'linkedRedisCacheLocation'");
             }
-            if ((!args || args.linkedServerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'linkedServerName'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -138,7 +135,7 @@ export interface LinkedServerArgs {
     /**
      * The name of the linked server that is being added to the Redis cache.
      */
-    readonly linkedServerName: pulumi.Input<string>;
+    readonly linkedServerName?: pulumi.Input<string>;
     /**
      * The name of the Redis cache.
      */

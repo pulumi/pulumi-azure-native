@@ -74,9 +74,6 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'jobName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -118,7 +115,7 @@ export interface JobArgs {
     /**
      * The name of the import/export job.
      */
-    readonly jobName: pulumi.Input<string>;
+    readonly jobName?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the job should be created
      */

@@ -70,9 +70,6 @@ export class MediaService extends pulumi.CustomResource {
     constructor(name: string, args: MediaServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.mediaServiceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'mediaServiceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +113,7 @@ export interface MediaServiceArgs {
     /**
      * Name of the Media Service.
      */
-    readonly mediaServiceName: pulumi.Input<string>;
+    readonly mediaServiceName?: pulumi.Input<string>;
     /**
      * Name of the resource group within the Azure subscription.
      */

@@ -124,9 +124,6 @@ export class Volume extends pulumi.CustomResource {
             if ((!args || args.usageThreshold === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'usageThreshold'");
             }
-            if ((!args || args.volumeName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'volumeName'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["creationToken"] = args ? args.creationToken : undefined;
             inputs["exportPolicy"] = args ? args.exportPolicy : undefined;
@@ -235,5 +232,5 @@ export interface VolumeArgs {
     /**
      * The name of the volume
      */
-    readonly volumeName: pulumi.Input<string>;
+    readonly volumeName?: pulumi.Input<string>;
 }

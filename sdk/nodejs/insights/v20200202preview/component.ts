@@ -167,9 +167,6 @@ export class Component extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             inputs["applicationType"] = (args ? args.applicationType : undefined) || "web";
             inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
             inputs["etag"] = args ? args.etag : undefined;
@@ -302,7 +299,7 @@ export interface ComponentArgs {
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    readonly resourceName?: pulumi.Input<string>;
     /**
      * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
      */

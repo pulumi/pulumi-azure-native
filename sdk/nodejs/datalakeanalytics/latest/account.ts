@@ -168,9 +168,6 @@ export class Account extends pulumi.CustomResource {
         pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:Account'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if ((!args || args.dataLakeStoreAccounts === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataLakeStoreAccounts'");
             }
@@ -262,7 +259,7 @@ export interface AccountArgs {
     /**
      * The name of the Data Lake Analytics account.
      */
-    readonly accountName: pulumi.Input<string>;
+    readonly accountName?: pulumi.Input<string>;
     /**
      * The list of compute policies associated with this account.
      */

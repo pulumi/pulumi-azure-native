@@ -82,9 +82,6 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
     constructor(name: string, args: RoleManagementPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.roleManagementPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'roleManagementPolicyName'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -139,7 +136,7 @@ export interface RoleManagementPolicyArgs {
     /**
      * The name (guid) of the role management policy to upsert.
      */
-    readonly roleManagementPolicyName: pulumi.Input<string>;
+    readonly roleManagementPolicyName?: pulumi.Input<string>;
     /**
      * The rule applied to the policy.
      */

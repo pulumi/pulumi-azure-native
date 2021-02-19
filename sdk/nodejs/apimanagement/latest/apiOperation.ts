@@ -101,9 +101,6 @@ export class ApiOperation extends pulumi.CustomResource {
             if ((!args || args.method === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'method'");
             }
-            if ((!args || args.operationId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'operationId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -175,7 +172,7 @@ export interface ApiOperationArgs {
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
-    readonly operationId: pulumi.Input<string>;
+    readonly operationId?: pulumi.Input<string>;
     /**
      * Operation Policies
      */

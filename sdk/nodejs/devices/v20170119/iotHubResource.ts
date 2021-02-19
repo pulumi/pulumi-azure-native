@@ -85,9 +85,6 @@ export class IotHubResource extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             if ((!args || args.resourcegroup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourcegroup'");
             }
@@ -155,7 +152,7 @@ export interface IotHubResourceArgs {
     /**
      * The name of the IoT hub to create or update.
      */
-    readonly resourceName: pulumi.Input<string>;
+    readonly resourceName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
      */

@@ -122,9 +122,6 @@ export class Schedule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scheduleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'scheduleName'");
-            }
             if ((!args || args.startTime === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'startTime'");
             }
@@ -217,7 +214,7 @@ export interface ScheduleArgs {
     /**
      * The schedule name.
      */
-    readonly scheduleName: pulumi.Input<string>;
+    readonly scheduleName?: pulumi.Input<string>;
     /**
      * Gets or sets the start time of the schedule.
      */

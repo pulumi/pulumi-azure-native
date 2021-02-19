@@ -226,9 +226,6 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
         pulumi.log.warn("AppServiceEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServiceEnvironment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -396,7 +393,7 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Name of the App Service Environment.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Access control list for controlling traffic to the App Service Environment.
      */

@@ -79,9 +79,6 @@ export class StorageDomain extends pulumi.CustomResource {
             if ((!args || args.storageAccountCredentialIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountCredentialIds'");
             }
-            if ((!args || args.storageDomainName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'storageDomainName'");
-            }
             inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             inputs["encryptionStatus"] = args ? args.encryptionStatus : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
@@ -137,5 +134,5 @@ export interface StorageDomainArgs {
     /**
      * The storage domain name.
      */
-    readonly storageDomainName: pulumi.Input<string>;
+    readonly storageDomainName?: pulumi.Input<string>;
 }

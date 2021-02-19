@@ -70,9 +70,6 @@ export class MasterSite extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.siteName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'siteName'");
-            }
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -127,5 +124,5 @@ export interface MasterSiteArgs {
     /**
      * Site name.
      */
-    readonly siteName: pulumi.Input<string>;
+    readonly siteName?: pulumi.Input<string>;
 }

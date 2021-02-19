@@ -94,9 +94,6 @@ export class LogProfile extends pulumi.CustomResource {
             if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locations'");
             }
-            if ((!args || args.logProfileName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'logProfileName'");
-            }
             if ((!args || args.retentionPolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'retentionPolicy'");
             }
@@ -153,7 +150,7 @@ export interface LogProfileArgs {
     /**
      * The name of the log profile.
      */
-    readonly logProfileName: pulumi.Input<string>;
+    readonly logProfileName?: pulumi.Input<string>;
     /**
      * the retention policy for the events in the log.
      */

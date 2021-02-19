@@ -100,9 +100,6 @@ export class CustomIPPrefix extends pulumi.CustomResource {
         pulumi.log.warn("CustomIPPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:CustomIPPrefix'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.customIpPrefixName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'customIpPrefixName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -163,7 +160,7 @@ export interface CustomIPPrefixArgs {
     /**
      * The name of the custom IP prefix.
      */
-    readonly customIpPrefixName: pulumi.Input<string>;
+    readonly customIpPrefixName?: pulumi.Input<string>;
     /**
      * The extended location of the custom IP prefix.
      */

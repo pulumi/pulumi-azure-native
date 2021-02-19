@@ -76,9 +76,6 @@ export class ProtectionPolicy extends pulumi.CustomResource {
         pulumi.log.warn("ProtectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -130,7 +127,7 @@ export interface ProtectionPolicyArgs {
     /**
      * Backup policy to be created.
      */
-    readonly policyName: pulumi.Input<string>;
+    readonly policyName?: pulumi.Input<string>;
     /**
      * ProtectionPolicyResource properties
      */

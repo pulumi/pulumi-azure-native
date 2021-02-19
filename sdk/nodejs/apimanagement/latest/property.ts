@@ -78,9 +78,6 @@ export class Property extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.propId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'propId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -131,7 +128,7 @@ export interface PropertyArgs {
     /**
      * Identifier of the property.
      */
-    readonly propId: pulumi.Input<string>;
+    readonly propId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

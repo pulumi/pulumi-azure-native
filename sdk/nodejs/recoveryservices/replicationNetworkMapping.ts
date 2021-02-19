@@ -66,9 +66,6 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
             if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if ((!args || args.networkMappingName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'networkMappingName'");
-            }
             if ((!args || args.networkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkName'");
             }
@@ -117,7 +114,7 @@ export interface ReplicationNetworkMappingArgs {
     /**
      * Network mapping name.
      */
-    readonly networkMappingName: pulumi.Input<string>;
+    readonly networkMappingName?: pulumi.Input<string>;
     /**
      * Primary network name.
      */

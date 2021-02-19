@@ -73,9 +73,6 @@ export class Extension extends pulumi.CustomResource {
             if ((!args || args.accountResourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountResourceName'");
             }
-            if ((!args || args.extensionResourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'extensionResourceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -120,7 +117,7 @@ export interface ExtensionArgs {
     /**
      * The name of the extension.
      */
-    readonly extensionResourceName: pulumi.Input<string>;
+    readonly extensionResourceName?: pulumi.Input<string>;
     /**
      * The Azure region of the Visual Studio account associated with this request (i.e 'southcentralus'.)
      */

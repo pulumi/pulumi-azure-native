@@ -117,9 +117,6 @@ export class Relationship extends pulumi.CustomResource {
             if ((!args || args.relatedProfileType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'relatedProfileType'");
             }
-            if ((!args || args.relationshipName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'relationshipName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -211,7 +208,7 @@ export interface RelationshipArgs {
     /**
      * The name of the Relationship.
      */
-    readonly relationshipName: pulumi.Input<string>;
+    readonly relationshipName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

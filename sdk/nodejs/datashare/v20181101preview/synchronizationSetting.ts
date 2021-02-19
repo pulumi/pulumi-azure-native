@@ -70,9 +70,6 @@ export class SynchronizationSetting extends pulumi.CustomResource {
             if ((!args || args.shareName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.synchronizationSettingName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'synchronizationSettingName'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -121,5 +118,5 @@ export interface SynchronizationSettingArgs {
     /**
      * The name of the synchronizationSetting.
      */
-    readonly synchronizationSettingName: pulumi.Input<string>;
+    readonly synchronizationSettingName?: pulumi.Input<string>;
 }

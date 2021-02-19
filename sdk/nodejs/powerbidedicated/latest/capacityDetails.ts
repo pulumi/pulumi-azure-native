@@ -84,9 +84,6 @@ export class CapacityDetails extends pulumi.CustomResource {
         pulumi.log.warn("CapacityDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbidedicated:CapacityDetails'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dedicatedCapacityName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dedicatedCapacityName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -137,7 +134,7 @@ export interface CapacityDetailsArgs {
     /**
      * The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    readonly dedicatedCapacityName: pulumi.Input<string>;
+    readonly dedicatedCapacityName?: pulumi.Input<string>;
     /**
      * Location of the PowerBI Dedicated resource.
      */

@@ -73,9 +73,6 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serviceName'");
-            }
             if ((!args || args.serviceTopologyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceTopologyName'");
             }
@@ -130,7 +127,7 @@ export interface ServiceArgs {
     /**
      * The name of the service resource.
      */
-    readonly serviceName: pulumi.Input<string>;
+    readonly serviceName?: pulumi.Input<string>;
     /**
      * The name of the service topology .
      */

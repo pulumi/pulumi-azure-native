@@ -82,9 +82,6 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
     constructor(name: string, args: RemediationAtResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.remediationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'remediationName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -146,7 +143,7 @@ export interface RemediationAtResourceGroupArgs {
     /**
      * The name of the remediation.
      */
-    readonly remediationName: pulumi.Input<string>;
+    readonly remediationName?: pulumi.Input<string>;
     /**
      * Resource group name.
      */

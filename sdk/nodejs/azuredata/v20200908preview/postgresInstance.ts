@@ -82,9 +82,6 @@ export class PostgresInstance extends pulumi.CustomResource {
     constructor(name: string, args: PostgresInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.postgresInstanceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'postgresInstanceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -150,7 +147,7 @@ export interface PostgresInstanceArgs {
     /**
      * Name of PostgresInstance
      */
-    readonly postgresInstanceName: pulumi.Input<string>;
+    readonly postgresInstanceName?: pulumi.Input<string>;
     /**
      * The name of the Azure resource group
      */

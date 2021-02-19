@@ -57,9 +57,6 @@ export class SupportPlanType extends pulumi.CustomResource {
     constructor(name: string, args: SupportPlanTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.planTypeName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'planTypeName'");
-            }
             if ((!args || args.providerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'providerName'");
             }
@@ -93,7 +90,7 @@ export interface SupportPlanTypeArgs {
     /**
      * The Canonical support plan type.
      */
-    readonly planTypeName: pulumi.Input<string>;
+    readonly planTypeName?: pulumi.Input<string>;
     /**
      * The support plan type. For now the only valid type is "canonical".
      */

@@ -96,9 +96,6 @@ export class BillingRoleAssignmentByBillingAccount extends pulumi.CustomResource
             if ((!args || args.billingAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
-            if ((!args || args.billingRoleAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'billingRoleAssignmentName'");
-            }
             inputs["billingAccountName"] = args ? args.billingAccountName : undefined;
             inputs["billingRoleAssignmentName"] = args ? args.billingRoleAssignmentName : undefined;
             inputs["principalId"] = args ? args.principalId : undefined;
@@ -151,7 +148,7 @@ export interface BillingRoleAssignmentByBillingAccountArgs {
     /**
      * The ID that uniquely identifies a role assignment.
      */
-    readonly billingRoleAssignmentName: pulumi.Input<string>;
+    readonly billingRoleAssignmentName?: pulumi.Input<string>;
     /**
      * The principal id of the user to whom the role was assigned.
      */

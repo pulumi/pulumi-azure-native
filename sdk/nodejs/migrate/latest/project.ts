@@ -76,9 +76,6 @@ export class Project extends pulumi.CustomResource {
         pulumi.log.warn("Project is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Project'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'projectName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -126,7 +123,7 @@ export interface ProjectArgs {
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: pulumi.Input<string>;
+    readonly projectName?: pulumi.Input<string>;
     /**
      * Properties of the project.
      */

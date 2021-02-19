@@ -93,9 +93,6 @@ export class ScalingPlan extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scalingPlanName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'scalingPlanName'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["exclusionTag"] = args ? args.exclusionTag : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
@@ -170,7 +167,7 @@ export interface ScalingPlanArgs {
     /**
      * The name of the scaling plan.
      */
-    readonly scalingPlanName: pulumi.Input<string>;
+    readonly scalingPlanName?: pulumi.Input<string>;
     /**
      * List of ScalingSchedule definitions.
      */

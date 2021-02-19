@@ -58,9 +58,6 @@ export class Artifact extends pulumi.CustomResource {
     constructor(name: string, args: ArtifactArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.artifactName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'artifactName'");
-            }
             if ((!args || args.blueprintName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'blueprintName'");
             }
@@ -99,7 +96,7 @@ export interface ArtifactArgs {
     /**
      * name of the artifact.
      */
-    readonly artifactName: pulumi.Input<string>;
+    readonly artifactName?: pulumi.Input<string>;
     /**
      * name of the blueprint.
      */

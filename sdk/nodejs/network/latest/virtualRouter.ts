@@ -99,9 +99,6 @@ export class VirtualRouter extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualRouterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'virtualRouterName'");
-            }
             inputs["hostedGateway"] = args ? args.hostedGateway : undefined;
             inputs["hostedSubnet"] = args ? args.hostedSubnet : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -181,5 +178,5 @@ export interface VirtualRouterArgs {
     /**
      * The name of the Virtual Router.
      */
-    readonly virtualRouterName: pulumi.Input<string>;
+    readonly virtualRouterName?: pulumi.Input<string>;
 }

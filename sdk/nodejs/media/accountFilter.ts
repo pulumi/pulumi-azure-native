@@ -74,9 +74,6 @@ export class AccountFilter extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.filterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'filterName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -121,7 +118,7 @@ export interface AccountFilterArgs {
     /**
      * The Account Filter name
      */
-    readonly filterName: pulumi.Input<string>;
+    readonly filterName?: pulumi.Input<string>;
     /**
      * The first quality.
      */

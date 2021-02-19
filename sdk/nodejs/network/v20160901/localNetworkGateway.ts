@@ -89,9 +89,6 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
             if ((!args || args.localNetworkAddressSpace === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'localNetworkAddressSpace'");
             }
-            if ((!args || args.localNetworkGatewayName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'localNetworkGatewayName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -160,7 +157,7 @@ export interface LocalNetworkGatewayArgs {
     /**
      * The name of the local network gateway.
      */
-    readonly localNetworkGatewayName: pulumi.Input<string>;
+    readonly localNetworkGatewayName?: pulumi.Input<string>;
     /**
      * Resource location.
      */

@@ -78,9 +78,6 @@ export class WebService extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.webServiceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'webServiceName'");
-            }
             inputs["location"] = args ? args.location : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -131,5 +128,5 @@ export interface WebServiceArgs {
     /**
      * The name of the web service.
      */
-    readonly webServiceName: pulumi.Input<string>;
+    readonly webServiceName?: pulumi.Input<string>;
 }

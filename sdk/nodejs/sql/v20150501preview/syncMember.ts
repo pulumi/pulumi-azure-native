@@ -102,9 +102,6 @@ export class SyncMember extends pulumi.CustomResource {
             if ((!args || args.syncGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
-            if ((!args || args.syncMemberName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'syncMemberName'");
-            }
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["databaseType"] = args ? args.databaseType : undefined;
             inputs["password"] = args ? args.password : undefined;
@@ -188,7 +185,7 @@ export interface SyncMemberArgs {
     /**
      * The name of the sync member.
      */
-    readonly syncMemberName: pulumi.Input<string>;
+    readonly syncMemberName?: pulumi.Input<string>;
     /**
      * User name of the member database in the sync member.
      */

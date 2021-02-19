@@ -56,9 +56,6 @@ export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
             if ((!args || args.eventHubEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventHubEndpointName'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -98,7 +95,7 @@ export interface IotHubResourceEventHubConsumerGroupArgs {
     /**
      * The name of the consumer group to add.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the IoT hub.
      */

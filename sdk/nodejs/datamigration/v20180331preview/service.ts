@@ -89,9 +89,6 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serviceName'");
-            }
             if ((!args || args.virtualSubnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualSubnetId'");
             }
@@ -159,7 +156,7 @@ export interface ServiceArgs {
     /**
      * Name of the service
      */
-    readonly serviceName: pulumi.Input<string>;
+    readonly serviceName?: pulumi.Input<string>;
     /**
      * Service SKU
      */

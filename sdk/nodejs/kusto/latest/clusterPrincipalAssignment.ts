@@ -91,9 +91,6 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
             if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.principalAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'principalAssignmentName'");
-            }
             if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principalId'");
             }
@@ -153,7 +150,7 @@ export interface ClusterPrincipalAssignmentArgs {
     /**
      * The name of the Kusto principalAssignment.
      */
-    readonly principalAssignmentName: pulumi.Input<string>;
+    readonly principalAssignmentName?: pulumi.Input<string>;
     /**
      * The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
      */

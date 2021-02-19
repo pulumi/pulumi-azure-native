@@ -93,9 +93,6 @@ export class IotSensor extends pulumi.CustomResource {
     constructor(name: string, args: IotSensorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.iotSensorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'iotSensorName'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -147,7 +144,7 @@ export interface IotSensorArgs {
     /**
      * Name of the IoT sensor
      */
-    readonly iotSensorName: pulumi.Input<string>;
+    readonly iotSensorName?: pulumi.Input<string>;
     /**
      * Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
      */

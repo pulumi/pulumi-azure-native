@@ -62,9 +62,6 @@ export class DeploymentAtScope extends pulumi.CustomResource {
     constructor(name: string, args: DeploymentAtScopeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.deploymentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'deploymentName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -103,7 +100,7 @@ export interface DeploymentAtScopeArgs {
     /**
      * The name of the deployment.
      */
-    readonly deploymentName: pulumi.Input<string>;
+    readonly deploymentName?: pulumi.Input<string>;
     /**
      * The location to store the deployment data.
      */

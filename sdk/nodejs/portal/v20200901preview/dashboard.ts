@@ -70,9 +70,6 @@ export class Dashboard extends pulumi.CustomResource {
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dashboardName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dashboardName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +109,7 @@ export interface DashboardArgs {
     /**
      * The name of the dashboard.
      */
-    readonly dashboardName: pulumi.Input<string>;
+    readonly dashboardName?: pulumi.Input<string>;
     /**
      * The dashboard lenses.
      */

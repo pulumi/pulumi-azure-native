@@ -68,9 +68,6 @@ export class AlertRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ruleId'");
-            }
             if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -119,7 +116,7 @@ export interface AlertRuleArgs {
     /**
      * Alert rule ID
      */
-    readonly ruleId: pulumi.Input<string>;
+    readonly ruleId?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

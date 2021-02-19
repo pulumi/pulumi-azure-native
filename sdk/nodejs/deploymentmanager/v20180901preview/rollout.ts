@@ -91,9 +91,6 @@ export class Rollout extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rolloutName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'rolloutName'");
-            }
             if ((!args || args.stepGroups === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stepGroups'");
             }
@@ -162,7 +159,7 @@ export interface RolloutArgs {
     /**
      * The rollout name.
      */
-    readonly rolloutName: pulumi.Input<string>;
+    readonly rolloutName?: pulumi.Input<string>;
     /**
      * The list of step groups that define the orchestration.
      */

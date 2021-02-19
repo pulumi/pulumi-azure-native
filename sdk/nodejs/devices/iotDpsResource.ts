@@ -78,9 +78,6 @@ export class IotDpsResource extends pulumi.CustomResource {
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.provisioningServiceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'provisioningServiceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -137,7 +134,7 @@ export interface IotDpsResourceArgs {
     /**
      * Name of provisioning service to create or update.
      */
-    readonly provisioningServiceName: pulumi.Input<string>;
+    readonly provisioningServiceName?: pulumi.Input<string>;
     /**
      * Resource group identifier.
      */

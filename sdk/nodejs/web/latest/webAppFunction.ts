@@ -120,9 +120,6 @@ export class WebAppFunction extends pulumi.CustomResource {
         pulumi.log.warn("WebAppFunction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppFunction'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.functionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'functionName'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -203,7 +200,7 @@ export interface WebAppFunctionArgs {
     /**
      * Function name.
      */
-    readonly functionName: pulumi.Input<string>;
+    readonly functionName?: pulumi.Input<string>;
     /**
      * Function URI.
      */

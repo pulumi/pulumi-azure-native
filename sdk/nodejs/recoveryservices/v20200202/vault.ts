@@ -81,9 +81,6 @@ export class Vault extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vaultName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'vaultName'");
-            }
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -152,5 +149,5 @@ export interface VaultArgs {
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName: pulumi.Input<string>;
+    readonly vaultName?: pulumi.Input<string>;
 }

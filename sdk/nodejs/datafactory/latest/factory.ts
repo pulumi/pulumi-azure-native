@@ -104,9 +104,6 @@ export class Factory extends pulumi.CustomResource {
         pulumi.log.warn("Factory is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Factory'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'factoryName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -164,7 +161,7 @@ export interface FactoryArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: pulumi.Input<string>;
+    readonly factoryName?: pulumi.Input<string>;
     /**
      * List of parameters for factory.
      */

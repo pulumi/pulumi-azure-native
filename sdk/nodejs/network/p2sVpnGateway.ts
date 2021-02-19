@@ -99,9 +99,6 @@ export class P2sVpnGateway extends pulumi.CustomResource {
     constructor(name: string, args: P2sVpnGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'gatewayName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -160,7 +157,7 @@ export interface P2sVpnGatewayArgs {
     /**
      * The name of the gateway.
      */
-    readonly gatewayName: pulumi.Input<string>;
+    readonly gatewayName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

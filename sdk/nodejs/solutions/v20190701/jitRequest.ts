@@ -100,9 +100,6 @@ export class JitRequest extends pulumi.CustomResource {
             if ((!args || args.jitAuthorizationPolicies === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jitAuthorizationPolicies'");
             }
-            if ((!args || args.jitRequestName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'jitRequestName'");
-            }
             if ((!args || args.jitSchedulingPolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jitSchedulingPolicy'");
             }
@@ -165,7 +162,7 @@ export interface JitRequestArgs {
     /**
      * The name of the JIT request.
      */
-    readonly jitRequestName: pulumi.Input<string>;
+    readonly jitRequestName?: pulumi.Input<string>;
     /**
      * The JIT request properties.
      */

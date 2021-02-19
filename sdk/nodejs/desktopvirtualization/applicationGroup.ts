@@ -83,9 +83,6 @@ export class ApplicationGroup extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.applicationGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'applicationGroupName'");
-            }
             if ((!args || args.applicationGroupType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationGroupType'");
             }
@@ -137,7 +134,7 @@ export interface ApplicationGroupArgs {
     /**
      * The name of the application group
      */
-    readonly applicationGroupName: pulumi.Input<string>;
+    readonly applicationGroupName?: pulumi.Input<string>;
     /**
      * Resource Type of ApplicationGroup.
      */

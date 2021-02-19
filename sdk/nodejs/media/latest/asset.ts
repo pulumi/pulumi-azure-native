@@ -99,9 +99,6 @@ export class Asset extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.assetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'assetName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -160,7 +157,7 @@ export interface AssetArgs {
     /**
      * The Asset name.
      */
-    readonly assetName: pulumi.Input<string>;
+    readonly assetName?: pulumi.Input<string>;
     /**
      * The name of the asset blob container.
      */

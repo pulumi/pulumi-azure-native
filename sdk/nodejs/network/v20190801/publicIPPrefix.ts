@@ -106,9 +106,6 @@ export class PublicIPPrefix extends pulumi.CustomResource {
     constructor(name: string, args: PublicIPPrefixArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.publicIpPrefixName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'publicIpPrefixName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -199,7 +196,7 @@ export interface PublicIPPrefixArgs {
     /**
      * The name of the public IP prefix.
      */
-    readonly publicIpPrefixName: pulumi.Input<string>;
+    readonly publicIpPrefixName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

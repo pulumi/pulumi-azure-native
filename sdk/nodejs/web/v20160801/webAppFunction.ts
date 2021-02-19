@@ -93,9 +93,6 @@ export class WebAppFunction extends pulumi.CustomResource {
     constructor(name: string, args: WebAppFunctionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.functionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'functionName'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -162,7 +159,7 @@ export interface WebAppFunctionArgs {
     /**
      * Function name.
      */
-    readonly functionName: pulumi.Input<string>;
+    readonly functionName?: pulumi.Input<string>;
     /**
      * Function URI.
      */

@@ -93,9 +93,6 @@ export class SqlManagedInstance extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlManagedInstanceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sqlManagedInstanceName'");
-            }
             inputs["admin"] = args ? args.admin : undefined;
             inputs["dataControllerId"] = args ? args.dataControllerId : undefined;
             inputs["endTime"] = args ? args.endTime : undefined;
@@ -166,7 +163,7 @@ export interface SqlManagedInstanceArgs {
     /**
      * The name of SQL Managed Instances
      */
-    readonly sqlManagedInstanceName: pulumi.Input<string>;
+    readonly sqlManagedInstanceName?: pulumi.Input<string>;
     /**
      * The instance start time
      */

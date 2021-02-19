@@ -63,9 +63,6 @@ export class RegistrationDefinition extends pulumi.CustomResource {
     constructor(name: string, args: RegistrationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.registrationDefinitionId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'registrationDefinitionId'");
-            }
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -109,7 +106,7 @@ export interface RegistrationDefinitionArgs {
     /**
      * Guid of the registration definition.
      */
-    readonly registrationDefinitionId: pulumi.Input<string>;
+    readonly registrationDefinitionId?: pulumi.Input<string>;
     /**
      * Scope of the resource.
      */

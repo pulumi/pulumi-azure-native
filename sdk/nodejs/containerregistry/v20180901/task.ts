@@ -111,9 +111,6 @@ export class Task extends pulumi.CustomResource {
             if ((!args || args.step === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'step'");
             }
-            if ((!args || args.taskName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'taskName'");
-            }
             inputs["agentConfiguration"] = args ? args.agentConfiguration : undefined;
             inputs["credentials"] = args ? args.credentials : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -201,7 +198,7 @@ export interface TaskArgs {
     /**
      * The name of the container registry task.
      */
-    readonly taskName: pulumi.Input<string>;
+    readonly taskName?: pulumi.Input<string>;
     /**
      * Run timeout in seconds.
      */

@@ -96,9 +96,6 @@ export class Favorite extends pulumi.CustomResource {
         pulumi.log.warn("Favorite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Favorite'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.favoriteId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'favoriteId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -159,7 +156,7 @@ export interface FavoriteArgs {
     /**
      * The Id of a specific favorite defined in the Application Insights component
      */
-    readonly favoriteId: pulumi.Input<string>;
+    readonly favoriteId?: pulumi.Input<string>;
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */

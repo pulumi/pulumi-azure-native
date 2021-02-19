@@ -66,9 +66,6 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     constructor(name: string, args: ExpressRouteCircuitAuthorizationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.authorizationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'authorizationName'");
-            }
             if ((!args || args.circuitName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'circuitName'");
             }
@@ -115,7 +112,7 @@ export interface ExpressRouteCircuitAuthorizationArgs {
     /**
      * The name of the authorization.
      */
-    readonly authorizationName: pulumi.Input<string>;
+    readonly authorizationName?: pulumi.Input<string>;
     /**
      * Gets or sets AuthorizationUseStatus
      */

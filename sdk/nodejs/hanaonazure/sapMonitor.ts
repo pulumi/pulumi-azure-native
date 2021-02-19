@@ -97,9 +97,6 @@ export class SapMonitor extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sapMonitorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sapMonitorName'");
-            }
             inputs["enableCustomerAnalytics"] = args ? args.enableCustomerAnalytics : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["logAnalyticsWorkspaceArmId"] = args ? args.logAnalyticsWorkspaceArmId : undefined;
@@ -176,7 +173,7 @@ export interface SapMonitorArgs {
     /**
      * Name of the SAP monitor resource.
      */
-    readonly sapMonitorName: pulumi.Input<string>;
+    readonly sapMonitorName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

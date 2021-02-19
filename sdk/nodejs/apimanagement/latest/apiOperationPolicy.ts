@@ -74,9 +74,6 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
             if ((!args || args.operationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'operationId'");
             }
-            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -133,7 +130,7 @@ export interface ApiOperationPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    readonly policyId: pulumi.Input<string>;
+    readonly policyId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

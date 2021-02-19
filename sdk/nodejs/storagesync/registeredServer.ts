@@ -137,9 +137,6 @@ export class RegisteredServer extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serverId'");
-            }
             if ((!args || args.storageSyncServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
@@ -239,7 +236,7 @@ export interface RegisteredServerArgs {
     /**
      * Registered Server serverId
      */
-    readonly serverId: pulumi.Input<string>;
+    readonly serverId?: pulumi.Input<string>;
     /**
      * Registered Server OS Version
      */

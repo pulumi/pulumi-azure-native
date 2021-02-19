@@ -88,9 +88,6 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
         pulumi.log.warn("ExpressRouteGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteGateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.expressRouteGatewayName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'expressRouteGatewayName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -144,7 +141,7 @@ export interface ExpressRouteGatewayArgs {
     /**
      * The name of the ExpressRoute gateway.
      */
-    readonly expressRouteGatewayName: pulumi.Input<string>;
+    readonly expressRouteGatewayName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

@@ -101,9 +101,6 @@ export class VirtualHub extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHubName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'virtualHubName'");
-            }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             inputs["expressRouteGateway"] = args ? args.expressRouteGateway : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -187,7 +184,7 @@ export interface VirtualHubArgs {
     /**
      * The name of the VirtualHub.
      */
-    readonly virtualHubName: pulumi.Input<string>;
+    readonly virtualHubName?: pulumi.Input<string>;
     /**
      * list of all vnet connections with this VirtualHub.
      */

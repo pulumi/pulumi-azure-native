@@ -102,9 +102,6 @@ export class EnvironmentSetting extends pulumi.CustomResource {
     constructor(name: string, args: EnvironmentSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.environmentSettingName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'environmentSettingName'");
-            }
             if ((!args || args.labAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labAccountName'");
             }
@@ -179,7 +176,7 @@ export interface EnvironmentSettingArgs {
     /**
      * The name of the environment Setting.
      */
-    readonly environmentSettingName: pulumi.Input<string>;
+    readonly environmentSettingName?: pulumi.Input<string>;
     /**
      * The name of the lab Account.
      */

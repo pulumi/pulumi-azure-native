@@ -70,9 +70,6 @@ export class DataController extends pulumi.CustomResource {
     constructor(name: string, args: DataControllerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dataControllerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dataControllerName'");
-            }
             if ((!args || args.onPremiseProperty === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'onPremiseProperty'");
             }
@@ -112,7 +109,7 @@ export class DataController extends pulumi.CustomResource {
  * The set of arguments for constructing a DataController resource.
  */
 export interface DataControllerArgs {
-    readonly dataControllerName: pulumi.Input<string>;
+    readonly dataControllerName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

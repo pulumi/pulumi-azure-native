@@ -86,9 +86,6 @@ export class Blueprint extends pulumi.CustomResource {
     constructor(name: string, args: BlueprintArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.blueprintName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'blueprintName'");
-            }
             if ((!args || args.resourceScope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceScope'");
             }
@@ -139,7 +136,7 @@ export interface BlueprintArgs {
     /**
      * Name of the blueprint definition.
      */
-    readonly blueprintName: pulumi.Input<string>;
+    readonly blueprintName?: pulumi.Input<string>;
     /**
      * Multi-line explain this resource.
      */

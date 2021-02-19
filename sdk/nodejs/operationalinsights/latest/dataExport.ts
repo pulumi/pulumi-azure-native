@@ -87,9 +87,6 @@ export class DataExport extends pulumi.CustomResource {
         pulumi.log.warn("DataExport is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataExport'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.dataExportName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dataExportName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -153,7 +150,7 @@ export interface DataExportArgs {
     /**
      * The data export rule name.
      */
-    readonly dataExportName: pulumi.Input<string>;
+    readonly dataExportName?: pulumi.Input<string>;
     /**
      * Active when enabled.
      */

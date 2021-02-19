@@ -79,9 +79,6 @@ export class IscsiServer extends pulumi.CustomResource {
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.iscsiServerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'iscsiServerName'");
-            }
             if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
@@ -147,7 +144,7 @@ export interface IscsiServerArgs {
     /**
      * The iSCSI server name.
      */
-    readonly iscsiServerName: pulumi.Input<string>;
+    readonly iscsiServerName?: pulumi.Input<string>;
     /**
      * The manager name
      */

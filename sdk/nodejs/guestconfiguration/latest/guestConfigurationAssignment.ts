@@ -68,9 +68,6 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
         pulumi.log.warn("GuestConfigurationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:guestconfiguration:GuestConfigurationAssignment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.guestConfigurationAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'guestConfigurationAssignmentName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -110,7 +107,7 @@ export interface GuestConfigurationAssignmentArgs {
     /**
      * Name of the guest configuration assignment.
      */
-    readonly guestConfigurationAssignmentName: pulumi.Input<string>;
+    readonly guestConfigurationAssignmentName?: pulumi.Input<string>;
     /**
      * Region where the VM is located.
      */

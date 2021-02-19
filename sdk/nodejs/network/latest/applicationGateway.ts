@@ -200,9 +200,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
         pulumi.log.warn("ApplicationGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.applicationGatewayName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'applicationGatewayName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -305,7 +302,7 @@ export interface ApplicationGatewayArgs {
     /**
      * The name of the application gateway.
      */
-    readonly applicationGatewayName: pulumi.Input<string>;
+    readonly applicationGatewayName?: pulumi.Input<string>;
     /**
      * Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */

@@ -99,9 +99,6 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -176,7 +173,7 @@ export interface PolicyArgs {
     /**
      * The name of the CdnWebApplicationFirewallPolicy.
      */
-    readonly policyName: pulumi.Input<string>;
+    readonly policyName?: pulumi.Input<string>;
     /**
      * Describes  policySettings for policy
      */

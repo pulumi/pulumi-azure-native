@@ -86,9 +86,6 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
             if ((!args || args.alertType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'alertType'");
             }
-            if ((!args || args.alertsSuppressionRuleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'alertsSuppressionRuleName'");
-            }
             if ((!args || args.reason === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'reason'");
             }
@@ -140,7 +137,7 @@ export interface AlertsSuppressionRuleArgs {
     /**
      * The unique name of the suppression alert rule
      */
-    readonly alertsSuppressionRuleName: pulumi.Input<string>;
+    readonly alertsSuppressionRuleName?: pulumi.Input<string>;
     /**
      * Any comment regarding the rule
      */

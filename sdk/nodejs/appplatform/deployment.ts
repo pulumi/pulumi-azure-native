@@ -66,9 +66,6 @@ export class Deployment extends pulumi.CustomResource {
             if ((!args || args.appName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appName'");
             }
-            if ((!args || args.deploymentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'deploymentName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -113,7 +110,7 @@ export interface DeploymentArgs {
     /**
      * The name of the Deployment resource.
      */
-    readonly deploymentName: pulumi.Input<string>;
+    readonly deploymentName?: pulumi.Input<string>;
     /**
      * Properties of the Deployment resource
      */

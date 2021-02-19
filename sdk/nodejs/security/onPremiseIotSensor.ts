@@ -51,12 +51,9 @@ export class OnPremiseIotSensor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OnPremiseIotSensorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: OnPremiseIotSensorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.onPremiseIotSensorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'onPremiseIotSensorName'");
-            }
             inputs["onPremiseIotSensorName"] = args ? args.onPremiseIotSensorName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -84,5 +81,5 @@ export interface OnPremiseIotSensorArgs {
     /**
      * Name of the on-premise IoT sensor
      */
-    readonly onPremiseIotSensorName: pulumi.Input<string>;
+    readonly onPremiseIotSensorName?: pulumi.Input<string>;
 }

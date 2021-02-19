@@ -87,9 +87,6 @@ export class BackupPolicy extends pulumi.CustomResource {
     constructor(name: string, args: BackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.backupPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'backupPolicyName'");
-            }
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -148,7 +145,7 @@ export interface BackupPolicyArgs {
     /**
      * The name of the backup policy to be created/updated.
      */
-    readonly backupPolicyName: pulumi.Input<string>;
+    readonly backupPolicyName?: pulumi.Input<string>;
     /**
      * The device name
      */

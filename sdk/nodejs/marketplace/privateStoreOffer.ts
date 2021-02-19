@@ -99,9 +99,6 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
     constructor(name: string, args: PrivateStoreOfferArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.offerId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'offerId'");
-            }
             if ((!args || args.privateStoreId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateStoreId'");
             }
@@ -162,7 +159,7 @@ export interface PrivateStoreOfferArgs {
     /**
      * The offer ID to update or delete
      */
-    readonly offerId: pulumi.Input<string>;
+    readonly offerId?: pulumi.Input<string>;
     /**
      * Offer plans
      */

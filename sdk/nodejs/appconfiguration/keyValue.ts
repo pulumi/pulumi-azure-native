@@ -93,9 +93,6 @@ export class KeyValue extends pulumi.CustomResource {
             if ((!args || args.configStoreName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'configStoreName'");
             }
-            if ((!args || args.keyValueName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'keyValueName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -153,7 +150,7 @@ export interface KeyValueArgs {
     /**
      * Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
      */
-    readonly keyValueName: pulumi.Input<string>;
+    readonly keyValueName?: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

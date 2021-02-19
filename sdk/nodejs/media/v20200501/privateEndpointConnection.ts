@@ -69,9 +69,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.privateLinkServiceConnectionState === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateLinkServiceConnectionState'");
             }
@@ -113,7 +110,7 @@ export interface PrivateEndpointConnectionArgs {
      * The Media Services account name.
      */
     readonly accountName: pulumi.Input<string>;
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

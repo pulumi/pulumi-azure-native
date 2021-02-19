@@ -111,9 +111,6 @@ export class GalleryImage extends pulumi.CustomResource {
     constructor(name: string, args: GalleryImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.galleryImageName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'galleryImageName'");
-            }
             if ((!args || args.labAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labAccountName'");
             }
@@ -177,7 +174,7 @@ export interface GalleryImageArgs {
     /**
      * The name of the gallery Image.
      */
-    readonly galleryImageName: pulumi.Input<string>;
+    readonly galleryImageName?: pulumi.Input<string>;
     /**
      * Indicates whether this gallery image is enabled.
      */

@@ -84,9 +84,6 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.organization === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'organization'");
             }
-            if ((!args || args.pipelineName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'pipelineName'");
-            }
             if ((!args || args.project === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'project'");
             }
@@ -145,7 +142,7 @@ export interface PipelineArgs {
     /**
      * The name of the Azure Pipeline resource in ARM.
      */
-    readonly pipelineName: pulumi.Input<string>;
+    readonly pipelineName?: pulumi.Input<string>;
     /**
      * Reference to the Azure DevOps Project containing the Pipeline.
      */

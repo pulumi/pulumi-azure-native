@@ -68,9 +68,6 @@ export class Group extends pulumi.CustomResource {
         pulumi.log.warn("Group is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Group'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'groupName'");
-            }
             if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -114,7 +111,7 @@ export interface GroupArgs {
     /**
      * Unique name of a group within a project.
      */
-    readonly groupName: pulumi.Input<string>;
+    readonly groupName?: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */

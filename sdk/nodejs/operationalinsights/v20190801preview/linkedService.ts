@@ -61,9 +61,6 @@ export class LinkedService extends pulumi.CustomResource {
     constructor(name: string, args: LinkedServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.linkedServiceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'linkedServiceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -103,7 +100,7 @@ export interface LinkedServiceArgs {
     /**
      * Name of the linkedServices resource
      */
-    readonly linkedServiceName: pulumi.Input<string>;
+    readonly linkedServiceName?: pulumi.Input<string>;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */

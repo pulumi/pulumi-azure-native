@@ -98,9 +98,6 @@ export class SnapshotPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.snapshotPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'snapshotPolicyName'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["dailySchedule"] = args ? args.dailySchedule : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -174,7 +171,7 @@ export interface SnapshotPolicyArgs {
     /**
      * The name of the snapshot policy target
      */
-    readonly snapshotPolicyName: pulumi.Input<string>;
+    readonly snapshotPolicyName?: pulumi.Input<string>;
     /**
      * Resource tags
      */

@@ -98,9 +98,6 @@ export class DiskPool extends pulumi.CustomResource {
             if ((!args || args.availabilityZones === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'availabilityZones'");
             }
-            if ((!args || args.diskPoolName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'diskPoolName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -166,7 +163,7 @@ export interface DiskPoolArgs {
     /**
      * The name of the Disk pool.
      */
-    readonly diskPoolName: pulumi.Input<string>;
+    readonly diskPoolName?: pulumi.Input<string>;
     /**
      * List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
      */

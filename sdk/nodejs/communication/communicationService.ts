@@ -86,9 +86,6 @@ export class CommunicationService extends pulumi.CustomResource {
     constructor(name: string, args: CommunicationServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.communicationServiceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'communicationServiceName'");
-            }
             if ((!args || args.dataLocation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataLocation'");
             }
@@ -139,7 +136,7 @@ export interface CommunicationServiceArgs {
     /**
      * The name of the CommunicationService resource.
      */
-    readonly communicationServiceName: pulumi.Input<string>;
+    readonly communicationServiceName?: pulumi.Input<string>;
     /**
      * The location where the communication service stores its data at rest.
      */

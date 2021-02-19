@@ -107,9 +107,6 @@ export class IotSecuritySolution extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.solutionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'solutionName'");
-            }
             if ((!args || args.workspace === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspace'");
             }
@@ -191,7 +188,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * The solution manager name
      */
-    readonly solutionName: pulumi.Input<string>;
+    readonly solutionName?: pulumi.Input<string>;
     /**
      * Security solution status
      */

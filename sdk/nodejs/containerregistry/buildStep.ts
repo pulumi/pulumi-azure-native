@@ -68,9 +68,6 @@ export class BuildStep extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.stepName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'stepName'");
-            }
             inputs["buildTaskName"] = args ? args.buildTaskName : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -115,5 +112,5 @@ export interface BuildStepArgs {
     /**
      * The name of a build step for a container registry build task.
      */
-    readonly stepName: pulumi.Input<string>;
+    readonly stepName?: pulumi.Input<string>;
 }

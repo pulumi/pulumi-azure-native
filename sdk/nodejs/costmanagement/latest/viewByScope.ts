@@ -121,9 +121,6 @@ export class ViewByScope extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.viewName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'viewName'");
-            }
             inputs["accumulated"] = args ? args.accumulated : undefined;
             inputs["chart"] = args ? args.chart : undefined;
             inputs["dataset"] = args ? args.dataset : undefined;
@@ -225,5 +222,5 @@ export interface ViewByScopeArgs {
     /**
      * View name
      */
-    readonly viewName: pulumi.Input<string>;
+    readonly viewName?: pulumi.Input<string>;
 }

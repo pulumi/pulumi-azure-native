@@ -70,9 +70,6 @@ export class PrivateLinkHub extends pulumi.CustomResource {
     constructor(name: string, args: PrivateLinkHubArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.privateLinkHubName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateLinkHubName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +113,7 @@ export interface PrivateLinkHubArgs {
     /**
      * Name of the privateLinkHub
      */
-    readonly privateLinkHubName: pulumi.Input<string>;
+    readonly privateLinkHubName?: pulumi.Input<string>;
     /**
      * PrivateLinkHub provisioning state
      */

@@ -115,9 +115,6 @@ export class Link extends pulumi.CustomResource {
             if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.linkName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'linkName'");
-            }
             if ((!args || args.participantPropertyReferences === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'participantPropertyReferences'");
             }
@@ -202,7 +199,7 @@ export interface LinkArgs {
     /**
      * The name of the link.
      */
-    readonly linkName: pulumi.Input<string>;
+    readonly linkName?: pulumi.Input<string>;
     /**
      * The set of properties mappings between the source and target Types.
      */

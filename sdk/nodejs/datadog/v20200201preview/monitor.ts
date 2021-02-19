@@ -59,9 +59,6 @@ export class Monitor extends pulumi.CustomResource {
     constructor(name: string, args: MonitorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.monitorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'monitorName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -105,7 +102,7 @@ export interface MonitorArgs {
     /**
      * Monitor resource name
      */
-    readonly monitorName: pulumi.Input<string>;
+    readonly monitorName?: pulumi.Input<string>;
     /**
      * Properties specific to the monitor resource.
      */

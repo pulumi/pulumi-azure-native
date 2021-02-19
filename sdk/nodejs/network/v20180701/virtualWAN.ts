@@ -82,9 +82,6 @@ export class VirtualWAN extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualWANName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'virtualWANName'");
-            }
             inputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -148,5 +145,5 @@ export interface VirtualWANArgs {
     /**
      * The name of the VirtualWAN being created or updated.
      */
-    readonly virtualWANName: pulumi.Input<string>;
+    readonly virtualWANName?: pulumi.Input<string>;
 }

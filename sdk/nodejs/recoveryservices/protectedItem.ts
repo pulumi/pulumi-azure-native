@@ -77,9 +77,6 @@ export class ProtectedItem extends pulumi.CustomResource {
             if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if ((!args || args.protectedItemName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'protectedItemName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -145,7 +142,7 @@ export interface ProtectedItemArgs {
     /**
      * Item name to be backed up.
      */
-    readonly protectedItemName: pulumi.Input<string>;
+    readonly protectedItemName?: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

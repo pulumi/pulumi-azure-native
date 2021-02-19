@@ -84,9 +84,6 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.triggerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'triggerName'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["containerName"] = args ? args.containerName : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -157,5 +154,5 @@ export interface SqlResourceSqlTriggerArgs {
     /**
      * Cosmos DB trigger name.
      */
-    readonly triggerName: pulumi.Input<string>;
+    readonly triggerName?: pulumi.Input<string>;
 }

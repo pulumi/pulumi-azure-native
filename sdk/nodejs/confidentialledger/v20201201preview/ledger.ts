@@ -70,9 +70,6 @@ export class Ledger extends pulumi.CustomResource {
     constructor(name: string, args: LedgerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ledgerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ledgerName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +109,7 @@ export interface LedgerArgs {
     /**
      * Name of the Confidential Ledger
      */
-    readonly ledgerName: pulumi.Input<string>;
+    readonly ledgerName?: pulumi.Input<string>;
     /**
      * The Azure location where the Confidential Ledger is running.
      */

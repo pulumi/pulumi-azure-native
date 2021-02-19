@@ -58,9 +58,6 @@ export class ContentItem extends pulumi.CustomResource {
     constructor(name: string, args: ContentItemArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.contentItemId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'contentItemId'");
-            }
             if ((!args || args.contentTypeId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contentTypeId'");
             }
@@ -102,7 +99,7 @@ export interface ContentItemArgs {
     /**
      * Content item identifier.
      */
-    readonly contentItemId: pulumi.Input<string>;
+    readonly contentItemId?: pulumi.Input<string>;
     /**
      * Content type identifier.
      */

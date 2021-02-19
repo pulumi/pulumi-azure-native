@@ -74,9 +74,6 @@ export class IncidentComment extends pulumi.CustomResource {
     constructor(name: string, args: IncidentCommentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.incidentCommentId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'incidentCommentId'");
-            }
             if ((!args || args.incidentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'incidentId'");
             }
@@ -137,7 +134,7 @@ export interface IncidentCommentArgs {
     /**
      * Incident comment ID
      */
-    readonly incidentCommentId: pulumi.Input<string>;
+    readonly incidentCommentId?: pulumi.Input<string>;
     /**
      * Incident ID
      */

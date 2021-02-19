@@ -65,9 +65,6 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.privateEndpointName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateEndpointName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -108,7 +105,7 @@ export interface PrivateEndpointArgs {
     /**
      * The name of the private endpoint.
      */
-    readonly privateEndpointName: pulumi.Input<string>;
+    readonly privateEndpointName?: pulumi.Input<string>;
     /**
      * The properties associated with a private endpoint.
      */

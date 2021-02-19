@@ -85,9 +85,6 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             if ((!args || args.policyDefinitions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyDefinitions'");
             }
-            if ((!args || args.policySetDefinitionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policySetDefinitionName'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
@@ -153,7 +150,7 @@ export interface PolicySetDefinitionArgs {
     /**
      * The name of the policy set definition to create.
      */
-    readonly policySetDefinitionName: pulumi.Input<string>;
+    readonly policySetDefinitionName?: pulumi.Input<string>;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */

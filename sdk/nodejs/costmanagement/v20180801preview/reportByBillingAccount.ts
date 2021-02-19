@@ -83,9 +83,6 @@ export class ReportByBillingAccount extends pulumi.CustomResource {
             if ((!args || args.deliveryInfo === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
-            if ((!args || args.reportName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'reportName'");
-            }
             inputs["billingAccountId"] = args ? args.billingAccountId : undefined;
             inputs["definition"] = args ? args.definition : undefined;
             inputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
@@ -140,7 +137,7 @@ export interface ReportByBillingAccountArgs {
     /**
      * Report Name.
      */
-    readonly reportName: pulumi.Input<string>;
+    readonly reportName?: pulumi.Input<string>;
     /**
      * Has schedule information for the report.
      */

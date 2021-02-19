@@ -114,9 +114,6 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
     constructor(name: string, args: NetworkVirtualApplianceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.networkVirtualApplianceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'networkVirtualApplianceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -203,7 +200,7 @@ export interface NetworkVirtualApplianceArgs {
     /**
      * The name of Network Virtual Appliance.
      */
-    readonly networkVirtualApplianceName: pulumi.Input<string>;
+    readonly networkVirtualApplianceName?: pulumi.Input<string>;
     /**
      * Network Virtual Appliance SKU.
      */

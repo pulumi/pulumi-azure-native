@@ -64,9 +64,6 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
         pulumi.log.warn("EventHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHubAuthorizationRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.authorizationRuleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'authorizationRuleName'");
-            }
             if ((!args || args.eventHubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventHubName'");
             }
@@ -111,7 +108,7 @@ export interface EventHubAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    readonly authorizationRuleName: pulumi.Input<string>;
+    readonly authorizationRuleName?: pulumi.Input<string>;
     /**
      * The Event Hub name
      */

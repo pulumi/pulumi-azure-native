@@ -67,12 +67,9 @@ export class ManagementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'groupId'");
-            }
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["groupId"] = args ? args.groupId : undefined;
             inputs["parentId"] = args ? args.parentId : undefined;
@@ -113,7 +110,7 @@ export interface ManagementGroupArgs {
     /**
      * Management Group ID.
      */
-    readonly groupId: pulumi.Input<string>;
+    readonly groupId?: pulumi.Input<string>;
     /**
      * (Optional) The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
      */

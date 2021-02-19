@@ -78,9 +78,6 @@ export class InstancePool extends pulumi.CustomResource {
     constructor(name: string, args: InstancePoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.instancePoolName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'instancePoolName'");
-            }
             if ((!args || args.licenseType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'licenseType'");
             }
@@ -133,7 +130,7 @@ export interface InstancePoolArgs {
     /**
      * The name of the instance pool to be created or updated.
      */
-    readonly instancePoolName: pulumi.Input<string>;
+    readonly instancePoolName?: pulumi.Input<string>;
     /**
      * The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
      */

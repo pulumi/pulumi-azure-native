@@ -138,9 +138,6 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.managementEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managementEndpoint'");
             }
@@ -240,7 +237,7 @@ export interface ClusterArgs {
     /**
      * The name of the cluster resource
      */
-    readonly clusterName: pulumi.Input<string>;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * The storage diagnostics account configuration details
      */

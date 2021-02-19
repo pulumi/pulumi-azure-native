@@ -59,12 +59,9 @@ export class Connector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ConnectorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.connectorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'connectorName'");
-            }
             inputs["authenticationDetails"] = args ? args.authenticationDetails : undefined;
             inputs["connectorName"] = args ? args.connectorName : undefined;
             inputs["hybridComputeSettings"] = args ? args.hybridComputeSettings : undefined;
@@ -100,7 +97,7 @@ export interface ConnectorArgs {
     /**
      * Name of the cloud account connector
      */
-    readonly connectorName: pulumi.Input<string>;
+    readonly connectorName?: pulumi.Input<string>;
     /**
      * Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
      */

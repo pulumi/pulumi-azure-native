@@ -97,9 +97,6 @@ export class BillingRoleAssignmentByDepartment extends pulumi.CustomResource {
             if ((!args || args.billingAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
-            if ((!args || args.billingRoleAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'billingRoleAssignmentName'");
-            }
             if ((!args || args.departmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'departmentName'");
             }
@@ -156,7 +153,7 @@ export interface BillingRoleAssignmentByDepartmentArgs {
     /**
      * The ID that uniquely identifies a role assignment.
      */
-    readonly billingRoleAssignmentName: pulumi.Input<string>;
+    readonly billingRoleAssignmentName?: pulumi.Input<string>;
     /**
      * The ID that uniquely identifies a department.
      */

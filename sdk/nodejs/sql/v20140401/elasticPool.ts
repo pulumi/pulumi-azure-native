@@ -98,9 +98,6 @@ export class ElasticPool extends pulumi.CustomResource {
     constructor(name: string, args: ElasticPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.elasticPoolName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'elasticPoolName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -174,7 +171,7 @@ export interface ElasticPoolArgs {
     /**
      * The name of the elastic pool to be operated on (updated or created).
      */
-    readonly elasticPoolName: pulumi.Input<string>;
+    readonly elasticPoolName?: pulumi.Input<string>;
     /**
      * Resource location.
      */

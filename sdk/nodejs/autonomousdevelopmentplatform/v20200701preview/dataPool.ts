@@ -73,9 +73,6 @@ export class DataPool extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.dataPoolName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'dataPoolName'");
-            }
             if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locations'");
             }
@@ -123,7 +120,7 @@ export interface DataPoolArgs {
     /**
      * The name of the Data Pool.
      */
-    readonly dataPoolName: pulumi.Input<string>;
+    readonly dataPoolName?: pulumi.Input<string>;
     /**
      * Gets or sets the collection of locations where Data Pool resources should be created.
      */

@@ -85,9 +85,6 @@ export class SqlDatabase extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlDatabaseName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sqlDatabaseName'");
-            }
             if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -148,7 +145,7 @@ export interface SqlDatabaseArgs {
     /**
      * The name of the sql database.
      */
-    readonly sqlDatabaseName: pulumi.Input<string>;
+    readonly sqlDatabaseName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

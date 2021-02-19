@@ -88,9 +88,6 @@ export class TransactionNode extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.transactionNodeName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'transactionNodeName'");
-            }
             inputs["blockchainMemberName"] = args ? args.blockchainMemberName : undefined;
             inputs["firewallRules"] = args ? args.firewallRules : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -154,5 +151,5 @@ export interface TransactionNodeArgs {
     /**
      * Transaction node name.
      */
-    readonly transactionNodeName: pulumi.Input<string>;
+    readonly transactionNodeName?: pulumi.Input<string>;
 }

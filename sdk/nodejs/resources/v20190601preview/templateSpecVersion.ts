@@ -84,9 +84,6 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
             if ((!args || args.templateSpecName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'templateSpecName'");
             }
-            if ((!args || args.templateSpecVersion === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'templateSpecVersion'");
-            }
             inputs["artifacts"] = args ? args.artifacts : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -156,5 +153,5 @@ export interface TemplateSpecVersionArgs {
     /**
      * The version of the Template Spec.
      */
-    readonly templateSpecVersion: pulumi.Input<string>;
+    readonly templateSpecVersion?: pulumi.Input<string>;
 }

@@ -81,9 +81,6 @@ export class RouteTable extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routeTableName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'routeTableName'");
-            }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
@@ -140,7 +137,7 @@ export interface RouteTableArgs {
     /**
      * The name of the route table.
      */
-    readonly routeTableName: pulumi.Input<string>;
+    readonly routeTableName?: pulumi.Input<string>;
     /**
      * Gets or sets Routes in a Route Table
      */

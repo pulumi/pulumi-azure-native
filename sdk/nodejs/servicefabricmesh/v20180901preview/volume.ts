@@ -92,9 +92,6 @@ export class Volume extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.volumeResourceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'volumeResourceName'");
-            }
             inputs["azureFileParameters"] = args ? args.azureFileParameters : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -163,5 +160,5 @@ export interface VolumeArgs {
     /**
      * The identity of the volume.
      */
-    readonly volumeResourceName: pulumi.Input<string>;
+    readonly volumeResourceName?: pulumi.Input<string>;
 }

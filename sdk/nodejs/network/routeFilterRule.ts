@@ -90,9 +90,6 @@ export class RouteFilterRule extends pulumi.CustomResource {
             if ((!args || args.routeFilterRuleType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routeFilterRuleType'");
             }
-            if ((!args || args.ruleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ruleName'");
-            }
             inputs["access"] = args ? args.access : undefined;
             inputs["communities"] = args ? args.communities : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -165,5 +162,5 @@ export interface RouteFilterRuleArgs {
     /**
      * The name of the route filter rule.
      */
-    readonly ruleName: pulumi.Input<string>;
+    readonly ruleName?: pulumi.Input<string>;
 }

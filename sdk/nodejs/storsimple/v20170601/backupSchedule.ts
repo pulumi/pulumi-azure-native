@@ -85,9 +85,6 @@ export class BackupSchedule extends pulumi.CustomResource {
             if ((!args || args.backupPolicyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backupPolicyName'");
             }
-            if ((!args || args.backupScheduleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'backupScheduleName'");
-            }
             if ((!args || args.backupType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backupType'");
             }
@@ -161,7 +158,7 @@ export interface BackupScheduleArgs {
     /**
      * The backup schedule name.
      */
-    readonly backupScheduleName: pulumi.Input<string>;
+    readonly backupScheduleName?: pulumi.Input<string>;
     /**
      * The type of backup which needs to be taken.
      */

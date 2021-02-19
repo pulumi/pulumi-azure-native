@@ -151,12 +151,9 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.scheduleDefinitionId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'scheduleDefinitionId'");
-            }
             inputs["autoApplyDecisionsEnabled"] = args ? args.autoApplyDecisionsEnabled : undefined;
             inputs["defaultDecision"] = args ? args.defaultDecision : undefined;
             inputs["defaultDecisionEnabled"] = args ? args.defaultDecisionEnabled : undefined;
@@ -298,7 +295,7 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
     /**
      * The id of the access review schedule definition.
      */
-    readonly scheduleDefinitionId: pulumi.Input<string>;
+    readonly scheduleDefinitionId?: pulumi.Input<string>;
     /**
      * The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
      */

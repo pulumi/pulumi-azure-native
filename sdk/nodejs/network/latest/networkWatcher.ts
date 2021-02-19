@@ -75,9 +75,6 @@ export class NetworkWatcher extends pulumi.CustomResource {
         pulumi.log.warn("NetworkWatcher is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkWatcher'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.networkWatcherName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'networkWatcherName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -126,7 +123,7 @@ export interface NetworkWatcherArgs {
     /**
      * The name of the network watcher.
      */
-    readonly networkWatcherName: pulumi.Input<string>;
+    readonly networkWatcherName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

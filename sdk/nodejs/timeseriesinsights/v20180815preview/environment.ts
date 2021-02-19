@@ -70,9 +70,6 @@ export class Environment extends pulumi.CustomResource {
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'environmentName'");
-            }
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -118,7 +115,7 @@ export interface EnvironmentArgs {
     /**
      * Name of the environment
      */
-    readonly environmentName: pulumi.Input<string>;
+    readonly environmentName?: pulumi.Input<string>;
     /**
      * The kind of the environment.
      */

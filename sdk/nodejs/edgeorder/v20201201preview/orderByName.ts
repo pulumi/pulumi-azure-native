@@ -88,9 +88,6 @@ export class OrderByName extends pulumi.CustomResource {
             if ((!args || args.orderDetails === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'orderDetails'");
             }
-            if ((!args || args.orderName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'orderName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -148,7 +145,7 @@ export interface OrderByNameArgs {
     /**
      * The name of the order
      */
-    readonly orderName: pulumi.Input<string>;
+    readonly orderName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

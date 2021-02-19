@@ -100,9 +100,6 @@ export class Query extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'id'");
-            }
             if ((!args || args.queryPackName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'queryPackName'");
             }
@@ -168,7 +165,7 @@ export interface QueryArgs {
     /**
      * The id of a specific query defined in the Log Analytics QueryPack
      */
-    readonly id: pulumi.Input<string>;
+    readonly id?: pulumi.Input<string>;
     /**
      * Additional properties that can be set for the query.
      */

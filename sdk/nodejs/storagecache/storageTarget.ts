@@ -93,9 +93,6 @@ export class StorageTarget extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageTargetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'storageTargetName'");
-            }
             if ((!args || args.targetType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetType'");
             }
@@ -168,7 +165,7 @@ export interface StorageTargetArgs {
     /**
      * Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
-    readonly storageTargetName: pulumi.Input<string>;
+    readonly storageTargetName?: pulumi.Input<string>;
     /**
      * Type of the Storage Target.
      */

@@ -64,9 +64,6 @@ export class Function extends pulumi.CustomResource {
         pulumi.log.warn("Function is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Function'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.functionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'functionName'");
-            }
             if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobName'");
             }
@@ -104,7 +101,7 @@ export interface FunctionArgs {
     /**
      * The name of the function.
      */
-    readonly functionName: pulumi.Input<string>;
+    readonly functionName?: pulumi.Input<string>;
     /**
      * The name of the streaming job.
      */

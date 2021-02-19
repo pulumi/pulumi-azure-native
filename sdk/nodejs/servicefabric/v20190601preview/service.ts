@@ -118,9 +118,6 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.serviceKind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceKind'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serviceName'");
-            }
             inputs["applicationName"] = args ? args.applicationName : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["correlationScheme"] = args ? args.correlationScheme : undefined;
@@ -217,7 +214,7 @@ export interface ServiceArgs {
     /**
      * The name of the service resource in the format of {applicationName}~{serviceName}.
      */
-    readonly serviceName: pulumi.Input<string>;
+    readonly serviceName?: pulumi.Input<string>;
     /**
      * The activation Mode of the service package
      */

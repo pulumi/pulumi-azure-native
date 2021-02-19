@@ -74,9 +74,6 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
             if ((!args || args.sqlPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlPoolName'");
             }
-            if ((!args || args.transparentDataEncryptionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'transparentDataEncryptionName'");
-            }
             if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -126,7 +123,7 @@ export interface SqlPoolTransparentDataEncryptionArgs {
     /**
      * The name of the transparent data encryption configuration.
      */
-    readonly transparentDataEncryptionName: pulumi.Input<string>;
+    readonly transparentDataEncryptionName?: pulumi.Input<string>;
     /**
      * The name of the workspace
      */

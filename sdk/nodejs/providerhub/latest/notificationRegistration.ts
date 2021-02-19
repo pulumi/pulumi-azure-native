@@ -61,9 +61,6 @@ export class NotificationRegistration extends pulumi.CustomResource {
         pulumi.log.warn("NotificationRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:NotificationRegistration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.notificationRegistrationName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'notificationRegistrationName'");
-            }
             if ((!args || args.providerNamespace === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
@@ -97,7 +94,7 @@ export interface NotificationRegistrationArgs {
     /**
      * The notification registration.
      */
-    readonly notificationRegistrationName: pulumi.Input<string>;
+    readonly notificationRegistrationName?: pulumi.Input<string>;
     readonly properties?: pulumi.Input<inputs.providerhub.latest.NotificationRegistrationProperties>;
     /**
      * The name of the resource provider hosted within ProviderHub.

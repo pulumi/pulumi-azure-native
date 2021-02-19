@@ -71,9 +71,6 @@ export class OrderCollectionByName extends pulumi.CustomResource {
     constructor(name: string, args: OrderCollectionByNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.orderCollectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'orderCollectionName'");
-            }
             if ((!args || args.orderIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'orderIds'");
             }
@@ -120,7 +117,7 @@ export interface OrderCollectionByNameArgs {
     /**
      * The name of the order collection
      */
-    readonly orderCollectionName: pulumi.Input<string>;
+    readonly orderCollectionName?: pulumi.Input<string>;
     /**
      * List of order ARM Ids which are part of an order collection.
      */

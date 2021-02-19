@@ -99,9 +99,6 @@ export class HealthAlert extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ruleName'");
-            }
             inputs["actions"] = args ? args.actions : undefined;
             inputs["criteria"] = args ? args.criteria : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -170,7 +167,7 @@ export interface HealthAlertArgs {
     /**
      * The name of the rule.
      */
-    readonly ruleName: pulumi.Input<string>;
+    readonly ruleName?: pulumi.Input<string>;
     /**
      * the list of resource id's that this health alert is scoped to.
      */

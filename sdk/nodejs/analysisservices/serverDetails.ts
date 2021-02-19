@@ -110,9 +110,6 @@ export class ServerDetails extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'serverName'");
-            }
             if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
@@ -206,7 +203,7 @@ export interface ServerDetailsArgs {
     /**
      * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    readonly serverName: pulumi.Input<string>;
+    readonly serverName?: pulumi.Input<string>;
     /**
      * The SKU of the Analysis Services resource.
      */

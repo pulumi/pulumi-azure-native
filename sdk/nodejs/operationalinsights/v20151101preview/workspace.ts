@@ -93,9 +93,6 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'workspaceName'");
-            }
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
@@ -170,5 +167,5 @@ export interface WorkspaceArgs {
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    readonly workspaceName?: pulumi.Input<string>;
 }

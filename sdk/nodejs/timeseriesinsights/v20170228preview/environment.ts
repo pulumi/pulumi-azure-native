@@ -93,9 +93,6 @@ export class Environment extends pulumi.CustomResource {
             if ((!args || args.dataRetentionTime === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataRetentionTime'");
             }
-            if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'environmentName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -152,7 +149,7 @@ export interface EnvironmentArgs {
     /**
      * Name of the environment
      */
-    readonly environmentName: pulumi.Input<string>;
+    readonly environmentName?: pulumi.Input<string>;
     /**
      * The location of the resource.
      */

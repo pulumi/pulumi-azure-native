@@ -76,9 +76,6 @@ export class PrivateLinkHub extends pulumi.CustomResource {
         pulumi.log.warn("PrivateLinkHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:PrivateLinkHub'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.privateLinkHubName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateLinkHubName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -122,7 +119,7 @@ export interface PrivateLinkHubArgs {
     /**
      * Name of the privateLinkHub
      */
-    readonly privateLinkHubName: pulumi.Input<string>;
+    readonly privateLinkHubName?: pulumi.Input<string>;
     /**
      * PrivateLinkHub provisioning state
      */

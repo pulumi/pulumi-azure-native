@@ -117,9 +117,6 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
             if ((!args || args.crossConnectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'crossConnectionName'");
             }
-            if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'peeringName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -215,7 +212,7 @@ export interface ExpressRouteCrossConnectionPeeringArgs {
     /**
      * The name of the peering.
      */
-    readonly peeringName: pulumi.Input<string>;
+    readonly peeringName?: pulumi.Input<string>;
     /**
      * The peering type.
      */

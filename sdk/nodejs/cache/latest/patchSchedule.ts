@@ -64,9 +64,6 @@ export class PatchSchedule extends pulumi.CustomResource {
         pulumi.log.warn("PatchSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:PatchSchedule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.default === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'default'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -106,7 +103,7 @@ export interface PatchScheduleArgs {
     /**
      * Default string modeled as parameter for auto generation to work correctly.
      */
-    readonly default: pulumi.Input<string>;
+    readonly default?: pulumi.Input<string>;
     /**
      * The name of the Redis cache.
      */

@@ -216,9 +216,6 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
     constructor(name: string, args: AppServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -384,7 +381,7 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Name of the App Service Environment.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Access control list for controlling traffic to the App Service Environment.
      */

@@ -122,9 +122,6 @@ export class VpnConnection extends pulumi.CustomResource {
     constructor(name: string, args: VpnConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayName'");
             }
@@ -199,7 +196,7 @@ export interface VpnConnectionArgs {
     /**
      * The name of the connection.
      */
-    readonly connectionName: pulumi.Input<string>;
+    readonly connectionName?: pulumi.Input<string>;
     /**
      * The dead peer detection timeout for a vpn connection in seconds.
      */

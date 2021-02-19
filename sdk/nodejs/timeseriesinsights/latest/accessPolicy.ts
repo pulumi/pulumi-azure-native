@@ -72,9 +72,6 @@ export class AccessPolicy extends pulumi.CustomResource {
         pulumi.log.warn("AccessPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:AccessPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.accessPolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'accessPolicyName'");
-            }
             if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'environmentName'");
             }
@@ -116,7 +113,7 @@ export interface AccessPolicyArgs {
     /**
      * Name of the access policy.
      */
-    readonly accessPolicyName: pulumi.Input<string>;
+    readonly accessPolicyName?: pulumi.Input<string>;
     /**
      * An description of the access policy.
      */

@@ -86,9 +86,6 @@ export class FailoverGroup extends pulumi.CustomResource {
     constructor(name: string, args: FailoverGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.failoverGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'failoverGroupName'");
-            }
             if ((!args || args.partnerServers === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partnerServers'");
             }
@@ -150,7 +147,7 @@ export interface FailoverGroupArgs {
     /**
      * The name of the failover group.
      */
-    readonly failoverGroupName: pulumi.Input<string>;
+    readonly failoverGroupName?: pulumi.Input<string>;
     /**
      * List of partner server information for the failover group.
      */

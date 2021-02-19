@@ -137,9 +137,6 @@ export class ManagedCluster extends pulumi.CustomResource {
             if ((!args || args.adminUserName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'adminUserName'");
             }
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.dnsName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dnsName'");
             }
@@ -242,7 +239,7 @@ export interface ManagedClusterArgs {
     /**
      * The name of the cluster resource.
      */
-    readonly clusterName: pulumi.Input<string>;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * The cluster dns name.
      */

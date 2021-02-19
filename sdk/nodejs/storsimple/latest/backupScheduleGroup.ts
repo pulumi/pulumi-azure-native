@@ -73,9 +73,6 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scheduleGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'scheduleGroupName'");
-            }
             if ((!args || args.startTime === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'startTime'");
             }
@@ -123,7 +120,7 @@ export interface BackupScheduleGroupArgs {
     /**
      * The name of the schedule group.
      */
-    readonly scheduleGroupName: pulumi.Input<string>;
+    readonly scheduleGroupName?: pulumi.Input<string>;
     /**
      * The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
      */

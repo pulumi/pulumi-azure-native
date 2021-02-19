@@ -98,9 +98,6 @@ export class Assignment extends pulumi.CustomResource {
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.assignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'assignmentName'");
-            }
             if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identity'");
             }
@@ -163,7 +160,7 @@ export interface AssignmentArgs {
     /**
      * Name of the blueprint assignment.
      */
-    readonly assignmentName: pulumi.Input<string>;
+    readonly assignmentName?: pulumi.Input<string>;
     /**
      * ID of the published version of a blueprint definition.
      */

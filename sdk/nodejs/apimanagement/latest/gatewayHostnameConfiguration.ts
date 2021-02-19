@@ -74,9 +74,6 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
             if ((!args || args.gatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayId'");
             }
-            if ((!args || args.hcId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'hcId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -127,7 +124,7 @@ export interface GatewayHostnameConfigurationArgs {
     /**
      * Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
      */
-    readonly hcId: pulumi.Input<string>;
+    readonly hcId?: pulumi.Input<string>;
     /**
      * Hostname value. Supports valid domain name, partial or full wildcard
      */

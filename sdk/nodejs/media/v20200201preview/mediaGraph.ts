@@ -81,9 +81,6 @@ export class MediaGraph extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.mediaGraphName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'mediaGraphName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -142,7 +139,7 @@ export interface MediaGraphArgs {
     /**
      * The Media Graph name.
      */
-    readonly mediaGraphName: pulumi.Input<string>;
+    readonly mediaGraphName?: pulumi.Input<string>;
     /**
      * The name of the resource group within the Azure subscription.
      */

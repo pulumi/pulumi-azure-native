@@ -90,9 +90,6 @@ export class InboundNatRule extends pulumi.CustomResource {
     constructor(name: string, args: InboundNatRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.inboundNatRuleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'inboundNatRuleName'");
-            }
             if ((!args || args.loadBalancerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
@@ -179,7 +176,7 @@ export interface InboundNatRuleArgs {
     /**
      * The name of the inbound nat rule.
      */
-    readonly inboundNatRuleName: pulumi.Input<string>;
+    readonly inboundNatRuleName?: pulumi.Input<string>;
     /**
      * The name of the load balancer.
      */

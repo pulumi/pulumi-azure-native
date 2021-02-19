@@ -84,9 +84,6 @@ export class Backup extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.backupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'backupName'");
-            }
             if ((!args || args.poolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'poolName'");
             }
@@ -145,7 +142,7 @@ export interface BackupArgs {
     /**
      * The name of the backup
      */
-    readonly backupName: pulumi.Input<string>;
+    readonly backupName?: pulumi.Input<string>;
     /**
      * Label for backup
      */

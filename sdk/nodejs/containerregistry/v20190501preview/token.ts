@@ -84,9 +84,6 @@ export class Token extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.tokenName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'tokenName'");
-            }
             inputs["credentials"] = args ? args.credentials : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -148,5 +145,5 @@ export interface TokenArgs {
     /**
      * The name of the token.
      */
-    readonly tokenName: pulumi.Input<string>;
+    readonly tokenName?: pulumi.Input<string>;
 }

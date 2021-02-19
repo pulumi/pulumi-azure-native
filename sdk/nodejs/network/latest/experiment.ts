@@ -96,9 +96,6 @@ export class Experiment extends pulumi.CustomResource {
         pulumi.log.warn("Experiment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Experiment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.experimentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'experimentName'");
-            }
             if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
@@ -168,7 +165,7 @@ export interface ExperimentArgs {
     /**
      * The Experiment identifier associated with the Experiment
      */
-    readonly experimentName: pulumi.Input<string>;
+    readonly experimentName?: pulumi.Input<string>;
     /**
      * Resource location.
      */

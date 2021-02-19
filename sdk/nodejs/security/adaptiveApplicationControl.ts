@@ -84,9 +84,6 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
             if ((!args || args.ascLocation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ascLocation'");
             }
-            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'groupName'");
-            }
             inputs["ascLocation"] = args ? args.ascLocation : undefined;
             inputs["enforcementMode"] = args ? args.enforcementMode : undefined;
             inputs["groupName"] = args ? args.groupName : undefined;
@@ -141,7 +138,7 @@ export interface AdaptiveApplicationControlArgs {
     /**
      * Name of an application control machine group
      */
-    readonly groupName: pulumi.Input<string>;
+    readonly groupName?: pulumi.Input<string>;
     readonly pathRecommendations?: pulumi.Input<pulumi.Input<inputs.security.PathRecommendation>[]>;
     /**
      * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.

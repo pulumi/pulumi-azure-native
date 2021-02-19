@@ -76,9 +76,6 @@ export class SqlServer extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlServerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sqlServerName'");
-            }
             if ((!args || args.sqlServerRegistrationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlServerRegistrationName'");
             }
@@ -141,7 +138,7 @@ export interface SqlServerArgs {
     /**
      * Name of the SQL Server.
      */
-    readonly sqlServerName: pulumi.Input<string>;
+    readonly sqlServerName?: pulumi.Input<string>;
     /**
      * Name of the SQL Server registration.
      */

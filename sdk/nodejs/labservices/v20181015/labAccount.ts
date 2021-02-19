@@ -82,9 +82,6 @@ export class LabAccount extends pulumi.CustomResource {
     constructor(name: string, args: LabAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.labAccountName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'labAccountName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +131,7 @@ export interface LabAccountArgs {
     /**
      * The name of the lab Account.
      */
-    readonly labAccountName: pulumi.Input<string>;
+    readonly labAccountName?: pulumi.Input<string>;
     /**
      * The location of the resource.
      */

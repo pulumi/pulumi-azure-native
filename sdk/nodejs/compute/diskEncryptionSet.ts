@@ -83,9 +83,6 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     constructor(name: string, args: DiskEncryptionSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.diskEncryptionSetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'diskEncryptionSetName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -135,7 +132,7 @@ export interface DiskEncryptionSetArgs {
     /**
      * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
      */
-    readonly diskEncryptionSetName: pulumi.Input<string>;
+    readonly diskEncryptionSetName?: pulumi.Input<string>;
     /**
      * The type of key used to encrypt the data of the disk.
      */

@@ -116,9 +116,6 @@ export class Bookmark extends pulumi.CustomResource {
         pulumi.log.warn("Bookmark is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Bookmark'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.bookmarkId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'bookmarkId'");
-            }
             if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -188,7 +185,7 @@ export interface BookmarkArgs {
     /**
      * Bookmark ID
      */
-    readonly bookmarkId: pulumi.Input<string>;
+    readonly bookmarkId?: pulumi.Input<string>;
     /**
      * The time the bookmark was created
      */

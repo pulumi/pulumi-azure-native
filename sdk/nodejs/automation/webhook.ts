@@ -108,9 +108,6 @@ export class Webhook extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.webhookName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'webhookName'");
-            }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["expiryTime"] = args ? args.expiryTime : undefined;
             inputs["isEnabled"] = args ? args.isEnabled : undefined;
@@ -198,5 +195,5 @@ export interface WebhookArgs {
     /**
      * The webhook name.
      */
-    readonly webhookName: pulumi.Input<string>;
+    readonly webhookName?: pulumi.Input<string>;
 }

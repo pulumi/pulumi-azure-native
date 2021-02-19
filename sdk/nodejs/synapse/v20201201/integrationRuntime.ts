@@ -62,9 +62,6 @@ export class IntegrationRuntime extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationRuntimeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.integrationRuntimeName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'integrationRuntimeName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -107,7 +104,7 @@ export interface IntegrationRuntimeArgs {
     /**
      * Integration runtime name
      */
-    readonly integrationRuntimeName: pulumi.Input<string>;
+    readonly integrationRuntimeName?: pulumi.Input<string>;
     /**
      * Integration runtime properties.
      */

@@ -77,9 +77,6 @@ export class Trigger extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.triggerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'triggerName'");
-            }
             inputs["factoryName"] = args ? args.factoryName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -125,5 +122,5 @@ export interface TriggerArgs {
     /**
      * The trigger name.
      */
-    readonly triggerName: pulumi.Input<string>;
+    readonly triggerName?: pulumi.Input<string>;
 }

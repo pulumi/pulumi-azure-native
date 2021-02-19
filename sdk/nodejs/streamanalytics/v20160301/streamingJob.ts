@@ -138,9 +138,6 @@ export class StreamingJob extends pulumi.CustomResource {
     constructor(name: string, args: StreamingJobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'jobName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -242,7 +239,7 @@ export interface StreamingJobArgs {
     /**
      * The name of the streaming job.
      */
-    readonly jobName: pulumi.Input<string>;
+    readonly jobName?: pulumi.Input<string>;
     /**
      * Resource location. Required on PUT (CreateOrReplace) requests.
      */

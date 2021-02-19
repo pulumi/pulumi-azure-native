@@ -82,9 +82,6 @@ export class Profile extends pulumi.CustomResource {
     constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'profileName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -146,7 +143,7 @@ export interface ProfileArgs {
     /**
      * The name of the Traffic Manager profile.
      */
-    readonly profileName: pulumi.Input<string>;
+    readonly profileName?: pulumi.Input<string>;
     /**
      * The status of the Traffic Manager profile.
      */

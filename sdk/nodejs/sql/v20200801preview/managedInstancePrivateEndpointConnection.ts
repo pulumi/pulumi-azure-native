@@ -69,9 +69,6 @@ export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResou
             if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.privateEndpointConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,7 +112,7 @@ export interface ManagedInstancePrivateEndpointConnectionArgs {
      * Private endpoint which the connection belongs to.
      */
     readonly privateEndpoint?: pulumi.Input<inputs.sql.v20200801preview.ManagedInstancePrivateEndpointProperty>;
-    readonly privateEndpointConnectionName: pulumi.Input<string>;
+    readonly privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Connection State of the Private Endpoint Connection.
      */

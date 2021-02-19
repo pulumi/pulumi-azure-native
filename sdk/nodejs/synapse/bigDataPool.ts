@@ -135,9 +135,6 @@ export class BigDataPool extends pulumi.CustomResource {
     constructor(name: string, args: BigDataPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.bigDataPoolName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'bigDataPoolName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -222,7 +219,7 @@ export interface BigDataPoolArgs {
     /**
      * Big Data pool name
      */
-    readonly bigDataPoolName: pulumi.Input<string>;
+    readonly bigDataPoolName?: pulumi.Input<string>;
     /**
      * The cache size
      */

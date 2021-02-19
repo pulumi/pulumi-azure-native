@@ -72,9 +72,6 @@ export class AccessControlRecord extends pulumi.CustomResource {
         pulumi.log.warn("AccessControlRecord is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:AccessControlRecord'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.accessControlRecordName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'accessControlRecordName'");
-            }
             if ((!args || args.initiatorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'initiatorName'");
             }
@@ -119,7 +116,7 @@ export interface AccessControlRecordArgs {
     /**
      * The name of the access control record.
      */
-    readonly accessControlRecordName: pulumi.Input<string>;
+    readonly accessControlRecordName?: pulumi.Input<string>;
     /**
      * The iSCSI initiator name (IQN).
      */

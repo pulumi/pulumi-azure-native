@@ -93,9 +93,6 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlVirtualMachineGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'sqlVirtualMachineGroupName'");
-            }
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sqlImageOffer"] = args ? args.sqlImageOffer : undefined;
@@ -158,7 +155,7 @@ export interface SqlVirtualMachineGroupArgs {
     /**
      * Name of the SQL virtual machine group.
      */
-    readonly sqlVirtualMachineGroupName: pulumi.Input<string>;
+    readonly sqlVirtualMachineGroupName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

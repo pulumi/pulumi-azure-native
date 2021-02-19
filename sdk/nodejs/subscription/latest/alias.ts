@@ -64,9 +64,6 @@ export class Alias extends pulumi.CustomResource {
         pulumi.log.warn("Alias is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:subscription:Alias'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.aliasName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'aliasName'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -99,7 +96,7 @@ export interface AliasArgs {
     /**
      * Alias Name
      */
-    readonly aliasName: pulumi.Input<string>;
+    readonly aliasName?: pulumi.Input<string>;
     /**
      * Put alias request properties.
      */

@@ -95,9 +95,6 @@ export class SyncGroup extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.syncGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'syncGroupName'");
-            }
             inputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["hubDatabasePassword"] = args ? args.hubDatabasePassword : undefined;
@@ -180,5 +177,5 @@ export interface SyncGroupArgs {
     /**
      * The name of the sync group.
      */
-    readonly syncGroupName: pulumi.Input<string>;
+    readonly syncGroupName?: pulumi.Input<string>;
 }

@@ -75,9 +75,6 @@ export class ApplicationType extends pulumi.CustomResource {
         pulumi.log.warn("ApplicationType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationType'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.applicationTypeName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'applicationTypeName'");
-            }
             if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -121,7 +118,7 @@ export interface ApplicationTypeArgs {
     /**
      * The name of the application type name resource.
      */
-    readonly applicationTypeName: pulumi.Input<string>;
+    readonly applicationTypeName?: pulumi.Input<string>;
     /**
      * The name of the cluster resource.
      */

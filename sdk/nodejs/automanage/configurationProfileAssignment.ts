@@ -59,9 +59,6 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
     constructor(name: string, args: ConfigurationProfileAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.configurationProfileAssignmentName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'configurationProfileAssignmentName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -99,7 +96,7 @@ export interface ConfigurationProfileAssignmentArgs {
     /**
      * Name of the configuration profile assignment. Only default is supported.
      */
-    readonly configurationProfileAssignmentName: pulumi.Input<string>;
+    readonly configurationProfileAssignmentName?: pulumi.Input<string>;
     /**
      * Properties of the configuration profile assignment.
      */

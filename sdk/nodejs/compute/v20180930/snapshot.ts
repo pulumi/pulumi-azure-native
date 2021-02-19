@@ -104,9 +104,6 @@ export class Snapshot extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.snapshotName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'snapshotName'");
-            }
             inputs["creationData"] = args ? args.creationData : undefined;
             inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
             inputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
@@ -189,7 +186,7 @@ export interface SnapshotArgs {
     /**
      * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
      */
-    readonly snapshotName: pulumi.Input<string>;
+    readonly snapshotName?: pulumi.Input<string>;
     /**
      * Resource tags
      */

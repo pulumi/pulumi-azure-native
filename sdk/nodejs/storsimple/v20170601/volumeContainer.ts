@@ -102,9 +102,6 @@ export class VolumeContainer extends pulumi.CustomResource {
             if ((!args || args.storageAccountCredentialId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountCredentialId'");
             }
-            if ((!args || args.volumeContainerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'volumeContainerName'");
-            }
             inputs["bandWidthRateInMbps"] = args ? args.bandWidthRateInMbps : undefined;
             inputs["bandwidthSettingId"] = args ? args.bandwidthSettingId : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
@@ -185,5 +182,5 @@ export interface VolumeContainerArgs {
     /**
      * The name of the volume container.
      */
-    readonly volumeContainerName: pulumi.Input<string>;
+    readonly volumeContainerName?: pulumi.Input<string>;
 }

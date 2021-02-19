@@ -120,9 +120,6 @@ export class FrontDoor extends pulumi.CustomResource {
         pulumi.log.warn("FrontDoor is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FrontDoor'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.frontDoorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'frontDoorName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -200,7 +197,7 @@ export interface FrontDoorArgs {
     /**
      * Name of the Front Door which is globally unique.
      */
-    readonly frontDoorName: pulumi.Input<string>;
+    readonly frontDoorName?: pulumi.Input<string>;
     /**
      * Frontend endpoints available to routing rules.
      */

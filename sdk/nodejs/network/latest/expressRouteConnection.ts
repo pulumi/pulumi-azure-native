@@ -84,9 +84,6 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
         pulumi.log.warn("ExpressRouteConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if ((!args || args.expressRouteCircuitPeering === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'expressRouteCircuitPeering'");
             }
@@ -145,7 +142,7 @@ export interface ExpressRouteConnectionArgs {
     /**
      * The name of the connection subresource.
      */
-    readonly connectionName: pulumi.Input<string>;
+    readonly connectionName?: pulumi.Input<string>;
     /**
      * Enable internet security.
      */

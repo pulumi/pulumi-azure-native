@@ -85,9 +85,6 @@ export class RouteFilter extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routeFilterName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'routeFilterName'");
-            }
             inputs["id"] = args ? args.id : undefined;
             inputs["ipv6Peerings"] = args ? args.ipv6Peerings : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -151,7 +148,7 @@ export interface RouteFilterArgs {
     /**
      * The name of the route filter.
      */
-    readonly routeFilterName: pulumi.Input<string>;
+    readonly routeFilterName?: pulumi.Input<string>;
     /**
      * Collection of RouteFilterRules contained within a route filter.
      */

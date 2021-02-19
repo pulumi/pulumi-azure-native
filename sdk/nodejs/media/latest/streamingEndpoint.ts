@@ -145,9 +145,6 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             if ((!args || args.scaleUnits === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scaleUnits'");
             }
-            if ((!args || args.streamingEndpointName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'streamingEndpointName'");
-            }
             inputs["accessControl"] = args ? args.accessControl : undefined;
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["autoStart"] = args ? args.autoStart : undefined;
@@ -272,7 +269,7 @@ export interface StreamingEndpointArgs {
     /**
      * The name of the streaming endpoint, maximum length is 24.
      */
-    readonly streamingEndpointName: pulumi.Input<string>;
+    readonly streamingEndpointName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

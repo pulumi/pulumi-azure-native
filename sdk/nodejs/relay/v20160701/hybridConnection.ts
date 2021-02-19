@@ -73,9 +73,6 @@ export class HybridConnection extends pulumi.CustomResource {
     constructor(name: string, args: HybridConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.hybridConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'hybridConnectionName'");
-            }
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -121,7 +118,7 @@ export interface HybridConnectionArgs {
     /**
      * The hybrid connection name.
      */
-    readonly hybridConnectionName: pulumi.Input<string>;
+    readonly hybridConnectionName?: pulumi.Input<string>;
     /**
      * The Namespace Name
      */

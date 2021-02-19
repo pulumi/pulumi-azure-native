@@ -76,9 +76,6 @@ export class ProtectionContainer extends pulumi.CustomResource {
         pulumi.log.warn("ProtectionContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectionContainer'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'containerName'");
-            }
             if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fabricName'");
             }
@@ -126,7 +123,7 @@ export interface ProtectionContainerArgs {
     /**
      * Name of the container to be registered.
      */
-    readonly containerName: pulumi.Input<string>;
+    readonly containerName?: pulumi.Input<string>;
     /**
      * Optional ETag.
      */

@@ -100,9 +100,6 @@ export class ConfigurationStore extends pulumi.CustomResource {
         pulumi.log.warn("ConfigurationStore is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appconfiguration:ConfigurationStore'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.configStoreName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'configStoreName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -157,7 +154,7 @@ export interface ConfigurationStoreArgs {
     /**
      * The name of the configuration store.
      */
-    readonly configStoreName: pulumi.Input<string>;
+    readonly configStoreName?: pulumi.Input<string>;
     /**
      * The encryption settings of the configuration store.
      */

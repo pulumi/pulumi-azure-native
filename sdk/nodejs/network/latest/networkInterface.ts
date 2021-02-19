@@ -132,9 +132,6 @@ export class NetworkInterface extends pulumi.CustomResource {
         pulumi.log.warn("NetworkInterface is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkInterface'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.networkInterfaceName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'networkInterfaceName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -231,7 +228,7 @@ export interface NetworkInterfaceArgs {
     /**
      * The name of the network interface.
      */
-    readonly networkInterfaceName: pulumi.Input<string>;
+    readonly networkInterfaceName?: pulumi.Input<string>;
     /**
      * The reference to the NetworkSecurityGroup resource.
      */

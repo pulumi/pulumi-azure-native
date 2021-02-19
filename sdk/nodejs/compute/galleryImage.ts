@@ -119,9 +119,6 @@ export class GalleryImage extends pulumi.CustomResource {
     constructor(name: string, args: GalleryImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.galleryImageName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'galleryImageName'");
-            }
             if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryName'");
             }
@@ -218,7 +215,7 @@ export interface GalleryImageArgs {
     /**
      * The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
      */
-    readonly galleryImageName: pulumi.Input<string>;
+    readonly galleryImageName?: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery in which the Image Definition is to be created.
      */

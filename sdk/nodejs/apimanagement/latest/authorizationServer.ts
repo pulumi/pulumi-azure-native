@@ -127,9 +127,6 @@ export class AuthorizationServer extends pulumi.CustomResource {
             if ((!args || args.authorizationEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationEndpoint'");
             }
-            if ((!args || args.authsid === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'authsid'");
-            }
             if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientId'");
             }
@@ -217,7 +214,7 @@ export interface AuthorizationServerArgs {
     /**
      * Identifier of the authorization server.
      */
-    readonly authsid: pulumi.Input<string>;
+    readonly authsid?: pulumi.Input<string>;
     /**
      * Specifies the mechanism by which access token is passed to the API. 
      */

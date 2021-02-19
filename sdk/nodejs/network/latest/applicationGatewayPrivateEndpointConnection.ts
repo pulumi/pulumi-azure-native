@@ -83,9 +83,6 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
             if ((!args || args.applicationGatewayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationGatewayName'");
             }
-            if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -133,7 +130,7 @@ export interface ApplicationGatewayPrivateEndpointConnectionArgs {
     /**
      * The name of the application gateway private endpoint connection.
      */
-    readonly connectionName: pulumi.Input<string>;
+    readonly connectionName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

@@ -57,9 +57,6 @@ export class AccessControlRecord extends pulumi.CustomResource {
     constructor(name: string, args: AccessControlRecordArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.accessControlRecordName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'accessControlRecordName'");
-            }
             if ((!args || args.initiatorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'initiatorName'");
             }
@@ -100,7 +97,7 @@ export interface AccessControlRecordArgs {
     /**
      * The name of the access control record.
      */
-    readonly accessControlRecordName: pulumi.Input<string>;
+    readonly accessControlRecordName?: pulumi.Input<string>;
     /**
      * The Iscsi initiator name (IQN)
      */

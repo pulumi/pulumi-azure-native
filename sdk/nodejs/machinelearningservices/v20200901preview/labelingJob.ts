@@ -62,9 +62,6 @@ export class LabelingJob extends pulumi.CustomResource {
     constructor(name: string, args: LabelingJobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.labelingJobId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'labelingJobId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -104,7 +101,7 @@ export interface LabelingJobArgs {
     /**
      * Name and identifier for LabelingJob.
      */
-    readonly labelingJobId: pulumi.Input<string>;
+    readonly labelingJobId?: pulumi.Input<string>;
     /**
      * Definition of a labeling job.
      */

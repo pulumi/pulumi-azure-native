@@ -56,13 +56,10 @@ export class ProviderRegistration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:ProviderRegistration'. */
-    constructor(name: string, args: ProviderRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ProviderRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ProviderRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:ProviderRegistration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.providerNamespace === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'providerNamespace'");
-            }
             inputs["properties"] = args ? args.properties : undefined;
             inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
             inputs["name"] = undefined /*out*/;
@@ -93,5 +90,5 @@ export interface ProviderRegistrationArgs {
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    readonly providerNamespace: pulumi.Input<string>;
+    readonly providerNamespace?: pulumi.Input<string>;
 }

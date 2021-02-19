@@ -104,9 +104,6 @@ export class StaticSite extends pulumi.CustomResource {
         pulumi.log.warn("StaticSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:StaticSite'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -175,7 +172,7 @@ export interface StaticSiteArgs {
     /**
      * Name of the static site to create or update.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
      */

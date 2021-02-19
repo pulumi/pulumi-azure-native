@@ -101,9 +101,6 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
     constructor(name: string, args: SiteInstanceDeploymentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'id'");
-            }
             if ((!args || args.instanceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceId'");
             }
@@ -190,7 +187,7 @@ export interface SiteInstanceDeploymentArgs {
     /**
      * Resource Id
      */
-    readonly id: pulumi.Input<string>;
+    readonly id?: pulumi.Input<string>;
     /**
      * Id of web app instance
      */

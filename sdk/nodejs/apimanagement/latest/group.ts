@@ -79,9 +79,6 @@ export class Group extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'groupId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -137,7 +134,7 @@ export interface GroupArgs {
     /**
      * Group identifier. Must be unique in the current API Management service instance.
      */
-    readonly groupId: pulumi.Input<string>;
+    readonly groupId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

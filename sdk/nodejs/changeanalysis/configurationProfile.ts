@@ -64,12 +64,9 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConfigurationProfileArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ConfigurationProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'profileName'");
-            }
             inputs["identity"] = args ? args.identity : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -107,7 +104,7 @@ export interface ConfigurationProfileArgs {
     /**
      * The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
      */
-    readonly profileName: pulumi.Input<string>;
+    readonly profileName?: pulumi.Input<string>;
     /**
      * The properties of a configuration profile.
      */

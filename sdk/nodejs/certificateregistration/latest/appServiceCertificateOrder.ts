@@ -152,9 +152,6 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
         pulumi.log.warn("AppServiceCertificateOrder is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrder'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.certificateOrderName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'certificateOrderName'");
-            }
             if ((!args || args.productType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'productType'");
             }
@@ -239,7 +236,7 @@ export interface AppServiceCertificateOrderArgs {
     /**
      * Name of the certificate order.
      */
-    readonly certificateOrderName: pulumi.Input<string>;
+    readonly certificateOrderName?: pulumi.Input<string>;
     /**
      * State of the Key Vault secret.
      */

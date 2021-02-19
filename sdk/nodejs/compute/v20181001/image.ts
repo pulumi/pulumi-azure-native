@@ -74,9 +74,6 @@ export class Image extends pulumi.CustomResource {
     constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.imageName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'imageName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -118,7 +115,7 @@ export interface ImageArgs {
     /**
      * The name of the image.
      */
-    readonly imageName: pulumi.Input<string>;
+    readonly imageName?: pulumi.Input<string>;
     /**
      * Resource location
      */

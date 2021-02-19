@@ -85,9 +85,6 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.tableName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'tableName'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["keyspaceName"] = args ? args.keyspaceName : undefined;
             inputs["options"] = args ? args.options : undefined;
@@ -148,5 +145,5 @@ export interface DatabaseAccountCassandraTableArgs {
     /**
      * Cosmos DB table name.
      */
-    readonly tableName: pulumi.Input<string>;
+    readonly tableName?: pulumi.Input<string>;
 }

@@ -88,9 +88,6 @@ export class IpGroup extends pulumi.CustomResource {
         pulumi.log.warn("IpGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ipGroupsName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ipGroupsName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -145,7 +142,7 @@ export interface IpGroupArgs {
     /**
      * The name of the ipGroups.
      */
-    readonly ipGroupsName: pulumi.Input<string>;
+    readonly ipGroupsName?: pulumi.Input<string>;
     /**
      * Resource location.
      */

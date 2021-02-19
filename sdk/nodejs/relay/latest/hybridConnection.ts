@@ -79,9 +79,6 @@ export class HybridConnection extends pulumi.CustomResource {
         pulumi.log.warn("HybridConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.hybridConnectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'hybridConnectionName'");
-            }
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -127,7 +124,7 @@ export interface HybridConnectionArgs {
     /**
      * The hybrid connection name.
      */
-    readonly hybridConnectionName: pulumi.Input<string>;
+    readonly hybridConnectionName?: pulumi.Input<string>;
     /**
      * The namespace name
      */

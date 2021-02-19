@@ -88,9 +88,6 @@ export class AndroidMAMPolicyByName extends pulumi.CustomResource {
             if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyName'");
-            }
             inputs["accessRecheckOfflineTimeout"] = args ? args.accessRecheckOfflineTimeout : undefined;
             inputs["accessRecheckOnlineTimeout"] = args ? args.accessRecheckOnlineTimeout : undefined;
             inputs["appSharingFromLevel"] = (args ? args.appSharingFromLevel : undefined) || "none";
@@ -187,7 +184,7 @@ export interface AndroidMAMPolicyByNameArgs {
     /**
      * Unique name for the policy
      */
-    readonly policyName: pulumi.Input<string>;
+    readonly policyName?: pulumi.Input<string>;
     readonly screenCapture?: pulumi.Input<string>;
     /**
      * Resource Tags

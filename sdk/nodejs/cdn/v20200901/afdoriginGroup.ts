@@ -83,9 +83,6 @@ export class AFDOriginGroup extends pulumi.CustomResource {
     constructor(name: string, args: AFDOriginGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.originGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'originGroupName'");
-            }
             if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
@@ -145,7 +142,7 @@ export interface AFDOriginGroupArgs {
     /**
      * Name of the origin group which is unique within the endpoint.
      */
-    readonly originGroupName: pulumi.Input<string>;
+    readonly originGroupName?: pulumi.Input<string>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */

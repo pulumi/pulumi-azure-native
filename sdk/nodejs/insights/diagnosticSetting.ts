@@ -87,9 +87,6 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     constructor(name: string, args: DiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resourceUri === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceUri'");
             }
@@ -156,7 +153,7 @@ export interface DiagnosticSettingArgs {
     /**
      * The name of the diagnostic setting.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The identifier of the resource.
      */

@@ -132,9 +132,6 @@ export class VpnConnection extends pulumi.CustomResource {
         pulumi.log.warn("VpnConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VpnConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayName'");
             }
@@ -211,7 +208,7 @@ export interface VpnConnectionArgs {
     /**
      * The name of the connection.
      */
-    readonly connectionName: pulumi.Input<string>;
+    readonly connectionName?: pulumi.Input<string>;
     /**
      * DPD timeout in seconds for vpn connection.
      */

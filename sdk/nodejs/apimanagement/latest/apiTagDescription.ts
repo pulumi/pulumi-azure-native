@@ -88,9 +88,6 @@ export class ApiTagDescription extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.tagDescriptionId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'tagDescriptionId'");
-            }
             inputs["apiId"] = args ? args.apiId : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["externalDocsDescription"] = args ? args.externalDocsDescription : undefined;
@@ -155,5 +152,5 @@ export interface ApiTagDescriptionArgs {
     /**
      * Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
      */
-    readonly tagDescriptionId: pulumi.Input<string>;
+    readonly tagDescriptionId?: pulumi.Input<string>;
 }

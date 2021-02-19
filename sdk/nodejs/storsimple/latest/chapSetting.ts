@@ -64,9 +64,6 @@ export class ChapSetting extends pulumi.CustomResource {
         pulumi.log.warn("ChapSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:ChapSetting'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.chapUserName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'chapUserName'");
-            }
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -111,7 +108,7 @@ export interface ChapSettingArgs {
     /**
      * The chap user name.
      */
-    readonly chapUserName: pulumi.Input<string>;
+    readonly chapUserName?: pulumi.Input<string>;
     /**
      * The device name.
      */

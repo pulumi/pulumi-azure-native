@@ -74,9 +74,6 @@ export class ProtectionIntent extends pulumi.CustomResource {
             if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if ((!args || args.intentObjectName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'intentObjectName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,7 +126,7 @@ export interface ProtectionIntentArgs {
     /**
      * Intent object name.
      */
-    readonly intentObjectName: pulumi.Input<string>;
+    readonly intentObjectName?: pulumi.Input<string>;
     /**
      * Resource location.
      */

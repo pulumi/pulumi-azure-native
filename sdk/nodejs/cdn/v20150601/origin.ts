@@ -79,9 +79,6 @@ export class Origin extends pulumi.CustomResource {
             if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if ((!args || args.originName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'originName'");
-            }
             if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
@@ -144,7 +141,7 @@ export interface OriginArgs {
     /**
      * Name of the origin, an arbitrary value but it needs to be unique under endpoint
      */
-    readonly originName: pulumi.Input<string>;
+    readonly originName?: pulumi.Input<string>;
     /**
      * Name of the CDN profile within the resource group.
      */

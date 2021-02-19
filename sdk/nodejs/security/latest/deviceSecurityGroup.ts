@@ -76,9 +76,6 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
         pulumi.log.warn("DeviceSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:DeviceSecurityGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.deviceSecurityGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'deviceSecurityGroupName'");
-            }
             if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceId'");
             }
@@ -126,7 +123,7 @@ export interface DeviceSecurityGroupArgs {
     /**
      * The name of the device security group. Note that the name of the device security group is case insensitive.
      */
-    readonly deviceSecurityGroupName: pulumi.Input<string>;
+    readonly deviceSecurityGroupName?: pulumi.Input<string>;
     /**
      * The identifier of the resource.
      */

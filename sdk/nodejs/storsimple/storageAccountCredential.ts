@@ -87,9 +87,6 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             if ((!args || args.sslStatus === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sslStatus'");
             }
-            if ((!args || args.storageAccountCredentialName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'storageAccountCredentialName'");
-            }
             inputs["accessKey"] = args ? args.accessKey : undefined;
             inputs["endPoint"] = args ? args.endPoint : undefined;
             inputs["kind"] = args ? args.kind : undefined;
@@ -153,5 +150,5 @@ export interface StorageAccountCredentialArgs {
     /**
      * The storage account credential name.
      */
-    readonly storageAccountCredentialName: pulumi.Input<string>;
+    readonly storageAccountCredentialName?: pulumi.Input<string>;
 }

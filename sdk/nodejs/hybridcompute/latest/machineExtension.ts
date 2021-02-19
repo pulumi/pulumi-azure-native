@@ -100,9 +100,6 @@ export class MachineExtension extends pulumi.CustomResource {
         pulumi.log.warn("MachineExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:MachineExtension'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.extensionName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'extensionName'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -161,7 +158,7 @@ export interface MachineExtensionArgs {
     /**
      * The name of the machine extension.
      */
-    readonly extensionName: pulumi.Input<string>;
+    readonly extensionName?: pulumi.Input<string>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */

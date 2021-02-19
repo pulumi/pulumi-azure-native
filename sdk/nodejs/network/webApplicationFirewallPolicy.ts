@@ -102,9 +102,6 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             if ((!args || args.managedRules === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedRules'");
             }
-            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'policyName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -175,7 +172,7 @@ export interface WebApplicationFirewallPolicyArgs {
     /**
      * The name of the policy.
      */
-    readonly policyName: pulumi.Input<string>;
+    readonly policyName?: pulumi.Input<string>;
     /**
      * The PolicySettings for policy.
      */

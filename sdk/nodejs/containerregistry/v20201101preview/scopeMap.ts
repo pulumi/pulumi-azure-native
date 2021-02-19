@@ -85,9 +85,6 @@ export class ScopeMap extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopeMapName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'scopeMapName'");
-            }
             inputs["actions"] = args ? args.actions : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
@@ -145,5 +142,5 @@ export interface ScopeMapArgs {
     /**
      * The name of the scope map.
      */
-    readonly scopeMapName: pulumi.Input<string>;
+    readonly scopeMapName?: pulumi.Input<string>;
 }

@@ -125,9 +125,6 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmScaleSetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'vmScaleSetName'");
-            }
             inputs["automaticRepairsPolicy"] = args ? args.automaticRepairsPolicy : undefined;
             inputs["doNotRunExtensionsOnOverprovisionedVMs"] = args ? args.doNotRunExtensionsOnOverprovisionedVMs : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -246,7 +243,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The name of the VM scale set to create or update.
      */
-    readonly vmScaleSetName: pulumi.Input<string>;
+    readonly vmScaleSetName?: pulumi.Input<string>;
     /**
      * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
      */

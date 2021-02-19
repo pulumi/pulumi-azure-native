@@ -84,9 +84,6 @@ export class Channel extends pulumi.CustomResource {
         pulumi.log.warn("Channel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Channel'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.channelName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'channelName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +131,7 @@ export interface ChannelArgs {
     /**
      * The name of the Channel resource.
      */
-    readonly channelName: pulumi.Input<string>;
+    readonly channelName?: pulumi.Input<string>;
     /**
      * Entity Tag
      */

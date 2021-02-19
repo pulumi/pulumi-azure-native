@@ -76,9 +76,6 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
         pulumi.log.warn("ServerAzureADAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerAzureADAdministrator'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.administratorName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'administratorName'");
-            }
             if ((!args || args.administratorType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'administratorType'");
             }
@@ -134,7 +131,7 @@ export interface ServerAzureADAdministratorArgs {
     /**
      * Name of the server administrator resource.
      */
-    readonly administratorName: pulumi.Input<string>;
+    readonly administratorName?: pulumi.Input<string>;
     /**
      * The type of administrator.
      */
