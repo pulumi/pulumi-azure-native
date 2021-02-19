@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Sql
 {
     /// <summary>
-    /// Represents a database elastic pool.
-    /// API Version: 2014-04-01.
+    /// An elastic pool.
+    /// API Version: 2020-08-01-preview.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:sql:ElasticPool")]
     public partial class ElasticPool : Pulumi.CustomResource
@@ -23,34 +23,16 @@ namespace Pulumi.AzureNextGen.Sql
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum DTU any one database can consume.
-        /// </summary>
-        [Output("databaseDtuMax")]
-        public Output<int?> DatabaseDtuMax { get; private set; } = null!;
-
-        /// <summary>
-        /// The minimum DTU all databases are guaranteed.
-        /// </summary>
-        [Output("databaseDtuMin")]
-        public Output<int?> DatabaseDtuMin { get; private set; } = null!;
-
-        /// <summary>
-        /// The total shared DTU for the database elastic pool.
-        /// </summary>
-        [Output("dtu")]
-        public Output<int?> Dtu { get; private set; } = null!;
-
-        /// <summary>
-        /// The edition of the elastic pool.
-        /// </summary>
-        [Output("edition")]
-        public Output<string?> Edition { get; private set; } = null!;
-
-        /// <summary>
-        /// Kind of elastic pool.  This is metadata used for the Azure portal experience.
+        /// Kind of elastic pool. This is metadata used for the Azure portal experience.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// The license type to apply for this elastic pool.
+        /// </summary>
+        [Output("licenseType")]
+        public Output<string?> LicenseType { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -59,22 +41,46 @@ namespace Pulumi.AzureNextGen.Sql
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
+        /// </summary>
+        [Output("maintenanceConfigurationId")]
+        public Output<string?> MaintenanceConfigurationId { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage limit for the database elastic pool in bytes.
+        /// </summary>
+        [Output("maxSizeBytes")]
+        public Output<double?> MaxSizeBytes { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The per database settings for the elastic pool.
+        /// </summary>
+        [Output("perDatabaseSettings")]
+        public Output<Outputs.ElasticPoolPerDatabaseSettingsResponse?> PerDatabaseSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The elastic pool SKU.
+        /// 
+        /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+        /// 
+        /// ```azurecli
+        /// az sql elastic-pool list-editions -l &lt;location&gt; -o table
+        /// ````
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// The state of the elastic pool.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets storage limit for the database elastic pool in MB.
-        /// </summary>
-        [Output("storageMB")]
-        public Output<int?> StorageMB { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -89,7 +95,7 @@ namespace Pulumi.AzureNextGen.Sql
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        /// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         /// </summary>
         [Output("zoneRedundant")]
         public Output<bool?> ZoneRedundant { get; private set; } = null!;
@@ -148,40 +154,40 @@ namespace Pulumi.AzureNextGen.Sql
     public sealed class ElasticPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum DTU any one database can consume.
-        /// </summary>
-        [Input("databaseDtuMax")]
-        public Input<int>? DatabaseDtuMax { get; set; }
-
-        /// <summary>
-        /// The minimum DTU all databases are guaranteed.
-        /// </summary>
-        [Input("databaseDtuMin")]
-        public Input<int>? DatabaseDtuMin { get; set; }
-
-        /// <summary>
-        /// The total shared DTU for the database elastic pool.
-        /// </summary>
-        [Input("dtu")]
-        public Input<int>? Dtu { get; set; }
-
-        /// <summary>
-        /// The edition of the elastic pool.
-        /// </summary>
-        [Input("edition")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.ElasticPoolEdition>? Edition { get; set; }
-
-        /// <summary>
-        /// The name of the elastic pool to be operated on (updated or created).
+        /// The name of the elastic pool.
         /// </summary>
         [Input("elasticPoolName")]
         public Input<string>? ElasticPoolName { get; set; }
+
+        /// <summary>
+        /// The license type to apply for this elastic pool.
+        /// </summary>
+        [Input("licenseType")]
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.ElasticPoolLicenseType>? LicenseType { get; set; }
 
         /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
+        /// </summary>
+        [Input("maintenanceConfigurationId")]
+        public Input<string>? MaintenanceConfigurationId { get; set; }
+
+        /// <summary>
+        /// The storage limit for the database elastic pool in bytes.
+        /// </summary>
+        [Input("maxSizeBytes")]
+        public Input<double>? MaxSizeBytes { get; set; }
+
+        /// <summary>
+        /// The per database settings for the elastic pool.
+        /// </summary>
+        [Input("perDatabaseSettings")]
+        public Input<Inputs.ElasticPoolPerDatabaseSettingsArgs>? PerDatabaseSettings { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -196,10 +202,16 @@ namespace Pulumi.AzureNextGen.Sql
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// Gets storage limit for the database elastic pool in MB.
+        /// The elastic pool SKU.
+        /// 
+        /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+        /// 
+        /// ```azurecli
+        /// az sql elastic-pool list-editions -l &lt;location&gt; -o table
+        /// ````
         /// </summary>
-        [Input("storageMB")]
-        public Input<int>? StorageMB { get; set; }
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -214,7 +226,7 @@ namespace Pulumi.AzureNextGen.Sql
         }
 
         /// <summary>
-        /// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        /// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

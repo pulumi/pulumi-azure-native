@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Intune
 {
     /// <summary>
     /// Android Policy entity for Intune MAM.
-    /// API Version: 2015-01-14-privatepreview.
+    /// API Version: 2015-01-14-preview.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:intune:AndroidMAMPolicyByName")]
     public partial class AndroidMAMPolicyByName : Pulumi.CustomResource

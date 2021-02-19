@@ -27,6 +27,18 @@ namespace Pulumi.AzureNextGen.Authorization.Inputs
             set => _actions = value;
         }
 
+        [Input("dataActions")]
+        private InputList<string>? _dataActions;
+
+        /// <summary>
+        /// Allowed Data actions.
+        /// </summary>
+        public InputList<string> DataActions
+        {
+            get => _dataActions ?? (_dataActions = new InputList<string>());
+            set => _dataActions = value;
+        }
+
         [Input("notActions")]
         private InputList<string>? _notActions;
 
@@ -37,6 +49,18 @@ namespace Pulumi.AzureNextGen.Authorization.Inputs
         {
             get => _notActions ?? (_notActions = new InputList<string>());
             set => _notActions = value;
+        }
+
+        [Input("notDataActions")]
+        private InputList<string>? _notDataActions;
+
+        /// <summary>
+        /// Denied Data actions.
+        /// </summary>
+        public InputList<string> NotDataActions
+        {
+            get => _notDataActions ?? (_notDataActions = new InputList<string>());
+            set => _notDataActions = value;
         }
 
         public PermissionArgs()

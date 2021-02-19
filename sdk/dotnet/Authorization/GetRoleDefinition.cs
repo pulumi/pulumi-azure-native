@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Authorization
     public sealed class GetRoleDefinitionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the role definition.
+        /// The name of the role definition to delete.
         /// </summary>
-        [Input("roleDefinitionId", required: true)]
-        public string RoleDefinitionId { get; set; } = null!;
+        [Input("roleDefinitionName", required: true)]
+        public string RoleDefinitionName { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the role definition.
+        /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;

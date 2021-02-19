@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Insights
         /// </summary>
         public readonly bool? DisableIpMasking;
         /// <summary>
+        /// Resource etag
+        /// </summary>
+        public readonly string? Etag;
+        /// <summary>
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         /// </summary>
         public readonly string? FlowType;
@@ -96,6 +100,10 @@ namespace Pulumi.AzureNextGen.Insights
         /// </summary>
         public readonly string Kind;
         /// <summary>
+        /// The date which the component got migrated to LA, in ISO 8601 format.
+        /// </summary>
+        public readonly string LaMigrationDate;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -112,13 +120,21 @@ namespace Pulumi.AzureNextGen.Insights
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The network access type for accessing Application Insights ingestion.
+        /// </summary>
+        public readonly string? PublicNetworkAccessForIngestion;
+        /// <summary>
+        /// The network access type for accessing Application Insights query.
+        /// </summary>
+        public readonly string? PublicNetworkAccessForQuery;
+        /// <summary>
         /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         /// </summary>
         public readonly string? RequestSource;
         /// <summary>
         /// Retention period in days.
         /// </summary>
-        public readonly int? RetentionInDays;
+        public readonly int RetentionInDays;
         /// <summary>
         /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         /// </summary>
@@ -135,6 +151,10 @@ namespace Pulumi.AzureNextGen.Insights
         /// Azure resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+        /// </summary>
+        public readonly string? WorkspaceResourceId;
 
         [OutputConstructor]
         private GetComponentResult(
@@ -149,6 +169,8 @@ namespace Pulumi.AzureNextGen.Insights
             string creationDate,
 
             bool? disableIpMasking,
+
+            string? etag,
 
             string? flowType,
 
@@ -166,6 +188,8 @@ namespace Pulumi.AzureNextGen.Insights
 
             string kind,
 
+            string laMigrationDate,
+
             string location,
 
             string name,
@@ -174,9 +198,13 @@ namespace Pulumi.AzureNextGen.Insights
 
             string provisioningState,
 
+            string? publicNetworkAccessForIngestion,
+
+            string? publicNetworkAccessForQuery,
+
             string? requestSource,
 
-            int? retentionInDays,
+            int retentionInDays,
 
             double? samplingPercentage,
 
@@ -184,7 +212,9 @@ namespace Pulumi.AzureNextGen.Insights
 
             string tenantId,
 
-            string type)
+            string type,
+
+            string? workspaceResourceId)
         {
             AppId = appId;
             ApplicationId = applicationId;
@@ -192,6 +222,7 @@ namespace Pulumi.AzureNextGen.Insights
             ConnectionString = connectionString;
             CreationDate = creationDate;
             DisableIpMasking = disableIpMasking;
+            Etag = etag;
             FlowType = flowType;
             HockeyAppId = hockeyAppId;
             HockeyAppToken = hockeyAppToken;
@@ -200,16 +231,20 @@ namespace Pulumi.AzureNextGen.Insights
             IngestionMode = ingestionMode;
             InstrumentationKey = instrumentationKey;
             Kind = kind;
+            LaMigrationDate = laMigrationDate;
             Location = location;
             Name = name;
             PrivateLinkScopedResources = privateLinkScopedResources;
             ProvisioningState = provisioningState;
+            PublicNetworkAccessForIngestion = publicNetworkAccessForIngestion;
+            PublicNetworkAccessForQuery = publicNetworkAccessForQuery;
             RequestSource = requestSource;
             RetentionInDays = retentionInDays;
             SamplingPercentage = samplingPercentage;
             Tags = tags;
             TenantId = tenantId;
             Type = type;
+            WorkspaceResourceId = workspaceResourceId;
         }
     }
 }

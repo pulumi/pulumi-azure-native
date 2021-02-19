@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Insights
 {
     /// <summary>
     /// An Application Insights component definition.
-    /// API Version: 2015-05-01.
+    /// API Version: 2020-02-02-preview.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:insights:Component")]
     public partial class Component : Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.AzureNextGen.Insights
         /// </summary>
         [Output("disableIpMasking")]
         public Output<bool?> DisableIpMasking { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource etag
+        /// </summary>
+        [Output("etag")]
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
@@ -95,6 +101,12 @@ namespace Pulumi.AzureNextGen.Insights
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
+        /// The date which the component got migrated to LA, in ISO 8601 format.
+        /// </summary>
+        [Output("laMigrationDate")]
+        public Output<string> LaMigrationDate { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -119,6 +131,18 @@ namespace Pulumi.AzureNextGen.Insights
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The network access type for accessing Application Insights ingestion.
+        /// </summary>
+        [Output("publicNetworkAccessForIngestion")]
+        public Output<string?> PublicNetworkAccessForIngestion { get; private set; } = null!;
+
+        /// <summary>
+        /// The network access type for accessing Application Insights query.
+        /// </summary>
+        [Output("publicNetworkAccessForQuery")]
+        public Output<string?> PublicNetworkAccessForQuery { get; private set; } = null!;
+
+        /// <summary>
         /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         /// </summary>
         [Output("requestSource")]
@@ -128,7 +152,7 @@ namespace Pulumi.AzureNextGen.Insights
         /// Retention period in days.
         /// </summary>
         [Output("retentionInDays")]
-        public Output<int?> RetentionInDays { get; private set; } = null!;
+        public Output<int> RetentionInDays { get; private set; } = null!;
 
         /// <summary>
         /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
@@ -153,6 +177,12 @@ namespace Pulumi.AzureNextGen.Insights
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+        /// </summary>
+        [Output("workspaceResourceId")]
+        public Output<string?> WorkspaceResourceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -219,6 +249,12 @@ namespace Pulumi.AzureNextGen.Insights
         public Input<bool>? DisableIpMasking { get; set; }
 
         /// <summary>
+        /// Resource etag
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
+        /// <summary>
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         /// </summary>
         [Input("flowType")]
@@ -255,6 +291,18 @@ namespace Pulumi.AzureNextGen.Insights
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The network access type for accessing Application Insights ingestion.
+        /// </summary>
+        [Input("publicNetworkAccessForIngestion")]
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.PublicNetworkAccessType>? PublicNetworkAccessForIngestion { get; set; }
+
+        /// <summary>
+        /// The network access type for accessing Application Insights query.
+        /// </summary>
+        [Input("publicNetworkAccessForQuery")]
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.PublicNetworkAccessType>? PublicNetworkAccessForQuery { get; set; }
+
+        /// <summary>
         /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         /// </summary>
         [Input("requestSource")]
@@ -271,12 +319,6 @@ namespace Pulumi.AzureNextGen.Insights
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
-
-        /// <summary>
-        /// Retention period in days.
-        /// </summary>
-        [Input("retentionInDays")]
-        public Input<int>? RetentionInDays { get; set; }
 
         /// <summary>
         /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
@@ -296,13 +338,18 @@ namespace Pulumi.AzureNextGen.Insights
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+        /// </summary>
+        [Input("workspaceResourceId")]
+        public Input<string>? WorkspaceResourceId { get; set; }
+
         public ComponentArgs()
         {
             ApplicationType = "web";
             FlowType = "Bluefield";
-            IngestionMode = "ApplicationInsights";
+            IngestionMode = "LogAnalytics";
             RequestSource = "rest";
-            RetentionInDays = 90;
         }
     }
 }

@@ -9,17 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Sql
 {
-    public static class GetTransparentDataEncryption
+    public static class GetDatabaseSecurityAlertPolicy
     {
-        public static Task<GetTransparentDataEncryptionResult> InvokeAsync(GetTransparentDataEncryptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransparentDataEncryptionResult>("azure-nextgen:sql:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionArgs(), options.WithVersion());
+        public static Task<GetDatabaseSecurityAlertPolicyResult> InvokeAsync(GetDatabaseSecurityAlertPolicyArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseSecurityAlertPolicyResult>("azure-nextgen:sql:getDatabaseSecurityAlertPolicy", args ?? new GetDatabaseSecurityAlertPolicyArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetTransparentDataEncryptionArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseSecurityAlertPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the logical database for which the transparent data encryption is defined.
+        /// The name of the  database for which the security alert policy is defined.
         /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;
@@ -31,26 +31,30 @@ namespace Pulumi.AzureNextGen.Sql
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the server.
+        /// The name of the security alert policy.
+        /// </summary>
+        [Input("securityAlertPolicyName", required: true)]
+        public string SecurityAlertPolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the  server.
         /// </summary>
         [Input("serverName", required: true)]
         public string ServerName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the transparent data encryption configuration.
-        /// </summary>
-        [Input("tdeName", required: true)]
-        public string TdeName { get; set; } = null!;
-
-        public GetTransparentDataEncryptionArgs()
+        public GetDatabaseSecurityAlertPolicyArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetTransparentDataEncryptionResult
+    public sealed class GetDatabaseSecurityAlertPolicyResult
     {
+        /// <summary>
+        /// Specifies the UTC creation time of the policy.
+        /// </summary>
+        public readonly string CreationTime;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -60,7 +64,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies the state of the transparent data encryption.
+        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
         /// </summary>
         public readonly string State;
         /// <summary>
@@ -69,7 +73,9 @@ namespace Pulumi.AzureNextGen.Sql
         public readonly string Type;
 
         [OutputConstructor]
-        private GetTransparentDataEncryptionResult(
+        private GetDatabaseSecurityAlertPolicyResult(
+            string creationTime,
+
             string id,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Sql
 
             string type)
         {
+            CreationTime = creationTime;
             Id = id;
             Name = name;
             State = state;

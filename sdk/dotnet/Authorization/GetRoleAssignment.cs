@@ -40,6 +40,34 @@ namespace Pulumi.AzureNextGen.Authorization
     public sealed class GetRoleAssignmentResult
     {
         /// <summary>
+        /// The Delegation flag for the role assignment
+        /// </summary>
+        public readonly bool? CanDelegate;
+        /// <summary>
+        /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        /// </summary>
+        public readonly string? Condition;
+        /// <summary>
+        /// Version of the condition. Currently accepted value is '2.0'
+        /// </summary>
+        public readonly string? ConditionVersion;
+        /// <summary>
+        /// Id of the user who created the assignment
+        /// </summary>
+        public readonly string? CreatedBy;
+        /// <summary>
+        /// Time it was created
+        /// </summary>
+        public readonly string? CreatedOn;
+        /// <summary>
+        /// Id of the delegated managed identity resource
+        /// </summary>
+        public readonly string? DelegatedManagedIdentityResourceId;
+        /// <summary>
+        /// Description of role assignment
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The role assignment ID.
         /// </summary>
         public readonly string Id;
@@ -48,28 +76,84 @@ namespace Pulumi.AzureNextGen.Authorization
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Role assignment properties.
+        /// The principal ID.
         /// </summary>
-        public readonly Outputs.RoleAssignmentPropertiesWithScopeResponse Properties;
+        public readonly string? PrincipalId;
+        /// <summary>
+        /// The principal type of the assigned principal ID.
+        /// </summary>
+        public readonly string? PrincipalType;
+        /// <summary>
+        /// The role definition ID.
+        /// </summary>
+        public readonly string? RoleDefinitionId;
+        /// <summary>
+        /// The role assignment scope.
+        /// </summary>
+        public readonly string? Scope;
         /// <summary>
         /// The role assignment type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Id of the user who updated the assignment
+        /// </summary>
+        public readonly string? UpdatedBy;
+        /// <summary>
+        /// Time it was updated
+        /// </summary>
+        public readonly string? UpdatedOn;
 
         [OutputConstructor]
         private GetRoleAssignmentResult(
+            bool? canDelegate,
+
+            string? condition,
+
+            string? conditionVersion,
+
+            string? createdBy,
+
+            string? createdOn,
+
+            string? delegatedManagedIdentityResourceId,
+
+            string? description,
+
             string id,
 
             string name,
 
-            Outputs.RoleAssignmentPropertiesWithScopeResponse properties,
+            string? principalId,
 
-            string type)
+            string? principalType,
+
+            string? roleDefinitionId,
+
+            string? scope,
+
+            string type,
+
+            string? updatedBy,
+
+            string? updatedOn)
         {
+            CanDelegate = canDelegate;
+            Condition = condition;
+            ConditionVersion = conditionVersion;
+            CreatedBy = createdBy;
+            CreatedOn = createdOn;
+            DelegatedManagedIdentityResourceId = delegatedManagedIdentityResourceId;
+            Description = description;
             Id = id;
             Name = name;
-            Properties = properties;
+            PrincipalId = principalId;
+            PrincipalType = principalType;
+            RoleDefinitionId = roleDefinitionId;
+            Scope = scope;
             Type = type;
+            UpdatedBy = updatedBy;
+            UpdatedOn = updatedOn;
         }
     }
 }

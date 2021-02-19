@@ -10,12 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Sql
 {
     /// <summary>
-    /// A logical database transparent data encryption state.
+    /// A database security alert policy.
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:TransparentDataEncryption")]
-    public partial class TransparentDataEncryption : Pulumi.CustomResource
+    [AzureNextGenResourceType("azure-nextgen:sql:DatabaseSecurityAlertPolicy")]
+    public partial class DatabaseSecurityAlertPolicy : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies the UTC creation time of the policy.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -23,7 +29,7 @@ namespace Pulumi.AzureNextGen.Sql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the state of the transparent data encryption.
+        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -36,19 +42,19 @@ namespace Pulumi.AzureNextGen.Sql
 
 
         /// <summary>
-        /// Create a TransparentDataEncryption resource with the given unique name, arguments, and options.
+        /// Create a DatabaseSecurityAlertPolicy resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TransparentDataEncryption(string name, TransparentDataEncryptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:TransparentDataEncryption", name, args ?? new TransparentDataEncryptionArgs(), MakeResourceOptions(options, ""))
+        public DatabaseSecurityAlertPolicy(string name, DatabaseSecurityAlertPolicyArgs args, CustomResourceOptions? options = null)
+            : base("azure-nextgen:sql:DatabaseSecurityAlertPolicy", name, args ?? new DatabaseSecurityAlertPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private TransparentDataEncryption(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:TransparentDataEncryption", name, null, MakeResourceOptions(options, id))
+        private DatabaseSecurityAlertPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-nextgen:sql:DatabaseSecurityAlertPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,10 +65,11 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:TransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:TransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:TransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:TransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -71,23 +78,23 @@ namespace Pulumi.AzureNextGen.Sql
             return merged;
         }
         /// <summary>
-        /// Get an existing TransparentDataEncryption resource's state with the given name, ID, and optional extra
+        /// Get an existing DatabaseSecurityAlertPolicy resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static TransparentDataEncryption Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static DatabaseSecurityAlertPolicy Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new TransparentDataEncryption(name, id, options);
+            return new DatabaseSecurityAlertPolicy(name, id, options);
         }
     }
 
-    public sealed class TransparentDataEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseSecurityAlertPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the logical database for which the security alert policy is defined.
+        /// The name of the  database for which the security alert policy is defined.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -99,24 +106,24 @@ namespace Pulumi.AzureNextGen.Sql
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the server.
+        /// The name of the security alert policy.
+        /// </summary>
+        [Input("securityAlertPolicyName")]
+        public Input<string>? SecurityAlertPolicyName { get; set; }
+
+        /// <summary>
+        /// The name of the  server.
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the state of the transparent data encryption.
+        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
         /// </summary>
         [Input("state", required: true)]
-        public Input<Pulumi.AzureNextGen.Sql.TransparentDataEncryptionState> State { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Sql.SecurityAlertsPolicyState> State { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the transparent data encryption configuration.
-        /// </summary>
-        [Input("tdeName")]
-        public Input<string>? TdeName { get; set; }
-
-        public TransparentDataEncryptionArgs()
+        public DatabaseSecurityAlertPolicyArgs()
         {
         }
     }

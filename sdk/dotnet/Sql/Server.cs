@@ -10,14 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Sql
 {
     /// <summary>
-    /// Represents a server.
-    /// API Version: 2014-04-01.
+    /// An Azure SQL Database server.
+    /// API Version: 2020-08-01-preview.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:sql:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
-        /// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+        /// Administrator username for the server. Once created it cannot be changed.
         /// </summary>
         [Output("administratorLogin")]
         public Output<string?> AdministratorLogin { get; private set; } = null!;
@@ -29,25 +29,19 @@ namespace Pulumi.AzureNextGen.Sql
         public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
-        /// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-        /// </summary>
-        [Output("externalAdministratorLogin")]
-        public Output<string> ExternalAdministratorLogin { get; private set; } = null!;
-
-        /// <summary>
-        /// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-        /// </summary>
-        [Output("externalAdministratorSid")]
-        public Output<string> ExternalAdministratorSid { get; private set; } = null!;
-
-        /// <summary>
         /// The fully qualified domain name of the server.
         /// </summary>
         [Output("fullyQualifiedDomainName")]
         public Output<string> FullyQualifiedDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Kind of sql server.  This is metadata used for the Azure portal experience.
+        /// The Azure Active Directory identity of the server.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Kind of sql server. This is metadata used for the Azure portal experience.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
@@ -59,10 +53,28 @@ namespace Pulumi.AzureNextGen.Sql
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        /// </summary>
+        [Output("minimalTlsVersion")]
+        public Output<string?> MinimalTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// List of private endpoint connections on a server
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The state of the server.
@@ -87,6 +99,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not existing server has a workspace created and if it allows connection from workspace
+        /// </summary>
+        [Output("workspaceFeature")]
+        public Output<string> WorkspaceFeature { get; private set; } = null!;
 
 
         /// <summary>
@@ -143,7 +161,7 @@ namespace Pulumi.AzureNextGen.Sql
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+        /// Administrator username for the server. Once created it cannot be changed.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -155,10 +173,28 @@ namespace Pulumi.AzureNextGen.Sql
         public Input<string>? AdministratorLoginPassword { get; set; }
 
         /// <summary>
+        /// The Azure Active Directory identity of the server.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        /// </summary>
+        [Input("minimalTlsVersion")]
+        public Input<string>? MinimalTlsVersion { get; set; }
+
+        /// <summary>
+        /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.ServerPublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -188,7 +224,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// The version of the server.
         /// </summary>
         [Input("version")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.ServerVersion>? Version { get; set; }
+        public Input<string>? Version { get; set; }
 
         public ServerArgs()
         {

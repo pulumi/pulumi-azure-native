@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.Sql
 {
     /// <summary>
-    /// The type of administrator.
+    /// Type of the sever administrator.
     /// </summary>
     [EnumType]
     public readonly struct AdministratorType : IEquatable<AdministratorType>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNextGen.Sql
     /// 
     /// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
     /// 
-    /// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+    /// Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
     /// 
     /// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
     /// 
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.Sql
     /// 
     /// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
     /// 
-    /// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+    /// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
     /// </summary>
     [EnumType]
     public readonly struct CreateMode : IEquatable<CreateMode>
@@ -97,14 +97,16 @@ namespace Pulumi.AzureNextGen.Sql
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static CreateMode Copy { get; } = new CreateMode("Copy");
         public static CreateMode Default { get; } = new CreateMode("Default");
-        public static CreateMode NonReadableSecondary { get; } = new CreateMode("NonReadableSecondary");
-        public static CreateMode OnlineSecondary { get; } = new CreateMode("OnlineSecondary");
+        public static CreateMode Copy { get; } = new CreateMode("Copy");
+        public static CreateMode Secondary { get; } = new CreateMode("Secondary");
         public static CreateMode PointInTimeRestore { get; } = new CreateMode("PointInTimeRestore");
-        public static CreateMode Recovery { get; } = new CreateMode("Recovery");
         public static CreateMode Restore { get; } = new CreateMode("Restore");
+        public static CreateMode Recovery { get; } = new CreateMode("Recovery");
+        public static CreateMode RestoreExternalBackup { get; } = new CreateMode("RestoreExternalBackup");
+        public static CreateMode RestoreExternalBackupSecondary { get; } = new CreateMode("RestoreExternalBackupSecondary");
         public static CreateMode RestoreLongTermRetentionBackup { get; } = new CreateMode("RestoreLongTermRetentionBackup");
+        public static CreateMode OnlineSecondary { get; } = new CreateMode("OnlineSecondary");
 
         public static bool operator ==(CreateMode left, CreateMode right) => left.Equals(right);
         public static bool operator !=(CreateMode left, CreateMode right) => !left.Equals(right);
@@ -122,51 +124,29 @@ namespace Pulumi.AzureNextGen.Sql
     }
 
     /// <summary>
-    /// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-    /// 
-    /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-    /// 
-    /// ```azurecli
-    /// az sql db list-editions -l &lt;location&gt; -o table
-    /// ````
-    /// 
-    /// ```powershell
-    /// Get-AzSqlServerServiceObjective -Location &lt;location&gt;
-    /// ````
+    /// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
     /// </summary>
     [EnumType]
-    public readonly struct DatabaseEdition : IEquatable<DatabaseEdition>
+    public readonly struct DatabaseLicenseType : IEquatable<DatabaseLicenseType>
     {
         private readonly string _value;
 
-        private DatabaseEdition(string value)
+        private DatabaseLicenseType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DatabaseEdition Web { get; } = new DatabaseEdition("Web");
-        public static DatabaseEdition Business { get; } = new DatabaseEdition("Business");
-        public static DatabaseEdition Basic { get; } = new DatabaseEdition("Basic");
-        public static DatabaseEdition Standard { get; } = new DatabaseEdition("Standard");
-        public static DatabaseEdition Premium { get; } = new DatabaseEdition("Premium");
-        public static DatabaseEdition PremiumRS { get; } = new DatabaseEdition("PremiumRS");
-        public static DatabaseEdition Free { get; } = new DatabaseEdition("Free");
-        public static DatabaseEdition Stretch { get; } = new DatabaseEdition("Stretch");
-        public static DatabaseEdition DataWarehouse { get; } = new DatabaseEdition("DataWarehouse");
-        public static DatabaseEdition System { get; } = new DatabaseEdition("System");
-        public static DatabaseEdition System2 { get; } = new DatabaseEdition("System2");
-        public static DatabaseEdition GeneralPurpose { get; } = new DatabaseEdition("GeneralPurpose");
-        public static DatabaseEdition BusinessCritical { get; } = new DatabaseEdition("BusinessCritical");
-        public static DatabaseEdition Hyperscale { get; } = new DatabaseEdition("Hyperscale");
+        public static DatabaseLicenseType LicenseIncluded { get; } = new DatabaseLicenseType("LicenseIncluded");
+        public static DatabaseLicenseType BasePrice { get; } = new DatabaseLicenseType("BasePrice");
 
-        public static bool operator ==(DatabaseEdition left, DatabaseEdition right) => left.Equals(right);
-        public static bool operator !=(DatabaseEdition left, DatabaseEdition right) => !left.Equals(right);
+        public static bool operator ==(DatabaseLicenseType left, DatabaseLicenseType right) => left.Equals(right);
+        public static bool operator !=(DatabaseLicenseType left, DatabaseLicenseType right) => !left.Equals(right);
 
-        public static explicit operator string(DatabaseEdition value) => value._value;
+        public static explicit operator string(DatabaseLicenseType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DatabaseEdition other && Equals(other);
-        public bool Equals(DatabaseEdition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DatabaseLicenseType other && Equals(other);
+        public bool Equals(DatabaseLicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -175,32 +155,60 @@ namespace Pulumi.AzureNextGen.Sql
     }
 
     /// <summary>
-    /// The edition of the elastic pool.
+    /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
     /// </summary>
     [EnumType]
-    public readonly struct ElasticPoolEdition : IEquatable<ElasticPoolEdition>
+    public readonly struct DatabaseReadScale : IEquatable<DatabaseReadScale>
     {
         private readonly string _value;
 
-        private ElasticPoolEdition(string value)
+        private DatabaseReadScale(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ElasticPoolEdition Basic { get; } = new ElasticPoolEdition("Basic");
-        public static ElasticPoolEdition Standard { get; } = new ElasticPoolEdition("Standard");
-        public static ElasticPoolEdition Premium { get; } = new ElasticPoolEdition("Premium");
-        public static ElasticPoolEdition GeneralPurpose { get; } = new ElasticPoolEdition("GeneralPurpose");
-        public static ElasticPoolEdition BusinessCritical { get; } = new ElasticPoolEdition("BusinessCritical");
+        public static DatabaseReadScale Enabled { get; } = new DatabaseReadScale("Enabled");
+        public static DatabaseReadScale Disabled { get; } = new DatabaseReadScale("Disabled");
 
-        public static bool operator ==(ElasticPoolEdition left, ElasticPoolEdition right) => left.Equals(right);
-        public static bool operator !=(ElasticPoolEdition left, ElasticPoolEdition right) => !left.Equals(right);
+        public static bool operator ==(DatabaseReadScale left, DatabaseReadScale right) => left.Equals(right);
+        public static bool operator !=(DatabaseReadScale left, DatabaseReadScale right) => !left.Equals(right);
 
-        public static explicit operator string(ElasticPoolEdition value) => value._value;
+        public static explicit operator string(DatabaseReadScale value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ElasticPoolEdition other && Equals(other);
-        public bool Equals(ElasticPoolEdition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DatabaseReadScale other && Equals(other);
+        public bool Equals(DatabaseReadScale other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The license type to apply for this elastic pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct ElasticPoolLicenseType : IEquatable<ElasticPoolLicenseType>
+    {
+        private readonly string _value;
+
+        private ElasticPoolLicenseType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ElasticPoolLicenseType LicenseIncluded { get; } = new ElasticPoolLicenseType("LicenseIncluded");
+        public static ElasticPoolLicenseType BasePrice { get; } = new ElasticPoolLicenseType("BasePrice");
+
+        public static bool operator ==(ElasticPoolLicenseType left, ElasticPoolLicenseType right) => left.Equals(right);
+        public static bool operator !=(ElasticPoolLicenseType left, ElasticPoolLicenseType right) => !left.Equals(right);
+
+        public static explicit operator string(ElasticPoolLicenseType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ElasticPoolLicenseType other && Equals(other);
+        public bool Equals(ElasticPoolLicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -715,37 +723,6 @@ namespace Pulumi.AzureNextGen.Sql
     }
 
     /// <summary>
-    /// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
-    /// </summary>
-    [EnumType]
-    public readonly struct ReadScale : IEquatable<ReadScale>
-    {
-        private readonly string _value;
-
-        private ReadScale(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ReadScale Enabled { get; } = new ReadScale("Enabled");
-        public static ReadScale Disabled { get; } = new ReadScale("Disabled");
-
-        public static bool operator ==(ReadScale left, ReadScale right) => left.Equals(right);
-        public static bool operator !=(ReadScale left, ReadScale right) => !left.Equals(right);
-
-        public static explicit operator string(ReadScale value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ReadScale other && Equals(other);
-        public bool Equals(ReadScale other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
     /// </summary>
     [EnumType]
@@ -777,7 +754,7 @@ namespace Pulumi.AzureNextGen.Sql
     }
 
     /// <summary>
-    /// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
+    /// The name of the sample schema to apply when creating this database.
     /// </summary>
     [EnumType]
     public readonly struct SampleName : IEquatable<SampleName>
@@ -790,6 +767,8 @@ namespace Pulumi.AzureNextGen.Sql
         }
 
         public static SampleName AdventureWorksLT { get; } = new SampleName("AdventureWorksLT");
+        public static SampleName WideWorldImportersStd { get; } = new SampleName("WideWorldImportersStd");
+        public static SampleName WideWorldImportersFull { get; } = new SampleName("WideWorldImportersFull");
 
         public static bool operator ==(SampleName left, SampleName right) => left.Equals(right);
         public static bool operator !=(SampleName left, SampleName right) => !left.Equals(right);
@@ -807,29 +786,29 @@ namespace Pulumi.AzureNextGen.Sql
     }
 
     /// <summary>
-    /// Specifies that the alert is sent to the account administrators.
+    /// The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
     /// </summary>
     [EnumType]
-    public readonly struct SecurityAlertPolicyEmailAccountAdmins : IEquatable<SecurityAlertPolicyEmailAccountAdmins>
+    public readonly struct SecondaryType : IEquatable<SecondaryType>
     {
         private readonly string _value;
 
-        private SecurityAlertPolicyEmailAccountAdmins(string value)
+        private SecondaryType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SecurityAlertPolicyEmailAccountAdmins Enabled { get; } = new SecurityAlertPolicyEmailAccountAdmins("Enabled");
-        public static SecurityAlertPolicyEmailAccountAdmins Disabled { get; } = new SecurityAlertPolicyEmailAccountAdmins("Disabled");
+        public static SecondaryType Geo { get; } = new SecondaryType("Geo");
+        public static SecondaryType Named { get; } = new SecondaryType("Named");
 
-        public static bool operator ==(SecurityAlertPolicyEmailAccountAdmins left, SecurityAlertPolicyEmailAccountAdmins right) => left.Equals(right);
-        public static bool operator !=(SecurityAlertPolicyEmailAccountAdmins left, SecurityAlertPolicyEmailAccountAdmins right) => !left.Equals(right);
+        public static bool operator ==(SecondaryType left, SecondaryType right) => left.Equals(right);
+        public static bool operator !=(SecondaryType left, SecondaryType right) => !left.Equals(right);
 
-        public static explicit operator string(SecurityAlertPolicyEmailAccountAdmins value) => value._value;
+        public static explicit operator string(SecondaryType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SecurityAlertPolicyEmailAccountAdmins other && Equals(other);
-        public bool Equals(SecurityAlertPolicyEmailAccountAdmins other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is SecondaryType other && Equals(other);
+        public bool Equals(SecondaryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -838,61 +817,29 @@ namespace Pulumi.AzureNextGen.Sql
     }
 
     /// <summary>
-    /// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+    /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
     /// </summary>
     [EnumType]
-    public readonly struct SecurityAlertPolicyState : IEquatable<SecurityAlertPolicyState>
+    public readonly struct SecurityAlertsPolicyState : IEquatable<SecurityAlertsPolicyState>
     {
         private readonly string _value;
 
-        private SecurityAlertPolicyState(string value)
+        private SecurityAlertsPolicyState(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SecurityAlertPolicyState New { get; } = new SecurityAlertPolicyState("New");
-        public static SecurityAlertPolicyState Enabled { get; } = new SecurityAlertPolicyState("Enabled");
-        public static SecurityAlertPolicyState Disabled { get; } = new SecurityAlertPolicyState("Disabled");
+        public static SecurityAlertsPolicyState Enabled { get; } = new SecurityAlertsPolicyState("Enabled");
+        public static SecurityAlertsPolicyState Disabled { get; } = new SecurityAlertsPolicyState("Disabled");
 
-        public static bool operator ==(SecurityAlertPolicyState left, SecurityAlertPolicyState right) => left.Equals(right);
-        public static bool operator !=(SecurityAlertPolicyState left, SecurityAlertPolicyState right) => !left.Equals(right);
+        public static bool operator ==(SecurityAlertsPolicyState left, SecurityAlertsPolicyState right) => left.Equals(right);
+        public static bool operator !=(SecurityAlertsPolicyState left, SecurityAlertsPolicyState right) => !left.Equals(right);
 
-        public static explicit operator string(SecurityAlertPolicyState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SecurityAlertPolicyState other && Equals(other);
-        public bool Equals(SecurityAlertPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public static explicit operator string(SecurityAlertsPolicyState value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies whether to use the default server policy.
-    /// </summary>
-    [EnumType]
-    public readonly struct SecurityAlertPolicyUseServerDefault : IEquatable<SecurityAlertPolicyUseServerDefault>
-    {
-        private readonly string _value;
-
-        private SecurityAlertPolicyUseServerDefault(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SecurityAlertPolicyUseServerDefault Enabled { get; } = new SecurityAlertPolicyUseServerDefault("Enabled");
-        public static SecurityAlertPolicyUseServerDefault Disabled { get; } = new SecurityAlertPolicyUseServerDefault("Disabled");
-
-        public static bool operator ==(SecurityAlertPolicyUseServerDefault left, SecurityAlertPolicyUseServerDefault right) => left.Equals(right);
-        public static bool operator !=(SecurityAlertPolicyUseServerDefault left, SecurityAlertPolicyUseServerDefault right) => !left.Equals(right);
-
-        public static explicit operator string(SecurityAlertPolicyUseServerDefault value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SecurityAlertPolicyUseServerDefault other && Equals(other);
-        public bool Equals(SecurityAlertPolicyUseServerDefault other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is SecurityAlertsPolicyState other && Equals(other);
+        public bool Equals(SecurityAlertsPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -963,133 +910,29 @@ namespace Pulumi.AzureNextGen.Sql
     }
 
     /// <summary>
-    /// The version of the server.
+    /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
     /// </summary>
     [EnumType]
-    public readonly struct ServerVersion : IEquatable<ServerVersion>
+    public readonly struct ServerPublicNetworkAccess : IEquatable<ServerPublicNetworkAccess>
     {
         private readonly string _value;
 
-        private ServerVersion(string value)
+        private ServerPublicNetworkAccess(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerVersion ServerVersion_2_0 { get; } = new ServerVersion("2.0");
-        public static ServerVersion ServerVersion_12_0 { get; } = new ServerVersion("12.0");
+        public static ServerPublicNetworkAccess Enabled { get; } = new ServerPublicNetworkAccess("Enabled");
+        public static ServerPublicNetworkAccess Disabled { get; } = new ServerPublicNetworkAccess("Disabled");
 
-        public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
-        public static bool operator !=(ServerVersion left, ServerVersion right) => !left.Equals(right);
+        public static bool operator ==(ServerPublicNetworkAccess left, ServerPublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(ServerPublicNetworkAccess left, ServerPublicNetworkAccess right) => !left.Equals(right);
 
-        public static explicit operator string(ServerVersion value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerVersion other && Equals(other);
-        public bool Equals(ServerVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public static explicit operator string(ServerPublicNetworkAccess value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
-    /// 
-    /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-    /// 
-    /// ```azurecli
-    /// az sql db list-editions -l &lt;location&gt; -o table
-    /// ````
-    /// 
-    /// ```powershell
-    /// Get-AzSqlServerServiceObjective -Location &lt;location&gt;
-    /// ````
-    /// </summary>
-    [EnumType]
-    public readonly struct ServiceObjectiveName : IEquatable<ServiceObjectiveName>
-    {
-        private readonly string _value;
-
-        private ServiceObjectiveName(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ServiceObjectiveName System { get; } = new ServiceObjectiveName("System");
-        public static ServiceObjectiveName System0 { get; } = new ServiceObjectiveName("System0");
-        public static ServiceObjectiveName System1 { get; } = new ServiceObjectiveName("System1");
-        public static ServiceObjectiveName System2 { get; } = new ServiceObjectiveName("System2");
-        public static ServiceObjectiveName System3 { get; } = new ServiceObjectiveName("System3");
-        public static ServiceObjectiveName System4 { get; } = new ServiceObjectiveName("System4");
-        public static ServiceObjectiveName System2L { get; } = new ServiceObjectiveName("System2L");
-        public static ServiceObjectiveName System3L { get; } = new ServiceObjectiveName("System3L");
-        public static ServiceObjectiveName System4L { get; } = new ServiceObjectiveName("System4L");
-        public static ServiceObjectiveName Free { get; } = new ServiceObjectiveName("Free");
-        public static ServiceObjectiveName Basic { get; } = new ServiceObjectiveName("Basic");
-        public static ServiceObjectiveName S0 { get; } = new ServiceObjectiveName("S0");
-        public static ServiceObjectiveName S1 { get; } = new ServiceObjectiveName("S1");
-        public static ServiceObjectiveName S2 { get; } = new ServiceObjectiveName("S2");
-        public static ServiceObjectiveName S3 { get; } = new ServiceObjectiveName("S3");
-        public static ServiceObjectiveName S4 { get; } = new ServiceObjectiveName("S4");
-        public static ServiceObjectiveName S6 { get; } = new ServiceObjectiveName("S6");
-        public static ServiceObjectiveName S7 { get; } = new ServiceObjectiveName("S7");
-        public static ServiceObjectiveName S9 { get; } = new ServiceObjectiveName("S9");
-        public static ServiceObjectiveName S12 { get; } = new ServiceObjectiveName("S12");
-        public static ServiceObjectiveName P1 { get; } = new ServiceObjectiveName("P1");
-        public static ServiceObjectiveName P2 { get; } = new ServiceObjectiveName("P2");
-        public static ServiceObjectiveName P3 { get; } = new ServiceObjectiveName("P3");
-        public static ServiceObjectiveName P4 { get; } = new ServiceObjectiveName("P4");
-        public static ServiceObjectiveName P6 { get; } = new ServiceObjectiveName("P6");
-        public static ServiceObjectiveName P11 { get; } = new ServiceObjectiveName("P11");
-        public static ServiceObjectiveName P15 { get; } = new ServiceObjectiveName("P15");
-        public static ServiceObjectiveName PRS1 { get; } = new ServiceObjectiveName("PRS1");
-        public static ServiceObjectiveName PRS2 { get; } = new ServiceObjectiveName("PRS2");
-        public static ServiceObjectiveName PRS4 { get; } = new ServiceObjectiveName("PRS4");
-        public static ServiceObjectiveName PRS6 { get; } = new ServiceObjectiveName("PRS6");
-        public static ServiceObjectiveName DW100 { get; } = new ServiceObjectiveName("DW100");
-        public static ServiceObjectiveName DW200 { get; } = new ServiceObjectiveName("DW200");
-        public static ServiceObjectiveName DW300 { get; } = new ServiceObjectiveName("DW300");
-        public static ServiceObjectiveName DW400 { get; } = new ServiceObjectiveName("DW400");
-        public static ServiceObjectiveName DW500 { get; } = new ServiceObjectiveName("DW500");
-        public static ServiceObjectiveName DW600 { get; } = new ServiceObjectiveName("DW600");
-        public static ServiceObjectiveName DW1000 { get; } = new ServiceObjectiveName("DW1000");
-        public static ServiceObjectiveName DW1200 { get; } = new ServiceObjectiveName("DW1200");
-        public static ServiceObjectiveName DW1000c { get; } = new ServiceObjectiveName("DW1000c");
-        public static ServiceObjectiveName DW1500 { get; } = new ServiceObjectiveName("DW1500");
-        public static ServiceObjectiveName DW1500c { get; } = new ServiceObjectiveName("DW1500c");
-        public static ServiceObjectiveName DW2000 { get; } = new ServiceObjectiveName("DW2000");
-        public static ServiceObjectiveName DW2000c { get; } = new ServiceObjectiveName("DW2000c");
-        public static ServiceObjectiveName DW3000 { get; } = new ServiceObjectiveName("DW3000");
-        public static ServiceObjectiveName DW2500c { get; } = new ServiceObjectiveName("DW2500c");
-        public static ServiceObjectiveName DW3000c { get; } = new ServiceObjectiveName("DW3000c");
-        public static ServiceObjectiveName DW6000 { get; } = new ServiceObjectiveName("DW6000");
-        public static ServiceObjectiveName DW5000c { get; } = new ServiceObjectiveName("DW5000c");
-        public static ServiceObjectiveName DW6000c { get; } = new ServiceObjectiveName("DW6000c");
-        public static ServiceObjectiveName DW7500c { get; } = new ServiceObjectiveName("DW7500c");
-        public static ServiceObjectiveName DW10000c { get; } = new ServiceObjectiveName("DW10000c");
-        public static ServiceObjectiveName DW15000c { get; } = new ServiceObjectiveName("DW15000c");
-        public static ServiceObjectiveName DW30000c { get; } = new ServiceObjectiveName("DW30000c");
-        public static ServiceObjectiveName DS100 { get; } = new ServiceObjectiveName("DS100");
-        public static ServiceObjectiveName DS200 { get; } = new ServiceObjectiveName("DS200");
-        public static ServiceObjectiveName DS300 { get; } = new ServiceObjectiveName("DS300");
-        public static ServiceObjectiveName DS400 { get; } = new ServiceObjectiveName("DS400");
-        public static ServiceObjectiveName DS500 { get; } = new ServiceObjectiveName("DS500");
-        public static ServiceObjectiveName DS600 { get; } = new ServiceObjectiveName("DS600");
-        public static ServiceObjectiveName DS1000 { get; } = new ServiceObjectiveName("DS1000");
-        public static ServiceObjectiveName DS1200 { get; } = new ServiceObjectiveName("DS1200");
-        public static ServiceObjectiveName DS1500 { get; } = new ServiceObjectiveName("DS1500");
-        public static ServiceObjectiveName DS2000 { get; } = new ServiceObjectiveName("DS2000");
-        public static ServiceObjectiveName ElasticPool { get; } = new ServiceObjectiveName("ElasticPool");
-
-        public static bool operator ==(ServiceObjectiveName left, ServiceObjectiveName right) => left.Equals(right);
-        public static bool operator !=(ServiceObjectiveName left, ServiceObjectiveName right) => !left.Equals(right);
-
-        public static explicit operator string(ServiceObjectiveName value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServiceObjectiveName other && Equals(other);
-        public bool Equals(ServiceObjectiveName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ServerPublicNetworkAccess other && Equals(other);
+        public bool Equals(ServerPublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1224,29 +1067,29 @@ namespace Pulumi.AzureNextGen.Sql
     }
 
     /// <summary>
-    /// The status of the database transparent data encryption.
+    /// Specifies the state of the transparent data encryption.
     /// </summary>
     [EnumType]
-    public readonly struct TransparentDataEncryptionStatus : IEquatable<TransparentDataEncryptionStatus>
+    public readonly struct TransparentDataEncryptionState : IEquatable<TransparentDataEncryptionState>
     {
         private readonly string _value;
 
-        private TransparentDataEncryptionStatus(string value)
+        private TransparentDataEncryptionState(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TransparentDataEncryptionStatus Enabled { get; } = new TransparentDataEncryptionStatus("Enabled");
-        public static TransparentDataEncryptionStatus Disabled { get; } = new TransparentDataEncryptionStatus("Disabled");
+        public static TransparentDataEncryptionState Enabled { get; } = new TransparentDataEncryptionState("Enabled");
+        public static TransparentDataEncryptionState Disabled { get; } = new TransparentDataEncryptionState("Disabled");
 
-        public static bool operator ==(TransparentDataEncryptionStatus left, TransparentDataEncryptionStatus right) => left.Equals(right);
-        public static bool operator !=(TransparentDataEncryptionStatus left, TransparentDataEncryptionStatus right) => !left.Equals(right);
+        public static bool operator ==(TransparentDataEncryptionState left, TransparentDataEncryptionState right) => left.Equals(right);
+        public static bool operator !=(TransparentDataEncryptionState left, TransparentDataEncryptionState right) => !left.Equals(right);
 
-        public static explicit operator string(TransparentDataEncryptionStatus value) => value._value;
+        public static explicit operator string(TransparentDataEncryptionState value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TransparentDataEncryptionStatus other && Equals(other);
-        public bool Equals(TransparentDataEncryptionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is TransparentDataEncryptionState other && Equals(other);
+        public bool Equals(TransparentDataEncryptionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

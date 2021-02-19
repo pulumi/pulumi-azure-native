@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Authorization
 {
     /// <summary>
     /// Role definition.
-    /// API Version: 2015-07-01.
+    /// API Version: 2020-03-01-preview.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:authorization:RoleDefinition")]
     public partial class RoleDefinition : Pulumi.CustomResource
@@ -141,10 +141,10 @@ namespace Pulumi.AzureNextGen.Authorization
         }
 
         /// <summary>
-        /// The ID of the role definition.
+        /// The name of the role definition to delete.
         /// </summary>
-        [Input("roleDefinitionId")]
-        public Input<string>? RoleDefinitionId { get; set; }
+        [Input("roleDefinitionName")]
+        public Input<string>? RoleDefinitionName { get; set; }
 
         /// <summary>
         /// The role name.
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNextGen.Authorization
         public Input<string>? RoleType { get; set; }
 
         /// <summary>
-        /// The scope of the role definition.
+        /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
