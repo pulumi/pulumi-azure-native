@@ -148,6 +148,24 @@ export const PolicyType = {
  */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
 
+export const PrincipalType = {
+    User: "User",
+    Group: "Group",
+    ServicePrincipal: "ServicePrincipal",
+    Unknown: "Unknown",
+    DirectoryRoleTemplate: "DirectoryRoleTemplate",
+    ForeignGroup: "ForeignGroup",
+    Application: "Application",
+    MSI: "MSI",
+    DirectoryObjectOrGroup: "DirectoryObjectOrGroup",
+    Everyone: "Everyone",
+} as const;
+
+/**
+ * The principal type of the assigned principal ID.
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
 export const ResourceIdentityType = {
     /**
      * Indicates that a system assigned identity is associated with the resource.

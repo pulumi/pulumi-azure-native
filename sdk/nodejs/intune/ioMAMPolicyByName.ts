@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * iOS Policy entity for Intune MAM.
- * API Version: 2015-01-14-privatepreview.
+ * API Version: 2015-01-14-preview.
  */
 export class IoMAMPolicyByName extends pulumi.CustomResource {
     /**

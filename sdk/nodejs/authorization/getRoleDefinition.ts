@@ -14,18 +14,18 @@ export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azure-nextgen:authorization:getRoleDefinition", {
-        "roleDefinitionId": args.roleDefinitionId,
+        "roleDefinitionName": args.roleDefinitionName,
         "scope": args.scope,
     }, opts);
 }
 
 export interface GetRoleDefinitionArgs {
     /**
-     * The ID of the role definition.
+     * The name of the role definition to delete.
      */
-    readonly roleDefinitionId: string;
+    readonly roleDefinitionName: string;
     /**
-     * The scope of the role definition.
+     * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
     readonly scope: string;
 }

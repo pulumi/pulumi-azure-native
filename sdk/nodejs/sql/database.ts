@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Represents a database.
- * API Version: 2014-04-01.
+ * A database resource.
+ * API Version: 2020-08-01-preview.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -37,31 +37,35 @@ export class Database extends pulumi.CustomResource {
     }
 
     /**
-     * The collation of the database. If createMode is not Default, this value is ignored.
+     * Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+     */
+    public readonly autoPauseDelay!: pulumi.Output<number | undefined>;
+    /**
+     * Collation of the metadata catalog.
+     */
+    public readonly catalogCollation!: pulumi.Output<string | undefined>;
+    /**
+     * The collation of the database.
      */
     public readonly collation!: pulumi.Output<string | undefined>;
     /**
-     * The containment state of the database.
-     */
-    public /*out*/ readonly containmentState!: pulumi.Output<number>;
-    /**
      * Specifies the mode of database creation.
-     *
+     * 
      * Default: regular database creation.
-     *
+     * 
      * Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-     *
-     * OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-     *
+     * 
+     * Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+     * 
      * PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-     *
+     * 
      * Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-     *
+     * 
      * Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-     *
+     * 
      * RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-     *
-     * Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+     * 
+     * Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
@@ -69,9 +73,13 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
-     * The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
+     * The current service level objective name of the database.
      */
-    public /*out*/ readonly currentServiceObjectiveId!: pulumi.Output<string>;
+    public /*out*/ readonly currentServiceObjectiveName!: pulumi.Output<string>;
+    /**
+     * The name and tier of the SKU.
+     */
+    public /*out*/ readonly currentSku!: pulumi.Output<outputs.sql.SkuResponse>;
     /**
      * The ID of the database.
      */
@@ -85,63 +93,99 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly earliestRestoreDate!: pulumi.Output<string>;
     /**
-     * The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-     * 
-     * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-     * 
-     * ```azurecli
-     * az sql db list-editions -l <location> -o table
-     * ````
-     * 
-     * ```powershell
-     * Get-AzSqlServerServiceObjective -Location <location>
-     * ````
+     * The resource identifier of the elastic pool containing this database.
      */
-    public readonly edition!: pulumi.Output<string | undefined>;
+    public readonly elasticPoolId!: pulumi.Output<string | undefined>;
     /**
-     * The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
-     */
-    public readonly elasticPoolName!: pulumi.Output<string | undefined>;
-    /**
-     * The resource identifier of the failover group containing this database.
+     * Failover Group resource identifier that this database belongs to.
      */
     public /*out*/ readonly failoverGroupId!: pulumi.Output<string>;
     /**
-     * Kind of database.  This is metadata used for the Azure portal experience.
+     * The number of secondary replicas associated with the database that are used to provide high availability.
+     */
+    public readonly highAvailabilityReplicaCount!: pulumi.Output<number | undefined>;
+    /**
+     * Kind of database. This is metadata used for the Azure portal experience.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
+    /**
+     * The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
+     */
+    public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
+     * The resource identifier of the long term retention backup associated with create operation of this database.
      */
-    public readonly maxSizeBytes!: pulumi.Output<string | undefined>;
+    public readonly longTermRetentionBackupResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
+     */
+    public readonly maintenanceConfigurationId!: pulumi.Output<string | undefined>;
+    /**
+     * Resource that manages the database.
+     */
+    public /*out*/ readonly managedBy!: pulumi.Output<string>;
+    /**
+     * The max log size for this database.
+     */
+    public /*out*/ readonly maxLogSizeBytes!: pulumi.Output<number>;
+    /**
+     * The max size of the database expressed in bytes.
+     */
+    public readonly maxSizeBytes!: pulumi.Output<number | undefined>;
+    /**
+     * Minimal capacity that database will always have allocated, if not paused
+     */
+    public readonly minCapacity!: pulumi.Output<number | undefined>;
     /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+     * The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
+     */
+    public /*out*/ readonly pausedDate!: pulumi.Output<string>;
+    /**
+     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
      */
     public readonly readScale!: pulumi.Output<string | undefined>;
     /**
-     * The recommended indices for this database.
+     * The resource identifier of the recoverable database associated with create operation of this database.
      */
-    public /*out*/ readonly recommendedIndex!: pulumi.Output<outputs.sql.RecommendedIndexResponse[]>;
+    public readonly recoverableDatabaseId!: pulumi.Output<string | undefined>;
     /**
-     * Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
+     * The resource identifier of the recovery point associated with create operation of this database.
      */
-    public readonly recoveryServicesRecoveryPointResourceId!: pulumi.Output<string | undefined>;
+    public readonly recoveryServicesRecoveryPointId!: pulumi.Output<string | undefined>;
     /**
-     * The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-     * 
-     * The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
+     * The requested service level objective name of the database.
      */
-    public readonly requestedServiceObjectiveId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly requestedServiceObjectiveName!: pulumi.Output<string>;
     /**
-     * The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
+     * The resource identifier of the restorable dropped database associated with create operation of this database.
+     */
+    public readonly restorableDroppedDatabaseId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+     */
+    public readonly restorePointInTime!: pulumi.Output<string | undefined>;
+    /**
+     * The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
+     */
+    public /*out*/ readonly resumedDate!: pulumi.Output<string>;
+    /**
+     * The name of the sample schema to apply when creating this database.
+     */
+    public readonly sampleName!: pulumi.Output<string | undefined>;
+    /**
+     * The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+     */
+    public readonly secondaryType!: pulumi.Output<string | undefined>;
+    /**
+     * The database SKU.
      * 
      * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
      * 
@@ -153,29 +197,13 @@ export class Database extends pulumi.CustomResource {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    public readonly requestedServiceObjectiveName!: pulumi.Output<string | undefined>;
+    public readonly sku!: pulumi.Output<outputs.sql.SkuResponse | undefined>;
     /**
-     * Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-     */
-    public readonly restorePointInTime!: pulumi.Output<string | undefined>;
-    /**
-     * Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-     */
-    public readonly sampleName!: pulumi.Output<string | undefined>;
-    /**
-     * The current service level objective of the database.
-     */
-    public /*out*/ readonly serviceLevelObjective!: pulumi.Output<string>;
-    /**
-     * The list of service tier advisors for this database. Expanded property
-     */
-    public /*out*/ readonly serviceTierAdvisors!: pulumi.Output<outputs.sql.ServiceTierAdvisorResponse[]>;
-    /**
-     * Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
+     * Specifies the time that the database was deleted.
      */
     public readonly sourceDatabaseDeletionDate!: pulumi.Output<string | undefined>;
     /**
-     * Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
+     * The resource identifier of the source database associated with create operation of this database.
      */
     public readonly sourceDatabaseId!: pulumi.Output<string | undefined>;
     /**
@@ -183,13 +211,13 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * The storage account type used to store backups for this database.
+     */
+    public readonly storageAccountType!: pulumi.Output<string | undefined>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The transparent data encryption info for this database.
-     */
-    public /*out*/ readonly transparentDataEncryption!: pulumi.Output<outputs.sql.TransparentDataEncryptionResponse[]>;
     /**
      * Resource type.
      */
@@ -215,70 +243,90 @@ export class Database extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
+            inputs["autoPauseDelay"] = args ? args.autoPauseDelay : undefined;
+            inputs["catalogCollation"] = args ? args.catalogCollation : undefined;
             inputs["collation"] = args ? args.collation : undefined;
             inputs["createMode"] = args ? args.createMode : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["edition"] = args ? args.edition : undefined;
-            inputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
+            inputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
+            inputs["highAvailabilityReplicaCount"] = args ? args.highAvailabilityReplicaCount : undefined;
+            inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["longTermRetentionBackupResourceId"] = args ? args.longTermRetentionBackupResourceId : undefined;
+            inputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
             inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
+            inputs["minCapacity"] = args ? args.minCapacity : undefined;
             inputs["readScale"] = args ? args.readScale : undefined;
-            inputs["recoveryServicesRecoveryPointResourceId"] = args ? args.recoveryServicesRecoveryPointResourceId : undefined;
-            inputs["requestedServiceObjectiveId"] = args ? args.requestedServiceObjectiveId : undefined;
-            inputs["requestedServiceObjectiveName"] = args ? args.requestedServiceObjectiveName : undefined;
+            inputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
+            inputs["recoveryServicesRecoveryPointId"] = args ? args.recoveryServicesRecoveryPointId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["restorableDroppedDatabaseId"] = args ? args.restorableDroppedDatabaseId : undefined;
             inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
             inputs["sampleName"] = args ? args.sampleName : undefined;
+            inputs["secondaryType"] = args ? args.secondaryType : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
             inputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
+            inputs["storageAccountType"] = args ? args.storageAccountType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
-            inputs["containmentState"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
-            inputs["currentServiceObjectiveId"] = undefined /*out*/;
+            inputs["currentServiceObjectiveName"] = undefined /*out*/;
+            inputs["currentSku"] = undefined /*out*/;
             inputs["databaseId"] = undefined /*out*/;
             inputs["defaultSecondaryLocation"] = undefined /*out*/;
             inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["failoverGroupId"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
+            inputs["managedBy"] = undefined /*out*/;
+            inputs["maxLogSizeBytes"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["recommendedIndex"] = undefined /*out*/;
-            inputs["serviceLevelObjective"] = undefined /*out*/;
-            inputs["serviceTierAdvisors"] = undefined /*out*/;
+            inputs["pausedDate"] = undefined /*out*/;
+            inputs["requestedServiceObjectiveName"] = undefined /*out*/;
+            inputs["resumedDate"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["transparentDataEncryption"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["autoPauseDelay"] = undefined /*out*/;
+            inputs["catalogCollation"] = undefined /*out*/;
             inputs["collation"] = undefined /*out*/;
-            inputs["containmentState"] = undefined /*out*/;
             inputs["createMode"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
-            inputs["currentServiceObjectiveId"] = undefined /*out*/;
+            inputs["currentServiceObjectiveName"] = undefined /*out*/;
+            inputs["currentSku"] = undefined /*out*/;
             inputs["databaseId"] = undefined /*out*/;
             inputs["defaultSecondaryLocation"] = undefined /*out*/;
             inputs["earliestRestoreDate"] = undefined /*out*/;
-            inputs["edition"] = undefined /*out*/;
-            inputs["elasticPoolName"] = undefined /*out*/;
+            inputs["elasticPoolId"] = undefined /*out*/;
             inputs["failoverGroupId"] = undefined /*out*/;
+            inputs["highAvailabilityReplicaCount"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
+            inputs["licenseType"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["longTermRetentionBackupResourceId"] = undefined /*out*/;
+            inputs["maintenanceConfigurationId"] = undefined /*out*/;
+            inputs["managedBy"] = undefined /*out*/;
+            inputs["maxLogSizeBytes"] = undefined /*out*/;
             inputs["maxSizeBytes"] = undefined /*out*/;
+            inputs["minCapacity"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["pausedDate"] = undefined /*out*/;
             inputs["readScale"] = undefined /*out*/;
-            inputs["recommendedIndex"] = undefined /*out*/;
-            inputs["recoveryServicesRecoveryPointResourceId"] = undefined /*out*/;
-            inputs["requestedServiceObjectiveId"] = undefined /*out*/;
+            inputs["recoverableDatabaseId"] = undefined /*out*/;
+            inputs["recoveryServicesRecoveryPointId"] = undefined /*out*/;
             inputs["requestedServiceObjectiveName"] = undefined /*out*/;
+            inputs["restorableDroppedDatabaseId"] = undefined /*out*/;
             inputs["restorePointInTime"] = undefined /*out*/;
+            inputs["resumedDate"] = undefined /*out*/;
             inputs["sampleName"] = undefined /*out*/;
-            inputs["serviceLevelObjective"] = undefined /*out*/;
-            inputs["serviceTierAdvisors"] = undefined /*out*/;
+            inputs["secondaryType"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
             inputs["sourceDatabaseDeletionDate"] = undefined /*out*/;
             inputs["sourceDatabaseId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["storageAccountType"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
-            inputs["transparentDataEncryption"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["zoneRedundant"] = undefined /*out*/;
         }
@@ -300,75 +348,111 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseArgs {
     /**
-     * The collation of the database. If createMode is not Default, this value is ignored.
+     * Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+     */
+    readonly autoPauseDelay?: pulumi.Input<number>;
+    /**
+     * Collation of the metadata catalog.
+     */
+    readonly catalogCollation?: pulumi.Input<string | enums.sql.CatalogCollationType>;
+    /**
+     * The collation of the database.
      */
     readonly collation?: pulumi.Input<string>;
     /**
      * Specifies the mode of database creation.
-     *
+     * 
      * Default: regular database creation.
-     *
+     * 
      * Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-     *
-     * OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-     *
+     * 
+     * Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+     * 
      * PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-     *
+     * 
      * Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-     *
+     * 
      * Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-     *
+     * 
      * RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-     *
-     * Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+     * 
+     * Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
     readonly createMode?: pulumi.Input<string | enums.sql.CreateMode>;
     /**
-     * The name of the database to be operated on (updated or created).
+     * The name of the database.
      */
     readonly databaseName?: pulumi.Input<string>;
     /**
-     * The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-     * 
-     * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-     * 
-     * ```azurecli
-     * az sql db list-editions -l <location> -o table
-     * ````
-     * 
-     * ```powershell
-     * Get-AzSqlServerServiceObjective -Location <location>
-     * ````
+     * The resource identifier of the elastic pool containing this database.
      */
-    readonly edition?: pulumi.Input<string | enums.sql.DatabaseEdition>;
+    readonly elasticPoolId?: pulumi.Input<string>;
     /**
-     * The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
+     * The number of secondary replicas associated with the database that are used to provide high availability.
      */
-    readonly elasticPoolName?: pulumi.Input<string>;
+    readonly highAvailabilityReplicaCount?: pulumi.Input<number>;
+    /**
+     * The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
+     */
+    readonly licenseType?: pulumi.Input<string | enums.sql.DatabaseLicenseType>;
     /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
+     * The resource identifier of the long term retention backup associated with create operation of this database.
      */
-    readonly maxSizeBytes?: pulumi.Input<string>;
+    readonly longTermRetentionBackupResourceId?: pulumi.Input<string>;
     /**
-     * Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+     * Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
      */
-    readonly readScale?: pulumi.Input<string | enums.sql.ReadScale>;
+    readonly maintenanceConfigurationId?: pulumi.Input<string>;
     /**
-     * Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
+     * The max size of the database expressed in bytes.
      */
-    readonly recoveryServicesRecoveryPointResourceId?: pulumi.Input<string>;
+    readonly maxSizeBytes?: pulumi.Input<number>;
     /**
-     * The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-     * 
-     * The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
+     * Minimal capacity that database will always have allocated, if not paused
      */
-    readonly requestedServiceObjectiveId?: pulumi.Input<string>;
+    readonly minCapacity?: pulumi.Input<number>;
     /**
-     * The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
+     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+     */
+    readonly readScale?: pulumi.Input<string | enums.sql.DatabaseReadScale>;
+    /**
+     * The resource identifier of the recoverable database associated with create operation of this database.
+     */
+    readonly recoverableDatabaseId?: pulumi.Input<string>;
+    /**
+     * The resource identifier of the recovery point associated with create operation of this database.
+     */
+    readonly recoveryServicesRecoveryPointId?: pulumi.Input<string>;
+    /**
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     */
+    readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource identifier of the restorable dropped database associated with create operation of this database.
+     */
+    readonly restorableDroppedDatabaseId?: pulumi.Input<string>;
+    /**
+     * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+     */
+    readonly restorePointInTime?: pulumi.Input<string>;
+    /**
+     * The name of the sample schema to apply when creating this database.
+     */
+    readonly sampleName?: pulumi.Input<string | enums.sql.SampleName>;
+    /**
+     * The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+     */
+    readonly secondaryType?: pulumi.Input<string | enums.sql.SecondaryType>;
+    /**
+     * The name of the server.
+     */
+    readonly serverName: pulumi.Input<string>;
+    /**
+     * The database SKU.
      * 
      * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
      * 
@@ -380,31 +464,19 @@ export interface DatabaseArgs {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    readonly requestedServiceObjectiveName?: pulumi.Input<string | enums.sql.ServiceObjectiveName>;
+    readonly sku?: pulumi.Input<inputs.sql.Sku>;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-     */
-    readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-     */
-    readonly restorePointInTime?: pulumi.Input<string>;
-    /**
-     * Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-     */
-    readonly sampleName?: pulumi.Input<string | enums.sql.SampleName>;
-    /**
-     * The name of the server.
-     */
-    readonly serverName: pulumi.Input<string>;
-    /**
-     * Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
+     * Specifies the time that the database was deleted.
      */
     readonly sourceDatabaseDeletionDate?: pulumi.Input<string>;
     /**
-     * Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
+     * The resource identifier of the source database associated with create operation of this database.
      */
     readonly sourceDatabaseId?: pulumi.Input<string>;
+    /**
+     * The storage account type used to store backups for this database.
+     */
+    readonly storageAccountType?: pulumi.Input<string | enums.sql.StorageAccountType>;
     /**
      * Resource tags.
      */

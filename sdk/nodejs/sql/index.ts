@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./database";
-export * from "./databaseThreatDetectionPolicy";
+export * from "./databaseSecurityAlertPolicy";
 export * from "./databaseVulnerabilityAssessment";
 export * from "./databaseVulnerabilityAssessmentRuleBaseline";
 export * from "./disasterRecoveryConfiguration";
@@ -15,7 +15,7 @@ export * from "./failoverGroup";
 export * from "./firewallRule";
 export * from "./geoBackupPolicy";
 export * from "./getDatabase";
-export * from "./getDatabaseThreatDetectionPolicy";
+export * from "./getDatabaseSecurityAlertPolicy";
 export * from "./getDatabaseVulnerabilityAssessment";
 export * from "./getDatabaseVulnerabilityAssessmentRuleBaseline";
 export * from "./getDisasterRecoveryConfiguration";
@@ -120,7 +120,7 @@ export {
 
 // Import resources to register:
 import { Database } from "./database";
-import { DatabaseThreatDetectionPolicy } from "./databaseThreatDetectionPolicy";
+import { DatabaseSecurityAlertPolicy } from "./databaseSecurityAlertPolicy";
 import { DatabaseVulnerabilityAssessment } from "./databaseVulnerabilityAssessment";
 import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
 import { DisasterRecoveryConfiguration } from "./disasterRecoveryConfiguration";
@@ -169,8 +169,8 @@ const _module = {
         switch (type) {
             case "azure-nextgen:sql:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:sql:DatabaseThreatDetectionPolicy":
-                return new DatabaseThreatDetectionPolicy(name, <any>undefined, { urn })
+            case "azure-nextgen:sql:DatabaseSecurityAlertPolicy":
+                return new DatabaseSecurityAlertPolicy(name, <any>undefined, { urn })
             case "azure-nextgen:sql:DatabaseVulnerabilityAssessment":
                 return new DatabaseVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-nextgen:sql:DatabaseVulnerabilityAssessmentRuleBaseline":

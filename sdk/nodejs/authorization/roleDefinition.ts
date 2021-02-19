@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role definition.
- * API Version: 2015-07-01.
+ * API Version: 2020-03-01-preview.
  */
 export class RoleDefinition extends pulumi.CustomResource {
     /**
@@ -81,7 +81,7 @@ export class RoleDefinition extends pulumi.CustomResource {
             inputs["assignableScopes"] = args ? args.assignableScopes : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
+            inputs["roleDefinitionName"] = args ? args.roleDefinitionName : undefined;
             inputs["roleName"] = args ? args.roleName : undefined;
             inputs["roleType"] = args ? args.roleType : undefined;
             inputs["scope"] = args ? args.scope : undefined;
@@ -126,9 +126,9 @@ export interface RoleDefinitionArgs {
      */
     readonly permissions?: pulumi.Input<pulumi.Input<inputs.authorization.Permission>[]>;
     /**
-     * The ID of the role definition.
+     * The name of the role definition to delete.
      */
-    readonly roleDefinitionId?: pulumi.Input<string>;
+    readonly roleDefinitionName?: pulumi.Input<string>;
     /**
      * The role name.
      */
@@ -138,7 +138,7 @@ export interface RoleDefinitionArgs {
      */
     readonly roleType?: pulumi.Input<string>;
     /**
-     * The scope of the role definition.
+     * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
     readonly scope: pulumi.Input<string>;
 }

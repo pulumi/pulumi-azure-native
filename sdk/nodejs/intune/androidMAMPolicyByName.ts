@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Android Policy entity for Intune MAM.
- * API Version: 2015-01-14-privatepreview.
+ * API Version: 2015-01-14-preview.
  */
 export class AndroidMAMPolicyByName extends pulumi.CustomResource {
     /**

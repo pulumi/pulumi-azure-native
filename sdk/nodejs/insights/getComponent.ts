@@ -59,6 +59,10 @@ export interface GetComponentResult {
      */
     readonly disableIpMasking?: boolean;
     /**
+     * Resource etag
+     */
+    readonly etag?: string;
+    /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
     readonly flowType?: string;
@@ -91,6 +95,10 @@ export interface GetComponentResult {
      */
     readonly kind: string;
     /**
+     * The date which the component got migrated to LA, in ISO 8601 format.
+     */
+    readonly laMigrationDate: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -107,13 +115,21 @@ export interface GetComponentResult {
      */
     readonly provisioningState: string;
     /**
+     * The network access type for accessing Application Insights ingestion.
+     */
+    readonly publicNetworkAccessForIngestion?: string;
+    /**
+     * The network access type for accessing Application Insights query.
+     */
+    readonly publicNetworkAccessForQuery?: string;
+    /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
     readonly requestSource?: string;
     /**
      * Retention period in days.
      */
-    readonly retentionInDays?: number;
+    readonly retentionInDays: number;
     /**
      * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
      */
@@ -130,4 +146,8 @@ export interface GetComponentResult {
      * Azure resource type
      */
     readonly type: string;
+    /**
+     * Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+     */
+    readonly workspaceResourceId?: string;
 }

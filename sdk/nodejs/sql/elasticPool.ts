@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Represents a database elastic pool.
- * API Version: 2014-04-01.
+ * An elastic pool.
+ * API Version: 2020-08-01-preview.
  */
 export class ElasticPool extends pulumi.CustomResource {
     /**
@@ -41,41 +41,47 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
-     * The maximum DTU any one database can consume.
-     */
-    public readonly databaseDtuMax!: pulumi.Output<number | undefined>;
-    /**
-     * The minimum DTU all databases are guaranteed.
-     */
-    public readonly databaseDtuMin!: pulumi.Output<number | undefined>;
-    /**
-     * The total shared DTU for the database elastic pool.
-     */
-    public readonly dtu!: pulumi.Output<number | undefined>;
-    /**
-     * The edition of the elastic pool.
-     */
-    public readonly edition!: pulumi.Output<string | undefined>;
-    /**
-     * Kind of elastic pool.  This is metadata used for the Azure portal experience.
+     * Kind of elastic pool. This is metadata used for the Azure portal experience.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
+    /**
+     * The license type to apply for this elastic pool.
+     */
+    public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
+     */
+    public readonly maintenanceConfigurationId!: pulumi.Output<string | undefined>;
+    /**
+     * The storage limit for the database elastic pool in bytes.
+     */
+    public readonly maxSizeBytes!: pulumi.Output<number | undefined>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The per database settings for the elastic pool.
+     */
+    public readonly perDatabaseSettings!: pulumi.Output<outputs.sql.ElasticPoolPerDatabaseSettingsResponse | undefined>;
+    /**
+     * The elastic pool SKU.
+     * 
+     * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+     * 
+     * ```azurecli
+     * az sql elastic-pool list-editions -l <location> -o table
+     * ````
+     */
+    public readonly sku!: pulumi.Output<outputs.sql.SkuResponse | undefined>;
+    /**
      * The state of the elastic pool.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
-    /**
-     * Gets storage limit for the database elastic pool in MB.
-     */
-    public readonly storageMB!: pulumi.Output<number | undefined>;
     /**
      * Resource tags.
      */
@@ -85,7 +91,7 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+     * Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
      */
     public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
@@ -105,15 +111,15 @@ export class ElasticPool extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["databaseDtuMax"] = args ? args.databaseDtuMax : undefined;
-            inputs["databaseDtuMin"] = args ? args.databaseDtuMin : undefined;
-            inputs["dtu"] = args ? args.dtu : undefined;
-            inputs["edition"] = args ? args.edition : undefined;
             inputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
+            inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
+            inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
+            inputs["perDatabaseSettings"] = args ? args.perDatabaseSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["storageMB"] = args ? args.storageMB : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["creationDate"] = undefined /*out*/;
@@ -123,15 +129,15 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["creationDate"] = undefined /*out*/;
-            inputs["databaseDtuMax"] = undefined /*out*/;
-            inputs["databaseDtuMin"] = undefined /*out*/;
-            inputs["dtu"] = undefined /*out*/;
-            inputs["edition"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
+            inputs["licenseType"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["maintenanceConfigurationId"] = undefined /*out*/;
+            inputs["maxSizeBytes"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["perDatabaseSettings"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
-            inputs["storageMB"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["zoneRedundant"] = undefined /*out*/;
@@ -154,29 +160,29 @@ export class ElasticPool extends pulumi.CustomResource {
  */
 export interface ElasticPoolArgs {
     /**
-     * The maximum DTU any one database can consume.
-     */
-    readonly databaseDtuMax?: pulumi.Input<number>;
-    /**
-     * The minimum DTU all databases are guaranteed.
-     */
-    readonly databaseDtuMin?: pulumi.Input<number>;
-    /**
-     * The total shared DTU for the database elastic pool.
-     */
-    readonly dtu?: pulumi.Input<number>;
-    /**
-     * The edition of the elastic pool.
-     */
-    readonly edition?: pulumi.Input<string | enums.sql.ElasticPoolEdition>;
-    /**
-     * The name of the elastic pool to be operated on (updated or created).
+     * The name of the elastic pool.
      */
     readonly elasticPoolName?: pulumi.Input<string>;
+    /**
+     * The license type to apply for this elastic pool.
+     */
+    readonly licenseType?: pulumi.Input<string | enums.sql.ElasticPoolLicenseType>;
     /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
+     */
+    readonly maintenanceConfigurationId?: pulumi.Input<string>;
+    /**
+     * The storage limit for the database elastic pool in bytes.
+     */
+    readonly maxSizeBytes?: pulumi.Input<number>;
+    /**
+     * The per database settings for the elastic pool.
+     */
+    readonly perDatabaseSettings?: pulumi.Input<inputs.sql.ElasticPoolPerDatabaseSettings>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -186,15 +192,21 @@ export interface ElasticPoolArgs {
      */
     readonly serverName: pulumi.Input<string>;
     /**
-     * Gets storage limit for the database elastic pool in MB.
+     * The elastic pool SKU.
+     * 
+     * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+     * 
+     * ```azurecli
+     * az sql elastic-pool list-editions -l <location> -o table
+     * ````
      */
-    readonly storageMB?: pulumi.Input<number>;
+    readonly sku?: pulumi.Input<inputs.sql.Sku>;
     /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+     * Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
      */
     readonly zoneRedundant?: pulumi.Input<boolean>;
 }

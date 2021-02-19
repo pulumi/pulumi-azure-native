@@ -398,6 +398,22 @@ export const Operator = {
  */
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
+export const PublicNetworkAccessType = {
+    /**
+     * Enables connectivity to Application Insights through public DNS.
+     */
+    Enabled: "Enabled",
+    /**
+     * Disables public connectivity to Application Insights through public DNS.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The network access type for accessing Application Insights query.
+ */
+export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
+
 export const QueryType = {
     ResultCount: "ResultCount",
 } as const;
