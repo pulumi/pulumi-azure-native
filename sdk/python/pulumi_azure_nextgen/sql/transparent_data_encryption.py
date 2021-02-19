@@ -19,22 +19,22 @@ class TransparentDataEncryption(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']]] = None,
-                 transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['TransparentDataEncryptionState']] = None,
+                 tde_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        Represents a database transparent data encryption configuration.
-        API Version: 2014-04-01.
+        A logical database transparent data encryption state.
+        API Version: 2020-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] database_name: The name of the database for which setting the transparent data encryption applies.
+        :param pulumi.Input[str] database_name: The name of the logical database for which the security alert policy is defined.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']] status: The status of the database transparent data encryption.
-        :param pulumi.Input[str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
+        :param pulumi.Input['TransparentDataEncryptionState'] state: Specifies the state of the transparent data encryption.
+        :param pulumi.Input[str] tde_name: The name of the transparent data encryption configuration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -62,9 +62,10 @@ class TransparentDataEncryption(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
-            __props__['status'] = status
-            __props__['transparent_data_encryption_name'] = transparent_data_encryption_name
-            __props__['location'] = None
+            if state is None and not opts.urn:
+                raise TypeError("Missing required property 'state'")
+            __props__['state'] = state
+            __props__['tde_name'] = tde_name
             __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/latest:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:TransparentDataEncryption")])
@@ -95,14 +96,6 @@ class TransparentDataEncryption(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
-        """
-        Resource location.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Resource name.
@@ -111,11 +104,11 @@ class TransparentDataEncryption(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional[str]]:
+    def state(self) -> pulumi.Output[str]:
         """
-        The status of the database transparent data encryption.
+        Specifies the state of the transparent data encryption.
         """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter

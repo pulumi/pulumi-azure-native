@@ -20,7 +20,7 @@ class GetComponentResult:
     """
     An Application Insights component definition.
     """
-    def __init__(__self__, app_id=None, application_id=None, application_type=None, connection_string=None, creation_date=None, disable_ip_masking=None, flow_type=None, hockey_app_id=None, hockey_app_token=None, id=None, immediate_purge_data_on30_days=None, ingestion_mode=None, instrumentation_key=None, kind=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, request_source=None, retention_in_days=None, sampling_percentage=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, app_id=None, application_id=None, application_type=None, connection_string=None, creation_date=None, disable_ip_masking=None, etag=None, flow_type=None, hockey_app_id=None, hockey_app_token=None, id=None, immediate_purge_data_on30_days=None, ingestion_mode=None, instrumentation_key=None, kind=None, la_migration_date=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, request_source=None, retention_in_days=None, sampling_percentage=None, tags=None, tenant_id=None, type=None, workspace_resource_id=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
@@ -39,6 +39,9 @@ class GetComponentResult:
         if disable_ip_masking and not isinstance(disable_ip_masking, bool):
             raise TypeError("Expected argument 'disable_ip_masking' to be a bool")
         pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if flow_type and not isinstance(flow_type, str):
             raise TypeError("Expected argument 'flow_type' to be a str")
         pulumi.set(__self__, "flow_type", flow_type)
@@ -63,6 +66,9 @@ class GetComponentResult:
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
+        if la_migration_date and not isinstance(la_migration_date, str):
+            raise TypeError("Expected argument 'la_migration_date' to be a str")
+        pulumi.set(__self__, "la_migration_date", la_migration_date)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -75,6 +81,12 @@ class GetComponentResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access_for_ingestion and not isinstance(public_network_access_for_ingestion, str):
+            raise TypeError("Expected argument 'public_network_access_for_ingestion' to be a str")
+        pulumi.set(__self__, "public_network_access_for_ingestion", public_network_access_for_ingestion)
+        if public_network_access_for_query and not isinstance(public_network_access_for_query, str):
+            raise TypeError("Expected argument 'public_network_access_for_query' to be a str")
+        pulumi.set(__self__, "public_network_access_for_query", public_network_access_for_query)
         if request_source and not isinstance(request_source, str):
             raise TypeError("Expected argument 'request_source' to be a str")
         pulumi.set(__self__, "request_source", request_source)
@@ -93,6 +105,9 @@ class GetComponentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if workspace_resource_id and not isinstance(workspace_resource_id, str):
+            raise TypeError("Expected argument 'workspace_resource_id' to be a str")
+        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter(name="appId")
@@ -141,6 +156,14 @@ class GetComponentResult:
         Disable IP masking.
         """
         return pulumi.get(self, "disable_ip_masking")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Resource etag
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="flowType")
@@ -207,6 +230,14 @@ class GetComponentResult:
         return pulumi.get(self, "kind")
 
     @property
+    @pulumi.getter(name="laMigrationDate")
+    def la_migration_date(self) -> str:
+        """
+        The date which the component got migrated to LA, in ISO 8601 format.
+        """
+        return pulumi.get(self, "la_migration_date")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -239,6 +270,22 @@ class GetComponentResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="publicNetworkAccessForIngestion")
+    def public_network_access_for_ingestion(self) -> Optional[str]:
+        """
+        The network access type for accessing Application Insights ingestion.
+        """
+        return pulumi.get(self, "public_network_access_for_ingestion")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessForQuery")
+    def public_network_access_for_query(self) -> Optional[str]:
+        """
+        The network access type for accessing Application Insights query.
+        """
+        return pulumi.get(self, "public_network_access_for_query")
+
+    @property
     @pulumi.getter(name="requestSource")
     def request_source(self) -> Optional[str]:
         """
@@ -248,7 +295,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[int]:
+    def retention_in_days(self) -> int:
         """
         Retention period in days.
         """
@@ -286,6 +333,14 @@ class GetComponentResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> Optional[str]:
+        """
+        Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+        """
+        return pulumi.get(self, "workspace_resource_id")
+
 
 class AwaitableGetComponentResult(GetComponentResult):
     # pylint: disable=using-constant-test
@@ -299,6 +354,7 @@ class AwaitableGetComponentResult(GetComponentResult):
             connection_string=self.connection_string,
             creation_date=self.creation_date,
             disable_ip_masking=self.disable_ip_masking,
+            etag=self.etag,
             flow_type=self.flow_type,
             hockey_app_id=self.hockey_app_id,
             hockey_app_token=self.hockey_app_token,
@@ -307,16 +363,20 @@ class AwaitableGetComponentResult(GetComponentResult):
             ingestion_mode=self.ingestion_mode,
             instrumentation_key=self.instrumentation_key,
             kind=self.kind,
+            la_migration_date=self.la_migration_date,
             location=self.location,
             name=self.name,
             private_link_scoped_resources=self.private_link_scoped_resources,
             provisioning_state=self.provisioning_state,
+            public_network_access_for_ingestion=self.public_network_access_for_ingestion,
+            public_network_access_for_query=self.public_network_access_for_query,
             request_source=self.request_source,
             retention_in_days=self.retention_in_days,
             sampling_percentage=self.sampling_percentage,
             tags=self.tags,
             tenant_id=self.tenant_id,
-            type=self.type)
+            type=self.type,
+            workspace_resource_id=self.workspace_resource_id)
 
 
 def get_component(resource_group_name: Optional[str] = None,
@@ -344,6 +404,7 @@ def get_component(resource_group_name: Optional[str] = None,
         connection_string=__ret__.connection_string,
         creation_date=__ret__.creation_date,
         disable_ip_masking=__ret__.disable_ip_masking,
+        etag=__ret__.etag,
         flow_type=__ret__.flow_type,
         hockey_app_id=__ret__.hockey_app_id,
         hockey_app_token=__ret__.hockey_app_token,
@@ -352,13 +413,17 @@ def get_component(resource_group_name: Optional[str] = None,
         ingestion_mode=__ret__.ingestion_mode,
         instrumentation_key=__ret__.instrumentation_key,
         kind=__ret__.kind,
+        la_migration_date=__ret__.la_migration_date,
         location=__ret__.location,
         name=__ret__.name,
         private_link_scoped_resources=__ret__.private_link_scoped_resources,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access_for_ingestion=__ret__.public_network_access_for_ingestion,
+        public_network_access_for_query=__ret__.public_network_access_for_query,
         request_source=__ret__.request_source,
         retention_in_days=__ret__.retention_in_days,
         sampling_percentage=__ret__.sampling_percentage,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        type=__ret__.type,
+        workspace_resource_id=__ret__.workspace_resource_id)

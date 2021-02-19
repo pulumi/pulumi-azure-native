@@ -20,7 +20,7 @@ class RoleDefinition(pulumi.CustomResource):
                  assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionArgs']]]]] = None,
-                 role_definition_id: Optional[pulumi.Input[str]] = None,
+                 role_definition_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -29,17 +29,17 @@ class RoleDefinition(pulumi.CustomResource):
                  __opts__=None):
         """
         Role definition.
-        API Version: 2015-07-01.
+        API Version: 2020-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: Role definition assignable scopes.
         :param pulumi.Input[str] description: The role definition description.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionArgs']]]] permissions: Role definition permissions.
-        :param pulumi.Input[str] role_definition_id: The ID of the role definition.
+        :param pulumi.Input[str] role_definition_name: The name of the role definition to delete.
         :param pulumi.Input[str] role_name: The role name.
         :param pulumi.Input[str] role_type: The role type.
-        :param pulumi.Input[str] scope: The scope of the role definition.
+        :param pulumi.Input[str] scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -61,7 +61,7 @@ class RoleDefinition(pulumi.CustomResource):
             __props__['assignable_scopes'] = assignable_scopes
             __props__['description'] = description
             __props__['permissions'] = permissions
-            __props__['role_definition_id'] = role_definition_id
+            __props__['role_definition_name'] = role_definition_name
             __props__['role_name'] = role_name
             __props__['role_type'] = role_type
             if scope is None and not opts.urn:

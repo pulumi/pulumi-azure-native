@@ -7,7 +7,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['Server']
 
@@ -18,27 +20,33 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimal_tls_version: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        Represents a server.
-        API Version: 2014-04-01.
+        An Azure SQL Database server.
+        API Version: 2020-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login: Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+        :param pulumi.Input[str] administrator_login: Administrator username for the server. Once created it cannot be changed.
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
+        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        :param pulumi.Input[Union[str, 'ServerPublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Union[str, 'ServerVersion']] version: The version of the server.
+        :param pulumi.Input[str] version: The version of the server.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -59,20 +67,23 @@ class Server(pulumi.CustomResource):
 
             __props__['administrator_login'] = administrator_login
             __props__['administrator_login_password'] = administrator_login_password
+            __props__['identity'] = identity
             __props__['location'] = location
+            __props__['minimal_tls_version'] = minimal_tls_version
+            __props__['public_network_access'] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['server_name'] = server_name
             __props__['tags'] = tags
             __props__['version'] = version
-            __props__['external_administrator_login'] = None
-            __props__['external_administrator_sid'] = None
             __props__['fully_qualified_domain_name'] = None
             __props__['kind'] = None
             __props__['name'] = None
+            __props__['private_endpoint_connections'] = None
             __props__['state'] = None
             __props__['type'] = None
+            __props__['workspace_feature'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/latest:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
@@ -103,7 +114,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> pulumi.Output[Optional[str]]:
         """
-        Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+        Administrator username for the server. Once created it cannot be changed.
         """
         return pulumi.get(self, "administrator_login")
 
@@ -116,22 +127,6 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "administrator_login_password")
 
     @property
-    @pulumi.getter(name="externalAdministratorLogin")
-    def external_administrator_login(self) -> pulumi.Output[str]:
-        """
-        The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-        """
-        return pulumi.get(self, "external_administrator_login")
-
-    @property
-    @pulumi.getter(name="externalAdministratorSid")
-    def external_administrator_sid(self) -> pulumi.Output[str]:
-        """
-        The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-        """
-        return pulumi.get(self, "external_administrator_sid")
-
-    @property
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> pulumi.Output[str]:
         """
@@ -141,9 +136,17 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
+        """
+        The Azure Active Directory identity of the server.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
-        Kind of sql server.  This is metadata used for the Azure portal experience.
+        Kind of sql server. This is metadata used for the Azure portal experience.
         """
         return pulumi.get(self, "kind")
 
@@ -156,12 +159,36 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="minimalTlsVersion")
+    def minimal_tls_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        """
+        return pulumi.get(self, "minimal_tls_version")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.ServerPrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connections on a server
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter
@@ -194,6 +221,14 @@ class Server(pulumi.CustomResource):
         The version of the server.
         """
         return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="workspaceFeature")
+    def workspace_feature(self) -> pulumi.Output[str]:
+        """
+        Whether or not existing server has a workspace created and if it allows connection from workspace
+        """
+        return pulumi.get(self, "workspace_feature")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

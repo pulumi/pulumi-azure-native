@@ -41,7 +41,7 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
                  __opts__=None):
         """
         Android Policy entity for Intune MAM.
-        API Version: 2015-01-14-privatepreview.
+        API Version: 2015-01-14-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

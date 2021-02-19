@@ -13,13 +13,11 @@ from .get_firewall_rule import *
 from .get_private_endpoint_connection import *
 from .get_server import *
 from .get_server_administrator import *
-from .get_server_group import *
 from .get_server_key import *
 from .get_virtual_network_rule import *
 from .private_endpoint_connection import *
 from .server import *
 from .server_administrator import *
-from .server_group import *
 from .server_key import *
 from .virtual_network_rule import *
 from ._inputs import *
@@ -64,8 +62,6 @@ def _register_module():
                 return Server(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:dbforpostgresql:ServerAdministrator":
                 return ServerAdministrator(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:dbforpostgresql:ServerGroup":
-                return ServerGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:dbforpostgresql:ServerKey":
                 return ServerKey(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:dbforpostgresql:VirtualNetworkRule":

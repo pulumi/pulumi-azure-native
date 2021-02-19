@@ -19,41 +19,47 @@ class Component(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_type: Optional[pulumi.Input[Union[str, 'ApplicationType']]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
                  flow_type: Optional[pulumi.Input[Union[str, 'FlowType']]] = None,
                  hockey_app_id: Optional[pulumi.Input[str]] = None,
                  immediate_purge_data_on30_days: Optional[pulumi.Input[bool]] = None,
                  ingestion_mode: Optional[pulumi.Input[Union[str, 'IngestionMode']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 public_network_access_for_ingestion: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+                 public_network_access_for_query: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
                  request_source: Optional[pulumi.Input[Union[str, 'RequestSource']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 retention_in_days: Optional[pulumi.Input[int]] = None,
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         An Application Insights component definition.
-        API Version: 2015-05-01.
+        API Version: 2020-02-02-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ApplicationType']] application_type: Type of application being monitored.
         :param pulumi.Input[bool] disable_ip_masking: Disable IP masking.
+        :param pulumi.Input[str] etag: Resource etag
         :param pulumi.Input[Union[str, 'FlowType']] flow_type: Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         :param pulumi.Input[str] hockey_app_id: The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
         :param pulumi.Input[bool] immediate_purge_data_on30_days: Purge data immediately after 30 days.
         :param pulumi.Input[Union[str, 'IngestionMode']] ingestion_mode: Indicates the flow of the ingestion.
         :param pulumi.Input[str] kind: The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_ingestion: The network access type for accessing Application Insights ingestion.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_query: The network access type for accessing Application Insights query.
         :param pulumi.Input[Union[str, 'RequestSource']] request_source: Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
-        :param pulumi.Input[int] retention_in_days: Retention period in days.
         :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] workspace_resource_id: Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,18 +84,21 @@ class Component(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_type'")
             __props__['application_type'] = application_type
             __props__['disable_ip_masking'] = disable_ip_masking
+            __props__['etag'] = etag
             if flow_type is None:
                 flow_type = 'Bluefield'
             __props__['flow_type'] = flow_type
             __props__['hockey_app_id'] = hockey_app_id
             __props__['immediate_purge_data_on30_days'] = immediate_purge_data_on30_days
             if ingestion_mode is None:
-                ingestion_mode = 'ApplicationInsights'
+                ingestion_mode = 'LogAnalytics'
             __props__['ingestion_mode'] = ingestion_mode
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
             __props__['location'] = location
+            __props__['public_network_access_for_ingestion'] = public_network_access_for_ingestion
+            __props__['public_network_access_for_query'] = public_network_access_for_query
             if request_source is None:
                 request_source = 'rest'
             __props__['request_source'] = request_source
@@ -97,20 +106,20 @@ class Component(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_name'] = resource_name_
-            if retention_in_days is None:
-                retention_in_days = 90
-            __props__['retention_in_days'] = retention_in_days
             __props__['sampling_percentage'] = sampling_percentage
             __props__['tags'] = tags
+            __props__['workspace_resource_id'] = workspace_resource_id
             __props__['app_id'] = None
             __props__['application_id'] = None
             __props__['connection_string'] = None
             __props__['creation_date'] = None
             __props__['hockey_app_token'] = None
             __props__['instrumentation_key'] = None
+            __props__['la_migration_date'] = None
             __props__['name'] = None
             __props__['private_link_scoped_resources'] = None
             __props__['provisioning_state'] = None
+            __props__['retention_in_days'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/latest:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20180501preview:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20200202preview:Component")])
@@ -188,6 +197,14 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "disable_ip_masking")
 
     @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[Optional[str]]:
+        """
+        Resource etag
+        """
+        return pulumi.get(self, "etag")
+
+    @property
     @pulumi.getter(name="flowType")
     def flow_type(self) -> pulumi.Output[Optional[str]]:
         """
@@ -244,6 +261,14 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "kind")
 
     @property
+    @pulumi.getter(name="laMigrationDate")
+    def la_migration_date(self) -> pulumi.Output[str]:
+        """
+        The date which the component got migrated to LA, in ISO 8601 format.
+        """
+        return pulumi.get(self, "la_migration_date")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
@@ -276,6 +301,22 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="publicNetworkAccessForIngestion")
+    def public_network_access_for_ingestion(self) -> pulumi.Output[Optional[str]]:
+        """
+        The network access type for accessing Application Insights ingestion.
+        """
+        return pulumi.get(self, "public_network_access_for_ingestion")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessForQuery")
+    def public_network_access_for_query(self) -> pulumi.Output[Optional[str]]:
+        """
+        The network access type for accessing Application Insights query.
+        """
+        return pulumi.get(self, "public_network_access_for_query")
+
+    @property
     @pulumi.getter(name="requestSource")
     def request_source(self) -> pulumi.Output[Optional[str]]:
         """
@@ -285,7 +326,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Output[Optional[int]]:
+    def retention_in_days(self) -> pulumi.Output[int]:
         """
         Retention period in days.
         """
@@ -322,6 +363,14 @@ class Component(pulumi.CustomResource):
         Azure resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+        """
+        return pulumi.get(self, "workspace_resource_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

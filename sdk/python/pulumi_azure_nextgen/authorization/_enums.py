@@ -13,6 +13,7 @@ __all__ = [
     'LockLevel',
     'ParameterType',
     'PolicyType',
+    'PrincipalType',
     'ResourceIdentityType',
 ]
 
@@ -89,6 +90,22 @@ class PolicyType(str, Enum):
     BUILT_IN = "BuiltIn"
     CUSTOM = "Custom"
     STATIC = "Static"
+
+
+class PrincipalType(str, Enum):
+    """
+    The principal type of the assigned principal ID.
+    """
+    USER = "User"
+    GROUP = "Group"
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+    UNKNOWN = "Unknown"
+    DIRECTORY_ROLE_TEMPLATE = "DirectoryRoleTemplate"
+    FOREIGN_GROUP = "ForeignGroup"
+    APPLICATION = "Application"
+    MSI = "MSI"
+    DIRECTORY_OBJECT_OR_GROUP = "DirectoryObjectOrGroup"
+    EVERYONE = "Everyone"
 
 
 class ResourceIdentityType(str, Enum):

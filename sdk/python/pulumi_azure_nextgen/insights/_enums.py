@@ -35,6 +35,7 @@ __all__ = [
     'Odatatype',
     'OperationType',
     'Operator',
+    'PublicNetworkAccessType',
     'QueryType',
     'RecurrenceFrequency',
     'RequestSource',
@@ -349,6 +350,14 @@ class Operator(str, Enum):
     Operator for dimension values
     """
     INCLUDE = "Include"
+
+
+class PublicNetworkAccessType(str, Enum):
+    """
+    The network access type for accessing Application Insights query.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class QueryType(str, Enum):

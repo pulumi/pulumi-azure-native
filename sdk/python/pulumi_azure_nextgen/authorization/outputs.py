@@ -23,7 +23,6 @@ __all__ = [
     'PolicyDefinitionGroupResponse',
     'PolicyDefinitionReferenceResponse',
     'PrincipalResponse',
-    'RoleAssignmentPropertiesWithScopeResponse',
     'SystemDataResponse',
 ]
 
@@ -414,16 +413,24 @@ class PermissionResponse(dict):
     """
     def __init__(__self__, *,
                  actions: Optional[Sequence[str]] = None,
-                 not_actions: Optional[Sequence[str]] = None):
+                 data_actions: Optional[Sequence[str]] = None,
+                 not_actions: Optional[Sequence[str]] = None,
+                 not_data_actions: Optional[Sequence[str]] = None):
         """
         Role definition permissions.
         :param Sequence[str] actions: Allowed actions.
+        :param Sequence[str] data_actions: Allowed Data actions.
         :param Sequence[str] not_actions: Denied actions.
+        :param Sequence[str] not_data_actions: Denied Data actions.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if data_actions is not None:
+            pulumi.set(__self__, "data_actions", data_actions)
         if not_actions is not None:
             pulumi.set(__self__, "not_actions", not_actions)
+        if not_data_actions is not None:
+            pulumi.set(__self__, "not_data_actions", not_data_actions)
 
     @property
     @pulumi.getter
@@ -434,12 +441,28 @@ class PermissionResponse(dict):
         return pulumi.get(self, "actions")
 
     @property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> Optional[Sequence[str]]:
+        """
+        Allowed Data actions.
+        """
+        return pulumi.get(self, "data_actions")
+
+    @property
     @pulumi.getter(name="notActions")
     def not_actions(self) -> Optional[Sequence[str]]:
         """
         Denied actions.
         """
         return pulumi.get(self, "not_actions")
+
+    @property
+    @pulumi.getter(name="notDataActions")
+    def not_data_actions(self) -> Optional[Sequence[str]]:
+        """
+        Denied Data actions.
+        """
+        return pulumi.get(self, "not_data_actions")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -612,56 +635,6 @@ class PrincipalResponse(dict):
         Type of object represented by principal id (user, group, or service principal). An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class RoleAssignmentPropertiesWithScopeResponse(dict):
-    """
-    Role assignment properties with scope.
-    """
-    def __init__(__self__, *,
-                 principal_id: Optional[str] = None,
-                 role_definition_id: Optional[str] = None,
-                 scope: Optional[str] = None):
-        """
-        Role assignment properties with scope.
-        :param str principal_id: The principal ID.
-        :param str role_definition_id: The role definition ID.
-        :param str scope: The role assignment scope.
-        """
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[str]:
-        """
-        The principal ID.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[str]:
-        """
-        The role definition ID.
-        """
-        return pulumi.get(self, "role_definition_id")
-
-    @property
-    @pulumi.getter
-    def scope(self) -> Optional[str]:
-        """
-        The role assignment scope.
-        """
-        return pulumi.get(self, "scope")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

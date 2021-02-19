@@ -17,12 +17,15 @@ __all__ = [
 @pulumi.output_type
 class GetServerAzureADAdministratorResult:
     """
-    An server Active Directory Administrator.
+    Azure Active Directory administrator.
     """
-    def __init__(__self__, administrator_type=None, id=None, login=None, name=None, sid=None, tenant_id=None, type=None):
+    def __init__(__self__, administrator_type=None, azure_ad_only_authentication=None, id=None, login=None, name=None, sid=None, tenant_id=None, type=None):
         if administrator_type and not isinstance(administrator_type, str):
             raise TypeError("Expected argument 'administrator_type' to be a str")
         pulumi.set(__self__, "administrator_type", administrator_type)
+        if azure_ad_only_authentication and not isinstance(azure_ad_only_authentication, bool):
+            raise TypeError("Expected argument 'azure_ad_only_authentication' to be a bool")
+        pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,9 +49,17 @@ class GetServerAzureADAdministratorResult:
     @pulumi.getter(name="administratorType")
     def administrator_type(self) -> str:
         """
-        The type of administrator.
+        Type of the sever administrator.
         """
         return pulumi.get(self, "administrator_type")
+
+    @property
+    @pulumi.getter(name="azureADOnlyAuthentication")
+    def azure_ad_only_authentication(self) -> bool:
+        """
+        Azure Active Directory only Authentication enabled.
+        """
+        return pulumi.get(self, "azure_ad_only_authentication")
 
     @property
     @pulumi.getter
@@ -62,7 +73,7 @@ class GetServerAzureADAdministratorResult:
     @pulumi.getter
     def login(self) -> str:
         """
-        The server administrator login value.
+        Login name of the server administrator.
         """
         return pulumi.get(self, "login")
 
@@ -78,15 +89,15 @@ class GetServerAzureADAdministratorResult:
     @pulumi.getter
     def sid(self) -> str:
         """
-        The server administrator Sid (Secure ID).
+        SID (object ID) of the server administrator.
         """
         return pulumi.get(self, "sid")
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> Optional[str]:
         """
-        The server Active Directory Administrator tenant id.
+        Tenant ID of the administrator.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -106,6 +117,7 @@ class AwaitableGetServerAzureADAdministratorResult(GetServerAzureADAdministrator
             yield self
         return GetServerAzureADAdministratorResult(
             administrator_type=self.administrator_type,
+            azure_ad_only_authentication=self.azure_ad_only_authentication,
             id=self.id,
             login=self.login,
             name=self.name,
@@ -121,7 +133,7 @@ def get_server_azure_ad_administrator(administrator_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str administrator_name: Name of the server administrator resource.
+    :param str administrator_name: The name of server active directory administrator.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
@@ -137,6 +149,7 @@ def get_server_azure_ad_administrator(administrator_name: Optional[str] = None,
 
     return AwaitableGetServerAzureADAdministratorResult(
         administrator_type=__ret__.administrator_type,
+        azure_ad_only_authentication=__ret__.azure_ad_only_authentication,
         id=__ret__.id,
         login=__ret__.login,
         name=__ret__.name,

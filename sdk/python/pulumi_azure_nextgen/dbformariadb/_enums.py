@@ -8,7 +8,6 @@ __all__ = [
     'CreateMode',
     'GeoRedundantBackup',
     'PublicNetworkAccessEnum',
-    'ServerKeyType',
     'ServerVersion',
     'SkuTier',
     'SslEnforcementEnum',
@@ -40,13 +39,6 @@ class PublicNetworkAccessEnum(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class ServerKeyType(str, Enum):
-    """
-    The key type like  'AzureKeyVault'.
-    """
-    AZURE_KEY_VAULT = "AzureKeyVault"
 
 
 class ServerVersion(str, Enum):

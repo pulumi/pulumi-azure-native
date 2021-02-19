@@ -9,32 +9,32 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from ._enums import *
 
-__all__ = ['ServerKey']
+__all__ = ['DatabaseSecurityAlertPolicy']
 
 
-class ServerKey(pulumi.CustomResource):
+class DatabaseSecurityAlertPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 server_key_type: Optional[pulumi.Input[Union[str, 'ServerKeyType']]] = None,
+                 security_alert_policy_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 uri: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['SecurityAlertsPolicyState']] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        A MariaDB Server key.
-        API Version: 2020-01-01-privatepreview.
+        A database security alert policy.
+        API Version: 2020-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key_name: The name of the MariaDB Server key to be operated on (updated or created).
+        :param pulumi.Input[str] database_name: The name of the  database for which the security alert policy is defined.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[Union[str, 'ServerKeyType']] server_key_type: The key type like  'AzureKeyVault'.
-        :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[str] uri: The URI of the key.
+        :param pulumi.Input[str] security_alert_policy_name: The name of the security alert policy.
+        :param pulumi.Input[str] server_name: The name of the  server.
+        :param pulumi.Input['SecurityAlertsPolicyState'] state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,25 +53,26 @@ class ServerKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['key_name'] = key_name
+            if database_name is None and not opts.urn:
+                raise TypeError("Missing required property 'database_name'")
+            __props__['database_name'] = database_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_key_type is None and not opts.urn:
-                raise TypeError("Missing required property 'server_key_type'")
-            __props__['server_key_type'] = server_key_type
+            __props__['security_alert_policy_name'] = security_alert_policy_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
-            __props__['uri'] = uri
-            __props__['creation_date'] = None
-            __props__['kind'] = None
+            if state is None and not opts.urn:
+                raise TypeError("Missing required property 'state'")
+            __props__['state'] = state
+            __props__['creation_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbformariadb/v20200101privatepreview:ServerKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        super(ServerKey, __self__).__init__(
-            'azure-nextgen:dbformariadb:ServerKey',
+        super(DatabaseSecurityAlertPolicy, __self__).__init__(
+            'azure-nextgen:sql:DatabaseSecurityAlertPolicy',
             resource_name,
             __props__,
             opts)
@@ -79,9 +80,9 @@ class ServerKey(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'ServerKey':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DatabaseSecurityAlertPolicy':
         """
-        Get an existing ServerKey resource's state with the given name, id, and optional extra
+        Get an existing DatabaseSecurityAlertPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -92,55 +93,39 @@ class ServerKey(pulumi.CustomResource):
 
         __props__ = dict()
 
-        return ServerKey(resource_name, opts=opts, __props__=__props__)
+        return DatabaseSecurityAlertPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> pulumi.Output[str]:
         """
-        The key creation date.
+        Specifies the UTC creation time of the policy.
         """
-        return pulumi.get(self, "creation_date")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Output[str]:
-        """
-        Kind of encryption protector. This is metadata used for the Azure portal experience.
-        """
-        return pulumi.get(self, "kind")
+        return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="serverKeyType")
-    def server_key_type(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def state(self) -> pulumi.Output[str]:
         """
-        The key type like  'AzureKeyVault'.
+        Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
         """
-        return pulumi.get(self, "server_key_type")
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def uri(self) -> pulumi.Output[Optional[str]]:
-        """
-        The URI of the key.
-        """
-        return pulumi.get(self, "uri")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
