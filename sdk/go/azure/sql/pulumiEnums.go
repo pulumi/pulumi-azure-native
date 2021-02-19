@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The type of administrator.
+// Type of the sever administrator.
 type AdministratorType pulumi.String
 
 const (
@@ -71,7 +71,7 @@ func (e CatalogCollationType) ToStringPtrOutputWithContext(ctx context.Context) 
 //
 // Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
 //
-// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+// Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
 //
 // PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
 //
@@ -81,18 +81,20 @@ func (e CatalogCollationType) ToStringPtrOutputWithContext(ctx context.Context) 
 //
 // RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
 //
-// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
 type CreateMode pulumi.String
 
 const (
-	CreateModeCopy                           = CreateMode("Copy")
 	CreateModeDefault                        = CreateMode("Default")
-	CreateModeNonReadableSecondary           = CreateMode("NonReadableSecondary")
-	CreateModeOnlineSecondary                = CreateMode("OnlineSecondary")
+	CreateModeCopy                           = CreateMode("Copy")
+	CreateModeSecondary                      = CreateMode("Secondary")
 	CreateModePointInTimeRestore             = CreateMode("PointInTimeRestore")
-	CreateModeRecovery                       = CreateMode("Recovery")
 	CreateModeRestore                        = CreateMode("Restore")
+	CreateModeRecovery                       = CreateMode("Recovery")
+	CreateModeRestoreExternalBackup          = CreateMode("RestoreExternalBackup")
+	CreateModeRestoreExternalBackupSecondary = CreateMode("RestoreExternalBackupSecondary")
 	CreateModeRestoreLongTermRetentionBackup = CreateMode("RestoreLongTermRetentionBackup")
+	CreateModeOnlineSecondary                = CreateMode("OnlineSecondary")
 )
 
 func (CreateMode) ElementType() reflect.Type {
@@ -115,76 +117,87 @@ func (e CreateMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-//
-// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-type DatabaseEdition pulumi.String
+// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
+type DatabaseLicenseType pulumi.String
 
 const (
-	DatabaseEditionWeb              = DatabaseEdition("Web")
-	DatabaseEditionBusiness         = DatabaseEdition("Business")
-	DatabaseEditionBasic            = DatabaseEdition("Basic")
-	DatabaseEditionStandard         = DatabaseEdition("Standard")
-	DatabaseEditionPremium          = DatabaseEdition("Premium")
-	DatabaseEditionPremiumRS        = DatabaseEdition("PremiumRS")
-	DatabaseEditionFree             = DatabaseEdition("Free")
-	DatabaseEditionStretch          = DatabaseEdition("Stretch")
-	DatabaseEditionDataWarehouse    = DatabaseEdition("DataWarehouse")
-	DatabaseEditionSystem           = DatabaseEdition("System")
-	DatabaseEditionSystem2          = DatabaseEdition("System2")
-	DatabaseEditionGeneralPurpose   = DatabaseEdition("GeneralPurpose")
-	DatabaseEditionBusinessCritical = DatabaseEdition("BusinessCritical")
-	DatabaseEditionHyperscale       = DatabaseEdition("Hyperscale")
+	DatabaseLicenseTypeLicenseIncluded = DatabaseLicenseType("LicenseIncluded")
+	DatabaseLicenseTypeBasePrice       = DatabaseLicenseType("BasePrice")
 )
 
-func (DatabaseEdition) ElementType() reflect.Type {
+func (DatabaseLicenseType) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e DatabaseEdition) ToStringOutput() pulumi.StringOutput {
+func (e DatabaseLicenseType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DatabaseEdition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DatabaseLicenseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DatabaseEdition) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DatabaseLicenseType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DatabaseEdition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DatabaseLicenseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The edition of the elastic pool.
-type ElasticPoolEdition pulumi.String
+// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+type DatabaseReadScale pulumi.String
 
 const (
-	ElasticPoolEditionBasic            = ElasticPoolEdition("Basic")
-	ElasticPoolEditionStandard         = ElasticPoolEdition("Standard")
-	ElasticPoolEditionPremium          = ElasticPoolEdition("Premium")
-	ElasticPoolEditionGeneralPurpose   = ElasticPoolEdition("GeneralPurpose")
-	ElasticPoolEditionBusinessCritical = ElasticPoolEdition("BusinessCritical")
+	DatabaseReadScaleEnabled  = DatabaseReadScale("Enabled")
+	DatabaseReadScaleDisabled = DatabaseReadScale("Disabled")
 )
 
-func (ElasticPoolEdition) ElementType() reflect.Type {
+func (DatabaseReadScale) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e ElasticPoolEdition) ToStringOutput() pulumi.StringOutput {
+func (e DatabaseReadScale) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ElasticPoolEdition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DatabaseReadScale) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ElasticPoolEdition) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DatabaseReadScale) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ElasticPoolEdition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DatabaseReadScale) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The license type to apply for this elastic pool.
+type ElasticPoolLicenseType pulumi.String
+
+const (
+	ElasticPoolLicenseTypeLicenseIncluded = ElasticPoolLicenseType("LicenseIncluded")
+	ElasticPoolLicenseTypeBasePrice       = ElasticPoolLicenseType("BasePrice")
+)
+
+func (ElasticPoolLicenseType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ElasticPoolLicenseType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ElasticPoolLicenseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ElasticPoolLicenseType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ElasticPoolLicenseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -646,34 +659,6 @@ func (e ReadOnlyEndpointFailoverPolicy) ToStringPtrOutputWithContext(ctx context
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
-type ReadScale pulumi.String
-
-const (
-	ReadScaleEnabled  = ReadScale("Enabled")
-	ReadScaleDisabled = ReadScale("Disabled")
-)
-
-func (ReadScale) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ReadScale) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ReadScale) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ReadScale) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ReadScale) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 type ReadWriteEndpointFailoverPolicy pulumi.String
 
@@ -702,11 +687,13 @@ func (e ReadWriteEndpointFailoverPolicy) ToStringPtrOutputWithContext(ctx contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
+// The name of the sample schema to apply when creating this database.
 type SampleName pulumi.String
 
 const (
-	SampleNameAdventureWorksLT = SampleName("AdventureWorksLT")
+	SampleNameAdventureWorksLT       = SampleName("AdventureWorksLT")
+	SampleNameWideWorldImportersStd  = SampleName("WideWorldImportersStd")
+	SampleNameWideWorldImportersFull = SampleName("WideWorldImportersFull")
 )
 
 func (SampleName) ElementType() reflect.Type {
@@ -729,88 +716,59 @@ func (e SampleName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Specifies that the alert is sent to the account administrators.
-type SecurityAlertPolicyEmailAccountAdmins pulumi.String
+// The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+type SecondaryType pulumi.String
 
 const (
-	SecurityAlertPolicyEmailAccountAdminsEnabled  = SecurityAlertPolicyEmailAccountAdmins("Enabled")
-	SecurityAlertPolicyEmailAccountAdminsDisabled = SecurityAlertPolicyEmailAccountAdmins("Disabled")
+	SecondaryTypeGeo   = SecondaryType("Geo")
+	SecondaryTypeNamed = SecondaryType("Named")
 )
 
-func (SecurityAlertPolicyEmailAccountAdmins) ElementType() reflect.Type {
+func (SecondaryType) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e SecurityAlertPolicyEmailAccountAdmins) ToStringOutput() pulumi.StringOutput {
+func (e SecondaryType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SecurityAlertPolicyEmailAccountAdmins) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e SecondaryType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SecurityAlertPolicyEmailAccountAdmins) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e SecondaryType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e SecurityAlertPolicyEmailAccountAdmins) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e SecondaryType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-type SecurityAlertPolicyState pulumi.String
+// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+type SecurityAlertsPolicyState pulumi.String
 
 const (
-	SecurityAlertPolicyStateNew      = SecurityAlertPolicyState("New")
-	SecurityAlertPolicyStateEnabled  = SecurityAlertPolicyState("Enabled")
-	SecurityAlertPolicyStateDisabled = SecurityAlertPolicyState("Disabled")
+	SecurityAlertsPolicyStateEnabled  = SecurityAlertsPolicyState("Enabled")
+	SecurityAlertsPolicyStateDisabled = SecurityAlertsPolicyState("Disabled")
 )
 
-func (SecurityAlertPolicyState) ElementType() reflect.Type {
+func (SecurityAlertsPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e SecurityAlertPolicyState) ToStringOutput() pulumi.StringOutput {
+func (e SecurityAlertsPolicyState) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SecurityAlertPolicyState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e SecurityAlertsPolicyState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SecurityAlertPolicyState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e SecurityAlertsPolicyState) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e SecurityAlertPolicyState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Specifies whether to use the default server policy.
-type SecurityAlertPolicyUseServerDefault pulumi.String
-
-const (
-	SecurityAlertPolicyUseServerDefaultEnabled  = SecurityAlertPolicyUseServerDefault("Enabled")
-	SecurityAlertPolicyUseServerDefaultDisabled = SecurityAlertPolicyUseServerDefault("Disabled")
-)
-
-func (SecurityAlertPolicyUseServerDefault) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e SecurityAlertPolicyUseServerDefault) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SecurityAlertPolicyUseServerDefault) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SecurityAlertPolicyUseServerDefault) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SecurityAlertPolicyUseServerDefault) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e SecurityAlertsPolicyState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -872,124 +830,31 @@ func (e ServerKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The version of the server.
-type ServerVersion pulumi.String
+// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+type ServerPublicNetworkAccess pulumi.String
 
 const (
-	ServerVersion_2_0  = ServerVersion("2.0")
-	ServerVersion_12_0 = ServerVersion("12.0")
+	ServerPublicNetworkAccessEnabled  = ServerPublicNetworkAccess("Enabled")
+	ServerPublicNetworkAccessDisabled = ServerPublicNetworkAccess("Disabled")
 )
 
-func (ServerVersion) ElementType() reflect.Type {
+func (ServerPublicNetworkAccess) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e ServerVersion) ToStringOutput() pulumi.StringOutput {
+func (e ServerPublicNetworkAccess) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ServerVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ServerPublicNetworkAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ServerVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ServerPublicNetworkAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ServerVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property.
-//
-// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-type ServiceObjectiveName pulumi.String
-
-const (
-	ServiceObjectiveNameSystem      = ServiceObjectiveName("System")
-	ServiceObjectiveNameSystem0     = ServiceObjectiveName("System0")
-	ServiceObjectiveNameSystem1     = ServiceObjectiveName("System1")
-	ServiceObjectiveNameSystem2     = ServiceObjectiveName("System2")
-	ServiceObjectiveNameSystem3     = ServiceObjectiveName("System3")
-	ServiceObjectiveNameSystem4     = ServiceObjectiveName("System4")
-	ServiceObjectiveNameSystem2L    = ServiceObjectiveName("System2L")
-	ServiceObjectiveNameSystem3L    = ServiceObjectiveName("System3L")
-	ServiceObjectiveNameSystem4L    = ServiceObjectiveName("System4L")
-	ServiceObjectiveNameFree        = ServiceObjectiveName("Free")
-	ServiceObjectiveNameBasic       = ServiceObjectiveName("Basic")
-	ServiceObjectiveNameS0          = ServiceObjectiveName("S0")
-	ServiceObjectiveNameS1          = ServiceObjectiveName("S1")
-	ServiceObjectiveNameS2          = ServiceObjectiveName("S2")
-	ServiceObjectiveNameS3          = ServiceObjectiveName("S3")
-	ServiceObjectiveNameS4          = ServiceObjectiveName("S4")
-	ServiceObjectiveNameS6          = ServiceObjectiveName("S6")
-	ServiceObjectiveNameS7          = ServiceObjectiveName("S7")
-	ServiceObjectiveNameS9          = ServiceObjectiveName("S9")
-	ServiceObjectiveNameS12         = ServiceObjectiveName("S12")
-	ServiceObjectiveNameP1          = ServiceObjectiveName("P1")
-	ServiceObjectiveNameP2          = ServiceObjectiveName("P2")
-	ServiceObjectiveNameP3          = ServiceObjectiveName("P3")
-	ServiceObjectiveNameP4          = ServiceObjectiveName("P4")
-	ServiceObjectiveNameP6          = ServiceObjectiveName("P6")
-	ServiceObjectiveNameP11         = ServiceObjectiveName("P11")
-	ServiceObjectiveNameP15         = ServiceObjectiveName("P15")
-	ServiceObjectiveNamePRS1        = ServiceObjectiveName("PRS1")
-	ServiceObjectiveNamePRS2        = ServiceObjectiveName("PRS2")
-	ServiceObjectiveNamePRS4        = ServiceObjectiveName("PRS4")
-	ServiceObjectiveNamePRS6        = ServiceObjectiveName("PRS6")
-	ServiceObjectiveNameDW100       = ServiceObjectiveName("DW100")
-	ServiceObjectiveNameDW200       = ServiceObjectiveName("DW200")
-	ServiceObjectiveNameDW300       = ServiceObjectiveName("DW300")
-	ServiceObjectiveNameDW400       = ServiceObjectiveName("DW400")
-	ServiceObjectiveNameDW500       = ServiceObjectiveName("DW500")
-	ServiceObjectiveNameDW600       = ServiceObjectiveName("DW600")
-	ServiceObjectiveNameDW1000      = ServiceObjectiveName("DW1000")
-	ServiceObjectiveNameDW1200      = ServiceObjectiveName("DW1200")
-	ServiceObjectiveNameDW1000c     = ServiceObjectiveName("DW1000c")
-	ServiceObjectiveNameDW1500      = ServiceObjectiveName("DW1500")
-	ServiceObjectiveNameDW1500c     = ServiceObjectiveName("DW1500c")
-	ServiceObjectiveNameDW2000      = ServiceObjectiveName("DW2000")
-	ServiceObjectiveNameDW2000c     = ServiceObjectiveName("DW2000c")
-	ServiceObjectiveNameDW3000      = ServiceObjectiveName("DW3000")
-	ServiceObjectiveNameDW2500c     = ServiceObjectiveName("DW2500c")
-	ServiceObjectiveNameDW3000c     = ServiceObjectiveName("DW3000c")
-	ServiceObjectiveNameDW6000      = ServiceObjectiveName("DW6000")
-	ServiceObjectiveNameDW5000c     = ServiceObjectiveName("DW5000c")
-	ServiceObjectiveNameDW6000c     = ServiceObjectiveName("DW6000c")
-	ServiceObjectiveNameDW7500c     = ServiceObjectiveName("DW7500c")
-	ServiceObjectiveNameDW10000c    = ServiceObjectiveName("DW10000c")
-	ServiceObjectiveNameDW15000c    = ServiceObjectiveName("DW15000c")
-	ServiceObjectiveNameDW30000c    = ServiceObjectiveName("DW30000c")
-	ServiceObjectiveNameDS100       = ServiceObjectiveName("DS100")
-	ServiceObjectiveNameDS200       = ServiceObjectiveName("DS200")
-	ServiceObjectiveNameDS300       = ServiceObjectiveName("DS300")
-	ServiceObjectiveNameDS400       = ServiceObjectiveName("DS400")
-	ServiceObjectiveNameDS500       = ServiceObjectiveName("DS500")
-	ServiceObjectiveNameDS600       = ServiceObjectiveName("DS600")
-	ServiceObjectiveNameDS1000      = ServiceObjectiveName("DS1000")
-	ServiceObjectiveNameDS1200      = ServiceObjectiveName("DS1200")
-	ServiceObjectiveNameDS1500      = ServiceObjectiveName("DS1500")
-	ServiceObjectiveNameDS2000      = ServiceObjectiveName("DS2000")
-	ServiceObjectiveNameElasticPool = ServiceObjectiveName("ElasticPool")
-)
-
-func (ServiceObjectiveName) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ServiceObjectiveName) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ServiceObjectiveName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ServiceObjectiveName) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ServiceObjectiveName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ServerPublicNetworkAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -1107,30 +972,30 @@ func (e SyncMemberDbType) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The status of the database transparent data encryption.
-type TransparentDataEncryptionStatus pulumi.String
+// Specifies the state of the transparent data encryption.
+type TransparentDataEncryptionStateEnum pulumi.String
 
 const (
-	TransparentDataEncryptionStatusEnabled  = TransparentDataEncryptionStatus("Enabled")
-	TransparentDataEncryptionStatusDisabled = TransparentDataEncryptionStatus("Disabled")
+	TransparentDataEncryptionStateEnumEnabled  = TransparentDataEncryptionStateEnum("Enabled")
+	TransparentDataEncryptionStateEnumDisabled = TransparentDataEncryptionStateEnum("Disabled")
 )
 
-func (TransparentDataEncryptionStatus) ElementType() reflect.Type {
+func (TransparentDataEncryptionStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e TransparentDataEncryptionStatus) ToStringOutput() pulumi.StringOutput {
+func (e TransparentDataEncryptionStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TransparentDataEncryptionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e TransparentDataEncryptionStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TransparentDataEncryptionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e TransparentDataEncryptionStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e TransparentDataEncryptionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e TransparentDataEncryptionStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

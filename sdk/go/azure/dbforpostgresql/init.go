@@ -33,8 +33,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:dbforpostgresql:ServerAdministrator":
 		r, err = NewServerAdministrator(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:dbforpostgresql:ServerGroup":
-		r, err = NewServerGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:dbforpostgresql:ServerKey":
 		r, err = NewServerKey(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:dbforpostgresql:VirtualNetworkRule":

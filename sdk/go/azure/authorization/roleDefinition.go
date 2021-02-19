@@ -12,7 +12,7 @@ import (
 )
 
 // Role definition.
-// API Version: 2015-07-01.
+// API Version: 2020-03-01-preview.
 type RoleDefinition struct {
 	pulumi.CustomResourceState
 
@@ -123,13 +123,13 @@ type roleDefinitionArgs struct {
 	Description *string `pulumi:"description"`
 	// Role definition permissions.
 	Permissions []Permission `pulumi:"permissions"`
-	// The ID of the role definition.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
+	// The name of the role definition to delete.
+	RoleDefinitionName *string `pulumi:"roleDefinitionName"`
 	// The role name.
 	RoleName *string `pulumi:"roleName"`
 	// The role type.
 	RoleType *string `pulumi:"roleType"`
-	// The scope of the role definition.
+	// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
 	Scope string `pulumi:"scope"`
 }
 
@@ -141,13 +141,13 @@ type RoleDefinitionArgs struct {
 	Description pulumi.StringPtrInput
 	// Role definition permissions.
 	Permissions PermissionArrayInput
-	// The ID of the role definition.
-	RoleDefinitionId pulumi.StringPtrInput
+	// The name of the role definition to delete.
+	RoleDefinitionName pulumi.StringPtrInput
 	// The role name.
 	RoleName pulumi.StringPtrInput
 	// The role type.
 	RoleType pulumi.StringPtrInput
-	// The scope of the role definition.
+	// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
 	Scope pulumi.StringInput
 }
 

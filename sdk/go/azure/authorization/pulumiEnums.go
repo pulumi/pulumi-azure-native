@@ -248,6 +248,42 @@ func (e PolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The principal type of the assigned principal ID.
+type PrincipalType pulumi.String
+
+const (
+	PrincipalTypeUser                   = PrincipalType("User")
+	PrincipalTypeGroup                  = PrincipalType("Group")
+	PrincipalTypeServicePrincipal       = PrincipalType("ServicePrincipal")
+	PrincipalTypeUnknown                = PrincipalType("Unknown")
+	PrincipalTypeDirectoryRoleTemplate  = PrincipalType("DirectoryRoleTemplate")
+	PrincipalTypeForeignGroup           = PrincipalType("ForeignGroup")
+	PrincipalTypeApplication            = PrincipalType("Application")
+	PrincipalTypeMSI                    = PrincipalType("MSI")
+	PrincipalTypeDirectoryObjectOrGroup = PrincipalType("DirectoryObjectOrGroup")
+	PrincipalTypeEveryone               = PrincipalType("Everyone")
+)
+
+func (PrincipalType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e PrincipalType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrincipalType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrincipalType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrincipalType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The identity type. This is the only required field when adding a system assigned identity to a resource.
 type ResourceIdentityType pulumi.String
 

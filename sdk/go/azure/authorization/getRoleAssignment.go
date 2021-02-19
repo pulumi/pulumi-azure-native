@@ -25,12 +25,36 @@ type LookupRoleAssignmentArgs struct {
 
 // Role Assignments
 type LookupRoleAssignmentResult struct {
+	// The Delegation flag for the role assignment
+	CanDelegate *bool `pulumi:"canDelegate"`
+	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+	Condition *string `pulumi:"condition"`
+	// Version of the condition. Currently accepted value is '2.0'
+	ConditionVersion *string `pulumi:"conditionVersion"`
+	// Id of the user who created the assignment
+	CreatedBy *string `pulumi:"createdBy"`
+	// Time it was created
+	CreatedOn *string `pulumi:"createdOn"`
+	// Id of the delegated managed identity resource
+	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
+	// Description of role assignment
+	Description *string `pulumi:"description"`
 	// The role assignment ID.
 	Id string `pulumi:"id"`
 	// The role assignment name.
 	Name string `pulumi:"name"`
-	// Role assignment properties.
-	Properties RoleAssignmentPropertiesWithScopeResponse `pulumi:"properties"`
+	// The principal ID.
+	PrincipalId *string `pulumi:"principalId"`
+	// The principal type of the assigned principal ID.
+	PrincipalType *string `pulumi:"principalType"`
+	// The role definition ID.
+	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
+	// The role assignment scope.
+	Scope *string `pulumi:"scope"`
 	// The role assignment type.
 	Type string `pulumi:"type"`
+	// Id of the user who updated the assignment
+	UpdatedBy *string `pulumi:"updatedBy"`
+	// Time it was updated
+	UpdatedOn *string `pulumi:"updatedOn"`
 }

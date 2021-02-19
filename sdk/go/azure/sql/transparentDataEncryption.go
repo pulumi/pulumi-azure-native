@@ -11,17 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Represents a database transparent data encryption configuration.
-// API Version: 2014-04-01.
+// A logical database transparent data encryption state.
+// API Version: 2020-08-01-preview.
 type TransparentDataEncryption struct {
 	pulumi.CustomResourceState
 
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The status of the database transparent data encryption.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// Specifies the state of the transparent data encryption.
+	State pulumi.StringOutput `pulumi:"state"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -79,23 +77,19 @@ func GetTransparentDataEncryption(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TransparentDataEncryption resources.
 type transparentDataEncryptionState struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The status of the database transparent data encryption.
-	Status *string `pulumi:"status"`
+	// Specifies the state of the transparent data encryption.
+	State *string `pulumi:"state"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type TransparentDataEncryptionState struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The status of the database transparent data encryption.
-	Status pulumi.StringPtrInput
+	// Specifies the state of the transparent data encryption.
+	State pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }
@@ -105,30 +99,30 @@ func (TransparentDataEncryptionState) ElementType() reflect.Type {
 }
 
 type transparentDataEncryptionArgs struct {
-	// The name of the database for which setting the transparent data encryption applies.
+	// The name of the logical database for which the security alert policy is defined.
 	DatabaseName string `pulumi:"databaseName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
-	// The status of the database transparent data encryption.
-	Status *string `pulumi:"status"`
+	// Specifies the state of the transparent data encryption.
+	State string `pulumi:"state"`
 	// The name of the transparent data encryption configuration.
-	TransparentDataEncryptionName *string `pulumi:"transparentDataEncryptionName"`
+	TdeName *string `pulumi:"tdeName"`
 }
 
 // The set of arguments for constructing a TransparentDataEncryption resource.
 type TransparentDataEncryptionArgs struct {
-	// The name of the database for which setting the transparent data encryption applies.
+	// The name of the logical database for which the security alert policy is defined.
 	DatabaseName pulumi.StringInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput
-	// The status of the database transparent data encryption.
-	Status pulumi.StringPtrInput
+	// Specifies the state of the transparent data encryption.
+	State TransparentDataEncryptionStateEnum
 	// The name of the transparent data encryption configuration.
-	TransparentDataEncryptionName pulumi.StringPtrInput
+	TdeName pulumi.StringPtrInput
 }
 
 func (TransparentDataEncryptionArgs) ElementType() reflect.Type {

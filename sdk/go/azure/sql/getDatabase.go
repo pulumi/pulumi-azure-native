@@ -17,29 +17,29 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 }
 
 type LookupDatabaseArgs struct {
-	// The name of the database to be retrieved.
+	// The name of the database.
 	DatabaseName string `pulumi:"databaseName"`
-	// A comma separated list of child objects to expand in the response. Possible properties: serviceTierAdvisors, transparentDataEncryption.
-	Expand *string `pulumi:"expand"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 }
 
-// Represents a database.
+// A database resource.
 type LookupDatabaseResult struct {
-	// The collation of the database. If createMode is not Default, this value is ignored.
+	// Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+	AutoPauseDelay *int `pulumi:"autoPauseDelay"`
+	// Collation of the metadata catalog.
+	CatalogCollation *string `pulumi:"catalogCollation"`
+	// The collation of the database.
 	Collation *string `pulumi:"collation"`
-	// The containment state of the database.
-	ContainmentState float64 `pulumi:"containmentState"`
 	// Specifies the mode of database creation.
 	//
 	// Default: regular database creation.
 	//
 	// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
 	//
-	// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+	// Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
 	//
 	// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
 	//
@@ -49,68 +49,82 @@ type LookupDatabaseResult struct {
 	//
 	// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
 	//
-	// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+	// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
 	CreateMode *string `pulumi:"createMode"`
 	// The creation date of the database (ISO8601 format).
 	CreationDate string `pulumi:"creationDate"`
-	// The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
-	CurrentServiceObjectiveId string `pulumi:"currentServiceObjectiveId"`
+	// The current service level objective name of the database.
+	CurrentServiceObjectiveName string `pulumi:"currentServiceObjectiveName"`
+	// The name and tier of the SKU.
+	CurrentSku SkuResponse `pulumi:"currentSku"`
 	// The ID of the database.
 	DatabaseId string `pulumi:"databaseId"`
 	// The default secondary region for this database.
 	DefaultSecondaryLocation string `pulumi:"defaultSecondaryLocation"`
 	// This records the earliest start date and time that restore is available for this database (ISO8601 format).
 	EarliestRestoreDate string `pulumi:"earliestRestoreDate"`
-	// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-	//
-	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-	Edition *string `pulumi:"edition"`
-	// The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
-	ElasticPoolName *string `pulumi:"elasticPoolName"`
-	// The resource identifier of the failover group containing this database.
+	// The resource identifier of the elastic pool containing this database.
+	ElasticPoolId *string `pulumi:"elasticPoolId"`
+	// Failover Group resource identifier that this database belongs to.
 	FailoverGroupId string `pulumi:"failoverGroupId"`
+	// The number of secondary replicas associated with the database that are used to provide high availability.
+	HighAvailabilityReplicaCount *int `pulumi:"highAvailabilityReplicaCount"`
 	// Resource ID.
 	Id string `pulumi:"id"`
-	// Kind of database.  This is metadata used for the Azure portal experience.
+	// Kind of database. This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
+	// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
+	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
-	MaxSizeBytes *string `pulumi:"maxSizeBytes"`
+	// The resource identifier of the long term retention backup associated with create operation of this database.
+	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
+	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
+	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
+	// Resource that manages the database.
+	ManagedBy string `pulumi:"managedBy"`
+	// The max log size for this database.
+	MaxLogSizeBytes float64 `pulumi:"maxLogSizeBytes"`
+	// The max size of the database expressed in bytes.
+	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
+	// Minimal capacity that database will always have allocated, if not paused
+	MinCapacity *float64 `pulumi:"minCapacity"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+	// The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
+	PausedDate string `pulumi:"pausedDate"`
+	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
 	ReadScale *string `pulumi:"readScale"`
-	// The recommended indices for this database.
-	RecommendedIndex []RecommendedIndexResponse `pulumi:"recommendedIndex"`
-	// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-	RecoveryServicesRecoveryPointResourceId *string `pulumi:"recoveryServicesRecoveryPointResourceId"`
-	// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-	//
-	// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
-	RequestedServiceObjectiveId *string `pulumi:"requestedServiceObjectiveId"`
-	// The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property.
+	// The resource identifier of the recoverable database associated with create operation of this database.
+	RecoverableDatabaseId *string `pulumi:"recoverableDatabaseId"`
+	// The resource identifier of the recovery point associated with create operation of this database.
+	RecoveryServicesRecoveryPointId *string `pulumi:"recoveryServicesRecoveryPointId"`
+	// The requested service level objective name of the database.
+	RequestedServiceObjectiveName string `pulumi:"requestedServiceObjectiveName"`
+	// The resource identifier of the restorable dropped database associated with create operation of this database.
+	RestorableDroppedDatabaseId *string `pulumi:"restorableDroppedDatabaseId"`
+	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+	RestorePointInTime *string `pulumi:"restorePointInTime"`
+	// The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
+	ResumedDate string `pulumi:"resumedDate"`
+	// The name of the sample schema to apply when creating this database.
+	SampleName *string `pulumi:"sampleName"`
+	// The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+	SecondaryType *string `pulumi:"secondaryType"`
+	// The database SKU.
 	//
 	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-	RequestedServiceObjectiveName *string `pulumi:"requestedServiceObjectiveName"`
-	// Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-	RestorePointInTime *string `pulumi:"restorePointInTime"`
-	// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-	SampleName *string `pulumi:"sampleName"`
-	// The current service level objective of the database.
-	ServiceLevelObjective string `pulumi:"serviceLevelObjective"`
-	// The list of service tier advisors for this database. Expanded property
-	ServiceTierAdvisors []ServiceTierAdvisorResponse `pulumi:"serviceTierAdvisors"`
-	// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Specifies the time that the database was deleted.
 	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
-	// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
+	// The resource identifier of the source database associated with create operation of this database.
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status string `pulumi:"status"`
+	// The storage account type used to store backups for this database.
+	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The transparent data encryption info for this database.
-	TransparentDataEncryption []TransparentDataEncryptionResponse `pulumi:"transparentDataEncryption"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.

@@ -17,9 +17,9 @@ func LookupRoleDefinition(ctx *pulumi.Context, args *LookupRoleDefinitionArgs, o
 }
 
 type LookupRoleDefinitionArgs struct {
-	// The ID of the role definition.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
-	// The scope of the role definition.
+	// The name of the role definition to delete.
+	RoleDefinitionName string `pulumi:"roleDefinitionName"`
+	// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
 	Scope string `pulumi:"scope"`
 }
 
