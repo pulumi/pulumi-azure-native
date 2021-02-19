@@ -571,26 +571,6 @@ func (k *azureNextGenProvider) validateProperty(ctx string, prop *resources.Azur
 				})
 			}
 		}
-
-		// For closed enums, check that the value belongs to the list.
-		if len(prop.Enum) > 0 {
-			found := false
-			possible := ""
-			for _, v := range prop.Enum {
-				if possible != "" {
-					possible += ","
-				}
-				possible += fmt.Sprintf("'%s'", v)
-				if v == value {
-					found = true
-				}
-			}
-			if !found {
-				failures = append(failures, &rpc.CheckFailure{
-					Reason: fmt.Sprintf("'%s' is '%s' but expected one of [%s]", ctx, value, possible),
-				})
-			}
-		}
 	case float64:
 		if prop.Type != "number" && prop.Type != "integer" {
 			return append(failures, &rpc.CheckFailure{
