@@ -2,8 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 
 import * as insights from "@pulumi/azure-nextgen/insights";
 import * as resources from "@pulumi/azure-nextgen/resources";
-import * as sql from "@pulumi/azure-nextgen/sql/v20200801preview";
-import * as sqltde from "@pulumi/azure-nextgen/sql";
+import * as sql from "@pulumi/azure-nextgen/sql";
 import * as storage from "@pulumi/azure-nextgen/storage";
 import * as web from "@pulumi/azure-nextgen/web";
 
@@ -84,11 +83,11 @@ new sql.DatabaseSecurityAlertPolicy("dsal", {
     state: "Enabled",
 });
 
-new sqltde.TransparentDataEncryption("current", {
+new sql.TransparentDataEncryption("current", {
     resourceGroupName: resourceGroup.name,
     serverName: sqlServer.name,
     databaseName: database.name,
-    status: sqltde.TransparentDataEncryptionStatus.Enabled,
+    state: sql.TransparentDataEncryptionState.Enabled,
 });
 
 const app = new web.WebApp("as", {
