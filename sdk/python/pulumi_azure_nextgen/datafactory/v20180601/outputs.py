@@ -370,6 +370,8 @@ __all__ = [
     'PhoenixLinkedServiceResponse',
     'PhoenixObjectDatasetResponse',
     'PhoenixSourceResponse',
+    'PipelineElapsedTimeMetricPolicyResponse',
+    'PipelinePolicyResponse',
     'PipelineReferenceResponse',
     'PipelineResponseFolder',
     'PolybaseSettingsResponse',
@@ -40820,6 +40822,58 @@ class PhoenixSourceResponse(dict):
         Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         return pulumi.get(self, "source_retry_wait")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PipelineElapsedTimeMetricPolicyResponse(dict):
+    """
+    Pipeline ElapsedTime Metric Policy.
+    """
+    def __init__(__self__, *,
+                 duration: Optional[Any] = None):
+        """
+        Pipeline ElapsedTime Metric Policy.
+        :param Any duration: TimeSpan value, after which an Azure Monitoring Metric is fired.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[Any]:
+        """
+        TimeSpan value, after which an Azure Monitoring Metric is fired.
+        """
+        return pulumi.get(self, "duration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PipelinePolicyResponse(dict):
+    """
+    Pipeline Policy.
+    """
+    def __init__(__self__, *,
+                 elapsed_time_metric: Optional['outputs.PipelineElapsedTimeMetricPolicyResponse'] = None):
+        """
+        Pipeline Policy.
+        :param 'PipelineElapsedTimeMetricPolicyResponseArgs' elapsed_time_metric: Pipeline ElapsedTime Metric Policy.
+        """
+        if elapsed_time_metric is not None:
+            pulumi.set(__self__, "elapsed_time_metric", elapsed_time_metric)
+
+    @property
+    @pulumi.getter(name="elapsedTimeMetric")
+    def elapsed_time_metric(self) -> Optional['outputs.PipelineElapsedTimeMetricPolicyResponse']:
+        """
+        Pipeline ElapsedTime Metric Policy.
+        """
+        return pulumi.get(self, "elapsed_time_metric")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

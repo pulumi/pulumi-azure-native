@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Set of protocol types
+        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         [Output("protocolTypes")]
         public Output<ImmutableArray<string>> ProtocolTypes { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200901
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The security style of volume
+        /// The security style of volume, default unix, ntfs for dual protocol or CIFS protocol
         /// </summary>
         [Output("securityStyle")]
         public Output<string?> SecurityStyle { get; private set; } = null!;
@@ -274,18 +274,6 @@ namespace Pulumi.AzureNextGen.NetApp.V20200901
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("mountTargets")]
-        private InputList<Inputs.MountTargetPropertiesArgs>? _mountTargets;
-
-        /// <summary>
-        /// List of mount targets
-        /// </summary>
-        public InputList<Inputs.MountTargetPropertiesArgs> MountTargets
-        {
-            get => _mountTargets ?? (_mountTargets = new InputList<Inputs.MountTargetPropertiesArgs>());
-            set => _mountTargets = value;
-        }
-
         /// <summary>
         /// The name of the capacity pool
         /// </summary>
@@ -296,7 +284,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200901
         private InputList<string>? _protocolTypes;
 
         /// <summary>
-        /// Set of protocol types
+        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         public InputList<string> ProtocolTypes
         {
@@ -311,7 +299,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200901
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The security style of volume
+        /// The security style of volume, default unix, ntfs for dual protocol or CIFS protocol
         /// </summary>
         [Input("securityStyle")]
         public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20200901.SecurityStyle>? SecurityStyle { get; set; }
@@ -388,9 +376,12 @@ namespace Pulumi.AzureNextGen.NetApp.V20200901
         public VolumeArgs()
         {
             KerberosEnabled = false;
+            SecurityStyle = "unix";
             ServiceLevel = "Premium";
             SmbContinuouslyAvailable = false;
             SmbEncryption = false;
+            SnapshotDirectoryVisible = true;
+            ThroughputMibps = 0;
             UsageThreshold = 107374182400;
         }
     }

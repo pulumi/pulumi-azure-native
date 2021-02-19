@@ -110,7 +110,7 @@ export interface DataSetMappingArgs {
     /**
      * Kind of data set mapping.
      */
-    readonly kind: pulumi.Input<string | enums.datashare.v20181101preview.Kind>;
+    readonly kind: pulumi.Input<string | enums.datashare.v20181101preview.DataSetMappingKind>;
     /**
      * The resource group name.
      */

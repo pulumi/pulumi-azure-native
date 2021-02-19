@@ -18,7 +18,7 @@ class Trigger(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'TriggerKind']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
                  trigger_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class Trigger(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[Union[str, 'Kind']] kind: Kind of synchronization
+        :param pulumi.Input[Union[str, 'TriggerKind']] kind: Kind of synchronization on trigger.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_subscription_name: The name of the share subscription which will hold the data set sink.
         :param pulumi.Input[str] trigger_name: The name of the trigger.
@@ -100,7 +100,7 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
-        Kind of synchronization
+        Kind of synchronization on trigger.
         """
         return pulumi.get(self, "kind")
 

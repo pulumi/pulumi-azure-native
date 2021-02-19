@@ -119,6 +119,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20200901.Inputs
 
         public ActiveDirectoryArgs()
         {
+            ActiveDirectoryId = "guid id";
+            OrganizationalUnit = "CN=Computers";
         }
     }
 }

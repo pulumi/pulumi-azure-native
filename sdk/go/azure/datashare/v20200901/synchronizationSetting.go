@@ -15,7 +15,7 @@ import (
 type SynchronizationSetting struct {
 	pulumi.CustomResourceState
 
-	// Kind of synchronization
+	// Kind of synchronization setting.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Name of the azure resource
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -84,7 +84,7 @@ func GetSynchronizationSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SynchronizationSetting resources.
 type synchronizationSettingState struct {
-	// Kind of synchronization
+	// Kind of synchronization setting.
 	Kind *string `pulumi:"kind"`
 	// Name of the azure resource
 	Name *string `pulumi:"name"`
@@ -95,7 +95,7 @@ type synchronizationSettingState struct {
 }
 
 type SynchronizationSettingState struct {
-	// Kind of synchronization
+	// Kind of synchronization setting.
 	Kind pulumi.StringPtrInput
 	// Name of the azure resource
 	Name pulumi.StringPtrInput
@@ -112,7 +112,7 @@ func (SynchronizationSettingState) ElementType() reflect.Type {
 type synchronizationSettingArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
-	// Kind of synchronization
+	// Kind of synchronization setting.
 	Kind string `pulumi:"kind"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -126,7 +126,7 @@ type synchronizationSettingArgs struct {
 type SynchronizationSettingArgs struct {
 	// The name of the share account.
 	AccountName pulumi.StringInput
-	// Kind of synchronization
+	// Kind of synchronization setting.
 	Kind pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput

@@ -22,7 +22,6 @@ class Volume(pulumi.CustomResource):
                  creation_token: Optional[pulumi.Input[str]] = None,
                  export_policy: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mount_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -44,9 +43,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
         :param pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']] export_policy: Set of export policy rules
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]] mount_targets: List of mount targets
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS fro SMB protocol
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
@@ -80,7 +78,6 @@ class Volume(pulumi.CustomResource):
             __props__['creation_token'] = creation_token
             __props__['export_policy'] = export_policy
             __props__['location'] = location
-            __props__['mount_targets'] = mount_targets
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
@@ -104,6 +101,7 @@ class Volume(pulumi.CustomResource):
             __props__['volume_name'] = volume_name
             __props__['baremetal_tenant_id'] = None
             __props__['file_system_id'] = None
+            __props__['mount_targets'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
@@ -175,7 +173,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountTargets")
-    def mount_targets(self) -> pulumi.Output[Optional[Sequence['outputs.MountTargetPropertiesResponse']]]:
+    def mount_targets(self) -> pulumi.Output[Sequence['outputs.MountTargetPropertiesResponse']]:
         """
         List of mount targets
         """
@@ -193,7 +191,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="protocolTypes")
     def protocol_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Set of protocol types
+        Set of protocol types, default NFSv3, CIFS fro SMB protocol
         """
         return pulumi.get(self, "protocol_types")
 

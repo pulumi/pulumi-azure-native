@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200201.Inputs
 
         public ExportPolicyRuleArgs()
         {
+            Cifs = false;
         }
     }
 }

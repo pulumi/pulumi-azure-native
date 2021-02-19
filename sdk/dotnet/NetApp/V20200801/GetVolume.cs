@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Set of protocol types
+        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         public readonly ImmutableArray<string> ProtocolTypes;
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200801
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The security style of volume
+        /// The security style of volume, default unix, ntfs for dual protocol or CIFS protocol
         /// </summary>
         public readonly string? SecurityStyle;
         /// <summary>

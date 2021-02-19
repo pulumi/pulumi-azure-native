@@ -20,7 +20,7 @@ class GetVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, baremetal_tenant_id=None, creation_token=None, data_protection=None, export_policy=None, file_system_id=None, id=None, location=None, mount_targets=None, name=None, protocol_types=None, provisioning_state=None, service_level=None, snapshot_id=None, subnet_id=None, tags=None, type=None, usage_threshold=None, volume_type=None):
+    def __init__(__self__, baremetal_tenant_id=None, creation_token=None, data_protection=None, export_policy=None, file_system_id=None, id=None, location=None, mount_targets=None, name=None, protocol_types=None, provisioning_state=None, service_level=None, snapshot_id=None, subnet_id=None, tags=None, type=None, usage_threshold=None, used_bytes=None, volume_type=None):
         if baremetal_tenant_id and not isinstance(baremetal_tenant_id, str):
             raise TypeError("Expected argument 'baremetal_tenant_id' to be a str")
         pulumi.set(__self__, "baremetal_tenant_id", baremetal_tenant_id)
@@ -72,6 +72,9 @@ class GetVolumeResult:
         if usage_threshold and not isinstance(usage_threshold, float):
             raise TypeError("Expected argument 'usage_threshold' to be a float")
         pulumi.set(__self__, "usage_threshold", usage_threshold)
+        if used_bytes and not isinstance(used_bytes, float):
+            raise TypeError("Expected argument 'used_bytes' to be a float")
+        pulumi.set(__self__, "used_bytes", used_bytes)
         if volume_type and not isinstance(volume_type, str):
             raise TypeError("Expected argument 'volume_type' to be a str")
         pulumi.set(__self__, "volume_type", volume_type)
@@ -213,6 +216,14 @@ class GetVolumeResult:
         return pulumi.get(self, "usage_threshold")
 
     @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> float:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
+
+    @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
@@ -244,6 +255,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             tags=self.tags,
             type=self.type,
             usage_threshold=self.usage_threshold,
+            used_bytes=self.used_bytes,
             volume_type=self.volume_type)
 
 
@@ -289,4 +301,5 @@ def get_volume(account_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         usage_threshold=__ret__.usage_threshold,
+        used_bytes=__ret__.used_bytes,
         volume_type=__ret__.volume_type)

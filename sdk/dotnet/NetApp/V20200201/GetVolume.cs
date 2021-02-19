@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Set of protocol types
+        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         public readonly ImmutableArray<string> ProtocolTypes;
         /// <summary>
@@ -127,6 +127,10 @@ namespace Pulumi.AzureNextGen.NetApp.V20200201
         /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         /// </summary>
         public readonly double UsageThreshold;
+        /// <summary>
+        /// Resource size in bytes, current storage usage for the volume in bytes
+        /// </summary>
+        public readonly double UsedBytes;
         /// <summary>
         /// What type of volume is this
         /// </summary>
@@ -172,6 +176,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20200201
 
             double usageThreshold,
 
+            double usedBytes,
+
             string? volumeType)
         {
             BaremetalTenantId = baremetalTenantId;
@@ -193,6 +199,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200201
             Tags = tags;
             Type = type;
             UsageThreshold = usageThreshold;
+            UsedBytes = usedBytes;
             VolumeType = volumeType;
         }
     }

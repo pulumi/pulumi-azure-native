@@ -2007,115 +2007,6 @@ func (o MonthlyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 }
 
 // Mount target properties
-type MountTargetProperties struct {
-	// UUID v4 used to identify the MountTarget
-	FileSystemId string `pulumi:"fileSystemId"`
-	// The SMB server's Fully Qualified Domain Name, FQDN
-	SmbServerFqdn *string `pulumi:"smbServerFqdn"`
-}
-
-// MountTargetPropertiesInput is an input type that accepts MountTargetPropertiesArgs and MountTargetPropertiesOutput values.
-// You can construct a concrete instance of `MountTargetPropertiesInput` via:
-//
-//          MountTargetPropertiesArgs{...}
-type MountTargetPropertiesInput interface {
-	pulumi.Input
-
-	ToMountTargetPropertiesOutput() MountTargetPropertiesOutput
-	ToMountTargetPropertiesOutputWithContext(context.Context) MountTargetPropertiesOutput
-}
-
-// Mount target properties
-type MountTargetPropertiesArgs struct {
-	// UUID v4 used to identify the MountTarget
-	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The SMB server's Fully Qualified Domain Name, FQDN
-	SmbServerFqdn pulumi.StringPtrInput `pulumi:"smbServerFqdn"`
-}
-
-func (MountTargetPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MountTargetProperties)(nil)).Elem()
-}
-
-func (i MountTargetPropertiesArgs) ToMountTargetPropertiesOutput() MountTargetPropertiesOutput {
-	return i.ToMountTargetPropertiesOutputWithContext(context.Background())
-}
-
-func (i MountTargetPropertiesArgs) ToMountTargetPropertiesOutputWithContext(ctx context.Context) MountTargetPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesOutput)
-}
-
-// MountTargetPropertiesArrayInput is an input type that accepts MountTargetPropertiesArray and MountTargetPropertiesArrayOutput values.
-// You can construct a concrete instance of `MountTargetPropertiesArrayInput` via:
-//
-//          MountTargetPropertiesArray{ MountTargetPropertiesArgs{...} }
-type MountTargetPropertiesArrayInput interface {
-	pulumi.Input
-
-	ToMountTargetPropertiesArrayOutput() MountTargetPropertiesArrayOutput
-	ToMountTargetPropertiesArrayOutputWithContext(context.Context) MountTargetPropertiesArrayOutput
-}
-
-type MountTargetPropertiesArray []MountTargetPropertiesInput
-
-func (MountTargetPropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MountTargetProperties)(nil)).Elem()
-}
-
-func (i MountTargetPropertiesArray) ToMountTargetPropertiesArrayOutput() MountTargetPropertiesArrayOutput {
-	return i.ToMountTargetPropertiesArrayOutputWithContext(context.Background())
-}
-
-func (i MountTargetPropertiesArray) ToMountTargetPropertiesArrayOutputWithContext(ctx context.Context) MountTargetPropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesArrayOutput)
-}
-
-// Mount target properties
-type MountTargetPropertiesOutput struct{ *pulumi.OutputState }
-
-func (MountTargetPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MountTargetProperties)(nil)).Elem()
-}
-
-func (o MountTargetPropertiesOutput) ToMountTargetPropertiesOutput() MountTargetPropertiesOutput {
-	return o
-}
-
-func (o MountTargetPropertiesOutput) ToMountTargetPropertiesOutputWithContext(ctx context.Context) MountTargetPropertiesOutput {
-	return o
-}
-
-// UUID v4 used to identify the MountTarget
-func (o MountTargetPropertiesOutput) FileSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v MountTargetProperties) string { return v.FileSystemId }).(pulumi.StringOutput)
-}
-
-// The SMB server's Fully Qualified Domain Name, FQDN
-func (o MountTargetPropertiesOutput) SmbServerFqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MountTargetProperties) *string { return v.SmbServerFqdn }).(pulumi.StringPtrOutput)
-}
-
-type MountTargetPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (MountTargetPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MountTargetProperties)(nil)).Elem()
-}
-
-func (o MountTargetPropertiesArrayOutput) ToMountTargetPropertiesArrayOutput() MountTargetPropertiesArrayOutput {
-	return o
-}
-
-func (o MountTargetPropertiesArrayOutput) ToMountTargetPropertiesArrayOutputWithContext(ctx context.Context) MountTargetPropertiesArrayOutput {
-	return o
-}
-
-func (o MountTargetPropertiesArrayOutput) Index(i pulumi.IntInput) MountTargetPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MountTargetProperties {
-		return vs[0].([]MountTargetProperties)[vs[1].(int)]
-	}).(MountTargetPropertiesOutput)
-}
-
-// Mount target properties
 type MountTargetPropertiesResponse struct {
 	// UUID v4 used to identify the MountTarget
 	FileSystemId string `pulumi:"fileSystemId"`
@@ -4601,8 +4492,6 @@ func init() {
 	pulumi.RegisterOutputType(MonthlySchedulePtrOutput{})
 	pulumi.RegisterOutputType(MonthlyScheduleResponseOutput{})
 	pulumi.RegisterOutputType(MonthlyScheduleResponsePtrOutput{})
-	pulumi.RegisterOutputType(MountTargetPropertiesOutput{})
-	pulumi.RegisterOutputType(MountTargetPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectOutput{})

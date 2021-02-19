@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:avs:GlobalReachConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:GlobalReachConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -51,6 +51,9 @@ func NewHcxEnterpriseSite(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:HcxEnterpriseSite"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:avs/v20210101preview:HcxEnterpriseSite"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource HcxEnterpriseSite

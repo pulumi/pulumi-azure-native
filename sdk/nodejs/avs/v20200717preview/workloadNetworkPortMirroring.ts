@@ -118,7 +118,7 @@ export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:WorkloadNetworkPortMirroring" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:WorkloadNetworkPortMirroring" }, { type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkPortMirroring" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadNetworkPortMirroring.__pulumiType, name, inputs, opts);
     }

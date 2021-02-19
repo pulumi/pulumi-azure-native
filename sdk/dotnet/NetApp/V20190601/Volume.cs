@@ -193,18 +193,6 @@ namespace Pulumi.AzureNextGen.NetApp.V20190601
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("mountTargets")]
-        private InputList<Inputs.MountTargetPropertiesArgs>? _mountTargets;
-
-        /// <summary>
-        /// List of mount targets
-        /// </summary>
-        public InputList<Inputs.MountTargetPropertiesArgs> MountTargets
-        {
-            get => _mountTargets ?? (_mountTargets = new InputList<Inputs.MountTargetPropertiesArgs>());
-            set => _mountTargets = value;
-        }
-
         /// <summary>
         /// The name of the capacity pool
         /// </summary>

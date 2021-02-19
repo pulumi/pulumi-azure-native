@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200801
     }
 
     /// <summary>
-    /// The security style of volume
+    /// The security style of volume, default unix, ntfs for dual protocol or CIFS protocol
     /// </summary>
     [EnumType]
     public readonly struct SecurityStyle : IEquatable<SecurityStyle>

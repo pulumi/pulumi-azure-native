@@ -94,7 +94,7 @@ export class Addon extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:Addon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:Addon" }, { type: "azure-nextgen:avs/v20210101preview:Addon" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Addon.__pulumiType, name, inputs, opts);
     }

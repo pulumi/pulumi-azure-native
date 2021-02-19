@@ -48,6 +48,9 @@ func NewGlobalReachConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:avs:GlobalReachConnection"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:avs/v20210101preview:GlobalReachConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GlobalReachConnection

@@ -24,7 +24,6 @@ class Volume(pulumi.CustomResource):
                  export_policy: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']]] = None,
                  is_restoring: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mount_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -49,9 +48,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']] export_policy: Set of export policy rules
         :param pulumi.Input[bool] is_restoring: Restoring
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]] mount_targets: List of mount targets
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS for SMB protocol
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
@@ -88,7 +86,6 @@ class Volume(pulumi.CustomResource):
             __props__['export_policy'] = export_policy
             __props__['is_restoring'] = is_restoring
             __props__['location'] = location
-            __props__['mount_targets'] = mount_targets
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
@@ -113,9 +110,11 @@ class Volume(pulumi.CustomResource):
             __props__['volume_type'] = volume_type
             __props__['baremetal_tenant_id'] = None
             __props__['file_system_id'] = None
+            __props__['mount_targets'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['used_bytes'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/latest:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
@@ -200,7 +199,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountTargets")
-    def mount_targets(self) -> pulumi.Output[Optional[Sequence['outputs.MountTargetPropertiesResponse']]]:
+    def mount_targets(self) -> pulumi.Output[Sequence['outputs.MountTargetPropertiesResponse']]:
         """
         List of mount targets
         """
@@ -218,7 +217,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="protocolTypes")
     def protocol_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Set of protocol types
+        Set of protocol types, default NFSv3, CIFS for SMB protocol
         """
         return pulumi.get(self, "protocol_types")
 
@@ -277,6 +276,14 @@ class Volume(pulumi.CustomResource):
         Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         """
         return pulumi.get(self, "usage_threshold")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> pulumi.Output[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
 
     @property
     @pulumi.getter(name="volumeType")

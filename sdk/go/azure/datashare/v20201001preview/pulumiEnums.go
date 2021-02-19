@@ -10,30 +10,81 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Kind of synchronization
-type Kind pulumi.String
+// Kind of data set.
+type DataSetKind pulumi.String
 
 const (
-	KindScheduleBased = Kind("ScheduleBased")
+	DataSetKindBlob                         = DataSetKind("Blob")
+	DataSetKindContainer                    = DataSetKind("Container")
+	DataSetKindBlobFolder                   = DataSetKind("BlobFolder")
+	DataSetKindAdlsGen2FileSystem           = DataSetKind("AdlsGen2FileSystem")
+	DataSetKindAdlsGen2Folder               = DataSetKind("AdlsGen2Folder")
+	DataSetKindAdlsGen2File                 = DataSetKind("AdlsGen2File")
+	DataSetKindAdlsGen1Folder               = DataSetKind("AdlsGen1Folder")
+	DataSetKindAdlsGen1File                 = DataSetKind("AdlsGen1File")
+	DataSetKindStorageAccount               = DataSetKind("StorageAccount")
+	DataSetKindKustoCluster                 = DataSetKind("KustoCluster")
+	DataSetKindKustoDatabase                = DataSetKind("KustoDatabase")
+	DataSetKindSqlDBTable                   = DataSetKind("SqlDBTable")
+	DataSetKindSqlDWTable                   = DataSetKind("SqlDWTable")
+	DataSetKindSynapseWorkspaceSqlPoolTable = DataSetKind("SynapseWorkspaceSqlPoolTable")
 )
 
-func (Kind) ElementType() reflect.Type {
+func (DataSetKind) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e Kind) ToStringOutput() pulumi.StringOutput {
+func (e DataSetKind) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e Kind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DataSetKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e Kind) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DataSetKind) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e Kind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DataSetKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Kind of data set mapping.
+type DataSetMappingKind pulumi.String
+
+const (
+	DataSetMappingKindBlob                         = DataSetMappingKind("Blob")
+	DataSetMappingKindContainer                    = DataSetMappingKind("Container")
+	DataSetMappingKindBlobFolder                   = DataSetMappingKind("BlobFolder")
+	DataSetMappingKindAdlsGen2FileSystem           = DataSetMappingKind("AdlsGen2FileSystem")
+	DataSetMappingKindAdlsGen2Folder               = DataSetMappingKind("AdlsGen2Folder")
+	DataSetMappingKindAdlsGen2File                 = DataSetMappingKind("AdlsGen2File")
+	DataSetMappingKindStorageAccount               = DataSetMappingKind("StorageAccount")
+	DataSetMappingKindKustoCluster                 = DataSetMappingKind("KustoCluster")
+	DataSetMappingKindKustoDatabase                = DataSetMappingKind("KustoDatabase")
+	DataSetMappingKindSqlDBTable                   = DataSetMappingKind("SqlDBTable")
+	DataSetMappingKindSqlDWTable                   = DataSetMappingKind("SqlDWTable")
+	DataSetMappingKindSynapseWorkspaceSqlPoolTable = DataSetMappingKind("SynapseWorkspaceSqlPoolTable")
+)
+
+func (DataSetMappingKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DataSetMappingKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetMappingKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetMappingKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetMappingKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -62,6 +113,60 @@ func (e ShareKind) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ShareKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Kind of synchronization setting.
+type SynchronizationSettingKind pulumi.String
+
+const (
+	SynchronizationSettingKindScheduleBased = SynchronizationSettingKind("ScheduleBased")
+)
+
+func (SynchronizationSettingKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SynchronizationSettingKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SynchronizationSettingKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SynchronizationSettingKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SynchronizationSettingKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Kind of synchronization on trigger.
+type TriggerKind pulumi.String
+
+const (
+	TriggerKindScheduleBased = TriggerKind("ScheduleBased")
+)
+
+func (TriggerKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e TriggerKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TriggerKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TriggerKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TriggerKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

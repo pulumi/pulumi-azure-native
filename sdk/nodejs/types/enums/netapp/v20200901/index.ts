@@ -45,7 +45,7 @@ export const SecurityStyle = {
 } as const;
 
 /**
- * The security style of volume
+ * The security style of volume, default unix, ntfs for dual protocol or CIFS protocol
  */
 export type SecurityStyle = (typeof SecurityStyle)[keyof typeof SecurityStyle];
 

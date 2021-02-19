@@ -18,7 +18,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
     public partial class Trigger : Pulumi.CustomResource
     {
         /// <summary>
-        /// Kind of synchronization
+        /// Kind of synchronization on trigger.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
@@ -101,10 +101,10 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Kind of synchronization
+        /// Kind of synchronization on trigger.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataShare.Latest.Kind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataShare.Latest.TriggerKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

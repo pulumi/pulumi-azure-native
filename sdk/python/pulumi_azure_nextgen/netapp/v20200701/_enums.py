@@ -40,7 +40,7 @@ class ReplicationSchedule(str, Enum):
 
 class SecurityStyle(str, Enum):
     """
-    The security style of volume
+    The security style of volume, default unix, ntfs for dual protocol or CIFS protocol
     """
     NTFS = "ntfs"
     UNIX = "unix"

@@ -109,7 +109,7 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:WorkloadNetworkDhcp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:WorkloadNetworkDhcp" }, { type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkDhcp" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadNetworkDhcp.__pulumiType, name, inputs, opts);
     }

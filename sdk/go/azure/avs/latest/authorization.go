@@ -53,6 +53,9 @@ func NewAuthorization(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:Authorization"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:avs/v20210101preview:Authorization"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Authorization

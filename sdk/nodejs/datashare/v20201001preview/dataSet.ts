@@ -116,7 +116,7 @@ export interface DataSetArgs {
     /**
      * Kind of data set.
      */
-    readonly kind: pulumi.Input<string | enums.datashare.v20201001preview.Kind>;
+    readonly kind: pulumi.Input<string | enums.datashare.v20201001preview.DataSetKind>;
     /**
      * The resource group name.
      */

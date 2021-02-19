@@ -72,6 +72,7 @@ namespace Pulumi.AzureNextGen.AVS
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:Addon"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:Addon"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

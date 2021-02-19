@@ -118,7 +118,7 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:WorkloadNetworkSegment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:WorkloadNetworkSegment" }, { type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkSegment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadNetworkSegment.__pulumiType, name, inputs, opts);
     }

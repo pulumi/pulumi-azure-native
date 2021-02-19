@@ -26,7 +26,6 @@ class Volume(pulumi.CustomResource):
                  is_restoring: Optional[pulumi.Input[bool]] = None,
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mount_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -56,11 +55,10 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[bool] is_restoring: Restoring
         :param pulumi.Input[bool] kerberos_enabled: Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]] mount_targets: List of mount targets
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS for SMB protocol
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Union[str, 'SecurityStyle']] security_style: The security style of volume
+        :param pulumi.Input[Union[str, 'SecurityStyle']] security_style: The security style of volume, default unix, ntfs for dual protocol or CIFS protocol
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
         :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
@@ -101,7 +99,6 @@ class Volume(pulumi.CustomResource):
                 kerberos_enabled = False
             __props__['kerberos_enabled'] = kerberos_enabled
             __props__['location'] = location
-            __props__['mount_targets'] = mount_targets
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
@@ -109,16 +106,22 @@ class Volume(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if security_style is None:
+                security_style = 'unix'
             __props__['security_style'] = security_style
             if service_level is None:
                 service_level = 'Premium'
             __props__['service_level'] = service_level
+            if snapshot_directory_visible is None:
+                snapshot_directory_visible = True
             __props__['snapshot_directory_visible'] = snapshot_directory_visible
             __props__['snapshot_id'] = snapshot_id
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
+            if throughput_mibps is None:
+                throughput_mibps = 0
             __props__['throughput_mibps'] = throughput_mibps
             if usage_threshold is None:
                 usage_threshold = 107374182400
@@ -129,6 +132,7 @@ class Volume(pulumi.CustomResource):
             __props__['volume_type'] = volume_type
             __props__['baremetal_tenant_id'] = None
             __props__['file_system_id'] = None
+            __props__['mount_targets'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
@@ -232,7 +236,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountTargets")
-    def mount_targets(self) -> pulumi.Output[Optional[Sequence['outputs.MountTargetPropertiesResponse']]]:
+    def mount_targets(self) -> pulumi.Output[Sequence['outputs.MountTargetPropertiesResponse']]:
         """
         List of mount targets
         """
@@ -250,7 +254,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="protocolTypes")
     def protocol_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Set of protocol types
+        Set of protocol types, default NFSv3, CIFS for SMB protocol
         """
         return pulumi.get(self, "protocol_types")
 
@@ -266,7 +270,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> pulumi.Output[Optional[str]]:
         """
-        The security style of volume
+        The security style of volume, default unix, ntfs for dual protocol or CIFS protocol
         """
         return pulumi.get(self, "security_style")
 

@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20190701
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// Pool Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;

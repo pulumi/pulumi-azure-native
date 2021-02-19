@@ -229,8 +229,6 @@ type volumeArgs struct {
 	ExportPolicy *VolumePropertiesExportPolicy `pulumi:"exportPolicy"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// List of mount targets
-	MountTargets []MountTargetProperties `pulumi:"mountTargets"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
 	// Set of protocol types
@@ -261,8 +259,6 @@ type VolumeArgs struct {
 	ExportPolicy VolumePropertiesExportPolicyPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// List of mount targets
-	MountTargets MountTargetPropertiesArrayInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
 	// Set of protocol types

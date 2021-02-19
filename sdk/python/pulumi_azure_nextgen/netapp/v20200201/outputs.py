@@ -49,6 +49,8 @@ class ActiveDirectoryResponse(dict):
         :param str status: Status of the Active Directory
         :param str username: Username of Active Directory domain administrator
         """
+        if active_directory_id is None:
+            active_directory_id = 'guid id'
         if active_directory_id is not None:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
         if backup_operators is not None:
@@ -57,6 +59,8 @@ class ActiveDirectoryResponse(dict):
             pulumi.set(__self__, "dns", dns)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if organizational_unit is None:
+            organizational_unit = 'CN=Computers'
         if organizational_unit is not None:
             pulumi.set(__self__, "organizational_unit", organizational_unit)
         if password is not None:
@@ -179,6 +183,8 @@ class ExportPolicyRuleResponse(dict):
         """
         if allowed_clients is not None:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if cifs is None:
+            cifs = False
         if cifs is not None:
             pulumi.set(__self__, "cifs", cifs)
         if nfsv3 is not None:

@@ -23,7 +23,7 @@ class DataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'DataSetKind']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -37,7 +37,7 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
-        :param pulumi.Input[Union[str, 'Kind']] kind: Kind of data set.
+        :param pulumi.Input[Union[str, 'DataSetKind']] kind: Kind of data set.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the data set to.
         """

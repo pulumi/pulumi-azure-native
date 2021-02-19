@@ -71,7 +71,7 @@ export interface GetVolumeResult {
     /**
      * List of mount targets
      */
-    readonly mountTargets?: outputs.netapp.v20190601.MountTargetPropertiesResponse[];
+    readonly mountTargets: outputs.netapp.v20190601.MountTargetPropertiesResponse[];
     /**
      * Resource name
      */

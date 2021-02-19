@@ -117,7 +117,7 @@ export class WorkloadNetworkDnsZone extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:WorkloadNetworkDnsZone" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:WorkloadNetworkDnsZone" }, { type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsZone" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadNetworkDnsZone.__pulumiType, name, inputs, opts);
     }

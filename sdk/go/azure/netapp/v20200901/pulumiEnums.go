@@ -97,7 +97,7 @@ func (e ReplicationSchedule) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The security style of volume
+// The security style of volume, default unix, ntfs for dual protocol or CIFS protocol
 type SecurityStyle pulumi.String
 
 const (

@@ -36,7 +36,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
     }
 
     /**
-     * Kind of synchronization
+     * Kind of synchronization setting.
      */
     public readonly kind!: pulumi.Output<string>;
     /**
@@ -110,9 +110,9 @@ export interface SynchronizationSettingArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
-     * Kind of synchronization
+     * Kind of synchronization setting.
      */
-    readonly kind: pulumi.Input<string | enums.datashare.v20201001preview.Kind>;
+    readonly kind: pulumi.Input<string | enums.datashare.v20201001preview.SynchronizationSettingKind>;
     /**
      * The resource group name.
      */

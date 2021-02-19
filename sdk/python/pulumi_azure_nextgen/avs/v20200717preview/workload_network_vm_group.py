@@ -67,7 +67,7 @@ class WorkloadNetworkVMGroup(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs:WorkloadNetworkVMGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs:WorkloadNetworkVMGroup"), pulumi.Alias(type_="azure-nextgen:avs/v20210101preview:WorkloadNetworkVMGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkloadNetworkVMGroup, __self__).__init__(
             'azure-nextgen:avs/v20200717preview:WorkloadNetworkVMGroup',

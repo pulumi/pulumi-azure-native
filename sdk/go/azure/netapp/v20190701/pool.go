@@ -17,7 +17,7 @@ type Pool struct {
 
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
+	// Pool Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// UUID v4 used to identify the Pool
 	PoolId pulumi.StringOutput `pulumi:"poolId"`
@@ -130,7 +130,7 @@ func GetPool(ctx *pulumi.Context,
 type poolState struct {
 	// Resource location
 	Location *string `pulumi:"location"`
-	// Resource name
+	// Pool Resource name
 	Name *string `pulumi:"name"`
 	// UUID v4 used to identify the Pool
 	PoolId *string `pulumi:"poolId"`
@@ -149,7 +149,7 @@ type poolState struct {
 type PoolState struct {
 	// Resource location
 	Location pulumi.StringPtrInput
-	// Resource name
+	// Pool Resource name
 	Name pulumi.StringPtrInput
 	// UUID v4 used to identify the Pool
 	PoolId pulumi.StringPtrInput

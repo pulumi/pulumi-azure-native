@@ -15,7 +15,6 @@ __all__ = [
     'ExportPolicyRuleArgs',
     'HourlyScheduleArgs',
     'MonthlyScheduleArgs',
-    'MountTargetPropertiesArgs',
     'ReplicationObjectArgs',
     'VolumeBackupPropertiesArgs',
     'VolumeBackupsArgs',
@@ -61,6 +60,8 @@ class ActiveDirectoryArgs:
         :param pulumi.Input[str] smb_server_name: NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
         :param pulumi.Input[str] username: Username of Active Directory domain administrator
         """
+        if active_directory_id is None:
+            active_directory_id = 'guid id'
         if active_directory_id is not None:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
         if ad_name is not None:
@@ -77,6 +78,8 @@ class ActiveDirectoryArgs:
             pulumi.set(__self__, "kdc_ip", kdc_ip)
         if ldap_signing is not None:
             pulumi.set(__self__, "ldap_signing", ldap_signing)
+        if organizational_unit is None:
+            organizational_unit = 'CN=Computers'
         if organizational_unit is not None:
             pulumi.set(__self__, "organizational_unit", organizational_unit)
         if password is not None:
@@ -381,6 +384,8 @@ class ExportPolicyRuleArgs:
         """
         if allowed_clients is not None:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if cifs is None:
+            cifs = False
         if cifs is not None:
             pulumi.set(__self__, "cifs", cifs)
         if has_root_access is None:
@@ -733,45 +738,6 @@ class MonthlyScheduleArgs:
     @used_bytes.setter
     def used_bytes(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "used_bytes", value)
-
-
-@pulumi.input_type
-class MountTargetPropertiesArgs:
-    def __init__(__self__, *,
-                 file_system_id: pulumi.Input[str],
-                 smb_server_fqdn: Optional[pulumi.Input[str]] = None):
-        """
-        Mount target properties
-        :param pulumi.Input[str] file_system_id: UUID v4 used to identify the MountTarget
-        :param pulumi.Input[str] smb_server_fqdn: The SMB server's Fully Qualified Domain Name, FQDN
-        """
-        pulumi.set(__self__, "file_system_id", file_system_id)
-        if smb_server_fqdn is not None:
-            pulumi.set(__self__, "smb_server_fqdn", smb_server_fqdn)
-
-    @property
-    @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> pulumi.Input[str]:
-        """
-        UUID v4 used to identify the MountTarget
-        """
-        return pulumi.get(self, "file_system_id")
-
-    @file_system_id.setter
-    def file_system_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "file_system_id", value)
-
-    @property
-    @pulumi.getter(name="smbServerFqdn")
-    def smb_server_fqdn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SMB server's Fully Qualified Domain Name, FQDN
-        """
-        return pulumi.get(self, "smb_server_fqdn")
-
-    @smb_server_fqdn.setter
-    def smb_server_fqdn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "smb_server_fqdn", value)
 
 
 @pulumi.input_type

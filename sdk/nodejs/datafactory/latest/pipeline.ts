@@ -72,6 +72,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: outputs.datafactory.latest.ParameterSpecificationResponse} | undefined>;
     /**
+     * Pipeline Policy.
+     */
+    public readonly policy!: pulumi.Output<outputs.datafactory.latest.PipelinePolicyResponse | undefined>;
+    /**
      * Dimensions emitted by Pipeline.
      */
     public readonly runDimensions!: pulumi.Output<{[key: string]: any} | undefined>;
@@ -110,6 +114,7 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["folder"] = args ? args.folder : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["pipelineName"] = args ? args.pipelineName : undefined;
+            inputs["policy"] = args ? args.policy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["runDimensions"] = args ? args.runDimensions : undefined;
             inputs["variables"] = args ? args.variables : undefined;
@@ -125,6 +130,7 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["folder"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["parameters"] = undefined /*out*/;
+            inputs["policy"] = undefined /*out*/;
             inputs["runDimensions"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["variables"] = undefined /*out*/;
@@ -178,6 +184,10 @@ export interface PipelineArgs {
      * The pipeline name.
      */
     readonly pipelineName?: pulumi.Input<string>;
+    /**
+     * Pipeline Policy.
+     */
+    readonly policy?: pulumi.Input<inputs.datafactory.latest.PipelinePolicy>;
     /**
      * The resource group name.
      */

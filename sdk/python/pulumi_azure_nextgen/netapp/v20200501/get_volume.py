@@ -170,7 +170,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="mountTargets")
-    def mount_targets(self) -> Optional[Sequence['outputs.MountTargetPropertiesResponse']]:
+    def mount_targets(self) -> Sequence['outputs.MountTargetPropertiesResponse']:
         """
         List of mount targets
         """
@@ -188,7 +188,7 @@ class GetVolumeResult:
     @pulumi.getter(name="protocolTypes")
     def protocol_types(self) -> Optional[Sequence[str]]:
         """
-        Set of protocol types
+        Set of protocol types, default NFSv3, CIFS for SMB protocol
         """
         return pulumi.get(self, "protocol_types")
 

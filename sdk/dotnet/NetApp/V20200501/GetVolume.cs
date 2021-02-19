@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Set of protocol types
+        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         public readonly ImmutableArray<string> ProtocolTypes;
         /// <summary>

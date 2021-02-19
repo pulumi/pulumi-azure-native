@@ -54,6 +54,9 @@ func NewWorkloadNetworkDnsService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:avs:WorkloadNetworkDnsService"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WorkloadNetworkDnsService

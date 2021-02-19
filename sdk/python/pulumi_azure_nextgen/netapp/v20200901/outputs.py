@@ -71,6 +71,8 @@ class ActiveDirectoryResponse(dict):
         """
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "status_details", status_details)
+        if active_directory_id is None:
+            active_directory_id = 'guid id'
         if active_directory_id is not None:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
         if ad_name is not None:
@@ -87,6 +89,8 @@ class ActiveDirectoryResponse(dict):
             pulumi.set(__self__, "kdc_ip", kdc_ip)
         if ldap_signing is not None:
             pulumi.set(__self__, "ldap_signing", ldap_signing)
+        if organizational_unit is None:
+            organizational_unit = 'CN=Computers'
         if organizational_unit is not None:
             pulumi.set(__self__, "organizational_unit", organizational_unit)
         if password is not None:
@@ -343,6 +347,8 @@ class ExportPolicyRuleResponse(dict):
         """
         if allowed_clients is not None:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if cifs is None:
+            cifs = False
         if cifs is not None:
             pulumi.set(__self__, "cifs", cifs)
         if has_root_access is None:

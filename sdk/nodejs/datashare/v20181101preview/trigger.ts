@@ -36,7 +36,7 @@ export class Trigger extends pulumi.CustomResource {
     }
 
     /**
-     * Kind of synchronization
+     * Kind of synchronization on trigger.
      */
     public readonly kind!: pulumi.Output<string>;
     /**
@@ -104,9 +104,9 @@ export interface TriggerArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
-     * Kind of synchronization
+     * Kind of synchronization on trigger.
      */
-    readonly kind: pulumi.Input<string | enums.datashare.v20181101preview.Kind>;
+    readonly kind: pulumi.Input<string | enums.datashare.v20181101preview.TriggerKind>;
     /**
      * The resource group name.
      */

@@ -77,7 +77,7 @@ class Cluster(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs:Cluster"), pulumi.Alias(type_="azure-nextgen:avs/v20200320:Cluster"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs:Cluster"), pulumi.Alias(type_="azure-nextgen:avs/v20200320:Cluster"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:Cluster"), pulumi.Alias(type_="azure-nextgen:avs/v20210101preview:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-nextgen:avs/latest:Cluster',

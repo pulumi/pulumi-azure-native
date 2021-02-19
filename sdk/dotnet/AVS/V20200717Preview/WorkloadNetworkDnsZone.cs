@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:avs:WorkloadNetworkDnsZone"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsZone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

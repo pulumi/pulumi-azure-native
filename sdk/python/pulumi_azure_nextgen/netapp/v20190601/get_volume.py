@@ -120,7 +120,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="mountTargets")
-    def mount_targets(self) -> Optional[Sequence['outputs.MountTargetPropertiesResponse']]:
+    def mount_targets(self) -> Sequence['outputs.MountTargetPropertiesResponse']:
         """
         List of mount targets
         """

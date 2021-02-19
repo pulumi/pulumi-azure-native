@@ -363,7 +363,9 @@ __all__ = [
     'PhoenixLinkedServiceArgs',
     'PhoenixObjectDatasetArgs',
     'PhoenixSourceArgs',
+    'PipelineElapsedTimeMetricPolicyArgs',
     'PipelineFolderArgs',
+    'PipelinePolicyArgs',
     'PipelineReferenceArgs',
     'PolybaseSettingsArgs',
     'PostgreSqlLinkedServiceArgs',
@@ -49809,6 +49811,30 @@ class PhoenixSourceArgs:
 
 
 @pulumi.input_type
+class PipelineElapsedTimeMetricPolicyArgs:
+    def __init__(__self__, *,
+                 duration: Optional[Any] = None):
+        """
+        Pipeline ElapsedTime Metric Policy.
+        :param Any duration: TimeSpan value, after which an Azure Monitoring Metric is fired.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[Any]:
+        """
+        TimeSpan value, after which an Azure Monitoring Metric is fired.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: Optional[Any]):
+        pulumi.set(self, "duration", value)
+
+
+@pulumi.input_type
 class PipelineFolderArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
@@ -49830,6 +49856,30 @@ class PipelineFolderArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class PipelinePolicyArgs:
+    def __init__(__self__, *,
+                 elapsed_time_metric: Optional[pulumi.Input['PipelineElapsedTimeMetricPolicyArgs']] = None):
+        """
+        Pipeline Policy.
+        :param pulumi.Input['PipelineElapsedTimeMetricPolicyArgs'] elapsed_time_metric: Pipeline ElapsedTime Metric Policy.
+        """
+        if elapsed_time_metric is not None:
+            pulumi.set(__self__, "elapsed_time_metric", elapsed_time_metric)
+
+    @property
+    @pulumi.getter(name="elapsedTimeMetric")
+    def elapsed_time_metric(self) -> Optional[pulumi.Input['PipelineElapsedTimeMetricPolicyArgs']]:
+        """
+        Pipeline ElapsedTime Metric Policy.
+        """
+        return pulumi.get(self, "elapsed_time_metric")
+
+    @elapsed_time_metric.setter
+    def elapsed_time_metric(self, value: Optional[pulumi.Input['PipelineElapsedTimeMetricPolicyArgs']]):
+        pulumi.set(self, "elapsed_time_metric", value)
 
 
 @pulumi.input_type

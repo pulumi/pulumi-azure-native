@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// Kind of data set.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataShare.Latest.Kind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataShare.Latest.DataSetKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

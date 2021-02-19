@@ -66,13 +66,13 @@ export class Volume extends pulumi.CustomResource {
     /**
      * List of mount targets
      */
-    public readonly mountTargets!: pulumi.Output<outputs.netapp.v20200201.MountTargetPropertiesResponse[] | undefined>;
+    public /*out*/ readonly mountTargets!: pulumi.Output<outputs.netapp.v20200201.MountTargetPropertiesResponse[]>;
     /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Set of protocol types
+     * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
     public readonly protocolTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -107,6 +107,10 @@ export class Volume extends pulumi.CustomResource {
      * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
      */
     public readonly usageThreshold!: pulumi.Output<number>;
+    /**
+     * Resource size in bytes, current storage usage for the volume in bytes
+     */
+    public /*out*/ readonly usedBytes!: pulumi.Output<number>;
     /**
      * What type of volume is this
      */
@@ -146,12 +150,11 @@ export class Volume extends pulumi.CustomResource {
             inputs["exportPolicy"] = args ? args.exportPolicy : undefined;
             inputs["isRestoring"] = args ? args.isRestoring : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["mountTargets"] = args ? args.mountTargets : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["protocolTypes"] = args ? args.protocolTypes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceLevel"] = (args ? args.serviceLevel : undefined) || "Premium";
-            inputs["snapshotDirectoryVisible"] = args ? args.snapshotDirectoryVisible : undefined;
+            inputs["snapshotDirectoryVisible"] = (args ? args.snapshotDirectoryVisible : undefined) || true;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -160,9 +163,11 @@ export class Volume extends pulumi.CustomResource {
             inputs["volumeType"] = args ? args.volumeType : undefined;
             inputs["baremetalTenantId"] = undefined /*out*/;
             inputs["fileSystemId"] = undefined /*out*/;
+            inputs["mountTargets"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["usedBytes"] = undefined /*out*/;
         } else {
             inputs["baremetalTenantId"] = undefined /*out*/;
             inputs["creationToken"] = undefined /*out*/;
@@ -182,6 +187,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["usageThreshold"] = undefined /*out*/;
+            inputs["usedBytes"] = undefined /*out*/;
             inputs["volumeType"] = undefined /*out*/;
         }
         if (!opts) {
@@ -226,15 +232,11 @@ export interface VolumeArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * List of mount targets
-     */
-    readonly mountTargets?: pulumi.Input<pulumi.Input<inputs.netapp.v20200201.MountTargetProperties>[]>;
-    /**
      * The name of the capacity pool
      */
     readonly poolName: pulumi.Input<string>;
     /**
-     * Set of protocol types
+     * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
     readonly protocolTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

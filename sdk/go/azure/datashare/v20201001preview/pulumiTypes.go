@@ -318,7 +318,7 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 
 // A type of synchronization setting based on schedule
 type ScheduledSourceSynchronizationSettingResponse struct {
-	// Kind of synchronization
+	// Kind of synchronization setting on share.
 	// Expected value is 'ScheduleBased'.
 	Kind string `pulumi:"kind"`
 	// Recurrence Interval
@@ -340,7 +340,7 @@ type ScheduledSourceSynchronizationSettingResponseInput interface {
 
 // A type of synchronization setting based on schedule
 type ScheduledSourceSynchronizationSettingResponseArgs struct {
-	// Kind of synchronization
+	// Kind of synchronization setting on share.
 	// Expected value is 'ScheduleBased'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Recurrence Interval
@@ -401,7 +401,7 @@ func (o ScheduledSourceSynchronizationSettingResponseOutput) ToScheduledSourceSy
 	return o
 }
 
-// Kind of synchronization
+// Kind of synchronization setting on share.
 // Expected value is 'ScheduleBased'.
 func (o ScheduledSourceSynchronizationSettingResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledSourceSynchronizationSettingResponse) string { return v.Kind }).(pulumi.StringOutput)

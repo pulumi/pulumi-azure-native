@@ -12,7 +12,6 @@ from ._enums import *
 __all__ = [
     'ActiveDirectoryArgs',
     'ExportPolicyRuleArgs',
-    'MountTargetPropertiesArgs',
     'ReplicationObjectArgs',
     'VolumePropertiesDataProtectionArgs',
     'VolumePropertiesExportPolicyArgs',
@@ -272,125 +271,6 @@ class ExportPolicyRuleArgs:
     @unix_read_write.setter
     def unix_read_write(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "unix_read_write", value)
-
-
-@pulumi.input_type
-class MountTargetPropertiesArgs:
-    def __init__(__self__, *,
-                 file_system_id: pulumi.Input[str],
-                 end_ip: Optional[pulumi.Input[str]] = None,
-                 gateway: Optional[pulumi.Input[str]] = None,
-                 netmask: Optional[pulumi.Input[str]] = None,
-                 smb_server_fqdn: Optional[pulumi.Input[str]] = None,
-                 start_ip: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[str]] = None):
-        """
-        Mount target properties
-        :param pulumi.Input[str] file_system_id: UUID v4 used to identify the MountTarget
-        :param pulumi.Input[str] end_ip: The end of IPv4 address range to use when creating a new mount target
-        :param pulumi.Input[str] gateway: The gateway of the IPv4 address range to use when creating a new mount target
-        :param pulumi.Input[str] netmask: The netmask of the IPv4 address range to use when creating a new mount target
-        :param pulumi.Input[str] smb_server_fqdn: The SMB server's Fully Qualified Domain Name, FQDN
-        :param pulumi.Input[str] start_ip: The start of IPv4 address range to use when creating a new mount target
-        :param pulumi.Input[str] subnet: The subnet
-        """
-        pulumi.set(__self__, "file_system_id", file_system_id)
-        if end_ip is not None:
-            pulumi.set(__self__, "end_ip", end_ip)
-        if gateway is not None:
-            pulumi.set(__self__, "gateway", gateway)
-        if netmask is not None:
-            pulumi.set(__self__, "netmask", netmask)
-        if smb_server_fqdn is not None:
-            pulumi.set(__self__, "smb_server_fqdn", smb_server_fqdn)
-        if start_ip is not None:
-            pulumi.set(__self__, "start_ip", start_ip)
-        if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
-
-    @property
-    @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> pulumi.Input[str]:
-        """
-        UUID v4 used to identify the MountTarget
-        """
-        return pulumi.get(self, "file_system_id")
-
-    @file_system_id.setter
-    def file_system_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "file_system_id", value)
-
-    @property
-    @pulumi.getter(name="endIp")
-    def end_ip(self) -> Optional[pulumi.Input[str]]:
-        """
-        The end of IPv4 address range to use when creating a new mount target
-        """
-        return pulumi.get(self, "end_ip")
-
-    @end_ip.setter
-    def end_ip(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "end_ip", value)
-
-    @property
-    @pulumi.getter
-    def gateway(self) -> Optional[pulumi.Input[str]]:
-        """
-        The gateway of the IPv4 address range to use when creating a new mount target
-        """
-        return pulumi.get(self, "gateway")
-
-    @gateway.setter
-    def gateway(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "gateway", value)
-
-    @property
-    @pulumi.getter
-    def netmask(self) -> Optional[pulumi.Input[str]]:
-        """
-        The netmask of the IPv4 address range to use when creating a new mount target
-        """
-        return pulumi.get(self, "netmask")
-
-    @netmask.setter
-    def netmask(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "netmask", value)
-
-    @property
-    @pulumi.getter(name="smbServerFqdn")
-    def smb_server_fqdn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SMB server's Fully Qualified Domain Name, FQDN
-        """
-        return pulumi.get(self, "smb_server_fqdn")
-
-    @smb_server_fqdn.setter
-    def smb_server_fqdn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "smb_server_fqdn", value)
-
-    @property
-    @pulumi.getter(name="startIp")
-    def start_ip(self) -> Optional[pulumi.Input[str]]:
-        """
-        The start of IPv4 address range to use when creating a new mount target
-        """
-        return pulumi.get(self, "start_ip")
-
-    @start_ip.setter
-    def start_ip(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "start_ip", value)
-
-    @property
-    @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subnet
-        """
-        return pulumi.get(self, "subnet")
-
-    @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet", value)
 
 
 @pulumi.input_type

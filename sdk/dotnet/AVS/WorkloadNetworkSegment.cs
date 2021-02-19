@@ -96,6 +96,7 @@ namespace Pulumi.AzureNextGen.AVS
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:WorkloadNetworkSegment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:WorkloadNetworkSegment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
