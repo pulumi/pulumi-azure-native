@@ -87,6 +87,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180901Preview
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150701:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20171001preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180101preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200401preview:RoleAssignment"},
                 },
             };

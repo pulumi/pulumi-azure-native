@@ -20,6 +20,7 @@ class FileServiceProperties(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  cors: Optional[pulumi.Input[pulumi.InputType['CorsRulesArgs']]] = None,
                  file_services_name: Optional[pulumi.Input[str]] = None,
+                 protocol_settings: Optional[pulumi.Input[pulumi.InputType['ProtocolSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_delete_retention_policy: Optional[pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']]] = None,
                  __props__=None,
@@ -27,13 +28,14 @@ class FileServiceProperties(pulumi.CustomResource):
                  __opts__=None):
         """
         The properties of File services in storage account.
-        API Version: 2019-06-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[pulumi.InputType['CorsRulesArgs']] cors: Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
         :param pulumi.Input[str] file_services_name: The name of the file Service within the specified storage account. File Service Name must be "default"
+        :param pulumi.Input[pulumi.InputType['ProtocolSettingsArgs']] protocol_settings: Protocol settings for file service
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']] share_delete_retention_policy: The file service properties for share soft delete.
         """
@@ -61,6 +63,7 @@ class FileServiceProperties(pulumi.CustomResource):
             if file_services_name is None and not opts.urn:
                 raise TypeError("Missing required property 'file_services_name'")
             __props__['file_services_name'] = file_services_name
+            __props__['protocol_settings'] = protocol_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -68,7 +71,7 @@ class FileServiceProperties(pulumi.CustomResource):
             __props__['name'] = None
             __props__['sku'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:FileServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileServiceProperties, __self__).__init__(
             'azure-nextgen:storage:FileServiceProperties',
@@ -109,6 +112,14 @@ class FileServiceProperties(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="protocolSettings")
+    def protocol_settings(self) -> pulumi.Output[Optional['outputs.ProtocolSettingsResponse']]:
+        """
+        Protocol settings for file service
+        """
+        return pulumi.get(self, "protocol_settings")
 
     @property
     @pulumi.getter(name="shareDeleteRetentionPolicy")

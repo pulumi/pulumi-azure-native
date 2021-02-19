@@ -61,6 +61,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
                     new Pulumi.Alias { Type = "azure-nextgen:storage:Table"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:Table"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:Table"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:Table"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

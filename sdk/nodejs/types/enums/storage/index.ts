@@ -17,6 +17,7 @@ import * as v20181101 from "./v20181101";
 import * as v20190401 from "./v20190401";
 import * as v20190601 from "./v20190601";
 import * as v20200801preview from "./v20200801preview";
+import * as v20210101 from "./v20210101";
 
 export {
     latest,
@@ -34,6 +35,7 @@ export {
     v20190401,
     v20190601,
     v20200801preview,
+    v20210101,
 };
 
 export const AccessTier = {
@@ -134,6 +136,15 @@ export const EnabledProtocols = {
  */
 export type EnabledProtocols = (typeof EnabledProtocols)[keyof typeof EnabledProtocols];
 
+export const ExtendedLocationTypes = {
+    EdgeZone: "EdgeZone",
+} as const;
+
+/**
+ * The type of the extended location.
+ */
+export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
+
 export const HttpProtocol = {
     Https_http: "https,http",
     Https: "https",
@@ -145,7 +156,10 @@ export const HttpProtocol = {
 export type HttpProtocol = (typeof HttpProtocol)[keyof typeof HttpProtocol];
 
 export const IdentityType = {
+    None: "None",
     SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**

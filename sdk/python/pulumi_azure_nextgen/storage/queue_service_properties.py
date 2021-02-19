@@ -26,7 +26,7 @@ class QueueServiceProperties(pulumi.CustomResource):
                  __opts__=None):
         """
         The properties of a storage account’s Queue service.
-        API Version: 2019-06-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -64,7 +64,7 @@ class QueueServiceProperties(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:QueueServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:QueueServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(QueueServiceProperties, __self__).__init__(
             'azure-nextgen:storage:QueueServiceProperties',

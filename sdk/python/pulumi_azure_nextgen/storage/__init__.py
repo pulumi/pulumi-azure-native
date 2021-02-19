@@ -57,6 +57,7 @@ from . import (
     v20190401,
     v20190601,
     v20200801preview,
+    v20210101,
 )
 
 def _register_module():

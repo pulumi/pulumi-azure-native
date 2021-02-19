@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Storage
 {
     /// <summary>
     /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-    /// API Version: 2019-06-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:storage:BlobContainerImmutabilityPolicy")]
     public partial class BlobContainerImmutabilityPolicy : Pulumi.CustomResource
@@ -85,6 +85,7 @@ namespace Pulumi.AzureNextGen.Storage
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:BlobContainerImmutabilityPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

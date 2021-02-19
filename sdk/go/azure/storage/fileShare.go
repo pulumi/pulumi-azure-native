@@ -12,7 +12,7 @@ import (
 )
 
 // Properties of the file share, including Id, resource name, resource type, Etag.
-// API Version: 2019-06-01.
+// API Version: 2021-01-01.
 type FileShare struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +44,8 @@ type FileShare struct {
 	ShareQuota pulumi.IntPtrOutput `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 	ShareUsageBytes pulumi.Float64Output `pulumi:"shareUsageBytes"`
+	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+	SnapshotTime pulumi.StringOutput `pulumi:"snapshotTime"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The version of the share.
@@ -78,6 +80,9 @@ func NewFileShare(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:FileShare"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210101:FileShare"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -131,6 +136,8 @@ type fileShareState struct {
 	ShareQuota *int `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 	ShareUsageBytes *float64 `pulumi:"shareUsageBytes"`
+	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+	SnapshotTime *string `pulumi:"snapshotTime"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// The version of the share.
@@ -166,6 +173,8 @@ type FileShareState struct {
 	ShareQuota pulumi.IntPtrInput
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 	ShareUsageBytes pulumi.Float64PtrInput
+	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+	SnapshotTime pulumi.StringPtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// The version of the share.
@@ -183,6 +192,8 @@ type fileShareArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
 	EnabledProtocols *string `pulumi:"enabledProtocols"`
+	// Optional, used to create a snapshot.
+	Expand *string `pulumi:"expand"`
 	// A name-value pair to associate with the share as metadata.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -203,6 +214,8 @@ type FileShareArgs struct {
 	AccountName pulumi.StringInput
 	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
 	EnabledProtocols pulumi.StringPtrInput
+	// Optional, used to create a snapshot.
+	Expand pulumi.StringPtrInput
 	// A name-value pair to associate with the share as metadata.
 	Metadata pulumi.StringMapInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.

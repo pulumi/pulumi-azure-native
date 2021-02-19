@@ -19,7 +19,19 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
         /// The identity type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.Storage.Latest.IdentityType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.IdentityType> Type { get; set; } = null!;
+
+        [Input("userAssignedIdentities")]
+        private InputMap<object>? _userAssignedIdentities;
+
+        /// <summary>
+        /// Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+        /// </summary>
+        public InputMap<object> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            set => _userAssignedIdentities = value;
+        }
 
         public IdentityArgs()
         {

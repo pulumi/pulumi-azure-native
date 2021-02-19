@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 {
     /// <summary>
     /// Properties of the file share, including Id, resource name, resource type, Etag.
-    /// Latest API Version: 2019-06-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:FileShare'.")]
     [AzureNextGenResourceType("azure-nextgen:storage/latest:FileShare")]
@@ -102,6 +102,12 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         public Output<double> ShareUsageBytes { get; private set; } = null!;
 
         /// <summary>
+        /// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+        /// </summary>
+        [Output("snapshotTime")]
+        public Output<string> SnapshotTime { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:FileShare"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:FileShare"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:FileShare"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -182,6 +189,12 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// </summary>
         [Input("enabledProtocols")]
         public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.EnabledProtocols>? EnabledProtocols { get; set; }
+
+        /// <summary>
+        /// Optional, used to create a snapshot.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;

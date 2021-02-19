@@ -12,7 +12,7 @@ import (
 )
 
 // Properties of the table, including Id, resource name, resource type.
-// API Version: 2019-06-01.
+// API Version: 2021-01-01.
 type Table struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +49,9 @@ func NewTable(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:Table"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210101:Table"),
 		},
 	})
 	opts = append(opts, aliases)

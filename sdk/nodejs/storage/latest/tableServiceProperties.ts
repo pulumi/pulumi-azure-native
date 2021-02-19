@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of a storage account’s Table service.
- * Latest API Version: 2019-06-01.
+ * Latest API Version: 2021-01-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:TableServiceProperties'.
  */
@@ -91,7 +91,7 @@ export class TableServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:TableServiceProperties" }, { type: "azure-nextgen:storage/v20190601:TableServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:TableServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:TableServiceProperties" }, { type: "azure-nextgen:storage/v20190601:TableServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:TableServiceProperties" }, { type: "azure-nextgen:storage/v20210101:TableServiceProperties" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TableServiceProperties.__pulumiType, name, inputs, opts);
     }

@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Storage.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:ManagementPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:ManagementPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -72,9 +72,17 @@ export interface GetStorageAccountResult {
      */
     readonly enableHttpsTrafficOnly?: boolean;
     /**
+     * NFS 3.0 protocol support enabled if set to true.
+     */
+    readonly enableNfsV3?: boolean;
+    /**
      * Gets the encryption settings on the account. If unspecified, the account is unencrypted.
      */
     readonly encryption: outputs.storage.latest.EncryptionResponse;
+    /**
+     * The extendedLocation of the resource.
+     */
+    readonly extendedLocation?: outputs.storage.latest.ExtendedLocationResponse;
     /**
      * If the failover is in progress, the value will be true, otherwise, it will be null.
      */

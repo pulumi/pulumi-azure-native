@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Storage
 {
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
-    /// API Version: 2019-06-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:storage:ManagementPolicy")]
     public partial class ManagementPolicy : Pulumi.CustomResource
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.Storage
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:ManagementPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:ManagementPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

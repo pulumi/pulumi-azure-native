@@ -12,7 +12,7 @@ import (
 )
 
 // Properties of the blob container, including Id, resource name, resource type, Etag.
-// Latest API Version: 2019-06-01.
+// Latest API Version: 2021-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobContainer'.
 type BlobContainer struct {
@@ -98,6 +98,9 @@ func NewBlobContainer(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobContainer"),
 		},
 	})
 	opts = append(opts, aliases)

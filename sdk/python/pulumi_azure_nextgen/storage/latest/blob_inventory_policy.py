@@ -31,7 +31,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                  __opts__=None):
         """
         The storage account blob inventory policy.
-        Latest API Version: 2019-06-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -74,7 +74,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobInventoryPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:BlobInventoryPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobInventoryPolicy, __self__).__init__(
             'azure-nextgen:storage/latest:BlobInventoryPolicy',

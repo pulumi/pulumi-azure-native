@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201001:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201201:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210101:ProtectionContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210201:ProtectionContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

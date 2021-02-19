@@ -26,6 +26,10 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.IPRuleResponse> IpRules;
         /// <summary>
+        /// Sets the resource access rules
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResourceAccessRuleResponse> ResourceAccessRules;
+        /// <summary>
         /// Sets the virtual network rules
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkRuleResponse> VirtualNetworkRules;
@@ -38,11 +42,14 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Outputs
 
             ImmutableArray<Outputs.IPRuleResponse> ipRules,
 
+            ImmutableArray<Outputs.ResourceAccessRuleResponse> resourceAccessRules,
+
             ImmutableArray<Outputs.VirtualNetworkRuleResponse> virtualNetworkRules)
         {
             Bypass = bypass;
             DefaultAction = defaultAction;
             IpRules = ipRules;
+            ResourceAccessRules = resourceAccessRules;
             VirtualNetworkRules = virtualNetworkRules;
         }
     }

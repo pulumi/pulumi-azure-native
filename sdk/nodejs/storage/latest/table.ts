@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of the table, including Id, resource name, resource type.
- * Latest API Version: 2019-06-01.
+ * Latest API Version: 2021-01-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:Table'.
  */
@@ -89,7 +89,7 @@ export class Table extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:Table" }, { type: "azure-nextgen:storage/v20190601:Table" }, { type: "azure-nextgen:storage/v20200801preview:Table" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:Table" }, { type: "azure-nextgen:storage/v20190601:Table" }, { type: "azure-nextgen:storage/v20200801preview:Table" }, { type: "azure-nextgen:storage/v20210101:Table" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Table.__pulumiType, name, inputs, opts);
     }

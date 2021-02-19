@@ -101,6 +101,7 @@ import * as portal from "./portal";
 import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
+import * as providerhub from "./providerhub";
 import * as purview from "./purview";
 import * as quantum from "./quantum";
 import * as recoveryservices from "./recoveryservices";
@@ -234,6 +235,7 @@ export {
     powerbi,
     powerbidedicated,
     powerplatform,
+    providerhub,
     purview,
     quantum,
     recoveryservices,

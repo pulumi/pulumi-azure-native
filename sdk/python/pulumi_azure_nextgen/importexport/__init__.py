@@ -15,6 +15,7 @@ from . import (
     latest,
     v20161101,
     v20200801,
+    v20210101,
 )
 
 def _register_module():

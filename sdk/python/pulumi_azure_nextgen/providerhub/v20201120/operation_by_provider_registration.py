@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._inputs import *
 
 __all__ = ['OperationByProviderRegistration']
 
@@ -16,6 +17,7 @@ class OperationByProviderRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 contents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OperationsDefinitionArgs']]]]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -43,6 +45,9 @@ class OperationByProviderRegistration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if contents is None and not opts.urn:
+                raise TypeError("Missing required property 'contents'")
+            __props__['contents'] = contents
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__['provider_namespace'] = provider_namespace

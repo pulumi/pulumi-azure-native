@@ -59,6 +59,9 @@ func NewRoleAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:authorization/v20180901preview:RoleAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-nextgen:authorization/v20200301preview:RoleAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200401preview:RoleAssignment"),
 		},
 	})

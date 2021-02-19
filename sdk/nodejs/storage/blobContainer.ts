@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
- * API Version: 2019-06-01.
+ * API Version: 2021-01-01.
  */
 export class BlobContainer extends pulumi.CustomResource {
     /**
@@ -182,7 +182,7 @@ export class BlobContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:BlobContainer" }, { type: "azure-nextgen:storage/v20180201:BlobContainer" }, { type: "azure-nextgen:storage/v20180301preview:BlobContainer" }, { type: "azure-nextgen:storage/v20180701:BlobContainer" }, { type: "azure-nextgen:storage/v20181101:BlobContainer" }, { type: "azure-nextgen:storage/v20190401:BlobContainer" }, { type: "azure-nextgen:storage/v20190601:BlobContainer" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:BlobContainer" }, { type: "azure-nextgen:storage/v20180201:BlobContainer" }, { type: "azure-nextgen:storage/v20180301preview:BlobContainer" }, { type: "azure-nextgen:storage/v20180701:BlobContainer" }, { type: "azure-nextgen:storage/v20181101:BlobContainer" }, { type: "azure-nextgen:storage/v20190401:BlobContainer" }, { type: "azure-nextgen:storage/v20190601:BlobContainer" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainer" }, { type: "azure-nextgen:storage/v20210101:BlobContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobContainer.__pulumiType, name, inputs, opts);
     }

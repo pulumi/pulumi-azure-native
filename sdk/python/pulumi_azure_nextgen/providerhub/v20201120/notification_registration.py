@@ -8,6 +8,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['NotificationRegistration']
 
@@ -17,6 +19,7 @@ class NotificationRegistration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  notification_registration_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['NotificationRegistrationPropertiesArgs']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -49,11 +52,11 @@ class NotificationRegistration(pulumi.CustomResource):
             if notification_registration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_registration_name'")
             __props__['notification_registration_name'] = notification_registration_name
+            __props__['properties'] = properties
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__['provider_namespace'] = provider_namespace
             __props__['name'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub:NotificationRegistration"), pulumi.Alias(type_="azure-nextgen:providerhub/latest:NotificationRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

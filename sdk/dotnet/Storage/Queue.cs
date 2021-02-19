@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Storage
 {
     /// <summary>
-    /// API Version: 2019-06-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:storage:Queue")]
     public partial class Queue : Pulumi.CustomResource
@@ -67,6 +67,7 @@ namespace Pulumi.AzureNextGen.Storage
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:Queue"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:Queue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

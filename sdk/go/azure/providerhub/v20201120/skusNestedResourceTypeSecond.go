@@ -43,6 +43,9 @@ func NewSkusNestedResourceTypeSecond(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.SkuSettings == nil {
+		return nil, errors.New("invalid value for required argument 'SkuSettings'")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:providerhub:SkusNestedResourceTypeSecond"),
@@ -103,7 +106,8 @@ type skusNestedResourceTypeSecondArgs struct {
 	// The resource type.
 	ResourceType string `pulumi:"resourceType"`
 	// The SKU.
-	Sku string `pulumi:"sku"`
+	Sku         string       `pulumi:"sku"`
+	SkuSettings []SkuSetting `pulumi:"skuSettings"`
 }
 
 // The set of arguments for constructing a SkusNestedResourceTypeSecond resource.
@@ -117,7 +121,8 @@ type SkusNestedResourceTypeSecondArgs struct {
 	// The resource type.
 	ResourceType pulumi.StringInput
 	// The SKU.
-	Sku pulumi.StringInput
+	Sku         pulumi.StringInput
+	SkuSettings SkuSettingArrayInput
 }
 
 func (SkusNestedResourceTypeSecondArgs) ElementType() reflect.Type {

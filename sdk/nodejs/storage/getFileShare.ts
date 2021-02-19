@@ -105,6 +105,10 @@ export interface GetFileShareResult {
      */
     readonly shareUsageBytes: number;
     /**
+     * Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+     */
+    readonly snapshotTime: string;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;

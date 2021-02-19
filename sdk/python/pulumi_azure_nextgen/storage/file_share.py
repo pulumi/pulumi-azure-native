@@ -19,6 +19,7 @@ class FileShare(pulumi.CustomResource):
                  access_tier: Optional[pulumi.Input[Union[str, 'ShareAccessTier']]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  enabled_protocols: Optional[pulumi.Input[Union[str, 'EnabledProtocols']]] = None,
+                 expand: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  root_squash: Optional[pulumi.Input[Union[str, 'RootSquashType']]] = None,
@@ -29,13 +30,14 @@ class FileShare(pulumi.CustomResource):
                  __opts__=None):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
-        API Version: 2019-06-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ShareAccessTier']] access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[Union[str, 'EnabledProtocols']] enabled_protocols: The authentication protocol that is used for the file share. Can only be specified when creating a share.
+        :param pulumi.Input[str] expand: Optional, used to create a snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the share as metadata.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Union[str, 'RootSquashType']] root_squash: The property is for NFS share only. The default is NoRootSquash.
@@ -64,6 +66,7 @@ class FileShare(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['enabled_protocols'] = enabled_protocols
+            __props__['expand'] = expand
             __props__['metadata'] = metadata
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -82,9 +85,10 @@ class FileShare(pulumi.CustomResource):
             __props__['name'] = None
             __props__['remaining_retention_days'] = None
             __props__['share_usage_bytes'] = None
+            __props__['snapshot_time'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileShare")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:FileShare")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileShare, __self__).__init__(
             'azure-nextgen:storage:FileShare',
@@ -221,6 +225,14 @@ class FileShare(pulumi.CustomResource):
         The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
         """
         return pulumi.get(self, "share_usage_bytes")
+
+    @property
+    @pulumi.getter(name="snapshotTime")
+    def snapshot_time(self) -> pulumi.Output[str]:
+        """
+        Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+        """
+        return pulumi.get(self, "snapshot_time")
 
     @property
     @pulumi.getter

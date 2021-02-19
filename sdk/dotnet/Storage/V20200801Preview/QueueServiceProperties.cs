@@ -61,6 +61,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:storage:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:QueueServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:QueueServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

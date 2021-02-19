@@ -12,7 +12,7 @@ import (
 )
 
 // The properties of a storage account’s Table service.
-// Latest API Version: 2019-06-01.
+// Latest API Version: 2021-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:TableServiceProperties'.
 type TableServiceProperties struct {
@@ -51,6 +51,9 @@ func NewTableServiceProperties(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:TableServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210101:TableServiceProperties"),
 		},
 	})
 	opts = append(opts, aliases)

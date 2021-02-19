@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Storage
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Protocol settings for file service
+        /// </summary>
+        public readonly Outputs.ProtocolSettingsResponse? ProtocolSettings;
+        /// <summary>
         /// The file service properties for share soft delete.
         /// </summary>
         public readonly Outputs.DeleteRetentionPolicyResponse? ShareDeleteRetentionPolicy;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Storage
 
             string name,
 
+            Outputs.ProtocolSettingsResponse? protocolSettings,
+
             Outputs.DeleteRetentionPolicyResponse? shareDeleteRetentionPolicy,
 
             Outputs.SkuResponse sku,
@@ -87,6 +93,7 @@ namespace Pulumi.AzureNextGen.Storage
             Cors = cors;
             Id = id;
             Name = name;
+            ProtocolSettings = protocolSettings;
             ShareDeleteRetentionPolicy = shareDeleteRetentionPolicy;
             Sku = sku;
             Type = type;

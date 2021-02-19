@@ -8,6 +8,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['ResourceTypeRegistration']
 
@@ -16,6 +18,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ResourceTypeRegistrationPropertiesArgs']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -46,6 +49,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['properties'] = properties
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__['provider_namespace'] = provider_namespace
@@ -53,7 +57,6 @@ class ResourceTypeRegistration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_type'")
             __props__['resource_type'] = resource_type
             __props__['name'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub/latest:ResourceTypeRegistration"), pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:ResourceTypeRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

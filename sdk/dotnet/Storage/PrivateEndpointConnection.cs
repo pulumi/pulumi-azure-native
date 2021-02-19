@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Storage
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2019-06-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:storage:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
@@ -74,6 +74,7 @@ namespace Pulumi.AzureNextGen.Storage
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

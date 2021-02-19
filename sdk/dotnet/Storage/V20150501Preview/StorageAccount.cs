@@ -145,6 +145,7 @@ namespace Pulumi.AzureNextGen.Storage.V20150501Preview
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

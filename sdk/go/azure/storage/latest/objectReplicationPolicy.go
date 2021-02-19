@@ -12,7 +12,7 @@ import (
 )
 
 // The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-// Latest API Version: 2019-06-01.
+// Latest API Version: 2021-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ObjectReplicationPolicy'.
 type ObjectReplicationPolicy struct {
@@ -65,6 +65,9 @@ func NewObjectReplicationPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210101:ObjectReplicationPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

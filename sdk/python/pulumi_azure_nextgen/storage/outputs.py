@@ -27,10 +27,12 @@ __all__ = [
     'DateAfterCreationResponse',
     'DateAfterModificationResponse',
     'DeleteRetentionPolicyResponse',
+    'EncryptionIdentityResponse',
     'EncryptionResponse',
     'EncryptionServiceResponse',
     'EncryptionServicesResponse',
     'EndpointsResponse',
+    'ExtendedLocationResponse',
     'GeoReplicationStatsResponse',
     'IPRuleResponse',
     'IdentityResponse',
@@ -46,15 +48,19 @@ __all__ = [
     'ManagementPolicySchemaResponse',
     'ManagementPolicySnapShotResponse',
     'ManagementPolicyVersionResponse',
+    'MultichannelResponse',
     'NetworkRuleSetResponse',
     'ObjectReplicationPolicyFilterResponse',
     'ObjectReplicationPolicyRuleResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ProtocolSettingsResponse',
+    'ResourceAccessRuleResponse',
     'RestorePolicyPropertiesResponse',
     'RoutingPreferenceResponse',
     'SkuResponse',
+    'SmbSettingResponse',
     'StorageAccountInternetEndpointsResponse',
     'StorageAccountKeyResponseResult',
     'StorageAccountMicrosoftEndpointsResponse',
@@ -62,6 +68,7 @@ __all__ = [
     'TagFilterResponse',
     'TagPropertyResponse',
     'UpdateHistoryPropertyResponse',
+    'UserAssignedIdentityResponse',
     'VirtualNetworkRuleResponse',
 ]
 
@@ -775,18 +782,46 @@ class DeleteRetentionPolicyResponse(dict):
 
 
 @pulumi.output_type
+class EncryptionIdentityResponse(dict):
+    """
+    Encryption identity for the storage account.
+    """
+    def __init__(__self__, *,
+                 encryption_user_assigned_identity: Optional[str] = None):
+        """
+        Encryption identity for the storage account.
+        :param str encryption_user_assigned_identity: Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+        """
+        if encryption_user_assigned_identity is not None:
+            pulumi.set(__self__, "encryption_user_assigned_identity", encryption_user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="encryptionUserAssignedIdentity")
+    def encryption_user_assigned_identity(self) -> Optional[str]:
+        """
+        Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+        """
+        return pulumi.get(self, "encryption_user_assigned_identity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class EncryptionResponse(dict):
     """
     The encryption settings on the storage account.
     """
     def __init__(__self__, *,
                  key_source: str,
+                 encryption_identity: Optional['outputs.EncryptionIdentityResponse'] = None,
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
                  require_infrastructure_encryption: Optional[bool] = None,
                  services: Optional['outputs.EncryptionServicesResponse'] = None):
         """
         The encryption settings on the storage account.
         :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
+        :param 'EncryptionIdentityResponseArgs' encryption_identity: The identity to be used with service-side encryption at rest.
         :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Properties provided by key vault.
         :param bool require_infrastructure_encryption: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
         :param 'EncryptionServicesResponseArgs' services: List of services which support encryption.
@@ -794,6 +829,8 @@ class EncryptionResponse(dict):
         if key_source is None:
             key_source = 'Microsoft.Storage'
         pulumi.set(__self__, "key_source", key_source)
+        if encryption_identity is not None:
+            pulumi.set(__self__, "encryption_identity", encryption_identity)
         if key_vault_properties is not None:
             pulumi.set(__self__, "key_vault_properties", key_vault_properties)
         if require_infrastructure_encryption is not None:
@@ -808,6 +845,14 @@ class EncryptionResponse(dict):
         The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         """
         return pulumi.get(self, "key_source")
+
+    @property
+    @pulumi.getter(name="encryptionIdentity")
+    def encryption_identity(self) -> Optional['outputs.EncryptionIdentityResponse']:
+        """
+        The identity to be used with service-side encryption at rest.
+        """
+        return pulumi.get(self, "encryption_identity")
 
     @property
     @pulumi.getter(name="keyVaultProperties")
@@ -1053,6 +1098,44 @@ class EndpointsResponse(dict):
 
 
 @pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    The complex type of the extended location.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The complex type of the extended location.
+        :param str name: The name of the extended location.
+        :param str type: The type of the extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class GeoReplicationStatsResponse(dict):
     """
     Statistics related to replication for storage account's Blob, Table, Queue and File services. It is only available when geo-redundant replication is enabled for the storage account.
@@ -1146,16 +1229,20 @@ class IdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: str):
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the resource.
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
+        :param Mapping[str, 'UserAssignedIdentityResponseArgs'] user_assigned_identities: Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -1180,6 +1267,14 @@ class IdentityResponse(dict):
         The identity type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1809,6 +1904,32 @@ class ManagementPolicyVersionResponse(dict):
 
 
 @pulumi.output_type
+class MultichannelResponse(dict):
+    """
+    Multichannel setting. Applies to Premium FileStorage only.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Multichannel setting. Applies to Premium FileStorage only.
+        :param bool enabled: Indicates whether multichannel is enabled
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether multichannel is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class NetworkRuleSetResponse(dict):
     """
     Network rule set
@@ -1817,12 +1938,14 @@ class NetworkRuleSetResponse(dict):
                  default_action: str,
                  bypass: Optional[str] = None,
                  ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
+                 resource_access_rules: Optional[Sequence['outputs.ResourceAccessRuleResponse']] = None,
                  virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         Network rule set
         :param str default_action: Specifies the default action of allow or deny when no other rules match.
         :param str bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
         :param Sequence['IPRuleResponseArgs'] ip_rules: Sets the IP ACL rules
+        :param Sequence['ResourceAccessRuleResponseArgs'] resource_access_rules: Sets the resource access rules
         :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: Sets the virtual network rules
         """
         if default_action is None:
@@ -1834,6 +1957,8 @@ class NetworkRuleSetResponse(dict):
             pulumi.set(__self__, "bypass", bypass)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
+        if resource_access_rules is not None:
+            pulumi.set(__self__, "resource_access_rules", resource_access_rules)
         if virtual_network_rules is not None:
             pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
@@ -1860,6 +1985,14 @@ class NetworkRuleSetResponse(dict):
         Sets the IP ACL rules
         """
         return pulumi.get(self, "ip_rules")
+
+    @property
+    @pulumi.getter(name="resourceAccessRules")
+    def resource_access_rules(self) -> Optional[Sequence['outputs.ResourceAccessRuleResponse']]:
+        """
+        Sets the resource access rules
+        """
+        return pulumi.get(self, "resource_access_rules")
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
@@ -2128,6 +2261,70 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class ProtocolSettingsResponse(dict):
+    """
+    Protocol settings for file service
+    """
+    def __init__(__self__, *,
+                 smb: Optional['outputs.SmbSettingResponse'] = None):
+        """
+        Protocol settings for file service
+        :param 'SmbSettingResponseArgs' smb: Setting for SMB protocol
+        """
+        if smb is not None:
+            pulumi.set(__self__, "smb", smb)
+
+    @property
+    @pulumi.getter
+    def smb(self) -> Optional['outputs.SmbSettingResponse']:
+        """
+        Setting for SMB protocol
+        """
+        return pulumi.get(self, "smb")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceAccessRuleResponse(dict):
+    """
+    Resource Access Rule.
+    """
+    def __init__(__self__, *,
+                 resource_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        Resource Access Rule.
+        :param str resource_id: Resource Id
+        :param str tenant_id: Tenant Id
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        Tenant Id
+        """
+        return pulumi.get(self, "tenant_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class RestorePolicyPropertiesResponse(dict):
     """
     The blob service properties for blob restore policy
@@ -2267,6 +2464,80 @@ class SkuResponse(dict):
         The SKU tier. This is based on the SKU name.
         """
         return pulumi.get(self, "tier")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SmbSettingResponse(dict):
+    """
+    Setting for SMB protocol
+    """
+    def __init__(__self__, *,
+                 authentication_methods: Optional[str] = None,
+                 channel_encryption: Optional[str] = None,
+                 kerberos_ticket_encryption: Optional[str] = None,
+                 multichannel: Optional['outputs.MultichannelResponse'] = None,
+                 versions: Optional[str] = None):
+        """
+        Setting for SMB protocol
+        :param str authentication_methods: SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+        :param str channel_encryption: SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+        :param str kerberos_ticket_encryption: Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+        :param 'MultichannelResponseArgs' multichannel: Multichannel setting. Applies to Premium FileStorage only.
+        :param str versions: SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+        """
+        if authentication_methods is not None:
+            pulumi.set(__self__, "authentication_methods", authentication_methods)
+        if channel_encryption is not None:
+            pulumi.set(__self__, "channel_encryption", channel_encryption)
+        if kerberos_ticket_encryption is not None:
+            pulumi.set(__self__, "kerberos_ticket_encryption", kerberos_ticket_encryption)
+        if multichannel is not None:
+            pulumi.set(__self__, "multichannel", multichannel)
+        if versions is not None:
+            pulumi.set(__self__, "versions", versions)
+
+    @property
+    @pulumi.getter(name="authenticationMethods")
+    def authentication_methods(self) -> Optional[str]:
+        """
+        SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+        """
+        return pulumi.get(self, "authentication_methods")
+
+    @property
+    @pulumi.getter(name="channelEncryption")
+    def channel_encryption(self) -> Optional[str]:
+        """
+        SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+        """
+        return pulumi.get(self, "channel_encryption")
+
+    @property
+    @pulumi.getter(name="kerberosTicketEncryption")
+    def kerberos_ticket_encryption(self) -> Optional[str]:
+        """
+        Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+        """
+        return pulumi.get(self, "kerberos_ticket_encryption")
+
+    @property
+    @pulumi.getter
+    def multichannel(self) -> Optional['outputs.MultichannelResponse']:
+        """
+        Multichannel setting. Applies to Premium FileStorage only.
+        """
+        return pulumi.get(self, "multichannel")
+
+    @property
+    @pulumi.getter
+    def versions(self) -> Optional[str]:
+        """
+        SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+        """
+        return pulumi.get(self, "versions")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2731,6 +3002,42 @@ class UpdateHistoryPropertyResponse(dict):
         Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
         """
         return pulumi.get(self, "upn")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    UserAssignedIdentity for the resource.
+    """
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        UserAssignedIdentity for the resource.
+        :param str client_id: The client ID of the identity.
+        :param str principal_id: The principal ID of the identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the identity.
+        """
+        return pulumi.get(self, "principal_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

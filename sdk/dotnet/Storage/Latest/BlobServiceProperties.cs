@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 {
     /// <summary>
     /// The properties of a storage account’s Blob service.
-    /// Latest API Version: 2019-06-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobServiceProperties'.")]
     [AzureNextGenResourceType("azure-nextgen:storage/latest:BlobServiceProperties")]
@@ -120,6 +120,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:BlobServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

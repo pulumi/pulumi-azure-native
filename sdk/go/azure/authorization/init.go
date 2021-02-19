@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-nextgen:authorization:AccessReviewScheduleDefinitionById":
 		r, err = NewAccessReviewScheduleDefinitionById(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:authorization:DenyAssignment":
+		r, err = NewDenyAssignment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:authorization:ManagementLockAtResourceGroupLevel":
 		r, err = NewManagementLockAtResourceGroupLevel(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:authorization:ManagementLockAtResourceLevel":
