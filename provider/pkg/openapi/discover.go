@@ -9,10 +9,12 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -263,18 +265,27 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 // provider. The result is a map from a resource type name to resource specs.
 func calculateLatestVersions(knownVersions codegen.StringSet, provider string, versionMap ProviderVersions, invokes,
 	preview bool) (latestResources map[string]*ResourceSpec) {
-	var stables, previews []string
+	var versions []string
 	for version := range versionMap {
-		if !IsPreview(version) {
-			stables = append(stables, version)
-		} else if preview {
-			previews = append(previews, version)
+		if version != "latest" && !strings.Contains(version, "private") && (preview || !IsPreview(version)) {
+			versions = append(versions, version)
 		}
 	}
-	// Sort the versions from earliest to latest previews, then from earliest to latest stable.
-	sort.Strings(previews)
-	sort.Strings(stables)
-	versions := append(previews, stables...)
+	// Sort the versions from earliest to latest, preferring stable versions over preview. Our current rule is
+	// to take a preview version only if no stable version exists OR is the latest stable version is more than
+	// four years older than the preview version. Four years is a totally arbitrary threshold: we hand-picked it
+	// to include some preview versions that are known to be better than very old stables (particularly,
+	// in Authorization and SQL).
+	sortingKey := func(v string) string {
+		if !IsPreview(v) { return v }
+		year, err := strconv.Atoi(v[1:5]) // we are parsing a string like v20200301-preview
+		contract.Assert(err == nil)
+		const previewPenaltyYears = 4
+		return fmt.Sprintf("v%d%s", year-previewPenaltyYears, v[5:])
+	}
+	sort.SliceStable(versions, func(i, j int) bool {
+		return sortingKey(versions[i]) < sortingKey(versions[j])
+	})
 
 	pathTypeNames := map[string]string{}
 	latestResources = map[string]*ResourceSpec{}
