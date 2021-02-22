@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.BatchAI.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getWorkspace'.")]
     public static class GetWorkspace
     {
+        /// <summary>
+        /// Batch AI Workspace information.
+        /// Latest API Version: 2018-05-01.
+        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:batchai/latest:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }

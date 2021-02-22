@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents a web app
 func LookupSiteSlot(ctx *pulumi.Context, args *LookupSiteSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteSlotResult, error) {
 	var rv LookupSiteSlotResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteSlot", args, &rv, opts...)

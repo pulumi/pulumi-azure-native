@@ -15,6 +15,8 @@ __all__ = [
     'list_configuration_store_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:listConfigurationStoreKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListConfigurationStoreKeysResult:
     """
@@ -60,12 +62,15 @@ def list_configuration_store_keys(config_store_name: Optional[str] = None,
                                   skip_token: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConfigurationStoreKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The result of a request to list API keys.
+    Latest API Version: 2020-06-01.
+
 
     :param str config_store_name: The name of the configuration store.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str skip_token: A skip token is used to continue retrieving items after an operation returns a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
     """
+    pulumi.log.warn("list_configuration_store_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:listConfigurationStoreKeys'.")
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['resourceGroupName'] = resource_group_name

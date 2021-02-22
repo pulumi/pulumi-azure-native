@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.MixedReality
 {
     public static class GetRemoteRenderingAccount
     {
+        /// <summary>
+        /// RemoteRenderingAccount Response.
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetRemoteRenderingAccountResult> InvokeAsync(GetRemoteRenderingAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRemoteRenderingAccountResult>("azure-nextgen:mixedreality:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountArgs(), options.WithVersion());
     }

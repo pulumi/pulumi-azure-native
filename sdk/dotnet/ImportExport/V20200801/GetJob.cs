@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801
 {
     public static class GetJob
     {
+        /// <summary>
+        /// Contains the job information.
+        /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-nextgen:importexport/v20200801:getJob", args ?? new GetJobArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Automation.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getConnectionType'.")]
     public static class GetConnectionType
     {
+        /// <summary>
+        /// Definition of the connection type.
+        /// Latest API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetConnectionTypeResult> InvokeAsync(GetConnectionTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionTypeResult>("azure-nextgen:automation/latest:getConnectionType", args ?? new GetConnectionTypeArgs(), options.WithVersion());
     }

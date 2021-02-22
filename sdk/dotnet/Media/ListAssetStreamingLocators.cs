@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Media
 {
     public static class ListAssetStreamingLocators
     {
+        /// <summary>
+        /// The Streaming Locators associated with this Asset.
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<ListAssetStreamingLocatorsResult> InvokeAsync(ListAssetStreamingLocatorsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAssetStreamingLocatorsResult>("azure-nextgen:media:listAssetStreamingLocators", args ?? new ListAssetStreamingLocatorsArgs(), options.WithVersion());
     }

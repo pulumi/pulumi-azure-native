@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.OperationsManagement
 {
     public static class GetManagementAssociation
     {
+        /// <summary>
+        /// The container for solution.
+        /// API Version: 2015-11-01-preview.
+        /// </summary>
         public static Task<GetManagementAssociationResult> InvokeAsync(GetManagementAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementAssociationResult>("azure-nextgen:operationsmanagement:getManagementAssociation", args ?? new GetManagementAssociationArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301
 {
     public static class GetPolicySetDefinitionAtManagementGroup
     {
+        /// <summary>
+        /// The policy set definition.
+        /// </summary>
         public static Task<GetPolicySetDefinitionAtManagementGroupResult> InvokeAsync(GetPolicySetDefinitionAtManagementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionAtManagementGroupResult>("azure-nextgen:authorization/v20200301:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupArgs(), options.WithVersion());
     }

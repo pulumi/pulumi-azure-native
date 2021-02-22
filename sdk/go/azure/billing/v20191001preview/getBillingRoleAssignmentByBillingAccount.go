@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The role assignment
 func LookupBillingRoleAssignmentByBillingAccount(ctx *pulumi.Context, args *LookupBillingRoleAssignmentByBillingAccountArgs, opts ...pulumi.InvokeOption) (*LookupBillingRoleAssignmentByBillingAccountResult, error) {
 	var rv LookupBillingRoleAssignmentByBillingAccountResult
 	err := ctx.Invoke("azure-nextgen:billing/v20191001preview:getBillingRoleAssignmentByBillingAccount", args, &rv, opts...)

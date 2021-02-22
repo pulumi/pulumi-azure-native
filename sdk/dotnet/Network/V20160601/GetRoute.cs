@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20160601
 {
     public static class GetRoute
     {
+        /// <summary>
+        /// Route resource
+        /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-nextgen:network/v20160601:getRoute", args ?? new GetRouteArgs(), options.WithVersion());
     }

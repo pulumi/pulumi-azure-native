@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRouteTable'.")]
     public static class GetRouteTable
     {
+        /// <summary>
+        /// Route table resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure-nextgen:network/latest:getRouteTable", args ?? new GetRouteTableArgs(), options.WithVersion());
     }

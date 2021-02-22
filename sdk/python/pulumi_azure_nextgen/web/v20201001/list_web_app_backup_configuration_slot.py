@@ -156,7 +156,8 @@ def list_web_app_backup_configuration_slot(name: Optional[str] = None,
                                            slot: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupConfigurationSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of a backup which will be performed.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

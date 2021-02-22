@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 {
     public static class GetWebAppVnetConnection
     {
+        /// <summary>
+        /// Virtual Network information contract.
+        /// </summary>
         public static Task<GetWebAppVnetConnectionResult> InvokeAsync(GetWebAppVnetConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionResult>("azure-nextgen:web/v20200601:getWebAppVnetConnection", args ?? new GetWebAppVnetConnectionArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
 {
     public static class GetGroup
     {
+        /// <summary>
+        /// A group created in a Migration project.
+        /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-nextgen:migrate/v20180202:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Insights
 {
     public static class GetActionGroup
     {
+        /// <summary>
+        /// An action group resource.
+        /// API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure-nextgen:insights:getActionGroup", args ?? new GetActionGroupArgs(), options.WithVersion());
     }

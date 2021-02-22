@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20201201
 {
     public static class GetVirtualMachineScaleSetVMExtension
     {
+        /// <summary>
+        /// Describes a VMSS VM Extension.
+        /// </summary>
         public static Task<GetVirtualMachineScaleSetVMExtensionResult> InvokeAsync(GetVirtualMachineScaleSetVMExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMExtensionResult>("azure-nextgen:compute/v20201201:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionArgs(), options.WithVersion());
     }

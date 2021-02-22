@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Specifies the properties or parameters for an order collection. Order collection is a grouping of one or more orders.
+ */
 export function getOrderCollectionByName(args: GetOrderCollectionByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderCollectionByNameResult> {
     if (!opts) {
         opts = {}

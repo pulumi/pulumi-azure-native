@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.IoTCentral.V20170701PrivatePreview
 {
     public static class GetApp
     {
+        /// <summary>
+        /// The IoT Central application.
+        /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-nextgen:iotcentral/v20170701privatepreview:getApp", args ?? new GetAppArgs(), options.WithVersion());
     }

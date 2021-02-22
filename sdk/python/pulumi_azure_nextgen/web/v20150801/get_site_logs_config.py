@@ -155,7 +155,8 @@ def get_site_logs_config(name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteLogsConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    Configuration of Azure web site
+
 
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group

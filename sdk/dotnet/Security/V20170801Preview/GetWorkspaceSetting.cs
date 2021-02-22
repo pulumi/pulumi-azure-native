@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
 {
     public static class GetWorkspaceSetting
     {
+        /// <summary>
+        /// Configures where to store the OMS agent data for workspaces under a scope
+        /// </summary>
         public static Task<GetWorkspaceSettingResult> InvokeAsync(GetWorkspaceSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSettingResult>("azure-nextgen:security/v20170801preview:getWorkspaceSetting", args ?? new GetWorkspaceSettingArgs(), options.WithVersion());
     }

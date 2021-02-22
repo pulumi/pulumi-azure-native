@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Values returned by the List operation.
+ */
 export function listJobOutputFiles(args: ListJobOutputFilesArgs, opts?: pulumi.InvokeOptions): Promise<ListJobOutputFilesResult> {
     if (!opts) {
         opts = {}

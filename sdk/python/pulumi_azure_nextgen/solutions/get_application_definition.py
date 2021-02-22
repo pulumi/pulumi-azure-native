@@ -287,7 +287,9 @@ def get_application_definition(application_definition_name: Optional[str] = None
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about managed application definition.
+    API Version: 2019-07-01.
+
 
     :param str application_definition_name: The name of the managed application definition.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

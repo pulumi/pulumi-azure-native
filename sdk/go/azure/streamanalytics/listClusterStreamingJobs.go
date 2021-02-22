@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A list of streaming jobs. Populated by a List operation.
+// API Version: 2020-03-01-preview.
 func ListClusterStreamingJobs(ctx *pulumi.Context, args *ListClusterStreamingJobsArgs, opts ...pulumi.InvokeOption) (*ListClusterStreamingJobsResult, error) {
 	var rv ListClusterStreamingJobsResult
 	err := ctx.Invoke("azure-nextgen:streamanalytics:listClusterStreamingJobs", args, &rv, opts...)

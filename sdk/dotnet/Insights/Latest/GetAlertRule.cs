@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Insights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAlertRule'.")]
     public static class GetAlertRule
     {
+        /// <summary>
+        /// The alert rule resource.
+        /// Latest API Version: 2016-03-01.
+        /// </summary>
         public static Task<GetAlertRuleResult> InvokeAsync(GetAlertRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleResult>("azure-nextgen:insights/latest:getAlertRule", args ?? new GetAlertRuleArgs(), options.WithVersion());
     }

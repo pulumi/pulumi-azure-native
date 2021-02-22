@@ -14,6 +14,8 @@ __all__ = [
     'get_trusted_id_provider',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getTrustedIdProvider'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTrustedIdProviderResult:
     """
@@ -83,12 +85,15 @@ def get_trusted_id_provider(account_name: Optional[str] = None,
                             trusted_id_provider_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrustedIdProviderResult:
     """
-    Use this data source to access information about an existing resource.
+    Data Lake Store trusted identity provider information.
+    Latest API Version: 2016-11-01.
+
 
     :param str account_name: The name of the Data Lake Store account.
     :param str resource_group_name: The name of the Azure resource group.
     :param str trusted_id_provider_name: The name of the trusted identity provider to retrieve.
     """
+    pulumi.log.warn("get_trusted_id_provider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getTrustedIdProvider'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

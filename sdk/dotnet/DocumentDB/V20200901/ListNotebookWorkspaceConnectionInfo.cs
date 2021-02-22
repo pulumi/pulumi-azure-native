@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200901
 {
     public static class ListNotebookWorkspaceConnectionInfo
     {
+        /// <summary>
+        /// The connection info for the given notebook workspace
+        /// </summary>
         public static Task<ListNotebookWorkspaceConnectionInfoResult> InvokeAsync(ListNotebookWorkspaceConnectionInfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNotebookWorkspaceConnectionInfoResult>("azure-nextgen:documentdb/v20200901:listNotebookWorkspaceConnectionInfo", args ?? new ListNotebookWorkspaceConnectionInfoArgs(), options.WithVersion());
     }

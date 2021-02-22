@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Blockchain
 {
     public static class ListLocationConsortiums
     {
+        /// <summary>
+        /// Collection of the consortium payload.
+        /// API Version: 2018-06-01-preview.
+        /// </summary>
         public static Task<ListLocationConsortiumsResult> InvokeAsync(ListLocationConsortiumsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListLocationConsortiumsResult>("azure-nextgen:blockchain:listLocationConsortiums", args ?? new ListLocationConsortiumsArgs(), options.WithVersion());
     }

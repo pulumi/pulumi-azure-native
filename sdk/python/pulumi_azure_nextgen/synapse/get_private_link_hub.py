@@ -119,7 +119,9 @@ def get_private_link_hub(private_link_hub_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkHubResult:
     """
-    Use this data source to access information about an existing resource.
+    A privateLinkHub
+    API Version: 2020-12-01.
+
 
     :param str private_link_hub_name: Name of the privateLinkHub
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

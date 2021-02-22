@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetPublicIPAddress
     {
+        /// <summary>
+        /// Public IP address resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetPublicIPAddressResult> InvokeAsync(GetPublicIPAddressArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPAddressResult>("azure-nextgen:network:getPublicIPAddress", args ?? new GetPublicIPAddressArgs(), options.WithVersion());
     }

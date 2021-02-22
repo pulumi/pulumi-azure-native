@@ -119,7 +119,9 @@ def get_service(resource_group_name: Optional[str] = None,
                 service_topology_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    The resource representation of a service in a service topology.
+    API Version: 2019-11-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the service resource.

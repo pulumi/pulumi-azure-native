@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview
 {
     public static class ListOperationalizationClusterKeys
     {
+        /// <summary>
+        /// Credentials to resources in the cluster.
+        /// </summary>
         public static Task<ListOperationalizationClusterKeysResult> InvokeAsync(ListOperationalizationClusterKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListOperationalizationClusterKeysResult>("azure-nextgen:machinelearningcompute/v20170601preview:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysArgs(), options.WithVersion());
     }

@@ -48,7 +48,8 @@ def get_virtual_network_gateway_bgp_peer_status(peer: Optional[str] = None,
                                                 virtual_network_gateway_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayBgpPeerStatusResult:
     """
-    Use this data source to access information about an existing resource.
+    Response for list BGP peer status API service call.
+
 
     :param str peer: The IP address of the peer to retrieve the status of.
     :param str resource_group_name: The name of the resource group.

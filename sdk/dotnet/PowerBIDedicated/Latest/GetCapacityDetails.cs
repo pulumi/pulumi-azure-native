@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbidedicated:getCapacityDetails'.")]
     public static class GetCapacityDetails
     {
+        /// <summary>
+        /// Represents an instance of a Dedicated Capacity resource.
+        /// Latest API Version: 2017-10-01.
+        /// </summary>
         public static Task<GetCapacityDetailsResult> InvokeAsync(GetCapacityDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityDetailsResult>("azure-nextgen:powerbidedicated/latest:getCapacityDetails", args ?? new GetCapacityDetailsArgs(), options.WithVersion());
     }

@@ -204,7 +204,9 @@ def get_relationship_link(hub_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRelationshipLinkResult:
     """
-    Use this data source to access information about an existing resource.
+    The relationship link resource format.
+    API Version: 2017-04-26.
+
 
     :param str hub_name: The name of the hub.
     :param str relationship_link_name: The name of the relationship link.

@@ -14,6 +14,8 @@ __all__ = [
     'get_network_experiment_profile',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkExperimentProfile'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNetworkExperimentProfileResult:
     """
@@ -130,11 +132,14 @@ def get_network_experiment_profile(profile_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkExperimentProfileResult:
     """
-    Use this data source to access information about an existing resource.
+    Defines an Network Experiment Profile and lists of Experiments
+    Latest API Version: 2019-11-01.
+
 
     :param str profile_name: The Profile identifier associated with the Tenant and Partner
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_network_experiment_profile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkExperimentProfile'.")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name

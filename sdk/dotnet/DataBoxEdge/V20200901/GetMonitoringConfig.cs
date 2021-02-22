@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
 {
     public static class GetMonitoringConfig
     {
+        /// <summary>
+        /// The metric setting details for the role
+        /// </summary>
         public static Task<GetMonitoringConfigResult> InvokeAsync(GetMonitoringConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringConfigResult>("azure-nextgen:databoxedge/v20200901:getMonitoringConfig", args ?? new GetMonitoringConfigArgs(), options.WithVersion());
     }

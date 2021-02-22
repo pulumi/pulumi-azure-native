@@ -15,6 +15,8 @@ __all__ = [
     'get_certificate',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getCertificate'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCertificateResult:
     """
@@ -84,12 +86,15 @@ def get_certificate(certificate_name: Optional[str] = None,
                     service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    Certificate resource payload.
+    Latest API Version: 2020-07-01.
+
 
     :param str certificate_name: The name of the certificate resource.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
+    pulumi.log.warn("get_certificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getCertificate'.")
     __args__ = dict()
     __args__['certificateName'] = certificate_name
     __args__['resourceGroupName'] = resource_group_name

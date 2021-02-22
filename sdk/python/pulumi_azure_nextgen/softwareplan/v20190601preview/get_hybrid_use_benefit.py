@@ -131,7 +131,8 @@ def get_hybrid_use_benefit(plan_id: Optional[str] = None,
                            scope: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridUseBenefitResult:
     """
-    Use this data source to access information about an existing resource.
+    Response on GET of a hybrid use benefit
+
 
     :param str plan_id: This is a unique identifier for a plan. Should be a guid.
     :param str scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now

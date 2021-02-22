@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DomainRegistration.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:listDomainRecommendations'.")]
     public static class ListDomainRecommendations
     {
+        /// <summary>
+        /// Collection of domain name identifiers.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListDomainRecommendationsResult> InvokeAsync(ListDomainRecommendationsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-nextgen:domainregistration/latest:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithVersion());
     }

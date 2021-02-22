@@ -15,6 +15,8 @@ __all__ = [
     'list_web_app_backup_configuration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupConfiguration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWebAppBackupConfigurationResult:
     """
@@ -155,11 +157,14 @@ def list_web_app_backup_configuration(name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of a backup which will be performed.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("list_web_app_backup_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupConfiguration'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

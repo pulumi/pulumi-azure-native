@@ -154,7 +154,9 @@ def get_controller_details(resource_group_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControllerDetailsResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents an instance of a DNC controller.
+    API Version: 2020-08-08-preview.
+
 
     :param str resource_group_name: The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
     :param str resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.

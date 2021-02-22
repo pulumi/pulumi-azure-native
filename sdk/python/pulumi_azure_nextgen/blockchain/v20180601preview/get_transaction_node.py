@@ -156,7 +156,8 @@ def get_transaction_node(blockchain_member_name: Optional[str] = None,
                          transaction_node_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransactionNodeResult:
     """
-    Use this data source to access information about an existing resource.
+    Payload of the transaction node which is the request/response of the resource provider.
+
 
     :param str blockchain_member_name: Blockchain member name.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

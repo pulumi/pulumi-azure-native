@@ -15,6 +15,8 @@ __all__ = [
     'get_private_endpoint',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateEndpoint'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointResult:
     """
@@ -192,12 +194,15 @@ def get_private_endpoint(expand: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    Private endpoint resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str expand: Expands referenced resources.
     :param str private_endpoint_name: The name of the private endpoint.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_private_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateEndpoint'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['privateEndpointName'] = private_endpoint_name

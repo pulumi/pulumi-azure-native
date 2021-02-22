@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Notebooks
 {
     public static class GetNotebookProxy
     {
+        /// <summary>
+        /// A NotebookProxy resource.
+        /// API Version: 2019-10-11-preview.
+        /// </summary>
         public static Task<GetNotebookProxyResult> InvokeAsync(GetNotebookProxyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookProxyResult>("azure-nextgen:notebooks:getNotebookProxy", args ?? new GetNotebookProxyArgs(), options.WithVersion());
     }

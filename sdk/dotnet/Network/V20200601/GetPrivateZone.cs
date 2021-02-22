@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 {
     public static class GetPrivateZone
     {
+        /// <summary>
+        /// Describes a Private DNS zone.
+        /// </summary>
         public static Task<GetPrivateZoneResult> InvokeAsync(GetPrivateZoneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateZoneResult>("azure-nextgen:network/v20200601:getPrivateZone", args ?? new GetPrivateZoneArgs(), options.WithVersion());
     }

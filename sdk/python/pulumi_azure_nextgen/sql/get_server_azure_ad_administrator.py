@@ -119,7 +119,9 @@ def get_server_azure_ad_administrator(administrator_name: Optional[str] = None,
                                       server_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerAzureADAdministratorResult:
     """
-    Use this data source to access information about an existing resource.
+    An server Active Directory Administrator.
+    API Version: 2014-04-01.
+
 
     :param str administrator_name: Name of the server administrator resource.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

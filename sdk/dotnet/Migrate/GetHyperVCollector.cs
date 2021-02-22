@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Migrate
 {
     public static class GetHyperVCollector
     {
+        /// <summary>
+        /// 
+        /// API Version: 2019-10-01.
+        /// </summary>
         public static Task<GetHyperVCollectorResult> InvokeAsync(GetHyperVCollectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVCollectorResult>("azure-nextgen:migrate:getHyperVCollector", args ?? new GetHyperVCollectorArgs(), options.WithVersion());
     }

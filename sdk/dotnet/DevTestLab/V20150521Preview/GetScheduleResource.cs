@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 {
     public static class GetScheduleResource
     {
+        /// <summary>
+        /// A schedule.
+        /// </summary>
         public static Task<GetScheduleResourceResult> InvokeAsync(GetScheduleResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResourceResult>("azure-nextgen:devtestlab/v20150521preview:getScheduleResource", args ?? new GetScheduleResourceArgs(), options.WithVersion());
     }

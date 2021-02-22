@@ -108,7 +108,9 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsumerGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Single item in List or Get Consumer group operation
+    API Version: 2017-04-01.
+
 
     :param str consumer_group_name: The consumer group name
     :param str event_hub_name: The Event Hub name

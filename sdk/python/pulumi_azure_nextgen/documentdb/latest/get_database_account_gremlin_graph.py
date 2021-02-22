@@ -15,6 +15,8 @@ __all__ = [
     'get_database_account_gremlin_graph',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountGremlinGraph'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDatabaseAccountGremlinGraphResult:
     """
@@ -193,13 +195,16 @@ def get_database_account_gremlin_graph(account_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseAccountGremlinGraphResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB Gremlin graph.
+    Latest API Version: 2016-03-31.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str database_name: Cosmos DB database name.
     :param str graph_name: Cosmos DB graph name.
     :param str resource_group_name: Name of an Azure resource group.
     """
+    pulumi.log.warn("get_database_account_gremlin_graph is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountGremlinGraph'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['databaseName'] = database_name

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A host name binding object
 func LookupSiteHostNameBinding(ctx *pulumi.Context, args *LookupSiteHostNameBindingArgs, opts ...pulumi.InvokeOption) (*LookupSiteHostNameBindingResult, error) {
 	var rv LookupSiteHostNameBindingResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteHostNameBinding", args, &rv, opts...)

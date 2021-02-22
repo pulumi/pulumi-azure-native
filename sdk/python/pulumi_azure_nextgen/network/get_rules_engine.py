@@ -96,7 +96,9 @@ def get_rules_engine(front_door_name: Optional[str] = None,
                      rules_engine_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRulesEngineResult:
     """
-    Use this data source to access information about an existing resource.
+    A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+    API Version: 2020-05-01.
+
 
     :param str front_door_name: Name of the Front Door which is globally unique.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.

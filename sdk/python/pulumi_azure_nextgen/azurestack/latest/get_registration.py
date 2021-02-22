@@ -14,6 +14,8 @@ __all__ = [
     'get_registration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRegistrationResult:
     """
@@ -142,11 +144,14 @@ def get_registration(registration_name: Optional[str] = None,
                      resource_group: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationResult:
     """
-    Use this data source to access information about an existing resource.
+    Registration information.
+    Latest API Version: 2017-06-01.
+
 
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
+    pulumi.log.warn("get_registration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistration'.")
     __args__ = dict()
     __args__['registrationName'] = registration_name
     __args__['resourceGroup'] = resource_group

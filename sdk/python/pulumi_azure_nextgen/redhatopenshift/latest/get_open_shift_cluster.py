@@ -15,6 +15,8 @@ __all__ = [
     'get_open_shift_cluster',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:redhatopenshift:getOpenShiftCluster'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetOpenShiftClusterResult:
     """
@@ -203,11 +205,14 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenShiftClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+    Latest API Version: 2020-04-30.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the OpenShift cluster resource.
     """
+    pulumi.log.warn("get_open_shift_cluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:redhatopenshift:getOpenShiftCluster'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

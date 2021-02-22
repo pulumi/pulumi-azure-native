@@ -15,6 +15,8 @@ __all__ = [
     'get_zone',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getZone'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetZoneResult:
     """
@@ -191,11 +193,14 @@ def get_zone(resource_group_name: Optional[str] = None,
              zone_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetZoneResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a DNS zone.
+    Latest API Version: 2018-05-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
+    pulumi.log.warn("get_zone is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getZone'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['zoneName'] = zone_name

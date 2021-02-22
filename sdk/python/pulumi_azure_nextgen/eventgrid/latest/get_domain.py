@@ -15,6 +15,8 @@ __all__ = [
     'get_domain',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getDomain'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDomainResult:
     """
@@ -192,11 +194,14 @@ def get_domain(domain_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
-    Use this data source to access information about an existing resource.
+    EventGrid Domain.
+    Latest API Version: 2020-06-01.
+
 
     :param str domain_name: Name of the domain.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("get_domain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getDomain'.")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['resourceGroupName'] = resource_group_name

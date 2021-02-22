@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetInboundNatRule
     {
+        /// <summary>
+        /// Inbound NAT rule of the load balancer.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetInboundNatRuleResult> InvokeAsync(GetInboundNatRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInboundNatRuleResult>("azure-nextgen:network:getInboundNatRule", args ?? new GetInboundNatRuleArgs(), options.WithVersion());
     }

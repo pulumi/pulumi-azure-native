@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20170601
 {
     public static class GetExpressRouteCircuitAuthorization
     {
+        /// <summary>
+        /// Authorization in an ExpressRouteCircuit resource.
+        /// </summary>
         public static Task<GetExpressRouteCircuitAuthorizationResult> InvokeAsync(GetExpressRouteCircuitAuthorizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitAuthorizationResult>("azure-nextgen:network/v20170601:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationArgs(), options.WithVersion());
     }

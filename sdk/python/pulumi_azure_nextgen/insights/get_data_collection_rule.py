@@ -168,7 +168,9 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCollectionRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of ARM tracked top level resource.
+    API Version: 2019-11-01-preview.
+
 
     :param str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

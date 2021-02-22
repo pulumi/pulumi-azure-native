@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20190201
 {
     public static class GetSecurityRule
     {
+        /// <summary>
+        /// Network security rule.
+        /// </summary>
         public static Task<GetSecurityRuleResult> InvokeAsync(GetSecurityRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-nextgen:network/v20190201:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithVersion());
     }

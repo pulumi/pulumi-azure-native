@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.NetApp.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getBackup'.")]
     public static class GetBackup
     {
+        /// <summary>
+        /// Backup of a Volume
+        /// Latest API Version: 2020-11-01.
+        /// </summary>
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-nextgen:netapp/latest:getBackup", args ?? new GetBackupArgs(), options.WithVersion());
     }

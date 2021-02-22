@@ -14,6 +14,8 @@ __all__ = [
     'get_credential',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getCredential'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCredentialResult:
     """
@@ -119,12 +121,15 @@ def get_credential(automation_account_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCredentialResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the credential.
+    Latest API Version: 2019-06-01.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str credential_name: The name of credential.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("get_credential is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getCredential'.")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['credentialName'] = credential_name

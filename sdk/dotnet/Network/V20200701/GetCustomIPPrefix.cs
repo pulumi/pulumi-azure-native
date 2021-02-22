@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 {
     public static class GetCustomIPPrefix
     {
+        /// <summary>
+        /// Custom IP prefix resource.
+        /// </summary>
         public static Task<GetCustomIPPrefixResult> InvokeAsync(GetCustomIPPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomIPPrefixResult>("azure-nextgen:network/v20200701:getCustomIPPrefix", args ?? new GetCustomIPPrefixArgs(), options.WithVersion());
     }

@@ -58,7 +58,8 @@ def list_remote_rendering_account_keys(account_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemoteRenderingAccountKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Developer Keys of account
+
 
     :param str account_name: Name of an Mixed Reality Account.
     :param str resource_group_name: Name of an Azure resource group.

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Addons.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:addons:getSupportPlanType'.")]
     public static class GetSupportPlanType
     {
+        /// <summary>
+        /// The status of the Canonical support plan.
+        /// Latest API Version: 2018-03-01.
+        /// </summary>
         public static Task<GetSupportPlanTypeResult> InvokeAsync(GetSupportPlanTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSupportPlanTypeResult>("azure-nextgen:addons/latest:getSupportPlanType", args ?? new GetSupportPlanTypeArgs(), options.WithVersion());
     }

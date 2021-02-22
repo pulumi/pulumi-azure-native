@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
 {
     public static class GetSolution
     {
+        /// <summary>
+        /// Solution REST Resource.
+        /// </summary>
         public static Task<GetSolutionResult> InvokeAsync(GetSolutionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-nextgen:migrate/v20180901preview:getSolution", args ?? new GetSolutionArgs(), options.WithVersion());
     }

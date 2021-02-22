@@ -15,6 +15,8 @@ __all__ = [
     'get_default_rollout',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getDefaultRollout'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDefaultRolloutResult:
     """
@@ -98,11 +100,14 @@ def get_default_rollout(provider_namespace: Optional[str] = None,
                         rollout_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultRolloutResult:
     """
-    Use this data source to access information about an existing resource.
+    Default rollout definition.
+    Latest API Version: 2020-11-20.
+
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str rollout_name: The rollout name.
     """
+    pulumi.log.warn("get_default_rollout is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getDefaultRollout'.")
     __args__ = dict()
     __args__['providerNamespace'] = provider_namespace
     __args__['rolloutName'] = rollout_name

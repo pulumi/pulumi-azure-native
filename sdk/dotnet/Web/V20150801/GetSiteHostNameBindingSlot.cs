@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSiteHostNameBindingSlot
     {
+        /// <summary>
+        /// A host name binding object
+        /// </summary>
         public static Task<GetSiteHostNameBindingSlotResult> InvokeAsync(GetSiteHostNameBindingSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteHostNameBindingSlotResult>("azure-nextgen:web/v20150801:getSiteHostNameBindingSlot", args ?? new GetSiteHostNameBindingSlotArgs(), options.WithVersion());
     }

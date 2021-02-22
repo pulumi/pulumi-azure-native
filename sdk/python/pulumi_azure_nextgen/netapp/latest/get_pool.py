@@ -14,6 +14,8 @@ __all__ = [
     'get_pool',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getPool'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPoolResult:
     """
@@ -179,12 +181,15 @@ def get_pool(account_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    Capacity pool resource
+    Latest API Version: 2020-11-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str pool_name: The name of the capacity pool
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getPool'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name

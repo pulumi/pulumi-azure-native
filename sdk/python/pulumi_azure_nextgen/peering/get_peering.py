@@ -167,7 +167,9 @@ def get_peering(peering_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringResult:
     """
-    Use this data source to access information about an existing resource.
+    Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+    API Version: 2020-10-01.
+
 
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.

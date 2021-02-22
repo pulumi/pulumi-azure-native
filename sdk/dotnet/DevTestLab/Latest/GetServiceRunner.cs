@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getServiceRunner'.")]
     public static class GetServiceRunner
     {
+        /// <summary>
+        /// A container for a managed identity to execute DevTest lab services.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetServiceRunnerResult> InvokeAsync(GetServiceRunnerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceRunnerResult>("azure-nextgen:devtestlab/latest:getServiceRunner", args ?? new GetServiceRunnerArgs(), options.WithVersion());
     }

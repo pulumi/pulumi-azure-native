@@ -97,7 +97,9 @@ def get_file(file_name: Optional[str] = None,
              service_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileResult:
     """
-    Use this data source to access information about an existing resource.
+    A file resource
+    API Version: 2018-07-15-preview.
+
 
     :param str file_name: Name of the File
     :param str group_name: Name of the resource group

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
 {
     public static class GetExperiment
     {
+        /// <summary>
+        /// Experiment information.
+        /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-nextgen:batchai/v20180501:getExperiment", args ?? new GetExperimentArgs(), options.WithVersion());
     }

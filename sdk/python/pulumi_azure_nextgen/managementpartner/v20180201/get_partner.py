@@ -165,7 +165,8 @@ class AwaitableGetPartnerResult(GetPartnerResult):
 def get_partner(partner_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerResult:
     """
-    Use this data source to access information about an existing resource.
+    this is the management partner operations response
+
 
     :param str partner_id: Id of the Partner
     """

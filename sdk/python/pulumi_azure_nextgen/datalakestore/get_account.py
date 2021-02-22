@@ -323,7 +323,9 @@ def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    Data Lake Store account information.
+    API Version: 2016-11-01.
+
 
     :param str account_name: The name of the Data Lake Store account.
     :param str resource_group_name: The name of the Azure resource group.

@@ -14,6 +14,8 @@ __all__ = [
     'get_wcf_relay_authorization_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getWCFRelayAuthorizationRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWCFRelayAuthorizationRuleResult:
     """
@@ -84,13 +86,16 @@ def get_wcf_relay_authorization_rule(authorization_rule_name: Optional[str] = No
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWCFRelayAuthorizationRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of a namespace authorization rule.
+    Latest API Version: 2017-04-01.
+
 
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name
     :param str relay_name: The relay name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_wcf_relay_authorization_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getWCFRelayAuthorizationRule'.")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name

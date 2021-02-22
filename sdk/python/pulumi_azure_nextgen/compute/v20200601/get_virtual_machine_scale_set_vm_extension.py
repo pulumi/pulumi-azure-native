@@ -182,7 +182,8 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[str] = None,
                                                vm_scale_set_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMExtensionResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a VMSS VM Extension.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str instance_id: The instance ID of the virtual machine.

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Diagnostic details.
+// API Version: 2019-12-01.
 func LookupDiagnostic(ctx *pulumi.Context, args *LookupDiagnosticArgs, opts ...pulumi.InvokeOption) (*LookupDiagnosticResult, error) {
 	var rv LookupDiagnosticResult
 	err := ctx.Invoke("azure-nextgen:apimanagement:getDiagnostic", args, &rv, opts...)

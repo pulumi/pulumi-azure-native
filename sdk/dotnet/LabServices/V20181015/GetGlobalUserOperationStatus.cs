@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 {
     public static class GetGlobalUserOperationStatus
     {
+        /// <summary>
+        /// Status Details of the long running operation for an environment
+        /// </summary>
         public static Task<GetGlobalUserOperationStatusResult> InvokeAsync(GetGlobalUserOperationStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationStatusResult>("azure-nextgen:labservices/v20181015:getGlobalUserOperationStatus", args ?? new GetGlobalUserOperationStatusArgs(), options.WithVersion());
     }

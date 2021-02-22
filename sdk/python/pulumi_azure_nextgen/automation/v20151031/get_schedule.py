@@ -240,7 +240,8 @@ def get_schedule(automation_account_name: Optional[str] = None,
                  schedule_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the schedule.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.

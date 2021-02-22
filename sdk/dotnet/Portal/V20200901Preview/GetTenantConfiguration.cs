@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
 {
     public static class GetTenantConfiguration
     {
+        /// <summary>
+        /// Tenant configuration.
+        /// </summary>
         public static Task<GetTenantConfigurationResult> InvokeAsync(GetTenantConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTenantConfigurationResult>("azure-nextgen:portal/v20200901preview:getTenantConfiguration", args ?? new GetTenantConfigurationArgs(), options.WithVersion());
     }

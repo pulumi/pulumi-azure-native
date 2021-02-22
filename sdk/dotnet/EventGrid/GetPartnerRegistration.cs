@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EventGrid
 {
     public static class GetPartnerRegistration
     {
+        /// <summary>
+        /// Information about a partner registration.
+        /// API Version: 2020-04-01-preview.
+        /// </summary>
         public static Task<GetPartnerRegistrationResult> InvokeAsync(GetPartnerRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerRegistrationResult>("azure-nextgen:eventgrid:getPartnerRegistration", args ?? new GetPartnerRegistrationArgs(), options.WithVersion());
     }

@@ -14,6 +14,8 @@ __all__ = [
     'list_tenant_access_secrets',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listTenantAccessSecrets'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListTenantAccessSecretsResult:
     """
@@ -83,12 +85,15 @@ def list_tenant_access_secrets(access_name: Optional[str] = None,
                                service_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTenantAccessSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    Tenant access information contract of the API Management service.
+    Latest API Version: 2019-12-01.
+
 
     :param str access_name: The identifier of the Access configuration.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("list_tenant_access_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listTenantAccessSecrets'.")
     __args__ = dict()
     __args__['accessName'] = access_name
     __args__['resourceGroupName'] = resource_group_name

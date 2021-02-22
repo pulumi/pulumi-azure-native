@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Product information.
+// API Version: 2017-06-01.
 func GetProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.InvokeOption) (*GetProductResult, error) {
 	var rv GetProductResult
 	err := ctx.Invoke("azure-nextgen:azurestack:getProduct", args, &rv, opts...)

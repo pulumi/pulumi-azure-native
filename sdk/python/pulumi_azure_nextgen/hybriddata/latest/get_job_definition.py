@@ -15,6 +15,8 @@ __all__ = [
     'get_job_definition',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getJobDefinition'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetJobDefinitionResult:
     """
@@ -181,13 +183,16 @@ def get_job_definition(data_manager_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    Job Definition.
+    Latest API Version: 2019-06-01.
+
 
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str data_service_name: The data service name of the job definition
     :param str job_definition_name: The job definition name that is being queried.
     :param str resource_group_name: The Resource Group Name
     """
+    pulumi.log.warn("get_job_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getJobDefinition'.")
     __args__ = dict()
     __args__['dataManagerName'] = data_manager_name
     __args__['dataServiceName'] = data_service_name

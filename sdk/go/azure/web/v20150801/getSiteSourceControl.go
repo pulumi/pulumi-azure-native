@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Describes the source control configuration for web app
 func LookupSiteSourceControl(ctx *pulumi.Context, args *LookupSiteSourceControlArgs, opts ...pulumi.InvokeOption) (*LookupSiteSourceControlResult, error) {
 	var rv LookupSiteSourceControlResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteSourceControl", args, &rv, opts...)

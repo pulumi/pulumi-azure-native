@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Migrate
 {
     public static class GetMigrateProject
     {
+        /// <summary>
+        /// Migrate Project REST Resource.
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
         public static Task<GetMigrateProjectResult> InvokeAsync(GetMigrateProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMigrateProjectResult>("azure-nextgen:migrate:getMigrateProject", args ?? new GetMigrateProjectArgs(), options.WithVersion());
     }

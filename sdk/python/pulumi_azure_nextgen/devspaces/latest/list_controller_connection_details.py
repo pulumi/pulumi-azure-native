@@ -15,6 +15,8 @@ __all__ = [
     'list_controller_connection_details',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devspaces:listControllerConnectionDetails'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListControllerConnectionDetailsResult:
     def __init__(__self__, connection_details_list=None):
@@ -45,12 +47,14 @@ def list_controller_connection_details(name: Optional[str] = None,
                                        target_container_host_resource_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListControllerConnectionDetailsResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2019-04-01.
+
 
     :param str name: Name of the resource.
     :param str resource_group_name: Resource group to which the resource belongs.
     :param str target_container_host_resource_id: Resource ID of the target container host mapped to the Azure Dev Spaces Controller.
     """
+    pulumi.log.warn("list_controller_connection_details is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devspaces:listControllerConnectionDetails'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

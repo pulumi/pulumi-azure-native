@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview
 {
     public static class ListIotHubResourceKeysForKeyName
     {
+        /// <summary>
+        /// The properties of an IoT hub shared access policy.
+        /// </summary>
         public static Task<ListIotHubResourceKeysForKeyNameResult> InvokeAsync(ListIotHubResourceKeysForKeyNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysForKeyNameResult>("azure-nextgen:devices/v20200710preview:listIotHubResourceKeysForKeyName", args ?? new ListIotHubResourceKeysForKeyNameArgs(), options.WithVersion());
     }

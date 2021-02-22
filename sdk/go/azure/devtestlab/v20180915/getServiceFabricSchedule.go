@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A schedule.
 func LookupServiceFabricSchedule(ctx *pulumi.Context, args *LookupServiceFabricScheduleArgs, opts ...pulumi.InvokeOption) (*LookupServiceFabricScheduleResult, error) {
 	var rv LookupServiceFabricScheduleResult
 	err := ctx.Invoke("azure-nextgen:devtestlab/v20180915:getServiceFabricSchedule", args, &rv, opts...)

@@ -47,7 +47,9 @@ def get_console_with_location(console_name: Optional[str] = None,
                               location: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsoleWithLocationResult:
     """
-    Use this data source to access information about an existing resource.
+    Cloud shell console
+    API Version: 2018-10-01.
+
 
     :param str console_name: The name of the console
     :param str location: The provider location

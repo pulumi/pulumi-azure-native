@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Response to get user settings
 func LookupUserSettings(ctx *pulumi.Context, args *LookupUserSettingsArgs, opts ...pulumi.InvokeOption) (*LookupUserSettingsResult, error) {
 	var rv LookupUserSettingsResult
 	err := ctx.Invoke("azure-nextgen:portal/v20181001:getUserSettings", args, &rv, opts...)

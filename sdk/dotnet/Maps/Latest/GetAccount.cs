@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Maps.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:maps:getAccount'.")]
     public static class GetAccount
     {
+        /// <summary>
+        /// An Azure resource which represents access to a suite of Maps REST APIs.
+        /// Latest API Version: 2018-05-01.
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:maps/latest:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

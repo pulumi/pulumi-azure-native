@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:getFirewallRule'.")]
     public static class GetFirewallRule
     {
+        /// <summary>
+        /// Data Lake Analytics firewall rule information.
+        /// Latest API Version: 2016-11-01.
+        /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:datalakeanalytics/latest:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }

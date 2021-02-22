@@ -15,6 +15,8 @@ __all__ = [
     'get_private_link_service',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateLinkService'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateLinkServiceResult:
     """
@@ -240,12 +242,15 @@ def get_private_link_service(expand: Optional[str] = None,
                              service_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Private link service resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str expand: Expands referenced resources.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the private link service.
     """
+    pulumi.log.warn("get_private_link_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateLinkService'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

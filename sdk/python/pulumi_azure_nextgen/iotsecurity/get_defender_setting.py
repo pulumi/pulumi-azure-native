@@ -92,7 +92,8 @@ class AwaitableGetDefenderSettingResult(GetDefenderSettingResult):
 
 def get_defender_setting(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefenderSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    IoT Defender settings
+    API Version: 2021-02-01-preview.
     """
     __args__ = dict()
     if opts is None:

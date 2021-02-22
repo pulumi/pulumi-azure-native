@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Authorization
 {
     public static class GetDenyAssignment
     {
+        /// <summary>
+        /// Deny Assignment
+        /// API Version: 2020-03-01-preview.
+        /// </summary>
         public static Task<GetDenyAssignmentResult> InvokeAsync(GetDenyAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDenyAssignmentResult>("azure-nextgen:authorization:getDenyAssignment", args ?? new GetDenyAssignmentArgs(), options.WithVersion());
     }

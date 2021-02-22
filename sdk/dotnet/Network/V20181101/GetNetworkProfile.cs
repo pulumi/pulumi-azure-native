@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20181101
 {
     public static class GetNetworkProfile
     {
+        /// <summary>
+        /// Network profile resource.
+        /// </summary>
         public static Task<GetNetworkProfileResult> InvokeAsync(GetNetworkProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkProfileResult>("azure-nextgen:network/v20181101:getNetworkProfile", args ?? new GetNetworkProfileArgs(), options.WithVersion());
     }

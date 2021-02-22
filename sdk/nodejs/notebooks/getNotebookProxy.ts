@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * A NotebookProxy resource.
+ * API Version: 2019-10-11-preview.
+ */
 export function getNotebookProxy(args: GetNotebookProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookProxyResult> {
     if (!opts) {
         opts = {}

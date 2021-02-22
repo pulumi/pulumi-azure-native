@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Media
 {
     public static class ListMediaServiceEdgePolicies
     {
+        /// <summary>
+        /// 
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<ListMediaServiceEdgePoliciesResult> InvokeAsync(ListMediaServiceEdgePoliciesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-nextgen:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithVersion());
     }

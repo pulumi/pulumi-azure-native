@@ -70,7 +70,8 @@ def get_application_gateway_backend_health_on_demand(application_gateway_name: O
                                                      timeout: Optional[int] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayBackendHealthOnDemandResult:
     """
-    Use this data source to access information about an existing resource.
+    Result of on demand test probe.
+
 
     :param str application_gateway_name: The name of the application gateway.
     :param pulumi.InputType['SubResourceArgs'] backend_address_pool: Reference to backend pool of application gateway to which probe request will be sent.

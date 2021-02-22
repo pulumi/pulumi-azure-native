@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A hostname binding object.
 func LookupWebAppHostNameBindingSlot(ctx *pulumi.Context, args *LookupWebAppHostNameBindingSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppHostNameBindingSlotResult, error) {
 	var rv LookupWebAppHostNameBindingSlotResult
 	err := ctx.Invoke("azure-nextgen:web/v20190801:getWebAppHostNameBindingSlot", args, &rv, opts...)

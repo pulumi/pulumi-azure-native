@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Storage.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getStorageAccount'.")]
     public static class GetStorageAccount
     {
+        /// <summary>
+        /// The storage account.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-nextgen:storage/latest:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
     }

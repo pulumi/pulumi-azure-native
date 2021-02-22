@@ -155,7 +155,9 @@ def get_device(device_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
-    Use this data source to access information about an existing resource.
+    Device resource.
+    API Version: 2020-01-01-preview.
+
 
     :param str device_name: The name of the device resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

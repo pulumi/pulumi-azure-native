@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Insights
 {
     public static class GetDataCollectionRule
     {
+        /// <summary>
+        /// Definition of ARM tracked top level resource.
+        /// API Version: 2019-11-01-preview.
+        /// </summary>
         public static Task<GetDataCollectionRuleResult> InvokeAsync(GetDataCollectionRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure-nextgen:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithVersion());
     }

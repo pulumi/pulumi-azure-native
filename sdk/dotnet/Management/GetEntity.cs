@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Management
 {
     public static class GetEntity
     {
+        /// <summary>
+        /// Describes the result of the request to view entities.
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-nextgen:management:getEntity", args ?? new GetEntityArgs(), options.WithVersion());
     }

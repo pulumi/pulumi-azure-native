@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A virtual network.
 func LookupVirtualNetworkResource(ctx *pulumi.Context, args *LookupVirtualNetworkResourceArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResourceResult, error) {
 	var rv LookupVirtualNetworkResourceResult
 	err := ctx.Invoke("azure-nextgen:devtestlab/v20150521preview:getVirtualNetworkResource", args, &rv, opts...)

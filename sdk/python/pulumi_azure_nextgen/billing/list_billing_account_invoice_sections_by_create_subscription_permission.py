@@ -58,7 +58,9 @@ class AwaitableListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionRe
 def list_billing_account_invoice_sections_by_create_subscription_permission(billing_account_name: Optional[str] = None,
                                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of invoice section properties with create subscription permission.
+    API Version: 2020-05-01.
+
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
     """

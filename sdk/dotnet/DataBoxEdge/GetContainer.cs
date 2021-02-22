@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
 {
     public static class GetContainer
     {
+        /// <summary>
+        /// Represents a container on the  Data Box Edge/Gateway device.
+        /// API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azure-nextgen:databoxedge:getContainer", args ?? new GetContainerArgs(), options.WithVersion());
     }

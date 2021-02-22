@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A sensitivity label.
+// API Version: 2020-08-01-preview.
 func LookupSensitivityLabel(ctx *pulumi.Context, args *LookupSensitivityLabelArgs, opts ...pulumi.InvokeOption) (*LookupSensitivityLabelResult, error) {
 	var rv LookupSensitivityLabelResult
 	err := ctx.Invoke("azure-nextgen:sql:getSensitivityLabel", args, &rv, opts...)

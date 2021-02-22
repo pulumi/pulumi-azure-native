@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.HybridData
 {
     public static class GetDataStore
     {
+        /// <summary>
+        /// Data store.
+        /// API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetDataStoreResult> InvokeAsync(GetDataStoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataStoreResult>("azure-nextgen:hybriddata:getDataStore", args ?? new GetDataStoreArgs(), options.WithVersion());
     }

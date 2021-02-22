@@ -192,7 +192,8 @@ def get_sensitivity_label(column_name: Optional[str] = None,
                           table_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSensitivityLabelResult:
     """
-    Use this data source to access information about an existing resource.
+    A sensitivity label.
+
 
     :param str column_name: The name of the column.
     :param str database_name: The name of the database.

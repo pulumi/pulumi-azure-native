@@ -107,7 +107,8 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
                                  scope: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockByScopeResult:
     """
-    Use this data source to access information about an existing resource.
+    The lock information.
+
 
     :param str lock_name: The name of lock.
     :param str scope: The scope for the lock. 

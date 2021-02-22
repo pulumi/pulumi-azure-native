@@ -203,7 +203,8 @@ def get_iot_security_solution(resource_group_name: Optional[str] = None,
                               solution_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotSecuritySolutionResult:
     """
-    Use this data source to access information about an existing resource.
+    Security Solution
+
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str solution_name: The solution manager name

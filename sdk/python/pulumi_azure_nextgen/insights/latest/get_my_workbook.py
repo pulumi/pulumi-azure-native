@@ -15,6 +15,8 @@ __all__ = [
     'get_my_workbook',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getMyWorkbook'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMyWorkbookResult:
     """
@@ -227,11 +229,14 @@ def get_my_workbook(resource_group_name: Optional[str] = None,
                     resource_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMyWorkbookResult:
     """
-    Use this data source to access information about an existing resource.
+    An Application Insights private workbook definition.
+    Latest API Version: 2020-10-20.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
+    pulumi.log.warn("get_my_workbook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getMyWorkbook'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

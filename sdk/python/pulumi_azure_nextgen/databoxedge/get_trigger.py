@@ -96,7 +96,9 @@ def get_trigger(device_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTriggerResult:
     """
-    Use this data source to access information about an existing resource.
+    Trigger details.
+    API Version: 2020-09-01.
+
 
     :param str device_name: The device name.
     :param str name: The trigger name.

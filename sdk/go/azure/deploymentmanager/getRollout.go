@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Defines the PUT rollout request body.
+// API Version: 2019-11-01-preview.
 func LookupRollout(ctx *pulumi.Context, args *LookupRolloutArgs, opts ...pulumi.InvokeOption) (*LookupRolloutResult, error) {
 	var rv LookupRolloutResult
 	err := ctx.Invoke("azure-nextgen:deploymentmanager:getRollout", args, &rv, opts...)

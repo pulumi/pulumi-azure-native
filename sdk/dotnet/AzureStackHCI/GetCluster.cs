@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AzureStackHCI
 {
     public static class GetCluster
     {
+        /// <summary>
+        /// Cluster details.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:azurestackhci:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

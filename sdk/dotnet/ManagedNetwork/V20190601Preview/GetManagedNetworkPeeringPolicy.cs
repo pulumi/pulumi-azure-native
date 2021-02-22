@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
 {
     public static class GetManagedNetworkPeeringPolicy
     {
+        /// <summary>
+        /// The Managed Network Peering Policy resource
+        /// </summary>
         public static Task<GetManagedNetworkPeeringPolicyResult> InvokeAsync(GetManagedNetworkPeeringPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkPeeringPolicyResult>("azure-nextgen:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyArgs(), options.WithVersion());
     }

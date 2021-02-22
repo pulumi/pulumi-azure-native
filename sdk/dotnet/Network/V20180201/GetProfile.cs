@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20180201
 {
     public static class GetProfile
     {
+        /// <summary>
+        /// Class representing a Traffic Manager profile.
+        /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-nextgen:network/v20180201:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
     }

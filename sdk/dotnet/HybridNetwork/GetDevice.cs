@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.HybridNetwork
 {
     public static class GetDevice
     {
+        /// <summary>
+        /// Device resource.
+        /// API Version: 2020-01-01-preview.
+        /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-nextgen:hybridnetwork:getDevice", args ?? new GetDeviceArgs(), options.WithVersion());
     }

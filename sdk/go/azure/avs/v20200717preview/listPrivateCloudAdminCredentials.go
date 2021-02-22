@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Administrative credentials for accessing vCenter and NSX-T
 func ListPrivateCloudAdminCredentials(ctx *pulumi.Context, args *ListPrivateCloudAdminCredentialsArgs, opts ...pulumi.InvokeOption) (*ListPrivateCloudAdminCredentialsResult, error) {
 	var rv ListPrivateCloudAdminCredentialsResult
 	err := ctx.Invoke("azure-nextgen:avs/v20200717preview:listPrivateCloudAdminCredentials", args, &rv, opts...)

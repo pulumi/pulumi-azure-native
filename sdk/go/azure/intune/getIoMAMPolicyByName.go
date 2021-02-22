@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// iOS Policy entity for Intune MAM.
+// API Version: 2015-01-14-preview.
 func LookupIoMAMPolicyByName(ctx *pulumi.Context, args *LookupIoMAMPolicyByNameArgs, opts ...pulumi.InvokeOption) (*LookupIoMAMPolicyByNameResult, error) {
 	var rv LookupIoMAMPolicyByNameResult
 	err := ctx.Invoke("azure-nextgen:intune:getIoMAMPolicyByName", args, &rv, opts...)

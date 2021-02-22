@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Build step resource properties
 func LookupBuildStep(ctx *pulumi.Context, args *LookupBuildStepArgs, opts ...pulumi.InvokeOption) (*LookupBuildStepResult, error) {
 	var rv LookupBuildStepResult
 	err := ctx.Invoke("azure-nextgen:containerregistry/v20180201preview:getBuildStep", args, &rv, opts...)

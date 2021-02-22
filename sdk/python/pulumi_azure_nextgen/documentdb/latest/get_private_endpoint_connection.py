@@ -15,6 +15,8 @@ __all__ = [
     'get_private_endpoint_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getPrivateEndpointConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
@@ -120,12 +122,15 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    A private endpoint connection
+    Latest API Version: 2021-01-15.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getPrivateEndpointConnection'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name

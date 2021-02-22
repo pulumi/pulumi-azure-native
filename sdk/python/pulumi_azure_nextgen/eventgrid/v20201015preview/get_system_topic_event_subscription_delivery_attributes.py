@@ -48,7 +48,8 @@ def get_system_topic_event_subscription_delivery_attributes(event_subscription_n
                                                             system_topic_name: Optional[str] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicEventSubscriptionDeliveryAttributesResult:
     """
-    Use this data source to access information about an existing resource.
+    Result of the Get delivery attributes operation.
+
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
     :param str resource_group_name: The name of the resource group within the user's subscription.

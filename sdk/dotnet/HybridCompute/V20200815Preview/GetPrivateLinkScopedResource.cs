@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200815Preview
 {
     public static class GetPrivateLinkScopedResource
     {
+        /// <summary>
+        /// A private link scoped resource
+        /// </summary>
         public static Task<GetPrivateLinkScopedResourceResult> InvokeAsync(GetPrivateLinkScopedResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopedResourceResult>("azure-nextgen:hybridcompute/v20200815preview:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceArgs(), options.WithVersion());
     }

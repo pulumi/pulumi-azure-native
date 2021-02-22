@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.BotService.V20180712
 {
     public static class ListChannelWithKeys
     {
+        /// <summary>
+        /// Bot channel resource definition
+        /// </summary>
         public static Task<ListChannelWithKeysResult> InvokeAsync(ListChannelWithKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListChannelWithKeysResult>("azure-nextgen:botservice/v20180712:listChannelWithKeys", args ?? new ListChannelWithKeysArgs(), options.WithVersion());
     }

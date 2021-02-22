@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Storage.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:listStorageAccountSAS'.")]
     public static class ListStorageAccountSAS
     {
+        /// <summary>
+        /// The List SAS credentials operation response.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<ListStorageAccountSASResult> InvokeAsync(ListStorageAccountSASArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSASResult>("azure-nextgen:storage/latest:listStorageAccountSAS", args ?? new ListStorageAccountSASArgs(), options.WithVersion());
     }

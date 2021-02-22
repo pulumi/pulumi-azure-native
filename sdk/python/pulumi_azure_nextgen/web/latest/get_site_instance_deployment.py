@@ -14,6 +14,8 @@ __all__ = [
     'get_site_instance_deployment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getSiteInstanceDeployment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSiteInstanceDeploymentResult:
     """
@@ -216,13 +218,16 @@ def get_site_instance_deployment(id: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteInstanceDeploymentResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents user credentials used for publishing activity
+    Latest API Version: 2015-08-01.
+
 
     :param str id: Id of the deployment
     :param str instance_id: Id of web app instance
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group
     """
+    pulumi.log.warn("get_site_instance_deployment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getSiteInstanceDeployment'.")
     __args__ = dict()
     __args__['id'] = id
     __args__['instanceId'] = instance_id

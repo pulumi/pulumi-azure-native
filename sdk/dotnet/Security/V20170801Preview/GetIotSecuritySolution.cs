@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
 {
     public static class GetIotSecuritySolution
     {
+        /// <summary>
+        /// Security Solution
+        /// </summary>
         public static Task<GetIotSecuritySolutionResult> InvokeAsync(GetIotSecuritySolutionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotSecuritySolutionResult>("azure-nextgen:security/v20170801preview:getIotSecuritySolution", args ?? new GetIotSecuritySolutionArgs(), options.WithVersion());
     }

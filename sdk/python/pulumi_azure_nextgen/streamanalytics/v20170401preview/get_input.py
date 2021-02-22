@@ -84,7 +84,8 @@ def get_input(input_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInputResult:
     """
-    Use this data source to access information about an existing resource.
+    An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+
 
     :param str input_name: The name of the input.
     :param str job_name: The name of the streaming job.

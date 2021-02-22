@@ -47,7 +47,8 @@ def list_agent_pool_queue_status(agent_pool_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAgentPoolQueueStatusResult:
     """
-    Use this data source to access information about an existing resource.
+    The QueueStatus of Agent Pool
+
 
     :param str agent_pool_name: The name of the agent pool.
     :param str registry_name: The name of the container registry.

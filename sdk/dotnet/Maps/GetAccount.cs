@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Maps
 {
     public static class GetAccount
     {
+        /// <summary>
+        /// An Azure resource which represents access to a suite of Maps REST APIs.
+        /// API Version: 2018-05-01.
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:maps:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

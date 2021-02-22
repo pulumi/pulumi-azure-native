@@ -215,7 +215,8 @@ def get_workflow(resource_group_name: Optional[str] = None,
                  workflow_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkflowResult:
     """
-    Use this data source to access information about an existing resource.
+    The workflow type.
+
 
     :param str resource_group_name: The resource group name.
     :param str workflow_name: The workflow name.

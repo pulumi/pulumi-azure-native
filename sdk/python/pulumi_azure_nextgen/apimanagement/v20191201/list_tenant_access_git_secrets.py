@@ -83,7 +83,8 @@ def list_tenant_access_git_secrets(access_name: Optional[str] = None,
                                    service_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTenantAccessGitSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    Tenant access information contract of the API Management service.
+
 
     :param str access_name: The identifier of the Access configuration.
     :param str resource_group_name: The name of the resource group.

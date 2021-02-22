@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Peering
 {
     public static class GetPeeringService
     {
+        /// <summary>
+        /// Peering Service
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetPeeringServiceResult> InvokeAsync(GetPeeringServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-nextgen:peering:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithVersion());
     }

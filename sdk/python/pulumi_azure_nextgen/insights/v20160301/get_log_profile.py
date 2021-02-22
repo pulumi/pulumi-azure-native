@@ -154,7 +154,8 @@ class AwaitableGetLogProfileResult(GetLogProfileResult):
 def get_log_profile(log_profile_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogProfileResult:
     """
-    Use this data source to access information about an existing resource.
+    The log profile resource.
+
 
     :param str log_profile_name: The name of the log profile.
     """

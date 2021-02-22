@@ -14,6 +14,8 @@ __all__ = [
     'get_tag_by_product',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getTagByProduct'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTagByProductResult:
     """
@@ -84,13 +86,16 @@ def get_tag_by_product(product_id: Optional[str] = None,
                        tag_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagByProductResult:
     """
-    Use this data source to access information about an existing resource.
+    Tag Contract details.
+    Latest API Version: 2019-12-01.
+
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     :param str tag_id: Tag identifier. Must be unique in the current API Management service instance.
     """
+    pulumi.log.warn("get_tag_by_product is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getTagByProduct'.")
     __args__ = dict()
     __args__['productId'] = product_id
     __args__['resourceGroupName'] = resource_group_name

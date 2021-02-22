@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ProviderHub.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getNotificationRegistration'.")]
     public static class GetNotificationRegistration
     {
+        /// <summary>
+        /// The notification registration definition.
+        /// Latest API Version: 2020-11-20.
+        /// </summary>
         public static Task<GetNotificationRegistrationResult> InvokeAsync(GetNotificationRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationRegistrationResult>("azure-nextgen:providerhub/latest:getNotificationRegistration", args ?? new GetNotificationRegistrationArgs(), options.WithVersion());
     }

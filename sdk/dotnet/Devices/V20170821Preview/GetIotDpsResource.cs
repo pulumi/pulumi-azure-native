@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Devices.V20170821Preview
 {
     public static class GetIotDpsResource
     {
+        /// <summary>
+        /// The description of the provisioning service.
+        /// </summary>
         public static Task<GetIotDpsResourceResult> InvokeAsync(GetIotDpsResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourceResult>("azure-nextgen:devices/v20170821preview:getIotDpsResource", args ?? new GetIotDpsResourceArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
 {
     public static class GetDataset
     {
+        /// <summary>
+        /// Dataset resource type.
+        /// </summary>
         public static Task<GetDatasetResult> InvokeAsync(GetDatasetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("azure-nextgen:datafactory/v20170901preview:getDataset", args ?? new GetDatasetArgs(), options.WithVersion());
     }

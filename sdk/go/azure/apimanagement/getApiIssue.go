@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Issue Contract details.
+// API Version: 2019-12-01.
 func LookupApiIssue(ctx *pulumi.Context, args *LookupApiIssueArgs, opts ...pulumi.InvokeOption) (*LookupApiIssueResult, error) {
 	var rv LookupApiIssueResult
 	err := ctx.Invoke("azure-nextgen:apimanagement:getApiIssue", args, &rv, opts...)

@@ -156,7 +156,9 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
                                                   resource_group_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceCertificateOrderCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    Key Vault container ARM resource for a certificate that is purchased through Azure.
+    API Version: 2020-10-01.
+
 
     :param str certificate_order_name: Name of the certificate order.
     :param str name: Name of the certificate.

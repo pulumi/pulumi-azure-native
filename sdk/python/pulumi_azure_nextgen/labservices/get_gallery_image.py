@@ -241,7 +241,9 @@ def get_gallery_image(expand: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents an image from the Azure Marketplace
+    API Version: 2018-10-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=author)'
     :param str gallery_image_name: The name of the gallery Image.

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Datadog
 {
     public static class GetMonitorDefaultKey
     {
+        /// <summary>
+        /// 
+        /// API Version: 2020-02-01-preview.
+        /// </summary>
         public static Task<GetMonitorDefaultKeyResult> InvokeAsync(GetMonitorDefaultKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorDefaultKeyResult>("azure-nextgen:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyArgs(), options.WithVersion());
     }

@@ -264,7 +264,8 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionMonitorResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about the connection monitor.
+
 
     :param str connection_monitor_name: The name of the connection monitor.
     :param str network_watcher_name: The name of the Network Watcher resource.

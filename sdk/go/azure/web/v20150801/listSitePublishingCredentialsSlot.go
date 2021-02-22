@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents user credentials used for publishing activity
 func ListSitePublishingCredentialsSlot(ctx *pulumi.Context, args *ListSitePublishingCredentialsSlotArgs, opts ...pulumi.InvokeOption) (*ListSitePublishingCredentialsSlotResult, error) {
 	var rv ListSitePublishingCredentialsSlotResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:listSitePublishingCredentialsSlot", args, &rv, opts...)

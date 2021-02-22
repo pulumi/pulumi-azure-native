@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
 {
     public static class GetServerKey
     {
+        /// <summary>
+        /// A MySQL Server key.
+        /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-nextgen:dbformysql/v20200701privatepreview:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
     }

@@ -58,7 +58,9 @@ def list_domain_shared_access_keys(domain_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainSharedAccessKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Shared access keys of the Domain.
+    API Version: 2020-06-01.
+
 
     :param str domain_name: Name of the domain.
     :param str resource_group_name: The name of the resource group within the user's subscription.

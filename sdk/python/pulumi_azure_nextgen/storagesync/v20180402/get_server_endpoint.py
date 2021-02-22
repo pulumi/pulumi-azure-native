@@ -180,7 +180,8 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
                         sync_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    Server Endpoint object.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_endpoint_name: Name of Server Endpoint object.

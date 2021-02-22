@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Migrate.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getGroup'.")]
     public static class GetGroup
     {
+        /// <summary>
+        /// A group created in a Migration project.
+        /// Latest API Version: 2019-10-01.
+        /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-nextgen:migrate/latest:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
     }

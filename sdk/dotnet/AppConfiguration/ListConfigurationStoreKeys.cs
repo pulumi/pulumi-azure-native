@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AppConfiguration
 {
     public static class ListConfigurationStoreKeys
     {
+        /// <summary>
+        /// The result of a request to list API keys.
+        /// API Version: 2020-06-01.
+        /// </summary>
         public static Task<ListConfigurationStoreKeysResult> InvokeAsync(ListConfigurationStoreKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeysResult>("azure-nextgen:appconfiguration:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysArgs(), options.WithVersion());
     }

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The Managed Network resource
+// API Version: 2019-06-01-preview.
 func LookupManagedNetwork(ctx *pulumi.Context, args *LookupManagedNetworkArgs, opts ...pulumi.InvokeOption) (*LookupManagedNetworkResult, error) {
 	var rv LookupManagedNetworkResult
 	err := ctx.Invoke("azure-nextgen:managednetwork:getManagedNetwork", args, &rv, opts...)

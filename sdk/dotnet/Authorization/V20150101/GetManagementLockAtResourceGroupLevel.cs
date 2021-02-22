@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Authorization.V20150101
 {
     public static class GetManagementLockAtResourceGroupLevel
     {
+        /// <summary>
+        /// Management lock information.
+        /// </summary>
         public static Task<GetManagementLockAtResourceGroupLevelResult> InvokeAsync(GetManagementLockAtResourceGroupLevelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceGroupLevelResult>("azure-nextgen:authorization/v20150101:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelArgs(), options.WithVersion());
     }

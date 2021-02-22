@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20200901
 {
     public static class GetAppServiceCertificateOrder
     {
+        /// <summary>
+        /// SSL certificate purchase order.
+        /// </summary>
         public static Task<GetAppServiceCertificateOrderResult> InvokeAsync(GetAppServiceCertificateOrderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderResult>("azure-nextgen:certificateregistration/v20200901:getAppServiceCertificateOrder", args ?? new GetAppServiceCertificateOrderArgs(), options.WithVersion());
     }

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The peering service prefix class.
 func LookupPeeringServicePrefix(ctx *pulumi.Context, args *LookupPeeringServicePrefixArgs, opts ...pulumi.InvokeOption) (*LookupPeeringServicePrefixResult, error) {
 	var rv LookupPeeringServicePrefixResult
 	err := ctx.Invoke("azure-nextgen:peering/v20190801preview:getPeeringServicePrefix", args, &rv, opts...)

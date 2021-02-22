@@ -239,7 +239,8 @@ def get_deny_assignment(deny_assignment_name: Optional[str] = None,
                         scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDenyAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Deny Assignment
+
 
     :param str deny_assignment_name: The name of the deny assignment. It can be any valid GUID.
     :param str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'

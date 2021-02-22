@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Devices.V20181201Preview
 {
     public static class GetCertificate
     {
+        /// <summary>
+        /// The X509 Certificate.
+        /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-nextgen:devices/v20181201preview:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }

@@ -47,7 +47,8 @@ def get_solution_config(migrate_project_name: Optional[str] = None,
                         solution_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    Class representing the config for the solution in the migrate project.
+
 
     :param str migrate_project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that migrate project is part of.

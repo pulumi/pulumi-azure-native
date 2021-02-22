@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ServiceBus.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:listTopicKeys'.")]
     public static class ListTopicKeys
     {
+        /// <summary>
+        /// Namespace/ServiceBus Connection String
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<ListTopicKeysResult> InvokeAsync(ListTopicKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTopicKeysResult>("azure-nextgen:servicebus/latest:listTopicKeys", args ?? new ListTopicKeysArgs(), options.WithVersion());
     }

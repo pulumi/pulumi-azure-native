@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.NetApp.V20170815
 {
     public static class GetVolume
     {
+        /// <summary>
+        /// Volume resource
+        /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-nextgen:netapp/v20170815:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
     }

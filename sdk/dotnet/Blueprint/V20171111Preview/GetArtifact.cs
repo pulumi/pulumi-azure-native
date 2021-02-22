@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
 {
     public static class GetArtifact
     {
+        /// <summary>
+        /// Represents a Blueprint artifact.
+        /// </summary>
         public static Task<GetArtifactResult> InvokeAsync(GetArtifactArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactResult>("azure-nextgen:blueprint/v20171111preview:getArtifact", args ?? new GetArtifactArgs(), options.WithVersion());
     }

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents a blueprint artifact.
+// API Version: 2018-11-01-preview.
 func LookupArtifact(ctx *pulumi.Context, args *LookupArtifactArgs, opts ...pulumi.InvokeOption) (*LookupArtifactResult, error) {
 	var rv LookupArtifactResult
 	err := ctx.Invoke("azure-nextgen:blueprint:getArtifact", args, &rv, opts...)

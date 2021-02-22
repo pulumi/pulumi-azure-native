@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
 {
     public static class GetFailoverGroup
     {
+        /// <summary>
+        /// A failover group.
+        /// </summary>
         public static Task<GetFailoverGroupResult> InvokeAsync(GetFailoverGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFailoverGroupResult>("azure-nextgen:sql/v20150501preview:getFailoverGroup", args ?? new GetFailoverGroupArgs(), options.WithVersion());
     }

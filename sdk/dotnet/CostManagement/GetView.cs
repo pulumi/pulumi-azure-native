@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CostManagement
 {
     public static class GetView
     {
+        /// <summary>
+        /// States and configurations of Cost Analysis.
+        /// API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetViewResult> InvokeAsync(GetViewArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-nextgen:costmanagement:getView", args ?? new GetViewArgs(), options.WithVersion());
     }

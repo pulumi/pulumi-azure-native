@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
 {
     public static class GetProperty
     {
+        /// <summary>
+        /// Property details.
+        /// </summary>
         public static Task<GetPropertyResult> InvokeAsync(GetPropertyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPropertyResult>("azure-nextgen:apimanagement/v20190101:getProperty", args ?? new GetPropertyArgs(), options.WithVersion());
     }

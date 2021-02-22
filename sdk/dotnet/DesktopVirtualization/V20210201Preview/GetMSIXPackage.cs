@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210201Preview
 {
     public static class GetMSIXPackage
     {
+        /// <summary>
+        /// Schema for MSIX Package properties.
+        /// </summary>
         public static Task<GetMSIXPackageResult> InvokeAsync(GetMSIXPackageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMSIXPackageResult>("azure-nextgen:desktopvirtualization/v20210201preview:getMSIXPackage", args ?? new GetMSIXPackageArgs(), options.WithVersion());
     }

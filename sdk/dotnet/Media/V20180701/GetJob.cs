@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Media.V20180701
 {
     public static class GetJob
     {
+        /// <summary>
+        /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+        /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-nextgen:media/v20180701:getJob", args ?? new GetJobArgs(), options.WithVersion());
     }

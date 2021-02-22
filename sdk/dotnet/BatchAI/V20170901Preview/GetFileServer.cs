@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
 {
     public static class GetFileServer
     {
+        /// <summary>
+        /// Contains information about the File Server.
+        /// </summary>
         public static Task<GetFileServerResult> InvokeAsync(GetFileServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileServerResult>("azure-nextgen:batchai/v20170901preview:getFileServer", args ?? new GetFileServerArgs(), options.WithVersion());
     }

@@ -15,6 +15,8 @@ __all__ = [
     'get_dedicated_cloud_node',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getDedicatedCloudNode'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDedicatedCloudNodeResult:
     """
@@ -263,11 +265,14 @@ def get_dedicated_cloud_node(dedicated_cloud_node_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedCloudNodeResult:
     """
-    Use this data source to access information about an existing resource.
+    Dedicated cloud node model
+    Latest API Version: 2019-04-01.
+
 
     :param str dedicated_cloud_node_name: dedicated cloud node name
     :param str resource_group_name: The name of the resource group
     """
+    pulumi.log.warn("get_dedicated_cloud_node is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getDedicatedCloudNode'.")
     __args__ = dict()
     __args__['dedicatedCloudNodeName'] = dedicated_cloud_node_name
     __args__['resourceGroupName'] = resource_group_name

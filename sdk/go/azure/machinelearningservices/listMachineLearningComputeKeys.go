@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Secrets related to a Machine Learning compute. Might differ for every type of compute.
+// API Version: 2021-01-01.
 func ListMachineLearningComputeKeys(ctx *pulumi.Context, args *ListMachineLearningComputeKeysArgs, opts ...pulumi.InvokeOption) (*ListMachineLearningComputeKeysResult, error) {
 	var rv ListMachineLearningComputeKeysResult
 	err := ctx.Invoke("azure-nextgen:machinelearningservices:listMachineLearningComputeKeys", args, &rv, opts...)

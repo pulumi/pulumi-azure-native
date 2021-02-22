@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
 {
     public static class ListBlockchainMemberApiKeys
     {
+        /// <summary>
+        /// Collection of the API key payload which is exposed in the response of the resource provider.
+        /// </summary>
         public static Task<ListBlockchainMemberApiKeysResult> InvokeAsync(ListBlockchainMemberApiKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBlockchainMemberApiKeysResult>("azure-nextgen:blockchain/v20180601preview:listBlockchainMemberApiKeys", args ?? new ListBlockchainMemberApiKeysArgs(), options.WithVersion());
     }

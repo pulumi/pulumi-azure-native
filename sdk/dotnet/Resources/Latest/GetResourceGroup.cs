@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Resources.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getResourceGroup'.")]
     public static class GetResourceGroup
     {
+        /// <summary>
+        /// Resource group information.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure-nextgen:resources/latest:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithVersion());
     }

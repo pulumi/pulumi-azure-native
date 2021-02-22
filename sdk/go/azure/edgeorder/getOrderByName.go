@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents order contract
+// API Version: 2020-12-01-preview.
 func LookupOrderByName(ctx *pulumi.Context, args *LookupOrderByNameArgs, opts ...pulumi.InvokeOption) (*LookupOrderByNameResult, error) {
 	var rv LookupOrderByNameResult
 	err := ctx.Invoke("azure-nextgen:edgeorder:getOrderByName", args, &rv, opts...)

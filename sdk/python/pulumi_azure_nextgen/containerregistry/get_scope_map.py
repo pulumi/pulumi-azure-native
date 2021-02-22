@@ -134,7 +134,9 @@ def get_scope_map(registry_name: Optional[str] = None,
                   scope_map_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScopeMapResult:
     """
-    Use this data source to access information about an existing resource.
+    An object that represents a scope map for a container registry.
+    API Version: 2020-11-01-preview.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.

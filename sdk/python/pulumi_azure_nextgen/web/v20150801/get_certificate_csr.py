@@ -178,7 +178,8 @@ def get_certificate_csr(name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateCsrResult:
     """
-    Use this data source to access information about an existing resource.
+    Certificate signing request object
+
 
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StoragePool
 {
     public static class GetIscsiTarget
     {
+        /// <summary>
+        /// Response for iSCSI target requests.
+        /// API Version: 2020-03-15-preview.
+        /// </summary>
         public static Task<GetIscsiTargetResult> InvokeAsync(GetIscsiTargetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiTargetResult>("azure-nextgen:storagepool:getIscsiTarget", args ?? new GetIscsiTargetArgs(), options.WithVersion());
     }

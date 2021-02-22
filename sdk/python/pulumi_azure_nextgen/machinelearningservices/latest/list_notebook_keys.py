@@ -14,6 +14,8 @@ __all__ = [
     'list_notebook_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listNotebookKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListNotebookKeysResult:
     def __init__(__self__, primary_access_key=None, secondary_access_key=None):
@@ -49,11 +51,13 @@ def list_notebook_keys(resource_group_name: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNotebookKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2021-01-01.
+
 
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("list_notebook_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listNotebookKeys'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name

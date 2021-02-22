@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
 {
     public static class GetSecret
     {
+        /// <summary>
+        /// This type describes a secret resource.
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-nextgen:servicefabricmesh:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
     }

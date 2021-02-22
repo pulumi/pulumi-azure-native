@@ -15,6 +15,8 @@ __all__ = [
     'get_cassandra_resource_cassandra_keyspace',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getCassandraResourceCassandraKeyspace'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCassandraResourceCassandraKeyspaceResult:
     """
@@ -114,12 +116,15 @@ def get_cassandra_resource_cassandra_keyspace(account_name: Optional[str] = None
                                               resource_group_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCassandraResourceCassandraKeyspaceResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB Cassandra keyspace.
+    Latest API Version: 2021-01-15.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str keyspace_name: Cosmos DB keyspace name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("get_cassandra_resource_cassandra_keyspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getCassandraResourceCassandraKeyspace'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['keyspaceName'] = keyspace_name

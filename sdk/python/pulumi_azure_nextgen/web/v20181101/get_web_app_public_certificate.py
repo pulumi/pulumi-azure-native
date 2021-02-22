@@ -119,7 +119,8 @@ def get_web_app_public_certificate(name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPublicCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    Public certificate object
+
 
     :param str name: Name of the app.
     :param str public_certificate_name: Public certificate name.

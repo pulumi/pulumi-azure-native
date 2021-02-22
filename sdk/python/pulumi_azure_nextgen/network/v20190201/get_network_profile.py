@@ -156,7 +156,8 @@ def get_network_profile(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkProfileResult:
     """
-    Use this data source to access information about an existing resource.
+    Network profile resource.
+
 
     :param str expand: Expands referenced resources.
     :param str network_profile_name: The name of the public IP prefix.

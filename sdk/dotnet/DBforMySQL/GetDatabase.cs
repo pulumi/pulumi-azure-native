@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DBforMySQL
 {
     public static class GetDatabase
     {
+        /// <summary>
+        /// Represents a Database.
+        /// API Version: 2017-12-01.
+        /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:dbformysql:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }

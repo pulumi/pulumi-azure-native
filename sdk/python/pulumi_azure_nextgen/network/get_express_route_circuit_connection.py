@@ -169,7 +169,9 @@ def get_express_route_circuit_connection(circuit_name: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+    API Version: 2020-08-01.
+
 
     :param str circuit_name: The name of the express route circuit.
     :param str connection_name: The name of the express route circuit connection.

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+// API Version: 2019-12-01.
 func ListIdentityProviderSecrets(ctx *pulumi.Context, args *ListIdentityProviderSecretsArgs, opts ...pulumi.InvokeOption) (*ListIdentityProviderSecretsResult, error) {
 	var rv ListIdentityProviderSecretsResult
 	err := ctx.Invoke("azure-nextgen:apimanagement:listIdentityProviderSecrets", args, &rv, opts...)

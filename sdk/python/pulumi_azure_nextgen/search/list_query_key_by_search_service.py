@@ -59,7 +59,9 @@ def list_query_key_by_search_service(resource_group_name: Optional[str] = None,
                                      search_service_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListQueryKeyBySearchServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Response containing the query API keys for a given Azure Cognitive Search service.
+    API Version: 2020-08-01.
+
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.

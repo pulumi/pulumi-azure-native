@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The list of build arguments for a build step.
+// API Version: 2018-02-01-preview.
 func ListBuildStepBuildArguments(ctx *pulumi.Context, args *ListBuildStepBuildArgumentsArgs, opts ...pulumi.InvokeOption) (*ListBuildStepBuildArgumentsResult, error) {
 	var rv ListBuildStepBuildArgumentsResult
 	err := ctx.Invoke("azure-nextgen:containerregistry:listBuildStepBuildArguments", args, &rv, opts...)

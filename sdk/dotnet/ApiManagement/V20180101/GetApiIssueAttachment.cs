@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
 {
     public static class GetApiIssueAttachment
     {
+        /// <summary>
+        /// Issue Attachment Contract details.
+        /// </summary>
         public static Task<GetApiIssueAttachmentResult> InvokeAsync(GetApiIssueAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueAttachmentResult>("azure-nextgen:apimanagement/v20180101:getApiIssueAttachment", args ?? new GetApiIssueAttachmentArgs(), options.WithVersion());
     }

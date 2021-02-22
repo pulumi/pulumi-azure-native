@@ -15,6 +15,8 @@ __all__ = [
     'get_bot_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getBotConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBotConnectionResult:
     """
@@ -144,12 +146,15 @@ def get_bot_connection(connection_name: Optional[str] = None,
                        resource_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Bot channel resource definition
+    Latest API Version: 2020-06-02.
+
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
     :param str resource_name: The name of the Bot resource.
     """
+    pulumi.log.warn("get_bot_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getBotConnection'.")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name

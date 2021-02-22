@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201
 {
     public static class GetConfiguration
     {
+        /// <summary>
+        /// Represents a Configuration.
+        /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-nextgen:dbformysql/v20171201:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
     }

@@ -146,7 +146,8 @@ def get_gallery_image_version(expand: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageVersionResult:
     """
-    Use this data source to access information about an existing resource.
+    Specifies information about the gallery Image Version that you want to create or update.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str gallery_image_name: The name of the gallery Image Definition in which the Image Version resides.

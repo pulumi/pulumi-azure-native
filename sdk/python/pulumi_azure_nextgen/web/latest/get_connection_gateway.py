@@ -15,6 +15,8 @@ __all__ = [
     'get_connection_gateway',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getConnectionGateway'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConnectionGatewayResult:
     """
@@ -117,12 +119,15 @@ def get_connection_gateway(connection_gateway_name: Optional[str] = None,
                            subscription_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    The gateway definition
+    Latest API Version: 2016-06-01.
+
 
     :param str connection_gateway_name: The connection gateway name
     :param str resource_group_name: The resource group
     :param str subscription_id: Subscription Id
     """
+    pulumi.log.warn("get_connection_gateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getConnectionGateway'.")
     __args__ = dict()
     __args__['connectionGatewayName'] = connection_gateway_name
     __args__['resourceGroupName'] = resource_group_name

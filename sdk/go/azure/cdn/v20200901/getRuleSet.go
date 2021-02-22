@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Friendly RuleSet name mapping to the any RuleSet or secret related information.
 func LookupRuleSet(ctx *pulumi.Context, args *LookupRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupRuleSetResult, error) {
 	var rv LookupRuleSetResult
 	err := ctx.Invoke("azure-nextgen:cdn/v20200901:getRuleSet", args, &rv, opts...)

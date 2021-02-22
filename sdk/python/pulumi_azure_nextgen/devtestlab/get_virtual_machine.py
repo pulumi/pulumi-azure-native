@@ -517,7 +517,9 @@ def get_virtual_machine(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
-    Use this data source to access information about an existing resource.
+    A virtual machine.
+    API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
     :param str lab_name: The name of the lab.

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.PolicyInsights
 {
     public static class GetRemediationAtResource
     {
+        /// <summary>
+        /// The remediation definition.
+        /// API Version: 2019-07-01.
+        /// </summary>
         public static Task<GetRemediationAtResourceResult> InvokeAsync(GetRemediationAtResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceResult>("azure-nextgen:policyinsights:getRemediationAtResource", args ?? new GetRemediationAtResourceArgs(), options.WithVersion());
     }

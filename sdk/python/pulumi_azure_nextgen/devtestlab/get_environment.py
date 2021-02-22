@@ -170,7 +170,9 @@ def get_environment(expand: Optional[str] = None,
                     user_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
-    Use this data source to access information about an existing resource.
+    An environment, which is essentially an ARM template deployment.
+    API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'
     :param str lab_name: The name of the lab.

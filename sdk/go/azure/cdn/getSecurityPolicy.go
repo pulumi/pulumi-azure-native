@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// SecurityPolicy association for AzureFrontDoor profile
+// API Version: 2020-09-01.
 func LookupSecurityPolicy(ctx *pulumi.Context, args *LookupSecurityPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSecurityPolicyResult, error) {
 	var rv LookupSecurityPolicyResult
 	err := ctx.Invoke("azure-nextgen:cdn:getSecurityPolicy", args, &rv, opts...)

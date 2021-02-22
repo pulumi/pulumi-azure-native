@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 {
     public static class GetNatGateway
     {
+        /// <summary>
+        /// Nat Gateway resource.
+        /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure-nextgen:network/v20200701:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithVersion());
     }

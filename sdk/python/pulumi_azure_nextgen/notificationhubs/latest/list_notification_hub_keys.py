@@ -14,6 +14,8 @@ __all__ = [
     'list_notification_hub_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:listNotificationHubKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListNotificationHubKeysResult:
     """
@@ -96,13 +98,16 @@ def list_notification_hub_keys(authorization_rule_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNotificationHubKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Namespace/NotificationHub Connection String
+    Latest API Version: 2017-04-01.
+
 
     :param str authorization_rule_name: The connection string of the NotificationHub for the specified authorizationRule.
     :param str namespace_name: The namespace name.
     :param str notification_hub_name: The notification hub name.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("list_notification_hub_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:listNotificationHubKeys'.")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name

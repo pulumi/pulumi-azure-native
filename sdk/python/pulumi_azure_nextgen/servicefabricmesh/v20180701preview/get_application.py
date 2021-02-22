@@ -215,7 +215,8 @@ def get_application(application_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Use this data source to access information about an existing resource.
+    This type describes an application resource.
+
 
     :param str application_name: The identity of the application.
     :param str resource_group_name: Azure resource group name

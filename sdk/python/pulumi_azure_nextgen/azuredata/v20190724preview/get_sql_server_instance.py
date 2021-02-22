@@ -191,7 +191,8 @@ def get_sql_server_instance(resource_group_name: Optional[str] = None,
                             sql_server_instance_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerInstanceResult:
     """
-    Use this data source to access information about an existing resource.
+    A SqlServerInstance.
+
 
     :param str resource_group_name: The name of the Azure resource group
     :param str sql_server_instance_name: Name of SQL Server Instance

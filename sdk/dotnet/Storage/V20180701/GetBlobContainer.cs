@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Storage.V20180701
 {
     public static class GetBlobContainer
     {
+        /// <summary>
+        /// Properties of the blob container, including Id, resource name, resource type, Etag.
+        /// </summary>
         public static Task<GetBlobContainerResult> InvokeAsync(GetBlobContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-nextgen:storage/v20180701:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithVersion());
     }

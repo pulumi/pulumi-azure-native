@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
 {
     public static class GetCluster
     {
+        /// <summary>
+        /// A Stream Analytics Cluster object
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:streamanalytics/v20200301preview:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

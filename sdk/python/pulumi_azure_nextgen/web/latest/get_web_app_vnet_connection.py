@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_vnet_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppVnetConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppVnetConnectionResult:
     """
@@ -181,12 +183,15 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
                                 vnet_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppVnetConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual Network information contract.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str vnet_name: Name of the virtual network.
     """
+    pulumi.log.warn("get_web_app_vnet_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppVnetConnection'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DocumentDB
 {
     public static class GetDatabaseAccount
     {
+        /// <summary>
+        /// An Azure Cosmos DB database account.
+        /// API Version: 2021-01-15.
+        /// </summary>
         public static Task<GetDatabaseAccountResult> InvokeAsync(GetDatabaseAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountResult>("azure-nextgen:documentdb:getDatabaseAccount", args ?? new GetDatabaseAccountArgs(), options.WithVersion());
     }

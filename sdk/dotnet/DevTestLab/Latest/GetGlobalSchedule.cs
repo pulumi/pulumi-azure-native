@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getGlobalSchedule'.")]
     public static class GetGlobalSchedule
     {
+        /// <summary>
+        /// A schedule.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetGlobalScheduleResult> InvokeAsync(GetGlobalScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalScheduleResult>("azure-nextgen:devtestlab/latest:getGlobalSchedule", args ?? new GetGlobalScheduleArgs(), options.WithVersion());
     }

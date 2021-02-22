@@ -15,6 +15,8 @@ __all__ = [
     'get_streaming_endpoint',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingEndpoint'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStreamingEndpointResult:
     """
@@ -300,12 +302,15 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
                            streaming_endpoint_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    The streaming endpoint.
+    Latest API Version: 2020-05-01.
+
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str streaming_endpoint_name: The name of the streaming endpoint, maximum length is 24.
     """
+    pulumi.log.warn("get_streaming_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingEndpoint'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

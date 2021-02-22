@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The Setting.
+// API Version: 2019-01-01-preview.
 func LookupProductSetting(ctx *pulumi.Context, args *LookupProductSettingArgs, opts ...pulumi.InvokeOption) (*LookupProductSettingResult, error) {
 	var rv LookupProductSettingResult
 	err := ctx.Invoke("azure-nextgen:securityinsights:getProductSetting", args, &rv, opts...)

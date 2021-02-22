@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Migrate
 {
     public static class GetVMwareCollector
     {
+        /// <summary>
+        /// 
+        /// API Version: 2019-10-01.
+        /// </summary>
         public static Task<GetVMwareCollectorResult> InvokeAsync(GetVMwareCollectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVMwareCollectorResult>("azure-nextgen:migrate:getVMwareCollector", args ?? new GetVMwareCollectorArgs(), options.WithVersion());
     }

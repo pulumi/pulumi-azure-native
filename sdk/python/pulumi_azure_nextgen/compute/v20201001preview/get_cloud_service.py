@@ -107,7 +107,8 @@ def get_cloud_service(cloud_service_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes the cloud service.
+
 
     :param str cloud_service_name: Name of the cloud service.
     :param str resource_group_name: Name of the resource group.

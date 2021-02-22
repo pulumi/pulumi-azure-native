@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Sql
 {
     public static class GetJobAgent
     {
+        /// <summary>
+        /// An Azure SQL job agent.
+        /// API Version: 2020-08-01-preview.
+        /// </summary>
         public static Task<GetJobAgentResult> InvokeAsync(GetJobAgentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobAgentResult>("azure-nextgen:sql:getJobAgent", args ?? new GetJobAgentArgs(), options.WithVersion());
     }

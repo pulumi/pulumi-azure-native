@@ -85,7 +85,9 @@ def get_chap_setting(chap_user_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChapSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    Challenge-Handshake Authentication Protocol (CHAP) setting
+    API Version: 2016-10-01.
+
 
     :param str chap_user_name: The user name of chap to be fetched.
     :param str device_name: The device name.

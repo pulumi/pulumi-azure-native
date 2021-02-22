@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Maintenance.V20210401Preview
 {
     public static class GetConfigurationAssignmentParent
     {
+        /// <summary>
+        /// Configuration Assignment
+        /// </summary>
         public static Task<GetConfigurationAssignmentParentResult> InvokeAsync(GetConfigurationAssignmentParentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentParentResult>("azure-nextgen:maintenance/v20210401preview:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentArgs(), options.WithVersion());
     }

@@ -142,7 +142,8 @@ def get_policy_definition_at_management_group(management_group_id: Optional[str]
                                               policy_definition_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDefinitionAtManagementGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    The policy definition.
+
 
     :param str management_group_id: The ID of the management group.
     :param str policy_definition_name: The name of the policy definition to get.

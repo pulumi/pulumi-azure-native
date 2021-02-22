@@ -114,7 +114,9 @@ def get_sql_resource_sql_database(account_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlDatabaseResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB SQL database.
+    API Version: 2021-01-15.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str database_name: Cosmos DB database name.

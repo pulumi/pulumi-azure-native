@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
 {
     public static class ListRegistryCredentials
     {
+        /// <summary>
+        /// The response from the ListCredentials operation.
+        /// API Version: 2019-05-01.
+        /// </summary>
         public static Task<ListRegistryCredentialsResult> InvokeAsync(ListRegistryCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-nextgen:containerregistry:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithVersion());
     }

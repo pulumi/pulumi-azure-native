@@ -120,7 +120,9 @@ def get_account_filter(account_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountFilterResult:
     """
-    Use this data source to access information about an existing resource.
+    An Account Filter.
+    API Version: 2020-05-01.
+
 
     :param str account_name: The Media Services account name.
     :param str filter_name: The Account Filter name

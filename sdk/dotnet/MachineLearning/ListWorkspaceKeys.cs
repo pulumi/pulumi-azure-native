@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.MachineLearning
 {
     public static class ListWorkspaceKeys
     {
+        /// <summary>
+        /// Workspace authorization keys for a workspace.
+        /// API Version: 2016-04-01.
+        /// </summary>
         public static Task<ListWorkspaceKeysResult> InvokeAsync(ListWorkspaceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-nextgen:machinelearning:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithVersion());
     }

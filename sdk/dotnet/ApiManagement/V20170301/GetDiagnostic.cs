@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
 {
     public static class GetDiagnostic
     {
+        /// <summary>
+        /// Diagnostic details.
+        /// </summary>
         public static Task<GetDiagnosticResult> InvokeAsync(GetDiagnosticArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticResult>("azure-nextgen:apimanagement/v20170301:getDiagnostic", args ?? new GetDiagnosticArgs(), options.WithVersion());
     }

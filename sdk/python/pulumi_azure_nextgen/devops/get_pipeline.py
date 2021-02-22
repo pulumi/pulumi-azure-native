@@ -143,7 +143,9 @@ def get_pipeline(pipeline_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
-    Use this data source to access information about an existing resource.
+    Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
+    API Version: 2020-07-13-preview.
+
 
     :param str pipeline_name: The name of the Pipeline resource in ARM.
     :param str resource_group_name: Name of the resource group within the Azure subscription.

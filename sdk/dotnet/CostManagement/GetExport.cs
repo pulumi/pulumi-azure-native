@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CostManagement
 {
     public static class GetExport
     {
+        /// <summary>
+        /// An export resource.
+        /// API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-nextgen:costmanagement:getExport", args ?? new GetExportArgs(), options.WithVersion());
     }

@@ -107,7 +107,8 @@ def get_cache(cache_id: Optional[str] = None,
               service_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
-    Use this data source to access information about an existing resource.
+    Cache details.
+
 
     :param str cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
     :param str resource_group_name: The name of the resource group.

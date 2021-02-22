@@ -15,6 +15,8 @@ __all__ = [
     'get_data_set_mapping',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getDataSetMapping'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataSetMappingResult:
     """
@@ -97,13 +99,16 @@ def get_data_set_mapping(account_name: Optional[str] = None,
                          share_subscription_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSetMappingResult:
     """
-    Use this data source to access information about an existing resource.
+    A data set mapping data transfer object.
+    Latest API Version: 2020-09-01.
+
 
     :param str account_name: The name of the share account.
     :param str data_set_mapping_name: The name of the dataSetMapping.
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     """
+    pulumi.log.warn("get_data_set_mapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getDataSetMapping'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['dataSetMappingName'] = data_set_mapping_name

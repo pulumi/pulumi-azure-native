@@ -15,6 +15,8 @@ __all__ = [
     'get_dsc_node_configuration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getDscNodeConfiguration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDscNodeConfigurationResult:
     """
@@ -144,12 +146,15 @@ def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscNodeConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the dsc node configuration.
+    Latest API Version: 2019-06-01.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str node_configuration_name: The Dsc node configuration name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("get_dsc_node_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getDscNodeConfiguration'.")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['nodeConfigurationName'] = node_configuration_name

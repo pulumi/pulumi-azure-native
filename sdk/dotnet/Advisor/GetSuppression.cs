@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Advisor
 {
     public static class GetSuppression
     {
+        /// <summary>
+        /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+        /// API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetSuppressionResult> InvokeAsync(GetSuppressionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-nextgen:advisor:getSuppression", args ?? new GetSuppressionArgs(), options.WithVersion());
     }

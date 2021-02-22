@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * HANA instance info on Azure (ARM properties and HANA properties)
+ */
 export function getHanaInstance(args: GetHanaInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetHanaInstanceResult> {
     if (!opts) {
         opts = {}

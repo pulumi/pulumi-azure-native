@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Full endpoint url of an event subscription
+// Latest API Version: 2020-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getEventSubscriptionFullUrl'.
 func GetEventSubscriptionFullUrl(ctx *pulumi.Context, args *GetEventSubscriptionFullUrlArgs, opts ...pulumi.InvokeOption) (*GetEventSubscriptionFullUrlResult, error) {
 	var rv GetEventSubscriptionFullUrlResult
 	err := ctx.Invoke("azure-nextgen:eventgrid/latest:getEventSubscriptionFullUrl", args, &rv, opts...)

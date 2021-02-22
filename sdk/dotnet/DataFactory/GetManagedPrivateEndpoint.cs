@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataFactory
 {
     public static class GetManagedPrivateEndpoint
     {
+        /// <summary>
+        /// Managed private endpoint resource type.
+        /// API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetManagedPrivateEndpointResult> InvokeAsync(GetManagedPrivateEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-nextgen:datafactory:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithVersion());
     }

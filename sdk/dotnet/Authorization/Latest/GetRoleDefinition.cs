@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Authorization.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getRoleDefinition'.")]
     public static class GetRoleDefinition
     {
+        /// <summary>
+        /// Role definition.
+        /// Latest API Version: 2015-07-01.
+        /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure-nextgen:authorization/latest:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
     }

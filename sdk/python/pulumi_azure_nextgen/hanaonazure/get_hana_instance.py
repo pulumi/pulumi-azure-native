@@ -215,7 +215,9 @@ def get_hana_instance(hana_instance_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHanaInstanceResult:
     """
-    Use this data source to access information about an existing resource.
+    HANA instance info on Azure (ARM properties and HANA properties)
+    API Version: 2017-11-03-preview.
+
 
     :param str hana_instance_name: Name of the SAP HANA on Azure instance.
     :param str resource_group_name: Name of the resource group.

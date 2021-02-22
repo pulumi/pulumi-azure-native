@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The privateStore offer data structure.
+// API Version: 2020-01-01.
 func LookupPrivateStoreOffer(ctx *pulumi.Context, args *LookupPrivateStoreOfferArgs, opts ...pulumi.InvokeOption) (*LookupPrivateStoreOfferResult, error) {
 	var rv LookupPrivateStoreOfferResult
 	err := ctx.Invoke("azure-nextgen:marketplace:getPrivateStoreOffer", args, &rv, opts...)

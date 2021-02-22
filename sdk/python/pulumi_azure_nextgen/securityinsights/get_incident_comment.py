@@ -134,7 +134,9 @@ def get_incident_comment(incident_comment_id: Optional[str] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentCommentResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents an incident comment
+    API Version: 2019-01-01-preview.
+
 
     :param str incident_comment_id: Incident comment ID
     :param str incident_id: Incident ID

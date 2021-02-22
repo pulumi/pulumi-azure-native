@@ -15,6 +15,8 @@ __all__ = [
     'get_environment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getEnvironment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEnvironmentResult:
     """
@@ -170,7 +172,9 @@ def get_environment(expand: Optional[str] = None,
                     user_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
-    Use this data source to access information about an existing resource.
+    An environment, which is essentially an ARM template deployment.
+    Latest API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'
     :param str lab_name: The name of the lab.
@@ -178,6 +182,7 @@ def get_environment(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str user_name: The name of the user profile.
     """
+    pulumi.log.warn("get_environment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getEnvironment'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

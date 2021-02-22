@@ -15,6 +15,8 @@ __all__ = [
     'get_private_endpoint_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getPrivateEndpointConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
@@ -108,12 +110,15 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     storage_sync_service_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    The Private Endpoint Connection resource.
+    Latest API Version: 2020-03-01.
+
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_sync_service_name: The name of the storage sync service name within the specified resource group.
     """
+    pulumi.log.warn("get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getPrivateEndpointConnection'.")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name

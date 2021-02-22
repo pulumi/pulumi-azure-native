@@ -227,7 +227,9 @@ def get_subscription(resource_group_name: Optional[str] = None,
                      sid: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    Subscription details.
+    API Version: 2019-12-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.

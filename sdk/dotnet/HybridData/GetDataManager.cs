@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.HybridData
 {
     public static class GetDataManager
     {
+        /// <summary>
+        /// The DataManager resource.
+        /// API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetDataManagerResult> InvokeAsync(GetDataManagerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerResult>("azure-nextgen:hybriddata:getDataManager", args ?? new GetDataManagerArgs(), options.WithVersion());
     }

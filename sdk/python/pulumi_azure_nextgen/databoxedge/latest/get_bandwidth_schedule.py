@@ -15,6 +15,8 @@ __all__ = [
     'get_bandwidth_schedule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getBandwidthSchedule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBandwidthScheduleResult:
     """
@@ -132,12 +134,15 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBandwidthScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    The bandwidth schedule details.
+    Latest API Version: 2020-09-01.
+
 
     :param str device_name: The device name.
     :param str name: The bandwidth schedule name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_bandwidth_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getBandwidthSchedule'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name

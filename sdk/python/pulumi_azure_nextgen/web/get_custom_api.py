@@ -120,7 +120,9 @@ def get_custom_api(api_name: Optional[str] = None,
                    subscription_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomApiResult:
     """
-    Use this data source to access information about an existing resource.
+    A custom API
+    API Version: 2016-06-01.
+
 
     :param str api_name: API name
     :param str resource_group_name: The resource group

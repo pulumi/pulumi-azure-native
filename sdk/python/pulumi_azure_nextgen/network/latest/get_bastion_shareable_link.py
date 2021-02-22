@@ -16,6 +16,8 @@ __all__ = [
     'get_bastion_shareable_link',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getBastionShareableLink'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBastionShareableLinkResult:
     """
@@ -61,12 +63,15 @@ def get_bastion_shareable_link(bastion_host_name: Optional[str] = None,
                                vms: Optional[Sequence[pulumi.InputType['BastionShareableLinkArgs']]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBastionShareableLinkResult:
     """
-    Use this data source to access information about an existing resource.
+    Response for all the Bastion Shareable Link endpoints.
+    Latest API Version: 2020-08-01.
+
 
     :param str bastion_host_name: The name of the Bastion Host.
     :param str resource_group_name: The name of the resource group.
     :param Sequence[pulumi.InputType['BastionShareableLinkArgs']] vms: List of VM references.
     """
+    pulumi.log.warn("get_bastion_shareable_link is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getBastionShareableLink'.")
     __args__ = dict()
     __args__['bastionHostName'] = bastion_host_name
     __args__['resourceGroupName'] = resource_group_name

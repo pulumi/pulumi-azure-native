@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A sql pool resource.
 func LookupSqlPoolsV3(ctx *pulumi.Context, args *LookupSqlPoolsV3Args, opts ...pulumi.InvokeOption) (*LookupSqlPoolsV3Result, error) {
 	var rv LookupSqlPoolsV3Result
 	err := ctx.Invoke("azure-nextgen:synapse/v20200401preview:getSqlPoolsV3", args, &rv, opts...)

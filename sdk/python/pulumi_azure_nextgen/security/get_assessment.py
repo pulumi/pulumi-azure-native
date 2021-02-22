@@ -156,7 +156,9 @@ def get_assessment(assessment_name: Optional[str] = None,
                    resource_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Security assessment on a resource
+    API Version: 2020-01-01.
+
 
     :param str assessment_name: The Assessment Key - Unique key for the assessment type
     :param str expand: OData expand. Optional.

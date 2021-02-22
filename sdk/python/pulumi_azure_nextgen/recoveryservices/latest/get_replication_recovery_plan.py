@@ -15,6 +15,8 @@ __all__ = [
     'get_replication_recovery_plan',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationRecoveryPlan'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReplicationRecoveryPlanResult:
     """
@@ -96,12 +98,15 @@ def get_replication_recovery_plan(recovery_plan_name: Optional[str] = None,
                                   resource_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationRecoveryPlanResult:
     """
-    Use this data source to access information about an existing resource.
+    Recovery plan details.
+    Latest API Version: 2018-07-10.
+
 
     :param str recovery_plan_name: Name of the recovery plan.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("get_replication_recovery_plan is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationRecoveryPlan'.")
     __args__ = dict()
     __args__['recoveryPlanName'] = recovery_plan_name
     __args__['resourceGroupName'] = resource_group_name

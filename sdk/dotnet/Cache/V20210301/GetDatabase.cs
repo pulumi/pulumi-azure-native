@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cache.V20210301
 {
     public static class GetDatabase
     {
+        /// <summary>
+        /// Describes a database on the RedisEnterprise cluster
+        /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:cache/v20210301:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }

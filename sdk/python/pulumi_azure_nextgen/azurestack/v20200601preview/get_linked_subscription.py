@@ -215,7 +215,8 @@ def get_linked_subscription(linked_subscription_name: Optional[str] = None,
                             resource_group: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    Linked Subscription information.
+
 
     :param str linked_subscription_name: Name of the Linked Subscription resource.
     :param str resource_group: Name of the resource group.

@@ -15,6 +15,8 @@ __all__ = [
     'get_hub_virtual_network_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getHubVirtualNetworkConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHubVirtualNetworkConnectionResult:
     """
@@ -144,12 +146,15 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
                                        virtual_hub_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHubVirtualNetworkConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    HubVirtualNetworkConnection Resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str connection_name: The name of the vpn connection.
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
+    pulumi.log.warn("get_hub_virtual_network_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getHubVirtualNetworkConnection'.")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name

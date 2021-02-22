@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
 {
     public static class GetNamespace
     {
+        /// <summary>
+        /// Description of a Namespace resource.
+        /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-nextgen:relay/v20160701:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }

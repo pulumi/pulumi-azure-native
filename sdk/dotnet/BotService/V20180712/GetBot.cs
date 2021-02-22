@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.BotService.V20180712
 {
     public static class GetBot
     {
+        /// <summary>
+        /// Bot resource definition
+        /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-nextgen:botservice/v20180712:getBot", args ?? new GetBotArgs(), options.WithVersion());
     }

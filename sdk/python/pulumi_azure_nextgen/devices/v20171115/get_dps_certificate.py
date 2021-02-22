@@ -96,7 +96,8 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDpsCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    The X509 Certificate.
+
 
     :param str certificate_name: Name of the certificate to retrieve.
     :param str provisioning_service_name: Name of the provisioning service the certificate is associated with.

@@ -204,7 +204,9 @@ def get_ou_container(domain_service_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOuContainerResult:
     """
-    Use this data source to access information about an existing resource.
+    Resource for OuContainer.
+    API Version: 2020-01-01.
+
 
     :param str domain_service_name: The name of the domain service.
     :param str ou_container_name: The name of the OuContainer.

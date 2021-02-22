@@ -143,7 +143,9 @@ def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    NetApp account resource
+    API Version: 2020-11-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str resource_group_name: The name of the resource group.

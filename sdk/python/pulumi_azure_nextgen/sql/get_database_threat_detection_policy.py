@@ -192,7 +192,9 @@ def get_database_threat_detection_policy(database_name: Optional[str] = None,
                                          server_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseThreatDetectionPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Contains information about a database Threat Detection policy.
+    API Version: 2014-04-01.
+
 
     :param str database_name: The name of the database for which database Threat Detection policy is defined.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

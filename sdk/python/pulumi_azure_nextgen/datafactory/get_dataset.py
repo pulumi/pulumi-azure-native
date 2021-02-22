@@ -96,7 +96,9 @@ def get_dataset(dataset_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatasetResult:
     """
-    Use this data source to access information about an existing resource.
+    Dataset resource type.
+    API Version: 2018-06-01.
+
 
     :param str dataset_name: The dataset name.
     :param str factory_name: The factory name.

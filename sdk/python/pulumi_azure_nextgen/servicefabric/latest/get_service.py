@@ -15,6 +15,8 @@ __all__ = [
     'get_service',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getService'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServiceResult:
     """
@@ -241,13 +243,16 @@ def get_service(application_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    The service resource.
+    Latest API Version: 2020-03-01.
+
 
     :param str application_name: The name of the application resource.
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
     """
+    pulumi.log.warn("get_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getService'.")
     __args__ = dict()
     __args__['applicationName'] = application_name
     __args__['clusterName'] = cluster_name

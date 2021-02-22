@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getOutput'.")]
     public static class GetOutput
     {
+        /// <summary>
+        /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+        /// Latest API Version: 2016-03-01.
+        /// </summary>
         public static Task<GetOutputResult> InvokeAsync(GetOutputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOutputResult>("azure-nextgen:streamanalytics/latest:getOutput", args ?? new GetOutputArgs(), options.WithVersion());
     }

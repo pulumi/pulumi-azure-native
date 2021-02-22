@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listGatewayKeys'.")]
     public static class ListGatewayKeys
     {
+        /// <summary>
+        /// Gateway authentication keys.
+        /// Latest API Version: 2019-12-01.
+        /// </summary>
         public static Task<ListGatewayKeysResult> InvokeAsync(ListGatewayKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListGatewayKeysResult>("azure-nextgen:apimanagement/latest:listGatewayKeys", args ?? new ListGatewayKeysArgs(), options.WithVersion());
     }

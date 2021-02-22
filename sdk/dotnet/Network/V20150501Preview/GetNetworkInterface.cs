@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
 {
     public static class GetNetworkInterface
     {
+        /// <summary>
+        /// A NetworkInterface in a resource group
+        /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-nextgen:network/v20150501preview:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
 {
     public static class GetServerEndpoint
     {
+        /// <summary>
+        /// Server Endpoint object.
+        /// </summary>
         public static Task<GetServerEndpointResult> InvokeAsync(GetServerEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerEndpointResult>("azure-nextgen:storagesync/v20200901:getServerEndpoint", args ?? new GetServerEndpointArgs(), options.WithVersion());
     }

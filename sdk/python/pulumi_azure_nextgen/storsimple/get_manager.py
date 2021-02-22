@@ -143,7 +143,9 @@ def get_manager(manager_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagerResult:
     """
-    Use this data source to access information about an existing resource.
+    The StorSimple Manager.
+    API Version: 2017-06-01.
+
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name

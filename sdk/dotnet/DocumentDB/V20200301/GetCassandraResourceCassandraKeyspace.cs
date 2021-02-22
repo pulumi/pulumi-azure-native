@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200301
 {
     public static class GetCassandraResourceCassandraKeyspace
     {
+        /// <summary>
+        /// An Azure Cosmos DB Cassandra keyspace.
+        /// </summary>
         public static Task<GetCassandraResourceCassandraKeyspaceResult> InvokeAsync(GetCassandraResourceCassandraKeyspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraResourceCassandraKeyspaceResult>("azure-nextgen:documentdb/v20200301:getCassandraResourceCassandraKeyspace", args ?? new GetCassandraResourceCassandraKeyspaceArgs(), options.WithVersion());
     }

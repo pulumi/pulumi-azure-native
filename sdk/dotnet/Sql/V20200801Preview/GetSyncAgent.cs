@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 {
     public static class GetSyncAgent
     {
+        /// <summary>
+        /// An Azure SQL Database sync agent.
+        /// </summary>
         public static Task<GetSyncAgentResult> InvokeAsync(GetSyncAgentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSyncAgentResult>("azure-nextgen:sql/v20200801preview:getSyncAgent", args ?? new GetSyncAgentArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getServiceFabric'.")]
     public static class GetServiceFabric
     {
+        /// <summary>
+        /// A Service Fabric.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetServiceFabricResult> InvokeAsync(GetServiceFabricArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceFabricResult>("azure-nextgen:devtestlab/latest:getServiceFabric", args ?? new GetServiceFabricArgs(), options.WithVersion());
     }

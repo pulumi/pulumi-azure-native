@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.IoTCentral.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:iotcentral:getApp'.")]
     public static class GetApp
     {
+        /// <summary>
+        /// The IoT Central application.
+        /// Latest API Version: 2018-09-01.
+        /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-nextgen:iotcentral/latest:getApp", args ?? new GetAppArgs(), options.WithVersion());
     }

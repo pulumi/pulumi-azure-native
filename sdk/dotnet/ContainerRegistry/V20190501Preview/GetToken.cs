@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
 {
     public static class GetToken
     {
+        /// <summary>
+        /// An object that represents a token for a container registry.
+        /// </summary>
         public static Task<GetTokenResult> InvokeAsync(GetTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTokenResult>("azure-nextgen:containerregistry/v20190501preview:getToken", args ?? new GetTokenArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Kusto.V20200614
 {
     public static class ListClusterFollowerDatabases
     {
+        /// <summary>
+        /// The list Kusto database principals operation response.
+        /// </summary>
         public static Task<ListClusterFollowerDatabasesResult> InvokeAsync(ListClusterFollowerDatabasesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListClusterFollowerDatabasesResult>("azure-nextgen:kusto/v20200614:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesArgs(), options.WithVersion());
     }

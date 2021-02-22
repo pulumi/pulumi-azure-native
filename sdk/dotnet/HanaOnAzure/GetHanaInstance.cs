@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.HanaOnAzure
 {
     public static class GetHanaInstance
     {
+        /// <summary>
+        /// HANA instance info on Azure (ARM properties and HANA properties)
+        /// API Version: 2017-11-03-preview.
+        /// </summary>
         public static Task<GetHanaInstanceResult> InvokeAsync(GetHanaInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHanaInstanceResult>("azure-nextgen:hanaonazure:getHanaInstance", args ?? new GetHanaInstanceArgs(), options.WithVersion());
     }

@@ -95,7 +95,9 @@ def get_firewall_rule(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Data Lake Store firewall rule information.
+    API Version: 2016-11-01.
+
 
     :param str account_name: The name of the Data Lake Store account.
     :param str firewall_rule_name: The name of the firewall rule to retrieve.

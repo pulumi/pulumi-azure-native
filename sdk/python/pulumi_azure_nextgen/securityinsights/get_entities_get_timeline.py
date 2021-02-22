@@ -66,7 +66,9 @@ def get_entities_get_timeline(end_time: Optional[str] = None,
                               workspace_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntitiesGetTimelineResult:
     """
-    Use this data source to access information about an existing resource.
+    The entity timeline result operation response.
+    API Version: 2019-01-01-preview.
+
 
     :param str end_time: The end timeline date, so the results returned are before this date.
     :param str entity_id: entity ID

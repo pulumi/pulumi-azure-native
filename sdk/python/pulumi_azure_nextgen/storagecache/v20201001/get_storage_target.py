@@ -168,7 +168,8 @@ def get_storage_target(cache_name: Optional[str] = None,
                        storage_target_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTargetResult:
     """
-    Use this data source to access information about an existing resource.
+    Type of the Storage Target.
+
 
     :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param str resource_group_name: Target resource group.

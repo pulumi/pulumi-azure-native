@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DBforMariaDB
 {
     public static class GetVirtualNetworkRule
     {
+        /// <summary>
+        /// A virtual network rule.
+        /// API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-nextgen:dbformariadb:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithVersion());
     }

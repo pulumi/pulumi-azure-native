@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Shared access keys of the Domain.
+// API Version: 2020-06-01.
 func ListDomainSharedAccessKeys(ctx *pulumi.Context, args *ListDomainSharedAccessKeysArgs, opts ...pulumi.InvokeOption) (*ListDomainSharedAccessKeysResult, error) {
 	var rv ListDomainSharedAccessKeysResult
 	err := ctx.Invoke("azure-nextgen:eventgrid:listDomainSharedAccessKeys", args, &rv, opts...)

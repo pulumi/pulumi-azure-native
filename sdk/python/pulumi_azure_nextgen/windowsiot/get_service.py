@@ -166,7 +166,9 @@ def get_service(device_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    The description of the Windows IoT Device Service.
+    API Version: 2019-06-01.
+
 
     :param str device_name: The name of the Windows IoT Device Service.
     :param str resource_group_name: The name of the resource group that contains the Windows IoT Device Service.

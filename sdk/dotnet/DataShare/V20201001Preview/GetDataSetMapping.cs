@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataShare.V20201001Preview
 {
     public static class GetDataSetMapping
     {
+        /// <summary>
+        /// A data set mapping data transfer object.
+        /// </summary>
         public static Task<GetDataSetMappingResult> InvokeAsync(GetDataSetMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetMappingResult>("azure-nextgen:datashare/v20201001preview:getDataSetMapping", args ?? new GetDataSetMappingArgs(), options.WithVersion());
     }

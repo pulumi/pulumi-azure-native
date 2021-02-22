@@ -250,7 +250,8 @@ def get_route(endpoint_name: Optional[str] = None,
               route_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
-    Use this data source to access information about an existing resource.
+    Friendly Routes name mapping to the any Routes or secret related information.
+
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
     :param str profile_name: Name of the CDN profile which is unique within the resource group.

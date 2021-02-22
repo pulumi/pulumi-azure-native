@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getUser'.")]
     public static class GetUser
     {
+        /// <summary>
+        /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-nextgen:databoxedge/latest:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }

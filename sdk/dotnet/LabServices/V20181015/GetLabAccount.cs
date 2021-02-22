@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 {
     public static class GetLabAccount
     {
+        /// <summary>
+        /// Represents a lab account.
+        /// </summary>
         public static Task<GetLabAccountResult> InvokeAsync(GetLabAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountResult>("azure-nextgen:labservices/v20181015:getLabAccount", args ?? new GetLabAccountArgs(), options.WithVersion());
     }

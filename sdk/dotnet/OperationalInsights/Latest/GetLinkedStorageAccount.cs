@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getLinkedStorageAccount'.")]
     public static class GetLinkedStorageAccount
     {
+        /// <summary>
+        /// Linked storage accounts top level resource container.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetLinkedStorageAccountResult> InvokeAsync(GetLinkedStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedStorageAccountResult>("azure-nextgen:operationalinsights/latest:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountArgs(), options.WithVersion());
     }

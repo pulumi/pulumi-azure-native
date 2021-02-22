@@ -168,7 +168,8 @@ def get_web_app_source_control_slot(name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSourceControlSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Source control configuration for an app.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

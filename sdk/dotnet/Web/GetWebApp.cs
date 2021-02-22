@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class GetWebApp
     {
+        /// <summary>
+        /// A web app, a mobile app backend, or an API app.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppResult> InvokeAsync(GetWebAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppResult>("azure-nextgen:web:getWebApp", args ?? new GetWebAppArgs(), options.WithVersion());
     }

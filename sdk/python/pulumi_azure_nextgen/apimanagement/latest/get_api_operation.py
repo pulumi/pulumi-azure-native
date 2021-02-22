@@ -15,6 +15,8 @@ __all__ = [
     'get_api_operation',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiOperation'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApiOperationResult:
     """
@@ -169,13 +171,16 @@ def get_api_operation(api_id: Optional[str] = None,
                       service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiOperationResult:
     """
-    Use this data source to access information about an existing resource.
+    Api Operation details.
+    Latest API Version: 2019-12-01.
+
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param str operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_api_operation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiOperation'.")
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['operationId'] = operation_id

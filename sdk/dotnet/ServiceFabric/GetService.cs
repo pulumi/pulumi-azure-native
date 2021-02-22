@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ServiceFabric
 {
     public static class GetService
     {
+        /// <summary>
+        /// The service resource.
+        /// API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:servicefabric:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }

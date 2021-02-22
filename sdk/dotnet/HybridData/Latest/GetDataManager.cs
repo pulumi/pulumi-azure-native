@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.HybridData.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getDataManager'.")]
     public static class GetDataManager
     {
+        /// <summary>
+        /// The DataManager resource.
+        /// Latest API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetDataManagerResult> InvokeAsync(GetDataManagerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerResult>("azure-nextgen:hybriddata/latest:getDataManager", args ?? new GetDataManagerArgs(), options.WithVersion());
     }

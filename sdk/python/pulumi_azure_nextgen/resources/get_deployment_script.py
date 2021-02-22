@@ -131,7 +131,9 @@ def get_deployment_script(resource_group_name: Optional[str] = None,
                           script_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentScriptResult:
     """
-    Use this data source to access information about an existing resource.
+    Deployment script object.
+    API Version: 2020-10-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str script_name: Name of the deployment script.

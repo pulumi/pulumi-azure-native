@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualWan'.")]
     public static class GetVirtualWan
     {
+        /// <summary>
+        /// VirtualWAN Resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetVirtualWanResult> InvokeAsync(GetVirtualWanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWanResult>("azure-nextgen:network/latest:getVirtualWan", args ?? new GetVirtualWanArgs(), options.WithVersion());
     }

@@ -181,7 +181,9 @@ def get_volume_container(device_name: Optional[str] = None,
                          volume_container_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeContainerResult:
     """
-    Use this data source to access information about an existing resource.
+    The volume container.
+    API Version: 2017-06-01.
+
 
     :param str device_name: The device name
     :param str manager_name: The manager name

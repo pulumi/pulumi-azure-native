@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+// API Version: 2019-12-01.
 func ListDelegationSettingSecrets(ctx *pulumi.Context, args *ListDelegationSettingSecretsArgs, opts ...pulumi.InvokeOption) (*ListDelegationSettingSecretsResult, error) {
 	var rv ListDelegationSettingSecretsResult
 	err := ctx.Invoke("azure-nextgen:apimanagement:listDelegationSettingSecrets", args, &rv, opts...)

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Configures where to store the OMS agent data for workspaces under a scope
+// API Version: 2017-08-01-preview.
 func LookupWorkspaceSetting(ctx *pulumi.Context, args *LookupWorkspaceSettingArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceSettingResult, error) {
 	var rv LookupWorkspaceSettingResult
 	err := ctx.Invoke("azure-nextgen:security:getWorkspaceSetting", args, &rv, opts...)

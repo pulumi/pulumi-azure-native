@@ -144,7 +144,9 @@ def get_event_hub_connection(cluster_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Class representing an event hub connection.
+    API Version: 2018-09-07-preview.
+
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Aad.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getDomainService'.")]
     public static class GetDomainService
     {
+        /// <summary>
+        /// Domain service.
+        /// Latest API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetDomainServiceResult> InvokeAsync(GetDomainServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-nextgen:aad/latest:getDomainService", args ?? new GetDomainServiceArgs(), options.WithVersion());
     }

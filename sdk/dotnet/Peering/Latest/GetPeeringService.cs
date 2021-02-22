@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Peering.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeeringService'.")]
     public static class GetPeeringService
     {
+        /// <summary>
+        /// Peering Service
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetPeeringServiceResult> InvokeAsync(GetPeeringServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-nextgen:peering/latest:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithVersion());
     }

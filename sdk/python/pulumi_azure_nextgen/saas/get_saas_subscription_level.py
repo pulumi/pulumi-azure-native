@@ -95,7 +95,9 @@ def get_saas_subscription_level(resource_group_name: Optional[str] = None,
                                 resource_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSaasSubscriptionLevelResult:
     """
-    Use this data source to access information about an existing resource.
+    SaaS REST API resource definition.
+    API Version: 2018-03-01-beta.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the resource.

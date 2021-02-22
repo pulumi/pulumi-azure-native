@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Compute.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getSshPublicKey'.")]
     public static class GetSshPublicKey
     {
+        /// <summary>
+        /// Specifies information about the SSH public key.
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetSshPublicKeyResult> InvokeAsync(GetSshPublicKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSshPublicKeyResult>("azure-nextgen:compute/latest:getSshPublicKey", args ?? new GetSshPublicKeyArgs(), options.WithVersion());
     }

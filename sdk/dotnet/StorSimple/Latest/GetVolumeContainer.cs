@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getVolumeContainer'.")]
     public static class GetVolumeContainer
     {
+        /// <summary>
+        /// The volume container.
+        /// Latest API Version: 2017-06-01.
+        /// </summary>
         public static Task<GetVolumeContainerResult> InvokeAsync(GetVolumeContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeContainerResult>("azure-nextgen:storsimple/latest:getVolumeContainer", args ?? new GetVolumeContainerArgs(), options.WithVersion());
     }

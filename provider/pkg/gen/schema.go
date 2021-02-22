@@ -506,21 +506,9 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
 	}
 
-	var deprecationMessage string
-	resourceDescription := resourceResponse.description
-	switch g.apiVersion {
-	case "":
-		resourceDescription = fmt.Sprintf("%s\nAPI Version: %s.", resourceDescription, swagger.Info.Version)
-	case "latest":
-		resourceDescription = fmt.Sprintf("%s\nLatest API Version: %s.", resourceDescription, swagger.Info.Version)
-		topToken := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, providerApiToModule(prov, ""), typeName)
-		deprecationMessage =
-			fmt.Sprintf("The 'latest' version is deprecated. Please migrate to the resource in the top-level module: '%s'.", topToken)
-	}
-
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: resourceDescription,
+			Description: g.formatDescription(resourceResponse, swagger.Info),
 			Type:        "object",
 			Properties:  resourceResponse.specs,
 			Required:    resourceResponse.requiredSpecs.SortedValues(),
@@ -528,7 +516,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 		InputProperties:    resourceRequest.specs,
 		RequiredInputs:     resourceRequest.requiredSpecs.SortedValues(),
 		Aliases:            aliases,
-		DeprecationMessage: deprecationMessage,
+		DeprecationMessage: g.formatDeprecationMessage("resource", prov, typeName),
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
 
@@ -563,6 +551,8 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 
 	if path.Get != nil {
 		functionSpec := pschema.FunctionSpec{
+			Description:        g.formatDescription(resourceResponse, swagger.Info),
+			DeprecationMessage: g.formatDeprecationMessage("function", prov, fmt.Sprintf("get%s", typeName)),
 			Inputs: &pschema.ObjectTypeSpec{
 				Description: requestFunction.description,
 				Type:        "object",
@@ -702,6 +692,8 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 	}
 
 	functionSpec := pschema.FunctionSpec{
+		Description:        g.formatDescription(response, swagger.Info),
+		DeprecationMessage: g.formatDeprecationMessage("function", prov, typeName),
 		Inputs: &pschema.ObjectTypeSpec{
 			Description: request.description,
 			Type:        "object",
@@ -735,6 +727,24 @@ func providerApiToModule(prov, apiVersion string) string {
 		return strings.ToLower(prov)
 	}
 	return fmt.Sprintf("%s/%s", strings.ToLower(prov), apiVersion)
+}
+
+func (g *packageGenerator) formatDescription(response *propertyBag, info *spec.Info) string {
+	switch g.apiVersion {
+	case "":
+		return fmt.Sprintf("%s\nAPI Version: %s.", response.description, info.Version)
+	case "latest":
+		return fmt.Sprintf("%s\nLatest API Version: %s.", response.description, info.Version)
+	}
+	return response.description
+}
+
+func (g *packageGenerator) formatDeprecationMessage(kind, prov, typeName string) string {
+	if g.apiVersion == "latest" {
+		topToken := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, providerApiToModule(prov, ""), typeName)
+		return fmt.Sprintf("The 'latest' version is deprecated. Please migrate to the %s in the top-level module: '%s'.", kind, topToken)
+	}
+	return ""
 }
 
 func (g *packageGenerator) getAsyncStyle(op *spec.Operation) string {

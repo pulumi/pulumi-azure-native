@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getLab'.")]
     public static class GetLab
     {
+        /// <summary>
+        /// A lab.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-nextgen:devtestlab/latest:getLab", args ?? new GetLabArgs(), options.WithVersion());
     }

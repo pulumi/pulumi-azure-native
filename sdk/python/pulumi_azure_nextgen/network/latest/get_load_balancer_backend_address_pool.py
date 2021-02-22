@@ -15,6 +15,8 @@ __all__ = [
     'get_load_balancer_backend_address_pool',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getLoadBalancerBackendAddressPool'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLoadBalancerBackendAddressPoolResult:
     """
@@ -168,12 +170,15 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerBackendAddressPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    Pool of backend IP addresses.
+    Latest API Version: 2020-08-01.
+
 
     :param str backend_address_pool_name: The name of the backend address pool.
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_load_balancer_backend_address_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getLoadBalancerBackendAddressPool'.")
     __args__ = dict()
     __args__['backendAddressPoolName'] = backend_address_pool_name
     __args__['loadBalancerName'] = load_balancer_name

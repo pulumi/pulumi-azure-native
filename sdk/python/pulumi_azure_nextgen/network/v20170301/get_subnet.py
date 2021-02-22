@@ -145,7 +145,8 @@ def get_subnet(expand: Optional[str] = None,
                virtual_network_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetResult:
     """
-    Use this data source to access information about an existing resource.
+    Subnet in a virtual network resource.
+
 
     :param str expand: Expands referenced resources.
     :param str resource_group_name: The name of the resource group.

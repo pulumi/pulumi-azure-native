@@ -14,6 +14,8 @@ __all__ = [
     'get_support_plan_type',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:addons:getSupportPlanType'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSupportPlanTypeResult:
     """
@@ -82,11 +84,14 @@ def get_support_plan_type(plan_type_name: Optional[str] = None,
                           provider_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSupportPlanTypeResult:
     """
-    Use this data source to access information about an existing resource.
+    The status of the Canonical support plan.
+    Latest API Version: 2018-03-01.
+
 
     :param str plan_type_name: The Canonical support plan type.
     :param str provider_name: The support plan type. For now the only valid type is "canonical".
     """
+    pulumi.log.warn("get_support_plan_type is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:addons:getSupportPlanType'.")
     __args__ = dict()
     __args__['planTypeName'] = plan_type_name
     __args__['providerName'] = provider_name

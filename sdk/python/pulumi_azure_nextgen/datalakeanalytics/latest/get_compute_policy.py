@@ -14,6 +14,8 @@ __all__ = [
     'get_compute_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:getComputePolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetComputePolicyResult:
     """
@@ -119,12 +121,15 @@ def get_compute_policy(account_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComputePolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Data Lake Analytics compute policy information.
+    Latest API Version: 2016-11-01.
+
 
     :param str account_name: The name of the Data Lake Analytics account.
     :param str compute_policy_name: The name of the compute policy to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
+    pulumi.log.warn("get_compute_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:getComputePolicy'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['computePolicyName'] = compute_policy_name

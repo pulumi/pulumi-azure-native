@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// List of the EngagementFabric channel descriptions
 func ListAccountChannelTypes(ctx *pulumi.Context, args *ListAccountChannelTypesArgs, opts ...pulumi.InvokeOption) (*ListAccountChannelTypesResult, error) {
 	var rv ListAccountChannelTypesResult
 	err := ctx.Invoke("azure-nextgen:engagementfabric/v20180901preview:listAccountChannelTypes", args, &rv, opts...)

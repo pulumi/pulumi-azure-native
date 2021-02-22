@@ -239,7 +239,8 @@ def get_virtual_machine_scale_set(resource_group_name: Optional[str] = None,
                                   vm_scale_set_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a Virtual Machine Scale Set.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set.

@@ -203,7 +203,9 @@ def get_assignment(assignment_name: Optional[str] = None,
                    resource_scope: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a blueprint assignment.
+    API Version: 2018-11-01-preview.
+
 
     :param str assignment_name: Name of the blueprint assignment.
     :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').

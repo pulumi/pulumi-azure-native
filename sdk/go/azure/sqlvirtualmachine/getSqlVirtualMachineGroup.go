@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A SQL virtual machine group.
+// API Version: 2017-03-01-preview.
 func LookupSqlVirtualMachineGroup(ctx *pulumi.Context, args *LookupSqlVirtualMachineGroupArgs, opts ...pulumi.InvokeOption) (*LookupSqlVirtualMachineGroupResult, error) {
 	var rv LookupSqlVirtualMachineGroupResult
 	err := ctx.Invoke("azure-nextgen:sqlvirtualmachine:getSqlVirtualMachineGroup", args, &rv, opts...)

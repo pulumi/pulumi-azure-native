@@ -14,6 +14,8 @@ __all__ = [
     'list_batch_account_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:listBatchAccountKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListBatchAccountKeysResult:
     """
@@ -70,11 +72,14 @@ def list_batch_account_keys(account_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBatchAccountKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    A set of Azure Batch account keys.
+    Latest API Version: 2021-01-01.
+
 
     :param str account_name: The name of the Batch account.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
+    pulumi.log.warn("list_batch_account_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:listBatchAccountKeys'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

@@ -15,6 +15,8 @@ __all__ = [
     'get_linked_service',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getLinkedService'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLinkedServiceResult:
     """
@@ -96,12 +98,15 @@ def get_linked_service(factory_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Linked service resource type.
+    Latest API Version: 2018-06-01.
+
 
     :param str factory_name: The factory name.
     :param str linked_service_name: The linked service name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_linked_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getLinkedService'.")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['linkedServiceName'] = linked_service_name

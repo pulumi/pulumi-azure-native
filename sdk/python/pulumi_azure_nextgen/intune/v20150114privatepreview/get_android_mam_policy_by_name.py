@@ -275,7 +275,8 @@ def get_android_mam_policy_by_name(host_name: Optional[str] = None,
                                    select: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAndroidMAMPolicyByNameResult:
     """
-    Use this data source to access information about an existing resource.
+    Android Policy entity for Intune MAM.
+
 
     :param str host_name: Location hostName for the tenant
     :param str policy_name: Unique name for the policy

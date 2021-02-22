@@ -14,6 +14,8 @@ __all__ = [
     'get_application_package',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getApplicationPackage'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationPackageResult:
     """
@@ -144,13 +146,16 @@ def get_application_package(account_name: Optional[str] = None,
                             version_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationPackageResult:
     """
-    Use this data source to access information about an existing resource.
+    An application package which represents a particular version of an application.
+    Latest API Version: 2021-01-01.
+
 
     :param str account_name: The name of the Batch account.
     :param str application_name: The name of the application. This must be unique within the account.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     :param str version_name: The version of the application.
     """
+    pulumi.log.warn("get_application_package is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getApplicationPackage'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['applicationName'] = application_name

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Machine Learning service object wrapped into ARM resource envelope.
 func LookupMachineLearningService(ctx *pulumi.Context, args *LookupMachineLearningServiceArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningServiceResult, error) {
 	var rv LookupMachineLearningServiceResult
 	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20200901preview:getMachineLearningService", args, &rv, opts...)

@@ -92,7 +92,8 @@ def get_workflow_access_key(access_key_name: Optional[str] = None,
                             workflow_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkflowAccessKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    API Version: 2015-02-01-preview.
+
 
     :param str access_key_name: The workflow access key name.
     :param str resource_group_name: The resource group name.

@@ -15,6 +15,8 @@ __all__ = [
     'get_report_config_by_resource_group_name',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getReportConfigByResourceGroupName'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReportConfigByResourceGroupNameResult:
     """
@@ -131,11 +133,14 @@ def get_report_config_by_resource_group_name(report_config_name: Optional[str] =
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportConfigByResourceGroupNameResult:
     """
-    Use this data source to access information about an existing resource.
+    A report config resource.
+    Latest API Version: 2018-05-31.
+
 
     :param str report_config_name: Report Config Name.
     :param str resource_group_name: Azure Resource Group Name.
     """
+    pulumi.log.warn("get_report_config_by_resource_group_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getReportConfigByResourceGroupName'.")
     __args__ = dict()
     __args__['reportConfigName'] = report_config_name
     __args__['resourceGroupName'] = resource_group_name

@@ -47,7 +47,8 @@ def get_lab_account_regional_availability(lab_account_name: Optional[str] = None
                                           resource_group_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabAccountRegionalAvailabilityResult:
     """
-    Use this data source to access information about an existing resource.
+    The response model from the GetRegionalAvailability action
+
 
     :param str lab_account_name: The name of the lab Account.
     :param str resource_group_name: The name of the resource group.

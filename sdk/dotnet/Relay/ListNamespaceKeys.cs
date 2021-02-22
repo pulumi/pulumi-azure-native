@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Relay
 {
     public static class ListNamespaceKeys
     {
+        /// <summary>
+        /// Namespace/Relay Connection String
+        /// API Version: 2017-04-01.
+        /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-nextgen:relay:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
     }

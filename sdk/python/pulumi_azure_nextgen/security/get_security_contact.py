@@ -118,7 +118,9 @@ class AwaitableGetSecurityContactResult(GetSecurityContactResult):
 def get_security_contact(security_contact_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityContactResult:
     """
-    Use this data source to access information about an existing resource.
+    Contact details and configurations for notifications coming from Azure Security Center.
+    API Version: 2020-01-01-preview.
+
 
     :param str security_contact_name: Name of the security contact object
     """

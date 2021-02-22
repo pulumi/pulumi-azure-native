@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Factory resource type.
+// API Version: 2018-06-01.
 func LookupFactory(ctx *pulumi.Context, args *LookupFactoryArgs, opts ...pulumi.InvokeOption) (*LookupFactoryResult, error) {
 	var rv LookupFactoryResult
 	err := ctx.Invoke("azure-nextgen:datafactory:getFactory", args, &rv, opts...)

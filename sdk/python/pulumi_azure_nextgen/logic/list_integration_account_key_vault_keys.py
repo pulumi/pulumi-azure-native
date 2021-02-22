@@ -62,7 +62,9 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[s
                                             skip_token: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountKeyVaultKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Collection of key vault keys.
+    API Version: 2019-05-01.
+
 
     :param str integration_account_name: The integration account name.
     :param pulumi.InputType['KeyVaultReferenceArgs'] key_vault: The key vault reference.

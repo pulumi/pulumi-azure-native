@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Lists the labs owned by a user
+// API Version: 2018-10-15.
 func ListGlobalUserLabs(ctx *pulumi.Context, args *ListGlobalUserLabsArgs, opts ...pulumi.InvokeOption) (*ListGlobalUserLabsResult, error) {
 	var rv ListGlobalUserLabsResult
 	err := ctx.Invoke("azure-nextgen:labservices:listGlobalUserLabs", args, &rv, opts...)

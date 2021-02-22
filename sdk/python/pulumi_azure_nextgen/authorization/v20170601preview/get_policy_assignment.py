@@ -167,7 +167,8 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
                           scope: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    The policy assignment.
+
 
     :param str policy_assignment_name: The name of the policy assignment to get.
     :param str scope: The scope of the policy assignment.

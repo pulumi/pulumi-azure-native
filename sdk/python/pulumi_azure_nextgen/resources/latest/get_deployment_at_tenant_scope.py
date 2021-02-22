@@ -15,6 +15,8 @@ __all__ = [
     'get_deployment_at_tenant_scope',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtTenantScope'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDeploymentAtTenantScopeResult:
     """
@@ -106,10 +108,13 @@ class AwaitableGetDeploymentAtTenantScopeResult(GetDeploymentAtTenantScopeResult
 def get_deployment_at_tenant_scope(deployment_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtTenantScopeResult:
     """
-    Use this data source to access information about an existing resource.
+    Deployment information.
+    Latest API Version: 2020-10-01.
+
 
     :param str deployment_name: The name of the deployment.
     """
+    pulumi.log.warn("get_deployment_at_tenant_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtTenantScope'.")
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     if opts is None:

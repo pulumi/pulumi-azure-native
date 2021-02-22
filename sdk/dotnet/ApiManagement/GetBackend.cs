@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetBackend
     {
+        /// <summary>
+        /// Backend details.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetBackendResult> InvokeAsync(GetBackendArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackendResult>("azure-nextgen:apimanagement:getBackend", args ?? new GetBackendArgs(), options.WithVersion());
     }

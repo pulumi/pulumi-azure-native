@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
 {
     public static class GetDatabaseThreatDetectionPolicy
     {
+        /// <summary>
+        /// Contains information about a database Threat Detection policy.
+        /// </summary>
         public static Task<GetDatabaseThreatDetectionPolicyResult> InvokeAsync(GetDatabaseThreatDetectionPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseThreatDetectionPolicyResult>("azure-nextgen:sql/v20140401:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyArgs(), options.WithVersion());
     }

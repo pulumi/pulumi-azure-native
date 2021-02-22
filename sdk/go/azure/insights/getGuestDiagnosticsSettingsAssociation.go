@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Virtual machine guest diagnostic settings resource.
+// API Version: 2018-06-01-preview.
 func LookupGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context, args *LookupGuestDiagnosticsSettingsAssociationArgs, opts ...pulumi.InvokeOption) (*LookupGuestDiagnosticsSettingsAssociationResult, error) {
 	var rv LookupGuestDiagnosticsSettingsAssociationResult
 	err := ctx.Invoke("azure-nextgen:insights:getGuestDiagnosticsSettingsAssociation", args, &rv, opts...)

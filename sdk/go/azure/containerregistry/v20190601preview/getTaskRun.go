@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The task run that has the ARM resource and properties.
+// The task run will have the information of request and result of a run.
 func LookupTaskRun(ctx *pulumi.Context, args *LookupTaskRunArgs, opts ...pulumi.InvokeOption) (*LookupTaskRunResult, error) {
 	var rv LookupTaskRunResult
 	err := ctx.Invoke("azure-nextgen:containerregistry/v20190601preview:getTaskRun", args, &rv, opts...)

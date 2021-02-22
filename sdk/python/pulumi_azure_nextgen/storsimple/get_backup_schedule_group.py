@@ -85,7 +85,9 @@ def get_backup_schedule_group(device_name: Optional[str] = None,
                               schedule_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupScheduleGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    The Backup Schedule Group
+    API Version: 2016-10-01.
+
 
     :param str device_name: The name of the device.
     :param str manager_name: The manager name

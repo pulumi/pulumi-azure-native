@@ -156,7 +156,8 @@ def get_sql_database(resource_group_name: Optional[str] = None,
                      workspace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlDatabaseResult:
     """
-    Use this data source to access information about an existing resource.
+    A sql database resource.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sql_database_name: The name of the sql database.

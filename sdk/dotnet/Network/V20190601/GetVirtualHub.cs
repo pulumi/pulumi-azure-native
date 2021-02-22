@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20190601
 {
     public static class GetVirtualHub
     {
+        /// <summary>
+        /// VirtualHub Resource.
+        /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure-nextgen:network/v20190601:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithVersion());
     }

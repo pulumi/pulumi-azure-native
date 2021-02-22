@@ -252,7 +252,8 @@ def get_server_farm(name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerFarmResult:
     """
-    Use this data source to access information about an existing resource.
+    App Service Plan Model
+
 
     :param str name: Name of App Service Plan
     :param str resource_group_name: Name of resource group

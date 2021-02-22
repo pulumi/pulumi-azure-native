@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Credentials and other properties of NotebookProxy resource
+ */
 export function listNotebookProxyCredentials(args: ListNotebookProxyCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListNotebookProxyCredentialsResult> {
     if (!opts) {
         opts = {}

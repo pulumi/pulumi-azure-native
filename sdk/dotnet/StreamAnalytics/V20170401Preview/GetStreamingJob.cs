@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 {
     public static class GetStreamingJob
     {
+        /// <summary>
+        /// A streaming job object, containing all information associated with the named streaming job.
+        /// </summary>
         public static Task<GetStreamingJobResult> InvokeAsync(GetStreamingJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingJobResult>("azure-nextgen:streamanalytics/v20170401preview:getStreamingJob", args ?? new GetStreamingJobArgs(), options.WithVersion());
     }

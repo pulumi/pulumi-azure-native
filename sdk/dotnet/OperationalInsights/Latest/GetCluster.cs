@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getCluster'.")]
     public static class GetCluster
     {
+        /// <summary>
+        /// The top level Log Analytics cluster resource container.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:operationalinsights/latest:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

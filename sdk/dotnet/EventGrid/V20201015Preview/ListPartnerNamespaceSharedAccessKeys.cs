@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
 {
     public static class ListPartnerNamespaceSharedAccessKeys
     {
+        /// <summary>
+        /// Shared access keys of the partner namespace.
+        /// </summary>
         public static Task<ListPartnerNamespaceSharedAccessKeysResult> InvokeAsync(ListPartnerNamespaceSharedAccessKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListPartnerNamespaceSharedAccessKeysResult>("azure-nextgen:eventgrid/v20201015preview:listPartnerNamespaceSharedAccessKeys", args ?? new ListPartnerNamespaceSharedAccessKeysArgs(), options.WithVersion());
     }

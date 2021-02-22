@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The resource that defines the source location where the artifacts are located.
 func LookupArtifactSource(ctx *pulumi.Context, args *LookupArtifactSourceArgs, opts ...pulumi.InvokeOption) (*LookupArtifactSourceResult, error) {
 	var rv LookupArtifactSourceResult
 	err := ctx.Invoke("azure-nextgen:deploymentmanager/v20180901preview:getArtifactSource", args, &rv, opts...)

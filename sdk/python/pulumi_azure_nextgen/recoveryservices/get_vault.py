@@ -155,7 +155,9 @@ def get_vault(resource_group_name: Optional[str] = None,
               vault_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVaultResult:
     """
-    Use this data source to access information about an existing resource.
+    Resource information, as returned by the resource provider.
+    API Version: 2020-10-01.
+
 
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.

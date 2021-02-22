@@ -180,7 +180,8 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
                        sync_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    Cloud Endpoint object.
+
 
     :param str cloud_endpoint_name: Name of Cloud Endpoint object.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

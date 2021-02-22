@@ -155,7 +155,8 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDdosCustomPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    A DDoS custom policy in a resource group.
+
 
     :param str ddos_custom_policy_name: The name of the DDoS custom policy.
     :param str resource_group_name: The name of the resource group.

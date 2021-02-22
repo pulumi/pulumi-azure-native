@@ -118,7 +118,8 @@ def get_server_administrator(resource_group_name: Optional[str] = None,
                              server_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerAdministratorResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a and external administrator to be created.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AVS
 {
     public static class GetAuthorization
     {
+        /// <summary>
+        /// ExpressRoute Circuit Authorization
+        /// API Version: 2020-03-20.
+        /// </summary>
         public static Task<GetAuthorizationResult> InvokeAsync(GetAuthorizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-nextgen:avs:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithVersion());
     }

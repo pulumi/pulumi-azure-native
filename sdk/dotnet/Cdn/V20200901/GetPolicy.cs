@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 {
     public static class GetPolicy
     {
+        /// <summary>
+        /// Defines web application firewall policy for Azure CDN.
+        /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-nextgen:cdn/v20200901:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 {
     public static class ListNamespaceKeys
     {
+        /// <summary>
+        /// Namespace/EventHub Connection String
+        /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-nextgen:eventhub/v20180101preview:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
     }

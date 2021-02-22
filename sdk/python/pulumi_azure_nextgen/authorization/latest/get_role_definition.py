@@ -15,6 +15,8 @@ __all__ = [
     'get_role_definition',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getRoleDefinition'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRoleDefinitionResult:
     """
@@ -131,11 +133,14 @@ def get_role_definition(role_definition_id: Optional[str] = None,
                         scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    Role definition.
+    Latest API Version: 2015-07-01.
+
 
     :param str role_definition_id: The ID of the role definition.
     :param str scope: The scope of the role definition.
     """
+    pulumi.log.warn("get_role_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getRoleDefinition'.")
     __args__ = dict()
     __args__['roleDefinitionId'] = role_definition_id
     __args__['scope'] = scope

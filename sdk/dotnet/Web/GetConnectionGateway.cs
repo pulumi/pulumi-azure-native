@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class GetConnectionGateway
     {
+        /// <summary>
+        /// The gateway definition
+        /// API Version: 2016-06-01.
+        /// </summary>
         public static Task<GetConnectionGatewayResult> InvokeAsync(GetConnectionGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGatewayResult>("azure-nextgen:web:getConnectionGateway", args ?? new GetConnectionGatewayArgs(), options.WithVersion());
     }

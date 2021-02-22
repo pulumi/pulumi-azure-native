@@ -70,7 +70,9 @@ def list_account_keys(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+    API Version: 2018-05-01.
+
 
     :param str account_name: The name of the Maps Account.
     :param str resource_group_name: The name of the Azure Resource Group.

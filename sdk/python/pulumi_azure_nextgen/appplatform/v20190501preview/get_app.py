@@ -109,7 +109,8 @@ def get_app(app_name: Optional[str] = None,
             sync_status: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
-    Use this data source to access information about an existing resource.
+    App resource payload
+
 
     :param str app_name: The name of the App resource.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

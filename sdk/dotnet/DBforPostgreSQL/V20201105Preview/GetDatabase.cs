@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201105Preview
 {
     public static class GetDatabase
     {
+        /// <summary>
+        /// Represents a Database.
+        /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:dbforpostgresql/v20201105preview:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }

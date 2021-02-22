@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSite
     {
+        /// <summary>
+        /// Represents a web app
+        /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-nextgen:web/v20150801:getSite", args ?? new GetSiteArgs(), options.WithVersion());
     }

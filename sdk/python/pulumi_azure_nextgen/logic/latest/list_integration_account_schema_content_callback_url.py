@@ -16,6 +16,8 @@ __all__ = [
     'list_integration_account_schema_content_callback_url',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountSchemaContentCallbackUrl'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListIntegrationAccountSchemaContentCallbackUrlResult:
     """
@@ -111,7 +113,9 @@ def list_integration_account_schema_content_callback_url(integration_account_nam
                                                          schema_name: Optional[str] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountSchemaContentCallbackUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    The workflow trigger callback URL.
+    Latest API Version: 2019-05-01.
+
 
     :param str integration_account_name: The integration account name.
     :param Union[str, 'KeyType'] key_type: The key type.
@@ -119,6 +123,7 @@ def list_integration_account_schema_content_callback_url(integration_account_nam
     :param str resource_group_name: The resource group name.
     :param str schema_name: The integration account schema name.
     """
+    pulumi.log.warn("list_integration_account_schema_content_callback_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountSchemaContentCallbackUrl'.")
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
     __args__['keyType'] = key_type

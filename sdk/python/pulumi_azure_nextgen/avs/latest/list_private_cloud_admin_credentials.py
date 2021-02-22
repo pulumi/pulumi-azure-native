@@ -14,6 +14,8 @@ __all__ = [
     'list_private_cloud_admin_credentials',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:listPrivateCloudAdminCredentials'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListPrivateCloudAdminCredentialsResult:
     """
@@ -82,11 +84,14 @@ def list_private_cloud_admin_credentials(private_cloud_name: Optional[str] = Non
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPrivateCloudAdminCredentialsResult:
     """
-    Use this data source to access information about an existing resource.
+    Administrative credentials for accessing vCenter and NSX-T
+    Latest API Version: 2020-03-20.
+
 
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("list_private_cloud_admin_credentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:listPrivateCloudAdminCredentials'.")
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name

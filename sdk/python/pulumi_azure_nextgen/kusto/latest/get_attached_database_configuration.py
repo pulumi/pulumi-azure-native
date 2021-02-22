@@ -14,6 +14,8 @@ __all__ = [
     'get_attached_database_configuration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getAttachedDatabaseConfiguration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAttachedDatabaseConfigurationResult:
     """
@@ -143,12 +145,15 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDatabaseConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Class representing an attached database configuration.
+    Latest API Version: 2020-09-18.
+
 
     :param str attached_database_configuration_name: The name of the attached database configuration.
     :param str cluster_name: The name of the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("get_attached_database_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getAttachedDatabaseConfiguration'.")
     __args__ = dict()
     __args__['attachedDatabaseConfigurationName'] = attached_database_configuration_name
     __args__['clusterName'] = cluster_name

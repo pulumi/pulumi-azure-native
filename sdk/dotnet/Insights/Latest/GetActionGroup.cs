@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Insights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getActionGroup'.")]
     public static class GetActionGroup
     {
+        /// <summary>
+        /// An action group resource.
+        /// Latest API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure-nextgen:insights/latest:getActionGroup", args ?? new GetActionGroupArgs(), options.WithVersion());
     }

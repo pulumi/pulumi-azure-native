@@ -47,7 +47,8 @@ def list_workflow_run_action_repetition_expression_traces(action_name: Optional[
                                                           workflow_name: Optional[str] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowRunActionRepetitionExpressionTracesResult:
     """
-    Use this data source to access information about an existing resource.
+    The expression traces.
+
 
     :param str action_name: The workflow action name.
     :param str repetition_name: The workflow repetition.

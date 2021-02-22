@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Class that represents a BizTalk Hybrid Connection
 func LookupSiteRelayServiceConnectionSlot(ctx *pulumi.Context, args *LookupSiteRelayServiceConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteRelayServiceConnectionSlotResult, error) {
 	var rv LookupSiteRelayServiceConnectionSlotResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteRelayServiceConnectionSlot", args, &rv, opts...)

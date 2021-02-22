@@ -156,7 +156,8 @@ def get_integration_account_certificate(certificate_name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    The integration account certificate.
+
 
     :param str certificate_name: The integration account certificate name.
     :param str integration_account_name: The integration account name.

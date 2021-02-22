@@ -156,7 +156,8 @@ def get_virtual_network_link(private_zone_name: Optional[str] = None,
                              virtual_network_link_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkLinkResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a link to virtual network for a Private DNS zone.
+
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param str resource_group_name: The name of the resource group.

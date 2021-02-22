@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents order contract
+ */
 export function getOrderByName(args: GetOrderByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderByNameResult> {
     if (!opts) {
         opts = {}

@@ -15,6 +15,8 @@ __all__ = [
     'get_table_resource_table',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getTableResourceTable'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTableResourceTableResult:
     """
@@ -114,12 +116,15 @@ def get_table_resource_table(account_name: Optional[str] = None,
                              table_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResourceTableResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB Table.
+    Latest API Version: 2021-01-15.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str table_name: Cosmos DB table name.
     """
+    pulumi.log.warn("get_table_resource_table is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getTableResourceTable'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listScheduleApplicable'.")]
     public static class ListScheduleApplicable
     {
+        /// <summary>
+        /// The response of a list operation.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<ListScheduleApplicableResult> InvokeAsync(ListScheduleApplicableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azure-nextgen:devtestlab/latest:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithVersion());
     }

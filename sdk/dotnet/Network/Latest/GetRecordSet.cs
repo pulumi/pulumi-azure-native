@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRecordSet'.")]
     public static class GetRecordSet
     {
+        /// <summary>
+        /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+        /// Latest API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-nextgen:network/latest:getRecordSet", args ?? new GetRecordSetArgs(), options.WithVersion());
     }

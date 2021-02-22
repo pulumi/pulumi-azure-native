@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Guest Usages Resource
+// API Version: 2020-05-01-preview.
 func LookupGuestUsage(ctx *pulumi.Context, args *LookupGuestUsageArgs, opts ...pulumi.InvokeOption) (*LookupGuestUsageResult, error) {
 	var rv LookupGuestUsageResult
 	err := ctx.Invoke("azure-nextgen:azureactivedirectory:getGuestUsage", args, &rv, opts...)

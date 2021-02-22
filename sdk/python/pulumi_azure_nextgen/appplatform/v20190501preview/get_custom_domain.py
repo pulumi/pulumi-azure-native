@@ -85,7 +85,8 @@ def get_custom_domain(app_name: Optional[str] = None,
                       service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDomainResult:
     """
-    Use this data source to access information about an existing resource.
+    Custom domain resource payload.
+
 
     :param str app_name: The name of the App resource.
     :param str domain_name: The name of the custom domain resource.

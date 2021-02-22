@@ -15,6 +15,8 @@ __all__ = [
     'get_manager',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManager'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagerResult:
     """
@@ -143,11 +145,14 @@ def get_manager(manager_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagerResult:
     """
-    Use this data source to access information about an existing resource.
+    The StorSimple Manager.
+    Latest API Version: 2017-06-01.
+
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
+    pulumi.log.warn("get_manager is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManager'.")
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name

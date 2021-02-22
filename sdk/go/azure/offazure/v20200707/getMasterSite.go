@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Site REST Resource.
 func LookupMasterSite(ctx *pulumi.Context, args *LookupMasterSiteArgs, opts ...pulumi.InvokeOption) (*LookupMasterSiteResult, error) {
 	var rv LookupMasterSiteResult
 	err := ctx.Invoke("azure-nextgen:offazure/v20200707:getMasterSite", args, &rv, opts...)

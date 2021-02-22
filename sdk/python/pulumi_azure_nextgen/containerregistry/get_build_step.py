@@ -85,7 +85,9 @@ def get_build_step(build_task_name: Optional[str] = None,
                    step_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildStepResult:
     """
-    Use this data source to access information about an existing resource.
+    Build step resource properties
+    API Version: 2018-02-01-preview.
+
 
     :param str build_task_name: The name of the container registry build task.
     :param str registry_name: The name of the container registry.

@@ -15,6 +15,8 @@ __all__ = [
     'get_route_filter',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRouteFilter'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRouteFilterResult:
     """
@@ -156,12 +158,15 @@ def get_route_filter(expand: Optional[str] = None,
                      route_filter_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteFilterResult:
     """
-    Use this data source to access information about an existing resource.
+    Route Filter Resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str expand: Expands referenced express route bgp peering resources.
     :param str resource_group_name: The name of the resource group.
     :param str route_filter_name: The name of the route filter.
     """
+    pulumi.log.warn("get_route_filter is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRouteFilter'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

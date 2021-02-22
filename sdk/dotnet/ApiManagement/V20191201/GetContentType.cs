@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 {
     public static class GetContentType
     {
+        /// <summary>
+        /// Content type contract details.
+        /// </summary>
         public static Task<GetContentTypeResult> InvokeAsync(GetContentTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContentTypeResult>("azure-nextgen:apimanagement/v20191201:getContentType", args ?? new GetContentTypeArgs(), options.WithVersion());
     }

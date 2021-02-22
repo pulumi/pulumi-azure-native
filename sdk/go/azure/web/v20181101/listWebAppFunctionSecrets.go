@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Function secrets.
 func ListWebAppFunctionSecrets(ctx *pulumi.Context, args *ListWebAppFunctionSecretsArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionSecretsResult, error) {
 	var rv ListWebAppFunctionSecretsResult
 	err := ctx.Invoke("azure-nextgen:web/v20181101:listWebAppFunctionSecrets", args, &rv, opts...)

@@ -15,6 +15,8 @@ __all__ = [
     'get_database_account_mongo_db_collection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountMongoDBCollection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDatabaseAccountMongoDBCollectionResult:
     """
@@ -121,13 +123,16 @@ def get_database_account_mongo_db_collection(account_name: Optional[str] = None,
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseAccountMongoDBCollectionResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB MongoDB collection.
+    Latest API Version: 2016-03-31.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str collection_name: Cosmos DB collection name.
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: Name of an Azure resource group.
     """
+    pulumi.log.warn("get_database_account_mongo_db_collection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountMongoDBCollection'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['collectionName'] = collection_name

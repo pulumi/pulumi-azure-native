@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Subscription.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:subscription:getAlias'.")]
     public static class GetAlias
     {
+        /// <summary>
+        /// Subscription Information with the alias.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azure-nextgen:subscription/latest:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
     }

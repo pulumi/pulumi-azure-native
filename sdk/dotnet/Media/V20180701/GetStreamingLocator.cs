@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Media.V20180701
 {
     public static class GetStreamingLocator
     {
+        /// <summary>
+        /// A Streaming Locator resource
+        /// </summary>
         public static Task<GetStreamingLocatorResult> InvokeAsync(GetStreamingLocatorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingLocatorResult>("azure-nextgen:media/v20180701:getStreamingLocator", args ?? new GetStreamingLocatorArgs(), options.WithVersion());
     }

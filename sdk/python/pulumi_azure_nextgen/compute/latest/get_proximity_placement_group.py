@@ -15,6 +15,8 @@ __all__ = [
     'get_proximity_placement_group',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getProximityPlacementGroup'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProximityPlacementGroupResult:
     """
@@ -156,12 +158,15 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProximityPlacementGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Specifies information about the proximity placement group.
+    Latest API Version: 2020-12-01.
+
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
     :param str proximity_placement_group_name: The name of the proximity placement group.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_proximity_placement_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getProximityPlacementGroup'.")
     __args__ = dict()
     __args__['includeColocationStatus'] = include_colocation_status
     __args__['proximityPlacementGroupName'] = proximity_placement_group_name

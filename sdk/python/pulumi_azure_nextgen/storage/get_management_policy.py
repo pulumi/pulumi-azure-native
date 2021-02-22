@@ -96,7 +96,9 @@ def get_management_policy(account_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    The Get Storage Account ManagementPolicies operation response.
+    API Version: 2021-01-01.
+
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'

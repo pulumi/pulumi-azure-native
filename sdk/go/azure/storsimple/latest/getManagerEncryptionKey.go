@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+// Latest API Version: 2016-10-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManagerEncryptionKey'.
 func GetManagerEncryptionKey(ctx *pulumi.Context, args *GetManagerEncryptionKeyArgs, opts ...pulumi.InvokeOption) (*GetManagerEncryptionKeyResult, error) {
 	var rv GetManagerEncryptionKeyResult
 	err := ctx.Invoke("azure-nextgen:storsimple/latest:getManagerEncryptionKey", args, &rv, opts...)

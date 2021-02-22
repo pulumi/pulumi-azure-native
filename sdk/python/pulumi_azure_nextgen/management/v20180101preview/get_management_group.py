@@ -133,7 +133,8 @@ def get_management_group(expand: Optional[str] = None,
                          recurse: Optional[bool] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    The management group details.
+
 
     :param str expand: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.
     :param str filter: A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')

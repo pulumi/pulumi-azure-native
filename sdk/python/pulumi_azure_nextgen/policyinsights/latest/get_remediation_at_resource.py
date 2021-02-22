@@ -15,6 +15,8 @@ __all__ = [
     'get_remediation_at_resource',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtResource'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRemediationAtResourceResult:
     """
@@ -167,11 +169,14 @@ def get_remediation_at_resource(remediation_name: Optional[str] = None,
                                 resource_id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    The remediation definition.
+    Latest API Version: 2019-07-01.
+
 
     :param str remediation_name: The name of the remediation.
     :param str resource_id: Resource ID.
     """
+    pulumi.log.warn("get_remediation_at_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtResource'.")
     __args__ = dict()
     __args__['remediationName'] = remediation_name
     __args__['resourceId'] = resource_id

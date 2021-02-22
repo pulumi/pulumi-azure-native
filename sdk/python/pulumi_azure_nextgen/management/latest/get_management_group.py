@@ -15,6 +15,8 @@ __all__ = [
     'get_management_group',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroup'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagementGroupResult:
     """
@@ -133,13 +135,16 @@ def get_management_group(expand: Optional[str] = None,
                          recurse: Optional[bool] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    The management group details.
+    Latest API Version: 2020-05-01.
+
 
     :param str expand: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
     :param str filter: A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')
     :param str group_id: Management Group ID.
     :param bool recurse: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
     """
+    pulumi.log.warn("get_management_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroup'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['filter'] = filter

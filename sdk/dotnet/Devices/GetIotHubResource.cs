@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Devices
 {
     public static class GetIotHubResource
     {
+        /// <summary>
+        /// The description of the IoT hub.
+        /// API Version: 2020-08-31.
+        /// </summary>
         public static Task<GetIotHubResourceResult> InvokeAsync(GetIotHubResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceResult>("azure-nextgen:devices:getIotHubResource", args ?? new GetIotHubResourceArgs(), options.WithVersion());
     }

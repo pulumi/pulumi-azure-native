@@ -15,6 +15,8 @@ __all__ = [
     'list_channel_with_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listChannelWithKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListChannelWithKeysResult:
     """
@@ -144,12 +146,15 @@ def list_channel_with_keys(channel_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListChannelWithKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Bot channel resource definition
+    Latest API Version: 2020-06-02.
+
 
     :param str channel_name: The name of the Channel resource.
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
     :param str resource_name: The name of the Bot resource.
     """
+    pulumi.log.warn("list_channel_with_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listChannelWithKeys'.")
     __args__ = dict()
     __args__['channelName'] = channel_name
     __args__['resourceGroupName'] = resource_group_name

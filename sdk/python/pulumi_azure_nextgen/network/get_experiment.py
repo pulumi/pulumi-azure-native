@@ -180,7 +180,9 @@ def get_experiment(experiment_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentResult:
     """
-    Use this data source to access information about an existing resource.
+    Defines the properties of an Experiment
+    API Version: 2019-11-01.
+
 
     :param str experiment_name: The Experiment identifier associated with the Experiment
     :param str profile_name: The Profile identifier associated with the Tenant and Partner

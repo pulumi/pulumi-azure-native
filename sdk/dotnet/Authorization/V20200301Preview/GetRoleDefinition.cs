@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301Preview
 {
     public static class GetRoleDefinition
     {
+        /// <summary>
+        /// Role definition.
+        /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure-nextgen:authorization/v20200301preview:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
     }

@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_domain_ownership_identifier',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDomainOwnershipIdentifier'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppDomainOwnershipIdentifierResult:
     """
@@ -108,12 +110,15 @@ def get_web_app_domain_ownership_identifier(domain_ownership_identifier_name: Op
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDomainOwnershipIdentifierResult:
     """
-    Use this data source to access information about an existing resource.
+    A domain specific resource identifier.
+    Latest API Version: 2020-10-01.
+
 
     :param str domain_ownership_identifier_name: Name of domain ownership identifier.
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_web_app_domain_ownership_identifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDomainOwnershipIdentifier'.")
     __args__ = dict()
     __args__['domainOwnershipIdentifierName'] = domain_ownership_identifier_name
     __args__['name'] = name

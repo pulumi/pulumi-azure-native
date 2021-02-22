@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getStaticSite'.")]
     public static class GetStaticSite
     {
+        /// <summary>
+        /// Static Site ARM resource.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetStaticSiteResult> InvokeAsync(GetStaticSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteResult>("azure-nextgen:web/latest:getStaticSite", args ?? new GetStaticSiteArgs(), options.WithVersion());
     }

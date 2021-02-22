@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ContainerService.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getAgentPool'.")]
     public static class GetAgentPool
     {
+        /// <summary>
+        /// Agent Pool.
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-nextgen:containerservice/latest:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithVersion());
     }

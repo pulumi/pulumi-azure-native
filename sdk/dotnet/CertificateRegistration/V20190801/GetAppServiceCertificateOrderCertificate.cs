@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20190801
 {
     public static class GetAppServiceCertificateOrderCertificate
     {
+        /// <summary>
+        /// Key Vault container ARM resource for a certificate that is purchased through Azure.
+        /// </summary>
         public static Task<GetAppServiceCertificateOrderCertificateResult> InvokeAsync(GetAppServiceCertificateOrderCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderCertificateResult>("azure-nextgen:certificateregistration/v20190801:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateArgs(), options.WithVersion());
     }

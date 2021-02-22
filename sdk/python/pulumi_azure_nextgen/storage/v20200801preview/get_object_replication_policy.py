@@ -132,7 +132,8 @@ def get_object_replication_policy(account_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObjectReplicationPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str object_replication_policy_id: The ID of object replication policy or 'default' if the policy ID is unknown.

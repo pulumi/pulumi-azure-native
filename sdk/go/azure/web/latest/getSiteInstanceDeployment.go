@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents user credentials used for publishing activity
+// Latest API Version: 2015-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getSiteInstanceDeployment'.
 func LookupSiteInstanceDeployment(ctx *pulumi.Context, args *LookupSiteInstanceDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupSiteInstanceDeploymentResult, error) {
 	var rv LookupSiteInstanceDeploymentResult
 	err := ctx.Invoke("azure-nextgen:web/latest:getSiteInstanceDeployment", args, &rv, opts...)

@@ -82,7 +82,9 @@ def list_private_cloud_admin_credentials(private_cloud_name: Optional[str] = Non
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPrivateCloudAdminCredentialsResult:
     """
-    Use this data source to access information about an existing resource.
+    Administrative credentials for accessing vCenter and NSX-T
+    API Version: 2020-03-20.
+
 
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
 {
     public static class GetWCFRelay
     {
+        /// <summary>
+        /// Description of WcfRelays Resource.
+        /// </summary>
         public static Task<GetWCFRelayResult> InvokeAsync(GetWCFRelayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayResult>("azure-nextgen:relay/v20160701:getWCFRelay", args ?? new GetWCFRelayArgs(), options.WithVersion());
     }

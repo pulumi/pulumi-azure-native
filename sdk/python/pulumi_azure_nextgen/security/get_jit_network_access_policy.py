@@ -126,7 +126,8 @@ def get_jit_network_access_policy(asc_location: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJitNetworkAccessPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    API Version: 2020-01-01.
+
 
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
     :param str jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.

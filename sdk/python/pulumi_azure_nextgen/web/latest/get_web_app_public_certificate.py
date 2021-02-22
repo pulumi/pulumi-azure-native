@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_public_certificate',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPublicCertificate'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppPublicCertificateResult:
     """
@@ -132,12 +134,15 @@ def get_web_app_public_certificate(name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPublicCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    Public certificate object
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str public_certificate_name: Public certificate name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_web_app_public_certificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPublicCertificate'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['publicCertificateName'] = public_certificate_name

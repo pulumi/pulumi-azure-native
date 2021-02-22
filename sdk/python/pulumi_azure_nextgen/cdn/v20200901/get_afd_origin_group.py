@@ -165,7 +165,8 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDOriginGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+
 
     :param str origin_group_name: Name of the origin group which is unique within the endpoint.
     :param str profile_name: Name of the CDN profile which is unique within the resource group.

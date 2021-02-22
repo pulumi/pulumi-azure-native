@@ -119,7 +119,8 @@ def get_group(group_id: Optional[str] = None,
               service_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Contract details.
+
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Challenge-Handshake Authentication Protocol (CHAP) setting
+// API Version: 2016-10-01.
 func LookupChapSetting(ctx *pulumi.Context, args *LookupChapSettingArgs, opts ...pulumi.InvokeOption) (*LookupChapSettingResult, error) {
 	var rv LookupChapSettingResult
 	err := ctx.Invoke("azure-nextgen:storsimple:getChapSetting", args, &rv, opts...)

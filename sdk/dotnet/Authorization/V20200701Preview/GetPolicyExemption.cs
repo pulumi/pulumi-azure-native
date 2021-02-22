@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
 {
     public static class GetPolicyExemption
     {
+        /// <summary>
+        /// The policy exemption.
+        /// </summary>
         public static Task<GetPolicyExemptionResult> InvokeAsync(GetPolicyExemptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyExemptionResult>("azure-nextgen:authorization/v20200701preview:getPolicyExemption", args ?? new GetPolicyExemptionArgs(), options.WithVersion());
     }

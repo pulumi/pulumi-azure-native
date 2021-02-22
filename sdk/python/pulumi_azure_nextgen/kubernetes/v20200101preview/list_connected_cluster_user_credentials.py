@@ -64,7 +64,8 @@ def list_connected_cluster_user_credentials(authentication_method: Optional[Unio
                                             value: Optional[pulumi.InputType['AuthenticationDetailsValueArgs']] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectedClusterUserCredentialsResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of credential result response.
+
 
     :param Union[str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.
     :param bool client_proxy: Parameter to indicate whether the request is for client side proxy or not

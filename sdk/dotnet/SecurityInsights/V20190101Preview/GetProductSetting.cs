@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     public static class GetProductSetting
     {
+        /// <summary>
+        /// The Setting.
+        /// </summary>
         public static Task<GetProductSettingResult> InvokeAsync(GetProductSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductSettingResult>("azure-nextgen:securityinsights/v20190101preview:getProductSetting", args ?? new GetProductSettingArgs(), options.WithVersion());
     }

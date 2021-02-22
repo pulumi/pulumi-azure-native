@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetGateway
     {
+        /// <summary>
+        /// Gateway details.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-nextgen:apimanagement:getGateway", args ?? new GetGatewayArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetIpGroup
     {
+        /// <summary>
+        /// The IpGroups resource information.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetIpGroupResult> InvokeAsync(GetIpGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIpGroupResult>("azure-nextgen:network:getIpGroup", args ?? new GetIpGroupArgs(), options.WithVersion());
     }

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Data needed to decrypt asset files encrypted with legacy storage encryption.
 func GetAssetEncryptionKey(ctx *pulumi.Context, args *GetAssetEncryptionKeyArgs, opts ...pulumi.InvokeOption) (*GetAssetEncryptionKeyResult, error) {
 	var rv GetAssetEncryptionKeyResult
 	err := ctx.Invoke("azure-nextgen:media/v20200501:getAssetEncryptionKey", args, &rv, opts...)

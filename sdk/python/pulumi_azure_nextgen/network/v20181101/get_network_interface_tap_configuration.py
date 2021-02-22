@@ -108,7 +108,8 @@ def get_network_interface_tap_configuration(network_interface_name: Optional[str
                                             tap_configuration_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceTapConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Tap configuration in a Network Interface
+
 
     :param str network_interface_name: The name of the network interface.
     :param str resource_group_name: The name of the resource group.

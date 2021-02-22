@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listManagerActivationKey'.")]
     public static class ListManagerActivationKey
     {
+        /// <summary>
+        /// The key.
+        /// Latest API Version: 2017-06-01.
+        /// </summary>
         public static Task<ListManagerActivationKeyResult> InvokeAsync(ListManagerActivationKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagerActivationKeyResult>("azure-nextgen:storsimple/latest:listManagerActivationKey", args ?? new ListManagerActivationKeyArgs(), options.WithVersion());
     }

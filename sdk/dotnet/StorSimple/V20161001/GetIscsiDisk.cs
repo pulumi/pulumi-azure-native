@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 {
     public static class GetIscsiDisk
     {
+        /// <summary>
+        /// The iSCSI disk.
+        /// </summary>
         public static Task<GetIscsiDiskResult> InvokeAsync(GetIscsiDiskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiDiskResult>("azure-nextgen:storsimple/v20161001:getIscsiDisk", args ?? new GetIscsiDiskArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
 {
     public static class GetStorageTarget
     {
+        /// <summary>
+        /// A storage system being cached by a Cache.
+        /// </summary>
         public static Task<GetStorageTargetResult> InvokeAsync(GetStorageTargetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-nextgen:storagecache/v20190801preview:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithVersion());
     }

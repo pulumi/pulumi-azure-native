@@ -205,7 +205,8 @@ def get_dedicated_host(expand: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostResult:
     """
-    Use this data source to access information about an existing resource.
+    Specifies information about the Dedicated host.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str host_group_name: The name of the dedicated host group.

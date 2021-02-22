@@ -359,7 +359,9 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
                         virtual_machine_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual machine model
+    API Version: 2019-04-01.
+
 
     :param str resource_group_name: The name of the resource group
     :param str virtual_machine_name: virtual machine name

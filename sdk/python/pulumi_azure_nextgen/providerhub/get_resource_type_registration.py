@@ -77,7 +77,8 @@ def get_resource_type_registration(provider_namespace: Optional[str] = None,
                                    resource_type: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceTypeRegistrationResult:
     """
-    Use this data source to access information about an existing resource.
+    API Version: 2020-11-20.
+
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str resource_type: The resource type.

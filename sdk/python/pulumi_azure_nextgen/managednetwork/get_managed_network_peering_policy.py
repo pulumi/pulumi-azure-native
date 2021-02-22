@@ -96,7 +96,9 @@ def get_managed_network_peering_policy(managed_network_name: Optional[str] = Non
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedNetworkPeeringPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    The Managed Network Peering Policy resource
+    API Version: 2019-06-01-preview.
+
 
     :param str managed_network_name: The name of the Managed Network.
     :param str managed_network_peering_policy_name: The name of the Managed Network Peering Policy.

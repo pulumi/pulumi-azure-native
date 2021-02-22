@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
 {
     public static class GetVirtualMachineScaleSetVM
     {
+        /// <summary>
+        /// Describes a virtual machine scale set virtual machine.
+        /// </summary>
         public static Task<GetVirtualMachineScaleSetVMResult> InvokeAsync(GetVirtualMachineScaleSetVMArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMResult>("azure-nextgen:compute/v20191201:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMArgs(), options.WithVersion());
     }

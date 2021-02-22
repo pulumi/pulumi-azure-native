@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Collection of the consortium payload.
+// API Version: 2018-06-01-preview.
 func ListLocationConsortiums(ctx *pulumi.Context, args *ListLocationConsortiumsArgs, opts ...pulumi.InvokeOption) (*ListLocationConsortiumsResult, error) {
 	var rv ListLocationConsortiumsResult
 	err := ctx.Invoke("azure-nextgen:blockchain:listLocationConsortiums", args, &rv, opts...)

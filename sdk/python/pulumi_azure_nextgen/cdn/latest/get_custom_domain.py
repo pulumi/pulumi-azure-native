@@ -15,6 +15,8 @@ __all__ = [
     'get_custom_domain',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getCustomDomain'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCustomDomainResult:
     """
@@ -157,13 +159,16 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDomainResult:
     """
-    Use this data source to access information about an existing resource.
+    Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+    Latest API Version: 2020-09-01.
+
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_custom_domain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getCustomDomain'.")
     __args__ = dict()
     __args__['customDomainName'] = custom_domain_name
     __args__['endpointName'] = endpoint_name

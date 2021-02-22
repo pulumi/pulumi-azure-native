@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.NetApp.V20190801
 {
     public static class GetPool
     {
+        /// <summary>
+        /// Capacity pool resource
+        /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-nextgen:netapp/v20190801:getPool", args ?? new GetPoolArgs(), options.WithVersion());
     }

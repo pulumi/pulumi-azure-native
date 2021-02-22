@@ -95,7 +95,8 @@ def list_namespace_keys(authorization_rule_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNamespaceKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Namespace/ServiceBus Connection String
+
 
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
 {
     public static class GetApiOperation
     {
+        /// <summary>
+        /// Api Operation details.
+        /// </summary>
         public static Task<GetApiOperationResult> InvokeAsync(GetApiOperationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiOperationResult>("azure-nextgen:apimanagement/v20190101:getApiOperation", args ?? new GetApiOperationArgs(), options.WithVersion());
     }

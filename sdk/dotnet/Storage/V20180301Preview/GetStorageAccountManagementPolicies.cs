@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Storage.V20180301Preview
 {
     public static class GetStorageAccountManagementPolicies
     {
+        /// <summary>
+        /// The Get Storage Account ManagementPolicies operation response.
+        /// </summary>
         public static Task<GetStorageAccountManagementPoliciesResult> InvokeAsync(GetStorageAccountManagementPoliciesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountManagementPoliciesResult>("azure-nextgen:storage/v20180301preview:getStorageAccountManagementPolicies", args ?? new GetStorageAccountManagementPoliciesArgs(), options.WithVersion());
     }

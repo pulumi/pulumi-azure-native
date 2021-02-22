@@ -95,7 +95,8 @@ def get_suppression(name: Optional[str] = None,
                     resource_uri: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSuppressionResult:
     """
-    Use this data source to access information about an existing resource.
+    The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+
 
     :param str name: The name of the suppression.
     :param str recommendation_id: The recommendation ID.

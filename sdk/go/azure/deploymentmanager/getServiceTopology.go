@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The resource representation of a service topology.
+// API Version: 2019-11-01-preview.
 func LookupServiceTopology(ctx *pulumi.Context, args *LookupServiceTopologyArgs, opts ...pulumi.InvokeOption) (*LookupServiceTopologyResult, error) {
 	var rv LookupServiceTopologyResult
 	err := ctx.Invoke("azure-nextgen:deploymentmanager:getServiceTopology", args, &rv, opts...)

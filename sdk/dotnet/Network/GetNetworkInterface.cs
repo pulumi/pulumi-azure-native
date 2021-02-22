@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetNetworkInterface
     {
+        /// <summary>
+        /// A network interface in a resource group.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-nextgen:network:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithVersion());
     }

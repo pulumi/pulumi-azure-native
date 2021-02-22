@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getReplication'.")]
     public static class GetReplication
     {
+        /// <summary>
+        /// An object that represents a replication for a container registry.
+        /// Latest API Version: 2019-05-01.
+        /// </summary>
         public static Task<GetReplicationResult> InvokeAsync(GetReplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationResult>("azure-nextgen:containerregistry/latest:getReplication", args ?? new GetReplicationArgs(), options.WithVersion());
     }

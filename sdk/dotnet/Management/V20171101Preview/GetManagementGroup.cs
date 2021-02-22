@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Management.V20171101Preview
 {
     public static class GetManagementGroup
     {
+        /// <summary>
+        /// The management group details.
+        /// </summary>
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure-nextgen:management/v20171101preview:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithVersion());
     }

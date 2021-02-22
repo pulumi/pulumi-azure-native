@@ -204,7 +204,9 @@ def get_notification_hub(namespace_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationHubResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of a NotificationHub Resource.
+    API Version: 2017-04-01.
+
 
     :param str namespace_name: The namespace name.
     :param str notification_hub_name: The notification hub name.

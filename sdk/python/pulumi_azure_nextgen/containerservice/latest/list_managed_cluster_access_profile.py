@@ -14,6 +14,8 @@ __all__ = [
     'list_managed_cluster_access_profile',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:listManagedClusterAccessProfile'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListManagedClusterAccessProfileResult:
     """
@@ -107,12 +109,15 @@ def list_managed_cluster_access_profile(resource_group_name: Optional[str] = Non
                                         role_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterAccessProfileResult:
     """
-    Use this data source to access information about an existing resource.
+    Managed cluster Access Profile.
+    Latest API Version: 2020-03-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     :param str role_name: The name of the role for managed cluster accessProfile resource.
     """
+    pulumi.log.warn("list_managed_cluster_access_profile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:listManagedClusterAccessProfile'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

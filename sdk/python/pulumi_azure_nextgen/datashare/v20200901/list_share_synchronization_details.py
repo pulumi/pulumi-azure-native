@@ -72,7 +72,8 @@ def list_share_synchronization_details(account_name: Optional[str] = None,
                                        synchronization_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSynchronizationDetailsResult:
     """
-    Use this data source to access information about an existing resource.
+    details of synchronization
+
 
     :param str account_name: The name of the share account.
     :param str consumer_email: Email of the user who created the synchronization

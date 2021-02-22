@@ -226,7 +226,8 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
                         scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Role Assignments
+
 
     :param str role_assignment_name: The name of the role assignment to get.
     :param str scope: The scope of the role assignment.

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190430
 {
     public static class GetOpenShiftManagedCluster
     {
+        /// <summary>
+        /// OpenShift Managed cluster.
+        /// </summary>
         public static Task<GetOpenShiftManagedClusterResult> InvokeAsync(GetOpenShiftManagedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftManagedClusterResult>("azure-nextgen:containerservice/v20190430:getOpenShiftManagedCluster", args ?? new GetOpenShiftManagedClusterArgs(), options.WithVersion());
     }

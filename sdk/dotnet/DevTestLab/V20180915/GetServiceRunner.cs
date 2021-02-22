@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 {
     public static class GetServiceRunner
     {
+        /// <summary>
+        /// A container for a managed identity to execute DevTest lab services.
+        /// </summary>
         public static Task<GetServiceRunnerResult> InvokeAsync(GetServiceRunnerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceRunnerResult>("azure-nextgen:devtestlab/v20180915:getServiceRunner", args ?? new GetServiceRunnerArgs(), options.WithVersion());
     }

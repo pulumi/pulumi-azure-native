@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Solutions.V20180601
 {
     public static class GetApplication
     {
+        /// <summary>
+        /// Information about managed application.
+        /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-nextgen:solutions/v20180601:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
     }

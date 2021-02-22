@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.OffAzure.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:offazure:getSite'.")]
     public static class GetSite
     {
+        /// <summary>
+        /// Site REST Resource.
+        /// Latest API Version: 2020-07-07.
+        /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-nextgen:offazure/latest:getSite", args ?? new GetSiteArgs(), options.WithVersion());
     }

@@ -122,7 +122,8 @@ def get_configuration_assignment(configuration_assignment_name: Optional[str] = 
                                  resource_type: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Configuration Assignment
+
 
     :param str configuration_assignment_name: Configuration assignment name
     :param str provider_name: Resource provider name

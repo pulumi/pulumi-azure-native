@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Namespace/NotificationHub Connection String
+// API Version: 2017-04-01.
 func ListNotificationHubKeys(ctx *pulumi.Context, args *ListNotificationHubKeysArgs, opts ...pulumi.InvokeOption) (*ListNotificationHubKeysResult, error) {
 	var rv ListNotificationHubKeysResult
 	err := ctx.Invoke("azure-nextgen:notificationhubs:listNotificationHubKeys", args, &rv, opts...)

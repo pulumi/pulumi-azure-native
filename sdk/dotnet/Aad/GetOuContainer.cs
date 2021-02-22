@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Aad
 {
     public static class GetOuContainer
     {
+        /// <summary>
+        /// Resource for OuContainer.
+        /// API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetOuContainerResult> InvokeAsync(GetOuContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azure-nextgen:aad:getOuContainer", args ?? new GetOuContainerArgs(), options.WithVersion());
     }

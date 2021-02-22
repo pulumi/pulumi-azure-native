@@ -69,7 +69,9 @@ class AwaitableGetOnPremiseIotSensorResult(GetOnPremiseIotSensorResult):
 def get_on_premise_iot_sensor(on_premise_iot_sensor_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOnPremiseIotSensorResult:
     """
-    Use this data source to access information about an existing resource.
+    On-premise IoT sensor
+    API Version: 2020-08-06-preview.
+
 
     :param str on_premise_iot_sensor_name: Name of the on-premise IoT sensor
     """

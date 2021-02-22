@@ -94,7 +94,9 @@ def get_notebook_proxy(resource_group_name: Optional[str] = None,
                        resource_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotebookProxyResult:
     """
-    Use this data source to access information about an existing resource.
+    A NotebookProxy resource.
+    API Version: 2019-10-11-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.

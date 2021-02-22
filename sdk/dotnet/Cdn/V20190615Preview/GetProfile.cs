@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview
 {
     public static class GetProfile
     {
+        /// <summary>
+        /// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+        /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-nextgen:cdn/v20190615preview:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
     }

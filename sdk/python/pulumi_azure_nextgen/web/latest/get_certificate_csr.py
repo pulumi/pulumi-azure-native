@@ -14,6 +14,8 @@ __all__ = [
     'get_certificate_csr',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCertificateCsr'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCertificateCsrResult:
     """
@@ -178,11 +180,14 @@ def get_certificate_csr(name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateCsrResult:
     """
-    Use this data source to access information about an existing resource.
+    Certificate signing request object
+    Latest API Version: 2015-08-01.
+
 
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group
     """
+    pulumi.log.warn("get_certificate_csr is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCertificateCsr'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

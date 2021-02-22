@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ServiceBus
 {
     public static class GetMigrationConfig
     {
+        /// <summary>
+        /// Single item in List or Get Migration Config operation
+        /// API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetMigrationConfigResult> InvokeAsync(GetMigrationConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-nextgen:servicebus:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithVersion());
     }

@@ -15,6 +15,8 @@ __all__ = [
     'get_entity',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getEntity'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEntityResult:
     """
@@ -77,7 +79,9 @@ def get_entity(filter: Optional[str] = None,
                view: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes the result of the request to view entities.
+    Latest API Version: 2020-05-01.
+
 
     :param str filter: The filter parameter allows you to filter on the the name or display name fields. You can check for equality on the name field (e.g. name eq '{entityName}')  and you can check for substrings on either the name or display name fields(e.g. contains(name, '{substringToSearch}'), contains(displayName, '{substringToSearch')). Note that the '{entityName}' and '{substringToSearch}' fields are checked case insensitively.
     :param str group_name: A filter which allows the get entities call to focus on a particular group (i.e. "$filter=name eq 'groupName'")
@@ -94,6 +98,7 @@ def get_entity(filter: Optional[str] = None,
     :param int top: Number of elements to return when retrieving results. Passing this in will override $skipToken.
     :param str view: The view parameter allows clients to filter the type of data that is returned by the getEntities call.
     """
+    pulumi.log.warn("get_entity is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getEntity'.")
     __args__ = dict()
     __args__['filter'] = filter
     __args__['groupName'] = group_name

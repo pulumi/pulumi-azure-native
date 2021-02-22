@@ -42,7 +42,8 @@ def list_media_service_edge_policies(account_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMediaServiceEdgePoliciesResult:
     """
-    Use this data source to access information about an existing resource.
+    API Version: 2020-05-01.
+
 
     :param str account_name: The Media Services account name.
     :param str device_id: Unique identifier of the edge device.

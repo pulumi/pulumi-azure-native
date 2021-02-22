@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Application Insights component linked storage accounts
 func LookupComponentLinkedStorageAccount(ctx *pulumi.Context, args *LookupComponentLinkedStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupComponentLinkedStorageAccountResult, error) {
 	var rv LookupComponentLinkedStorageAccountResult
 	err := ctx.Invoke("azure-nextgen:insights/v20200301preview:getComponentLinkedStorageAccount", args, &rv, opts...)

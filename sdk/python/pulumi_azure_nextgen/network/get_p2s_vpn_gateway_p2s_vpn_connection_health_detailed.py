@@ -48,7 +48,9 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed(gateway_name: Optiona
                                                            vpn_user_names_filter: Optional[Sequence[str]] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult:
     """
-    Use this data source to access information about an existing resource.
+    P2S Vpn connection detailed health written to sas url.
+    API Version: 2020-08-01.
+
 
     :param str gateway_name: The name of the P2SVpnGateway.
     :param str output_blob_sas_url: The sas-url to download the P2S Vpn connection health detail.

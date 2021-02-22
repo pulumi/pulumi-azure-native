@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ServiceBus
 {
     public static class ListQueueKeys
     {
+        /// <summary>
+        /// Namespace/ServiceBus Connection String
+        /// API Version: 2017-04-01.
+        /// </summary>
         public static Task<ListQueueKeysResult> InvokeAsync(ListQueueKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListQueueKeysResult>("azure-nextgen:servicebus:listQueueKeys", args ?? new ListQueueKeysArgs(), options.WithVersion());
     }

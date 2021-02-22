@@ -347,7 +347,8 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceCertificateOrderResult:
     """
-    Use this data source to access information about an existing resource.
+    SSL certificate purchase order.
+
 
     :param str certificate_order_name: Name of the certificate order..
     :param str resource_group_name: Name of the resource group to which the resource belongs.

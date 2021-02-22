@@ -15,6 +15,8 @@ __all__ = [
     'get_sql_resource_sql_container',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getSqlResourceSqlContainer'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlResourceSqlContainerResult:
     """
@@ -115,13 +117,16 @@ def get_sql_resource_sql_container(account_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlContainerResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB container.
+    Latest API Version: 2021-01-15.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str container_name: Cosmos DB container name.
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("get_sql_resource_sql_container is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getSqlResourceSqlContainer'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name

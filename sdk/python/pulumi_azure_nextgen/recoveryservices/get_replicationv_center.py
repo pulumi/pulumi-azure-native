@@ -97,7 +97,9 @@ def get_replicationv_center(fabric_name: Optional[str] = None,
                             v_center_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationvCenterResult:
     """
-    Use this data source to access information about an existing resource.
+    vCenter definition.
+    API Version: 2018-07-10.
+
 
     :param str fabric_name: Fabric name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.

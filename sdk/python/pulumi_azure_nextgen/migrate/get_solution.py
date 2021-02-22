@@ -96,7 +96,9 @@ def get_solution(migrate_project_name: Optional[str] = None,
                  solution_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionResult:
     """
-    Use this data source to access information about an existing resource.
+    Solution REST Resource.
+    API Version: 2018-09-01-preview.
+
 
     :param str migrate_project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that migrate project is part of.

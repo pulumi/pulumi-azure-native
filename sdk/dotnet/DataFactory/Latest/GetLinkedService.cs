@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataFactory.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getLinkedService'.")]
     public static class GetLinkedService
     {
+        /// <summary>
+        /// Linked service resource type.
+        /// Latest API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-nextgen:datafactory/latest:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
     }

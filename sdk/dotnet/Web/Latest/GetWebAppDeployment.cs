@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDeployment'.")]
     public static class GetWebAppDeployment
     {
+        /// <summary>
+        /// User credentials used for publishing activity.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppDeploymentResult> InvokeAsync(GetWebAppDeploymentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentResult>("azure-nextgen:web/latest:getWebAppDeployment", args ?? new GetWebAppDeploymentArgs(), options.WithVersion());
     }

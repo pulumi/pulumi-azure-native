@@ -83,7 +83,9 @@ def list_iot_dps_resource_keys_for_key_name(key_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIotDpsResourceKeysForKeyNameResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of the shared access key.
+    API Version: 2020-03-01.
+
 
     :param str key_name: Logical key name to get key-values for.
     :param str provisioning_service_name: Name of the provisioning service.

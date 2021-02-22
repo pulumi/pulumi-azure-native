@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// EnterpriseKnowledgeGraph resource definition
+// Latest API Version: 2018-12-03.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph'.
 func LookupEnterpriseKnowledgeGraph(ctx *pulumi.Context, args *LookupEnterpriseKnowledgeGraphArgs, opts ...pulumi.InvokeOption) (*LookupEnterpriseKnowledgeGraphResult, error) {
 	var rv LookupEnterpriseKnowledgeGraphResult
 	err := ctx.Invoke("azure-nextgen:enterpriseknowledgegraph/latest:getEnterpriseKnowledgeGraph", args, &rv, opts...)

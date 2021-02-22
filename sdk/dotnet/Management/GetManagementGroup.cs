@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Management
 {
     public static class GetManagementGroup
     {
+        /// <summary>
+        /// The management group details.
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure-nextgen:management:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithVersion());
     }

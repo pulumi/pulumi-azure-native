@@ -46,7 +46,8 @@ def list_workflow_run_action_expression_traces(action_name: Optional[str] = None
                                                workflow_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowRunActionExpressionTracesResult:
     """
-    Use this data source to access information about an existing resource.
+    The expression traces.
+
 
     :param str action_name: The workflow action name.
     :param str resource_group_name: The resource group name.

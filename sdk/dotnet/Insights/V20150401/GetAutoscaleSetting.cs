@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20150401
 {
     public static class GetAutoscaleSetting
     {
+        /// <summary>
+        /// The autoscale setting resource.
+        /// </summary>
         public static Task<GetAutoscaleSettingResult> InvokeAsync(GetAutoscaleSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutoscaleSettingResult>("azure-nextgen:insights/v20150401:getAutoscaleSetting", args ?? new GetAutoscaleSettingArgs(), options.WithVersion());
     }

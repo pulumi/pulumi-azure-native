@@ -14,6 +14,8 @@ __all__ = [
     'get_data_source',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataSource'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataSourceResult:
     """
@@ -119,12 +121,15 @@ def get_data_source(data_source_name: Optional[str] = None,
                     workspace_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSourceResult:
     """
-    Use this data source to access information about an existing resource.
+    Datasources under OMS Workspace.
+    Latest API Version: 2020-08-01.
+
 
     :param str data_source_name: Name of the datasource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("get_data_source is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataSource'.")
     __args__ = dict()
     __args__['dataSourceName'] = data_source_name
     __args__['resourceGroupName'] = resource_group_name

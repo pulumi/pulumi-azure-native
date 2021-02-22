@@ -120,7 +120,8 @@ def get_firewall_policy_rule_group(firewall_policy_name: Optional[str] = None,
                                    rule_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyRuleGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Rule Group resource.
+
 
     :param str firewall_policy_name: The name of the Firewall Policy.
     :param str resource_group_name: The name of the resource group.

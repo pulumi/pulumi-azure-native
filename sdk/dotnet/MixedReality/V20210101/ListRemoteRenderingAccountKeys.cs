@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.MixedReality.V20210101
 {
     public static class ListRemoteRenderingAccountKeys
     {
+        /// <summary>
+        /// Developer Keys of account
+        /// </summary>
         public static Task<ListRemoteRenderingAccountKeysResult> InvokeAsync(ListRemoteRenderingAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRemoteRenderingAccountKeysResult>("azure-nextgen:mixedreality/v20210101:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysArgs(), options.WithVersion());
     }

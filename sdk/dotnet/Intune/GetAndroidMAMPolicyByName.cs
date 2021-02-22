@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Intune
 {
     public static class GetAndroidMAMPolicyByName
     {
+        /// <summary>
+        /// Android Policy entity for Intune MAM.
+        /// API Version: 2015-01-14-preview.
+        /// </summary>
         public static Task<GetAndroidMAMPolicyByNameResult> InvokeAsync(GetAndroidMAMPolicyByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAndroidMAMPolicyByNameResult>("azure-nextgen:intune:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameArgs(), options.WithVersion());
     }

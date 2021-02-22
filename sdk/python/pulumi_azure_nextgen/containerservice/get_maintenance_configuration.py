@@ -108,7 +108,9 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
                                   resource_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    maintenance configuration.
+    API Version: 2020-12-01.
+
 
     :param str config_name: The name of the maintenance configuration.
     :param str resource_group_name: The name of the resource group.

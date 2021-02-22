@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AzureStack
 {
     public static class GetLinkedSubscription
     {
+        /// <summary>
+        /// Linked Subscription information.
+        /// API Version: 2020-06-01-preview.
+        /// </summary>
         public static Task<GetLinkedSubscriptionResult> InvokeAsync(GetLinkedSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedSubscriptionResult>("azure-nextgen:azurestack:getLinkedSubscription", args ?? new GetLinkedSubscriptionArgs(), options.WithVersion());
     }

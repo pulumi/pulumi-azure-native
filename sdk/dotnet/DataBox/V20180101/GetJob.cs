@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101
 {
     public static class GetJob
     {
+        /// <summary>
+        /// Job Resource.
+        /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-nextgen:databox/v20180101:getJob", args ?? new GetJobArgs(), options.WithVersion());
     }

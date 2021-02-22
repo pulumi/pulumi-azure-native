@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The batch configuration resource definition.
+// API Version: 2019-05-01.
 func LookupIntegrationAccountBatchConfiguration(ctx *pulumi.Context, args *LookupIntegrationAccountBatchConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountBatchConfigurationResult, error) {
 	var rv LookupIntegrationAccountBatchConfigurationResult
 	err := ctx.Invoke("azure-nextgen:logic:getIntegrationAccountBatchConfiguration", args, &rv, opts...)

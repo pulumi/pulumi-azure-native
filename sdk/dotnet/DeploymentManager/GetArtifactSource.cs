@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DeploymentManager
 {
     public static class GetArtifactSource
     {
+        /// <summary>
+        /// The resource that defines the source location where the artifacts are located.
+        /// API Version: 2019-11-01-preview.
+        /// </summary>
         public static Task<GetArtifactSourceResult> InvokeAsync(GetArtifactSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-nextgen:deploymentmanager:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithVersion());
     }

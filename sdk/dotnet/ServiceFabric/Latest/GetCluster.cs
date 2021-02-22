@@ -9,8 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ServiceFabric.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getCluster'.")]
     public static class GetCluster
     {
+        /// <summary>
+        /// The cluster resource
+        /// 
+        /// Latest API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:servicefabric/latest:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

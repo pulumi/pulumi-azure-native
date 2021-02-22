@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.HybridCompute
 {
     public static class GetMachineExtension
     {
+        /// <summary>
+        /// Describes a Machine Extension.
+        /// API Version: 2020-08-02.
+        /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-nextgen:hybridcompute:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithVersion());
     }

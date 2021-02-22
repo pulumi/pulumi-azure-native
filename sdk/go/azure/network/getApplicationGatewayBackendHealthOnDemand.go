@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Result of on demand test probe.
+// API Version: 2020-08-01.
 func GetApplicationGatewayBackendHealthOnDemand(ctx *pulumi.Context, args *GetApplicationGatewayBackendHealthOnDemandArgs, opts ...pulumi.InvokeOption) (*GetApplicationGatewayBackendHealthOnDemandResult, error) {
 	var rv GetApplicationGatewayBackendHealthOnDemandResult
 	err := ctx.Invoke("azure-nextgen:network:getApplicationGatewayBackendHealthOnDemand", args, &rv, opts...)

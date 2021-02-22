@@ -119,7 +119,9 @@ def get_service_endpoint_policy_definition(resource_group_name: Optional[str] = 
                                            service_endpoint_policy_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointPolicyDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    Service Endpoint policy definitions.
+    API Version: 2020-08-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str service_endpoint_policy_definition_name: The name of the service endpoint policy definition name.

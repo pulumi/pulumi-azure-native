@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20201001
 {
     public static class ListTopLevelDomainAgreements
     {
+        /// <summary>
+        /// Collection of top-level domain legal agreements.
+        /// </summary>
         public static Task<ListTopLevelDomainAgreementsResult> InvokeAsync(ListTopLevelDomainAgreementsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTopLevelDomainAgreementsResult>("azure-nextgen:domainregistration/v20201001:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsArgs(), options.WithVersion());
     }

@@ -312,7 +312,9 @@ def get_role_assignment(assignment_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    The Role Assignment resource format.
+    API Version: 2017-04-26.
+
 
     :param str assignment_name: The name of the role assignment.
     :param str hub_name: The name of the hub.

@@ -59,7 +59,8 @@ def list_domain_recommendations(keywords: Optional[str] = None,
                                 max_domain_recommendations: Optional[int] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainRecommendationsResult:
     """
-    Use this data source to access information about an existing resource.
+    Collection of domain name identifiers.
+
 
     :param str keywords: Keywords to be used for generating domain recommendations.
     :param int max_domain_recommendations: Maximum number of recommendations.

@@ -15,6 +15,8 @@ __all__ = [
     'get_web_test',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getWebTest'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebTestResult:
     """
@@ -239,11 +241,14 @@ def get_web_test(resource_group_name: Optional[str] = None,
                  web_test_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebTestResult:
     """
-    Use this data source to access information about an existing resource.
+    An Application Insights web test definition.
+    Latest API Version: 2015-05-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str web_test_name: The name of the Application Insights webtest resource.
     """
+    pulumi.log.warn("get_web_test is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getWebTest'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['webTestName'] = web_test_name

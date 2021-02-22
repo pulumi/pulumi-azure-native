@@ -14,6 +14,8 @@ __all__ = [
     'get_migration_config',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getMigrationConfig'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMigrationConfigResult:
     """
@@ -131,12 +133,15 @@ def get_migration_config(config_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrationConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    Single item in List or Get Migration Config operation
+    Latest API Version: 2017-04-01.
+
 
     :param str config_name: The configuration name. Should always be "$default".
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_migration_config is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getMigrationConfig'.")
     __args__ = dict()
     __args__['configName'] = config_name
     __args__['namespaceName'] = namespace_name

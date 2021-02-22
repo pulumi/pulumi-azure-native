@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
 {
     public static class GetDevice
     {
+        /// <summary>
+        /// The Data Box Edge/Gateway device.
+        /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-nextgen:databoxedge/v20200901:getDevice", args ?? new GetDeviceArgs(), options.WithVersion());
     }

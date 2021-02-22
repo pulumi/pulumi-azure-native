@@ -97,7 +97,9 @@ def get_service_task(expand: Optional[str] = None,
                      task_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceTaskResult:
     """
-    Use this data source to access information about an existing resource.
+    A task resource
+    API Version: 2018-07-15-preview.
+
 
     :param str expand: Expand the response
     :param str group_name: Name of the resource group

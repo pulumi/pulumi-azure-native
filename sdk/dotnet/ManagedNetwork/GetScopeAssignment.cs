@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ManagedNetwork
 {
     public static class GetScopeAssignment
     {
+        /// <summary>
+        /// The Managed Network resource
+        /// API Version: 2019-06-01-preview.
+        /// </summary>
         public static Task<GetScopeAssignmentResult> InvokeAsync(GetScopeAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScopeAssignmentResult>("azure-nextgen:managednetwork:getScopeAssignment", args ?? new GetScopeAssignmentArgs(), options.WithVersion());
     }

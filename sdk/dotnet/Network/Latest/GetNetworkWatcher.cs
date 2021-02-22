@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkWatcher'.")]
     public static class GetNetworkWatcher
     {
+        /// <summary>
+        /// Network watcher in a resource group.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetNetworkWatcherResult> InvokeAsync(GetNetworkWatcherArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure-nextgen:network/latest:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithVersion());
     }

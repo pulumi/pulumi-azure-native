@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 {
     public static class GetFormulaResource
     {
+        /// <summary>
+        /// A formula.
+        /// </summary>
         public static Task<GetFormulaResourceResult> InvokeAsync(GetFormulaResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResourceResult>("azure-nextgen:devtestlab/v20150521preview:getFormulaResource", args ?? new GetFormulaResourceArgs(), options.WithVersion());
     }

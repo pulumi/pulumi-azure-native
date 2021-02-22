@@ -15,6 +15,8 @@ __all__ = [
     'get_managed_private_endpoint',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getManagedPrivateEndpoint'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagedPrivateEndpointResult:
     """
@@ -97,13 +99,16 @@ def get_managed_private_endpoint(factory_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrivateEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    Managed private endpoint resource type.
+    Latest API Version: 2018-06-01.
+
 
     :param str factory_name: The factory name.
     :param str managed_private_endpoint_name: Managed private endpoint name
     :param str managed_virtual_network_name: Managed virtual network name
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_managed_private_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getManagedPrivateEndpoint'.")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['managedPrivateEndpointName'] = managed_private_endpoint_name

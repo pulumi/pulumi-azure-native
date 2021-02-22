@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DBforMySQL
 {
     public static class GetFirewallRule
     {
+        /// <summary>
+        /// Represents a server firewall rule.
+        /// API Version: 2017-12-01.
+        /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:dbformysql:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }

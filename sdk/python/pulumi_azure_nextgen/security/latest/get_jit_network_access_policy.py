@@ -15,6 +15,8 @@ __all__ = [
     'get_jit_network_access_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getJitNetworkAccessPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetJitNetworkAccessPolicyResult:
     def __init__(__self__, id=None, kind=None, location=None, name=None, provisioning_state=None, requests=None, type=None, virtual_machines=None):
@@ -126,12 +128,14 @@ def get_jit_network_access_policy(asc_location: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJitNetworkAccessPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2020-01-01.
+
 
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
     :param str jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("get_jit_network_access_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getJitNetworkAccessPolicy'.")
     __args__ = dict()
     __args__['ascLocation'] = asc_location
     __args__['jitNetworkAccessPolicyName'] = jit_network_access_policy_name

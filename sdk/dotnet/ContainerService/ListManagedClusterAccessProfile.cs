@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ContainerService
 {
     public static class ListManagedClusterAccessProfile
     {
+        /// <summary>
+        /// Managed cluster Access Profile.
+        /// API Version: 2020-03-01.
+        /// </summary>
         public static Task<ListManagedClusterAccessProfileResult> InvokeAsync(ListManagedClusterAccessProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterAccessProfileResult>("azure-nextgen:containerservice:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileArgs(), options.WithVersion());
     }

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Application Insights component billing features
 func LookupComponentCurrentBillingFeature(ctx *pulumi.Context, args *LookupComponentCurrentBillingFeatureArgs, opts ...pulumi.InvokeOption) (*LookupComponentCurrentBillingFeatureResult, error) {
 	var rv LookupComponentCurrentBillingFeatureResult
 	err := ctx.Invoke("azure-nextgen:insights/v20150501:getComponentCurrentBillingFeature", args, &rv, opts...)

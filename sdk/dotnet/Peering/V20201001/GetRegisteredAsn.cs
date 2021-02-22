@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Peering.V20201001
 {
     public static class GetRegisteredAsn
     {
+        /// <summary>
+        /// The customer's ASN that is registered by the peering service provider.
+        /// </summary>
         public static Task<GetRegisteredAsnResult> InvokeAsync(GetRegisteredAsnArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredAsnResult>("azure-nextgen:peering/v20201001:getRegisteredAsn", args ?? new GetRegisteredAsnArgs(), options.WithVersion());
     }

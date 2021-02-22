@@ -155,7 +155,8 @@ def get_data_export(data_export_name: Optional[str] = None,
                     workspace_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataExportResult:
     """
-    Use this data source to access information about an existing resource.
+    The top level data export resource container.
+
 
     :param str data_export_name: The data export rule name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

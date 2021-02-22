@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetBastionHost
     {
+        /// <summary>
+        /// Bastion Host resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetBastionHostResult> InvokeAsync(GetBastionHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBastionHostResult>("azure-nextgen:network:getBastionHost", args ?? new GetBastionHostArgs(), options.WithVersion());
     }

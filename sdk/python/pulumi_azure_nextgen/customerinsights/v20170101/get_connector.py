@@ -203,7 +203,8 @@ def get_connector(connector_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
-    Use this data source to access information about an existing resource.
+    The connector resource format.
+
 
     :param str connector_name: The name of the connector.
     :param str hub_name: The name of the hub.

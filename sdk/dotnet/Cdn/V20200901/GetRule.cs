@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 {
     public static class GetRule
     {
+        /// <summary>
+        /// Friendly Rules name mapping to the any Rules or secret related information.
+        /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-nextgen:cdn/v20200901:getRule", args ?? new GetRuleArgs(), options.WithVersion());
     }

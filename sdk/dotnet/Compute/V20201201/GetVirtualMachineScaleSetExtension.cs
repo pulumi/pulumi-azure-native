@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20201201
 {
     public static class GetVirtualMachineScaleSetExtension
     {
+        /// <summary>
+        /// Describes a Virtual Machine Scale Set Extension.
+        /// </summary>
         public static Task<GetVirtualMachineScaleSetExtensionResult> InvokeAsync(GetVirtualMachineScaleSetExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetExtensionResult>("azure-nextgen:compute/v20201201:getVirtualMachineScaleSetExtension", args ?? new GetVirtualMachineScaleSetExtensionArgs(), options.WithVersion());
     }

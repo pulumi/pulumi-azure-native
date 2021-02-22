@@ -370,7 +370,8 @@ class AwaitableGetAccessReviewScheduleDefinitionByIdResult(GetAccessReviewSchedu
 def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessReviewScheduleDefinitionByIdResult:
     """
-    Use this data source to access information about an existing resource.
+    Access Review Schedule Definition.
+
 
     :param str schedule_definition_id: The id of the access review schedule definition.
     """

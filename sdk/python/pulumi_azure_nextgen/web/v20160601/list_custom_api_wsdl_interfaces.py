@@ -53,7 +53,8 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
                                     url: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCustomApiWsdlInterfacesResult:
     """
-    Use this data source to access information about an existing resource.
+    A list of custom API WSDL interfaces
+
 
     :param str content: The WSDL content
     :param Union[str, 'WsdlImportMethod'] import_method: The WSDL import method

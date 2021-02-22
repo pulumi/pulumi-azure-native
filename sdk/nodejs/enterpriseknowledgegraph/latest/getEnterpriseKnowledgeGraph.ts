@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * EnterpriseKnowledgeGraph resource definition
+ * Latest API Version: 2018-12-03.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph'. */
 export function getEnterpriseKnowledgeGraph(args: GetEnterpriseKnowledgeGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseKnowledgeGraphResult> {
+    pulumi.log.warn("getEnterpriseKnowledgeGraph is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph'.")
     if (!opts) {
         opts = {}
     }

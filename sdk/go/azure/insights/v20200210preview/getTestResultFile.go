@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Test result.
 func GetTestResultFile(ctx *pulumi.Context, args *GetTestResultFileArgs, opts ...pulumi.InvokeOption) (*GetTestResultFileResult, error) {
 	var rv GetTestResultFileResult
 	err := ctx.Invoke("azure-nextgen:insights/v20200210preview:getTestResultFile", args, &rv, opts...)

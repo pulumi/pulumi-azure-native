@@ -15,6 +15,8 @@ __all__ = [
     'get_workspace_collection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbi:getWorkspaceCollection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWorkspaceCollectionResult:
     def __init__(__self__, id=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
@@ -110,11 +112,13 @@ def get_workspace_collection(resource_group_name: Optional[str] = None,
                              workspace_collection_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceCollectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2016-01-29.
+
 
     :param str resource_group_name: Azure resource group
     :param str workspace_collection_name: Power BI Embedded Workspace Collection name
     """
+    pulumi.log.warn("get_workspace_collection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbi:getWorkspaceCollection'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceCollectionName'] = workspace_collection_name

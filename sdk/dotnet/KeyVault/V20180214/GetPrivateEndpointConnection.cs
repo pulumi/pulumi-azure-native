@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214
 {
     public static class GetPrivateEndpointConnection
     {
+        /// <summary>
+        /// Private endpoint connection resource.
+        /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-nextgen:keyvault/v20180214:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
     }

@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_domain_ownership_identifier_slot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDomainOwnershipIdentifierSlot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppDomainOwnershipIdentifierSlotResult:
     """
@@ -109,13 +111,16 @@ def get_web_app_domain_ownership_identifier_slot(domain_ownership_identifier_nam
                                                  slot: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDomainOwnershipIdentifierSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    A domain specific resource identifier.
+    Latest API Version: 2020-10-01.
+
 
     :param str domain_ownership_identifier_name: Name of domain ownership identifier.
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
     """
+    pulumi.log.warn("get_web_app_domain_ownership_identifier_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDomainOwnershipIdentifierSlot'.")
     __args__ = dict()
     __args__['domainOwnershipIdentifierName'] = domain_ownership_identifier_name
     __args__['name'] = name

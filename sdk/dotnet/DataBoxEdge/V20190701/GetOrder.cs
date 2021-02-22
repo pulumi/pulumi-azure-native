@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
 {
     public static class GetOrder
     {
+        /// <summary>
+        /// The order details.
+        /// </summary>
         public static Task<GetOrderResult> InvokeAsync(GetOrderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-nextgen:databoxedge/v20190701:getOrder", args ?? new GetOrderArgs(), options.WithVersion());
     }

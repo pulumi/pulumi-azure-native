@@ -65,7 +65,9 @@ def get_entity_insights(add_default_extended_time_range: Optional[bool] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityInsightsResult:
     """
-    Use this data source to access information about an existing resource.
+    The Get Insights result operation response.
+    API Version: 2019-01-01-preview.
+
 
     :param bool add_default_extended_time_range: Indicates if query time range should be extended with default time range of the query. Default value is false
     :param str end_time: The end timeline date, so the results returned are before this date.

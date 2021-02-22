@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformariadb:getServer'.")]
     public static class GetServer
     {
+        /// <summary>
+        /// Represents a server.
+        /// Latest API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-nextgen:dbformariadb/latest:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }

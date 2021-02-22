@@ -192,7 +192,8 @@ def get_query(id: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueryResult:
     """
-    Use this data source to access information about an existing resource.
+    A Log Analytics QueryPack-Query definition.
+
 
     :param str id: The id of a specific query defined in the Log Analytics QueryPack
     :param str query_pack_name: The name of the Log Analytics QueryPack resource.

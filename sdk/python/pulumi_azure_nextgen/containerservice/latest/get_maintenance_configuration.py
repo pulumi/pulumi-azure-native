@@ -15,6 +15,8 @@ __all__ = [
     'get_maintenance_configuration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getMaintenanceConfiguration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMaintenanceConfigurationResult:
     """
@@ -108,12 +110,15 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
                                   resource_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    maintenance configuration.
+    Latest API Version: 2020-12-01.
+
 
     :param str config_name: The name of the maintenance configuration.
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
+    pulumi.log.warn("get_maintenance_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getMaintenanceConfiguration'.")
     __args__ = dict()
     __args__['configName'] = config_name
     __args__['resourceGroupName'] = resource_group_name

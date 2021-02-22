@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 {
     public static class GetVendorSkuPreview
     {
+        /// <summary>
+        /// Customer subscription which can use a sku.
+        /// </summary>
         public static Task<GetVendorSkuPreviewResult> InvokeAsync(GetVendorSkuPreviewArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkuPreviewResult>("azure-nextgen:hybridnetwork/v20200101preview:getVendorSkuPreview", args ?? new GetVendorSkuPreviewArgs(), options.WithVersion());
     }

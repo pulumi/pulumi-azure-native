@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AadIam
 {
     public static class GetazureADMetric
     {
+        /// <summary>
+        /// AzureADMetrics resource.
+        /// API Version: 2020-07-01-preview.
+        /// </summary>
         public static Task<GetazureADMetricResult> InvokeAsync(GetazureADMetricArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetazureADMetricResult>("azure-nextgen:aadiam:getazureADMetric", args ?? new GetazureADMetricArgs(), options.WithVersion());
     }

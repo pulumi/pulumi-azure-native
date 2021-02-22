@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_function',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppFunction'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppFunctionResult:
     """
@@ -252,12 +254,15 @@ def get_web_app_function(function_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppFunctionResult:
     """
-    Use this data source to access information about an existing resource.
+    Function information.
+    Latest API Version: 2020-10-01.
+
 
     :param str function_name: Function name.
     :param str name: Site name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_web_app_function is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppFunction'.")
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['name'] = name

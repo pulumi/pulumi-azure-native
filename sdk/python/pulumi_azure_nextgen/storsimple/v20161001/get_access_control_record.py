@@ -83,7 +83,8 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessControlRecordResult:
     """
-    Use this data source to access information about an existing resource.
+    The access control record
+
 
     :param str access_control_record_name: Name of access control record to be fetched.
     :param str manager_name: The manager name

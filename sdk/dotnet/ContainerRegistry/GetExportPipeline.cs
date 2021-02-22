@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
 {
     public static class GetExportPipeline
     {
+        /// <summary>
+        /// An object that represents an export pipeline for a container registry.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
         public static Task<GetExportPipelineResult> InvokeAsync(GetExportPipelineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExportPipelineResult>("azure-nextgen:containerregistry:getExportPipeline", args ?? new GetExportPipelineArgs(), options.WithVersion());
     }

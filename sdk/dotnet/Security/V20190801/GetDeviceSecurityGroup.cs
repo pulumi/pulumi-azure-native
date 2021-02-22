@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Security.V20190801
 {
     public static class GetDeviceSecurityGroup
     {
+        /// <summary>
+        /// The device security group resource
+        /// </summary>
         public static Task<GetDeviceSecurityGroupResult> InvokeAsync(GetDeviceSecurityGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceSecurityGroupResult>("azure-nextgen:security/v20190801:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupArgs(), options.WithVersion());
     }

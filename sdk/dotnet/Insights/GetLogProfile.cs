@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Insights
 {
     public static class GetLogProfile
     {
+        /// <summary>
+        /// The log profile resource.
+        /// API Version: 2016-03-01.
+        /// </summary>
         public static Task<GetLogProfileResult> InvokeAsync(GetLogProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure-nextgen:insights:getLogProfile", args ?? new GetLogProfileArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview
 {
     public static class GetWebService
     {
+        /// <summary>
+        /// Instance of an Azure ML web service resource.
+        /// </summary>
         public static Task<GetWebServiceResult> InvokeAsync(GetWebServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebServiceResult>("azure-nextgen:machinelearning/v20160501preview:getWebService", args ?? new GetWebServiceArgs(), options.WithVersion());
     }

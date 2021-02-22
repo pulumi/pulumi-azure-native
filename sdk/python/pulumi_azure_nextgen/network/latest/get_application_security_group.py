@@ -14,6 +14,8 @@ __all__ = [
     'get_application_security_group',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationSecurityGroup'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationSecurityGroupResult:
     """
@@ -130,11 +132,14 @@ def get_application_security_group(application_security_group_name: Optional[str
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationSecurityGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    An application security group in a resource group.
+    Latest API Version: 2020-08-01.
+
 
     :param str application_security_group_name: The name of the application security group.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_application_security_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationSecurityGroup'.")
     __args__ = dict()
     __args__['applicationSecurityGroupName'] = application_security_group_name
     __args__['resourceGroupName'] = resource_group_name

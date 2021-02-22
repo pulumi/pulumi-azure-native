@@ -14,6 +14,8 @@ __all__ = [
     'list_spatial_anchors_account_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:listSpatialAnchorsAccountKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListSpatialAnchorsAccountKeysResult:
     """
@@ -58,11 +60,14 @@ def list_spatial_anchors_account_keys(account_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSpatialAnchorsAccountKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Developer Keys of account
+    Latest API Version: 2021-01-01.
+
 
     :param str account_name: Name of an Mixed Reality Account.
     :param str resource_group_name: Name of an Azure resource group.
     """
+    pulumi.log.warn("list_spatial_anchors_account_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:listSpatialAnchorsAccountKeys'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

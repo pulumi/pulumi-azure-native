@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.BotService
 {
     public static class GetEnterpriseChannel
     {
+        /// <summary>
+        /// Enterprise Channel resource definition
+        /// API Version: 2018-07-12.
+        /// </summary>
         public static Task<GetEnterpriseChannelResult> InvokeAsync(GetEnterpriseChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseChannelResult>("azure-nextgen:botservice:getEnterpriseChannel", args ?? new GetEnterpriseChannelArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EdgeOrder
 {
     public static class GetOrderByName
     {
+        /// <summary>
+        /// Represents order contract
+        /// API Version: 2020-12-01-preview.
+        /// </summary>
         public static Task<GetOrderByNameResult> InvokeAsync(GetOrderByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderByNameResult>("azure-nextgen:edgeorder:getOrderByName", args ?? new GetOrderByNameArgs(), options.WithVersion());
     }

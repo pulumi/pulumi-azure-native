@@ -269,7 +269,9 @@ def get_batch_account(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    Contains information about an Azure Batch account.
+    API Version: 2021-01-01.
+
 
     :param str account_name: The name of the Batch account.
     :param str resource_group_name: The name of the resource group that contains the Batch account.

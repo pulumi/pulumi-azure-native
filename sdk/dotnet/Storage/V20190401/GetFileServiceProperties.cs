@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
 {
     public static class GetFileServiceProperties
     {
+        /// <summary>
+        /// The properties of File services in storage account.
+        /// </summary>
         public static Task<GetFileServicePropertiesResult> InvokeAsync(GetFileServicePropertiesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileServicePropertiesResult>("azure-nextgen:storage/v20190401:getFileServiceProperties", args ?? new GetFileServicePropertiesArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20180416
 {
     public static class GetScheduledQueryRule
     {
+        /// <summary>
+        /// The Log Search Rule resource.
+        /// </summary>
         public static Task<GetScheduledQueryRuleResult> InvokeAsync(GetScheduledQueryRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azure-nextgen:insights/v20180416:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithVersion());
     }

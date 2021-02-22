@@ -56,7 +56,8 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
                                   type: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionConsentLinksResult:
     """
-    Use this data source to access information about an existing resource.
+    Collection of consent links
+
 
     :param str connection_name: The connection name.
     :param str id: Resource Id

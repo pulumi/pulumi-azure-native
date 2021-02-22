@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ManagementPartner.V20180201
 {
     public static class GetPartner
     {
+        /// <summary>
+        /// this is the management partner operations response
+        /// </summary>
         public static Task<GetPartnerResult> InvokeAsync(GetPartnerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-nextgen:managementpartner/v20180201:getPartner", args ?? new GetPartnerArgs(), options.WithVersion());
     }

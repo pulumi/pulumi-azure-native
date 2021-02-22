@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_network_gateway_bgp_peer_status',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayBgpPeerStatus'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualNetworkGatewayBgpPeerStatusResult:
     """
@@ -48,12 +50,15 @@ def get_virtual_network_gateway_bgp_peer_status(peer: Optional[str] = None,
                                                 virtual_network_gateway_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayBgpPeerStatusResult:
     """
-    Use this data source to access information about an existing resource.
+    Response for list BGP peer status API service call.
+    Latest API Version: 2020-08-01.
+
 
     :param str peer: The IP address of the peer to retrieve the status of.
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The name of the virtual network gateway.
     """
+    pulumi.log.warn("get_virtual_network_gateway_bgp_peer_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayBgpPeerStatus'.")
     __args__ = dict()
     __args__['peer'] = peer
     __args__['resourceGroupName'] = resource_group_name

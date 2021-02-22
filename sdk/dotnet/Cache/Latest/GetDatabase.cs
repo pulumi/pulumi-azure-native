@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Cache.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getDatabase'.")]
     public static class GetDatabase
     {
+        /// <summary>
+        /// Describes a database on the RedisEnterprise cluster
+        /// Latest API Version: 2021-03-01.
+        /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:cache/latest:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }

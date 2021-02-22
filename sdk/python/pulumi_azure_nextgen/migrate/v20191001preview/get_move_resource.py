@@ -84,7 +84,8 @@ def get_move_resource(move_collection_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMoveResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    Defines the move resource.
+
 
     :param str move_collection_name: The Move Collection Name.
     :param str move_resource_name: The Move Resource Name.

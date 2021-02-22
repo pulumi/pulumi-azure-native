@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_machine_schedule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachineSchedule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineScheduleResult:
     """
@@ -230,7 +232,9 @@ def get_virtual_machine_schedule(expand: Optional[str] = None,
                                  virtual_machine_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    A schedule.
+    Latest API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'
     :param str lab_name: The name of the lab.
@@ -238,6 +242,7 @@ def get_virtual_machine_schedule(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str virtual_machine_name: The name of the virtual machine.
     """
+    pulumi.log.warn("get_virtual_machine_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachineSchedule'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

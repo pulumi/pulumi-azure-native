@@ -14,6 +14,8 @@ __all__ = [
     'get_source_control',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getSourceControl'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSourceControlResult:
     """
@@ -179,12 +181,15 @@ def get_source_control(automation_account_name: Optional[str] = None,
                        source_control_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceControlResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the source control.
+    Latest API Version: 2019-06-01.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
     :param str source_control_name: The name of source control.
     """
+    pulumi.log.warn("get_source_control is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getSourceControl'.")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name

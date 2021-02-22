@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExperiment'.")]
     public static class GetExperiment
     {
+        /// <summary>
+        /// Defines the properties of an Experiment
+        /// Latest API Version: 2019-11-01.
+        /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-nextgen:network/latest:getExperiment", args ?? new GetExperimentArgs(), options.WithVersion());
     }

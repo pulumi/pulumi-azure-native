@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.BatchAI.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getFileServer'.")]
     public static class GetFileServer
     {
+        /// <summary>
+        /// File Server information.
+        /// Latest API Version: 2018-05-01.
+        /// </summary>
         public static Task<GetFileServerResult> InvokeAsync(GetFileServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileServerResult>("azure-nextgen:batchai/latest:getFileServer", args ?? new GetFileServerArgs(), options.WithVersion());
     }

@@ -108,7 +108,9 @@ def get_sql_resource_sql_role_definition(account_name: Optional[str] = None,
                                          role_definition_id: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlRoleDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB SQL Role Definition.
+    API Version: 2020-06-01-preview.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

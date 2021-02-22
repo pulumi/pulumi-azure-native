@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 {
     public static class GetLiveOutput
     {
+        /// <summary>
+        /// The Live Output.
+        /// </summary>
         public static Task<GetLiveOutputResult> InvokeAsync(GetLiveOutputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLiveOutputResult>("azure-nextgen:media/v20200501:getLiveOutput", args ?? new GetLiveOutputArgs(), options.WithVersion());
     }

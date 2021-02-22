@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Portal.V20181001
 {
     public static class GetUserSettings
     {
+        /// <summary>
+        /// Response to get user settings
+        /// </summary>
         public static Task<GetUserSettingsResult> InvokeAsync(GetUserSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsResult>("azure-nextgen:portal/v20181001:getUserSettings", args ?? new GetUserSettingsArgs(), options.WithVersion());
     }

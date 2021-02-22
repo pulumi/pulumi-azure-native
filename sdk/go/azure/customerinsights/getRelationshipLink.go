@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The relationship link resource format.
+// API Version: 2017-04-26.
 func LookupRelationshipLink(ctx *pulumi.Context, args *LookupRelationshipLinkArgs, opts ...pulumi.InvokeOption) (*LookupRelationshipLinkResult, error) {
 	var rv LookupRelationshipLinkResult
 	err := ctx.Invoke("azure-nextgen:customerinsights:getRelationshipLink", args, &rv, opts...)

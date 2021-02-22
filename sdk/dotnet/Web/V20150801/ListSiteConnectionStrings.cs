@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class ListSiteConnectionStrings
     {
+        /// <summary>
+        /// String dictionary resource
+        /// </summary>
         public static Task<ListSiteConnectionStringsResult> InvokeAsync(ListSiteConnectionStringsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSiteConnectionStringsResult>("azure-nextgen:web/v20150801:listSiteConnectionStrings", args ?? new ListSiteConnectionStringsArgs(), options.WithVersion());
     }

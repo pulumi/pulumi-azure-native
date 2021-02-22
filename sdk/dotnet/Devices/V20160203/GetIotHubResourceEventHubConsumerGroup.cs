@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Devices.V20160203
 {
     public static class GetIotHubResourceEventHubConsumerGroup
     {
+        /// <summary>
+        /// The properties of the EventHubConsumerGroupInfo object.
+        /// </summary>
         public static Task<GetIotHubResourceEventHubConsumerGroupResult> InvokeAsync(GetIotHubResourceEventHubConsumerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceEventHubConsumerGroupResult>("azure-nextgen:devices/v20160203:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupArgs(), options.WithVersion());
     }

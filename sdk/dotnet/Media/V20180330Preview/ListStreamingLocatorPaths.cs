@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
 {
     public static class ListStreamingLocatorPaths
     {
+        /// <summary>
+        /// Class of response for listPaths action
+        /// </summary>
         public static Task<ListStreamingLocatorPathsResult> InvokeAsync(ListStreamingLocatorPathsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorPathsResult>("azure-nextgen:media/v20180330preview:listStreamingLocatorPaths", args ?? new ListStreamingLocatorPathsArgs(), options.WithVersion());
     }

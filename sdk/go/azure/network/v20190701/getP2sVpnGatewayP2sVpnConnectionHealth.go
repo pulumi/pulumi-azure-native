@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// P2SVpnGateway Resource.
 func GetP2sVpnGatewayP2sVpnConnectionHealth(ctx *pulumi.Context, args *GetP2sVpnGatewayP2sVpnConnectionHealthArgs, opts ...pulumi.InvokeOption) (*GetP2sVpnGatewayP2sVpnConnectionHealthResult, error) {
 	var rv GetP2sVpnGatewayP2sVpnConnectionHealthResult
 	err := ctx.Invoke("azure-nextgen:network/v20190701:getP2sVpnGatewayP2sVpnConnectionHealth", args, &rv, opts...)

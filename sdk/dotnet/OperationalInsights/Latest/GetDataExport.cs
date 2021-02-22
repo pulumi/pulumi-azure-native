@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataExport'.")]
     public static class GetDataExport
     {
+        /// <summary>
+        /// The top level data export resource container.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetDataExportResult> InvokeAsync(GetDataExportArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azure-nextgen:operationalinsights/latest:getDataExport", args ?? new GetDataExportArgs(), options.WithVersion());
     }

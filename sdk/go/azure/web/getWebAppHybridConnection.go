@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Hybrid Connection contract. This is used to configure a Hybrid Connection.
+// API Version: 2020-10-01.
 func LookupWebAppHybridConnection(ctx *pulumi.Context, args *LookupWebAppHybridConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppHybridConnectionResult, error) {
 	var rv LookupWebAppHybridConnectionResult
 	err := ctx.Invoke("azure-nextgen:web:getWebAppHybridConnection", args, &rv, opts...)

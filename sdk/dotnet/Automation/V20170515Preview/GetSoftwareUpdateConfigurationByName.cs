@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
 {
     public static class GetSoftwareUpdateConfigurationByName
     {
+        /// <summary>
+        /// Software update configuration properties.
+        /// </summary>
         public static Task<GetSoftwareUpdateConfigurationByNameResult> InvokeAsync(GetSoftwareUpdateConfigurationByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSoftwareUpdateConfigurationByNameResult>("azure-nextgen:automation/v20170515preview:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameArgs(), options.WithVersion());
     }

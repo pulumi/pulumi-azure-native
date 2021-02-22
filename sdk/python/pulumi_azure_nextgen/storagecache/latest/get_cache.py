@@ -15,6 +15,8 @@ __all__ = [
     'get_cache',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagecache:getCache'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCacheResult:
     """
@@ -251,11 +253,14 @@ def get_cache(cache_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
-    Use this data source to access information about an existing resource.
+    A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+    Latest API Version: 2020-10-01.
+
 
     :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param str resource_group_name: Target resource group.
     """
+    pulumi.log.warn("get_cache is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagecache:getCache'.")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name

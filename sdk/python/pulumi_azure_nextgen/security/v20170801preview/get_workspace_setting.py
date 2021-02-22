@@ -93,7 +93,8 @@ class AwaitableGetWorkspaceSettingResult(GetWorkspaceSettingResult):
 def get_workspace_setting(workspace_setting_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    Configures where to store the OMS agent data for workspaces under a scope
+
 
     :param str workspace_setting_name: Name of the security setting
     """

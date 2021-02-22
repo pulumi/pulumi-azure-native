@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 {
     public static class GetVirtualMachine
     {
+        /// <summary>
+        /// A virtual machine.
+        /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-nextgen:devtestlab/v20160515:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithVersion());
     }

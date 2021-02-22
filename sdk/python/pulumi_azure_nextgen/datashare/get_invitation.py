@@ -207,7 +207,9 @@ def get_invitation(account_name: Optional[str] = None,
                    share_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInvitationResult:
     """
-    Use this data source to access information about an existing resource.
+    A Invitation data transfer object.
+    API Version: 2020-09-01.
+
 
     :param str account_name: The name of the share account.
     :param str invitation_name: The name of the invitation.

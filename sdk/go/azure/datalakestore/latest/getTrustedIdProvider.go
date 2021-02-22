@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Data Lake Store trusted identity provider information.
+// Latest API Version: 2016-11-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getTrustedIdProvider'.
 func LookupTrustedIdProvider(ctx *pulumi.Context, args *LookupTrustedIdProviderArgs, opts ...pulumi.InvokeOption) (*LookupTrustedIdProviderResult, error) {
 	var rv LookupTrustedIdProviderResult
 	err := ctx.Invoke("azure-nextgen:datalakestore/latest:getTrustedIdProvider", args, &rv, opts...)

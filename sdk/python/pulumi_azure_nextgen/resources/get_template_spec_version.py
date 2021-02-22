@@ -144,7 +144,9 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
                               template_spec_version: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateSpecVersionResult:
     """
-    Use this data source to access information about an existing resource.
+    Template Spec Version object.
+    API Version: 2019-06-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str template_spec_name: Name of the Template Spec.

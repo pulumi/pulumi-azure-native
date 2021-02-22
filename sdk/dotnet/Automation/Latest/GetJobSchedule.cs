@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Automation.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getJobSchedule'.")]
     public static class GetJobSchedule
     {
+        /// <summary>
+        /// Definition of the job schedule.
+        /// Latest API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetJobScheduleResult> InvokeAsync(GetJobScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobScheduleResult>("azure-nextgen:automation/latest:getJobSchedule", args ?? new GetJobScheduleArgs(), options.WithVersion());
     }

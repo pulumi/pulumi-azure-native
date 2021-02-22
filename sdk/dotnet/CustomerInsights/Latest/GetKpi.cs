@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getKpi'.")]
     public static class GetKpi
     {
+        /// <summary>
+        /// The KPI resource format.
+        /// Latest API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetKpiResult> InvokeAsync(GetKpiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKpiResult>("azure-nextgen:customerinsights/latest:getKpi", args ?? new GetKpiArgs(), options.WithVersion());
     }

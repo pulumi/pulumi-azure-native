@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20200101Preview
 {
     public static class GetManagementGroupDiagnosticSetting
     {
+        /// <summary>
+        /// The management group diagnostic setting resource.
+        /// </summary>
         public static Task<GetManagementGroupDiagnosticSettingResult> InvokeAsync(GetManagementGroupDiagnosticSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupDiagnosticSettingResult>("azure-nextgen:insights/v20200101preview:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingArgs(), options.WithVersion());
     }

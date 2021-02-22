@@ -177,7 +177,8 @@ def get_key(key_name: Optional[str] = None,
             vault_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    The key resource.
+
 
     :param str key_name: The name of the key to be retrieved.
     :param str resource_group_name: The name of the resource group which contains the specified key vault.

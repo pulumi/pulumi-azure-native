@@ -15,6 +15,8 @@ __all__ = [
     'list_web_app_publishing_credentials',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppPublishingCredentials'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWebAppPublishingCredentialsResult:
     """
@@ -155,11 +157,14 @@ def list_web_app_publishing_credentials(name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppPublishingCredentialsResult:
     """
-    Use this data source to access information about an existing resource.
+    User credentials used for publishing activity.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("list_web_app_publishing_credentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppPublishingCredentials'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

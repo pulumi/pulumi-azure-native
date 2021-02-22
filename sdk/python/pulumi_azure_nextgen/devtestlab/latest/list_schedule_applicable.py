@@ -15,6 +15,8 @@ __all__ = [
     'list_schedule_applicable',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listScheduleApplicable'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListScheduleApplicableResult:
     """
@@ -60,12 +62,15 @@ def list_schedule_applicable(lab_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListScheduleApplicableResult:
     """
-    Use this data source to access information about an existing resource.
+    The response of a list operation.
+    Latest API Version: 2018-09-15.
+
 
     :param str lab_name: The name of the lab.
     :param str name: The name of the schedule.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("list_schedule_applicable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listScheduleApplicable'.")
     __args__ = dict()
     __args__['labName'] = lab_name
     __args__['name'] = name

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataLakeStore
 {
     public static class GetTrustedIdProvider
     {
+        /// <summary>
+        /// Data Lake Store trusted identity provider information.
+        /// API Version: 2016-11-01.
+        /// </summary>
         public static Task<GetTrustedIdProviderResult> InvokeAsync(GetTrustedIdProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTrustedIdProviderResult>("azure-nextgen:datalakestore:getTrustedIdProvider", args ?? new GetTrustedIdProviderArgs(), options.WithVersion());
     }

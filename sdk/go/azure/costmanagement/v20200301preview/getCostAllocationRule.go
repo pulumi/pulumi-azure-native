@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The cost allocation rule model definition
 func LookupCostAllocationRule(ctx *pulumi.Context, args *LookupCostAllocationRuleArgs, opts ...pulumi.InvokeOption) (*LookupCostAllocationRuleResult, error) {
 	var rv LookupCostAllocationRuleResult
 	err := ctx.Invoke("azure-nextgen:costmanagement/v20200301preview:getCostAllocationRule", args, &rv, opts...)

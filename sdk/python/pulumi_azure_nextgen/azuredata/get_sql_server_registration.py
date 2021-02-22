@@ -143,7 +143,9 @@ def get_sql_server_registration(resource_group_name: Optional[str] = None,
                                 sql_server_registration_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerRegistrationResult:
     """
-    Use this data source to access information about an existing resource.
+    A SQL server registration.
+    API Version: 2019-07-24-preview.
+
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str sql_server_registration_name: Name of the SQL Server registration.

@@ -59,7 +59,9 @@ def list_cluster_streaming_jobs(cluster_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterStreamingJobsResult:
     """
-    Use this data source to access information about an existing resource.
+    A list of streaming jobs. Populated by a List operation.
+    API Version: 2020-03-01-preview.
+
 
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

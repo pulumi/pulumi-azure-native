@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Peering.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeering'.")]
     public static class GetPeering
     {
+        /// <summary>
+        /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetPeeringResult> InvokeAsync(GetPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringResult>("azure-nextgen:peering/latest:getPeering", args ?? new GetPeeringArgs(), options.WithVersion());
     }

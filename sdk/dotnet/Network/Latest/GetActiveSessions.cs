@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getActiveSessions'.")]
     public static class GetActiveSessions
     {
+        /// <summary>
+        /// Response for GetActiveSessions.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetActiveSessionsResult> InvokeAsync(GetActiveSessionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActiveSessionsResult>("azure-nextgen:network/latest:getActiveSessions", args ?? new GetActiveSessionsArgs(), options.WithVersion());
     }

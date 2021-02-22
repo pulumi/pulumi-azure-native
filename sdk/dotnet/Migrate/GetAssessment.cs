@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Migrate
 {
     public static class GetAssessment
     {
+        /// <summary>
+        /// An assessment created for a group in the Migration project.
+        /// API Version: 2019-10-01.
+        /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-nextgen:migrate:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
     }

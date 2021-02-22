@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataShare.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getDataSet'.")]
     public static class GetDataSet
     {
+        /// <summary>
+        /// A DataSet data transfer object.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetDataSetResult> InvokeAsync(GetDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetResult>("azure-nextgen:datashare/latest:getDataSet", args ?? new GetDataSetArgs(), options.WithVersion());
     }

@@ -156,7 +156,8 @@ def get_database(cluster_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a database on the RedisEnterprise cluster
+
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
     :param str database_name: The name of the database.

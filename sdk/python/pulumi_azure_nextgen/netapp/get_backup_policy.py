@@ -192,7 +192,9 @@ def get_backup_policy(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Backup policy information
+    API Version: 2020-11-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str backup_policy_name: Backup policy Name which uniquely identify backup policy.

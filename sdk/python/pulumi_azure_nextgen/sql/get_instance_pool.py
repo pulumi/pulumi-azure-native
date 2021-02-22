@@ -143,7 +143,9 @@ def get_instance_pool(instance_pool_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancePoolResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure SQL instance pool.
+    API Version: 2020-08-01-preview.
+
 
     :param str instance_pool_name: The name of the instance pool to be retrieved.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

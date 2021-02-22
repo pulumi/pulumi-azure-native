@@ -15,6 +15,8 @@ __all__ = [
     'get_view',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getView'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetViewResult:
     """
@@ -226,10 +228,13 @@ class AwaitableGetViewResult(GetViewResult):
 def get_view(view_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewResult:
     """
-    Use this data source to access information about an existing resource.
+    States and configurations of Cost Analysis.
+    Latest API Version: 2020-06-01.
+
 
     :param str view_name: View name
     """
+    pulumi.log.warn("get_view is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getView'.")
     __args__ = dict()
     __args__['viewName'] = view_name
     if opts is None:

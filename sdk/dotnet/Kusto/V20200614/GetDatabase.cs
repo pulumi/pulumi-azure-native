@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Kusto.V20200614
 {
     public static class GetDatabase
     {
+        /// <summary>
+        /// Class representing a Kusto database.
+        /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:kusto/v20200614:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
 {
     public static class GetLabelingJob
     {
+        /// <summary>
+        /// Machine Learning labeling job object wrapped into ARM resource envelope.
+        /// API Version: 2020-09-01-preview.
+        /// </summary>
         public static Task<GetLabelingJobResult> InvokeAsync(GetLabelingJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabelingJobResult>("azure-nextgen:machinelearningservices:getLabelingJob", args ?? new GetLabelingJobArgs(), options.WithVersion());
     }

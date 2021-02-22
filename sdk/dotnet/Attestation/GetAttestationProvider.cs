@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Attestation
 {
     public static class GetAttestationProvider
     {
+        /// <summary>
+        /// Attestation service response message.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetAttestationProviderResult> InvokeAsync(GetAttestationProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azure-nextgen:attestation:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithVersion());
     }

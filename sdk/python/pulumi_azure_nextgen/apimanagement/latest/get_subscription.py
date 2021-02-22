@@ -14,6 +14,8 @@ __all__ = [
     'get_subscription',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getSubscription'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSubscriptionResult:
     """
@@ -227,12 +229,15 @@ def get_subscription(resource_group_name: Optional[str] = None,
                      sid: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    Subscription details.
+    Latest API Version: 2019-12-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     :param str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
     """
+    pulumi.log.warn("get_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getSubscription'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

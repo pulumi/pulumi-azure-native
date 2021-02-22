@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180531
 {
     public static class GetReportConfigByResourceGroupName
     {
+        /// <summary>
+        /// A report config resource.
+        /// </summary>
         public static Task<GetReportConfigByResourceGroupNameResult> InvokeAsync(GetReportConfigByResourceGroupNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportConfigByResourceGroupNameResult>("azure-nextgen:costmanagement/v20180531:getReportConfigByResourceGroupName", args ?? new GetReportConfigByResourceGroupNameArgs(), options.WithVersion());
     }

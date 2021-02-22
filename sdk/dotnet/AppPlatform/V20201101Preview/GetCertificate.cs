@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
 {
     public static class GetCertificate
     {
+        /// <summary>
+        /// Certificate resource payload.
+        /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-nextgen:appplatform/v20201101preview:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }

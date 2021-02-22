@@ -14,6 +14,8 @@ __all__ = [
     'get_queue',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getQueue'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetQueueResult:
     def __init__(__self__, approximate_message_count=None, id=None, metadata=None, name=None, type=None):
@@ -92,12 +94,14 @@ def get_queue(account_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2021-01-01.
+
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str queue_name: A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("get_queue is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getQueue'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['queueName'] = queue_name

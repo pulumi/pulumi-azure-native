@@ -143,7 +143,9 @@ def get_enterprise_channel(resource_group_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnterpriseChannelResult:
     """
-    Use this data source to access information about an existing resource.
+    Enterprise Channel resource definition
+    API Version: 2018-07-12.
+
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
     :param str resource_name: The name of the Bot resource.

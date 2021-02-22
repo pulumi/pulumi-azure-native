@@ -115,7 +115,8 @@ def get_sql_resource_sql_container(account_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlContainerResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB container.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str container_name: Cosmos DB container name.

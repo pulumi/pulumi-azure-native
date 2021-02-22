@@ -96,7 +96,8 @@ def get_guest_configuration_assignment(guest_configuration_assignment_name: Opti
                                        vm_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestConfigurationAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Guest configuration assignment is an association between a machine and guest configuration.
+
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.
     :param str resource_group_name: The resource group name.

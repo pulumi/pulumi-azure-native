@@ -15,6 +15,8 @@ __all__ = [
     'get_log_analytic_export_throttled_requests',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getLogAnalyticExportThrottledRequests'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLogAnalyticExportThrottledRequestsResult:
     """
@@ -54,7 +56,9 @@ def get_log_analytic_export_throttled_requests(blob_container_sas_uri: Optional[
                                                to_time: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogAnalyticExportThrottledRequestsResult:
     """
-    Use this data source to access information about an existing resource.
+    LogAnalytics operation status response
+    Latest API Version: 2020-12-01.
+
 
     :param str blob_container_sas_uri: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
     :param str from_time: From time of the query
@@ -66,6 +70,7 @@ def get_log_analytic_export_throttled_requests(blob_container_sas_uri: Optional[
     :param str location: The location upon which virtual-machine-sizes is queried.
     :param str to_time: To time of the query
     """
+    pulumi.log.warn("get_log_analytic_export_throttled_requests is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getLogAnalyticExportThrottledRequests'.")
     __args__ = dict()
     __args__['blobContainerSasUri'] = blob_container_sas_uri
     __args__['fromTime'] = from_time

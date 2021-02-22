@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
 {
     public static class GetApiIssueComment
     {
+        /// <summary>
+        /// Issue Comment Contract details.
+        /// </summary>
         public static Task<GetApiIssueCommentResult> InvokeAsync(GetApiIssueCommentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueCommentResult>("azure-nextgen:apimanagement/v20180101:getApiIssueComment", args ?? new GetApiIssueCommentArgs(), options.WithVersion());
     }

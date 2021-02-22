@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 {
     public static class GetApiTagDescription
     {
+        /// <summary>
+        /// Contract details.
+        /// </summary>
         public static Task<GetApiTagDescriptionResult> InvokeAsync(GetApiTagDescriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiTagDescriptionResult>("azure-nextgen:apimanagement/v20191201preview:getApiTagDescription", args ?? new GetApiTagDescriptionArgs(), options.WithVersion());
     }

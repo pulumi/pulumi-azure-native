@@ -168,7 +168,9 @@ def get_snapshot_policy(account_name: Optional[str] = None,
                         snapshot_policy_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Snapshot policy information
+    API Version: 2020-11-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str resource_group_name: The name of the resource group.

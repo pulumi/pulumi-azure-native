@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.NotificationHubs.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:getNamespace'.")]
     public static class GetNamespace
     {
+        /// <summary>
+        /// Description of a Namespace resource.
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-nextgen:notificationhubs/latest:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }

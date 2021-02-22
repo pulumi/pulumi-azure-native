@@ -230,7 +230,9 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[str] = None,
                                                  vm_scale_set_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMRunCommandResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a Virtual Machine run command.
+    API Version: 2020-12-01.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str instance_id: The instance ID of the virtual machine.

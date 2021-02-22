@@ -14,6 +14,8 @@ __all__ = [
     'get_action',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getAction'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetActionResult:
     """
@@ -108,13 +110,16 @@ def get_action(action_id: Optional[str] = None,
                workspace_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionResult:
     """
-    Use this data source to access information about an existing resource.
+    Action for alert rule.
+    Latest API Version: 2020-01-01.
+
 
     :param str action_id: Action ID
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("get_action is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getAction'.")
     __args__ = dict()
     __args__['actionId'] = action_id
     __args__['resourceGroupName'] = resource_group_name

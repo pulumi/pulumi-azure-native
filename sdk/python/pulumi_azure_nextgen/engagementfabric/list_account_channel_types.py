@@ -47,7 +47,9 @@ def list_account_channel_types(account_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountChannelTypesResult:
     """
-    Use this data source to access information about an existing resource.
+    List of the EngagementFabric channel descriptions
+    API Version: 2018-09-01-preview.
+
 
     :param str account_name: Account Name
     :param str resource_group_name: Resource Group Name

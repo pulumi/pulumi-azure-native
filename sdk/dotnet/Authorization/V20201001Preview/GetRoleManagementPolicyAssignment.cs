@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Authorization.V20201001Preview
 {
     public static class GetRoleManagementPolicyAssignment
     {
+        /// <summary>
+        /// Role management policy
+        /// </summary>
         public static Task<GetRoleManagementPolicyAssignmentResult> InvokeAsync(GetRoleManagementPolicyAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleManagementPolicyAssignmentResult>("azure-nextgen:authorization/v20201001preview:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentArgs(), options.WithVersion());
     }

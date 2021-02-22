@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Resources
 {
     public static class GetDeployment
     {
+        /// <summary>
+        /// Deployment information.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-nextgen:resources:getDeployment", args ?? new GetDeploymentArgs(), options.WithVersion());
     }

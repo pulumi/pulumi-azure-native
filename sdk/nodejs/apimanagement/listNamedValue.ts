@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+ * API Version: 2019-12-01.
+ */
 export function listNamedValue(args: ListNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<ListNamedValueResult> {
     if (!opts) {
         opts = {}

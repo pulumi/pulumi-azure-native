@@ -131,7 +131,8 @@ def get_workload_network_vm_group(private_cloud_name: Optional[str] = None,
                                   vm_group_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkVMGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    NSX VM Group
+
 
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

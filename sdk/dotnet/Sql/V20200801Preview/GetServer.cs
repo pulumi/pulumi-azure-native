@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 {
     public static class GetServer
     {
+        /// <summary>
+        /// An Azure SQL Database server.
+        /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-nextgen:sql/v20200801preview:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }

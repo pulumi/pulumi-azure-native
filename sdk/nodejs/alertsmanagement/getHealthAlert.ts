@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The health alert resource.
+ * API Version: 2020-08-04-preview.
+ */
 export function getHealthAlert(args: GetHealthAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetHealthAlertResult> {
     if (!opts) {
         opts = {}

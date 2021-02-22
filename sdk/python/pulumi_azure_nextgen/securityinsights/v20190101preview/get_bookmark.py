@@ -241,7 +241,8 @@ def get_bookmark(bookmark_id: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBookmarkResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a bookmark in Azure Security Insights.
+
 
     :param str bookmark_id: Bookmark ID
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

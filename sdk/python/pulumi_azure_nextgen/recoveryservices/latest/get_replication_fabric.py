@@ -15,6 +15,8 @@ __all__ = [
     'get_replication_fabric',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationFabric'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReplicationFabricResult:
     """
@@ -96,12 +98,15 @@ def get_replication_fabric(fabric_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationFabricResult:
     """
-    Use this data source to access information about an existing resource.
+    Fabric definition.
+    Latest API Version: 2018-07-10.
+
 
     :param str fabric_name: Fabric name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("get_replication_fabric is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationFabric'.")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['resourceGroupName'] = resource_group_name

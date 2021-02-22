@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20171012
 {
     public static class GetProfileSupportedOptimizationTypes
     {
+        /// <summary>
+        /// The result of the GetSupportedOptimizationTypes API
+        /// </summary>
         public static Task<GetProfileSupportedOptimizationTypesResult> InvokeAsync(GetProfileSupportedOptimizationTypesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfileSupportedOptimizationTypesResult>("azure-nextgen:cdn/v20171012:getProfileSupportedOptimizationTypes", args ?? new GetProfileSupportedOptimizationTypesArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DomainRegistration
 {
     public static class ListDomainRecommendations
     {
+        /// <summary>
+        /// Collection of domain name identifiers.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListDomainRecommendationsResult> InvokeAsync(ListDomainRecommendationsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-nextgen:domainregistration:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithVersion());
     }

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The task run that has the ARM resource and properties.
+ * The task run will have the information of request and result of a run.
+ * API Version: 2019-06-01-preview.
+ */
 export function getTaskRun(args: GetTaskRunArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskRunResult> {
     if (!opts) {
         opts = {}

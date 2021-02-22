@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Peering.V20200401
 {
     public static class GetPrefix
     {
+        /// <summary>
+        /// The peering service prefix class.
+        /// </summary>
         public static Task<GetPrefixResult> InvokeAsync(GetPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixResult>("azure-nextgen:peering/v20200401:getPrefix", args ?? new GetPrefixArgs(), options.WithVersion());
     }

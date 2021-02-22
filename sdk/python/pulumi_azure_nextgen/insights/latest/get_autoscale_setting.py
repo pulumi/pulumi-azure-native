@@ -15,6 +15,8 @@ __all__ = [
     'get_autoscale_setting',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAutoscaleSetting'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAutoscaleSettingResult:
     """
@@ -143,11 +145,14 @@ def get_autoscale_setting(autoscale_setting_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutoscaleSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    The autoscale setting resource.
+    Latest API Version: 2015-04-01.
+
 
     :param str autoscale_setting_name: The autoscale setting name.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_autoscale_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAutoscaleSetting'.")
     __args__ = dict()
     __args__['autoscaleSettingName'] = autoscale_setting_name
     __args__['resourceGroupName'] = resource_group_name

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Intune.V20150114PrivatePreview
 {
     public static class GetIoMAMPolicyByName
     {
+        /// <summary>
+        /// iOS Policy entity for Intune MAM.
+        /// </summary>
         public static Task<GetIoMAMPolicyByNameResult> InvokeAsync(GetIoMAMPolicyByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIoMAMPolicyByNameResult>("azure-nextgen:intune/v20150114privatepreview:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameArgs(), options.WithVersion());
     }

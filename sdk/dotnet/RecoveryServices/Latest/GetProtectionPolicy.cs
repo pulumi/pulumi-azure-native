@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionPolicy'.")]
     public static class GetProtectionPolicy
     {
+        /// <summary>
+        /// Base class for backup policy. Workload-specific backup policies are derived from this class.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetProtectionPolicyResult> InvokeAsync(GetProtectionPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionPolicyResult>("azure-nextgen:recoveryservices/latest:getProtectionPolicy", args ?? new GetProtectionPolicyArgs(), options.WithVersion());
     }

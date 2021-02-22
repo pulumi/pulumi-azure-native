@@ -120,7 +120,9 @@ def get_extension(account_resource_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
-    Use this data source to access information about an existing resource.
+    The response to an extension resource GET request.
+    API Version: 2014-04-01-preview.
+
 
     :param str account_resource_name: The name of the Visual Studio Team Services account resource.
     :param str extension_resource_name: The name of the extension.

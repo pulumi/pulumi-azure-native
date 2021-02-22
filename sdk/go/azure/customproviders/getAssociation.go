@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The resource definition of this association.
+// API Version: 2018-09-01-preview.
 func LookupAssociation(ctx *pulumi.Context, args *LookupAssociationArgs, opts ...pulumi.InvokeOption) (*LookupAssociationResult, error) {
 	var rv LookupAssociationResult
 	err := ctx.Invoke("azure-nextgen:customproviders:getAssociation", args, &rv, opts...)

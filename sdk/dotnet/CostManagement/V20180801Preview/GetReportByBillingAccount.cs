@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
 {
     public static class GetReportByBillingAccount
     {
+        /// <summary>
+        /// A report resource.
+        /// </summary>
         public static Task<GetReportByBillingAccountResult> InvokeAsync(GetReportByBillingAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportByBillingAccountResult>("azure-nextgen:costmanagement/v20180801preview:getReportByBillingAccount", args ?? new GetReportByBillingAccountArgs(), options.WithVersion());
     }

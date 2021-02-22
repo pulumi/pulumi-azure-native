@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:virtualmachineimages:getVirtualMachineImageTemplate'.")]
     public static class GetVirtualMachineImageTemplate
     {
+        /// <summary>
+        /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+        /// Latest API Version: 2020-02-14.
+        /// </summary>
         public static Task<GetVirtualMachineImageTemplateResult> InvokeAsync(GetVirtualMachineImageTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-nextgen:virtualmachineimages/latest:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithVersion());
     }

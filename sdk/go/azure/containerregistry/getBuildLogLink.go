@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The result of get log link operation.
+// API Version: 2018-02-01-preview.
 func GetBuildLogLink(ctx *pulumi.Context, args *GetBuildLogLinkArgs, opts ...pulumi.InvokeOption) (*GetBuildLogLinkResult, error) {
 	var rv GetBuildLogLinkResult
 	err := ctx.Invoke("azure-nextgen:containerregistry:getBuildLogLink", args, &rv, opts...)

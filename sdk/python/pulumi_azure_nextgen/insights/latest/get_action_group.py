@@ -15,6 +15,8 @@ __all__ = [
     'get_action_group',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getActionGroup'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetActionGroupResult:
     """
@@ -239,11 +241,14 @@ def get_action_group(action_group_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    An action group resource.
+    Latest API Version: 2019-06-01.
+
 
     :param str action_group_name: The name of the action group.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_action_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getActionGroup'.")
     __args__ = dict()
     __args__['actionGroupName'] = action_group_name
     __args__['resourceGroupName'] = resource_group_name

@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_machine_scale_set_vm',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineScaleSetVM'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineScaleSetVMResult:
     """
@@ -349,13 +351,16 @@ def get_virtual_machine_scale_set_vm(expand: Optional[str] = None,
                                      vm_scale_set_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a virtual machine scale set virtual machine.
+    Latest API Version: 2020-12-01.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str instance_id: The instance ID of the virtual machine.
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set.
     """
+    pulumi.log.warn("get_virtual_machine_scale_set_vm is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineScaleSetVM'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['instanceId'] = instance_id

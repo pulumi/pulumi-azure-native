@@ -109,7 +109,8 @@ def get_job(job_agent_name: Optional[str] = None,
             server_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Use this data source to access information about an existing resource.
+    A job.
+
 
     :param str job_agent_name: The name of the job agent.
     :param str job_name: The name of the job to get.

@@ -85,7 +85,9 @@ def get_job_target_group(job_agent_name: Optional[str] = None,
                          target_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobTargetGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    A group of job targets.
+    API Version: 2020-08-01-preview.
+
 
     :param str job_agent_name: The name of the job agent.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

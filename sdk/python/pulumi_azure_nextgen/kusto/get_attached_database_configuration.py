@@ -143,7 +143,9 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDatabaseConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Class representing an attached database configuration.
+    API Version: 2020-09-18.
+
 
     :param str attached_database_configuration_name: The name of the attached database configuration.
     :param str cluster_name: The name of the Kusto cluster.

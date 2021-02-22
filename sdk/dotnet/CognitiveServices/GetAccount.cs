@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CognitiveServices
 {
     public static class GetAccount
     {
+        /// <summary>
+        /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+        /// API Version: 2017-04-18.
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:cognitiveservices:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

@@ -107,7 +107,9 @@ def get_integration_runtime_connection_info(integration_runtime_name: Optional[s
                                             workspace_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeConnectionInfoResult:
     """
-    Use this data source to access information about an existing resource.
+    Connection information for encrypting the on-premises data source credentials.
+    API Version: 2020-12-01.
+
 
     :param str integration_runtime_name: Integration runtime name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

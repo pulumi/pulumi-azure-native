@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute
 {
     public static class GetOperationalizationCluster
     {
+        /// <summary>
+        /// Instance of an Azure ML Operationalization Cluster resource.
+        /// API Version: 2017-08-01-preview.
+        /// </summary>
         public static Task<GetOperationalizationClusterResult> InvokeAsync(GetOperationalizationClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOperationalizationClusterResult>("azure-nextgen:machinelearningcompute:getOperationalizationCluster", args ?? new GetOperationalizationClusterArgs(), options.WithVersion());
     }

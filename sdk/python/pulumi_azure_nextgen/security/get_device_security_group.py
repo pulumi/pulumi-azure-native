@@ -119,7 +119,9 @@ def get_device_security_group(device_security_group_name: Optional[str] = None,
                               resource_id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceSecurityGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    The device security group resource
+    API Version: 2019-08-01.
+
 
     :param str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
     :param str resource_id: The identifier of the resource.

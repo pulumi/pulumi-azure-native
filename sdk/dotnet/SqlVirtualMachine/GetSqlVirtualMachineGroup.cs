@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine
 {
     public static class GetSqlVirtualMachineGroup
     {
+        /// <summary>
+        /// A SQL virtual machine group.
+        /// API Version: 2017-03-01-preview.
+        /// </summary>
         public static Task<GetSqlVirtualMachineGroupResult> InvokeAsync(GetSqlVirtualMachineGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineGroupResult>("azure-nextgen:sqlvirtualmachine:getSqlVirtualMachineGroup", args ?? new GetSqlVirtualMachineGroupArgs(), options.WithVersion());
     }

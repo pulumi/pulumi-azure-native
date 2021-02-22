@@ -312,7 +312,8 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
                       workspace_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBigDataPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    A Big Data pool
+
 
     :param str big_data_pool_name: Big Data pool name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

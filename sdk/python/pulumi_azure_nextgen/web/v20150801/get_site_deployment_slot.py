@@ -216,7 +216,8 @@ def get_site_deployment_slot(id: Optional[str] = None,
                              slot: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteDeploymentSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents user credentials used for publishing activity
+
 
     :param str id: Id of the deployment
     :param str name: Name of web app

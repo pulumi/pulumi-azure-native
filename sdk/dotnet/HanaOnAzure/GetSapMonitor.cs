@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.HanaOnAzure
 {
     public static class GetSapMonitor
     {
+        /// <summary>
+        /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
+        /// API Version: 2020-02-07-preview.
+        /// </summary>
         public static Task<GetSapMonitorResult> InvokeAsync(GetSapMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSapMonitorResult>("azure-nextgen:hanaonazure:getSapMonitor", args ?? new GetSapMonitorArgs(), options.WithVersion());
     }

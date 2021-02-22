@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
 {
     public static class ListOrderDCAccessCode
     {
+        /// <summary>
+        /// DC Access code in the case of Self Managed Shipping.
+        /// </summary>
         public static Task<ListOrderDCAccessCodeResult> InvokeAsync(ListOrderDCAccessCodeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListOrderDCAccessCodeResult>("azure-nextgen:databoxedge/v20200901preview:listOrderDCAccessCode", args ?? new ListOrderDCAccessCodeArgs(), options.WithVersion());
     }

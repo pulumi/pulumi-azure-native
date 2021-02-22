@@ -11,6 +11,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
 {
     public static class ListTaskDetails
     {
+        /// <summary>
+        /// The task that has the ARM resource and task properties. 
+        /// The task will have all information to schedule a run against it.
+        /// API Version: 2019-04-01.
+        /// </summary>
         public static Task<ListTaskDetailsResult> InvokeAsync(ListTaskDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTaskDetailsResult>("azure-nextgen:containerregistry:listTaskDetails", args ?? new ListTaskDetailsArgs(), options.WithVersion());
     }

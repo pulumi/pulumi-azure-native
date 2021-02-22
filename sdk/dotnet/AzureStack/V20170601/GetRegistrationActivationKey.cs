@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AzureStack.V20170601
 {
     public static class GetRegistrationActivationKey
     {
+        /// <summary>
+        /// The resource containing the Azure Stack activation key.
+        /// </summary>
         public static Task<GetRegistrationActivationKeyResult> InvokeAsync(GetRegistrationActivationKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationActivationKeyResult>("azure-nextgen:azurestack/v20170601:getRegistrationActivationKey", args ?? new GetRegistrationActivationKeyArgs(), options.WithVersion());
     }

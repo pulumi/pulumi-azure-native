@@ -179,7 +179,9 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
                    rule_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    The alert rule resource.
+    API Version: 2016-03-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the rule.

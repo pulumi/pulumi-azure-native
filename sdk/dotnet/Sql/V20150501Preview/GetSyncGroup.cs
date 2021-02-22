@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
 {
     public static class GetSyncGroup
     {
+        /// <summary>
+        /// An Azure SQL Database sync group.
+        /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-nextgen:sql/v20150501preview:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithVersion());
     }

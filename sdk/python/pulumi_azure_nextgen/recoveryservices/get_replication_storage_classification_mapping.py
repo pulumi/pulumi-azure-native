@@ -98,7 +98,9 @@ def get_replication_storage_classification_mapping(fabric_name: Optional[str] = 
                                                    storage_classification_name: Optional[str] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationStorageClassificationMappingResult:
     """
-    Use this data source to access information about an existing resource.
+    Storage mapping object.
+    API Version: 2018-07-10.
+
 
     :param str fabric_name: Fabric name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.

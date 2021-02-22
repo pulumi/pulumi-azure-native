@@ -188,7 +188,8 @@ def get_policy(policy_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Defines web application firewall policy.
+
 
     :param str policy_name: The name of the Web Application Firewall Policy.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.

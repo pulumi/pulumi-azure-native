@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A server DNS alias.
+// API Version: 2020-08-01-preview.
 func LookupServerDnsAlias(ctx *pulumi.Context, args *LookupServerDnsAliasArgs, opts ...pulumi.InvokeOption) (*LookupServerDnsAliasResult, error) {
 	var rv LookupServerDnsAliasResult
 	err := ctx.Invoke("azure-nextgen:sql:getServerDnsAlias", args, &rv, opts...)

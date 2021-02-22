@@ -14,6 +14,8 @@ __all__ = [
     'get_database_principal_assignment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getDatabasePrincipalAssignment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDatabasePrincipalAssignmentResult:
     """
@@ -156,13 +158,16 @@ def get_database_principal_assignment(cluster_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasePrincipalAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Class representing a database principal assignment.
+    Latest API Version: 2020-09-18.
+
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.
     :param str principal_assignment_name: The name of the Kusto principalAssignment.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("get_database_principal_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getDatabasePrincipalAssignment'.")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['databaseName'] = database_name

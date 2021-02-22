@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Storage
 {
     public static class GetTableServiceProperties
     {
+        /// <summary>
+        /// The properties of a storage account’s Table service.
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetTableServicePropertiesResult> InvokeAsync(GetTableServicePropertiesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableServicePropertiesResult>("azure-nextgen:storage:getTableServiceProperties", args ?? new GetTableServicePropertiesArgs(), options.WithVersion());
     }

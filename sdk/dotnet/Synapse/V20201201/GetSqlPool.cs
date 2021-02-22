@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
 {
     public static class GetSqlPool
     {
+        /// <summary>
+        /// A SQL Analytics pool
+        /// </summary>
         public static Task<GetSqlPoolResult> InvokeAsync(GetSqlPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolResult>("azure-nextgen:synapse/v20201201:getSqlPool", args ?? new GetSqlPoolArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
 {
     public static class GetVolume
     {
+        /// <summary>
+        /// This type describes a volume resource.
+        /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-nextgen:servicefabricmesh/v20180901preview:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
     }

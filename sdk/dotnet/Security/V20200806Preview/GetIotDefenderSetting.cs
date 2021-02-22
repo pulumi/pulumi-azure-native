@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
 {
     public static class GetIotDefenderSetting
     {
+        /// <summary>
+        /// IoT Defender settings
+        /// </summary>
         public static Task<GetIotDefenderSettingResult> InvokeAsync(GetIotDefenderSettingArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotDefenderSettingResult>("azure-nextgen:security/v20200806preview:getIotDefenderSetting", args ?? new GetIotDefenderSettingArgs(), options.WithVersion());
     }

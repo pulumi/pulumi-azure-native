@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Authorization
 {
     public static class GetPolicyAssignment
     {
+        /// <summary>
+        /// The policy assignment.
+        /// API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetPolicyAssignmentResult> InvokeAsync(GetPolicyAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentResult>("azure-nextgen:authorization:getPolicyAssignment", args ?? new GetPolicyAssignmentArgs(), options.WithVersion());
     }

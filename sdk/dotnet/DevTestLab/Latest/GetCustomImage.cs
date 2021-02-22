@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getCustomImage'.")]
     public static class GetCustomImage
     {
+        /// <summary>
+        /// A custom image.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetCustomImageResult> InvokeAsync(GetCustomImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomImageResult>("azure-nextgen:devtestlab/latest:getCustomImage", args ?? new GetCustomImageArgs(), options.WithVersion());
     }

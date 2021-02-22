@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Communication
 {
     public static class ListCommunicationServiceKeys
     {
+        /// <summary>
+        /// A class representing the access keys of a CommunicationService.
+        /// API Version: 2020-08-20-preview.
+        /// </summary>
         public static Task<ListCommunicationServiceKeysResult> InvokeAsync(ListCommunicationServiceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListCommunicationServiceKeysResult>("azure-nextgen:communication:listCommunicationServiceKeys", args ?? new ListCommunicationServiceKeysArgs(), options.WithVersion());
     }

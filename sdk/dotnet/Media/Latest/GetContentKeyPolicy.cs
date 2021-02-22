@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Media.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getContentKeyPolicy'.")]
     public static class GetContentKeyPolicy
     {
+        /// <summary>
+        /// A Content Key Policy resource.
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetContentKeyPolicyResult> InvokeAsync(GetContentKeyPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyResult>("azure-nextgen:media/latest:getContentKeyPolicy", args ?? new GetContentKeyPolicyArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20190701
 {
     public static class GetWebApplicationFirewallPolicy
     {
+        /// <summary>
+        /// Defines web application firewall policy.
+        /// </summary>
         public static Task<GetWebApplicationFirewallPolicyResult> InvokeAsync(GetWebApplicationFirewallPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebApplicationFirewallPolicyResult>("azure-nextgen:network/v20190701:getWebApplicationFirewallPolicy", args ?? new GetWebApplicationFirewallPolicyArgs(), options.WithVersion());
     }

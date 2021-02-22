@@ -203,7 +203,8 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenShiftClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the OpenShift cluster resource.

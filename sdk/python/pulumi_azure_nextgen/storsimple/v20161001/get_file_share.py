@@ -169,7 +169,8 @@ def get_file_share(device_name: Optional[str] = None,
                    share_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileShareResult:
     """
-    Use this data source to access information about an existing resource.
+    The File Share.
+
 
     :param str device_name: The device name.
     :param str file_server_name: The file server name.

@@ -300,7 +300,9 @@ def get_product(product_name: Optional[str] = None,
                 resource_group: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
-    Use this data source to access information about an existing resource.
+    Product information.
+    API Version: 2017-06-01.
+
 
     :param str product_name: Name of the product.
     :param str registration_name: Name of the Azure Stack registration.

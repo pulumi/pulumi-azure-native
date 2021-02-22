@@ -179,7 +179,8 @@ def get_network_security_group(network_security_group_name: Optional[str] = None
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    NetworkSecurityGroup resource
+
 
     :param str network_security_group_name: The name of the network security group.
     :param str resource_group_name: The name of the resource group.

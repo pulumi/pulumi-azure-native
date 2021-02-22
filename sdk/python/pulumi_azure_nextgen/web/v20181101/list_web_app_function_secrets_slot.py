@@ -108,7 +108,8 @@ def list_web_app_function_secrets_slot(function_name: Optional[str] = None,
                                        slot: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionSecretsSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Function secrets.
+
 
     :param str function_name: Function name.
     :param str name: Site name.

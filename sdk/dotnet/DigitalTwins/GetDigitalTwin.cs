@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DigitalTwins
 {
     public static class GetDigitalTwin
     {
+        /// <summary>
+        /// The description of the DigitalTwins service.
+        /// API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetDigitalTwinResult> InvokeAsync(GetDigitalTwinArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinResult>("azure-nextgen:digitaltwins:getDigitalTwin", args ?? new GetDigitalTwinArgs(), options.WithVersion());
     }

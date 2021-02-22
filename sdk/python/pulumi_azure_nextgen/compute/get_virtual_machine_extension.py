@@ -205,7 +205,9 @@ def get_virtual_machine_extension(expand: Optional[str] = None,
                                   vm_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineExtensionResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a Virtual Machine Extension.
+    API Version: 2020-12-01.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str resource_group_name: The name of the resource group.

@@ -14,6 +14,8 @@ __all__ = [
     'get_virtual_machine_rdp_file_contents',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachineRdpFileContents'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineRdpFileContentsResult:
     """
@@ -47,12 +49,15 @@ def get_virtual_machine_rdp_file_contents(lab_name: Optional[str] = None,
                                           resource_group_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineRdpFileContentsResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a .rdp file
+    Latest API Version: 2018-09-15.
+
 
     :param str lab_name: The name of the lab.
     :param str name: The name of the virtual machine.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_virtual_machine_rdp_file_contents is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachineRdpFileContents'.")
     __args__ = dict()
     __args__['labName'] = lab_name
     __args__['name'] = name

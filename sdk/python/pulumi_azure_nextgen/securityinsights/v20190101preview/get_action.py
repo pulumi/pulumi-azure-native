@@ -109,7 +109,8 @@ def get_action(action_id: Optional[str] = None,
                workspace_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionResult:
     """
-    Use this data source to access information about an existing resource.
+    Action for alert rule.
+
 
     :param str action_id: Action ID
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

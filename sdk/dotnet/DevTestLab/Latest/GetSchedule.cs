@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getSchedule'.")]
     public static class GetSchedule
     {
+        /// <summary>
+        /// A schedule.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-nextgen:devtestlab/latest:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
     }

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+// API Version: 2020-09-01.
 func LookupAFDOriginGroup(ctx *pulumi.Context, args *LookupAFDOriginGroupArgs, opts ...pulumi.InvokeOption) (*LookupAFDOriginGroupResult, error) {
 	var rv LookupAFDOriginGroupResult
 	err := ctx.Invoke("azure-nextgen:cdn:getAFDOriginGroup", args, &rv, opts...)

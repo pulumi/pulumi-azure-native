@@ -132,7 +132,9 @@ def get_api_tag_description(api_id: Optional[str] = None,
                             tag_description_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiTagDescriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    Contract details.
+    API Version: 2019-12-01.
+
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param str resource_group_name: The name of the resource group.

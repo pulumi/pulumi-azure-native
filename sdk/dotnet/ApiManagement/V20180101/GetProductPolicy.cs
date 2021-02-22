@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
 {
     public static class GetProductPolicy
     {
+        /// <summary>
+        /// Policy Contract details.
+        /// </summary>
         public static Task<GetProductPolicyResult> InvokeAsync(GetProductPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductPolicyResult>("azure-nextgen:apimanagement/v20180101:getProductPolicy", args ?? new GetProductPolicyArgs(), options.WithVersion());
     }

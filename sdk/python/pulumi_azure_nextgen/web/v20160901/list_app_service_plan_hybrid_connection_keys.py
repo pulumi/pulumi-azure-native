@@ -108,7 +108,8 @@ def list_app_service_plan_hybrid_connection_keys(name: Optional[str] = None,
                                                  resource_group_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAppServicePlanHybridConnectionKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+
 
     :param str name: Name of the App Service plan.
     :param str namespace_name: The name of the Service Bus namespace.

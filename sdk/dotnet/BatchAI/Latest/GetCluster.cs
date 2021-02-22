@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.BatchAI.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getCluster'.")]
     public static class GetCluster
     {
+        /// <summary>
+        /// Information about a Cluster.
+        /// Latest API Version: 2018-05-01.
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:batchai/latest:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

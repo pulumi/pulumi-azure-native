@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
 {
     public static class GetOrchestratorInstanceServiceDetails
     {
+        /// <summary>
+        /// Represents an instance of a orchestrator.
+        /// </summary>
         public static Task<GetOrchestratorInstanceServiceDetailsResult> InvokeAsync(GetOrchestratorInstanceServiceDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrchestratorInstanceServiceDetailsResult>("azure-nextgen:delegatednetwork/v20200808preview:getOrchestratorInstanceServiceDetails", args ?? new GetOrchestratorInstanceServiceDetailsArgs(), options.WithVersion());
     }

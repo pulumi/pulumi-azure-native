@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
 {
     public static class GetDataCollectionRuleAssociation
     {
+        /// <summary>
+        /// Definition of generic ARM proxy resource.
+        /// </summary>
         public static Task<GetDataCollectionRuleAssociationResult> InvokeAsync(GetDataCollectionRuleAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleAssociationResult>("azure-nextgen:insights/v20191101preview:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationArgs(), options.WithVersion());
     }

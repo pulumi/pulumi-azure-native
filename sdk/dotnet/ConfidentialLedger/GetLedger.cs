@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ConfidentialLedger
 {
     public static class GetLedger
     {
+        /// <summary>
+        /// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
+        /// API Version: 2020-12-01-preview.
+        /// </summary>
         public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("azure-nextgen:confidentialledger:getLedger", args ?? new GetLedgerArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Cdn.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getPolicy'.")]
     public static class GetPolicy
     {
+        /// <summary>
+        /// Defines web application firewall policy for Azure CDN.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-nextgen:cdn/latest:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
     }

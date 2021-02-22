@@ -15,6 +15,8 @@ __all__ = [
     'get_function',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getFunction'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFunctionResult:
     """
@@ -84,12 +86,15 @@ def get_function(function_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionResult:
     """
-    Use this data source to access information about an existing resource.
+    A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+    Latest API Version: 2016-03-01.
+
 
     :param str function_name: The name of the function.
     :param str job_name: The name of the streaming job.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("get_function is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getFunction'.")
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['jobName'] = job_name

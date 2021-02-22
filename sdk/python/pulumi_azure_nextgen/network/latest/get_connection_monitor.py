@@ -15,6 +15,8 @@ __all__ = [
     'get_connection_monitor',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getConnectionMonitor'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConnectionMonitorResult:
     """
@@ -264,12 +266,15 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionMonitorResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about the connection monitor.
+    Latest API Version: 2020-08-01.
+
 
     :param str connection_monitor_name: The name of the connection monitor.
     :param str network_watcher_name: The name of the Network Watcher resource.
     :param str resource_group_name: The name of the resource group containing Network Watcher.
     """
+    pulumi.log.warn("get_connection_monitor is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getConnectionMonitor'.")
     __args__ = dict()
     __args__['connectionMonitorName'] = connection_monitor_name
     __args__['networkWatcherName'] = network_watcher_name

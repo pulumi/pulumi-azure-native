@@ -208,7 +208,8 @@ def get_partner_topic_event_subscription(event_subscription_name: Optional[str] 
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerTopicEventSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    Event Subscription
+
 
     :param str event_subscription_name: Name of the event subscription to be found. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
     :param str partner_topic_name: Name of the partner topic.

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Credentials to resources in the cluster.
+// API Version: 2017-08-01-preview.
 func ListOperationalizationClusterKeys(ctx *pulumi.Context, args *ListOperationalizationClusterKeysArgs, opts ...pulumi.InvokeOption) (*ListOperationalizationClusterKeysResult, error) {
 	var rv ListOperationalizationClusterKeysResult
 	err := ctx.Invoke("azure-nextgen:machinelearningcompute:listOperationalizationClusterKeys", args, &rv, opts...)

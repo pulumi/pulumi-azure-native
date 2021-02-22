@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Class representing the config for the solution in the migrate project.
+// API Version: 2018-09-01-preview.
 func GetSolutionConfig(ctx *pulumi.Context, args *GetSolutionConfigArgs, opts ...pulumi.InvokeOption) (*GetSolutionConfigResult, error) {
 	var rv GetSolutionConfigResult
 	err := ctx.Invoke("azure-nextgen:migrate:getSolutionConfig", args, &rv, opts...)

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.V20181203
 {
     public static class GetEnterpriseKnowledgeGraph
     {
+        /// <summary>
+        /// EnterpriseKnowledgeGraph resource definition
+        /// </summary>
         public static Task<GetEnterpriseKnowledgeGraphResult> InvokeAsync(GetEnterpriseKnowledgeGraphArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseKnowledgeGraphResult>("azure-nextgen:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AnalysisServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:analysisservices:getServerDetails'.")]
     public static class GetServerDetails
     {
+        /// <summary>
+        /// Represents an instance of an Analysis Services resource.
+        /// Latest API Version: 2017-08-01.
+        /// </summary>
         public static Task<GetServerDetailsResult> InvokeAsync(GetServerDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-nextgen:analysisservices/latest:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithVersion());
     }

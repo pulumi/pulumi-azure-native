@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.PowerBI
 {
     public static class GetWorkspaceCollection
     {
+        /// <summary>
+        /// 
+        /// API Version: 2016-01-29.
+        /// </summary>
         public static Task<GetWorkspaceCollectionResult> InvokeAsync(GetWorkspaceCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceCollectionResult>("azure-nextgen:powerbi:getWorkspaceCollection", args ?? new GetWorkspaceCollectionArgs(), options.WithVersion());
     }

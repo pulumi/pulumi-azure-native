@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
 {
     public static class GetHealthAlert
     {
+        /// <summary>
+        /// The health alert resource.
+        /// </summary>
         public static Task<GetHealthAlertResult> InvokeAsync(GetHealthAlertArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHealthAlertResult>("azure-nextgen:alertsmanagement/v20200804preview:getHealthAlert", args ?? new GetHealthAlertArgs(), options.WithVersion());
     }

@@ -156,7 +156,8 @@ def get_virtual_machine_scale_set_extension(expand: Optional[str] = None,
                                             vmss_extension_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetExtensionResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a Virtual Machine Scale Set Extension.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str resource_group_name: The name of the resource group.

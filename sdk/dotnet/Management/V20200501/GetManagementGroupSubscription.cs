@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Management.V20200501
 {
     public static class GetManagementGroupSubscription
     {
+        /// <summary>
+        /// The details of subscription under management group.
+        /// </summary>
         public static Task<GetManagementGroupSubscriptionResult> InvokeAsync(GetManagementGroupSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupSubscriptionResult>("azure-nextgen:management/v20200501:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionArgs(), options.WithVersion());
     }

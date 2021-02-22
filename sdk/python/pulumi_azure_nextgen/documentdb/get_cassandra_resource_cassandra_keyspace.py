@@ -114,7 +114,9 @@ def get_cassandra_resource_cassandra_keyspace(account_name: Optional[str] = None
                                               resource_group_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCassandraResourceCassandraKeyspaceResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB Cassandra keyspace.
+    API Version: 2021-01-15.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str keyspace_name: Cosmos DB keyspace name.

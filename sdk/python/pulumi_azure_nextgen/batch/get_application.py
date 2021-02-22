@@ -119,7 +119,9 @@ def get_application(account_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Use this data source to access information about an existing resource.
+    Contains information about an application in a Batch account.
+    API Version: 2021-01-01.
+
 
     :param str account_name: The name of the Batch account.
     :param str application_name: The name of the application. This must be unique within the account.

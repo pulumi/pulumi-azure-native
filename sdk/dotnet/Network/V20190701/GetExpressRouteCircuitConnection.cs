@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20190701
 {
     public static class GetExpressRouteCircuitConnection
     {
+        /// <summary>
+        /// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+        /// </summary>
         public static Task<GetExpressRouteCircuitConnectionResult> InvokeAsync(GetExpressRouteCircuitConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitConnectionResult>("azure-nextgen:network/v20190701:getExpressRouteCircuitConnection", args ?? new GetExpressRouteCircuitConnectionArgs(), options.WithVersion());
     }

@@ -57,7 +57,8 @@ class AwaitableListBotConnectionServiceProvidersResult(ListBotConnectionServiceP
 
 def list_bot_connection_service_providers(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBotConnectionServiceProvidersResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of bot service providers response.
+    API Version: 2020-06-02.
     """
     __args__ = dict()
     if opts is None:

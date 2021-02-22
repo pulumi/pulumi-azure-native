@@ -106,7 +106,8 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
                                           scope: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleManagementPolicyAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Role management policy
+
 
     :param str role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to get.
     :param str scope: The scope of the role management policy.

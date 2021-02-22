@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// App Service Plan Model
 func LookupServerFarm(ctx *pulumi.Context, args *LookupServerFarmArgs, opts ...pulumi.InvokeOption) (*LookupServerFarmResult, error) {
 	var rv LookupServerFarmResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:getServerFarm", args, &rv, opts...)

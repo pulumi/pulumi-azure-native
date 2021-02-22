@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
 {
     public static class ListSecretValue
     {
+        /// <summary>
+        /// This type represents the unencrypted value of the secret.
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
         public static Task<ListSecretValueResult> InvokeAsync(ListSecretValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSecretValueResult>("azure-nextgen:servicefabricmesh:listSecretValue", args ?? new ListSecretValueArgs(), options.WithVersion());
     }

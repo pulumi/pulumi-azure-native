@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview
 {
     public static class GetDigitalTwinsEndpoint
     {
+        /// <summary>
+        /// DigitalTwinsInstance endpoint resource.
+        /// </summary>
         public static Task<GetDigitalTwinsEndpointResult> InvokeAsync(GetDigitalTwinsEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinsEndpointResult>("azure-nextgen:digitaltwins/v20200301preview:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointArgs(), options.WithVersion());
     }

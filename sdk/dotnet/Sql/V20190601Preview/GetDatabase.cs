@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 {
     public static class GetDatabase
     {
+        /// <summary>
+        /// A database resource.
+        /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:sql/v20190601preview:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }

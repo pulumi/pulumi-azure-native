@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
 {
     public static class GetConfiguration
     {
+        /// <summary>
+        /// Represents a Configuration.
+        /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-nextgen:dbformariadb/v20180601preview:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
     }

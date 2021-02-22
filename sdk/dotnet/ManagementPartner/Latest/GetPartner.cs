@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ManagementPartner.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managementpartner:getPartner'.")]
     public static class GetPartner
     {
+        /// <summary>
+        /// this is the management partner operations response
+        /// Latest API Version: 2018-02-01.
+        /// </summary>
         public static Task<GetPartnerResult> InvokeAsync(GetPartnerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-nextgen:managementpartner/latest:getPartner", args ?? new GetPartnerArgs(), options.WithVersion());
     }

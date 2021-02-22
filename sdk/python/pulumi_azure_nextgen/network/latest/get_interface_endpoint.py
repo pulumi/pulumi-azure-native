@@ -15,6 +15,8 @@ __all__ = [
     'get_interface_endpoint',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getInterfaceEndpoint'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetInterfaceEndpointResult:
     """
@@ -180,12 +182,15 @@ def get_interface_endpoint(expand: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInterfaceEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    Interface endpoint resource.
+    Latest API Version: 2019-02-01.
+
 
     :param str expand: Expands referenced resources.
     :param str interface_endpoint_name: The name of the interface endpoint.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_interface_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getInterfaceEndpoint'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['interfaceEndpointName'] = interface_endpoint_name

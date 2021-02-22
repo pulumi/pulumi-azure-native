@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
 {
     public static class GetScalingPlan
     {
+        /// <summary>
+        /// Represents a scaling plan definition.
+        /// API Version: 2021-01-14-preview.
+        /// </summary>
         public static Task<GetScalingPlanResult> InvokeAsync(GetScalingPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("azure-nextgen:desktopvirtualization:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithVersion());
     }

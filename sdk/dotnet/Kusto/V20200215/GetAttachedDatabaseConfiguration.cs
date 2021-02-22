@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Kusto.V20200215
 {
     public static class GetAttachedDatabaseConfiguration
     {
+        /// <summary>
+        /// Class representing an attached database configuration.
+        /// </summary>
         public static Task<GetAttachedDatabaseConfigurationResult> InvokeAsync(GetAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-nextgen:kusto/v20200215:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20160601
 {
     public static class ListCustomApiWsdlInterfaces
     {
+        /// <summary>
+        /// A list of custom API WSDL interfaces
+        /// </summary>
         public static Task<ListCustomApiWsdlInterfacesResult> InvokeAsync(ListCustomApiWsdlInterfacesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListCustomApiWsdlInterfacesResult>("azure-nextgen:web/v20160601:listCustomApiWsdlInterfaces", args ?? new ListCustomApiWsdlInterfacesArgs(), options.WithVersion());
     }

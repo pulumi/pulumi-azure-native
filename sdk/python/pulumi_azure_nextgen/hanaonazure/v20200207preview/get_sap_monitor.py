@@ -190,7 +190,8 @@ def get_sap_monitor(resource_group_name: Optional[str] = None,
                     sap_monitor_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapMonitorResult:
     """
-    Use this data source to access information about an existing resource.
+    SAP monitor info on Azure (ARM properties and SAP monitor properties)
+
 
     :param str resource_group_name: Name of the resource group.
     :param str sap_monitor_name: Name of the SAP monitor resource.

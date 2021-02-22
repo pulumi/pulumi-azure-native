@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The Managed Network Peering Policy resource
+// API Version: 2019-06-01-preview.
 func LookupManagedNetworkPeeringPolicy(ctx *pulumi.Context, args *LookupManagedNetworkPeeringPolicyArgs, opts ...pulumi.InvokeOption) (*LookupManagedNetworkPeeringPolicyResult, error) {
 	var rv LookupManagedNetworkPeeringPolicyResult
 	err := ctx.Invoke("azure-nextgen:managednetwork:getManagedNetworkPeeringPolicy", args, &rv, opts...)

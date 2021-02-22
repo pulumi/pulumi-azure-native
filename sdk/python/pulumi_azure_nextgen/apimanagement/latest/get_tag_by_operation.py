@@ -14,6 +14,8 @@ __all__ = [
     'get_tag_by_operation',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getTagByOperation'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTagByOperationResult:
     """
@@ -85,7 +87,9 @@ def get_tag_by_operation(api_id: Optional[str] = None,
                          tag_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagByOperationResult:
     """
-    Use this data source to access information about an existing resource.
+    Tag Contract details.
+    Latest API Version: 2019-12-01.
+
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param str operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
@@ -93,6 +97,7 @@ def get_tag_by_operation(api_id: Optional[str] = None,
     :param str service_name: The name of the API Management service.
     :param str tag_id: Tag identifier. Must be unique in the current API Management service instance.
     """
+    pulumi.log.warn("get_tag_by_operation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getTagByOperation'.")
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['operationId'] = operation_id

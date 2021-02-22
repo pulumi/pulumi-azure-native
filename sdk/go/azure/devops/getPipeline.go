@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
+// API Version: 2020-07-13-preview.
 func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulumi.InvokeOption) (*LookupPipelineResult, error) {
 	var rv LookupPipelineResult
 	err := ctx.Invoke("azure-nextgen:devops:getPipeline", args, &rv, opts...)

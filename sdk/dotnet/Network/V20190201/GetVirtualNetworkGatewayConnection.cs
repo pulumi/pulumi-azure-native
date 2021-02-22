@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20190201
 {
     public static class GetVirtualNetworkGatewayConnection
     {
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
         public static Task<GetVirtualNetworkGatewayConnectionResult> InvokeAsync(GetVirtualNetworkGatewayConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayConnectionResult>("azure-nextgen:network/v20190201:getVirtualNetworkGatewayConnection", args ?? new GetVirtualNetworkGatewayConnectionArgs(), options.WithVersion());
     }

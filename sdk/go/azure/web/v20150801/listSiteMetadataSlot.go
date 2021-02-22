@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// String dictionary resource
 func ListSiteMetadataSlot(ctx *pulumi.Context, args *ListSiteMetadataSlotArgs, opts ...pulumi.InvokeOption) (*ListSiteMetadataSlotResult, error) {
 	var rv ListSiteMetadataSlotResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteMetadataSlot", args, &rv, opts...)

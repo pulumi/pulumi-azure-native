@@ -14,6 +14,8 @@ __all__ = [
     'get_volume',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getVolume'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVolumeResult:
     """
@@ -193,7 +195,9 @@ def get_volume(device_name: Optional[str] = None,
                volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
-    Use this data source to access information about an existing resource.
+    The volume.
+    Latest API Version: 2017-06-01.
+
 
     :param str device_name: The device name
     :param str manager_name: The manager name
@@ -201,6 +205,7 @@ def get_volume(device_name: Optional[str] = None,
     :param str volume_container_name: The volume container name.
     :param str volume_name: The volume name.
     """
+    pulumi.log.warn("get_volume is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getVolume'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['managerName'] = manager_name

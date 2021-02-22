@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 {
     public static class GetPolicyResource
     {
+        /// <summary>
+        /// A Policy.
+        /// </summary>
         public static Task<GetPolicyResourceResult> InvokeAsync(GetPolicyResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResourceResult>("azure-nextgen:devtestlab/v20150521preview:getPolicyResource", args ?? new GetPolicyResourceArgs(), options.WithVersion());
     }

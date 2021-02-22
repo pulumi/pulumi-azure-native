@@ -14,6 +14,8 @@ __all__ = [
     'get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnGatewayP2sVpnConnectionHealthDetailed'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult:
     """
@@ -48,13 +50,16 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed(gateway_name: Optiona
                                                            vpn_user_names_filter: Optional[Sequence[str]] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult:
     """
-    Use this data source to access information about an existing resource.
+    P2S Vpn connection detailed health written to sas url.
+    Latest API Version: 2020-08-01.
+
 
     :param str gateway_name: The name of the P2SVpnGateway.
     :param str output_blob_sas_url: The sas-url to download the P2S Vpn connection health detail.
     :param str resource_group_name: The name of the resource group.
     :param Sequence[str] vpn_user_names_filter: The list of p2s vpn user names whose p2s vpn connection detailed health to retrieve for.
     """
+    pulumi.log.warn("get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnGatewayP2sVpnConnectionHealthDetailed'.")
     __args__ = dict()
     __args__['gatewayName'] = gateway_name
     __args__['outputBlobSasUrl'] = output_blob_sas_url

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
 {
     public static class GetGalleryImage
     {
+        /// <summary>
+        /// Specifies information about the gallery image definition that you want to create or update.
+        /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-nextgen:compute/v20200930:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.RecoveryServices
 {
     public static class GetProtectedItem
     {
+        /// <summary>
+        /// Base class for backup items.
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetProtectedItemResult> InvokeAsync(GetProtectedItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectedItemResult>("azure-nextgen:recoveryservices:getProtectedItem", args ?? new GetProtectedItemArgs(), options.WithVersion());
     }

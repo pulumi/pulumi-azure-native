@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
 {
     public static class GetEventChannel
     {
+        /// <summary>
+        /// Event Channel.
+        /// </summary>
         public static Task<GetEventChannelResult> InvokeAsync(GetEventChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventChannelResult>("azure-nextgen:eventgrid/v20201015preview:getEventChannel", args ?? new GetEventChannelArgs(), options.WithVersion());
     }

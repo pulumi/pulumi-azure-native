@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Role management policy
 func LookupRoleManagementPolicy(ctx *pulumi.Context, args *LookupRoleManagementPolicyArgs, opts ...pulumi.InvokeOption) (*LookupRoleManagementPolicyResult, error) {
 	var rv LookupRoleManagementPolicyResult
 	err := ctx.Invoke("azure-nextgen:authorization/v20201001preview:getRoleManagementPolicy", args, &rv, opts...)

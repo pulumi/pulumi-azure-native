@@ -15,6 +15,8 @@ __all__ = [
     'get_endpoint',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getEndpoint'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEndpointResult:
     """
@@ -205,13 +207,16 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    Class representing a Traffic Manager endpoint.
+    Latest API Version: 2018-04-01.
+
 
     :param str endpoint_name: The name of the Traffic Manager endpoint.
     :param str endpoint_type: The type of the Traffic Manager endpoint.
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group containing the Traffic Manager endpoint.
     """
+    pulumi.log.warn("get_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getEndpoint'.")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['endpointType'] = endpoint_type

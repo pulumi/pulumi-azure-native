@@ -15,6 +15,8 @@ __all__ = [
     'list_asset_streaming_locators',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listAssetStreamingLocators'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListAssetStreamingLocatorsResult:
     """
@@ -48,12 +50,15 @@ def list_asset_streaming_locators(account_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAssetStreamingLocatorsResult:
     """
-    Use this data source to access information about an existing resource.
+    The Streaming Locators associated with this Asset.
+    Latest API Version: 2020-05-01.
+
 
     :param str account_name: The Media Services account name.
     :param str asset_name: The Asset name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("list_asset_streaming_locators is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listAssetStreamingLocators'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['assetName'] = asset_name

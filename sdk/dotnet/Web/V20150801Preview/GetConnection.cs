@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
 {
     public static class GetConnection
     {
+        /// <summary>
+        /// API Connection
+        /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("azure-nextgen:web/v20150801preview:getConnection", args ?? new GetConnectionArgs(), options.WithVersion());
     }

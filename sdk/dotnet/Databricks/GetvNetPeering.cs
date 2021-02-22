@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Databricks
 {
     public static class GetvNetPeering
     {
+        /// <summary>
+        /// Peerings in a VirtualNetwork resource
+        /// API Version: 2018-04-01.
+        /// </summary>
         public static Task<GetvNetPeeringResult> InvokeAsync(GetvNetPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetvNetPeeringResult>("azure-nextgen:databricks:getvNetPeering", args ?? new GetvNetPeeringArgs(), options.WithVersion());
     }

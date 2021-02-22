@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
 {
     public static class GetFirewallRule
     {
+        /// <summary>
+        /// Represents a server firewall rule.
+        /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:dbformariadb/v20180601preview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }

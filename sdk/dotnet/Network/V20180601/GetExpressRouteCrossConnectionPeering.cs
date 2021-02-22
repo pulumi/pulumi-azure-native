@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20180601
 {
     public static class GetExpressRouteCrossConnectionPeering
     {
+        /// <summary>
+        /// Peering in an ExpressRoute Cross Connection resource.
+        /// </summary>
         public static Task<GetExpressRouteCrossConnectionPeeringResult> InvokeAsync(GetExpressRouteCrossConnectionPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCrossConnectionPeeringResult>("azure-nextgen:network/v20180601:getExpressRouteCrossConnectionPeering", args ?? new GetExpressRouteCrossConnectionPeeringArgs(), options.WithVersion());
     }

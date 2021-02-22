@@ -15,6 +15,8 @@ __all__ = [
     'get_hyper_v_collector',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getHyperVCollector'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHyperVCollectorResult:
     def __init__(__self__, e_tag=None, id=None, name=None, properties=None, type=None):
@@ -78,12 +80,14 @@ def get_hyper_v_collector(hyper_v_collector_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHyperVCollectorResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2019-10-01.
+
 
     :param str hyper_v_collector_name: Unique name of a Hyper-V collector within a project.
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
+    pulumi.log.warn("get_hyper_v_collector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getHyperVCollector'.")
     __args__ = dict()
     __args__['hyperVCollectorName'] = hyper_v_collector_name
     __args__['projectName'] = project_name

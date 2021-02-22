@@ -154,7 +154,9 @@ class AwaitableGetPolicyDefinitionResult(GetPolicyDefinitionResult):
 def get_policy_definition(policy_definition_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    The policy definition.
+    API Version: 2020-09-01.
+
 
     :param str policy_definition_name: The name of the policy definition to get.
     """

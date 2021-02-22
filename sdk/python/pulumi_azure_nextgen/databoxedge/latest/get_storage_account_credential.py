@@ -15,6 +15,8 @@ __all__ = [
     'get_storage_account_credential',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getStorageAccountCredential'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStorageAccountCredentialResult:
     """
@@ -180,12 +182,15 @@ def get_storage_account_credential(device_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountCredentialResult:
     """
-    Use this data source to access information about an existing resource.
+    The storage account credential.
+    Latest API Version: 2020-09-01.
+
 
     :param str device_name: The device name.
     :param str name: The storage account credential name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_storage_account_credential is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getStorageAccountCredential'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name

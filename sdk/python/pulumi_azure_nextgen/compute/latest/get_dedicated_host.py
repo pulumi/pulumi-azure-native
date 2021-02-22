@@ -15,6 +15,8 @@ __all__ = [
     'get_dedicated_host',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDedicatedHost'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDedicatedHostResult:
     """
@@ -205,13 +207,16 @@ def get_dedicated_host(expand: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostResult:
     """
-    Use this data source to access information about an existing resource.
+    Specifies information about the Dedicated host.
+    Latest API Version: 2020-12-01.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str host_group_name: The name of the dedicated host group.
     :param str host_name: The name of the dedicated host.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_dedicated_host is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDedicatedHost'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['hostGroupName'] = host_group_name

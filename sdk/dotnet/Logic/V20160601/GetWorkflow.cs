@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
 {
     public static class GetWorkflow
     {
+        /// <summary>
+        /// The workflow type.
+        /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-nextgen:logic/v20160601:getWorkflow", args ?? new GetWorkflowArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Datadog
 {
     public static class GetMonitor
     {
+        /// <summary>
+        /// 
+        /// API Version: 2020-02-01-preview.
+        /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-nextgen:datadog:getMonitor", args ?? new GetMonitorArgs(), options.WithVersion());
     }

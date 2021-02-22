@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Automation
 {
     public static class GetDscConfiguration
     {
+        /// <summary>
+        /// Definition of the configuration type.
+        /// API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetDscConfigurationResult> InvokeAsync(GetDscConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDscConfigurationResult>("azure-nextgen:automation:getDscConfiguration", args ?? new GetDscConfigurationArgs(), options.WithVersion());
     }

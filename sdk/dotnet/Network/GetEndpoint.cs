@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetEndpoint
     {
+        /// <summary>
+        /// Class representing a Traffic Manager endpoint.
+        /// API Version: 2018-04-01.
+        /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-nextgen:network:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
     }

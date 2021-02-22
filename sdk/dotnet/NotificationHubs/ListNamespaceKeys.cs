@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.NotificationHubs
 {
     public static class ListNamespaceKeys
     {
+        /// <summary>
+        /// The response of the List Namespace operation.
+        /// API Version: 2017-04-01.
+        /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-nextgen:notificationhubs:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
     }

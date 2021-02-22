@@ -228,7 +228,8 @@ def get_global_schedule(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    A schedule.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'
     :param str name: The name of the schedule.

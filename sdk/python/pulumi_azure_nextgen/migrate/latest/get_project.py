@@ -15,6 +15,8 @@ __all__ = [
     'get_project',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getProject'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProjectResult:
     """
@@ -119,11 +121,14 @@ def get_project(project_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
-    Use this data source to access information about an existing resource.
+    Azure Migrate Project.
+    Latest API Version: 2019-10-01.
+
 
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
+    pulumi.log.warn("get_project is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getProject'.")
     __args__ = dict()
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name

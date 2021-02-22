@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20200301Preview
 {
     public static class GetComponentLinkedStorageAccount
     {
+        /// <summary>
+        /// An Application Insights component linked storage accounts
+        /// </summary>
         public static Task<GetComponentLinkedStorageAccountResult> InvokeAsync(GetComponentLinkedStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComponentLinkedStorageAccountResult>("azure-nextgen:insights/v20200301preview:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountArgs(), options.WithVersion());
     }

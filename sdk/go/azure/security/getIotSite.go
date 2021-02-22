@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// IoT site model
+// API Version: 2020-08-06-preview.
 func LookupIotSite(ctx *pulumi.Context, args *LookupIotSiteArgs, opts ...pulumi.InvokeOption) (*LookupIotSiteResult, error) {
 	var rv LookupIotSiteResult
 	err := ctx.Invoke("azure-nextgen:security:getIotSite", args, &rv, opts...)

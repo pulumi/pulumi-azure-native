@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AppPlatform.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getCustomDomain'.")]
     public static class GetCustomDomain
     {
+        /// <summary>
+        /// Custom domain resource payload.
+        /// Latest API Version: 2020-07-01.
+        /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-nextgen:appplatform/latest:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithVersion());
     }

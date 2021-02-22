@@ -14,6 +14,8 @@ __all__ = [
     'get_profile_supported_optimization_types',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getProfileSupportedOptimizationTypes'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProfileSupportedOptimizationTypesResult:
     """
@@ -46,11 +48,14 @@ def get_profile_supported_optimization_types(profile_name: Optional[str] = None,
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileSupportedOptimizationTypesResult:
     """
-    Use this data source to access information about an existing resource.
+    The result of the GetSupportedOptimizationTypes API
+    Latest API Version: 2020-09-01.
+
 
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_profile_supported_optimization_types is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getProfileSupportedOptimizationTypes'.")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name

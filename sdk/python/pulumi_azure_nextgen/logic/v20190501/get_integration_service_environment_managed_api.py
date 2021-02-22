@@ -108,7 +108,8 @@ def get_integration_service_environment_managed_api(api_name: Optional[str] = No
                                                     resource_group: Optional[str] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationServiceEnvironmentManagedApiResult:
     """
-    Use this data source to access information about an existing resource.
+    The managed api definition.
+
 
     :param str api_name: The api name.
     :param str integration_service_environment_name: The integration service environment name.

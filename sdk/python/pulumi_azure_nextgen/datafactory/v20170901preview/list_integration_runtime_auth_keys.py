@@ -59,7 +59,8 @@ def list_integration_runtime_auth_keys(factory_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationRuntimeAuthKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The integration runtime authentication keys.
+
 
     :param str factory_name: The factory name.
     :param str integration_runtime_name: The integration runtime name.

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StorageSync
 {
     public static class GetRegisteredServer
     {
+        /// <summary>
+        /// Registered Server resource.
+        /// API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetRegisteredServerResult> InvokeAsync(GetRegisteredServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredServerResult>("azure-nextgen:storagesync:getRegisteredServer", args ?? new GetRegisteredServerArgs(), options.WithVersion());
     }

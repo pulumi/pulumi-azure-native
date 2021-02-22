@@ -208,7 +208,9 @@ def get_system_topic_event_subscription(event_subscription_name: Optional[str] =
                                         system_topic_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicEventSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    Event Subscription
+    API Version: 2020-04-01-preview.
+
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
     :param str resource_group_name: The name of the resource group within the user's subscription.

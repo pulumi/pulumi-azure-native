@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
 {
     public static class GetCustomDomain
     {
+        /// <summary>
+        /// CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
+        /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-nextgen:cdn/v20150601:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithVersion());
     }

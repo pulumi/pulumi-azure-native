@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.BotService.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listChannelWithKeys'.")]
     public static class ListChannelWithKeys
     {
+        /// <summary>
+        /// Bot channel resource definition
+        /// Latest API Version: 2020-06-02.
+        /// </summary>
         public static Task<ListChannelWithKeysResult> InvokeAsync(ListChannelWithKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListChannelWithKeysResult>("azure-nextgen:botservice/latest:listChannelWithKeys", args ?? new ListChannelWithKeysArgs(), options.WithVersion());
     }

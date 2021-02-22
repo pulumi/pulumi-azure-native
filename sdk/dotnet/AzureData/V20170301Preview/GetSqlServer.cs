@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AzureData.V20170301Preview
 {
     public static class GetSqlServer
     {
+        /// <summary>
+        /// A SQL server.
+        /// </summary>
         public static Task<GetSqlServerResult> InvokeAsync(GetSqlServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerResult>("azure-nextgen:azuredata/v20170301preview:getSqlServer", args ?? new GetSqlServerArgs(), options.WithVersion());
     }

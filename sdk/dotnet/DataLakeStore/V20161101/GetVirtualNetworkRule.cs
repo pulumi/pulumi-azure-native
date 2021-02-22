@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
 {
     public static class GetVirtualNetworkRule
     {
+        /// <summary>
+        /// Data Lake Store virtual network rule information.
+        /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-nextgen:datalakestore/v20161101:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithVersion());
     }

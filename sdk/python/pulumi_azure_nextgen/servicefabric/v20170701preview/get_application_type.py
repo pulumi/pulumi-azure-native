@@ -95,7 +95,8 @@ def get_application_type(application_type_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationTypeResult:
     """
-    Use this data source to access information about an existing resource.
+    The application type name resource
+
 
     :param str application_type_name: The name of the application type name resource.
     :param str cluster_name: The name of the cluster resource.

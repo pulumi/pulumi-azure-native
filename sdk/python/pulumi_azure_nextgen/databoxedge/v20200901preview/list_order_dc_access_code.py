@@ -46,7 +46,8 @@ def list_order_dc_access_code(device_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOrderDCAccessCodeResult:
     """
-    Use this data source to access information about an existing resource.
+    DC Access code in the case of Self Managed Shipping.
+
 
     :param str device_name: The device name
     :param str resource_group_name: The resource group name.

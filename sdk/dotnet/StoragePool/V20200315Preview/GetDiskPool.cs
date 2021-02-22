@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
 {
     public static class GetDiskPool
     {
+        /// <summary>
+        /// Response for Disk pool request.
+        /// </summary>
         public static Task<GetDiskPoolResult> InvokeAsync(GetDiskPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskPoolResult>("azure-nextgen:storagepool/v20200315preview:getDiskPool", args ?? new GetDiskPoolArgs(), options.WithVersion());
     }

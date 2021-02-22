@@ -107,7 +107,9 @@ def get_registered_asn(peering_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredAsnResult:
     """
-    Use this data source to access information about an existing resource.
+    The customer's ASN that is registered by the peering service provider.
+    API Version: 2020-10-01.
+
 
     :param str peering_name: The name of the peering.
     :param str registered_asn_name: The name of the registered ASN.

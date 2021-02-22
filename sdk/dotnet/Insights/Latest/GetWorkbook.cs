@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Insights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getWorkbook'.")]
     public static class GetWorkbook
     {
+        /// <summary>
+        /// An Application Insights workbook definition.
+        /// Latest API Version: 2020-10-20.
+        /// </summary>
         public static Task<GetWorkbookResult> InvokeAsync(GetWorkbookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookResult>("azure-nextgen:insights/latest:getWorkbook", args ?? new GetWorkbookArgs(), options.WithVersion());
     }

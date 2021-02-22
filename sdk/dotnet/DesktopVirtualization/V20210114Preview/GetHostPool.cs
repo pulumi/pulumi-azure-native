@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview
 {
     public static class GetHostPool
     {
+        /// <summary>
+        /// Represents a HostPool definition.
+        /// </summary>
         public static Task<GetHostPoolResult> InvokeAsync(GetHostPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostPoolResult>("azure-nextgen:desktopvirtualization/v20210114preview:getHostPool", args ?? new GetHostPoolArgs(), options.WithVersion());
     }

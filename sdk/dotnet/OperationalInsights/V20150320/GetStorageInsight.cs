@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
 {
     public static class GetStorageInsight
     {
+        /// <summary>
+        /// The top level storage insight resource container.
+        /// </summary>
         public static Task<GetStorageInsightResult> InvokeAsync(GetStorageInsightArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageInsightResult>("azure-nextgen:operationalinsights/v20150320:getStorageInsight", args ?? new GetStorageInsightArgs(), options.WithVersion());
     }

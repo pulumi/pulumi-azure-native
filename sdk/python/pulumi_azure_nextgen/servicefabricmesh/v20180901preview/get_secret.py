@@ -107,7 +107,8 @@ def get_secret(resource_group_name: Optional[str] = None,
                secret_resource_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
-    Use this data source to access information about an existing resource.
+    This type describes a secret resource.
+
 
     :param str resource_group_name: Azure resource group name
     :param str secret_resource_name: The name of the secret resource.

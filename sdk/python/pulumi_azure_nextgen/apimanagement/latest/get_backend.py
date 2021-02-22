@@ -15,6 +15,8 @@ __all__ = [
     'get_backend',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getBackend'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBackendResult:
     """
@@ -180,12 +182,15 @@ def get_backend(backend_id: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackendResult:
     """
-    Use this data source to access information about an existing resource.
+    Backend details.
+    Latest API Version: 2019-12-01.
+
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_backend is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getBackend'.")
     __args__ = dict()
     __args__['backendId'] = backend_id
     __args__['resourceGroupName'] = resource_group_name

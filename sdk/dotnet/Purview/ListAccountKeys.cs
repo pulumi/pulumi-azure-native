@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Purview
 {
     public static class ListAccountKeys
     {
+        /// <summary>
+        /// The Account access keys.
+        /// API Version: 2020-12-01-preview.
+        /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-nextgen:purview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
     }

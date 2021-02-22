@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:getComputePolicy'.")]
     public static class GetComputePolicy
     {
+        /// <summary>
+        /// Data Lake Analytics compute policy information.
+        /// Latest API Version: 2016-11-01.
+        /// </summary>
         public static Task<GetComputePolicyResult> InvokeAsync(GetComputePolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-nextgen:datalakeanalytics/latest:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithVersion());
     }

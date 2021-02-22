@@ -120,7 +120,9 @@ def get_api_release(api_id: Optional[str] = None,
                     service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiReleaseResult:
     """
-    Use this data source to access information about an existing resource.
+    ApiRelease details.
+    API Version: 2019-12-01.
+
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
     :param str release_id: Release identifier within an API. Must be unique in the current API Management service instance.

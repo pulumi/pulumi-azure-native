@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 {
     public static class GetWorkloadGroup
     {
+        /// <summary>
+        /// Workload group operations for a data warehouse
+        /// </summary>
         public static Task<GetWorkloadGroupResult> InvokeAsync(GetWorkloadGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadGroupResult>("azure-nextgen:sql/v20190601preview:getWorkloadGroup", args ?? new GetWorkloadGroupArgs(), options.WithVersion());
     }

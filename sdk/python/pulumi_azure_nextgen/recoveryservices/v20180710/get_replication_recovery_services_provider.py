@@ -97,7 +97,8 @@ def get_replication_recovery_services_provider(fabric_name: Optional[str] = None
                                                resource_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationRecoveryServicesProviderResult:
     """
-    Use this data source to access information about an existing resource.
+    Provider details.
+
 
     :param str fabric_name: Fabric name.
     :param str provider_name: Recovery services provider name

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.SignalRService.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:listSignalRKeys'.")]
     public static class ListSignalRKeys
     {
+        /// <summary>
+        /// A class represents the access keys of SignalR service.
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<ListSignalRKeysResult> InvokeAsync(ListSignalRKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSignalRKeysResult>("azure-nextgen:signalrservice/latest:listSignalRKeys", args ?? new ListSignalRKeysArgs(), options.WithVersion());
     }

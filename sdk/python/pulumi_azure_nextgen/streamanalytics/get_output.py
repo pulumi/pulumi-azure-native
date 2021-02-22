@@ -120,7 +120,9 @@ def get_output(job_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutputResult:
     """
-    Use this data source to access information about an existing resource.
+    An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+    API Version: 2016-03-01.
+
 
     :param str job_name: The name of the streaming job.
     :param str output_name: The name of the output.

@@ -15,6 +15,8 @@ __all__ = [
     'get_source_control_configuration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kubernetesconfiguration:getSourceControlConfiguration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSourceControlConfigurationResult:
     """
@@ -242,7 +244,9 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
                                      source_control_configuration_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceControlConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    The SourceControl Configuration object returned in Get & Put response.
+    Latest API Version: 2021-03-01.
+
 
     :param str cluster_name: The name of the kubernetes cluster.
     :param str cluster_resource_name: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
@@ -250,6 +254,7 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str source_control_configuration_name: Name of the Source Control Configuration.
     """
+    pulumi.log.warn("get_source_control_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kubernetesconfiguration:getSourceControlConfiguration'.")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['clusterResourceName'] = cluster_resource_name

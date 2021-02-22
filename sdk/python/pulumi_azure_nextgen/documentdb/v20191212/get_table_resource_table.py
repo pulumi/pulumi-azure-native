@@ -105,7 +105,8 @@ def get_table_resource_table(account_name: Optional[str] = None,
                              table_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResourceTableResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB Table.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: Name of an Azure resource group.

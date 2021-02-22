@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Logic
 {
     public static class GetIntegrationAccountMap
     {
+        /// <summary>
+        /// The integration account map.
+        /// API Version: 2019-05-01.
+        /// </summary>
         public static Task<GetIntegrationAccountMapResult> InvokeAsync(GetIntegrationAccountMapArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountMapResult>("azure-nextgen:logic:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualNetwork'.")]
     public static class GetVirtualNetwork
     {
+        /// <summary>
+        /// A virtual network.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-nextgen:devtestlab/latest:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithVersion());
     }

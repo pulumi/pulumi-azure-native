@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventHub.V20150801
 {
     public static class GetEventHub
     {
+        /// <summary>
+        /// Single item in List or Get Event Hub operation
+        /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure-nextgen:eventhub/v20150801:getEventHub", args ?? new GetEventHubArgs(), options.WithVersion());
     }

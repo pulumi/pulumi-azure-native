@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200801
 {
     public static class GetNatRule
     {
+        /// <summary>
+        /// VpnGatewayNatRule Resource.
+        /// </summary>
         public static Task<GetNatRuleResult> InvokeAsync(GetNatRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNatRuleResult>("azure-nextgen:network/v20200801:getNatRule", args ?? new GetNatRuleArgs(), options.WithVersion());
     }

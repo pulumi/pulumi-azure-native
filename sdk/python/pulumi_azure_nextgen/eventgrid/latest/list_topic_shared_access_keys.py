@@ -14,6 +14,8 @@ __all__ = [
     'list_topic_shared_access_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:listTopicSharedAccessKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListTopicSharedAccessKeysResult:
     """
@@ -58,11 +60,14 @@ def list_topic_shared_access_keys(resource_group_name: Optional[str] = None,
                                   topic_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTopicSharedAccessKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Shared access keys of the Topic
+    Latest API Version: 2020-06-01.
+
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the topic.
     """
+    pulumi.log.warn("list_topic_shared_access_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:listTopicSharedAccessKeys'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['topicName'] = topic_name

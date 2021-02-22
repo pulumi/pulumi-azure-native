@@ -14,6 +14,8 @@ __all__ = [
     'get_registration_activation_key',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistrationActivationKey'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRegistrationActivationKeyResult:
     """
@@ -46,11 +48,14 @@ def get_registration_activation_key(registration_name: Optional[str] = None,
                                     resource_group: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationActivationKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    The resource containing the Azure Stack activation key.
+    Latest API Version: 2017-06-01.
+
 
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
+    pulumi.log.warn("get_registration_activation_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistrationActivationKey'.")
     __args__ = dict()
     __args__['registrationName'] = registration_name
     __args__['resourceGroup'] = resource_group

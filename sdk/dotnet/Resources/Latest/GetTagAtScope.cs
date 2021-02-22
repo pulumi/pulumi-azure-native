@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Resources.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getTagAtScope'.")]
     public static class GetTagAtScope
     {
+        /// <summary>
+        /// Wrapper resource for tags API requests and responses.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetTagAtScopeResult> InvokeAsync(GetTagAtScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagAtScopeResult>("azure-nextgen:resources/latest:getTagAtScope", args ?? new GetTagAtScopeArgs(), options.WithVersion());
     }

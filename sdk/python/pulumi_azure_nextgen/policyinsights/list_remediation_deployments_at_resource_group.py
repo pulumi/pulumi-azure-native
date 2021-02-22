@@ -60,7 +60,9 @@ def list_remediation_deployments_at_resource_group(remediation_name: Optional[st
                                                    top: Optional[int] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtResourceGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    List of deployments for a remediation.
+    API Version: 2019-07-01.
+
 
     :param str remediation_name: The name of the remediation.
     :param str resource_group_name: Resource group name.

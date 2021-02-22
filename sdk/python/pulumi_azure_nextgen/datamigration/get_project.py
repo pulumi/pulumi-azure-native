@@ -180,7 +180,9 @@ def get_project(group_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
-    Use this data source to access information about an existing resource.
+    A project resource
+    API Version: 2018-04-19.
+
 
     :param str group_name: Name of the resource group
     :param str project_name: Name of the project

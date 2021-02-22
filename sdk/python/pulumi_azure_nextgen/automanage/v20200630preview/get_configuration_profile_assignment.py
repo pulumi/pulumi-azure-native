@@ -84,7 +84,8 @@ def get_configuration_profile_assignment(configuration_profile_assignment_name: 
                                          vm_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Configuration profile assignment is an association between a VM and automanage profile configuration.
+
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

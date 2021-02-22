@@ -142,7 +142,8 @@ class AwaitableGetDiagnosticSettingResult(GetDiagnosticSettingResult):
 def get_diagnostic_setting(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    The diagnostic setting resource.
+
 
     :param str name: The name of the diagnostic setting.
     """

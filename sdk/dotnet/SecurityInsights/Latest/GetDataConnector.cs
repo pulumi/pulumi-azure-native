@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.SecurityInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getDataConnector'.")]
     public static class GetDataConnector
     {
+        /// <summary>
+        /// Data connector.
+        /// Latest API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetDataConnectorResult> InvokeAsync(GetDataConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectorResult>("azure-nextgen:securityinsights/latest:getDataConnector", args ?? new GetDataConnectorArgs(), options.WithVersion());
     }

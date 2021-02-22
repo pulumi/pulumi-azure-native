@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20190701
 {
     public static class GetExpressRouteConnection
     {
+        /// <summary>
+        /// ExpressRouteConnection resource.
+        /// </summary>
         public static Task<GetExpressRouteConnectionResult> InvokeAsync(GetExpressRouteConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteConnectionResult>("azure-nextgen:network/v20190701:getExpressRouteConnection", args ?? new GetExpressRouteConnectionArgs(), options.WithVersion());
     }

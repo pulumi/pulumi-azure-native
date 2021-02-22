@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiDisk'.")]
     public static class GetIscsiDisk
     {
+        /// <summary>
+        /// The iSCSI disk.
+        /// Latest API Version: 2016-10-01.
+        /// </summary>
         public static Task<GetIscsiDiskResult> InvokeAsync(GetIscsiDiskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiDiskResult>("azure-nextgen:storsimple/latest:getIscsiDisk", args ?? new GetIscsiDiskArgs(), options.WithVersion());
     }

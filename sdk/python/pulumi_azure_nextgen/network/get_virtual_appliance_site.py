@@ -120,7 +120,9 @@ def get_virtual_appliance_site(network_virtual_appliance_name: Optional[str] = N
                                site_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualApplianceSiteResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual Appliance Site resource.
+    API Version: 2020-08-01.
+
 
     :param str network_virtual_appliance_name: The name of the Network Virtual Appliance.
     :param str resource_group_name: The name of the resource group.

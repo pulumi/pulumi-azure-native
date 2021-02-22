@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Devices.V20200831
 {
     public static class ListIotHubResourceKeys
     {
+        /// <summary>
+        /// The list of shared access policies with a next link.
+        /// </summary>
         public static Task<ListIotHubResourceKeysResult> InvokeAsync(ListIotHubResourceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysResult>("azure-nextgen:devices/v20200831:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysArgs(), options.WithVersion());
     }

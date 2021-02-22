@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Compute.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDedicatedHost'.")]
     public static class GetDedicatedHost
     {
+        /// <summary>
+        /// Specifies information about the Dedicated host.
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure-nextgen:compute/latest:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
 {
     public static class GetLiveEvent
     {
+        /// <summary>
+        /// The Live Event.
+        /// </summary>
         public static Task<GetLiveEventResult> InvokeAsync(GetLiveEventArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLiveEventResult>("azure-nextgen:media/v20190501preview:getLiveEvent", args ?? new GetLiveEventArgs(), options.WithVersion());
     }

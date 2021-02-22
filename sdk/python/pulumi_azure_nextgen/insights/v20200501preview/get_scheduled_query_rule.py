@@ -284,7 +284,8 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
                              rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledQueryRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    The scheduled query rule resource.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the rule.

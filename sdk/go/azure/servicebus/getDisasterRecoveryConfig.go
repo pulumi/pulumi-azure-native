@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Single item in List or Get Alias(Disaster Recovery configuration) operation
+// API Version: 2017-04-01.
 func LookupDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupDisasterRecoveryConfigArgs, opts ...pulumi.InvokeOption) (*LookupDisasterRecoveryConfigResult, error) {
 	var rv LookupDisasterRecoveryConfigResult
 	err := ctx.Invoke("azure-nextgen:servicebus:getDisasterRecoveryConfig", args, &rv, opts...)

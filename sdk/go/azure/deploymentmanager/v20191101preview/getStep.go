@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The resource representation of a rollout step.
 func LookupStep(ctx *pulumi.Context, args *LookupStepArgs, opts ...pulumi.InvokeOption) (*LookupStepResult, error) {
 	var rv LookupStepResult
 	err := ctx.Invoke("azure-nextgen:deploymentmanager/v20191101preview:getStep", args, &rv, opts...)

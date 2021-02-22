@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An object that represents an export pipeline for a container registry.
 func LookupExportPipeline(ctx *pulumi.Context, args *LookupExportPipelineArgs, opts ...pulumi.InvokeOption) (*LookupExportPipelineResult, error) {
 	var rv LookupExportPipelineResult
 	err := ctx.Invoke("azure-nextgen:containerregistry/v20201101preview:getExportPipeline", args, &rv, opts...)

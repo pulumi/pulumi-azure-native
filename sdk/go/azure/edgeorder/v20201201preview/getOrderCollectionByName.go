@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Specifies the properties or parameters for an order collection. Order collection is a grouping of one or more orders.
 func LookupOrderCollectionByName(ctx *pulumi.Context, args *LookupOrderCollectionByNameArgs, opts ...pulumi.InvokeOption) (*LookupOrderCollectionByNameResult, error) {
 	var rv LookupOrderCollectionByNameResult
 	err := ctx.Invoke("azure-nextgen:edgeorder/v20201201preview:getOrderCollectionByName", args, &rv, opts...)

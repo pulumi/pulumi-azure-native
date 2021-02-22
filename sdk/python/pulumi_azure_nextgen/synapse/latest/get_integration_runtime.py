@@ -15,6 +15,8 @@ __all__ = [
     'get_integration_runtime',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntime'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationRuntimeResult:
     """
@@ -96,12 +98,15 @@ def get_integration_runtime(integration_runtime_name: Optional[str] = None,
                             workspace_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeResult:
     """
-    Use this data source to access information about an existing resource.
+    Integration runtime resource type.
+    Latest API Version: 2020-12-01.
+
 
     :param str integration_runtime_name: Integration runtime name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("get_integration_runtime is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntime'.")
     __args__ = dict()
     __args__['integrationRuntimeName'] = integration_runtime_name
     __args__['resourceGroupName'] = resource_group_name

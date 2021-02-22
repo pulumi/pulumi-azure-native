@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ImportExport.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:importexport:listBitLockerKey'.")]
     public static class ListBitLockerKey
     {
+        /// <summary>
+        /// GetBitLockerKeys response
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<ListBitLockerKeyResult> InvokeAsync(ListBitLockerKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBitLockerKeyResult>("azure-nextgen:importexport/latest:listBitLockerKey", args ?? new ListBitLockerKeyArgs(), options.WithVersion());
     }

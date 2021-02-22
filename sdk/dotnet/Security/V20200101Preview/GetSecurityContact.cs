@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
 {
     public static class GetSecurityContact
     {
+        /// <summary>
+        /// Contact details and configurations for notifications coming from Azure Security Center.
+        /// </summary>
         public static Task<GetSecurityContactResult> InvokeAsync(GetSecurityContactArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-nextgen:security/v20200101preview:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithVersion());
     }

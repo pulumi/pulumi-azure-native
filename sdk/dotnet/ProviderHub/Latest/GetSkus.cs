@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ProviderHub.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkus'.")]
     public static class GetSkus
     {
+        /// <summary>
+        /// 
+        /// Latest API Version: 2020-11-20.
+        /// </summary>
         public static Task<GetSkusResult> InvokeAsync(GetSkusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSkusResult>("azure-nextgen:providerhub/latest:getSkus", args ?? new GetSkusArgs(), options.WithVersion());
     }

@@ -15,6 +15,8 @@ __all__ = [
     'get_afd_origin',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDOrigin'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAFDOriginResult:
     """
@@ -214,13 +216,16 @@ def get_afd_origin(origin_group_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDOriginResult:
     """
-    Use this data source to access information about an existing resource.
+    CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+    Latest API Version: 2020-09-01.
+
 
     :param str origin_group_name: Name of the origin group which is unique within the profile.
     :param str origin_name: Name of the origin which is unique within the profile.
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_afd_origin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDOrigin'.")
     __args__ = dict()
     __args__['originGroupName'] = origin_group_name
     __args__['originName'] = origin_name

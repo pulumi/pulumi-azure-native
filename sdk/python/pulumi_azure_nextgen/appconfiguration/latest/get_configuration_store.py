@@ -15,6 +15,8 @@ __all__ = [
     'get_configuration_store',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:getConfigurationStore'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConfigurationStoreResult:
     """
@@ -191,11 +193,14 @@ def get_configuration_store(config_store_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationStoreResult:
     """
-    Use this data source to access information about an existing resource.
+    The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+    Latest API Version: 2020-06-01.
+
 
     :param str config_store_name: The name of the configuration store.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("get_configuration_store is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:getConfigurationStore'.")
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['resourceGroupName'] = resource_group_name

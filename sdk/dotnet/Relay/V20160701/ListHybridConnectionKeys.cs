@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
 {
     public static class ListHybridConnectionKeys
     {
+        /// <summary>
+        /// Namespace/Relay Connection String
+        /// </summary>
         public static Task<ListHybridConnectionKeysResult> InvokeAsync(ListHybridConnectionKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListHybridConnectionKeysResult>("azure-nextgen:relay/v20160701:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysArgs(), options.WithVersion());
     }

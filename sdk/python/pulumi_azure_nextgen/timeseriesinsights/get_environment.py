@@ -120,7 +120,9 @@ def get_environment(environment_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
-    Use this data source to access information about an existing resource.
+    An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+    API Version: 2020-05-15.
+
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.

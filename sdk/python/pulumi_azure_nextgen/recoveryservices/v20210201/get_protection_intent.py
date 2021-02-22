@@ -121,7 +121,8 @@ def get_protection_intent(fabric_name: Optional[str] = None,
                           vault_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionIntentResult:
     """
-    Use this data source to access information about an existing resource.
+    Base class for backup ProtectionIntent.
+
 
     :param str fabric_name: Fabric name associated with the backed up item.
     :param str intent_object_name: Backed up item name whose details are to be fetched.

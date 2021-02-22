@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ContainerService.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getContainerService'.")]
     public static class GetContainerService
     {
+        /// <summary>
+        /// Container service.
+        /// Latest API Version: 2017-01-31.
+        /// </summary>
         public static Task<GetContainerServiceResult> InvokeAsync(GetContainerServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerServiceResult>("azure-nextgen:containerservice/latest:getContainerService", args ?? new GetContainerServiceArgs(), options.WithVersion());
     }

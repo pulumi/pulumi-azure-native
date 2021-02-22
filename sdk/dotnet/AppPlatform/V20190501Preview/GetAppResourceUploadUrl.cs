@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
 {
     public static class GetAppResourceUploadUrl
     {
+        /// <summary>
+        /// Resource upload definition payload
+        /// </summary>
         public static Task<GetAppResourceUploadUrlResult> InvokeAsync(GetAppResourceUploadUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResourceUploadUrlResult>("azure-nextgen:appplatform/v20190501preview:getAppResourceUploadUrl", args ?? new GetAppResourceUploadUrlArgs(), options.WithVersion());
     }

@@ -48,7 +48,8 @@ def get_deployment_log_file_url(app_name: Optional[str] = None,
                                 service_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentLogFileUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    Log file URL payload
+
 
     :param str app_name: The name of the App resource.
     :param str deployment_name: The name of the Deployment resource.

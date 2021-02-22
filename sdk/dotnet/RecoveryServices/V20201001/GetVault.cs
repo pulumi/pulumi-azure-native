@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
 {
     public static class GetVault
     {
+        /// <summary>
+        /// Resource information, as returned by the resource provider.
+        /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-nextgen:recoveryservices/v20201001:getVault", args ?? new GetVaultArgs(), options.WithVersion());
     }

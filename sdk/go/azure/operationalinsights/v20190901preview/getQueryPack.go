@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Log Analytics QueryPack definition.
 func LookupQueryPack(ctx *pulumi.Context, args *LookupQueryPackArgs, opts ...pulumi.InvokeOption) (*LookupQueryPackResult, error) {
 	var rv LookupQueryPackResult
 	err := ctx.Invoke("azure-nextgen:operationalinsights/v20190901preview:getQueryPack", args, &rv, opts...)

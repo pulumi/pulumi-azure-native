@@ -181,7 +181,8 @@ def get_api_diagnostic(api_id: Optional[str] = None,
                        service_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiDiagnosticResult:
     """
-    Use this data source to access information about an existing resource.
+    Diagnostic details.
+
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
     :param str diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.

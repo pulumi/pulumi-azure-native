@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.IoTSpaces
 {
     public static class GetIoTSpace
     {
+        /// <summary>
+        /// The description of the IoTSpaces service.
+        /// API Version: 2017-10-01-preview.
+        /// </summary>
         public static Task<GetIoTSpaceResult> InvokeAsync(GetIoTSpaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIoTSpaceResult>("azure-nextgen:iotspaces:getIoTSpace", args ?? new GetIoTSpaceArgs(), options.WithVersion());
     }

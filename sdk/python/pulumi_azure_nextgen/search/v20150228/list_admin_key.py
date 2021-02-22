@@ -58,7 +58,8 @@ def list_admin_key(resource_group_name: Optional[str] = None,
                    service_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAdminKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    Response containing the primary and secondary API keys for a given Azure Search service.
+
 
     :param str resource_group_name: The name of the resource group within the current subscription.
     :param str service_name: The name of the Search service for which to list admin keys.

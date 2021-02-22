@@ -15,6 +15,8 @@ __all__ = [
     'get_environment_setting',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getEnvironmentSetting'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEnvironmentSettingResult:
     """
@@ -218,7 +220,9 @@ def get_environment_setting(environment_setting_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents settings of an environment, from which environment instances would be created
+    Latest API Version: 2018-10-15.
+
 
     :param str environment_setting_name: The name of the environment Setting.
     :param str expand: Specify the $expand query. Example: 'properties($select=publishingState)'
@@ -226,6 +230,7 @@ def get_environment_setting(environment_setting_name: Optional[str] = None,
     :param str lab_name: The name of the lab.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_environment_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getEnvironmentSetting'.")
     __args__ = dict()
     __args__['environmentSettingName'] = environment_setting_name
     __args__['expand'] = expand

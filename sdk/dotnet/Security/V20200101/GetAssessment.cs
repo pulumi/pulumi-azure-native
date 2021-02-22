@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Security.V20200101
 {
     public static class GetAssessment
     {
+        /// <summary>
+        /// Security assessment on a resource
+        /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-nextgen:security/v20200101:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SoftwarePlan.V20190601Preview
 {
     public static class GetHybridUseBenefit
     {
+        /// <summary>
+        /// Response on GET of a hybrid use benefit
+        /// </summary>
         public static Task<GetHybridUseBenefitResult> InvokeAsync(GetHybridUseBenefitArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHybridUseBenefitResult>("azure-nextgen:softwareplan/v20190601preview:getHybridUseBenefit", args ?? new GetHybridUseBenefitArgs(), options.WithVersion());
     }

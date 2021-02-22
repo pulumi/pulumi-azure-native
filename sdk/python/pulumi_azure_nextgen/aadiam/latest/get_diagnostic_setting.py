@@ -15,6 +15,8 @@ __all__ = [
     'get_diagnostic_setting',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aadiam:getDiagnosticSetting'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDiagnosticSettingResult:
     """
@@ -142,10 +144,13 @@ class AwaitableGetDiagnosticSettingResult(GetDiagnosticSettingResult):
 def get_diagnostic_setting(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    The diagnostic setting resource.
+    Latest API Version: 2017-04-01.
+
 
     :param str name: The name of the diagnostic setting.
     """
+    pulumi.log.warn("get_diagnostic_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aadiam:getDiagnosticSetting'.")
     __args__ = dict()
     __args__['name'] = name
     if opts is None:

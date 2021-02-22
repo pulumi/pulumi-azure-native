@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Cache
 {
     public static class GetRedis
     {
+        /// <summary>
+        /// A single Redis item in List or Get Operation.
+        /// API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetRedisResult> InvokeAsync(GetRedisArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRedisResult>("azure-nextgen:cache:getRedis", args ?? new GetRedisArgs(), options.WithVersion());
     }

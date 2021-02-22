@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Kubernetes
 {
     public static class ListConnectedClusterUserCredentials
     {
+        /// <summary>
+        /// The list of credential result response.
+        /// API Version: 2021-04-01-preview.
+        /// </summary>
         public static Task<ListConnectedClusterUserCredentialsResult> InvokeAsync(ListConnectedClusterUserCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConnectedClusterUserCredentialsResult>("azure-nextgen:kubernetes:listConnectedClusterUserCredentials", args ?? new ListConnectedClusterUserCredentialsArgs(), options.WithVersion());
     }

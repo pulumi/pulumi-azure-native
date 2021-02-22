@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.HybridCompute
 {
     public static class GetPrivateLinkScope
     {
+        /// <summary>
+        /// An Azure Arc PrivateLinkScope definition.
+        /// API Version: 2020-08-15-preview.
+        /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-nextgen:hybridcompute:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithVersion());
     }

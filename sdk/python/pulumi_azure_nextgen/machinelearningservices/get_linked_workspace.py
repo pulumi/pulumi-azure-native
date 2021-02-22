@@ -84,7 +84,9 @@ def get_linked_workspace(link_name: Optional[str] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedWorkspaceResult:
     """
-    Use this data source to access information about an existing resource.
+    Linked workspace.
+    API Version: 2020-03-01.
+
 
     :param str link_name: Friendly name of the linked workspace
     :param str resource_group_name: Name of the resource group in which workspace is located.

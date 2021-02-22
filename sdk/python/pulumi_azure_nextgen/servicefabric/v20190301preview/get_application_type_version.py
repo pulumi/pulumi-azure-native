@@ -144,7 +144,8 @@ def get_application_type_version(application_type_name: Optional[str] = None,
                                  version: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationTypeVersionResult:
     """
-    Use this data source to access information about an existing resource.
+    An application type version resource for the specified application type name resource.
+
 
     :param str application_type_name: The name of the application type name resource.
     :param str cluster_name: The name of the cluster resource.

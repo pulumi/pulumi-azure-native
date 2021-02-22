@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.NotificationHubs
 {
     public static class GetNotificationHub
     {
+        /// <summary>
+        /// Description of a NotificationHub Resource.
+        /// API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetNotificationHubResult> InvokeAsync(GetNotificationHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubResult>("azure-nextgen:notificationhubs:getNotificationHub", args ?? new GetNotificationHubArgs(), options.WithVersion());
     }

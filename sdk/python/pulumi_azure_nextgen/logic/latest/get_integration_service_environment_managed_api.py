@@ -15,6 +15,8 @@ __all__ = [
     'get_integration_service_environment_managed_api',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationServiceEnvironmentManagedApi'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationServiceEnvironmentManagedApiResult:
     """
@@ -108,12 +110,15 @@ def get_integration_service_environment_managed_api(api_name: Optional[str] = No
                                                     resource_group: Optional[str] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationServiceEnvironmentManagedApiResult:
     """
-    Use this data source to access information about an existing resource.
+    The managed api definition.
+    Latest API Version: 2019-05-01.
+
 
     :param str api_name: The api name.
     :param str integration_service_environment_name: The integration service environment name.
     :param str resource_group: The resource group name.
     """
+    pulumi.log.warn("get_integration_service_environment_managed_api is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationServiceEnvironmentManagedApi'.")
     __args__ = dict()
     __args__['apiName'] = api_name
     __args__['integrationServiceEnvironmentName'] = integration_service_environment_name

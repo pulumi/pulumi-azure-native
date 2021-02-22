@@ -144,7 +144,8 @@ def get_storage_target(cache_name: Optional[str] = None,
                        storage_target_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTargetResult:
     """
-    Use this data source to access information about an existing resource.
+    A storage system being cached by a Cache.
+
 
     :param str cache_name: Name of cache.
     :param str resource_group_name: Target resource group.

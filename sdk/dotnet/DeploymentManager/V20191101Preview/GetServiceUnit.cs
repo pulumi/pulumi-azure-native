@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
 {
     public static class GetServiceUnit
     {
+        /// <summary>
+        /// Represents the response of a service unit resource.
+        /// </summary>
         public static Task<GetServiceUnitResult> InvokeAsync(GetServiceUnitArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceUnitResult>("azure-nextgen:deploymentmanager/v20191101preview:getServiceUnit", args ?? new GetServiceUnitArgs(), options.WithVersion());
     }

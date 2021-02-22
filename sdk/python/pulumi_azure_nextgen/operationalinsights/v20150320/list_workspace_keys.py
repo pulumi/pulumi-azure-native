@@ -58,7 +58,8 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The shared keys for a workspace.
+
 
     :param str resource_group_name: The Resource Group name.
     :param str workspace_name: The Log Analytics Workspace name.

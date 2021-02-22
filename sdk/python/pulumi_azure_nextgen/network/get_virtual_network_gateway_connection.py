@@ -383,7 +383,9 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
                                            virtual_network_gateway_connection_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    A common class for general resource information.
+    API Version: 2020-08-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_connection_name: The name of the virtual network gateway connection.

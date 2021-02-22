@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
 {
     public static class GetNetwork
     {
+        /// <summary>
+        /// This type describes a network resource.
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
         public static Task<GetNetworkResult> InvokeAsync(GetNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("azure-nextgen:servicefabricmesh:getNetwork", args ?? new GetNetworkArgs(), options.WithVersion());
     }

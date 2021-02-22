@@ -14,6 +14,8 @@ __all__ = [
     'list_named_value',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listNamedValue'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListNamedValueResult:
     """
@@ -47,12 +49,15 @@ def list_named_value(named_value_id: Optional[str] = None,
                      service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNamedValueResult:
     """
-    Use this data source to access information about an existing resource.
+    Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+    Latest API Version: 2019-12-01.
+
 
     :param str named_value_id: Identifier of the NamedValue.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("list_named_value is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listNamedValue'.")
     __args__ = dict()
     __args__['namedValueId'] = named_value_id
     __args__['resourceGroupName'] = resource_group_name

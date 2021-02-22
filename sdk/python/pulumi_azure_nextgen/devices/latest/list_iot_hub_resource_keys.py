@@ -15,6 +15,8 @@ __all__ = [
     'list_iot_hub_resource_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotHubResourceKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListIotHubResourceKeysResult:
     """
@@ -59,11 +61,14 @@ def list_iot_hub_resource_keys(resource_group_name: Optional[str] = None,
                                resource_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIotHubResourceKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of shared access policies with a next link.
+    Latest API Version: 2020-08-31.
+
 
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
+    pulumi.log.warn("list_iot_hub_resource_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotHubResourceKeys'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

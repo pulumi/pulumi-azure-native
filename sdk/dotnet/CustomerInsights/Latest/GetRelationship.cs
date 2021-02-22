@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRelationship'.")]
     public static class GetRelationship
     {
+        /// <summary>
+        /// The relationship resource format.
+        /// Latest API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetRelationshipResult> InvokeAsync(GetRelationshipArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipResult>("azure-nextgen:customerinsights/latest:getRelationship", args ?? new GetRelationshipArgs(), options.WithVersion());
     }

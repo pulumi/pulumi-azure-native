@@ -85,7 +85,9 @@ def get_binding(app_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBindingResult:
     """
-    Use this data source to access information about an existing resource.
+    Binding resource payload
+    API Version: 2020-07-01.
+
 
     :param str app_name: The name of the App resource.
     :param str binding_name: The name of the Binding resource.

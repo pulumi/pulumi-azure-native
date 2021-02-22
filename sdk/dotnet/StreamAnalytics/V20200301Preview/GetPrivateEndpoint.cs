@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
 {
     public static class GetPrivateEndpoint
     {
+        /// <summary>
+        /// Complete information about the private endpoint.
+        /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-nextgen:streamanalytics/v20200301preview:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithVersion());
     }

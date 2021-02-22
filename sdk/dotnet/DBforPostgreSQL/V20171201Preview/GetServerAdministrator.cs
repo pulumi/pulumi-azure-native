@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview
 {
     public static class GetServerAdministrator
     {
+        /// <summary>
+        /// Represents a and external administrator to be created.
+        /// </summary>
         public static Task<GetServerAdministratorResult> InvokeAsync(GetServerAdministratorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-nextgen:dbforpostgresql/v20171201preview:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithVersion());
     }

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * App Service Plan Model
+ */
 export function getServerFarm(args: GetServerFarmArgs, opts?: pulumi.InvokeOptions): Promise<GetServerFarmResult> {
     if (!opts) {
         opts = {}

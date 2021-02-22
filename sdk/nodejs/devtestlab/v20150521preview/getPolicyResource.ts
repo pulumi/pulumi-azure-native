@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A Policy.
+ */
 export function getPolicyResource(args: GetPolicyResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResourceResult> {
     if (!opts) {
         opts = {}

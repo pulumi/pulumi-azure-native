@@ -11,6 +11,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
 {
     public static class GetAgentPool
     {
+        /// <summary>
+        /// The agentpool that has the ARM resource and properties. 
+        /// The agentpool will have all information to create an agent pool.
+        /// API Version: 2019-06-01-preview.
+        /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-nextgen:containerregistry:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithVersion());
     }

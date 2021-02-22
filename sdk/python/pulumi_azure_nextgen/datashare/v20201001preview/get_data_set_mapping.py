@@ -97,7 +97,8 @@ def get_data_set_mapping(account_name: Optional[str] = None,
                          share_subscription_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSetMappingResult:
     """
-    Use this data source to access information about an existing resource.
+    A data set mapping data transfer object.
+
 
     :param str account_name: The name of the share account.
     :param str data_set_mapping_name: The name of the dataSetMapping.

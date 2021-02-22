@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataShare
 {
     public static class GetAccount
     {
+        /// <summary>
+        /// An account data transfer object.
+        /// API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:datashare:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

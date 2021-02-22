@@ -167,7 +167,8 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    Use this data source to access information about an existing resource.
+    The resource proxy definition object for quantum workspace.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str workspace_name: The name of the quantum workspace resource.

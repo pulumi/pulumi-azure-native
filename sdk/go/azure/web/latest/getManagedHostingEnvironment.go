@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Description of an hostingEnvironment (App Service Environment)
+// Latest API Version: 2015-08-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getManagedHostingEnvironment'.
 func LookupManagedHostingEnvironment(ctx *pulumi.Context, args *LookupManagedHostingEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupManagedHostingEnvironmentResult, error) {
 	var rv LookupManagedHostingEnvironmentResult
 	err := ctx.Invoke("azure-nextgen:web/latest:getManagedHostingEnvironment", args, &rv, opts...)

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataLakeStore.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getAccount'.")]
     public static class GetAccount
     {
+        /// <summary>
+        /// Data Lake Store account information.
+        /// Latest API Version: 2016-11-01.
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:datalakestore/latest:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

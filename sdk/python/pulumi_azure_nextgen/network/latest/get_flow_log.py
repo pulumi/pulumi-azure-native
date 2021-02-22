@@ -15,6 +15,8 @@ __all__ = [
     'get_flow_log',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFlowLog'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFlowLogResult:
     """
@@ -204,12 +206,15 @@ def get_flow_log(flow_log_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlowLogResult:
     """
-    Use this data source to access information about an existing resource.
+    A flow log resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str flow_log_name: The name of the flow log resource.
     :param str network_watcher_name: The name of the network watcher.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_flow_log is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFlowLog'.")
     __args__ = dict()
     __args__['flowLogName'] = flow_log_name
     __args__['networkWatcherName'] = network_watcher_name

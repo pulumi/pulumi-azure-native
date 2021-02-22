@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
 {
     public static class GetAccount
     {
+        /// <summary>
+        /// An ADP account.
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

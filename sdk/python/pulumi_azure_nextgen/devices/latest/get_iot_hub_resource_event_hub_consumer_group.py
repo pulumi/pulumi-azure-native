@@ -14,6 +14,8 @@ __all__ = [
     'get_iot_hub_resource_event_hub_consumer_group',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotHubResourceEventHubConsumerGroup'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIotHubResourceEventHubConsumerGroupResult:
     """
@@ -96,13 +98,16 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optio
                                                   resource_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubResourceEventHubConsumerGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    The properties of the EventHubConsumerGroupInfo object.
+    Latest API Version: 2020-08-31.
+
 
     :param str event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.
     :param str name: The name of the consumer group to retrieve.
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
+    pulumi.log.warn("get_iot_hub_resource_event_hub_consumer_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotHubResourceEventHubConsumerGroup'.")
     __args__ = dict()
     __args__['eventHubEndpointName'] = event_hub_endpoint_name
     __args__['name'] = name

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Media.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAccountFilter'.")]
     public static class GetAccountFilter
     {
+        /// <summary>
+        /// An Account Filter.
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetAccountFilterResult> InvokeAsync(GetAccountFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountFilterResult>("azure-nextgen:media/latest:getAccountFilter", args ?? new GetAccountFilterArgs(), options.WithVersion());
     }

@@ -144,7 +144,8 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
                                 service_endpoint_policy_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Service End point policy resource.
+
 
     :param str expand: Expands referenced resources.
     :param str resource_group_name: The name of the resource group.

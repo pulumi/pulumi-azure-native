@@ -144,7 +144,9 @@ def get_template_spec(expand: Optional[str] = None,
                       template_spec_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateSpecResult:
     """
-    Use this data source to access information about an existing resource.
+    Template Spec object.
+    API Version: 2019-06-01-preview.
+
 
     :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

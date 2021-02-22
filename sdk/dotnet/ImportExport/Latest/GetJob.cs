@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ImportExport.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:importexport:getJob'.")]
     public static class GetJob
     {
+        /// <summary>
+        /// Contains the job information.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-nextgen:importexport/latest:getJob", args ?? new GetJobArgs(), options.WithVersion());
     }

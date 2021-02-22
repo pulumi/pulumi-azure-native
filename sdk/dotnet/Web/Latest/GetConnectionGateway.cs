@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getConnectionGateway'.")]
     public static class GetConnectionGateway
     {
+        /// <summary>
+        /// The gateway definition
+        /// Latest API Version: 2016-06-01.
+        /// </summary>
         public static Task<GetConnectionGatewayResult> InvokeAsync(GetConnectionGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGatewayResult>("azure-nextgen:web/latest:getConnectionGateway", args ?? new GetConnectionGatewayArgs(), options.WithVersion());
     }

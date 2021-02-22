@@ -229,7 +229,9 @@ def get_record_set(private_zone_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRecordSetResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+    API Version: 2020-06-01.
+
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param str record_type: The type of DNS record in this record set.

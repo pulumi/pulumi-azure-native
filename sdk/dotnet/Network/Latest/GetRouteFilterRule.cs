@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRouteFilterRule'.")]
     public static class GetRouteFilterRule
     {
+        /// <summary>
+        /// Route Filter Rule Resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetRouteFilterRuleResult> InvokeAsync(GetRouteFilterRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterRuleResult>("azure-nextgen:network/latest:getRouteFilterRule", args ?? new GetRouteFilterRuleArgs(), options.WithVersion());
     }

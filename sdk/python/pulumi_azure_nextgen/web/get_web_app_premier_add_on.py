@@ -180,7 +180,9 @@ def get_web_app_premier_add_on(name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPremierAddOnResult:
     """
-    Use this data source to access information about an existing resource.
+    Premier add-on.
+    API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str premier_add_on_name: Add-on name.

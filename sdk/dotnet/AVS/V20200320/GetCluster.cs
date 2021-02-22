@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
 {
     public static class GetCluster
     {
+        /// <summary>
+        /// A cluster resource
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:avs/v20200320:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

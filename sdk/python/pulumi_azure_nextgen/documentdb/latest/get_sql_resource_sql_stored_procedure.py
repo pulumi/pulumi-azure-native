@@ -15,6 +15,8 @@ __all__ = [
     'get_sql_resource_sql_stored_procedure',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getSqlResourceSqlStoredProcedure'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlResourceSqlStoredProcedureResult:
     """
@@ -107,7 +109,9 @@ def get_sql_resource_sql_stored_procedure(account_name: Optional[str] = None,
                                           stored_procedure_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlStoredProcedureResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB storedProcedure.
+    Latest API Version: 2021-01-15.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str container_name: Cosmos DB container name.
@@ -115,6 +119,7 @@ def get_sql_resource_sql_stored_procedure(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str stored_procedure_name: Cosmos DB storedProcedure name.
     """
+    pulumi.log.warn("get_sql_resource_sql_stored_procedure is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getSqlResourceSqlStoredProcedure'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name

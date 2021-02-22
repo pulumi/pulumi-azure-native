@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 {
     public static class GetIntegrationServiceEnvironment
     {
+        /// <summary>
+        /// The integration service environment.
+        /// </summary>
         public static Task<GetIntegrationServiceEnvironmentResult> InvokeAsync(GetIntegrationServiceEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationServiceEnvironmentResult>("azure-nextgen:logic/v20190501:getIntegrationServiceEnvironment", args ?? new GetIntegrationServiceEnvironmentArgs(), options.WithVersion());
     }

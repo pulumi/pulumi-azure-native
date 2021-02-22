@@ -119,7 +119,8 @@ def get_peering_service_prefix(peering_service_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringServicePrefixResult:
     """
-    Use this data source to access information about an existing resource.
+    The peering service prefix class.
+
 
     :param str peering_service_name: The peering service name.
     :param str prefix_name: The prefix name.

@@ -47,7 +47,8 @@ def list_secret_value(resource_group_name: Optional[str] = None,
                       secret_value_resource_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSecretValueResult:
     """
-    Use this data source to access information about an existing resource.
+    This type represents the unencrypted value of the secret.
+
 
     :param str resource_group_name: Azure resource group name
     :param str secret_resource_name: The name of the secret resource.

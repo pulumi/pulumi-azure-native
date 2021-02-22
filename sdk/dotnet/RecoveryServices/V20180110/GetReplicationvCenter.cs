@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
 {
     public static class GetReplicationvCenter
     {
+        /// <summary>
+        /// vCenter definition.
+        /// </summary>
         public static Task<GetReplicationvCenterResult> InvokeAsync(GetReplicationvCenterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationvCenterResult>("azure-nextgen:recoveryservices/v20180110:getReplicationvCenter", args ?? new GetReplicationvCenterArgs(), options.WithVersion());
     }

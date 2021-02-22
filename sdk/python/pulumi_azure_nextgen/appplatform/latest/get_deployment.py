@@ -15,6 +15,8 @@ __all__ = [
     'get_deployment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getDeployment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDeploymentResult:
     """
@@ -97,13 +99,16 @@ def get_deployment(app_name: Optional[str] = None,
                    service_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
-    Use this data source to access information about an existing resource.
+    Deployment resource payload
+    Latest API Version: 2020-07-01.
+
 
     :param str app_name: The name of the App resource.
     :param str deployment_name: The name of the Deployment resource.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
+    pulumi.log.warn("get_deployment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getDeployment'.")
     __args__ = dict()
     __args__['appName'] = app_name
     __args__['deploymentName'] = deployment_name

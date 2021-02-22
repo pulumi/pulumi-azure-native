@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// List of list of items that violate tenant's configuration.
 func ListListTenantConfigurationViolation(ctx *pulumi.Context, args *ListListTenantConfigurationViolationArgs, opts ...pulumi.InvokeOption) (*ListListTenantConfigurationViolationResult, error) {
 	var rv ListListTenantConfigurationViolationResult
 	err := ctx.Invoke("azure-nextgen:portal/v20200901preview:listListTenantConfigurationViolation", args, &rv, opts...)

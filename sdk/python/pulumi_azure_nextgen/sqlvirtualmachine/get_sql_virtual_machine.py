@@ -264,7 +264,9 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
                             sql_virtual_machine_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlVirtualMachineResult:
     """
-    Use this data source to access information about an existing resource.
+    A SQL virtual machine.
+    API Version: 2017-03-01-preview.
+
 
     :param str expand: The child resources to include in the response.
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

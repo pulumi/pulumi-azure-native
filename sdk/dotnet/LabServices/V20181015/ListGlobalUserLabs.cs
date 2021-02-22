@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 {
     public static class ListGlobalUserLabs
     {
+        /// <summary>
+        /// Lists the labs owned by a user
+        /// </summary>
         public static Task<ListGlobalUserLabsResult> InvokeAsync(ListGlobalUserLabsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserLabsResult>("azure-nextgen:labservices/v20181015:listGlobalUserLabs", args ?? new ListGlobalUserLabsArgs(), options.WithVersion());
     }

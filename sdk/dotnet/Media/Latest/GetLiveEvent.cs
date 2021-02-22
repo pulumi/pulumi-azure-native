@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Media.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getLiveEvent'.")]
     public static class GetLiveEvent
     {
+        /// <summary>
+        /// The live event.
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetLiveEventResult> InvokeAsync(GetLiveEventArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLiveEventResult>("azure-nextgen:media/latest:getLiveEvent", args ?? new GetLiveEventArgs(), options.WithVersion());
     }

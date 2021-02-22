@@ -14,6 +14,8 @@ __all__ = [
     'get_export_configuration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getExportConfiguration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExportConfigurationResult:
     """
@@ -263,12 +265,15 @@ def get_export_configuration(export_id: Optional[str] = None,
                              resource_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Properties that define a Continuous Export configuration.
+    Latest API Version: 2015-05-01.
+
 
     :param str export_id: The Continuous Export configuration ID. This is unique within a Application Insights component.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
+    pulumi.log.warn("get_export_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getExportConfiguration'.")
     __args__ = dict()
     __args__['exportId'] = export_id
     __args__['resourceGroupName'] = resource_group_name

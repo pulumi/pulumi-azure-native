@@ -167,7 +167,8 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtResourceGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    The remediation definition.
+
 
     :param str remediation_name: The name of the remediation.
     :param str resource_group_name: Resource group name.

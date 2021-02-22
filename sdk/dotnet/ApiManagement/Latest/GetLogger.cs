@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getLogger'.")]
     public static class GetLogger
     {
+        /// <summary>
+        /// Logger details.
+        /// Latest API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetLoggerResult> InvokeAsync(GetLoggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoggerResult>("azure-nextgen:apimanagement/latest:getLogger", args ?? new GetLoggerArgs(), options.WithVersion());
     }

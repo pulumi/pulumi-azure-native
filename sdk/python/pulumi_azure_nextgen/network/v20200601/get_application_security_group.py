@@ -130,7 +130,8 @@ def get_application_security_group(application_security_group_name: Optional[str
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationSecurityGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    An application security group in a resource group.
+
 
     :param str application_security_group_name: The name of the application security group.
     :param str resource_group_name: The name of the resource group.

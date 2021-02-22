@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cache.V20171001
 {
     public static class GetPatchSchedule
     {
+        /// <summary>
+        /// Response to put/get patch schedules for Redis cache.
+        /// </summary>
         public static Task<GetPatchScheduleResult> InvokeAsync(GetPatchScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPatchScheduleResult>("azure-nextgen:cache/v20171001:getPatchSchedule", args ?? new GetPatchScheduleArgs(), options.WithVersion());
     }

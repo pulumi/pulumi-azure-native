@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getVirtualMachine'.")]
     public static class GetVirtualMachine
     {
+        /// <summary>
+        /// Virtual machine model
+        /// Latest API Version: 2019-04-01.
+        /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-nextgen:vmwarecloudsimple/latest:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithVersion());
     }

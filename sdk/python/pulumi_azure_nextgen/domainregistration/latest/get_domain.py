@@ -15,6 +15,8 @@ __all__ = [
     'get_domain',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:getDomain'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDomainResult:
     """
@@ -357,11 +359,14 @@ def get_domain(domain_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about a domain.
+    Latest API Version: 2020-10-01.
+
 
     :param str domain_name: Name of the domain.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_domain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:getDomain'.")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['resourceGroupName'] = resource_group_name

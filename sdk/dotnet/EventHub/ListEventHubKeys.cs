@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EventHub
 {
     public static class ListEventHubKeys
     {
+        /// <summary>
+        /// Namespace/EventHub Connection String
+        /// API Version: 2017-04-01.
+        /// </summary>
         public static Task<ListEventHubKeysResult> InvokeAsync(ListEventHubKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListEventHubKeysResult>("azure-nextgen:eventhub:listEventHubKeys", args ?? new ListEventHubKeysArgs(), options.WithVersion());
     }

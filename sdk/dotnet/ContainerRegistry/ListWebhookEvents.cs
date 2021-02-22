@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
 {
     public static class ListWebhookEvents
     {
+        /// <summary>
+        /// The result of a request to list events for a webhook.
+        /// API Version: 2019-05-01.
+        /// </summary>
         public static Task<ListWebhookEventsResult> InvokeAsync(ListWebhookEventsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebhookEventsResult>("azure-nextgen:containerregistry:listWebhookEvents", args ?? new ListWebhookEventsArgs(), options.WithVersion());
     }

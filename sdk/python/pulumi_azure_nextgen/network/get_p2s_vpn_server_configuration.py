@@ -192,7 +192,9 @@ def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optiona
                                      virtual_wan_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnServerConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    P2SVpnServerConfiguration Resource.
+    API Version: 2019-07-01.
+
 
     :param str p2_s_vpn_server_configuration_name: The name of the P2SVpnServerConfiguration.
     :param str resource_group_name: The resource group name of the P2SVpnServerConfiguration.

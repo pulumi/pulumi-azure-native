@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetAzureFirewall
     {
+        /// <summary>
+        /// Azure Firewall resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetAzureFirewallResult> InvokeAsync(GetAzureFirewallArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAzureFirewallResult>("azure-nextgen:network:getAzureFirewall", args ?? new GetAzureFirewallArgs(), options.WithVersion());
     }

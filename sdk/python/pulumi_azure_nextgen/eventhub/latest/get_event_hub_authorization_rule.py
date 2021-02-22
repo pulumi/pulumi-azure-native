@@ -14,6 +14,8 @@ __all__ = [
     'get_event_hub_authorization_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getEventHubAuthorizationRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEventHubAuthorizationRuleResult:
     """
@@ -84,13 +86,16 @@ def get_event_hub_authorization_rule(authorization_rule_name: Optional[str] = No
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubAuthorizationRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Single item in a List or Get AuthorizationRule operation
+    Latest API Version: 2017-04-01.
+
 
     :param str authorization_rule_name: The authorization rule name.
     :param str event_hub_name: The Event Hub name
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
+    pulumi.log.warn("get_event_hub_authorization_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getEventHubAuthorizationRule'.")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['eventHubName'] = event_hub_name

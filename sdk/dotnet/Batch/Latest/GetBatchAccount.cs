@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Batch.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getBatchAccount'.")]
     public static class GetBatchAccount
     {
+        /// <summary>
+        /// Contains information about an Azure Batch account.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetBatchAccountResult> InvokeAsync(GetBatchAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-nextgen:batch/latest:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithVersion());
     }

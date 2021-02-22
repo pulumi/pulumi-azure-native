@@ -396,7 +396,8 @@ def get_streaming_job(expand: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingJobResult:
     """
-    Use this data source to access information about an existing resource.
+    A streaming job object, containing all information associated with the named streaming job.
+
 
     :param str expand: The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
     :param str job_name: The name of the streaming job.

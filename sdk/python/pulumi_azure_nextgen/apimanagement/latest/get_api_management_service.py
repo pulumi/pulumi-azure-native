@@ -15,6 +15,8 @@ __all__ = [
     'get_api_management_service',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiManagementService'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApiManagementServiceResult:
     """
@@ -407,11 +409,14 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
                                service_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    A single API Management service resource in List or Get response.
+    Latest API Version: 2019-12-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_api_management_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiManagementService'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

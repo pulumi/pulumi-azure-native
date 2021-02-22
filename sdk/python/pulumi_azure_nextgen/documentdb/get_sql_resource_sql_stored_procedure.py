@@ -107,7 +107,9 @@ def get_sql_resource_sql_stored_procedure(account_name: Optional[str] = None,
                                           stored_procedure_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlStoredProcedureResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB storedProcedure.
+    API Version: 2021-01-15.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str container_name: Cosmos DB container name.

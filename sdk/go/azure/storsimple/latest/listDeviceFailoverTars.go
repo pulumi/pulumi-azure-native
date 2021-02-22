@@ -7,6 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The list of all devices in a resource and their eligibility status as a failover target device.
+// Latest API Version: 2017-06-01.
+//
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listDeviceFailoverTars'.
 func ListDeviceFailoverTars(ctx *pulumi.Context, args *ListDeviceFailoverTarsArgs, opts ...pulumi.InvokeOption) (*ListDeviceFailoverTarsResult, error) {
 	var rv ListDeviceFailoverTarsResult
 	err := ctx.Invoke("azure-nextgen:storsimple/latest:listDeviceFailoverTars", args, &rv, opts...)

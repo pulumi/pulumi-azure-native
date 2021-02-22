@@ -83,7 +83,8 @@ def get_artifact(artifact_name: Optional[str] = None,
                  resource_scope: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArtifactResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a blueprint artifact.
+
 
     :param str artifact_name: Name of the blueprint artifact.
     :param str blueprint_name: Name of the blueprint definition.

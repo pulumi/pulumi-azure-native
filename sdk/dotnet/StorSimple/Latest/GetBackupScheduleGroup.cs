@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBackupScheduleGroup'.")]
     public static class GetBackupScheduleGroup
     {
+        /// <summary>
+        /// The Backup Schedule Group
+        /// Latest API Version: 2016-10-01.
+        /// </summary>
         public static Task<GetBackupScheduleGroupResult> InvokeAsync(GetBackupScheduleGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupScheduleGroupResult>("azure-nextgen:storsimple/latest:getBackupScheduleGroup", args ?? new GetBackupScheduleGroupArgs(), options.WithVersion());
     }

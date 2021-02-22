@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ServiceBus.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getQueue'.")]
     public static class GetQueue
     {
+        /// <summary>
+        /// Description of queue Resource.
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-nextgen:servicebus/latest:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
     }

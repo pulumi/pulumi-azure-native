@@ -15,6 +15,8 @@ __all__ = [
     'get_global_user_environment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserEnvironment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGlobalUserEnvironmentResult:
     """
@@ -48,12 +50,15 @@ def get_global_user_environment(environment_id: Optional[str] = None,
                                 user_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserEnvironmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents the environments details
+    Latest API Version: 2018-10-15.
+
 
     :param str environment_id: The resourceId of the environment
     :param str expand: Specify the $expand query. Example: 'properties($expand=environment)'
     :param str user_name: The name of the user.
     """
+    pulumi.log.warn("get_global_user_environment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserEnvironment'.")
     __args__ = dict()
     __args__['environmentId'] = environment_id
     __args__['expand'] = expand

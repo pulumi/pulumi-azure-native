@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A manifest file that defines the custom resource provider resources.
 func LookupCustomResourceProvider(ctx *pulumi.Context, args *LookupCustomResourceProviderArgs, opts ...pulumi.InvokeOption) (*LookupCustomResourceProviderResult, error) {
 	var rv LookupCustomResourceProviderResult
 	err := ctx.Invoke("azure-nextgen:customproviders/v20180901preview:getCustomResourceProvider", args, &rv, opts...)

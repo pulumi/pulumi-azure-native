@@ -136,7 +136,9 @@ def list_configuration_store_key_value(config_store_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConfigurationStoreKeyValueResult:
     """
-    Use this data source to access information about an existing resource.
+    The result of a request to retrieve a key-value from the specified configuration store.
+    API Version: 2020-06-01.
+
 
     :param str config_store_name: The name of the configuration store.
     :param str key: The key to retrieve.

@@ -14,6 +14,8 @@ __all__ = [
     'get_virtual_hub_bgp_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualHubBgpConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualHubBgpConnectionResult:
     """
@@ -131,12 +133,15 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
                                    virtual_hub_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubBgpConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual Appliance Site resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str connection_name: The name of the connection.
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
+    pulumi.log.warn("get_virtual_hub_bgp_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualHubBgpConnection'.")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name

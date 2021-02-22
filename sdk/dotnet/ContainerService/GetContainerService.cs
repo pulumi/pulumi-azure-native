@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ContainerService
 {
     public static class GetContainerService
     {
+        /// <summary>
+        /// Container service.
+        /// API Version: 2017-01-31.
+        /// </summary>
         public static Task<GetContainerServiceResult> InvokeAsync(GetContainerServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerServiceResult>("azure-nextgen:containerservice:getContainerService", args ?? new GetContainerServiceArgs(), options.WithVersion());
     }

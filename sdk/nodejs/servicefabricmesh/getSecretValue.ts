@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+ * API Version: 2018-09-01-preview.
+ */
 export function getSecretValue(args: GetSecretValueArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretValueResult> {
     if (!opts) {
         opts = {}

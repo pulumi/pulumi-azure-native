@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418
 {
     public static class ListAccountKeys
     {
+        /// <summary>
+        /// The access keys for the cognitive services account.
+        /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-nextgen:cognitiveservices/v20170418:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
     }

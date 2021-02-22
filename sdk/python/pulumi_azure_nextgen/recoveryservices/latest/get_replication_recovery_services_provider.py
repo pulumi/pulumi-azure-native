@@ -15,6 +15,8 @@ __all__ = [
     'get_replication_recovery_services_provider',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationRecoveryServicesProvider'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReplicationRecoveryServicesProviderResult:
     """
@@ -97,13 +99,16 @@ def get_replication_recovery_services_provider(fabric_name: Optional[str] = None
                                                resource_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationRecoveryServicesProviderResult:
     """
-    Use this data source to access information about an existing resource.
+    Provider details.
+    Latest API Version: 2018-07-10.
+
 
     :param str fabric_name: Fabric name.
     :param str provider_name: Recovery services provider name
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("get_replication_recovery_services_provider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationRecoveryServicesProvider'.")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['providerName'] = provider_name

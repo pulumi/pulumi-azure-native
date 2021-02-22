@@ -97,7 +97,8 @@ def get_product_policy(format: Optional[str] = None,
                        service_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Policy Contract details.
+
 
     :param str format: Policy Export Format.
     :param str policy_id: The identifier of the Policy.

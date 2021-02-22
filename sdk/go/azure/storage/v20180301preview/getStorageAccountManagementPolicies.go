@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The Get Storage Account ManagementPolicies operation response.
 func LookupStorageAccountManagementPolicies(ctx *pulumi.Context, args *LookupStorageAccountManagementPoliciesArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountManagementPoliciesResult, error) {
 	var rv LookupStorageAccountManagementPoliciesResult
 	err := ctx.Invoke("azure-nextgen:storage/v20180301preview:getStorageAccountManagementPolicies", args, &rv, opts...)

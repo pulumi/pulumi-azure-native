@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// VpnServerConfiguration Resource.
 func LookupVpnServerConfiguration(ctx *pulumi.Context, args *LookupVpnServerConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupVpnServerConfigurationResult, error) {
 	var rv LookupVpnServerConfigurationResult
 	err := ctx.Invoke("azure-nextgen:network/v20200701:getVpnServerConfiguration", args, &rv, opts...)

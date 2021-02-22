@@ -468,7 +468,8 @@ def get_hosting_environment(name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostingEnvironmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of an hostingEnvironment (App Service Environment)
+
 
     :param str name: Name of hostingEnvironment (App Service Environment)
     :param str resource_group_name: Name of resource group

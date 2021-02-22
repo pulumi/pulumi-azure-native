@@ -14,6 +14,8 @@ __all__ = [
     'get_api_release',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiRelease'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApiReleaseResult:
     """
@@ -120,13 +122,16 @@ def get_api_release(api_id: Optional[str] = None,
                     service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiReleaseResult:
     """
-    Use this data source to access information about an existing resource.
+    ApiRelease details.
+    Latest API Version: 2019-12-01.
+
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
     :param str release_id: Release identifier within an API. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_api_release is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiRelease'.")
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['releaseId'] = release_id

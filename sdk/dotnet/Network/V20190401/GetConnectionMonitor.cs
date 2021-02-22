@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20190401
 {
     public static class GetConnectionMonitor
     {
+        /// <summary>
+        /// Information about the connection monitor.
+        /// </summary>
         public static Task<GetConnectionMonitorResult> InvokeAsync(GetConnectionMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorResult>("azure-nextgen:network/v20190401:getConnectionMonitor", args ?? new GetConnectionMonitorArgs(), options.WithVersion());
     }

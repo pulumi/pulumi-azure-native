@@ -15,6 +15,8 @@ __all__ = [
     'list_cluster_language_extensions',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listClusterLanguageExtensions'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListClusterLanguageExtensionsResult:
     """
@@ -47,11 +49,14 @@ def list_cluster_language_extensions(cluster_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterLanguageExtensionsResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of language extension objects.
+    Latest API Version: 2020-09-18.
+
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("list_cluster_language_extensions is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listClusterLanguageExtensions'.")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name

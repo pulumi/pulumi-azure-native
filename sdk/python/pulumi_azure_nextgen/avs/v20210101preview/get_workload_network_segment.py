@@ -156,7 +156,8 @@ def get_workload_network_segment(private_cloud_name: Optional[str] = None,
                                  segment_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkSegmentResult:
     """
-    Use this data source to access information about an existing resource.
+    NSX Segment
+
 
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

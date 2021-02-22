@@ -120,7 +120,9 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIscsiTargetResult:
     """
-    Use this data source to access information about an existing resource.
+    Response for iSCSI target requests.
+    API Version: 2020-03-15-preview.
+
 
     :param str disk_pool_name: The name of the Disk pool.
     :param str iscsi_target_name: The name of the iSCSI target.

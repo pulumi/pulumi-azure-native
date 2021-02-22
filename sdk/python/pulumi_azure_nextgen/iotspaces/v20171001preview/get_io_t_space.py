@@ -119,7 +119,8 @@ def get_io_t_space(resource_group_name: Optional[str] = None,
                    resource_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIoTSpaceResult:
     """
-    Use this data source to access information about an existing resource.
+    The description of the IoTSpaces service.
+
 
     :param str resource_group_name: The name of the resource group that contains the IoTSpaces instance.
     :param str resource_name: The name of the IoTSpaces instance.

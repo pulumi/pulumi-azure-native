@@ -15,6 +15,8 @@ __all__ = [
     'get_policy_set_definition',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicySetDefinition'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPolicySetDefinitionResult:
     """
@@ -154,10 +156,13 @@ class AwaitableGetPolicySetDefinitionResult(GetPolicySetDefinitionResult):
 def get_policy_set_definition(policy_set_definition_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    The policy set definition.
+    Latest API Version: 2020-09-01.
+
 
     :param str policy_set_definition_name: The name of the policy set definition to get.
     """
+    pulumi.log.warn("get_policy_set_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicySetDefinition'.")
     __args__ = dict()
     __args__['policySetDefinitionName'] = policy_set_definition_name
     if opts is None:

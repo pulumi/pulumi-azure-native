@@ -155,7 +155,8 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    ExpressRoute gateway resource.
+
 
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
     :param str resource_group_name: The name of the resource group.

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The integration account agreement.
 func LookupAgreement(ctx *pulumi.Context, args *LookupAgreementArgs, opts ...pulumi.InvokeOption) (*LookupAgreementResult, error) {
 	var rv LookupAgreementResult
 	err := ctx.Invoke("azure-nextgen:logic/v20160601:getAgreement", args, &rv, opts...)

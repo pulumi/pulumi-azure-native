@@ -275,7 +275,9 @@ def get_io_mam_policy_by_name(host_name: Optional[str] = None,
                               select: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIoMAMPolicyByNameResult:
     """
-    Use this data source to access information about an existing resource.
+    iOS Policy entity for Intune MAM.
+    API Version: 2015-01-14-preview.
+
 
     :param str host_name: Location hostName for the tenant
     :param str policy_name: Unique name for the policy

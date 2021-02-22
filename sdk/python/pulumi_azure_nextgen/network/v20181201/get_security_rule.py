@@ -264,7 +264,8 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
                       security_rule_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Network security rule.
+
 
     :param str network_security_group_name: The name of the network security group.
     :param str resource_group_name: The name of the resource group.

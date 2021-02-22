@@ -15,6 +15,8 @@ __all__ = [
     'get_kpi',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getKpi'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetKpiResult:
     """
@@ -300,12 +302,15 @@ def get_kpi(hub_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKpiResult:
     """
-    Use this data source to access information about an existing resource.
+    The KPI resource format.
+    Latest API Version: 2017-04-26.
+
 
     :param str hub_name: The name of the hub.
     :param str kpi_name: The name of the KPI.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_kpi is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getKpi'.")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['kpiName'] = kpi_name

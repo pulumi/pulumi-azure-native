@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
 {
     public static class GetAccount
     {
+        /// <summary>
+        /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:datalakeanalytics/v20161101:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

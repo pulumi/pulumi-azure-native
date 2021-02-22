@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Logic
 {
     public static class GetWorkflowAccessKey
     {
+        /// <summary>
+        /// 
+        /// API Version: 2015-02-01-preview.
+        /// </summary>
         public static Task<GetWorkflowAccessKeyResult> InvokeAsync(GetWorkflowAccessKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowAccessKeyResult>("azure-nextgen:logic:getWorkflowAccessKey", args ?? new GetWorkflowAccessKeyArgs(), options.WithVersion());
     }

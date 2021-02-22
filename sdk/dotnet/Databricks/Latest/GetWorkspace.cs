@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Databricks.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databricks:getWorkspace'.")]
     public static class GetWorkspace
     {
+        /// <summary>
+        /// Information about workspace.
+        /// Latest API Version: 2018-04-01.
+        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:databricks/latest:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StorSimple
 {
     public static class GetChapSetting
     {
+        /// <summary>
+        /// Challenge-Handshake Authentication Protocol (CHAP) setting
+        /// API Version: 2016-10-01.
+        /// </summary>
         public static Task<GetChapSettingResult> InvokeAsync(GetChapSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetChapSettingResult>("azure-nextgen:storsimple:getChapSetting", args ?? new GetChapSettingArgs(), options.WithVersion());
     }

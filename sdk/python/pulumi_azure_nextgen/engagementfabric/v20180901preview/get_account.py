@@ -107,7 +107,8 @@ def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    The EngagementFabric account
+
 
     :param str account_name: Account Name
     :param str resource_group_name: Resource Group Name

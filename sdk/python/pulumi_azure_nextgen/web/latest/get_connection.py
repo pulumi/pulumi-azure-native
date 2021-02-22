@@ -15,6 +15,8 @@ __all__ = [
     'get_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConnectionResult:
     """
@@ -117,12 +119,15 @@ def get_connection(connection_name: Optional[str] = None,
                    subscription_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    API connection
+    Latest API Version: 2016-06-01.
+
 
     :param str connection_name: Connection name
     :param str resource_group_name: The resource group
     :param str subscription_id: Subscription Id
     """
+    pulumi.log.warn("get_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getConnection'.")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name

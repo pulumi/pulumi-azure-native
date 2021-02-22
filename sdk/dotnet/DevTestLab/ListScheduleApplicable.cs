@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DevTestLab
 {
     public static class ListScheduleApplicable
     {
+        /// <summary>
+        /// The response of a list operation.
+        /// API Version: 2018-09-15.
+        /// </summary>
         public static Task<ListScheduleApplicableResult> InvokeAsync(ListScheduleApplicableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azure-nextgen:devtestlab:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithVersion());
     }

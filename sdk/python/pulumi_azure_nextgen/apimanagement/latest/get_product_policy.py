@@ -14,6 +14,8 @@ __all__ = [
     'get_product_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProductPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProductPolicyResult:
     """
@@ -97,7 +99,9 @@ def get_product_policy(format: Optional[str] = None,
                        service_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Policy Contract details.
+    Latest API Version: 2019-12-01.
+
 
     :param str format: Policy Export Format.
     :param str policy_id: The identifier of the Policy.
@@ -105,6 +109,7 @@ def get_product_policy(format: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_product_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProductPolicy'.")
     __args__ = dict()
     __args__['format'] = format
     __args__['policyId'] = policy_id

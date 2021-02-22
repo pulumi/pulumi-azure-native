@@ -143,7 +143,8 @@ def list_site_publishing_credentials_slot(name: Optional[str] = None,
                                           slot: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSitePublishingCredentialsSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents user credentials used for publishing activity
+
 
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20200214
 {
     public static class GetVirtualMachineImageTemplate
     {
+        /// <summary>
+        /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+        /// </summary>
         public static Task<GetVirtualMachineImageTemplateResult> InvokeAsync(GetVirtualMachineImageTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-nextgen:virtualmachineimages/v20200214:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithVersion());
     }

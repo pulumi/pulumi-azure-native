@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
 {
     public static class GetControllerDetails
     {
+        /// <summary>
+        /// Represents an instance of a DNC controller.
+        /// </summary>
         public static Task<GetControllerDetailsResult> InvokeAsync(GetControllerDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetControllerDetailsResult>("azure-nextgen:delegatednetwork/v20200808preview:getControllerDetails", args ?? new GetControllerDetailsArgs(), options.WithVersion());
     }

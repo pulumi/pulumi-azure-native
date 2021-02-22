@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Media.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingPolicy'.")]
     public static class GetStreamingPolicy
     {
+        /// <summary>
+        /// A Streaming Policy resource
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetStreamingPolicyResult> InvokeAsync(GetStreamingPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingPolicyResult>("azure-nextgen:media/latest:getStreamingPolicy", args ?? new GetStreamingPolicyArgs(), options.WithVersion());
     }

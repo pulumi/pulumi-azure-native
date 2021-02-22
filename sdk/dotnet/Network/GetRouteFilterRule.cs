@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetRouteFilterRule
     {
+        /// <summary>
+        /// Route Filter Rule Resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetRouteFilterRuleResult> InvokeAsync(GetRouteFilterRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterRuleResult>("azure-nextgen:network:getRouteFilterRule", args ?? new GetRouteFilterRuleArgs(), options.WithVersion());
     }

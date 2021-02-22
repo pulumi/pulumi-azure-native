@@ -14,6 +14,8 @@ __all__ = [
     'get_virtual_router_peering',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualRouterPeering'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualRouterPeeringResult:
     """
@@ -119,12 +121,15 @@ def get_virtual_router_peering(peering_name: Optional[str] = None,
                                virtual_router_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualRouterPeeringResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual Router Peering resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str peering_name: The name of the Virtual Router Peering.
     :param str resource_group_name: The name of the resource group.
     :param str virtual_router_name: The name of the Virtual Router.
     """
+    pulumi.log.warn("get_virtual_router_peering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualRouterPeering'.")
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['resourceGroupName'] = resource_group_name

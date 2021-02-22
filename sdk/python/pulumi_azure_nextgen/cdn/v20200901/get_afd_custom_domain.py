@@ -165,7 +165,8 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDCustomDomainResult:
     """
-    Use this data source to access information about an existing resource.
+    Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.
     :param str profile_name: Name of the CDN profile which is unique within the resource group.

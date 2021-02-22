@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * List of the EngagementFabric channel descriptions
+ * API Version: 2018-09-01-preview.
+ */
 export function listAccountChannelTypes(args: ListAccountChannelTypesArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountChannelTypesResult> {
     if (!opts) {
         opts = {}

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The Managed Network Group resource
 func LookupManagedNetworkGroup(ctx *pulumi.Context, args *LookupManagedNetworkGroupArgs, opts ...pulumi.InvokeOption) (*LookupManagedNetworkGroupResult, error) {
 	var rv LookupManagedNetworkGroupResult
 	err := ctx.Invoke("azure-nextgen:managednetwork/v20190601preview:getManagedNetworkGroup", args, &rv, opts...)

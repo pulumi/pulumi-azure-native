@@ -192,7 +192,8 @@ def get_ip_allocation(expand: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpAllocationResult:
     """
-    Use this data source to access information about an existing resource.
+    IpAllocation resource.
+
 
     :param str expand: Expands referenced resources.
     :param str ip_allocation_name: The name of the IpAllocation.

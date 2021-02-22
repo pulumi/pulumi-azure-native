@@ -180,7 +180,8 @@ def get_custom_image_resource(lab_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomImageResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    A custom image.
+
 
     :param str lab_name: The name of the lab.
     :param str name: The name of the custom image.

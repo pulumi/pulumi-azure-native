@@ -154,7 +154,9 @@ class AwaitableGetAlertsSuppressionRuleResult(GetAlertsSuppressionRuleResult):
 def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertsSuppressionRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes the suppression rule
+    API Version: 2019-01-01-preview.
+
 
     :param str alerts_suppression_rule_name: The unique name of the suppression alert rule
     """

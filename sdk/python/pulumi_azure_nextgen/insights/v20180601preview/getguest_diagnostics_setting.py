@@ -128,7 +128,8 @@ def getguest_diagnostics_setting(diagnostic_settings_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetguestDiagnosticsSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual machine guest diagnostics settings resource.
+
 
     :param str diagnostic_settings_name: The name of the diagnostic setting.
     :param str resource_group_name: The name of the resource group.

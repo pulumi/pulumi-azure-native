@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getDatabase'.")]
     public static class GetDatabase
     {
+        /// <summary>
+        /// Represents a Database.
+        /// Latest API Version: 2017-12-01.
+        /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:dbforpostgresql/latest:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }

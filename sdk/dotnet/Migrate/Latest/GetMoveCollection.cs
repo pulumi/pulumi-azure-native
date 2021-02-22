@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Migrate.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getMoveCollection'.")]
     public static class GetMoveCollection
     {
+        /// <summary>
+        /// Define the move collection.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetMoveCollectionResult> InvokeAsync(GetMoveCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMoveCollectionResult>("azure-nextgen:migrate/latest:getMoveCollection", args ?? new GetMoveCollectionArgs(), options.WithVersion());
     }

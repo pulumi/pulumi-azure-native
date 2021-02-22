@@ -130,7 +130,9 @@ def get_network_experiment_profile(profile_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkExperimentProfileResult:
     """
-    Use this data source to access information about an existing resource.
+    Defines an Network Experiment Profile and lists of Experiments
+    API Version: 2019-11-01.
+
 
     :param str profile_name: The Profile identifier associated with the Tenant and Partner
     :param str resource_group_name: Name of the Resource group within the Azure subscription.

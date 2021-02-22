@@ -14,6 +14,8 @@ __all__ = [
     'get_app_resource_upload_url',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getAppResourceUploadUrl'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAppResourceUploadUrlResult:
     """
@@ -59,12 +61,15 @@ def get_app_resource_upload_url(app_name: Optional[str] = None,
                                 service_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResourceUploadUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    Resource upload definition payload
+    Latest API Version: 2020-07-01.
+
 
     :param str app_name: The name of the App resource.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
+    pulumi.log.warn("get_app_resource_upload_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getAppResourceUploadUrl'.")
     __args__ = dict()
     __args__['appName'] = app_name
     __args__['resourceGroupName'] = resource_group_name

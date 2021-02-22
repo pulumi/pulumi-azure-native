@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetPacketCapture
     {
+        /// <summary>
+        /// Information about packet capture session.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetPacketCaptureResult> InvokeAsync(GetPacketCaptureArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-nextgen:network:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithVersion());
     }

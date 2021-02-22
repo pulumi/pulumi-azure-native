@@ -15,6 +15,8 @@ __all__ = [
     'get_machine_learning_service',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getMachineLearningService'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMachineLearningServiceResult:
     """
@@ -145,13 +147,16 @@ def get_machine_learning_service(expand: Optional[bool] = None,
                                  workspace_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Machine Learning service object wrapped into ARM resource envelope.
+    Latest API Version: 2021-01-01.
+
 
     :param bool expand: Set to True to include Model details.
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str service_name: Name of the Azure Machine Learning service.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("get_machine_learning_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getMachineLearningService'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

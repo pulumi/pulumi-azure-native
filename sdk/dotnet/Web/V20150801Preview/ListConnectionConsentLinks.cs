@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
 {
     public static class ListConnectionConsentLinks
     {
+        /// <summary>
+        /// Collection of consent links
+        /// </summary>
         public static Task<ListConnectionConsentLinksResult> InvokeAsync(ListConnectionConsentLinksArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionConsentLinksResult>("azure-nextgen:web/v20150801preview:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksArgs(), options.WithVersion());
     }

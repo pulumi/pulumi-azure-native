@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// PublicIPAddress resource
 func LookupPublicIpAddress(ctx *pulumi.Context, args *LookupPublicIpAddressArgs, opts ...pulumi.InvokeOption) (*LookupPublicIpAddressResult, error) {
 	var rv LookupPublicIpAddressResult
 	err := ctx.Invoke("azure-nextgen:network/v20150501preview:getPublicIpAddress", args, &rv, opts...)

@@ -15,6 +15,8 @@ __all__ = [
     'get_management_lock_by_scope',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockByScope'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagementLockByScopeResult:
     """
@@ -107,11 +109,14 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
                                  scope: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockByScopeResult:
     """
-    Use this data source to access information about an existing resource.
+    The lock information.
+    Latest API Version: 2016-09-01.
+
 
     :param str lock_name: The name of lock.
     :param str scope: The scope for the lock. 
     """
+    pulumi.log.warn("get_management_lock_by_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockByScope'.")
     __args__ = dict()
     __args__['lockName'] = lock_name
     __args__['scope'] = scope

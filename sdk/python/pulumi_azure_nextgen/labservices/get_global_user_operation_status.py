@@ -46,7 +46,9 @@ def get_global_user_operation_status(operation_url: Optional[str] = None,
                                      user_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserOperationStatusResult:
     """
-    Use this data source to access information about an existing resource.
+    Status Details of the long running operation for an environment
+    API Version: 2018-10-15.
+
 
     :param str operation_url: The operation url of long running operation
     :param str user_name: The name of the user.

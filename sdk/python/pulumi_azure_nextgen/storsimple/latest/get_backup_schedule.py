@@ -15,6 +15,8 @@ __all__ = [
     'get_backup_schedule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBackupSchedule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBackupScheduleResult:
     """
@@ -158,7 +160,9 @@ def get_backup_schedule(backup_policy_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    The backup schedule.
+    Latest API Version: 2017-06-01.
+
 
     :param str backup_policy_name: The backup policy name.
     :param str backup_schedule_name: The name of the backup schedule to be fetched
@@ -166,6 +170,7 @@ def get_backup_schedule(backup_policy_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
+    pulumi.log.warn("get_backup_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBackupSchedule'.")
     __args__ = dict()
     __args__['backupPolicyName'] = backup_policy_name
     __args__['backupScheduleName'] = backup_schedule_name

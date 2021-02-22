@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
 {
     public static class GetAsset
     {
+        /// <summary>
+        /// An Asset.
+        /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-nextgen:media/v20180330preview:getAsset", args ?? new GetAssetArgs(), options.WithVersion());
     }

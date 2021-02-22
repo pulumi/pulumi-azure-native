@@ -84,7 +84,9 @@ def get_event_hub_authorization_rule(authorization_rule_name: Optional[str] = No
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubAuthorizationRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Single item in a List or Get AuthorizationRule operation
+    API Version: 2017-04-01.
+
 
     :param str authorization_rule_name: The authorization rule name.
     :param str event_hub_name: The Event Hub name

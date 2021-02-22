@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20161201
 {
     public static class GetProtectionContainer
     {
+        /// <summary>
+        /// Base class for container with backup items. Containers with specific workloads are derived from this class.
+        /// </summary>
         public static Task<GetProtectionContainerResult> InvokeAsync(GetProtectionContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionContainerResult>("azure-nextgen:recoveryservices/v20161201:getProtectionContainer", args ?? new GetProtectionContainerArgs(), options.WithVersion());
     }

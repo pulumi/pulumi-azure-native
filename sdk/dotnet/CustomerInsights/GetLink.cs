@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights
 {
     public static class GetLink
     {
+        /// <summary>
+        /// The link resource format.
+        /// API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetLinkResult> InvokeAsync(GetLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkResult>("azure-nextgen:customerinsights:getLink", args ?? new GetLinkArgs(), options.WithVersion());
     }

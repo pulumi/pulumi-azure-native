@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview
 {
     public static class GetSourceControlConfiguration
     {
+        /// <summary>
+        /// The SourceControl Configuration object returned in Get &amp; Put response.
+        /// </summary>
         public static Task<GetSourceControlConfigurationResult> InvokeAsync(GetSourceControlConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlConfigurationResult>("azure-nextgen:kubernetesconfiguration/v20201001preview:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationArgs(), options.WithVersion());
     }

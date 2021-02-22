@@ -14,6 +14,8 @@ __all__ = [
     'list_account_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cognitiveservices:listAccountKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListAccountKeysResult:
     """
@@ -58,11 +60,14 @@ def list_account_keys(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The access keys for the cognitive services account.
+    Latest API Version: 2017-04-18.
+
 
     :param str account_name: The name of Cognitive Services account.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("list_account_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cognitiveservices:listAccountKeys'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ImportExport.V20210101
 {
     public static class ListBitLockerKey
     {
+        /// <summary>
+        /// GetBitLockerKeys response
+        /// </summary>
         public static Task<ListBitLockerKeyResult> InvokeAsync(ListBitLockerKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBitLockerKeyResult>("azure-nextgen:importexport/v20210101:listBitLockerKey", args ?? new ListBitLockerKeyArgs(), options.WithVersion());
     }

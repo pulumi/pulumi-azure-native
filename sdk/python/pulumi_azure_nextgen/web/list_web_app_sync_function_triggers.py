@@ -58,7 +58,9 @@ def list_web_app_sync_function_triggers(name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSyncFunctionTriggersResult:
     """
-    Use this data source to access information about an existing resource.
+    Function secrets.
+    API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

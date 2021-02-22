@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetApiManagementService
     {
+        /// <summary>
+        /// A single API Management service resource in List or Get response.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetApiManagementServiceResult> InvokeAsync(GetApiManagementServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceResult>("azure-nextgen:apimanagement:getApiManagementService", args ?? new GetApiManagementServiceArgs(), options.WithVersion());
     }

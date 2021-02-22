@@ -335,7 +335,8 @@ def get_redis(name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRedisResult:
     """
-    Use this data source to access information about an existing resource.
+    A single Redis item in List or Get Operation.
+
 
     :param str name: The name of the Redis cache.
     :param str resource_group_name: The name of the resource group.

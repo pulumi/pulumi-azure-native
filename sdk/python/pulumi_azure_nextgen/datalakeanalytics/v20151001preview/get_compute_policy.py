@@ -119,7 +119,8 @@ def get_compute_policy(account_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComputePolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Data Lake Analytics compute policy information.
+
 
     :param str account_name: The name of the Data Lake Analytics account.
     :param str compute_policy_name: The name of the compute policy to retrieve.

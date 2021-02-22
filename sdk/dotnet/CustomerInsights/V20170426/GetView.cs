@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
 {
     public static class GetView
     {
+        /// <summary>
+        /// The view resource format.
+        /// </summary>
         public static Task<GetViewResult> InvokeAsync(GetViewArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-nextgen:customerinsights/v20170426:getView", args ?? new GetViewArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
 {
     public static class GetGateway
     {
+        /// <summary>
+        /// This type describes a gateway resource.
+        /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-nextgen:servicefabricmesh/v20180901preview:getGateway", args ?? new GetGatewayArgs(), options.WithVersion());
     }

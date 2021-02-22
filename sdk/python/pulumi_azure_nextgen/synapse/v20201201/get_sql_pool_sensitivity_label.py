@@ -192,7 +192,8 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
                                    workspace_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolSensitivityLabelResult:
     """
-    Use this data source to access information about an existing resource.
+    A sensitivity label.
+
 
     :param str column_name: The name of the column.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

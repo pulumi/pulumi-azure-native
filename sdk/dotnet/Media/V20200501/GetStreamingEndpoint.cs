@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 {
     public static class GetStreamingEndpoint
     {
+        /// <summary>
+        /// The streaming endpoint.
+        /// </summary>
         public static Task<GetStreamingEndpointResult> InvokeAsync(GetStreamingEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingEndpointResult>("azure-nextgen:media/v20200501:getStreamingEndpoint", args ?? new GetStreamingEndpointArgs(), options.WithVersion());
     }

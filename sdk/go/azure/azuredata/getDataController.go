@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Data controller resource
+// API Version: 2020-09-08-preview.
 func LookupDataController(ctx *pulumi.Context, args *LookupDataControllerArgs, opts ...pulumi.InvokeOption) (*LookupDataControllerResult, error) {
 	var rv LookupDataControllerResult
 	err := ctx.Invoke("azure-nextgen:azuredata:getDataController", args, &rv, opts...)

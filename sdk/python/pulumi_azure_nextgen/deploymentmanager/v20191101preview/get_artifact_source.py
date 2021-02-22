@@ -131,7 +131,8 @@ def get_artifact_source(artifact_source_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArtifactSourceResult:
     """
-    Use this data source to access information about an existing resource.
+    The resource that defines the source location where the artifacts are located.
+
 
     :param str artifact_source_name: The name of the artifact source.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

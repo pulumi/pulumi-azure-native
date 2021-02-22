@@ -15,6 +15,8 @@ __all__ = [
     'list_web_app_site_backups_slot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSiteBackupsSlot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWebAppSiteBackupsSlotResult:
     """
@@ -60,12 +62,15 @@ def list_web_app_site_backups_slot(name: Optional[str] = None,
                                    slot: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSiteBackupsSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Collection of backup items.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get backups of the production slot.
     """
+    pulumi.log.warn("list_web_app_site_backups_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSiteBackupsSlot'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

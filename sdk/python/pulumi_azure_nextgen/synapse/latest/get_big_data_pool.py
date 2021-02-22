@@ -15,6 +15,8 @@ __all__ = [
     'get_big_data_pool',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getBigDataPool'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBigDataPoolResult:
     """
@@ -312,12 +314,15 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
                       workspace_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBigDataPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    A Big Data pool
+    Latest API Version: 2020-12-01.
+
 
     :param str big_data_pool_name: Big Data pool name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("get_big_data_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getBigDataPool'.")
     __args__ = dict()
     __args__['bigDataPoolName'] = big_data_pool_name
     __args__['resourceGroupName'] = resource_group_name

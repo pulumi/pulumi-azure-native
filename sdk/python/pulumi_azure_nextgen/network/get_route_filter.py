@@ -156,7 +156,9 @@ def get_route_filter(expand: Optional[str] = None,
                      route_filter_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteFilterResult:
     """
-    Use this data source to access information about an existing resource.
+    Route Filter Resource.
+    API Version: 2020-08-01.
+
 
     :param str expand: Expands referenced express route bgp peering resources.
     :param str resource_group_name: The name of the resource group.

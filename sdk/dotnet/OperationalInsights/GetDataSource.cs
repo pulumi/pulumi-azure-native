@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights
 {
     public static class GetDataSource
     {
+        /// <summary>
+        /// Datasources under OMS Workspace.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-nextgen:operationalinsights:getDataSource", args ?? new GetDataSourceArgs(), options.WithVersion());
     }

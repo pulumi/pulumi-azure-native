@@ -15,6 +15,8 @@ __all__ = [
     'get_management_lock_at_resource_group_level',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockAtResourceGroupLevel'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagementLockAtResourceGroupLevelResult:
     """
@@ -107,11 +109,14 @@ def get_management_lock_at_resource_group_level(lock_name: Optional[str] = None,
                                                 resource_group_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtResourceGroupLevelResult:
     """
-    Use this data source to access information about an existing resource.
+    The lock information.
+    Latest API Version: 2016-09-01.
+
 
     :param str lock_name: The name of the lock to get.
     :param str resource_group_name: The name of the locked resource group.
     """
+    pulumi.log.warn("get_management_lock_at_resource_group_level is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockAtResourceGroupLevel'.")
     __args__ = dict()
     __args__['lockName'] = lock_name
     __args__['resourceGroupName'] = resource_group_name

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Migrate.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getMoveResource'.")]
     public static class GetMoveResource
     {
+        /// <summary>
+        /// Defines the move resource.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetMoveResourceResult> InvokeAsync(GetMoveResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMoveResourceResult>("azure-nextgen:migrate/latest:getMoveResource", args ?? new GetMoveResourceArgs(), options.WithVersion());
     }

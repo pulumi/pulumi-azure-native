@@ -143,7 +143,8 @@ def get_ddos_protection_plan(ddos_protection_plan_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDdosProtectionPlanResult:
     """
-    Use this data source to access information about an existing resource.
+    A DDoS protection plan in a resource group.
+
 
     :param str ddos_protection_plan_name: The name of the DDoS protection plan.
     :param str resource_group_name: The name of the resource group.

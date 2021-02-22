@@ -368,7 +368,8 @@ def get_managed_instance(managed_instance_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure SQL managed instance.
+
 
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

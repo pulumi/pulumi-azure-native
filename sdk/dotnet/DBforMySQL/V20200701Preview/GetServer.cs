@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701Preview
 {
     public static class GetServer
     {
+        /// <summary>
+        /// Represents a server.
+        /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-nextgen:dbformysql/v20200701preview:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }

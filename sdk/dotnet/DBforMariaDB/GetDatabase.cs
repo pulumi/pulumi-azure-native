@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DBforMariaDB
 {
     public static class GetDatabase
     {
+        /// <summary>
+        /// Represents a Database.
+        /// API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:dbformariadb:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }

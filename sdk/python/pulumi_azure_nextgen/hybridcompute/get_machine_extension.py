@@ -192,7 +192,9 @@ def get_machine_extension(extension_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineExtensionResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a Machine Extension.
+    API Version: 2020-08-02.
+
 
     :param str extension_name: The name of the machine extension.
     :param str name: The name of the machine containing the extension.

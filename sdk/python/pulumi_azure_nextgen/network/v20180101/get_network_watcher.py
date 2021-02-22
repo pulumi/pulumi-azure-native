@@ -115,7 +115,8 @@ def get_network_watcher(network_watcher_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkWatcherResult:
     """
-    Use this data source to access information about an existing resource.
+    Network watcher in a resource group.
+
 
     :param str network_watcher_name: The name of the network watcher.
     :param str resource_group_name: The name of the resource group.

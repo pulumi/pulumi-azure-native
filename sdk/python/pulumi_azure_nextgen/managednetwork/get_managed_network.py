@@ -143,7 +143,9 @@ def get_managed_network(managed_network_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedNetworkResult:
     """
-    Use this data source to access information about an existing resource.
+    The Managed Network resource
+    API Version: 2019-06-01-preview.
+
 
     :param str managed_network_name: The name of the Managed Network.
     :param str resource_group_name: The name of the resource group.

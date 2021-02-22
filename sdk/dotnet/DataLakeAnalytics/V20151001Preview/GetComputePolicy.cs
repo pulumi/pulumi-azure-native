@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20151001Preview
 {
     public static class GetComputePolicy
     {
+        /// <summary>
+        /// Data Lake Analytics compute policy information.
+        /// </summary>
         public static Task<GetComputePolicyResult> InvokeAsync(GetComputePolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-nextgen:datalakeanalytics/v20151001preview:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithVersion());
     }

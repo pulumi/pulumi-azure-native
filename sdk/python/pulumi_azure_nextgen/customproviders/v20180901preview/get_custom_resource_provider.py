@@ -143,7 +143,8 @@ def get_custom_resource_provider(resource_group_name: Optional[str] = None,
                                  resource_provider_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomResourceProviderResult:
     """
-    Use this data source to access information about an existing resource.
+    A manifest file that defines the custom resource provider resources.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str resource_provider_name: The name of the resource provider.

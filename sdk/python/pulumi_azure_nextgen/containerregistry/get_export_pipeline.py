@@ -144,7 +144,9 @@ def get_export_pipeline(export_pipeline_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportPipelineResult:
     """
-    Use this data source to access information about an existing resource.
+    An object that represents an export pipeline for a container registry.
+    API Version: 2020-11-01-preview.
+
 
     :param str export_pipeline_name: The name of the export pipeline.
     :param str registry_name: The name of the container registry.

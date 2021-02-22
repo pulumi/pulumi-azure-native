@@ -15,6 +15,8 @@ __all__ = [
     'get_topic',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getTopic'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTopicResult:
     """
@@ -189,11 +191,14 @@ def get_topic(resource_group_name: Optional[str] = None,
               topic_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
-    Use this data source to access information about an existing resource.
+    EventGrid Topic
+    Latest API Version: 2020-06-01.
+
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the topic.
     """
+    pulumi.log.warn("get_topic is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getTopic'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['topicName'] = topic_name

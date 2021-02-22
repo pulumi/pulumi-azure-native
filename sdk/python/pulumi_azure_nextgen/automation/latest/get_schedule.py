@@ -15,6 +15,8 @@ __all__ = [
     'get_schedule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getSchedule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScheduleResult:
     """
@@ -240,12 +242,15 @@ def get_schedule(automation_account_name: Optional[str] = None,
                  schedule_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the schedule.
+    Latest API Version: 2019-06-01.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
     :param str schedule_name: The schedule name.
     """
+    pulumi.log.warn("get_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getSchedule'.")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name

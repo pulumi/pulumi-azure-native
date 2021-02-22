@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
 {
     public static class GetDedicatedHostGroup
     {
+        /// <summary>
+        /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+        /// </summary>
         public static Task<GetDedicatedHostGroupResult> InvokeAsync(GetDedicatedHostGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure-nextgen:compute/v20190301:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupArgs(), options.WithVersion());
     }

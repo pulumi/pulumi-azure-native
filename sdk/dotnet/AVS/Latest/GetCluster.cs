@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AVS.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getCluster'.")]
     public static class GetCluster
     {
+        /// <summary>
+        /// A cluster resource
+        /// Latest API Version: 2020-03-20.
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:avs/latest:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

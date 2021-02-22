@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Batch.V20200301
 {
     public static class GetBatchAccount
     {
+        /// <summary>
+        /// Contains information about an Azure Batch account.
+        /// </summary>
         public static Task<GetBatchAccountResult> InvokeAsync(GetBatchAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-nextgen:batch/v20200301:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithVersion());
     }

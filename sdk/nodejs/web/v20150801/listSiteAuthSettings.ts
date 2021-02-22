@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Configuration settings for the Azure App Service Authentication / Authorization feature.
+ */
 export function listSiteAuthSettings(args: ListSiteAuthSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteAuthSettingsResult> {
     if (!opts) {
         opts = {}

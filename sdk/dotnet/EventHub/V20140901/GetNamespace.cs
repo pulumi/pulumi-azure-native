@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901
 {
     public static class GetNamespace
     {
+        /// <summary>
+        /// Single Namespace item in List or Get Operation
+        /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-nextgen:eventhub/v20140901:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }

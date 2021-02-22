@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Cache.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getPatchSchedule'.")]
     public static class GetPatchSchedule
     {
+        /// <summary>
+        /// Response to put/get patch schedules for Redis cache.
+        /// Latest API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetPatchScheduleResult> InvokeAsync(GetPatchScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPatchScheduleResult>("azure-nextgen:cache/latest:getPatchSchedule", args ?? new GetPatchScheduleArgs(), options.WithVersion());
     }

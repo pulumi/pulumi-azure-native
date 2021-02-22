@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getBastionShareableLink'.")]
     public static class GetBastionShareableLink
     {
+        /// <summary>
+        /// Response for all the Bastion Shareable Link endpoints.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetBastionShareableLinkResult> InvokeAsync(GetBastionShareableLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBastionShareableLinkResult>("azure-nextgen:network/latest:getBastionShareableLink", args ?? new GetBastionShareableLinkArgs(), options.WithVersion());
     }

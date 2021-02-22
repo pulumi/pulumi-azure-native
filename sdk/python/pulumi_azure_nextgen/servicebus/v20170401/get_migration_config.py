@@ -131,7 +131,8 @@ def get_migration_config(config_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrationConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    Single item in List or Get Migration Config operation
+
 
     :param str config_name: The configuration name. Should always be "$default".
     :param str namespace_name: The namespace name

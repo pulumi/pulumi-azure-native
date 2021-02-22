@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Response containing the query API keys for a given Azure Cognitive Search service.
+// API Version: 2020-08-01.
 func ListQueryKeyBySearchService(ctx *pulumi.Context, args *ListQueryKeyBySearchServiceArgs, opts ...pulumi.InvokeOption) (*ListQueryKeyBySearchServiceResult, error) {
 	var rv ListQueryKeyBySearchServiceResult
 	err := ctx.Invoke("azure-nextgen:search:listQueryKeyBySearchService", args, &rv, opts...)

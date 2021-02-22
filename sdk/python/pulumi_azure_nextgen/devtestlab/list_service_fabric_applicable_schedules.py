@@ -121,7 +121,9 @@ def list_service_fabric_applicable_schedules(lab_name: Optional[str] = None,
                                              user_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServiceFabricApplicableSchedulesResult:
     """
-    Use this data source to access information about an existing resource.
+    Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+    API Version: 2018-09-15.
+
 
     :param str lab_name: The name of the lab.
     :param str name: The name of the service fabric.

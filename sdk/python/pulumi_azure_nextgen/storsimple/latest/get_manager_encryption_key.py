@@ -14,6 +14,8 @@ __all__ = [
     'get_manager_encryption_key',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManagerEncryptionKey'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagerEncryptionKeyResult:
     """
@@ -70,11 +72,14 @@ def get_manager_encryption_key(manager_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagerEncryptionKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+    Latest API Version: 2016-10-01.
+
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
+    pulumi.log.warn("get_manager_encryption_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManagerEncryptionKey'.")
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name

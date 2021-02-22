@@ -143,7 +143,8 @@ def get_data_controller(data_controller_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataControllerResult:
     """
-    Use this data source to access information about an existing resource.
+    Data controller resource
+
 
     :param str resource_group_name: The name of the Azure resource group
     """

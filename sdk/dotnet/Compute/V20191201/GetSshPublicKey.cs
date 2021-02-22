@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
 {
     public static class GetSshPublicKey
     {
+        /// <summary>
+        /// Specifies information about the SSH public key.
+        /// </summary>
         public static Task<GetSshPublicKeyResult> InvokeAsync(GetSshPublicKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSshPublicKeyResult>("azure-nextgen:compute/v20191201:getSshPublicKey", args ?? new GetSshPublicKeyArgs(), options.WithVersion());
     }

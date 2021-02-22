@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
 {
     public static class GetDataController
     {
+        /// <summary>
+        /// Data controller resource
+        /// </summary>
         public static Task<GetDataControllerResult> InvokeAsync(GetDataControllerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataControllerResult>("azure-nextgen:azuredata/v20190724preview:getDataController", args ?? new GetDataControllerArgs(), options.WithVersion());
     }

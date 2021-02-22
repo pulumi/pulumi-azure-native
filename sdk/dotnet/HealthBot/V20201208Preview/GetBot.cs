@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201208Preview
 {
     public static class GetBot
     {
+        /// <summary>
+        /// HealthBot resource definition
+        /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-nextgen:healthbot/v20201208preview:getBot", args ?? new GetBotArgs(), options.WithVersion());
     }

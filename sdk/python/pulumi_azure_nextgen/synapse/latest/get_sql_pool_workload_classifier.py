@@ -14,6 +14,8 @@ __all__ = [
     'get_sql_pool_workload_classifier',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolWorkloadClassifier'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlPoolWorkloadClassifierResult:
     """
@@ -145,7 +147,9 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[str] = None,
                                      workspace_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolWorkloadClassifierResult:
     """
-    Use this data source to access information about an existing resource.
+    Workload classifier operations for a data warehouse
+    Latest API Version: 2020-12-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sql_pool_name: SQL pool name
@@ -153,6 +157,7 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[str] = None,
     :param str workload_group_name: The name of the workload group.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("get_sql_pool_workload_classifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolWorkloadClassifier'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlPoolName'] = sql_pool_name

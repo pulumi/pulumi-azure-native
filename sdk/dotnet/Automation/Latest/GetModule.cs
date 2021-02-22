@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Automation.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getModule'.")]
     public static class GetModule
     {
+        /// <summary>
+        /// Definition of the module type.
+        /// Latest API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetModuleResult> InvokeAsync(GetModuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-nextgen:automation/latest:getModule", args ?? new GetModuleArgs(), options.WithVersion());
     }

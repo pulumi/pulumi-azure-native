@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SerialConsole.V20180501
 {
     public static class GetSerialPort
     {
+        /// <summary>
+        /// Represents the serial port of the parent resource.
+        /// </summary>
         public static Task<GetSerialPortResult> InvokeAsync(GetSerialPortArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSerialPortResult>("azure-nextgen:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortArgs(), options.WithVersion());
     }

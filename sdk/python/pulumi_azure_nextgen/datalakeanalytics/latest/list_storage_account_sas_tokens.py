@@ -15,6 +15,8 @@ __all__ = [
     'list_storage_account_sas_tokens',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:listStorageAccountSasTokens'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListStorageAccountSasTokensResult:
     """
@@ -61,13 +63,16 @@ def list_storage_account_sas_tokens(account_name: Optional[str] = None,
                                     storage_account_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStorageAccountSasTokensResult:
     """
-    Use this data source to access information about an existing resource.
+    The SAS response that contains the storage account, container and associated SAS token for connection use.
+    Latest API Version: 2016-11-01.
+
 
     :param str account_name: The name of the Data Lake Analytics account.
     :param str container_name: The name of the Azure storage container for which the SAS token is being requested.
     :param str resource_group_name: The name of the Azure resource group.
     :param str storage_account_name: The name of the Azure storage account for which the SAS token is being requested.
     """
+    pulumi.log.warn("list_storage_account_sas_tokens is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:listStorageAccountSasTokens'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name

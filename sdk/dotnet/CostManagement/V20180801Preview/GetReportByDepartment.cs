@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
 {
     public static class GetReportByDepartment
     {
+        /// <summary>
+        /// A report resource.
+        /// </summary>
         public static Task<GetReportByDepartmentResult> InvokeAsync(GetReportByDepartmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportByDepartmentResult>("azure-nextgen:costmanagement/v20180801preview:getReportByDepartment", args ?? new GetReportByDepartmentArgs(), options.WithVersion());
     }

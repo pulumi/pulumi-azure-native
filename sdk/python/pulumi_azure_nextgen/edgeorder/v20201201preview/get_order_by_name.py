@@ -155,7 +155,8 @@ def get_order_by_name(order_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderByNameResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents order contract
+
 
     :param str order_name: The name of the order
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

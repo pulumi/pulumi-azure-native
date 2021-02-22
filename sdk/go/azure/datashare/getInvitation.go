@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A Invitation data transfer object.
+// API Version: 2020-09-01.
 func LookupInvitation(ctx *pulumi.Context, args *LookupInvitationArgs, opts ...pulumi.InvokeOption) (*LookupInvitationResult, error) {
 	var rv LookupInvitationResult
 	err := ctx.Invoke("azure-nextgen:datashare:getInvitation", args, &rv, opts...)

@@ -179,7 +179,8 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
                              storage_sync_service_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageSyncServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Storage Sync Service object.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.

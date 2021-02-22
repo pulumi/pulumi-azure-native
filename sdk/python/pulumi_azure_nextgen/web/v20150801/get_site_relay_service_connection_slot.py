@@ -171,7 +171,8 @@ def get_site_relay_service_connection_slot(entity_name: Optional[str] = None,
                                            slot: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteRelayServiceConnectionSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Class that represents a BizTalk Hybrid Connection
+
 
     :param str entity_name: The name by which the Hybrid Connection is identified
     :param str name: The name of the web app

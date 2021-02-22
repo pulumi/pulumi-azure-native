@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDscpConfiguration'.")]
     public static class GetDscpConfiguration
     {
+        /// <summary>
+        /// DSCP Configuration in a resource group.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetDscpConfigurationResult> InvokeAsync(GetDscpConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDscpConfigurationResult>("azure-nextgen:network/latest:getDscpConfiguration", args ?? new GetDscpConfigurationArgs(), options.WithVersion());
     }

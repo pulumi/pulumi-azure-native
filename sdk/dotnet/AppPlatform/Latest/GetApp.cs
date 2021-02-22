@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AppPlatform.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getApp'.")]
     public static class GetApp
     {
+        /// <summary>
+        /// App resource payload
+        /// Latest API Version: 2020-07-01.
+        /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-nextgen:appplatform/latest:getApp", args ?? new GetAppArgs(), options.WithVersion());
     }

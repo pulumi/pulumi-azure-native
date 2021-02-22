@@ -14,6 +14,8 @@ __all__ = [
     'list_configuration_store_key_value',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:listConfigurationStoreKeyValue'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListConfigurationStoreKeyValueResult:
     """
@@ -136,13 +138,16 @@ def list_configuration_store_key_value(config_store_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConfigurationStoreKeyValueResult:
     """
-    Use this data source to access information about an existing resource.
+    The result of a request to retrieve a key-value from the specified configuration store.
+    Latest API Version: 2020-06-01.
+
 
     :param str config_store_name: The name of the configuration store.
     :param str key: The key to retrieve.
     :param str label: The label of the key.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("list_configuration_store_key_value is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:listConfigurationStoreKeyValue'.")
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['key'] = key

@@ -130,7 +130,8 @@ class AwaitableGetReportConfigResult(GetReportConfigResult):
 def get_report_config(report_config_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    A report config resource.
+
 
     :param str report_config_name: Report Config Name.
     """

@@ -168,7 +168,9 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
                             version_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublishedBlueprintResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a published blueprint.
+    API Version: 2018-11-01-preview.
+
 
     :param str blueprint_name: Name of the blueprint definition.
     :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').

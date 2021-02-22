@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
 {
     public static class GetProtectionPolicy
     {
+        /// <summary>
+        /// Base class for backup policy. Workload-specific backup policies are derived from this class.
+        /// </summary>
         public static Task<GetProtectionPolicyResult> InvokeAsync(GetProtectionPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionPolicyResult>("azure-nextgen:recoveryservices/v20201001:getProtectionPolicy", args ?? new GetProtectionPolicyArgs(), options.WithVersion());
     }

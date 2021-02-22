@@ -143,7 +143,9 @@ def get_configuration(configuration_name: Optional[str] = None,
                       server_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a Configuration.
+    API Version: 2017-12-01.
+
 
     :param str configuration_name: The name of the server configuration.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

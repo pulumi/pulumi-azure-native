@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Media
 {
     public static class GetStreamingPolicy
     {
+        /// <summary>
+        /// A Streaming Policy resource
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetStreamingPolicyResult> InvokeAsync(GetStreamingPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingPolicyResult>("azure-nextgen:media:getStreamingPolicy", args ?? new GetStreamingPolicyArgs(), options.WithVersion());
     }

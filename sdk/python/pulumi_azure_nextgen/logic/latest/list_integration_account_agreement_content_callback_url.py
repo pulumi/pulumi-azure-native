@@ -16,6 +16,8 @@ __all__ = [
     'list_integration_account_agreement_content_callback_url',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountAgreementContentCallbackUrl'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListIntegrationAccountAgreementContentCallbackUrlResult:
     """
@@ -111,7 +113,9 @@ def list_integration_account_agreement_content_callback_url(agreement_name: Opti
                                                             resource_group_name: Optional[str] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountAgreementContentCallbackUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    The workflow trigger callback URL.
+    Latest API Version: 2019-05-01.
+
 
     :param str agreement_name: The integration account agreement name.
     :param str integration_account_name: The integration account name.
@@ -119,6 +123,7 @@ def list_integration_account_agreement_content_callback_url(agreement_name: Opti
     :param str not_after: The expiry time.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("list_integration_account_agreement_content_callback_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountAgreementContentCallbackUrl'.")
     __args__ = dict()
     __args__['agreementName'] = agreement_name
     __args__['integrationAccountName'] = integration_account_name

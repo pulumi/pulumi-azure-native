@@ -94,7 +94,8 @@ def list_media_service_keys(media_service_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMediaServiceKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The response body for a ListKeys API.
+
 
     :param str media_service_name: Name of the Media Service.
     :param str resource_group_name: Name of the resource group within the Azure subscription.

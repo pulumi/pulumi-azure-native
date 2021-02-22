@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview
 {
     public static class GetManagementConfiguration
     {
+        /// <summary>
+        /// The container for solution.
+        /// </summary>
         public static Task<GetManagementConfigurationResult> InvokeAsync(GetManagementConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementConfigurationResult>("azure-nextgen:operationsmanagement/v20151101preview:getManagementConfiguration", args ?? new GetManagementConfigurationArgs(), options.WithVersion());
     }

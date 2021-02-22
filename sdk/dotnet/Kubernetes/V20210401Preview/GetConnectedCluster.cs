@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20210401Preview
 {
     public static class GetConnectedCluster
     {
+        /// <summary>
+        /// Represents a connected cluster.
+        /// </summary>
         public static Task<GetConnectedClusterResult> InvokeAsync(GetConnectedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectedClusterResult>("azure-nextgen:kubernetes/v20210401preview:getConnectedCluster", args ?? new GetConnectedClusterArgs(), options.WithVersion());
     }

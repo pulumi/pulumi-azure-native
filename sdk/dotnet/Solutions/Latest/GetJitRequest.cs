@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Solutions.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getJitRequest'.")]
     public static class GetJitRequest
     {
+        /// <summary>
+        /// Information about JIT request definition.
+        /// Latest API Version: 2019-07-01.
+        /// </summary>
         public static Task<GetJitRequestResult> InvokeAsync(GetJitRequestArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-nextgen:solutions/latest:getJitRequest", args ?? new GetJitRequestArgs(), options.WithVersion());
     }

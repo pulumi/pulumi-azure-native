@@ -15,6 +15,8 @@ __all__ = [
     'get_open_shift_managed_cluster',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getOpenShiftManagedCluster'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetOpenShiftManagedClusterResult:
     """
@@ -227,11 +229,14 @@ def get_open_shift_managed_cluster(resource_group_name: Optional[str] = None,
                                    resource_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenShiftManagedClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    OpenShift Managed cluster.
+    Latest API Version: 2019-04-30.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the OpenShift managed cluster resource.
     """
+    pulumi.log.warn("get_open_shift_managed_cluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getOpenShiftManagedCluster'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

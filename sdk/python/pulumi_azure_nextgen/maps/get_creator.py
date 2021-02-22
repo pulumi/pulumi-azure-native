@@ -108,7 +108,9 @@ def get_creator(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCreatorResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure resource which represents Maps Creator product and provides ability to manage private location data.
+    API Version: 2020-02-01-preview.
+
 
     :param str account_name: The name of the Maps Account.
     :param str creator_name: The name of the Maps Creator instance.

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Response to put/get linked server (with properties) for Redis cache.
 func LookupRedisLinkedServer(ctx *pulumi.Context, args *LookupRedisLinkedServerArgs, opts ...pulumi.InvokeOption) (*LookupRedisLinkedServerResult, error) {
 	var rv LookupRedisLinkedServerResult
 	err := ctx.Invoke("azure-nextgen:cache/v20170201:getRedisLinkedServer", args, &rv, opts...)

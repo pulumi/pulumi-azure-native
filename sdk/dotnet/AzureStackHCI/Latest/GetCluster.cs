@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AzureStackHCI.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestackhci:getCluster'.")]
     public static class GetCluster
     {
+        /// <summary>
+        /// Cluster details.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:azurestackhci/latest:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

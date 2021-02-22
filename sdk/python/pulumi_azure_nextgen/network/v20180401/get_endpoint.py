@@ -205,7 +205,8 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    Class representing a Traffic Manager endpoint.
+
 
     :param str endpoint_name: The name of the Traffic Manager endpoint.
     :param str endpoint_type: The type of the Traffic Manager endpoint.

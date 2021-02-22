@@ -59,7 +59,9 @@ def get_component_current_billing_feature(resource_group_name: Optional[str] = N
                                           resource_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentCurrentBillingFeatureResult:
     """
-    Use this data source to access information about an existing resource.
+    An Application Insights component billing features
+    API Version: 2015-05-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.

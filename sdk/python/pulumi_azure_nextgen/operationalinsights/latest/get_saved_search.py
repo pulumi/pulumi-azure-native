@@ -15,6 +15,8 @@ __all__ = [
     'get_saved_search',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getSavedSearch'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSavedSearchResult:
     """
@@ -168,12 +170,15 @@ def get_saved_search(resource_group_name: Optional[str] = None,
                      workspace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSavedSearchResult:
     """
-    Use this data source to access information about an existing resource.
+    Value object for saved search results.
+    Latest API Version: 2020-08-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str saved_search_id: The id of the saved search.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("get_saved_search is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getSavedSearch'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['savedSearchId'] = saved_search_id

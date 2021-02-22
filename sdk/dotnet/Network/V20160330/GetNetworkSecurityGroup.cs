@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20160330
 {
     public static class GetNetworkSecurityGroup
     {
+        /// <summary>
+        /// NetworkSecurityGroup resource
+        /// </summary>
         public static Task<GetNetworkSecurityGroupResult> InvokeAsync(GetNetworkSecurityGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure-nextgen:network/v20160330:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupArgs(), options.WithVersion());
     }

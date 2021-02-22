@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+ * API Version: 2020-05-01.
+ */
 export function getRulesEngine(args: GetRulesEngineArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesEngineResult> {
     if (!opts) {
         opts = {}

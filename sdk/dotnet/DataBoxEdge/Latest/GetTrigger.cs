@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getTrigger'.")]
     public static class GetTrigger
     {
+        /// <summary>
+        /// Trigger details.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-nextgen:databoxedge/latest:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
     }

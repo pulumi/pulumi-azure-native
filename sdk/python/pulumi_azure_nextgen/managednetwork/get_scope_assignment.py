@@ -118,7 +118,9 @@ def get_scope_assignment(scope: Optional[str] = None,
                          scope_assignment_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScopeAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    The Managed Network resource
+    API Version: 2019-06-01-preview.
+
 
     :param str scope: The base resource of the scope assignment.
     :param str scope_assignment_name: The name of the scope assignment to get.

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Migrate.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getHyperVCollector'.")]
     public static class GetHyperVCollector
     {
+        /// <summary>
+        /// 
+        /// Latest API Version: 2019-10-01.
+        /// </summary>
         public static Task<GetHyperVCollectorResult> InvokeAsync(GetHyperVCollectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVCollectorResult>("azure-nextgen:migrate/latest:getHyperVCollector", args ?? new GetHyperVCollectorArgs(), options.WithVersion());
     }

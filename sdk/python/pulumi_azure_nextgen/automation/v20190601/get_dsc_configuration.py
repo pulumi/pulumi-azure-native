@@ -228,7 +228,8 @@ def get_dsc_configuration(automation_account_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the configuration type.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str configuration_name: The configuration name.

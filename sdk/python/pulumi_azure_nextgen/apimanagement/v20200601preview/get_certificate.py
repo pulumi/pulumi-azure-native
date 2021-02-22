@@ -120,7 +120,8 @@ def get_certificate(certificate_id: Optional[str] = None,
                     service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    Certificate details.
+
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.

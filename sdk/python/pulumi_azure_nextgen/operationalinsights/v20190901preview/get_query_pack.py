@@ -142,7 +142,8 @@ def get_query_pack(query_pack_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueryPackResult:
     """
-    Use this data source to access information about an existing resource.
+    An Log Analytics QueryPack definition.
+
 
     :param str query_pack_name: The name of the Log Analytics QueryPack resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

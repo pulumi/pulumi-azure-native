@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_hybrid_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHybridConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppHybridConnectionResult:
     """
@@ -194,13 +196,16 @@ def get_web_app_hybrid_connection(name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHybridConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Hybrid Connection contract. This is used to configure a Hybrid Connection.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: The name of the web app.
     :param str namespace_name: The namespace for this hybrid connection.
     :param str relay_name: The relay name for this hybrid connection.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_web_app_hybrid_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHybridConnection'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name

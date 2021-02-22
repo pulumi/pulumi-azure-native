@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The security automation resource.
+// API Version: 2019-01-01-preview.
 func LookupAutomation(ctx *pulumi.Context, args *LookupAutomationArgs, opts ...pulumi.InvokeOption) (*LookupAutomationResult, error) {
 	var rv LookupAutomationResult
 	err := ctx.Invoke("azure-nextgen:security:getAutomation", args, &rv, opts...)

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationFabric'.")]
     public static class GetReplicationFabric
     {
+        /// <summary>
+        /// Fabric definition.
+        /// Latest API Version: 2018-07-10.
+        /// </summary>
         public static Task<GetReplicationFabricResult> InvokeAsync(GetReplicationFabricArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-nextgen:recoveryservices/latest:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithVersion());
     }

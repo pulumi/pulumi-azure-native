@@ -203,7 +203,9 @@ def get_factory(factory_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Factory resource type.
+    API Version: 2018-06-01.
+
 
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.

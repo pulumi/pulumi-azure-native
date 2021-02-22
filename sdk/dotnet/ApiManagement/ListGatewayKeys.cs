@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class ListGatewayKeys
     {
+        /// <summary>
+        /// Gateway authentication keys.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<ListGatewayKeysResult> InvokeAsync(ListGatewayKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListGatewayKeysResult>("azure-nextgen:apimanagement:listGatewayKeys", args ?? new ListGatewayKeysArgs(), options.WithVersion());
     }

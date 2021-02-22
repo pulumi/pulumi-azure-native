@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
 {
     public static class GetConfigurationStore
     {
+        /// <summary>
+        /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+        /// </summary>
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure-nextgen:appconfiguration/v20191101preview:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithVersion());
     }

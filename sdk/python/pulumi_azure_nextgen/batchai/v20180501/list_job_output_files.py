@@ -65,7 +65,8 @@ def list_job_output_files(directory: Optional[str] = None,
                           workspace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListJobOutputFilesResult:
     """
-    Use this data source to access information about an existing resource.
+    Values returned by the List operation.
+
 
     :param str directory: The path to the directory.
     :param str experiment_name: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.

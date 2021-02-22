@@ -15,6 +15,8 @@ __all__ = [
     'get_ip_group',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getIpGroup'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIpGroupResult:
     """
@@ -156,12 +158,15 @@ def get_ip_group(expand: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    The IpGroups resource information.
+    Latest API Version: 2020-08-01.
+
 
     :param str expand: Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
     :param str ip_groups_name: The name of the ipGroups.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_ip_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getIpGroup'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['ipGroupsName'] = ip_groups_name

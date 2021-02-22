@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
 {
     public static class GetHybridConnection
     {
+        /// <summary>
+        /// Description of HybridConnection Resource.
+        /// </summary>
         public static Task<GetHybridConnectionResult> InvokeAsync(GetHybridConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionResult>("azure-nextgen:relay/v20160701:getHybridConnection", args ?? new GetHybridConnectionArgs(), options.WithVersion());
     }

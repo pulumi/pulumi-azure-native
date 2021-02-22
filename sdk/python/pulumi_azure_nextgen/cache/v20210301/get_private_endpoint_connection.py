@@ -108,7 +108,8 @@ def get_private_endpoint_connection(cluster_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    The Private Endpoint Connection resource.
+
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

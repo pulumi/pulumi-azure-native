@@ -264,7 +264,8 @@ def get_authorization_server(authsid: Optional[str] = None,
                              service_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationServerResult:
     """
-    Use this data source to access information about an existing resource.
+    External OAuth authorization server settings.
+
 
     :param str authsid: Identifier of the authorization server.
     :param str resource_group_name: The name of the resource group.

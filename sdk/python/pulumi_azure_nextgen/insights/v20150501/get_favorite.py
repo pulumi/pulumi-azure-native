@@ -167,7 +167,8 @@ def get_favorite(favorite_id: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFavoriteResult:
     """
-    Use this data source to access information about an existing resource.
+    Properties that define a favorite that is associated to an Application Insights component.
+
 
     :param str favorite_id: The Id of a specific favorite defined in the Application Insights component
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

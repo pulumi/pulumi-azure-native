@@ -14,6 +14,8 @@ __all__ = [
     'get_geo_backup_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getGeoBackupPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGeoBackupPolicyResult:
     """
@@ -120,13 +122,16 @@ def get_geo_backup_policy(database_name: Optional[str] = None,
                           server_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGeoBackupPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    A database geo backup policy.
+    Latest API Version: 2014-04-01.
+
 
     :param str database_name: The name of the database.
     :param str geo_backup_policy_name: The name of the geo backup policy.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("get_geo_backup_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getGeoBackupPolicy'.")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['geoBackupPolicyName'] = geo_backup_policy_name

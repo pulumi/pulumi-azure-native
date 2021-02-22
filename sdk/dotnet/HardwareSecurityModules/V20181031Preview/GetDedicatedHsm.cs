@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.HardwareSecurityModules.V20181031Preview
 {
     public static class GetDedicatedHsm
     {
+        /// <summary>
+        /// Resource information with extended details.
+        /// </summary>
         public static Task<GetDedicatedHsmResult> InvokeAsync(GetDedicatedHsmArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHsmResult>("azure-nextgen:hardwaresecuritymodules/v20181031preview:getDedicatedHsm", args ?? new GetDedicatedHsmArgs(), options.WithVersion());
     }

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+ * API Version: 2016-03-01.
+ */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
     if (!opts) {
         opts = {}

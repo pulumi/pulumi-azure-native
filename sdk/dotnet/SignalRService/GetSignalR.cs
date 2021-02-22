@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.SignalRService
 {
     public static class GetSignalR
     {
+        /// <summary>
+        /// A class represent a SignalR service resource.
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetSignalRResult> InvokeAsync(GetSignalRArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRResult>("azure-nextgen:signalrservice:getSignalR", args ?? new GetSignalRArgs(), options.WithVersion());
     }

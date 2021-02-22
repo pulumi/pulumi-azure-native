@@ -84,7 +84,9 @@ def get_hybrid_connection_authorization_rule(authorization_rule_name: Optional[s
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridConnectionAuthorizationRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of a namespace authorization rule.
+    API Version: 2017-04-01.
+
 
     :param str authorization_rule_name: The authorization rule name.
     :param str hybrid_connection_name: The hybrid connection name.

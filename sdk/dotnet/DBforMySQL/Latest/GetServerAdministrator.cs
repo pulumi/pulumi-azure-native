@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DBforMySQL.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getServerAdministrator'.")]
     public static class GetServerAdministrator
     {
+        /// <summary>
+        /// Represents a and external administrator to be created.
+        /// Latest API Version: 2017-12-01.
+        /// </summary>
         public static Task<GetServerAdministratorResult> InvokeAsync(GetServerAdministratorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-nextgen:dbformysql/latest:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithVersion());
     }

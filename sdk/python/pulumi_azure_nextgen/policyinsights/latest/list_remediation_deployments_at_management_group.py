@@ -15,6 +15,8 @@ __all__ = [
     'list_remediation_deployments_at_management_group',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:listRemediationDeploymentsAtManagementGroup'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListRemediationDeploymentsAtManagementGroupResult:
     """
@@ -61,13 +63,16 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
                                                      top: Optional[int] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtManagementGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    List of deployments for a remediation.
+    Latest API Version: 2019-07-01.
+
 
     :param str management_group_id: Management group ID.
     :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
     :param str remediation_name: The name of the remediation.
     :param int top: Maximum number of records to return.
     """
+    pulumi.log.warn("list_remediation_deployments_at_management_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:listRemediationDeploymentsAtManagementGroup'.")
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['managementGroupsNamespace'] = management_groups_namespace

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The list of credential result response.
 func ListConnectedClusterUserCredentials(ctx *pulumi.Context, args *ListConnectedClusterUserCredentialsArgs, opts ...pulumi.InvokeOption) (*ListConnectedClusterUserCredentialsResult, error) {
 	var rv ListConnectedClusterUserCredentialsResult
 	err := ctx.Invoke("azure-nextgen:kubernetes/v20200101preview:listConnectedClusterUserCredentials", args, &rv, opts...)

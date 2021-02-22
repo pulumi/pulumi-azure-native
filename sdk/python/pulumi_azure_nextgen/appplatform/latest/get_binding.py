@@ -15,6 +15,8 @@ __all__ = [
     'get_binding',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getBinding'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBindingResult:
     """
@@ -85,13 +87,16 @@ def get_binding(app_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBindingResult:
     """
-    Use this data source to access information about an existing resource.
+    Binding resource payload
+    Latest API Version: 2020-07-01.
+
 
     :param str app_name: The name of the App resource.
     :param str binding_name: The name of the Binding resource.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
+    pulumi.log.warn("get_binding is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getBinding'.")
     __args__ = dict()
     __args__['appName'] = app_name
     __args__['bindingName'] = binding_name

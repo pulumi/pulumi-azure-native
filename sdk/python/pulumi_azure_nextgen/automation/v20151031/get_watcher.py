@@ -215,7 +215,8 @@ def get_watcher(automation_account_name: Optional[str] = None,
                 watcher_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatcherResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the watcher type.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.

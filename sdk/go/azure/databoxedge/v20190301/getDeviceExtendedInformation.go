@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The extended Info of the Data Box Edge/Gateway device.
 func GetDeviceExtendedInformation(ctx *pulumi.Context, args *GetDeviceExtendedInformationArgs, opts ...pulumi.InvokeOption) (*GetDeviceExtendedInformationResult, error) {
 	var rv GetDeviceExtendedInformationResult
 	err := ctx.Invoke("azure-nextgen:databoxedge/v20190301:getDeviceExtendedInformation", args, &rv, opts...)

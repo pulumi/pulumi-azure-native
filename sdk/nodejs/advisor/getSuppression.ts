@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+ * API Version: 2020-01-01.
+ */
 export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionResult> {
     if (!opts) {
         opts = {}

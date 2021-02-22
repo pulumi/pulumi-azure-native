@@ -156,7 +156,8 @@ def get_export(expand: Optional[str] = None,
                scope: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
-    Use this data source to access information about an existing resource.
+    An export resource.
+
 
     :param str expand: May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 executions of the export.
     :param str export_name: Export Name.

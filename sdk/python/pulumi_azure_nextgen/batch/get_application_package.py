@@ -144,7 +144,9 @@ def get_application_package(account_name: Optional[str] = None,
                             version_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationPackageResult:
     """
-    Use this data source to access information about an existing resource.
+    An application package which represents a particular version of an application.
+    API Version: 2021-01-01.
+
 
     :param str account_name: The name of the Batch account.
     :param str application_name: The name of the application. This must be unique within the account.

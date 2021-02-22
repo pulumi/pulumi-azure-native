@@ -84,7 +84,8 @@ def get_transparent_data_encryption(database_name: Optional[str] = None,
                                     tde_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransparentDataEncryptionResult:
     """
-    Use this data source to access information about an existing resource.
+    A logical database transparent data encryption state.
+
 
     :param str database_name: The name of the logical database for which the transparent data encryption is defined.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

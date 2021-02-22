@@ -95,7 +95,9 @@ def get_private_link_scoped_resource(name: Optional[str] = None,
                                      scope_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkScopedResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    A private link scoped resource
+    API Version: 2019-10-17-preview.
+
 
     :param str name: The name of the scoped resource object.
     :param str resource_group_name: The name of the resource group.

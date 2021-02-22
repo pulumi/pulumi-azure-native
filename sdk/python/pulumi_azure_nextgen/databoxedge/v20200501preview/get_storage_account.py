@@ -143,7 +143,8 @@ def get_storage_account(device_name: Optional[str] = None,
                         storage_account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a Storage Account on the  Data Box Edge/Gateway device.
+
 
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.

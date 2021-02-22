@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Storage.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getFileShare'.")]
     public static class GetFileShare
     {
+        /// <summary>
+        /// Properties of the file share, including Id, resource name, resource type, Etag.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetFileShareResult> InvokeAsync(GetFileShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-nextgen:storage/latest:getFileShare", args ?? new GetFileShareArgs(), options.WithVersion());
     }

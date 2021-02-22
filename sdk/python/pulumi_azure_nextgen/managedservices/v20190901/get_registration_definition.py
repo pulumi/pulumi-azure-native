@@ -95,7 +95,8 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
                                 scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    Registration definition.
+
 
     :param str registration_definition_id: Guid of the registration definition.
     :param str scope: Scope of the resource.

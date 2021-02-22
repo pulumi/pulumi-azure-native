@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Automation.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getCredential'.")]
     public static class GetCredential
     {
+        /// <summary>
+        /// Definition of the credential.
+        /// Latest API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetCredentialResult> InvokeAsync(GetCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-nextgen:automation/latest:getCredential", args ?? new GetCredentialArgs(), options.WithVersion());
     }

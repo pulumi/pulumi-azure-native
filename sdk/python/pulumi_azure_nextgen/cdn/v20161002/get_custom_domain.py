@@ -156,7 +156,8 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDomainResult:
     """
-    Use this data source to access information about an existing resource.
+    Customer provided domain for branding purposes, e.g. www.contoso.com.
+
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.

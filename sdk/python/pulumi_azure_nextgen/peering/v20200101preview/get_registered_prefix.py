@@ -131,7 +131,8 @@ def get_registered_prefix(peering_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredPrefixResult:
     """
-    Use this data source to access information about an existing resource.
+    The customer's prefix that is registered by the peering service provider.
+
 
     :param str peering_name: The name of the peering.
     :param str registered_prefix_name: The name of the registered prefix.

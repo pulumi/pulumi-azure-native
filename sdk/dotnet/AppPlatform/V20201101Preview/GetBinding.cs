@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
 {
     public static class GetBinding
     {
+        /// <summary>
+        /// Binding resource payload
+        /// </summary>
         public static Task<GetBindingResult> InvokeAsync(GetBindingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azure-nextgen:appplatform/v20201101preview:getBinding", args ?? new GetBindingArgs(), options.WithVersion());
     }

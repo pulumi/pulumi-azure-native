@@ -155,7 +155,8 @@ def get_vendor_skus(sku_name: Optional[str] = None,
                     vendor_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorSkusResult:
     """
-    Use this data source to access information about an existing resource.
+    Sku sub resource.
+
 
     :param str sku_name: The name of the sku.
     :param str vendor_name: The name of the vendor.

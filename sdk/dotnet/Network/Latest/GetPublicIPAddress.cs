@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPublicIPAddress'.")]
     public static class GetPublicIPAddress
     {
+        /// <summary>
+        /// Public IP address resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetPublicIPAddressResult> InvokeAsync(GetPublicIPAddressArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPAddressResult>("azure-nextgen:network/latest:getPublicIPAddress", args ?? new GetPublicIPAddressArgs(), options.WithVersion());
     }

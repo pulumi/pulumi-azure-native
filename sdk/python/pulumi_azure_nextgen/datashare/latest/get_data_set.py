@@ -15,6 +15,8 @@ __all__ = [
     'get_data_set',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getDataSet'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataSetResult:
     """
@@ -97,13 +99,16 @@ def get_data_set(account_name: Optional[str] = None,
                  share_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSetResult:
     """
-    Use this data source to access information about an existing resource.
+    A DataSet data transfer object.
+    Latest API Version: 2020-09-01.
+
 
     :param str account_name: The name of the share account.
     :param str data_set_name: The name of the dataSet.
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
+    pulumi.log.warn("get_data_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getDataSet'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['dataSetName'] = data_set_name

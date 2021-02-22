@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Security.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessment'.")]
     public static class GetAssessment
     {
+        /// <summary>
+        /// Security assessment on a resource
+        /// Latest API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-nextgen:security/latest:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
     }

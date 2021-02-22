@@ -82,7 +82,8 @@ def get_support_plan_type(plan_type_name: Optional[str] = None,
                           provider_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSupportPlanTypeResult:
     """
-    Use this data source to access information about an existing resource.
+    The status of the Canonical support plan.
+
 
     :param str plan_type_name: The Canonical support plan type.
     :param str provider_name: The support plan type. For now the only valid type is "canonical".

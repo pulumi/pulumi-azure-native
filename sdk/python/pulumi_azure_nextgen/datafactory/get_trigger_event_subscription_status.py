@@ -59,7 +59,9 @@ def get_trigger_event_subscription_status(factory_name: Optional[str] = None,
                                           trigger_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTriggerEventSubscriptionStatusResult:
     """
-    Use this data source to access information about an existing resource.
+    Defines the response of a trigger subscription operation.
+    API Version: 2018-06-01.
+
 
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.

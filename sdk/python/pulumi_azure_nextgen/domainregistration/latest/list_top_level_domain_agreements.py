@@ -15,6 +15,8 @@ __all__ = [
     'list_top_level_domain_agreements',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:listTopLevelDomainAgreements'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListTopLevelDomainAgreementsResult:
     """
@@ -60,12 +62,15 @@ def list_top_level_domain_agreements(for_transfer: Optional[bool] = None,
                                      name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTopLevelDomainAgreementsResult:
     """
-    Use this data source to access information about an existing resource.
+    Collection of top-level domain legal agreements.
+    Latest API Version: 2020-10-01.
+
 
     :param bool for_transfer: If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.
     :param bool include_privacy: If <code>true</code>, then the list of agreements will include agreements for domain privacy as well; otherwise, <code>false</code>.
     :param str name: Name of the top-level domain.
     """
+    pulumi.log.warn("list_top_level_domain_agreements is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:listTopLevelDomainAgreements'.")
     __args__ = dict()
     __args__['forTransfer'] = for_transfer
     __args__['includePrivacy'] = include_privacy

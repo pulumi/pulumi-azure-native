@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An object that represents a pipeline run for a container registry.
+// API Version: 2020-11-01-preview.
 func LookupPipelineRun(ctx *pulumi.Context, args *LookupPipelineRunArgs, opts ...pulumi.InvokeOption) (*LookupPipelineRunResult, error) {
 	var rv LookupPipelineRunResult
 	err := ctx.Invoke("azure-nextgen:containerregistry:getPipelineRun", args, &rv, opts...)

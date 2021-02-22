@@ -97,7 +97,8 @@ def get_synchronization_setting(account_name: Optional[str] = None,
                                 synchronization_setting_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSynchronizationSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    A Synchronization Setting data transfer object.
+
 
     :param str account_name: The name of the share account.
     :param str resource_group_name: The resource group name.

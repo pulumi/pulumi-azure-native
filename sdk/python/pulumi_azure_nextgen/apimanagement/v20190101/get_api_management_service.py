@@ -383,7 +383,8 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
                                service_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    A single API Management service resource in List or Get response.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.

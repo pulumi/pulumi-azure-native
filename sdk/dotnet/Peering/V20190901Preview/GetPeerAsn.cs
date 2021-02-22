@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
 {
     public static class GetPeerAsn
     {
+        /// <summary>
+        /// The essential information related to the peer's ASN.
+        /// </summary>
         public static Task<GetPeerAsnResult> InvokeAsync(GetPeerAsnArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeerAsnResult>("azure-nextgen:peering/v20190901preview:getPeerAsn", args ?? new GetPeerAsnArgs(), options.WithVersion());
     }

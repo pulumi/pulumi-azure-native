@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801
 {
     public static class GetTableResourceTable
     {
+        /// <summary>
+        /// An Azure Cosmos DB Table.
+        /// </summary>
         public static Task<GetTableResourceTableResult> InvokeAsync(GetTableResourceTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-nextgen:documentdb/v20190801:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithVersion());
     }

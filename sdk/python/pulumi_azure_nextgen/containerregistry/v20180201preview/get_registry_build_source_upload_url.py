@@ -58,7 +58,8 @@ def get_registry_build_source_upload_url(registry_name: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryBuildSourceUploadUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    The properties of a response to source upload request.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.

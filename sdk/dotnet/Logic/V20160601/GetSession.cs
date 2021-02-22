@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
 {
     public static class GetSession
     {
+        /// <summary>
+        /// The integration account session.
+        /// </summary>
         public static Task<GetSessionResult> InvokeAsync(GetSessionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSessionResult>("azure-nextgen:logic/v20160601:getSession", args ?? new GetSessionArgs(), options.WithVersion());
     }

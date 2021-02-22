@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A lab.
 func LookupLabResource(ctx *pulumi.Context, args *LookupLabResourceArgs, opts ...pulumi.InvokeOption) (*LookupLabResourceResult, error) {
 	var rv LookupLabResourceResult
 	err := ctx.Invoke("azure-nextgen:devtestlab/v20150521preview:getLabResource", args, &rv, opts...)

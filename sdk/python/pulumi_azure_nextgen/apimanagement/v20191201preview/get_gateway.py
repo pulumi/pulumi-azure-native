@@ -96,7 +96,8 @@ def get_gateway(gateway_id: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    Gateway details.
+
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
     :param str resource_group_name: The name of the resource group.

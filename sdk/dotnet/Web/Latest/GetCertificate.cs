@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCertificate'.")]
     public static class GetCertificate
     {
+        /// <summary>
+        /// SSL certificate for an app.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-nextgen:web/latest:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }

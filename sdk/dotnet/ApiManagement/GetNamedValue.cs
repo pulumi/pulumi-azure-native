@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetNamedValue
     {
+        /// <summary>
+        /// NamedValue details.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetNamedValueResult> InvokeAsync(GetNamedValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamedValueResult>("azure-nextgen:apimanagement:getNamedValue", args ?? new GetNamedValueArgs(), options.WithVersion());
     }

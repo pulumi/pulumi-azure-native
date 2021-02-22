@@ -229,7 +229,8 @@ def get_service(application_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    The service resource.
+
 
     :param str application_name: The name of the application resource.
     :param str cluster_name: The name of the cluster resource.

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AzureData
 {
     public static class GetPostgresInstance
     {
+        /// <summary>
+        /// A Postgres Instance.
+        /// API Version: 2020-09-08-preview.
+        /// </summary>
         public static Task<GetPostgresInstanceResult> InvokeAsync(GetPostgresInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPostgresInstanceResult>("azure-nextgen:azuredata:getPostgresInstance", args ?? new GetPostgresInstanceArgs(), options.WithVersion());
     }

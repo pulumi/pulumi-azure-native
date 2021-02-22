@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_machine',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachine'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineResult:
     """
@@ -517,13 +519,16 @@ def get_virtual_machine(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
-    Use this data source to access information about an existing resource.
+    A virtual machine.
+    Latest API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
     :param str lab_name: The name of the lab.
     :param str name: The name of the virtual machine.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_virtual_machine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachine'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

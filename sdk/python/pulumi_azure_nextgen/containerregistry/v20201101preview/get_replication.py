@@ -156,7 +156,8 @@ def get_replication(registry_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationResult:
     """
-    Use this data source to access information about an existing resource.
+    An object that represents a replication for a container registry.
+
 
     :param str registry_name: The name of the container registry.
     :param str replication_name: The name of the replication.

@@ -47,7 +47,8 @@ def get_virtual_network_gateway_vpnclient_connection_health(resource_group_name:
                                                             virtual_network_gateway_name: Optional[str] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayVpnclientConnectionHealthResult:
     """
-    Use this data source to access information about an existing resource.
+    List of virtual network gateway vpn client connection health.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The name of the virtual network gateway.

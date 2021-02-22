@@ -60,7 +60,8 @@ def list_configuration_store_keys(config_store_name: Optional[str] = None,
                                   skip_token: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConfigurationStoreKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The result of a request to list API keys.
+
 
     :param str config_store_name: The name of the configuration store.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.

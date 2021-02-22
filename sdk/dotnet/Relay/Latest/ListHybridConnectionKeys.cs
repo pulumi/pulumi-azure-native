@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Relay.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:listHybridConnectionKeys'.")]
     public static class ListHybridConnectionKeys
     {
+        /// <summary>
+        /// Namespace/Relay Connection String
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<ListHybridConnectionKeysResult> InvokeAsync(ListHybridConnectionKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListHybridConnectionKeysResult>("azure-nextgen:relay/latest:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysArgs(), options.WithVersion());
     }

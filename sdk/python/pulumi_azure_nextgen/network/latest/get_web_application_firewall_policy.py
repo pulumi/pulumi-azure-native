@@ -15,6 +15,8 @@ __all__ = [
     'get_web_application_firewall_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getWebApplicationFirewallPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebApplicationFirewallPolicyResult:
     """
@@ -203,11 +205,14 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebApplicationFirewallPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Defines web application firewall policy.
+    Latest API Version: 2020-08-01.
+
 
     :param str policy_name: The name of the policy.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_web_application_firewall_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getWebApplicationFirewallPolicy'.")
     __args__ = dict()
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name

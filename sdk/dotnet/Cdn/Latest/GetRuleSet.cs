@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Cdn.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRuleSet'.")]
     public static class GetRuleSet
     {
+        /// <summary>
+        /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetRuleSetResult> InvokeAsync(GetRuleSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleSetResult>("azure-nextgen:cdn/latest:getRuleSet", args ?? new GetRuleSetArgs(), options.WithVersion());
     }

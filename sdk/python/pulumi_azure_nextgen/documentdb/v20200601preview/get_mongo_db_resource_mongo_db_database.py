@@ -126,7 +126,8 @@ def get_mongo_db_resource_mongo_db_database(account_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMongoDBResourceMongoDBDatabaseResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB MongoDB database.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str database_name: Cosmos DB database name.

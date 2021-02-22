@@ -14,6 +14,8 @@ __all__ = [
     'get_logger',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getLogger'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLoggerResult:
     """
@@ -132,12 +134,15 @@ def get_logger(logger_id: Optional[str] = None,
                service_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoggerResult:
     """
-    Use this data source to access information about an existing resource.
+    Logger details.
+    Latest API Version: 2019-12-01.
+
 
     :param str logger_id: Logger identifier. Must be unique in the API Management service instance.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_logger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getLogger'.")
     __args__ = dict()
     __args__['loggerId'] = logger_id
     __args__['resourceGroupName'] = resource_group_name

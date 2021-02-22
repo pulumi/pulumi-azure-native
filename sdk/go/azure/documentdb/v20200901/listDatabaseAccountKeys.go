@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The access keys for the given database account.
 func ListDatabaseAccountKeys(ctx *pulumi.Context, args *ListDatabaseAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListDatabaseAccountKeysResult, error) {
 	var rv ListDatabaseAccountKeysResult
 	err := ctx.Invoke("azure-nextgen:documentdb/v20200901:listDatabaseAccountKeys", args, &rv, opts...)

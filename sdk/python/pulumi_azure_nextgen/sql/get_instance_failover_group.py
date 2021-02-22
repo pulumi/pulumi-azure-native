@@ -144,7 +144,9 @@ def get_instance_failover_group(failover_group_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceFailoverGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    An instance failover group.
+    API Version: 2020-08-01-preview.
+
 
     :param str failover_group_name: The name of the failover group.
     :param str location_name: The name of the region where the resource is located.

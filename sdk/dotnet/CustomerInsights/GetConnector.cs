@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights
 {
     public static class GetConnector
     {
+        /// <summary>
+        /// The connector resource format.
+        /// API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-nextgen:customerinsights:getConnector", args ?? new GetConnectorArgs(), options.WithVersion());
     }

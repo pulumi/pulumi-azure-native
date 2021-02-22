@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.BatchAI
 {
     public static class GetWorkspace
     {
+        /// <summary>
+        /// Batch AI Workspace information.
+        /// API Version: 2018-05-01.
+        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:batchai:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }

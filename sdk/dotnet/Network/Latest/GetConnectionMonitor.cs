@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getConnectionMonitor'.")]
     public static class GetConnectionMonitor
     {
+        /// <summary>
+        /// Information about the connection monitor.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetConnectionMonitorResult> InvokeAsync(GetConnectionMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorResult>("azure-nextgen:network/latest:getConnectionMonitor", args ?? new GetConnectionMonitorArgs(), options.WithVersion());
     }

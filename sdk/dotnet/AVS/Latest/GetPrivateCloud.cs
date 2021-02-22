@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AVS.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getPrivateCloud'.")]
     public static class GetPrivateCloud
     {
+        /// <summary>
+        /// A private cloud resource
+        /// Latest API Version: 2020-03-20.
+        /// </summary>
         public static Task<GetPrivateCloudResult> InvokeAsync(GetPrivateCloudArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateCloudResult>("azure-nextgen:avs/latest:getPrivateCloud", args ?? new GetPrivateCloudArgs(), options.WithVersion());
     }

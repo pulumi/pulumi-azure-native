@@ -121,7 +121,8 @@ def get_container(container_name: Optional[str] = None,
                   storage_account_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a container on the  Data Box Edge/Gateway device.
+
 
     :param str container_name: The container Name
     :param str device_name: The device name.

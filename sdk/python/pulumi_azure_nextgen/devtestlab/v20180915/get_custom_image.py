@@ -241,7 +241,8 @@ def get_custom_image(expand: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomImageResult:
     """
-    Use this data source to access information about an existing resource.
+    A custom image.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=vm)'
     :param str lab_name: The name of the lab.

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Search.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:listAdminKey'.")]
     public static class ListAdminKey
     {
+        /// <summary>
+        /// Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<ListAdminKeyResult> InvokeAsync(ListAdminKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-nextgen:search/latest:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithVersion());
     }

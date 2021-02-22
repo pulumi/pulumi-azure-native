@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
 {
     public static class GetServerDnsAlias
     {
+        /// <summary>
+        /// A server DNS alias.
+        /// </summary>
         public static Task<GetServerDnsAliasResult> InvokeAsync(GetServerDnsAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerDnsAliasResult>("azure-nextgen:sql/v20170301preview:getServerDnsAlias", args ?? new GetServerDnsAliasArgs(), options.WithVersion());
     }

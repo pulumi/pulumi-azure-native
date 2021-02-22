@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPacketCapture'.")]
     public static class GetPacketCapture
     {
+        /// <summary>
+        /// Information about packet capture session.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetPacketCaptureResult> InvokeAsync(GetPacketCaptureArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-nextgen:network/latest:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithVersion());
     }

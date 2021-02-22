@@ -82,7 +82,8 @@ class AwaitableGetTagAtScopeResult(GetTagAtScopeResult):
 def get_tag_at_scope(scope: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagAtScopeResult:
     """
-    Use this data source to access information about an existing resource.
+    Wrapper resource for tags API requests and responses.
+
 
     :param str scope: The resource scope.
     """

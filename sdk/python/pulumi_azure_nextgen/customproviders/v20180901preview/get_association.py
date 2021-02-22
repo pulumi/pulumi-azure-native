@@ -94,7 +94,8 @@ def get_association(association_name: Optional[str] = None,
                     scope: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssociationResult:
     """
-    Use this data source to access information about an existing resource.
+    The resource definition of this association.
+
 
     :param str association_name: The name of the association.
     :param str scope: The scope of the association.

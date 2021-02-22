@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20170901
 {
     public static class GetNetworkWatcher
     {
+        /// <summary>
+        /// Network watcher in a resource group.
+        /// </summary>
         public static Task<GetNetworkWatcherResult> InvokeAsync(GetNetworkWatcherArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure-nextgen:network/v20170901:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithVersion());
     }

@@ -15,6 +15,8 @@ __all__ = [
     'get_assessment_metadata_in_subscription',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessmentMetadataInSubscription'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAssessmentMetadataInSubscriptionResult:
     """
@@ -208,10 +210,13 @@ class AwaitableGetAssessmentMetadataInSubscriptionResult(GetAssessmentMetadataIn
 def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentMetadataInSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    Security assessment metadata
+    Latest API Version: 2020-01-01.
+
 
     :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
     """
+    pulumi.log.warn("get_assessment_metadata_in_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessmentMetadataInSubscription'.")
     __args__ = dict()
     __args__['assessmentMetadataName'] = assessment_metadata_name
     if opts is None:

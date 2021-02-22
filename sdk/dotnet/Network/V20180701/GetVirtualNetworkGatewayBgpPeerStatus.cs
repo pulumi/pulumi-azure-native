@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20180701
 {
     public static class GetVirtualNetworkGatewayBgpPeerStatus
     {
+        /// <summary>
+        /// Response for list BGP peer status API service call
+        /// </summary>
         public static Task<GetVirtualNetworkGatewayBgpPeerStatusResult> InvokeAsync(GetVirtualNetworkGatewayBgpPeerStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayBgpPeerStatusResult>("azure-nextgen:network/v20180701:getVirtualNetworkGatewayBgpPeerStatus", args ?? new GetVirtualNetworkGatewayBgpPeerStatusArgs(), options.WithVersion());
     }

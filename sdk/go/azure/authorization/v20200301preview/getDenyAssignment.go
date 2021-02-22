@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Deny Assignment
 func LookupDenyAssignment(ctx *pulumi.Context, args *LookupDenyAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupDenyAssignmentResult, error) {
 	var rv LookupDenyAssignmentResult
 	err := ctx.Invoke("azure-nextgen:authorization/v20200301preview:getDenyAssignment", args, &rv, opts...)

@@ -179,7 +179,9 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
                      scaling_plan_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScalingPlanResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a scaling plan definition.
+    API Version: 2021-01-14-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scaling_plan_name: The name of the scaling plan.

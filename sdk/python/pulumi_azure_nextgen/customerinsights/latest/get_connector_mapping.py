@@ -15,6 +15,8 @@ __all__ = [
     'get_connector_mapping',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getConnectorMapping'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConnectorMappingResult:
     """
@@ -253,13 +255,16 @@ def get_connector_mapping(connector_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorMappingResult:
     """
-    Use this data source to access information about an existing resource.
+    The connector mapping resource format.
+    Latest API Version: 2017-04-26.
+
 
     :param str connector_name: The name of the connector.
     :param str hub_name: The name of the hub.
     :param str mapping_name: The name of the connector mapping.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_connector_mapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getConnectorMapping'.")
     __args__ = dict()
     __args__['connectorName'] = connector_name
     __args__['hubName'] = hub_name

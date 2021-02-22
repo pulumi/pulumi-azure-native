@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Management.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getHierarchySetting'.")]
     public static class GetHierarchySetting
     {
+        /// <summary>
+        /// Settings defined at the Management Group scope.
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetHierarchySettingResult> InvokeAsync(GetHierarchySettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHierarchySettingResult>("azure-nextgen:management/latest:getHierarchySetting", args ?? new GetHierarchySettingArgs(), options.WithVersion());
     }

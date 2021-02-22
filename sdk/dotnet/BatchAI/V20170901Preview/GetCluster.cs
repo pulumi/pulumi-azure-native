@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
 {
     public static class GetCluster
     {
+        /// <summary>
+        /// Contains information about a Cluster.
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:batchai/v20170901preview:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

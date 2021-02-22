@@ -96,7 +96,9 @@ def get_guest_configuration_hcrpassignment(guest_configuration_assignment_name: 
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestConfigurationHCRPAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Guest configuration assignment is an association between a machine and guest configuration.
+    API Version: 2020-06-25.
+
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.
     :param str machine_name: The name of the ARC machine.

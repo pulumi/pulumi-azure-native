@@ -15,6 +15,8 @@ __all__ = [
     'list_registry_credentials',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryCredentials'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListRegistryCredentialsResult:
     """
@@ -59,11 +61,14 @@ def list_registry_credentials(registry_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryCredentialsResult:
     """
-    Use this data source to access information about an existing resource.
+    The response from the ListCredentials operation.
+    Latest API Version: 2019-05-01.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("list_registry_credentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryCredentials'.")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name

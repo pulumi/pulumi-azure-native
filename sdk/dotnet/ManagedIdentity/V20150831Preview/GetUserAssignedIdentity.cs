@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.V20150831Preview
 {
     public static class GetUserAssignedIdentity
     {
+        /// <summary>
+        /// Describes an identity resource.
+        /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-nextgen:managedidentity/v20150831preview:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());
     }

@@ -263,7 +263,9 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a connected cluster.
+    API Version: 2021-03-01.
+
 
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

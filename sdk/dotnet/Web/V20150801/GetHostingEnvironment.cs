@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetHostingEnvironment
     {
+        /// <summary>
+        /// Description of an hostingEnvironment (App Service Environment)
+        /// </summary>
         public static Task<GetHostingEnvironmentResult> InvokeAsync(GetHostingEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostingEnvironmentResult>("azure-nextgen:web/v20150801:getHostingEnvironment", args ?? new GetHostingEnvironmentArgs(), options.WithVersion());
     }

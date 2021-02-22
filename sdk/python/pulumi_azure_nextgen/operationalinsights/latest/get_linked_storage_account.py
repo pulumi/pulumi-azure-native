@@ -14,6 +14,8 @@ __all__ = [
     'get_linked_storage_account',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getLinkedStorageAccount'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLinkedStorageAccountResult:
     """
@@ -95,12 +97,15 @@ def get_linked_storage_account(data_source_type: Optional[str] = None,
                                workspace_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedStorageAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    Linked storage accounts top level resource container.
+    Latest API Version: 2020-08-01.
+
 
     :param str data_source_type: Linked storage accounts type.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("get_linked_storage_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getLinkedStorageAccount'.")
     __args__ = dict()
     __args__['dataSourceType'] = data_source_type
     __args__['resourceGroupName'] = resource_group_name

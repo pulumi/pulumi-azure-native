@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 {
     public static class GetConnectorMapping
     {
+        /// <summary>
+        /// The connector mapping resource format.
+        /// </summary>
         public static Task<GetConnectorMappingResult> InvokeAsync(GetConnectorMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorMappingResult>("azure-nextgen:customerinsights/v20170101:getConnectorMapping", args ?? new GetConnectorMappingArgs(), options.WithVersion());
     }

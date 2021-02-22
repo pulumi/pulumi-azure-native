@@ -14,6 +14,8 @@ __all__ = [
     'get_server_key',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getServerKey'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServerKeyResult:
     """
@@ -119,12 +121,15 @@ def get_server_key(key_name: Optional[str] = None,
                    server_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    A PostgreSQL Server key.
+    Latest API Version: 2020-01-01.
+
 
     :param str key_name: The name of the PostgreSQL Server key to be retrieved.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("get_server_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getServerKey'.")
     __args__ = dict()
     __args__['keyName'] = key_name
     __args__['resourceGroupName'] = resource_group_name

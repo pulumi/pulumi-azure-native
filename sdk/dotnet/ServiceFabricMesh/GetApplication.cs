@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
 {
     public static class GetApplication
     {
+        /// <summary>
+        /// This type describes an application resource.
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-nextgen:servicefabricmesh:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
     }

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
 func LookupSiteVNETConnectionSlot(ctx *pulumi.Context, args *LookupSiteVNETConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteVNETConnectionSlotResult, error) {
 	var rv LookupSiteVNETConnectionSlotResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteVNETConnectionSlot", args, &rv, opts...)

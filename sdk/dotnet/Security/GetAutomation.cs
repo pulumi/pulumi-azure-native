@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Security
 {
     public static class GetAutomation
     {
+        /// <summary>
+        /// The security automation resource.
+        /// API Version: 2019-01-01-preview.
+        /// </summary>
         public static Task<GetAutomationResult> InvokeAsync(GetAutomationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationResult>("azure-nextgen:security:getAutomation", args ?? new GetAutomationArgs(), options.WithVersion());
     }

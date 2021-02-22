@@ -144,7 +144,8 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
                                        virtual_hub_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHubVirtualNetworkConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    HubVirtualNetworkConnection Resource.
+
 
     :param str connection_name: The name of the vpn connection.
     :param str resource_group_name: The resource group name of the VirtualHub.

@@ -15,6 +15,8 @@ __all__ = [
     'get_notification_hub_authorization_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:getNotificationHubAuthorizationRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNotificationHubAuthorizationRuleResult:
     """
@@ -217,13 +219,16 @@ def get_notification_hub_authorization_rule(authorization_rule_name: Optional[st
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationHubAuthorizationRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of a Namespace AuthorizationRules.
+    Latest API Version: 2017-04-01.
+
 
     :param str authorization_rule_name: authorization rule name.
     :param str namespace_name: The namespace name
     :param str notification_hub_name: The notification hub name.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_notification_hub_authorization_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:getNotificationHubAuthorizationRule'.")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name

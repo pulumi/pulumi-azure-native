@@ -15,6 +15,8 @@ __all__ = [
     'get_app',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getApp'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAppResult:
     """
@@ -109,13 +111,16 @@ def get_app(app_name: Optional[str] = None,
             sync_status: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
-    Use this data source to access information about an existing resource.
+    App resource payload
+    Latest API Version: 2020-07-01.
+
 
     :param str app_name: The name of the App resource.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     :param str sync_status: Indicates whether sync status
     """
+    pulumi.log.warn("get_app is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getApp'.")
     __args__ = dict()
     __args__['appName'] = app_name
     __args__['resourceGroupName'] = resource_group_name

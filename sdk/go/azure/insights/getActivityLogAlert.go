@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// An Activity Log Alert rule resource.
+// API Version: 2020-10-01.
 func LookupActivityLogAlert(ctx *pulumi.Context, args *LookupActivityLogAlertArgs, opts ...pulumi.InvokeOption) (*LookupActivityLogAlertResult, error) {
 	var rv LookupActivityLogAlertResult
 	err := ctx.Invoke("azure-nextgen:insights:getActivityLogAlert", args, &rv, opts...)

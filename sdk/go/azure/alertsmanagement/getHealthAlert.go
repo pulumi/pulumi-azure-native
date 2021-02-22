@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The health alert resource.
+// API Version: 2020-08-04-preview.
 func LookupHealthAlert(ctx *pulumi.Context, args *LookupHealthAlertArgs, opts ...pulumi.InvokeOption) (*LookupHealthAlertResult, error) {
 	var rv LookupHealthAlertResult
 	err := ctx.Invoke("azure-nextgen:alertsmanagement:getHealthAlert", args, &rv, opts...)

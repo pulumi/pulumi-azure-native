@@ -14,6 +14,8 @@ __all__ = [
     'list_account_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:maps:listAccountKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListAccountKeysResult:
     """
@@ -70,11 +72,14 @@ def list_account_keys(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+    Latest API Version: 2018-05-01.
+
 
     :param str account_name: The name of the Maps Account.
     :param str resource_group_name: The name of the Azure Resource Group.
     """
+    pulumi.log.warn("list_account_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:maps:listAccountKeys'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

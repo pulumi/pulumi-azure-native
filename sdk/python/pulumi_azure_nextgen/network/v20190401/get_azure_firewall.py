@@ -191,7 +191,8 @@ def get_azure_firewall(azure_firewall_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureFirewallResult:
     """
-    Use this data source to access information about an existing resource.
+    Azure Firewall resource.
+
 
     :param str azure_firewall_name: The name of the Azure Firewall.
     :param str resource_group_name: The name of the resource group.

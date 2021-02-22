@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A profile object that contains change analysis configuration, such as notification settings, for this subscription
+// API Version: 2020-04-01-preview.
 func LookupConfigurationProfile(ctx *pulumi.Context, args *LookupConfigurationProfileArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationProfileResult, error) {
 	var rv LookupConfigurationProfileResult
 	err := ctx.Invoke("azure-nextgen:changeanalysis:getConfigurationProfile", args, &rv, opts...)

@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_network_tap',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkTap'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualNetworkTapResult:
     """
@@ -179,11 +181,14 @@ def get_virtual_network_tap(resource_group_name: Optional[str] = None,
                             tap_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkTapResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual Network Tap resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str tap_name: The name of virtual network tap.
     """
+    pulumi.log.warn("get_virtual_network_tap is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkTap'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['tapName'] = tap_name

@@ -15,6 +15,8 @@ __all__ = [
     'list_job_output_files',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobOutputFiles'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListJobOutputFilesResult:
     """
@@ -65,7 +67,9 @@ def list_job_output_files(directory: Optional[str] = None,
                           workspace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListJobOutputFilesResult:
     """
-    Use this data source to access information about an existing resource.
+    Values returned by the List operation.
+    Latest API Version: 2018-05-01.
+
 
     :param str directory: The path to the directory.
     :param str experiment_name: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
@@ -76,6 +80,7 @@ def list_job_output_files(directory: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
     """
+    pulumi.log.warn("list_job_output_files is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobOutputFiles'.")
     __args__ = dict()
     __args__['directory'] = directory
     __args__['experimentName'] = experiment_name

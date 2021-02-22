@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getBastionHost'.")]
     public static class GetBastionHost
     {
+        /// <summary>
+        /// Bastion Host resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetBastionHostResult> InvokeAsync(GetBastionHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBastionHostResult>("azure-nextgen:network/latest:getBastionHost", args ?? new GetBastionHostArgs(), options.WithVersion());
     }

@@ -192,7 +192,8 @@ def get_project(account_name: Optional[str] = None,
                 workspace_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
-    Use this data source to access information about an existing resource.
+    An object that represents a machine learning project.
+
 
     :param str account_name: The name of the machine learning team account.
     :param str project_name: The name of the machine learning project under a team account workspace.

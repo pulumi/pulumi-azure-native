@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Resources
 {
     public static class GetTagAtScope
     {
+        /// <summary>
+        /// Wrapper resource for tags API requests and responses.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetTagAtScopeResult> InvokeAsync(GetTagAtScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagAtScopeResult>("azure-nextgen:resources:getTagAtScope", args ?? new GetTagAtScopeArgs(), options.WithVersion());
     }

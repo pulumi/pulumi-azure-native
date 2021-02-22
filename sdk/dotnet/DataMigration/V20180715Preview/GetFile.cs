@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
 {
     public static class GetFile
     {
+        /// <summary>
+        /// A file resource
+        /// </summary>
         public static Task<GetFileResult> InvokeAsync(GetFileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileResult>("azure-nextgen:datamigration/v20180715preview:getFile", args ?? new GetFileArgs(), options.WithVersion());
     }

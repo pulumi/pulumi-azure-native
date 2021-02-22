@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// HubVirtualNetworkConnection Resource.
+// API Version: 2020-08-01.
 func LookupHubVirtualNetworkConnection(ctx *pulumi.Context, args *LookupHubVirtualNetworkConnectionArgs, opts ...pulumi.InvokeOption) (*LookupHubVirtualNetworkConnectionResult, error) {
 	var rv LookupHubVirtualNetworkConnectionResult
 	err := ctx.Invoke("azure-nextgen:network:getHubVirtualNetworkConnection", args, &rv, opts...)

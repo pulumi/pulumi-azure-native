@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20170615Preview
 {
     public static class GetEventSubscription
     {
+        /// <summary>
+        /// Event Subscription
+        /// </summary>
         public static Task<GetEventSubscriptionResult> InvokeAsync(GetEventSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("azure-nextgen:eventgrid/v20170615preview:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithVersion());
     }

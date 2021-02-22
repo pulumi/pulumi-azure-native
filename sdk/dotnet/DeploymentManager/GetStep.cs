@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DeploymentManager
 {
     public static class GetStep
     {
+        /// <summary>
+        /// The resource representation of a rollout step.
+        /// API Version: 2019-11-01-preview.
+        /// </summary>
         public static Task<GetStepResult> InvokeAsync(GetStepArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStepResult>("azure-nextgen:deploymentmanager:getStep", args ?? new GetStepArgs(), options.WithVersion());
     }

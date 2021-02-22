@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20191101
 {
     public static class GetExperiment
     {
+        /// <summary>
+        /// Defines the properties of an Experiment
+        /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-nextgen:network/v20191101:getExperiment", args ?? new GetExperimentArgs(), options.WithVersion());
     }

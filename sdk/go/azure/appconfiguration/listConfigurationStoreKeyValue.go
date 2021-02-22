@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The result of a request to retrieve a key-value from the specified configuration store.
+// API Version: 2020-06-01.
 func ListConfigurationStoreKeyValue(ctx *pulumi.Context, args *ListConfigurationStoreKeyValueArgs, opts ...pulumi.InvokeOption) (*ListConfigurationStoreKeyValueResult, error) {
 	var rv ListConfigurationStoreKeyValueResult
 	err := ctx.Invoke("azure-nextgen:appconfiguration:listConfigurationStoreKeyValue", args, &rv, opts...)

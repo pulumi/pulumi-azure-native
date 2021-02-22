@@ -15,6 +15,8 @@ __all__ = [
     'list_storage_account_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:listStorageAccountKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListStorageAccountKeysResult:
     """
@@ -48,12 +50,15 @@ def list_storage_account_keys(account_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStorageAccountKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The response from the ListKeys operation.
+    Latest API Version: 2021-01-01.
+
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str expand: Specifies type of the key to be listed. Possible value is kerb.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("list_storage_account_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:listStorageAccountKeys'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['expand'] = expand

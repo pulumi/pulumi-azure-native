@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StorSimple
 {
     public static class GetManagerEncryptionKey
     {
+        /// <summary>
+        /// This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+        /// API Version: 2016-10-01.
+        /// </summary>
         public static Task<GetManagerEncryptionKeyResult> InvokeAsync(GetManagerEncryptionKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagerEncryptionKeyResult>("azure-nextgen:storsimple:getManagerEncryptionKey", args ?? new GetManagerEncryptionKeyArgs(), options.WithVersion());
     }

@@ -204,7 +204,9 @@ def get_nat_gateway(expand: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    Nat Gateway resource.
+    API Version: 2020-08-01.
+
 
     :param str expand: Expands referenced resources.
     :param str nat_gateway_name: The name of the nat gateway.

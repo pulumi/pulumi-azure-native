@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
 {
     public static class GetConnector
     {
+        /// <summary>
+        /// The connector setting
+        /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-nextgen:security/v20200101preview:getConnector", args ?? new GetConnectorArgs(), options.WithVersion());
     }

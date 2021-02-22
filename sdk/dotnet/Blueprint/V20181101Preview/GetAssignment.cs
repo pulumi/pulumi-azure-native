@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
 {
     public static class GetAssignment
     {
+        /// <summary>
+        /// Represents a blueprint assignment.
+        /// </summary>
         public static Task<GetAssignmentResult> InvokeAsync(GetAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azure-nextgen:blueprint/v20181101preview:getAssignment", args ?? new GetAssignmentArgs(), options.WithVersion());
     }

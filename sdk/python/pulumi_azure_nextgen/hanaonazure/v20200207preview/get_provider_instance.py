@@ -107,7 +107,8 @@ def get_provider_instance(provider_instance_name: Optional[str] = None,
                           sap_monitor_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderInstanceResult:
     """
-    Use this data source to access information about an existing resource.
+    A provider instance associated with a SAP monitor.
+
 
     :param str provider_instance_name: Name of the provider instance.
     :param str resource_group_name: Name of the resource group.

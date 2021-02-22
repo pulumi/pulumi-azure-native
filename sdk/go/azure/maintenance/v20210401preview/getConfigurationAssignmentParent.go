@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Configuration Assignment
 func LookupConfigurationAssignmentParent(ctx *pulumi.Context, args *LookupConfigurationAssignmentParentArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationAssignmentParentResult, error) {
 	var rv LookupConfigurationAssignmentParentResult
 	err := ctx.Invoke("azure-nextgen:maintenance/v20210401preview:getConfigurationAssignmentParent", args, &rv, opts...)

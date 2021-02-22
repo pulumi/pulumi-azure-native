@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getProfile'.")]
     public static class GetProfile
     {
+        /// <summary>
+        /// Class representing a Traffic Manager profile.
+        /// Latest API Version: 2018-04-01.
+        /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-nextgen:network/latest:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
     }

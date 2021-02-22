@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Namespace/EventHub Connection String
+// API Version: 2017-04-01.
 func ListEventHubKeys(ctx *pulumi.Context, args *ListEventHubKeysArgs, opts ...pulumi.InvokeOption) (*ListEventHubKeysResult, error) {
 	var rv ListEventHubKeysResult
 	err := ctx.Invoke("azure-nextgen:eventhub:listEventHubKeys", args, &rv, opts...)

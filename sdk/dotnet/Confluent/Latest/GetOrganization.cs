@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Confluent.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:confluent:getOrganization'.")]
     public static class GetOrganization
     {
+        /// <summary>
+        /// Organization resource.
+        /// Latest API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(GetOrganizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-nextgen:confluent/latest:getOrganization", args ?? new GetOrganizationArgs(), options.WithVersion());
     }

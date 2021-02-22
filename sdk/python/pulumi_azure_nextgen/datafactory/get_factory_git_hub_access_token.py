@@ -49,7 +49,9 @@ def get_factory_git_hub_access_token(factory_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryGitHubAccessTokenResult:
     """
-    Use this data source to access information about an existing resource.
+    Get GitHub access token response definition.
+    API Version: 2018-06-01.
+
 
     :param str factory_name: The factory name.
     :param str git_hub_access_code: GitHub access code.

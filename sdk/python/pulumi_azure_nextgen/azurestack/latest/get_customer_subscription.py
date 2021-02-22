@@ -14,6 +14,8 @@ __all__ = [
     'get_customer_subscription',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getCustomerSubscription'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCustomerSubscriptionResult:
     """
@@ -95,12 +97,15 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
                               resource_group: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    Customer subscription.
+    Latest API Version: 2017-06-01.
+
 
     :param str customer_subscription_name: Name of the product.
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
+    pulumi.log.warn("get_customer_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getCustomerSubscription'.")
     __args__ = dict()
     __args__['customerSubscriptionName'] = customer_subscription_name
     __args__['registrationName'] = registration_name

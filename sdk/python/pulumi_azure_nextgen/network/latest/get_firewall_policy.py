@@ -15,6 +15,8 @@ __all__ = [
     'get_firewall_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFirewallPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFirewallPolicyResult:
     """
@@ -252,12 +254,15 @@ def get_firewall_policy(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    FirewallPolicy Resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str expand: Expands referenced resources.
     :param str firewall_policy_name: The name of the Firewall Policy.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_firewall_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFirewallPolicy'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['firewallPolicyName'] = firewall_policy_name

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetActiveSessions
     {
+        /// <summary>
+        /// Response for GetActiveSessions.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetActiveSessionsResult> InvokeAsync(GetActiveSessionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActiveSessionsResult>("azure-nextgen:network:getActiveSessions", args ?? new GetActiveSessionsArgs(), options.WithVersion());
     }

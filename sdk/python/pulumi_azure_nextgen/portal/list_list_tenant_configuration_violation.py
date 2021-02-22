@@ -57,7 +57,8 @@ class AwaitableListListTenantConfigurationViolationResult(ListListTenantConfigur
 
 def list_list_tenant_configuration_violation(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListListTenantConfigurationViolationResult:
     """
-    Use this data source to access information about an existing resource.
+    List of list of items that violate tenant's configuration.
+    API Version: 2020-09-01-preview.
     """
     __args__ = dict()
     if opts is None:

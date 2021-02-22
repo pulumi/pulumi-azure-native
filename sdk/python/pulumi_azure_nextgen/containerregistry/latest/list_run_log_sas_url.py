@@ -14,6 +14,8 @@ __all__ = [
     'list_run_log_sas_url',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRunLogSasUrl'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListRunLogSasUrlResult:
     """
@@ -47,12 +49,15 @@ def list_run_log_sas_url(registry_name: Optional[str] = None,
                          run_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRunLogSasUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    The result of get log link operation.
+    Latest API Version: 2019-04-01.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str run_id: The run ID.
     """
+    pulumi.log.warn("list_run_log_sas_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRunLogSasUrl'.")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name

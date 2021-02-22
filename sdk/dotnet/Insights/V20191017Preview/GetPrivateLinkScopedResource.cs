@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
 {
     public static class GetPrivateLinkScopedResource
     {
+        /// <summary>
+        /// A private link scoped resource
+        /// </summary>
         public static Task<GetPrivateLinkScopedResourceResult> InvokeAsync(GetPrivateLinkScopedResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopedResourceResult>("azure-nextgen:insights/v20191017preview:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceArgs(), options.WithVersion());
     }

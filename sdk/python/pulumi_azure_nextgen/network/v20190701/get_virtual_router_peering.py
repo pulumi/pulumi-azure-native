@@ -119,7 +119,8 @@ def get_virtual_router_peering(peering_name: Optional[str] = None,
                                virtual_router_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualRouterPeeringResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual Router Peering resource
+
 
     :param str peering_name: The name of the Virtual Router Peering.
     :param str resource_group_name: The name of the resource group.

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Kusto
 {
     public static class GetCluster
     {
+        /// <summary>
+        /// Class representing a Kusto cluster.
+        /// API Version: 2020-09-18.
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:kusto:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

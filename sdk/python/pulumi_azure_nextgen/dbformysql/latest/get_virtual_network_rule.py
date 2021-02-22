@@ -14,6 +14,8 @@ __all__ = [
     'get_virtual_network_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getVirtualNetworkRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualNetworkRuleResult:
     """
@@ -107,12 +109,15 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
                              virtual_network_rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    A virtual network rule.
+    Latest API Version: 2017-12-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     :param str virtual_network_rule_name: The name of the virtual network rule.
     """
+    pulumi.log.warn("get_virtual_network_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getVirtualNetworkRule'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name

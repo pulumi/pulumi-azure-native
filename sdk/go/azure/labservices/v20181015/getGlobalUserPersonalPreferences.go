@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents the PersonalPreferences for the user
 func GetGlobalUserPersonalPreferences(ctx *pulumi.Context, args *GetGlobalUserPersonalPreferencesArgs, opts ...pulumi.InvokeOption) (*GetGlobalUserPersonalPreferencesResult, error) {
 	var rv GetGlobalUserPersonalPreferencesResult
 	err := ctx.Invoke("azure-nextgen:labservices/v20181015:getGlobalUserPersonalPreferences", args, &rv, opts...)

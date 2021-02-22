@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The Get Insights result operation response.
+// API Version: 2019-01-01-preview.
 func GetEntityInsights(ctx *pulumi.Context, args *GetEntityInsightsArgs, opts ...pulumi.InvokeOption) (*GetEntityInsightsResult, error) {
 	var rv GetEntityInsightsResult
 	err := ctx.Invoke("azure-nextgen:securityinsights:getEntityInsights", args, &rv, opts...)

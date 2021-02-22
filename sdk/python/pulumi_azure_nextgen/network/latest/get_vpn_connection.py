@@ -15,6 +15,8 @@ __all__ = [
     'get_vpn_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVpnConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVpnConnectionResult:
     """
@@ -288,12 +290,15 @@ def get_vpn_connection(connection_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    VpnConnection Resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str connection_name: The name of the vpn connection.
     :param str gateway_name: The name of the gateway.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
+    pulumi.log.warn("get_vpn_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVpnConnection'.")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['gatewayName'] = gateway_name

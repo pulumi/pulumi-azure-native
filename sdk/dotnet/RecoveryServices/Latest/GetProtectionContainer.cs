@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionContainer'.")]
     public static class GetProtectionContainer
     {
+        /// <summary>
+        /// Base class for container with backup items. Containers with specific workloads are derived from this class.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetProtectionContainerResult> InvokeAsync(GetProtectionContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionContainerResult>("azure-nextgen:recoveryservices/latest:getProtectionContainer", args ?? new GetProtectionContainerArgs(), options.WithVersion());
     }

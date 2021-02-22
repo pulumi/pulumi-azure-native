@@ -111,7 +111,9 @@ def list_integration_account_agreement_content_callback_url(agreement_name: Opti
                                                             resource_group_name: Optional[str] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountAgreementContentCallbackUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    The workflow trigger callback URL.
+    API Version: 2019-05-01.
+
 
     :param str agreement_name: The integration account agreement name.
     :param str integration_account_name: The integration account name.

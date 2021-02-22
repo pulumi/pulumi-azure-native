@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CostManagement
 {
     public static class GetCostAllocationRule
     {
+        /// <summary>
+        /// The cost allocation rule model definition
+        /// API Version: 2020-03-01-preview.
+        /// </summary>
         public static Task<GetCostAllocationRuleResult> InvokeAsync(GetCostAllocationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCostAllocationRuleResult>("azure-nextgen:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleArgs(), options.WithVersion());
     }

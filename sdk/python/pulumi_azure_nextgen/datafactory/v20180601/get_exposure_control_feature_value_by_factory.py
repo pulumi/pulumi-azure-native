@@ -60,7 +60,8 @@ def get_exposure_control_feature_value_by_factory(factory_name: Optional[str] = 
                                                   resource_group_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExposureControlFeatureValueByFactoryResult:
     """
-    Use this data source to access information about an existing resource.
+    The exposure control response.
+
 
     :param str factory_name: The factory name.
     :param str feature_name: The feature name.

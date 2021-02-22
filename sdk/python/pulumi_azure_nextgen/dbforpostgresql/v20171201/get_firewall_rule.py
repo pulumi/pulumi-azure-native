@@ -95,7 +95,8 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
                       server_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a server firewall rule.
+
 
     :param str firewall_rule_name: The name of the server firewall rule.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

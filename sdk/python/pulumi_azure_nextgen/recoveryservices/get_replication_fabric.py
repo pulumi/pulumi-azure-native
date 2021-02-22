@@ -96,7 +96,9 @@ def get_replication_fabric(fabric_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationFabricResult:
     """
-    Use this data source to access information about an existing resource.
+    Fabric definition.
+    API Version: 2018-07-10.
+
 
     :param str fabric_name: Fabric name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.

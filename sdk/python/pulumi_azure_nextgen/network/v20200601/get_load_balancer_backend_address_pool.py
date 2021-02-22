@@ -156,7 +156,8 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerBackendAddressPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    Pool of backend IP addresses.
+
 
     :param str backend_address_pool_name: The name of the backend address pool.
     :param str load_balancer_name: The name of the load balancer.

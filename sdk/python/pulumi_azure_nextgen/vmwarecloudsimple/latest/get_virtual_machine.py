@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_machine',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getVirtualMachine'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineResult:
     """
@@ -359,11 +361,14 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
                         virtual_machine_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual machine model
+    Latest API Version: 2019-04-01.
+
 
     :param str resource_group_name: The name of the resource group
     :param str virtual_machine_name: virtual machine name
     """
+    pulumi.log.warn("get_virtual_machine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getVirtualMachine'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualMachineName'] = virtual_machine_name

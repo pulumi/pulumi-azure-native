@@ -156,7 +156,9 @@ def get_integration_account_partner(integration_account_name: Optional[str] = No
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountPartnerResult:
     """
-    Use this data source to access information about an existing resource.
+    The integration account partner.
+    API Version: 2019-05-01.
+
 
     :param str integration_account_name: The integration account name.
     :param str partner_name: The integration account partner name.

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPrediction'.")]
     public static class GetPrediction
     {
+        /// <summary>
+        /// The prediction resource format.
+        /// Latest API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetPredictionResult> InvokeAsync(GetPredictionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionResult>("azure-nextgen:customerinsights/latest:getPrediction", args ?? new GetPredictionArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppFunction'.")]
     public static class GetWebAppFunction
     {
+        /// <summary>
+        /// Function information.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppFunctionResult> InvokeAsync(GetWebAppFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFunctionResult>("azure-nextgen:web/latest:getWebAppFunction", args ?? new GetWebAppFunctionArgs(), options.WithVersion());
     }

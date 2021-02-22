@@ -81,7 +81,9 @@ class AwaitableGetTenantConfigurationResult(GetTenantConfigurationResult):
 def get_tenant_configuration(configuration_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTenantConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Tenant configuration.
+    API Version: 2020-09-01-preview.
+
 
     :param str configuration_name: The configuration name. Value must be 'default'
     """

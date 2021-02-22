@@ -14,6 +14,8 @@ __all__ = [
     'get_traffic_manager_user_metrics_key',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getTrafficManagerUserMetricsKey'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTrafficManagerUserMetricsKeyResult:
     """
@@ -80,8 +82,10 @@ class AwaitableGetTrafficManagerUserMetricsKeyResult(GetTrafficManagerUserMetric
 
 def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficManagerUserMetricsKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    Class representing Traffic Manager User Metrics.
+    Latest API Version: 2018-04-01.
     """
+    pulumi.log.warn("get_traffic_manager_user_metrics_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getTrafficManagerUserMetricsKey'.")
     __args__ = dict()
     if opts is None:
         opts = pulumi.InvokeOptions()

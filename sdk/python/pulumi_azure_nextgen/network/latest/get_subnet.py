@@ -15,6 +15,8 @@ __all__ = [
     'get_subnet',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getSubnet'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSubnetResult:
     """
@@ -289,13 +291,16 @@ def get_subnet(expand: Optional[str] = None,
                virtual_network_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetResult:
     """
-    Use this data source to access information about an existing resource.
+    Subnet in a virtual network resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str expand: Expands referenced resources.
     :param str resource_group_name: The name of the resource group.
     :param str subnet_name: The name of the subnet.
     :param str virtual_network_name: The name of the virtual network.
     """
+    pulumi.log.warn("get_subnet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getSubnet'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

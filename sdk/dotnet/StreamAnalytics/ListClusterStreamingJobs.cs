@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StreamAnalytics
 {
     public static class ListClusterStreamingJobs
     {
+        /// <summary>
+        /// A list of streaming jobs. Populated by a List operation.
+        /// API Version: 2020-03-01-preview.
+        /// </summary>
         public static Task<ListClusterStreamingJobsResult> InvokeAsync(ListClusterStreamingJobsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListClusterStreamingJobsResult>("azure-nextgen:streamanalytics:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsArgs(), options.WithVersion());
     }

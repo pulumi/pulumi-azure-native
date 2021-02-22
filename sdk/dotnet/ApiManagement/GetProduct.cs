@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetProduct
     {
+        /// <summary>
+        /// Product details.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-nextgen:apimanagement:getProduct", args ?? new GetProductArgs(), options.WithVersion());
     }

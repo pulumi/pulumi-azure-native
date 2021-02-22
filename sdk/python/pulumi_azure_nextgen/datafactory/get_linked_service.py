@@ -96,7 +96,9 @@ def get_linked_service(factory_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Linked service resource type.
+    API Version: 2018-06-01.
+
 
     :param str factory_name: The factory name.
     :param str linked_service_name: The linked service name.

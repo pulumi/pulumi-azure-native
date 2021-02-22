@@ -14,6 +14,8 @@ __all__ = [
     'get_api_version_set',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiVersionSet'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApiVersionSetResult:
     """
@@ -131,12 +133,15 @@ def get_api_version_set(resource_group_name: Optional[str] = None,
                         version_set_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiVersionSetResult:
     """
-    Use this data source to access information about an existing resource.
+    Api Version Set Contract details.
+    Latest API Version: 2019-12-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     :param str version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
     """
+    pulumi.log.warn("get_api_version_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiVersionSet'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

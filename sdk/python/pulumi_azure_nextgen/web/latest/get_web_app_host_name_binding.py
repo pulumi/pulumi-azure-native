@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_host_name_binding',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHostNameBinding'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppHostNameBindingResult:
     """
@@ -204,12 +206,15 @@ def get_web_app_host_name_binding(host_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHostNameBindingResult:
     """
-    Use this data source to access information about an existing resource.
+    A hostname binding object.
+    Latest API Version: 2020-10-01.
+
 
     :param str host_name: Hostname in the hostname binding.
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_web_app_host_name_binding is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHostNameBinding'.")
     __args__ = dict()
     __args__['hostName'] = host_name
     __args__['name'] = name

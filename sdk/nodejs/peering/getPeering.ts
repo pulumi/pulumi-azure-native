@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+ * API Version: 2020-10-01.
+ */
 export function getPeering(args: GetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringResult> {
     if (!opts) {
         opts = {}

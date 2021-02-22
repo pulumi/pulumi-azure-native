@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
 {
     public static class ListAccountChannelTypes
     {
+        /// <summary>
+        /// List of the EngagementFabric channel descriptions
+        /// </summary>
         public static Task<ListAccountChannelTypesResult> InvokeAsync(ListAccountChannelTypesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountChannelTypesResult>("azure-nextgen:engagementfabric/v20180901preview:listAccountChannelTypes", args ?? new ListAccountChannelTypesArgs(), options.WithVersion());
     }

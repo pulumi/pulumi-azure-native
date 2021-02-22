@@ -14,6 +14,8 @@ __all__ = [
     'get_firewall_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getFirewallRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFirewallRuleResult:
     """
@@ -95,12 +97,15 @@ def get_firewall_rule(cache_name: Optional[str] = None,
                       rule_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+    Latest API Version: 2020-06-01.
+
 
     :param str cache_name: The name of the Redis cache.
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the firewall rule.
     """
+    pulumi.log.warn("get_firewall_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getFirewallRule'.")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name

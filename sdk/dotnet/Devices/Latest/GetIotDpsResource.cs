@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Devices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotDpsResource'.")]
     public static class GetIotDpsResource
     {
+        /// <summary>
+        /// The description of the provisioning service.
+        /// Latest API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetIotDpsResourceResult> InvokeAsync(GetIotDpsResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourceResult>("azure-nextgen:devices/latest:getIotDpsResource", args ?? new GetIotDpsResourceArgs(), options.WithVersion());
     }

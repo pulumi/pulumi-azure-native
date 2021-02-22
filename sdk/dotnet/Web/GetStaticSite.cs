@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class GetStaticSite
     {
+        /// <summary>
+        /// Static Site ARM resource.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetStaticSiteResult> InvokeAsync(GetStaticSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteResult>("azure-nextgen:web:getStaticSite", args ?? new GetStaticSiteArgs(), options.WithVersion());
     }

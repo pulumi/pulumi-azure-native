@@ -155,7 +155,8 @@ def get_management_group_diagnostic_setting(management_group_id: Optional[str] =
                                             name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupDiagnosticSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    The management group diagnostic setting resource.
+
 
     :param str management_group_id: The management group id.
     :param str name: The name of the diagnostic setting.

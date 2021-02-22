@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20190401
 {
     public static class GetApplicationGatewayBackendHealthOnDemand
     {
+        /// <summary>
+        /// Result of on demand test probe.
+        /// </summary>
         public static Task<GetApplicationGatewayBackendHealthOnDemandResult> InvokeAsync(GetApplicationGatewayBackendHealthOnDemandArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayBackendHealthOnDemandResult>("azure-nextgen:network/v20190401:getApplicationGatewayBackendHealthOnDemand", args ?? new GetApplicationGatewayBackendHealthOnDemandArgs(), options.WithVersion());
     }

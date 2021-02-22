@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20200101
 {
     public static class GetDataConnector
     {
+        /// <summary>
+        /// Data connector.
+        /// </summary>
         public static Task<GetDataConnectorResult> InvokeAsync(GetDataConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectorResult>("azure-nextgen:securityinsights/v20200101:getDataConnector", args ?? new GetDataConnectorArgs(), options.WithVersion());
     }

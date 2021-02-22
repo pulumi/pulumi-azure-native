@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Automation.V20180630
 {
     public static class GetPython2Package
     {
+        /// <summary>
+        /// Definition of the module type.
+        /// </summary>
         public static Task<GetPython2PackageResult> InvokeAsync(GetPython2PackageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPython2PackageResult>("azure-nextgen:automation/v20180630:getPython2Package", args ?? new GetPython2PackageArgs(), options.WithVersion());
     }

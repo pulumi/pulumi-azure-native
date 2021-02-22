@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
 {
     public static class GetLogAnalyticExportRequestRateByInterval
     {
+        /// <summary>
+        /// LogAnalytics operation status response
+        /// </summary>
         public static Task<GetLogAnalyticExportRequestRateByIntervalResult> InvokeAsync(GetLogAnalyticExportRequestRateByIntervalArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportRequestRateByIntervalResult>("azure-nextgen:compute/v20171201:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalArgs(), options.WithVersion());
     }

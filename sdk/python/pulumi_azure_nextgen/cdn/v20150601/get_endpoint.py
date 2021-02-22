@@ -228,7 +228,8 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
+
 
     :param str endpoint_name: Name of the endpoint within the CDN profile.
     :param str profile_name: Name of the CDN profile within the resource group.

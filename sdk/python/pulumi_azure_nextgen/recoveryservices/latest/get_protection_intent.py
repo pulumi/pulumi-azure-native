@@ -15,6 +15,8 @@ __all__ = [
     'get_protection_intent',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionIntent'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProtectionIntentResult:
     """
@@ -121,13 +123,16 @@ def get_protection_intent(fabric_name: Optional[str] = None,
                           vault_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionIntentResult:
     """
-    Use this data source to access information about an existing resource.
+    Base class for backup ProtectionIntent.
+    Latest API Version: 2017-07-01.
+
 
     :param str fabric_name: Fabric name associated with the backed up item.
     :param str intent_object_name: Backed up item name whose details are to be fetched.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("get_protection_intent is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionIntent'.")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['intentObjectName'] = intent_object_name

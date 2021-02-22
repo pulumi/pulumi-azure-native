@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.BotService.V20180712
 {
     public static class ListBotConnectionWithSecrets
     {
+        /// <summary>
+        /// Bot channel resource definition
+        /// </summary>
         public static Task<ListBotConnectionWithSecretsResult> InvokeAsync(ListBotConnectionWithSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBotConnectionWithSecretsResult>("azure-nextgen:botservice/v20180712:listBotConnectionWithSecrets", args ?? new ListBotConnectionWithSecretsArgs(), options.WithVersion());
     }

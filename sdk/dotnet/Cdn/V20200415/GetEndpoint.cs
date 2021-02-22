@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200415
 {
     public static class GetEndpoint
     {
+        /// <summary>
+        /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
+        /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-nextgen:cdn/v20200415:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
     }

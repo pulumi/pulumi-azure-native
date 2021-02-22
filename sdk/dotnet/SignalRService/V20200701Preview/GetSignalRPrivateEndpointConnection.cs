@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
 {
     public static class GetSignalRPrivateEndpointConnection
     {
+        /// <summary>
+        /// A private endpoint connection to SignalR resource
+        /// </summary>
         public static Task<GetSignalRPrivateEndpointConnectionResult> InvokeAsync(GetSignalRPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRPrivateEndpointConnectionResult>("azure-nextgen:signalrservice/v20200701preview:getSignalRPrivateEndpointConnection", args ?? new GetSignalRPrivateEndpointConnectionArgs(), options.WithVersion());
     }

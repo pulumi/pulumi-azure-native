@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_public_certificate_slot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPublicCertificateSlot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppPublicCertificateSlotResult:
     """
@@ -133,13 +135,16 @@ def get_web_app_public_certificate_slot(name: Optional[str] = None,
                                         slot: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPublicCertificateSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Public certificate object
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str public_certificate_name: Public certificate name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
     """
+    pulumi.log.warn("get_web_app_public_certificate_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPublicCertificateSlot'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['publicCertificateName'] = public_certificate_name

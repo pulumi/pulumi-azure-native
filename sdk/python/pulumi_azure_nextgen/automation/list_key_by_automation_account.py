@@ -44,7 +44,8 @@ def list_key_by_automation_account(automation_account_name: Optional[str] = None
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKeyByAutomationAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    API Version: 2019-06-01.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.

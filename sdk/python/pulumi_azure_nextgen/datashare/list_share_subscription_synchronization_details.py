@@ -64,7 +64,9 @@ def list_share_subscription_synchronization_details(account_name: Optional[str] 
                                                     synchronization_id: Optional[str] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSubscriptionSynchronizationDetailsResult:
     """
-    Use this data source to access information about an existing resource.
+    details of synchronization
+    API Version: 2020-09-01.
+
 
     :param str account_name: The name of the share account.
     :param str filter: Filters the results using OData syntax.

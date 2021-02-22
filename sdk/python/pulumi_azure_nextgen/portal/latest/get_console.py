@@ -15,6 +15,8 @@ __all__ = [
     'get_console',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getConsole'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConsoleResult:
     """
@@ -46,10 +48,13 @@ class AwaitableGetConsoleResult(GetConsoleResult):
 def get_console(console_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsoleResult:
     """
-    Use this data source to access information about an existing resource.
+    Cloud shell console
+    Latest API Version: 2018-10-01.
+
 
     :param str console_name: The name of the console
     """
+    pulumi.log.warn("get_console is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getConsole'.")
     __args__ = dict()
     __args__['consoleName'] = console_name
     if opts is None:

@@ -15,6 +15,8 @@ __all__ = [
     'get_hub_route_table',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getHubRouteTable'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHubRouteTableResult:
     """
@@ -144,12 +146,15 @@ def get_hub_route_table(resource_group_name: Optional[str] = None,
                         virtual_hub_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHubRouteTableResult:
     """
-    Use this data source to access information about an existing resource.
+    RouteTable resource in a virtual hub.
+    Latest API Version: 2020-08-01.
+
 
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str route_table_name: The name of the RouteTable.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
+    pulumi.log.warn("get_hub_route_table is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getHubRouteTable'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeTableName'] = route_table_name

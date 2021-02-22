@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 {
     public static class GetExpressRoutePort
     {
+        /// <summary>
+        /// ExpressRoutePort resource definition.
+        /// </summary>
         public static Task<GetExpressRoutePortResult> InvokeAsync(GetExpressRoutePortArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRoutePortResult>("azure-nextgen:network/v20191201:getExpressRoutePort", args ?? new GetExpressRoutePortArgs(), options.WithVersion());
     }

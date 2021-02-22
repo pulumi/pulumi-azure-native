@@ -131,7 +131,9 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDisasterRecoveryConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    Single item in List or Get Alias(Disaster Recovery configuration) operation
+    API Version: 2017-04-01.
+
 
     :param str alias: The Disaster Recovery configuration name
     :param str namespace_name: The Namespace name

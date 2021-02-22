@@ -240,7 +240,9 @@ def get_bookmark(bookmark_id: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBookmarkResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a bookmark in Azure Security Insights.
+    API Version: 2020-01-01.
+
 
     :param str bookmark_id: Bookmark ID
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

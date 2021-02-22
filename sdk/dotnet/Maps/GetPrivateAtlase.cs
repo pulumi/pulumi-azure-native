@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Maps
 {
     public static class GetPrivateAtlase
     {
+        /// <summary>
+        /// An Azure resource which represents which will provision the ability to create private location data.
+        /// API Version: 2020-02-01-preview.
+        /// </summary>
         public static Task<GetPrivateAtlaseResult> InvokeAsync(GetPrivateAtlaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateAtlaseResult>("azure-nextgen:maps:getPrivateAtlase", args ?? new GetPrivateAtlaseArgs(), options.WithVersion());
     }

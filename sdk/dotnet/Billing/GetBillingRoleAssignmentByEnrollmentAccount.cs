@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Billing
 {
     public static class GetBillingRoleAssignmentByEnrollmentAccount
     {
+        /// <summary>
+        /// The role assignment
+        /// API Version: 2019-10-01-preview.
+        /// </summary>
         public static Task<GetBillingRoleAssignmentByEnrollmentAccountResult> InvokeAsync(GetBillingRoleAssignmentByEnrollmentAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByEnrollmentAccountResult>("azure-nextgen:billing:getBillingRoleAssignmentByEnrollmentAccount", args ?? new GetBillingRoleAssignmentByEnrollmentAccountArgs(), options.WithVersion());
     }

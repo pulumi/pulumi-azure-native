@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Automation.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getVariable'.")]
     public static class GetVariable
     {
+        /// <summary>
+        /// Definition of the variable.
+        /// Latest API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetVariableResult> InvokeAsync(GetVariableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-nextgen:automation/latest:getVariable", args ?? new GetVariableArgs(), options.WithVersion());
     }

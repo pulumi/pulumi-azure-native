@@ -204,7 +204,8 @@ def get_flow_log(flow_log_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlowLogResult:
     """
-    Use this data source to access information about an existing resource.
+    A flow log resource.
+
 
     :param str flow_log_name: The name of the flow log resource.
     :param str network_watcher_name: The name of the network watcher.

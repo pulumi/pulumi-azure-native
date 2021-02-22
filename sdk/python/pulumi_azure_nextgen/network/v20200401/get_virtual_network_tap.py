@@ -179,7 +179,8 @@ def get_virtual_network_tap(resource_group_name: Optional[str] = None,
                             tap_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkTapResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual Network Tap resource.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str tap_name: The name of virtual network tap.

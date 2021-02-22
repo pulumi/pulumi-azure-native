@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getSavedSearch'.")]
     public static class GetSavedSearch
     {
+        /// <summary>
+        /// Value object for saved search results.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetSavedSearchResult> InvokeAsync(GetSavedSearchArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSavedSearchResult>("azure-nextgen:operationalinsights/latest:getSavedSearch", args ?? new GetSavedSearchArgs(), options.WithVersion());
     }

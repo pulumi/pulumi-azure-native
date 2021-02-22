@@ -14,6 +14,8 @@ __all__ = [
     'list_integration_runtime_auth_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:listIntegrationRuntimeAuthKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListIntegrationRuntimeAuthKeysResult:
     """
@@ -59,12 +61,15 @@ def list_integration_runtime_auth_keys(factory_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationRuntimeAuthKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The integration runtime authentication keys.
+    Latest API Version: 2018-06-01.
+
 
     :param str factory_name: The factory name.
     :param str integration_runtime_name: The integration runtime name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("list_integration_runtime_auth_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:listIntegrationRuntimeAuthKeys'.")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['integrationRuntimeName'] = integration_runtime_name

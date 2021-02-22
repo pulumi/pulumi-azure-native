@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Scheduler
 {
     public static class GetJobCollection
     {
+        /// <summary>
+        /// 
+        /// API Version: 2016-03-01.
+        /// </summary>
         public static Task<GetJobCollectionResult> InvokeAsync(GetJobCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azure-nextgen:scheduler:getJobCollection", args ?? new GetJobCollectionArgs(), options.WithVersion());
     }

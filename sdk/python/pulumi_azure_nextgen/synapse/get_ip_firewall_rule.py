@@ -107,7 +107,9 @@ def get_ip_firewall_rule(resource_group_name: Optional[str] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpFirewallRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    IP firewall rule
+    API Version: 2020-12-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The IP firewall rule name

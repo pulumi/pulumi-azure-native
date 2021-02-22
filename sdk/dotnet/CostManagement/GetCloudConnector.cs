@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CostManagement
 {
     public static class GetCloudConnector
     {
+        /// <summary>
+        /// The Connector model definition
+        /// API Version: 2019-03-01-preview.
+        /// </summary>
         public static Task<GetCloudConnectorResult> InvokeAsync(GetCloudConnectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudConnectorResult>("azure-nextgen:costmanagement:getCloudConnector", args ?? new GetCloudConnectorArgs(), options.WithVersion());
     }

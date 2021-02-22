@@ -131,7 +131,9 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
                                    virtual_hub_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubBgpConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual Appliance Site resource.
+    API Version: 2020-08-01.
+
 
     :param str connection_name: The name of the connection.
     :param str resource_group_name: The resource group name of the VirtualHub.

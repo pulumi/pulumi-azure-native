@@ -169,7 +169,9 @@ def get_backup(account_name: Optional[str] = None,
                volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupResult:
     """
-    Use this data source to access information about an existing resource.
+    Backup of a Volume
+    API Version: 2020-11-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str backup_name: The name of the backup

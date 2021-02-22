@@ -15,6 +15,8 @@ __all__ = [
     'get_management_group_subscription',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroupSubscription'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagementGroupSubscriptionResult:
     """
@@ -119,11 +121,14 @@ def get_management_group_subscription(group_id: Optional[str] = None,
                                       subscription_id: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    The details of subscription under management group.
+    Latest API Version: 2020-05-01.
+
 
     :param str group_id: Management Group ID.
     :param str subscription_id: Subscription ID.
     """
+    pulumi.log.warn("get_management_group_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroupSubscription'.")
     __args__ = dict()
     __args__['groupId'] = group_id
     __args__['subscriptionId'] = subscription_id

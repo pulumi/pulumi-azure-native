@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Billing.V20191001Preview
 {
     public static class GetBillingRoleAssignmentByDepartment
     {
+        /// <summary>
+        /// The role assignment
+        /// </summary>
         public static Task<GetBillingRoleAssignmentByDepartmentResult> InvokeAsync(GetBillingRoleAssignmentByDepartmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByDepartmentResult>("azure-nextgen:billing/v20191001preview:getBillingRoleAssignmentByDepartment", args ?? new GetBillingRoleAssignmentByDepartmentArgs(), options.WithVersion());
     }

@@ -95,7 +95,9 @@ def get_database(database_name: Optional[str] = None,
                  server_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a Database.
+    API Version: 2017-12-01.
+
 
     :param str database_name: The name of the database.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The KPI resource format.
+// API Version: 2017-04-26.
 func LookupKpi(ctx *pulumi.Context, args *LookupKpiArgs, opts ...pulumi.InvokeOption) (*LookupKpiResult, error) {
 	var rv LookupKpiResult
 	err := ctx.Invoke("azure-nextgen:customerinsights:getKpi", args, &rv, opts...)

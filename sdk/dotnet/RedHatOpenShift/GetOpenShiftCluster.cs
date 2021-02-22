@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift
 {
     public static class GetOpenShiftCluster
     {
+        /// <summary>
+        /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+        /// API Version: 2020-04-30.
+        /// </summary>
         public static Task<GetOpenShiftClusterResult> InvokeAsync(GetOpenShiftClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftClusterResult>("azure-nextgen:redhatopenshift:getOpenShiftCluster", args ?? new GetOpenShiftClusterArgs(), options.WithVersion());
     }

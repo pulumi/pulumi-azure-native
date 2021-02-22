@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift
 {
     public static class ListOpenShiftClusterCredentials
     {
+        /// <summary>
+        /// OpenShiftClusterCredentials represents an OpenShift cluster's credentials
+        /// API Version: 2020-04-30.
+        /// </summary>
         public static Task<ListOpenShiftClusterCredentialsResult> InvokeAsync(ListOpenShiftClusterCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterCredentialsResult>("azure-nextgen:redhatopenshift:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsArgs(), options.WithVersion());
     }

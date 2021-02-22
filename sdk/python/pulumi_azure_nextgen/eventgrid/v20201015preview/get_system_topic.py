@@ -167,7 +167,8 @@ def get_system_topic(resource_group_name: Optional[str] = None,
                      system_topic_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicResult:
     """
-    Use this data source to access information about an existing resource.
+    EventGrid System Topic.
+
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str system_topic_name: Name of the system topic.

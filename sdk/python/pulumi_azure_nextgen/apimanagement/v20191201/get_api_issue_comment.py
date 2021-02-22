@@ -109,7 +109,8 @@ def get_api_issue_comment(api_id: Optional[str] = None,
                           service_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiIssueCommentResult:
     """
-    Use this data source to access information about an existing resource.
+    Issue Comment Contract details.
+
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
     :param str comment_id: Comment identifier within an Issue. Must be unique in the current Issue.

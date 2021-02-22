@@ -14,6 +14,8 @@ __all__ = [
     'get_image_upload_url_for_entity_type',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getImageUploadUrlForEntityType'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetImageUploadUrlForEntityTypeResult:
     """
@@ -73,7 +75,9 @@ def get_image_upload_url_for_entity_type(entity_type: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageUploadUrlForEntityTypeResult:
     """
-    Use this data source to access information about an existing resource.
+    The image definition.
+    Latest API Version: 2017-04-26.
+
 
     :param str entity_type: Type of entity. Can be Profile or Interaction.
     :param str entity_type_name: Name of the entity type.
@@ -81,6 +85,7 @@ def get_image_upload_url_for_entity_type(entity_type: Optional[str] = None,
     :param str relative_path: Relative path of the image.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_image_upload_url_for_entity_type is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getImageUploadUrlForEntityType'.")
     __args__ = dict()
     __args__['entityType'] = entity_type
     __args__['entityTypeName'] = entity_type_name

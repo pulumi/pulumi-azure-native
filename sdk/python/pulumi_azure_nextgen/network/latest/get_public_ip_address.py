@@ -15,6 +15,8 @@ __all__ = [
     'get_public_ip_address',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPublicIPAddress'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPublicIPAddressResult:
     """
@@ -276,12 +278,15 @@ def get_public_ip_address(expand: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPAddressResult:
     """
-    Use this data source to access information about an existing resource.
+    Public IP address resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str expand: Expands referenced resources.
     :param str public_ip_address_name: The name of the public IP address.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_public_ip_address is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPublicIPAddress'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['publicIpAddressName'] = public_ip_address_name

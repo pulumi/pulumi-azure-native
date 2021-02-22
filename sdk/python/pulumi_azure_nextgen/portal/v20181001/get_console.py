@@ -46,7 +46,8 @@ class AwaitableGetConsoleResult(GetConsoleResult):
 def get_console(console_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsoleResult:
     """
-    Use this data source to access information about an existing resource.
+    Cloud shell console
+
 
     :param str console_name: The name of the console
     """

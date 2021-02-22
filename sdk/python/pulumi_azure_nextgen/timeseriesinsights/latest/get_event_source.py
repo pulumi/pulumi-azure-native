@@ -14,6 +14,8 @@ __all__ = [
     'get_event_source',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getEventSource'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEventSourceResult:
     """
@@ -107,12 +109,15 @@ def get_event_source(environment_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSourceResult:
     """
-    Use this data source to access information about an existing resource.
+    An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+    Latest API Version: 2020-05-15.
+
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param str event_source_name: The name of the Time Series Insights event source associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("get_event_source is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getEventSource'.")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['eventSourceName'] = event_source_name

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
 {
     public static class GetCustomResourceProvider
     {
+        /// <summary>
+        /// A manifest file that defines the custom resource provider resources.
+        /// </summary>
         public static Task<GetCustomResourceProviderResult> InvokeAsync(GetCustomResourceProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomResourceProviderResult>("azure-nextgen:customproviders/v20180901preview:getCustomResourceProvider", args ?? new GetCustomResourceProviderArgs(), options.WithVersion());
     }

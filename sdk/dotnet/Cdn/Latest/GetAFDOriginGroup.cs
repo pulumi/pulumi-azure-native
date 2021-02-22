@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Cdn.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDOriginGroup'.")]
     public static class GetAFDOriginGroup
     {
+        /// <summary>
+        /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetAFDOriginGroupResult> InvokeAsync(GetAFDOriginGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginGroupResult>("azure-nextgen:cdn/latest:getAFDOriginGroup", args ?? new GetAFDOriginGroupArgs(), options.WithVersion());
     }

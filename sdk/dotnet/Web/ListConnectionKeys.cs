@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class ListConnectionKeys
     {
+        /// <summary>
+        /// 
+        /// API Version: 2015-08-01-preview.
+        /// </summary>
         public static Task<ListConnectionKeysResult> InvokeAsync(ListConnectionKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionKeysResult>("azure-nextgen:web:listConnectionKeys", args ?? new ListConnectionKeysArgs(), options.WithVersion());
     }

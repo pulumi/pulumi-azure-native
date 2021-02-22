@@ -159,7 +159,9 @@ def get_web_app_relay_service_connection(entity_name: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppRelayServiceConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Hybrid Connection for an App Service app.
+    API Version: 2020-10-01.
+
 
     :param str entity_name: Name of the hybrid connection.
     :param str name: Name of the app.

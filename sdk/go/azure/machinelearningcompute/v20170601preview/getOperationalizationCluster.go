@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Instance of an Azure ML Operationalization Cluster resource.
 func LookupOperationalizationCluster(ctx *pulumi.Context, args *LookupOperationalizationClusterArgs, opts ...pulumi.InvokeOption) (*LookupOperationalizationClusterResult, error) {
 	var rv LookupOperationalizationClusterResult
 	err := ctx.Invoke("azure-nextgen:machinelearningcompute/v20170601preview:getOperationalizationCluster", args, &rv, opts...)

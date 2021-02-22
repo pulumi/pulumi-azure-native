@@ -15,6 +15,8 @@ __all__ = [
     'get_snapshot_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshotPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSnapshotPolicyResult:
     """
@@ -168,12 +170,15 @@ def get_snapshot_policy(account_name: Optional[str] = None,
                         snapshot_policy_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Snapshot policy information
+    Latest API Version: 2020-11-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str resource_group_name: The name of the resource group.
     :param str snapshot_policy_name: The name of the snapshot policy target
     """
+    pulumi.log.warn("get_snapshot_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshotPolicy'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

@@ -132,7 +132,8 @@ def get_availability_group_listener(availability_group_listener_name: Optional[s
                                     sql_virtual_machine_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityGroupListenerResult:
     """
-    Use this data source to access information about an existing resource.
+    A SQL Server availability group listener.
+
 
     :param str availability_group_listener_name: Name of the availability group listener.
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

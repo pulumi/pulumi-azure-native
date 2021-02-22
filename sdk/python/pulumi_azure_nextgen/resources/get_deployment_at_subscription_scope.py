@@ -106,7 +106,9 @@ class AwaitableGetDeploymentAtSubscriptionScopeResult(GetDeploymentAtSubscriptio
 def get_deployment_at_subscription_scope(deployment_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtSubscriptionScopeResult:
     """
-    Use this data source to access information about an existing resource.
+    Deployment information.
+    API Version: 2020-10-01.
+
 
     :param str deployment_name: The name of the deployment.
     """

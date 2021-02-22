@@ -120,7 +120,9 @@ def list_disaster_recovery_config_keys(alias: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDisasterRecoveryConfigKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Namespace/EventHub Connection String
+    API Version: 2017-04-01.
+
 
     :param str alias: The Disaster Recovery configuration name
     :param str authorization_rule_name: The authorization rule name.

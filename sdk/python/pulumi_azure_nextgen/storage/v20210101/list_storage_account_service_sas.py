@@ -65,7 +65,8 @@ def list_storage_account_service_sas(account_name: Optional[str] = None,
                                      shared_access_start_time: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStorageAccountServiceSASResult:
     """
-    Use this data source to access information about an existing resource.
+    The List service SAS credentials operation response.
+
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str cache_control: The response header override for cache control.

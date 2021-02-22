@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights
 {
     public static class GetRelationshipLink
     {
+        /// <summary>
+        /// The relationship link resource format.
+        /// API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetRelationshipLinkResult> InvokeAsync(GetRelationshipLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipLinkResult>("azure-nextgen:customerinsights:getRelationshipLink", args ?? new GetRelationshipLinkArgs(), options.WithVersion());
     }

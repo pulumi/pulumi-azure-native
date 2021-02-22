@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A provider instance associated with a SAP monitor.
+// API Version: 2020-02-07-preview.
 func LookupProviderInstance(ctx *pulumi.Context, args *LookupProviderInstanceArgs, opts ...pulumi.InvokeOption) (*LookupProviderInstanceResult, error) {
 	var rv LookupProviderInstanceResult
 	err := ctx.Invoke("azure-nextgen:hanaonazure:getProviderInstance", args, &rv, opts...)

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.V20200625
 {
     public static class GetGuestConfigurationHCRPAssignment
     {
+        /// <summary>
+        /// Guest configuration assignment is an association between a machine and guest configuration.
+        /// </summary>
         public static Task<GetGuestConfigurationHCRPAssignmentResult> InvokeAsync(GetGuestConfigurationHCRPAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationHCRPAssignmentResult>("azure-nextgen:guestconfiguration/v20200625:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentArgs(), options.WithVersion());
     }

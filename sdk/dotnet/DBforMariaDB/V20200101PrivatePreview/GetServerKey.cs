@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20200101PrivatePreview
 {
     public static class GetServerKey
     {
+        /// <summary>
+        /// A MariaDB Server key.
+        /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-nextgen:dbformariadb/v20200101privatepreview:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
     }

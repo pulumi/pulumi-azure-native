@@ -14,6 +14,8 @@ __all__ = [
     'get_access_control_record',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getAccessControlRecord'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAccessControlRecordResult:
     """
@@ -107,12 +109,15 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessControlRecordResult:
     """
-    Use this data source to access information about an existing resource.
+    The access control record.
+    Latest API Version: 2017-06-01.
+
 
     :param str access_control_record_name: Name of access control record to be fetched.
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
+    pulumi.log.warn("get_access_control_record is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getAccessControlRecord'.")
     __args__ = dict()
     __args__['accessControlRecordName'] = access_control_record_name
     __args__['managerName'] = manager_name

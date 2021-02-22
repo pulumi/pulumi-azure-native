@@ -60,7 +60,8 @@ def list_static_site_users(authprovider: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteUsersResult:
     """
-    Use this data source to access information about an existing resource.
+    Collection of static site custom users.
+
 
     :param str authprovider: The auth provider for the users.
     :param str name: Name of the static site.

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSlot'.")]
     public static class GetWebAppSlot
     {
+        /// <summary>
+        /// A web app, a mobile app backend, or an API app.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppSlotResult> InvokeAsync(GetWebAppSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSlotResult>("azure-nextgen:web/latest:getWebAppSlot", args ?? new GetWebAppSlotArgs(), options.WithVersion());
     }

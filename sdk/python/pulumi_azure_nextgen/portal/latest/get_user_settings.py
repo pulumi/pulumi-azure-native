@@ -15,6 +15,8 @@ __all__ = [
     'get_user_settings',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getUserSettings'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetUserSettingsResult:
     """
@@ -46,10 +48,13 @@ class AwaitableGetUserSettingsResult(GetUserSettingsResult):
 def get_user_settings(user_settings_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSettingsResult:
     """
-    Use this data source to access information about an existing resource.
+    Response to get user settings
+    Latest API Version: 2018-10-01.
+
 
     :param str user_settings_name: The name of the user settings
     """
+    pulumi.log.warn("get_user_settings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getUserSettings'.")
     __args__ = dict()
     __args__['userSettingsName'] = user_settings_name
     if opts is None:

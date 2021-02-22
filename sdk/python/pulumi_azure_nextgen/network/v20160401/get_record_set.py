@@ -229,7 +229,8 @@ def get_record_set(record_type: Optional[str] = None,
                    zone_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRecordSetResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a DNS record set (a collection of DNS records with the same name and type).
+
 
     :param str record_type: The type of DNS record in this record set.
     :param str relative_record_set_name: The name of the record set, relative to the name of the zone.

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Kusto.V20200215
 {
     public static class ListClusterLanguageExtensions
     {
+        /// <summary>
+        /// The list of language extension objects.
+        /// </summary>
         public static Task<ListClusterLanguageExtensionsResult> InvokeAsync(ListClusterLanguageExtensionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListClusterLanguageExtensionsResult>("azure-nextgen:kusto/v20200215:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsArgs(), options.WithVersion());
     }

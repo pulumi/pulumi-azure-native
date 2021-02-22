@@ -14,6 +14,8 @@ __all__ = [
     'list_notebook_workspace_connection_info',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:listNotebookWorkspaceConnectionInfo'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListNotebookWorkspaceConnectionInfoResult:
     """
@@ -59,12 +61,15 @@ def list_notebook_workspace_connection_info(account_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNotebookWorkspaceConnectionInfoResult:
     """
-    Use this data source to access information about an existing resource.
+    The connection info for the given notebook workspace
+    Latest API Version: 2021-01-15.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str notebook_workspace_name: The name of the notebook workspace resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("list_notebook_workspace_connection_info is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:listNotebookWorkspaceConnectionInfo'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['notebookWorkspaceName'] = notebook_workspace_name

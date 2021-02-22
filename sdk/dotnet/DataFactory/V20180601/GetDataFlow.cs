@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
 {
     public static class GetDataFlow
     {
+        /// <summary>
+        /// Data flow resource type.
+        /// </summary>
         public static Task<GetDataFlowResult> InvokeAsync(GetDataFlowArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataFlowResult>("azure-nextgen:datafactory/v20180601:getDataFlow", args ?? new GetDataFlowArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EventGrid
 {
     public static class GetEventSubscription
     {
+        /// <summary>
+        /// Event Subscription
+        /// API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetEventSubscriptionResult> InvokeAsync(GetEventSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("azure-nextgen:eventgrid:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithVersion());
     }

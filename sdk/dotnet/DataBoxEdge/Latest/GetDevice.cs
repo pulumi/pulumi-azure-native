@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getDevice'.")]
     public static class GetDevice
     {
+        /// <summary>
+        /// The Data Box Edge/Gateway device.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-nextgen:databoxedge/latest:getDevice", args ?? new GetDeviceArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20180601Preview
 {
     public static class GetRegistrationAssignment
     {
+        /// <summary>
+        /// Registration assignment.
+        /// </summary>
         public static Task<GetRegistrationAssignmentResult> InvokeAsync(GetRegistrationAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-nextgen:managedservices/v20180601preview:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithVersion());
     }

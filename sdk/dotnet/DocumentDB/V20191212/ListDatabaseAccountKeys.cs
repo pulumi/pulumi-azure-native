@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
 {
     public static class ListDatabaseAccountKeys
     {
+        /// <summary>
+        /// The access keys for the given database account.
+        /// </summary>
         public static Task<ListDatabaseAccountKeysResult> InvokeAsync(ListDatabaseAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountKeysResult>("azure-nextgen:documentdb/v20191212:listDatabaseAccountKeys", args ?? new ListDatabaseAccountKeysArgs(), options.WithVersion());
     }

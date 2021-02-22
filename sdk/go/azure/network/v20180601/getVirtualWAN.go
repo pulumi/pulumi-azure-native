@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// VirtualWAN Resource.
 func LookupVirtualWAN(ctx *pulumi.Context, args *LookupVirtualWANArgs, opts ...pulumi.InvokeOption) (*LookupVirtualWANResult, error) {
 	var rv LookupVirtualWANResult
 	err := ctx.Invoke("azure-nextgen:network/v20180601:getVirtualWAN", args, &rv, opts...)

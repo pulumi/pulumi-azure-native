@@ -205,7 +205,9 @@ def get_job(account_name: Optional[str] = None,
             transform_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Use this data source to access information about an existing resource.
+    A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+    API Version: 2020-05-01.
+
 
     :param str account_name: The Media Services account name.
     :param str job_name: The Job name.

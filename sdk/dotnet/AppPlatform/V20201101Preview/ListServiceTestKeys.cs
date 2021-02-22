@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
 {
     public static class ListServiceTestKeys
     {
+        /// <summary>
+        /// Test keys payload
+        /// </summary>
         public static Task<ListServiceTestKeysResult> InvokeAsync(ListServiceTestKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azure-nextgen:appplatform/v20201101preview:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithVersion());
     }

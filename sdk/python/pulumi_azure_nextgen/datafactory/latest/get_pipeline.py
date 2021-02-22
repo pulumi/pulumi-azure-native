@@ -15,6 +15,8 @@ __all__ = [
     'get_pipeline',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getPipeline'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPipelineResult:
     """
@@ -192,12 +194,15 @@ def get_pipeline(factory_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
-    Use this data source to access information about an existing resource.
+    Pipeline resource type.
+    Latest API Version: 2018-06-01.
+
 
     :param str factory_name: The factory name.
     :param str pipeline_name: The pipeline name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_pipeline is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getPipeline'.")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['pipelineName'] = pipeline_name

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getTableResourceTable'.")]
     public static class GetTableResourceTable
     {
+        /// <summary>
+        /// An Azure Cosmos DB Table.
+        /// Latest API Version: 2021-01-15.
+        /// </summary>
         public static Task<GetTableResourceTableResult> InvokeAsync(GetTableResourceTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-nextgen:documentdb/latest:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithVersion());
     }

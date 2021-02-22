@@ -130,7 +130,8 @@ def get_site_slot_config_names(name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteSlotConfigNamesResult:
     """
-    Use this data source to access information about an existing resource.
+    Slot Config names azure resource
+
 
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group

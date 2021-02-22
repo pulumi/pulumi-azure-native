@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A custom image.
 func LookupCustomImageResource(ctx *pulumi.Context, args *LookupCustomImageResourceArgs, opts ...pulumi.InvokeOption) (*LookupCustomImageResourceResult, error) {
 	var rv LookupCustomImageResourceResult
 	err := ctx.Invoke("azure-nextgen:devtestlab/v20150521preview:getCustomImageResource", args, &rv, opts...)

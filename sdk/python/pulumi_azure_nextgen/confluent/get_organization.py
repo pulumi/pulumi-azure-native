@@ -167,7 +167,9 @@ def get_organization(organization_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
     """
-    Use this data source to access information about an existing resource.
+    Organization resource.
+    API Version: 2020-03-01.
+
 
     :param str organization_name: Organization resource name
     :param str resource_group_name: Resource group name

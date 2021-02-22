@@ -167,7 +167,8 @@ def get_gallery_application(gallery_application_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryApplicationResult:
     """
-    Use this data source to access information about an existing resource.
+    Specifies information about the gallery Application Definition that you want to create or update.
+
 
     :param str gallery_application_name: The name of the gallery Application Definition to be retrieved.
     :param str gallery_name: The name of the Shared Application Gallery from which the Application Definitions are to be retrieved.

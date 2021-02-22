@@ -15,6 +15,8 @@ __all__ = [
     'get_environment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getEnvironment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEnvironmentResult:
     """
@@ -120,12 +122,15 @@ def get_environment(environment_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
-    Use this data source to access information about an existing resource.
+    An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+    Latest API Version: 2020-05-15.
+
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("get_environment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getEnvironment'.")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['expand'] = expand

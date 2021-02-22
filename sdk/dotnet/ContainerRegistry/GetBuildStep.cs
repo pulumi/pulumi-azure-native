@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
 {
     public static class GetBuildStep
     {
+        /// <summary>
+        /// Build step resource properties
+        /// API Version: 2018-02-01-preview.
+        /// </summary>
         public static Task<GetBuildStepResult> InvokeAsync(GetBuildStepArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBuildStepResult>("azure-nextgen:containerregistry:getBuildStep", args ?? new GetBuildStepArgs(), options.WithVersion());
     }

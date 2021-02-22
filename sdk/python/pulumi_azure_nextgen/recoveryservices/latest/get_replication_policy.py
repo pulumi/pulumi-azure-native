@@ -15,6 +15,8 @@ __all__ = [
     'get_replication_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReplicationPolicyResult:
     """
@@ -96,12 +98,15 @@ def get_replication_policy(policy_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Protection profile details.
+    Latest API Version: 2018-07-10.
+
 
     :param str policy_name: Replication policy name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("get_replication_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationPolicy'.")
     __args__ = dict()
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name

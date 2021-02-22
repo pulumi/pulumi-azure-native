@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Search
 {
     public static class ListAdminKey
     {
+        /// <summary>
+        /// Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<ListAdminKeyResult> InvokeAsync(ListAdminKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-nextgen:search:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithVersion());
     }

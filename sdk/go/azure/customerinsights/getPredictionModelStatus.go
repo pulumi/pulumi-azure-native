@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The prediction model status.
+// API Version: 2017-04-26.
 func GetPredictionModelStatus(ctx *pulumi.Context, args *GetPredictionModelStatusArgs, opts ...pulumi.InvokeOption) (*GetPredictionModelStatusResult, error) {
 	var rv GetPredictionModelStatusResult
 	err := ctx.Invoke("azure-nextgen:customerinsights:getPredictionModelStatus", args, &rv, opts...)

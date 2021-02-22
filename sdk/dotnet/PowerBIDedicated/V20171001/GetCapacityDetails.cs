@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.V20171001
 {
     public static class GetCapacityDetails
     {
+        /// <summary>
+        /// Represents an instance of a Dedicated Capacity resource.
+        /// </summary>
         public static Task<GetCapacityDetailsResult> InvokeAsync(GetCapacityDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityDetailsResult>("azure-nextgen:powerbidedicated/v20171001:getCapacityDetails", args ?? new GetCapacityDetailsArgs(), options.WithVersion());
     }

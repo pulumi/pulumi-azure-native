@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
 {
     public static class ListJobOutputFiles
     {
+        /// <summary>
+        /// Values returned by the List operation.
+        /// </summary>
         public static Task<ListJobOutputFilesResult> InvokeAsync(ListJobOutputFilesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListJobOutputFilesResult>("azure-nextgen:batchai/v20170901preview:listJobOutputFiles", args ?? new ListJobOutputFilesArgs(), options.WithVersion());
     }

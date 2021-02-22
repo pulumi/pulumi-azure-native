@@ -192,7 +192,9 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomIPPrefixResult:
     """
-    Use this data source to access information about an existing resource.
+    Custom IP prefix resource.
+    API Version: 2020-08-01.
+
 
     :param str custom_ip_prefix_name: The name of the custom IP prefix.
     :param str expand: Expands referenced resources.

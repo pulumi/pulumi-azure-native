@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_machine_extension',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineExtension'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineExtensionResult:
     """
@@ -205,13 +207,16 @@ def get_virtual_machine_extension(expand: Optional[str] = None,
                                   vm_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineExtensionResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a Virtual Machine Extension.
+    Latest API Version: 2020-12-01.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str resource_group_name: The name of the resource group.
     :param str vm_extension_name: The name of the virtual machine extension.
     :param str vm_name: The name of the virtual machine containing the extension.
     """
+    pulumi.log.warn("get_virtual_machine_extension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineExtension'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

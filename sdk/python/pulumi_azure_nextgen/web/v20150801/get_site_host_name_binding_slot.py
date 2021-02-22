@@ -180,7 +180,8 @@ def get_site_host_name_binding_slot(host_name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteHostNameBindingSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    A host name binding object
+
 
     :param str host_name: Name of host
     :param str name: Name of web app

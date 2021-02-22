@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
 {
     public static class GetMultipleActivationKey
     {
+        /// <summary>
+        /// MAK key details.
+        /// </summary>
         public static Task<GetMultipleActivationKeyResult> InvokeAsync(GetMultipleActivationKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMultipleActivationKeyResult>("azure-nextgen:windowsesu/v20190916preview:getMultipleActivationKey", args ?? new GetMultipleActivationKeyArgs(), options.WithVersion());
     }

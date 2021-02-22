@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents the response of a service unit resource.
 func LookupServiceUnit(ctx *pulumi.Context, args *LookupServiceUnitArgs, opts ...pulumi.InvokeOption) (*LookupServiceUnitResult, error) {
 	var rv LookupServiceUnitResult
 	err := ctx.Invoke("azure-nextgen:deploymentmanager/v20180901preview:getServiceUnit", args, &rv, opts...)

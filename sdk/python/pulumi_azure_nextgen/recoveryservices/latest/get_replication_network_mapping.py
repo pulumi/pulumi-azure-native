@@ -15,6 +15,8 @@ __all__ = [
     'get_replication_network_mapping',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationNetworkMapping'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReplicationNetworkMappingResult:
     """
@@ -98,7 +100,9 @@ def get_replication_network_mapping(fabric_name: Optional[str] = None,
                                     resource_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationNetworkMappingResult:
     """
-    Use this data source to access information about an existing resource.
+    Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+    Latest API Version: 2018-07-10.
+
 
     :param str fabric_name: Primary fabric name.
     :param str network_mapping_name: Network mapping name.
@@ -106,6 +110,7 @@ def get_replication_network_mapping(fabric_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("get_replication_network_mapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationNetworkMapping'.")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['networkMappingName'] = network_mapping_name

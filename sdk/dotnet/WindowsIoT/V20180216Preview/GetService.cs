@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.WindowsIoT.V20180216Preview
 {
     public static class GetService
     {
+        /// <summary>
+        /// The description of the Windows IoT Device Service.
+        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:windowsiot/v20180216preview:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }

@@ -15,6 +15,8 @@ __all__ = [
     'get_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRuleResult:
     """
@@ -154,13 +156,16 @@ def get_rule(profile_name: Optional[str] = None,
              rule_set_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Friendly Rules name mapping to the any Rules or secret related information.
+    Latest API Version: 2020-09-01.
+
 
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rule_name: Name of the delivery rule which is unique within the endpoint.
     :param str rule_set_name: Name of the rule set under the profile.
     """
+    pulumi.log.warn("get_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRule'.")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name

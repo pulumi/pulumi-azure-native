@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 func LookupSharedPrivateLinkResource(ctx *pulumi.Context, args *LookupSharedPrivateLinkResourceArgs, opts ...pulumi.InvokeOption) (*LookupSharedPrivateLinkResourceResult, error) {
 	var rv LookupSharedPrivateLinkResourceResult
 	err := ctx.Invoke("azure-nextgen:search/v20200801preview:getSharedPrivateLinkResource", args, &rv, opts...)

@@ -14,6 +14,8 @@ __all__ = [
     'get_database_threat_detection_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDatabaseThreatDetectionPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDatabaseThreatDetectionPolicyResult:
     """
@@ -192,13 +194,16 @@ def get_database_threat_detection_policy(database_name: Optional[str] = None,
                                          server_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseThreatDetectionPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Contains information about a database Threat Detection policy.
+    Latest API Version: 2014-04-01.
+
 
     :param str database_name: The name of the database for which database Threat Detection policy is defined.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str security_alert_policy_name: The name of the security alert policy.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("get_database_threat_detection_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDatabaseThreatDetectionPolicy'.")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name

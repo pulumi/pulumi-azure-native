@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_host_name_binding_slot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHostNameBindingSlot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppHostNameBindingSlotResult:
     """
@@ -205,13 +207,16 @@ def get_web_app_host_name_binding_slot(host_name: Optional[str] = None,
                                        slot: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHostNameBindingSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    A hostname binding object.
+    Latest API Version: 2020-10-01.
+
 
     :param str host_name: Hostname in the hostname binding.
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
     """
+    pulumi.log.warn("get_web_app_host_name_binding_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHostNameBindingSlot'.")
     __args__ = dict()
     __args__['hostName'] = host_name
     __args__['name'] = name

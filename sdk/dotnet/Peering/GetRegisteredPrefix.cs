@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Peering
 {
     public static class GetRegisteredPrefix
     {
+        /// <summary>
+        /// The customer's prefix that is registered by the peering service provider.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetRegisteredPrefixResult> InvokeAsync(GetRegisteredPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredPrefixResult>("azure-nextgen:peering:getRegisteredPrefix", args ?? new GetRegisteredPrefixArgs(), options.WithVersion());
     }

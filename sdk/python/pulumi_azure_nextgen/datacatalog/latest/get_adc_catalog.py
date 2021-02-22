@@ -15,6 +15,8 @@ __all__ = [
     'get_adc_catalog',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datacatalog:getADCCatalog'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetADCCatalogResult:
     """
@@ -179,11 +181,14 @@ def get_adc_catalog(catalog_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADCCatalogResult:
     """
-    Use this data source to access information about an existing resource.
+    Azure Data Catalog.
+    Latest API Version: 2016-03-30.
+
 
     :param str catalog_name: The name of the data catalog in the specified subscription and resource group.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("get_adc_catalog is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datacatalog:getADCCatalog'.")
     __args__ = dict()
     __args__['catalogName'] = catalog_name
     __args__['resourceGroupName'] = resource_group_name

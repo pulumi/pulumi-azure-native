@@ -154,7 +154,8 @@ def getprivate_link_for_azure_ad(policy_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkForAzureAdResult:
     """
-    Use this data source to access information about an existing resource.
+    PrivateLink Policy configuration object.
+
 
     :param str policy_name: The name of the private link policy in Azure AD.
     :param str resource_group_name: Name of an Azure resource group.

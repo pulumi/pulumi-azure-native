@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
 {
     public static class GetGroup
     {
+        /// <summary>
+        /// Contract details.
+        /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-nextgen:apimanagement/v20180601preview:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
     }

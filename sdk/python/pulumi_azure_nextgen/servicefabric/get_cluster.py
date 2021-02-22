@@ -415,7 +415,10 @@ def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    The cluster resource
+
+    API Version: 2020-03-01.
+
 
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.

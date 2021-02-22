@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getDiagnostic'.")]
     public static class GetDiagnostic
     {
+        /// <summary>
+        /// Diagnostic details.
+        /// Latest API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetDiagnosticResult> InvokeAsync(GetDiagnosticArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticResult>("azure-nextgen:apimanagement/latest:getDiagnostic", args ?? new GetDiagnosticArgs(), options.WithVersion());
     }

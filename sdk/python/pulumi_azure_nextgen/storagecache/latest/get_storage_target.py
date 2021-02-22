@@ -15,6 +15,8 @@ __all__ = [
     'get_storage_target',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagecache:getStorageTarget'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStorageTargetResult:
     """
@@ -168,12 +170,15 @@ def get_storage_target(cache_name: Optional[str] = None,
                        storage_target_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTargetResult:
     """
-    Use this data source to access information about an existing resource.
+    Type of the Storage Target.
+    Latest API Version: 2020-10-01.
+
 
     :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param str resource_group_name: Target resource group.
     :param str storage_target_name: Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     """
+    pulumi.log.warn("get_storage_target is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagecache:getStorageTarget'.")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name

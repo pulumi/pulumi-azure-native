@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EngagementFabric
 {
     public static class GetChannel
     {
+        /// <summary>
+        /// The EngagementFabric channel
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-nextgen:engagementfabric:getChannel", args ?? new GetChannelArgs(), options.WithVersion());
     }

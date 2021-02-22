@@ -15,6 +15,8 @@ __all__ = [
     'get_budget_by_resource_group_name',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:consumption:getBudgetByResourceGroupName'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBudgetByResourceGroupNameResult:
     """
@@ -167,11 +169,14 @@ def get_budget_by_resource_group_name(budget_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBudgetByResourceGroupNameResult:
     """
-    Use this data source to access information about an existing resource.
+    A budget resource.
+    Latest API Version: 2018-10-01.
+
 
     :param str budget_name: Budget Name.
     :param str resource_group_name: Azure Resource Group Name.
     """
+    pulumi.log.warn("get_budget_by_resource_group_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:consumption:getBudgetByResourceGroupName'.")
     __args__ = dict()
     __args__['budgetName'] = budget_name
     __args__['resourceGroupName'] = resource_group_name

@@ -491,7 +491,8 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    Application gateway resource.
+
 
     :param str application_gateway_name: The name of the application gateway.
     :param str resource_group_name: The name of the resource group.

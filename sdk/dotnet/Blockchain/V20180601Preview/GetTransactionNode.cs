@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
 {
     public static class GetTransactionNode
     {
+        /// <summary>
+        /// Payload of the transaction node which is the request/response of the resource provider.
+        /// </summary>
         public static Task<GetTransactionNodeResult> InvokeAsync(GetTransactionNodeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransactionNodeResult>("azure-nextgen:blockchain/v20180601preview:getTransactionNode", args ?? new GetTransactionNodeArgs(), options.WithVersion());
     }

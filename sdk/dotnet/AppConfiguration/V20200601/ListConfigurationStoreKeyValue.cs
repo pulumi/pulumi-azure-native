@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200601
 {
     public static class ListConfigurationStoreKeyValue
     {
+        /// <summary>
+        /// The result of a request to retrieve a key-value from the specified configuration store.
+        /// </summary>
         public static Task<ListConfigurationStoreKeyValueResult> InvokeAsync(ListConfigurationStoreKeyValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeyValueResult>("azure-nextgen:appconfiguration/v20200601:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueArgs(), options.WithVersion());
     }

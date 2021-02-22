@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// NSX VM Group
 func LookupWorkloadNetworkVMGroup(ctx *pulumi.Context, args *LookupWorkloadNetworkVMGroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkVMGroupResult, error) {
 	var rv LookupWorkloadNetworkVMGroupResult
 	err := ctx.Invoke("azure-nextgen:avs/v20200717preview:getWorkloadNetworkVMGroup", args, &rv, opts...)

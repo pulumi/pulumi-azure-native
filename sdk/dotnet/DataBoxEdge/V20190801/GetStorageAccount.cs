@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
 {
     public static class GetStorageAccount
     {
+        /// <summary>
+        /// Represents a Storage Account on the  Data Box Edge/Gateway device.
+        /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-nextgen:databoxedge/v20190801:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Aad.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getOuContainer'.")]
     public static class GetOuContainer
     {
+        /// <summary>
+        /// Resource for OuContainer.
+        /// Latest API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetOuContainerResult> InvokeAsync(GetOuContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azure-nextgen:aad/latest:getOuContainer", args ?? new GetOuContainerArgs(), options.WithVersion());
     }

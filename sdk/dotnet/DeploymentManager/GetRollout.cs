@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DeploymentManager
 {
     public static class GetRollout
     {
+        /// <summary>
+        /// Defines the PUT rollout request body.
+        /// API Version: 2019-11-01-preview.
+        /// </summary>
         public static Task<GetRolloutResult> InvokeAsync(GetRolloutArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRolloutResult>("azure-nextgen:deploymentmanager:getRollout", args ?? new GetRolloutArgs(), options.WithVersion());
     }

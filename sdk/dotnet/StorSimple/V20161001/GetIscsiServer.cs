@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 {
     public static class GetIscsiServer
     {
+        /// <summary>
+        /// The iSCSI server.
+        /// </summary>
         public static Task<GetIscsiServerResult> InvokeAsync(GetIscsiServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiServerResult>("azure-nextgen:storsimple/v20161001:getIscsiServer", args ?? new GetIscsiServerArgs(), options.WithVersion());
     }

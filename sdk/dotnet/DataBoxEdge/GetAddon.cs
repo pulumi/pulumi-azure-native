@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
 {
     public static class GetAddon
     {
+        /// <summary>
+        /// Role Addon
+        /// API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-nextgen:databoxedge:getAddon", args ?? new GetAddonArgs(), options.WithVersion());
     }

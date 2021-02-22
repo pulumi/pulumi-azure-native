@@ -108,7 +108,8 @@ def get_integration_account_assembly(assembly_artifact_name: Optional[str] = Non
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountAssemblyResult:
     """
-    Use this data source to access information about an existing resource.
+    The assembly definition.
+
 
     :param str assembly_artifact_name: The assembly artifact name.
     :param str integration_account_name: The integration account name.

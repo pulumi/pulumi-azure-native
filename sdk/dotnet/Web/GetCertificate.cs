@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class GetCertificate
     {
+        /// <summary>
+        /// SSL certificate for an app.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-nextgen:web:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }

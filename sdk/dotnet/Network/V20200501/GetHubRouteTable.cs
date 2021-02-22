@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 {
     public static class GetHubRouteTable
     {
+        /// <summary>
+        /// RouteTable resource in a virtual hub.
+        /// </summary>
         public static Task<GetHubRouteTableResult> InvokeAsync(GetHubRouteTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHubRouteTableResult>("azure-nextgen:network/v20200501:getHubRouteTable", args ?? new GetHubRouteTableArgs(), options.WithVersion());
     }

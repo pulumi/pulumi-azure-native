@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20170330
 {
     public static class GetVirtualMachineExtension
     {
+        /// <summary>
+        /// Describes a Virtual Machine Extension.
+        /// </summary>
         public static Task<GetVirtualMachineExtensionResult> InvokeAsync(GetVirtualMachineExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineExtensionResult>("azure-nextgen:compute/v20170330:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionArgs(), options.WithVersion());
     }

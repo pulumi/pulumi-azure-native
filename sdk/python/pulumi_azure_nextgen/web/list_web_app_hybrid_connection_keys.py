@@ -108,7 +108,9 @@ def list_web_app_hybrid_connection_keys(name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppHybridConnectionKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+    API Version: 2018-11-01.
+
 
     :param str name: The name of the web app.
     :param str namespace_name: The namespace for this hybrid connection.

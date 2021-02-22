@@ -98,7 +98,8 @@ def get_replication_migration_item(fabric_name: Optional[str] = None,
                                    resource_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationMigrationItemResult:
     """
-    Use this data source to access information about an existing resource.
+    Migration item.
+
 
     :param str fabric_name: Fabric unique name.
     :param str migration_item_name: Migration item name.

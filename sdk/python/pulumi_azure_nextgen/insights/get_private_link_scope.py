@@ -119,7 +119,9 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
                            scope_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkScopeResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Monitor PrivateLinkScope definition.
+    API Version: 2019-10-17-preview.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str scope_name: The name of the Azure Monitor PrivateLinkScope resource.

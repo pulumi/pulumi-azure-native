@@ -168,7 +168,8 @@ def get_remediation_at_management_group(management_group_id: Optional[str] = Non
                                         remediation_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtManagementGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    The remediation definition.
+
 
     :param str management_group_id: Management group ID.
     :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.

@@ -97,7 +97,8 @@ def get_deployment(app_name: Optional[str] = None,
                    service_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
-    Use this data source to access information about an existing resource.
+    Deployment resource payload
+
 
     :param str app_name: The name of the App resource.
     :param str deployment_name: The name of the Deployment resource.

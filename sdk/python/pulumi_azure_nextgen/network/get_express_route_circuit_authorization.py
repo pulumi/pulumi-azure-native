@@ -119,7 +119,9 @@ def get_express_route_circuit_authorization(authorization_name: Optional[str] = 
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitAuthorizationResult:
     """
-    Use this data source to access information about an existing resource.
+    Authorization in an ExpressRouteCircuit resource.
+    API Version: 2020-08-01.
+
 
     :param str authorization_name: The name of the authorization.
     :param str circuit_name: The name of the express route circuit.

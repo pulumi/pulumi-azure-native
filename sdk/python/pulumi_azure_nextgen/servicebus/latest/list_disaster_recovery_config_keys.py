@@ -14,6 +14,8 @@ __all__ = [
     'list_disaster_recovery_config_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:listDisasterRecoveryConfigKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListDisasterRecoveryConfigKeysResult:
     """
@@ -120,13 +122,16 @@ def list_disaster_recovery_config_keys(alias: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDisasterRecoveryConfigKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Namespace/ServiceBus Connection String
+    Latest API Version: 2017-04-01.
+
 
     :param str alias: The Disaster Recovery configuration name
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("list_disaster_recovery_config_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:listDisasterRecoveryConfigKeys'.")
     __args__ = dict()
     __args__['alias'] = alias
     __args__['authorizationRuleName'] = authorization_rule_name

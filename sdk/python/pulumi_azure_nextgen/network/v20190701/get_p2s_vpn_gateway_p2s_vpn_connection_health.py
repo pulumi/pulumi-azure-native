@@ -191,7 +191,8 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health(gateway_name: Optional[str] = 
                                                   resource_group_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthResult:
     """
-    Use this data source to access information about an existing resource.
+    P2SVpnGateway Resource.
+
 
     :param str gateway_name: The name of the P2SVpnGateway.
     :param str resource_group_name: The name of the resource group.

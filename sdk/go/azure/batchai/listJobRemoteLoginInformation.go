@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Values returned by the List operation.
+// API Version: 2018-05-01.
 func ListJobRemoteLoginInformation(ctx *pulumi.Context, args *ListJobRemoteLoginInformationArgs, opts ...pulumi.InvokeOption) (*ListJobRemoteLoginInformationResult, error) {
 	var rv ListJobRemoteLoginInformationResult
 	err := ctx.Invoke("azure-nextgen:batchai:listJobRemoteLoginInformation", args, &rv, opts...)

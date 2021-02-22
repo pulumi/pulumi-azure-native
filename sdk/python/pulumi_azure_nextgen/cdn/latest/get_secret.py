@@ -15,6 +15,8 @@ __all__ = [
     'get_secret',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getSecret'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSecretResult:
     """
@@ -117,12 +119,15 @@ def get_secret(profile_name: Optional[str] = None,
                secret_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
-    Use this data source to access information about an existing resource.
+    Friendly Secret name mapping to the any Secret or secret related information.
+    Latest API Version: 2020-09-01.
+
 
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str secret_name: Name of the Secret under the profile.
     """
+    pulumi.log.warn("get_secret is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getSecret'.")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name

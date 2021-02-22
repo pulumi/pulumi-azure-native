@@ -14,6 +14,8 @@ __all__ = [
     'get_hierarchy_setting',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getHierarchySetting'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHierarchySettingResult:
     """
@@ -105,10 +107,13 @@ class AwaitableGetHierarchySettingResult(GetHierarchySettingResult):
 def get_hierarchy_setting(group_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHierarchySettingResult:
     """
-    Use this data source to access information about an existing resource.
+    Settings defined at the Management Group scope.
+    Latest API Version: 2020-05-01.
+
 
     :param str group_id: Management Group ID.
     """
+    pulumi.log.warn("get_hierarchy_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getHierarchySetting'.")
     __args__ = dict()
     __args__['groupId'] = group_id
     if opts is None:

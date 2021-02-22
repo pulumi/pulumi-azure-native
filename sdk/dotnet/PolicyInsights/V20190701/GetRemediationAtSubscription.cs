@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20190701
 {
     public static class GetRemediationAtSubscription
     {
+        /// <summary>
+        /// The remediation definition.
+        /// </summary>
         public static Task<GetRemediationAtSubscriptionResult> InvokeAsync(GetRemediationAtSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtSubscriptionResult>("azure-nextgen:policyinsights/v20190701:getRemediationAtSubscription", args ?? new GetRemediationAtSubscriptionArgs(), options.WithVersion());
     }

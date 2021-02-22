@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SaaS.V20180301Beta
 {
     public static class ListSaasSubscriptionLevelAccessToken
     {
+        /// <summary>
+        /// the ISV access token result response.
+        /// </summary>
         public static Task<ListSaasSubscriptionLevelAccessTokenResult> InvokeAsync(ListSaasSubscriptionLevelAccessTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSaasSubscriptionLevelAccessTokenResult>("azure-nextgen:saas/v20180301beta:listSaasSubscriptionLevelAccessToken", args ?? new ListSaasSubscriptionLevelAccessTokenArgs(), options.WithVersion());
     }

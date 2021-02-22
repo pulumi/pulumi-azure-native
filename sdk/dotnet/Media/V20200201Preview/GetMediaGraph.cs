@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Media.V20200201Preview
 {
     public static class GetMediaGraph
     {
+        /// <summary>
+        /// The Media Graph.
+        /// </summary>
         public static Task<GetMediaGraphResult> InvokeAsync(GetMediaGraphArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMediaGraphResult>("azure-nextgen:media/v20200201preview:getMediaGraph", args ?? new GetMediaGraphArgs(), options.WithVersion());
     }

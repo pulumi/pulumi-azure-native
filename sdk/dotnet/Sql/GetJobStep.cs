@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Sql
 {
     public static class GetJobStep
     {
+        /// <summary>
+        /// A job step.
+        /// API Version: 2020-08-01-preview.
+        /// </summary>
         public static Task<GetJobStepResult> InvokeAsync(GetJobStepArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobStepResult>("azure-nextgen:sql:getJobStep", args ?? new GetJobStepArgs(), options.WithVersion());
     }

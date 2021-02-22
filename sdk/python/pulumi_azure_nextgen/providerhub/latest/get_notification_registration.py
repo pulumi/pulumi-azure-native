@@ -15,6 +15,8 @@ __all__ = [
     'get_notification_registration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getNotificationRegistration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNotificationRegistrationResult:
     """
@@ -80,11 +82,14 @@ def get_notification_registration(notification_registration_name: Optional[str] 
                                   provider_namespace: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationRegistrationResult:
     """
-    Use this data source to access information about an existing resource.
+    The notification registration definition.
+    Latest API Version: 2020-11-20.
+
 
     :param str notification_registration_name: The notification registration.
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     """
+    pulumi.log.warn("get_notification_registration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getNotificationRegistration'.")
     __args__ = dict()
     __args__['notificationRegistrationName'] = notification_registration_name
     __args__['providerNamespace'] = provider_namespace

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
 {
     public static class GetViewByScope
     {
+        /// <summary>
+        /// States and configurations of Cost Analysis.
+        /// </summary>
         public static Task<GetViewByScopeResult> InvokeAsync(GetViewByScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetViewByScopeResult>("azure-nextgen:costmanagement/v20191101:getViewByScope", args ?? new GetViewByScopeArgs(), options.WithVersion());
     }

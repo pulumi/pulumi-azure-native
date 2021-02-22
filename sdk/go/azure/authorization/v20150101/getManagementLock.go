@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Management lock information.
 func LookupManagementLock(ctx *pulumi.Context, args *LookupManagementLockArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockResult, error) {
 	var rv LookupManagementLockResult
 	err := ctx.Invoke("azure-nextgen:authorization/v20150101:getManagementLock", args, &rv, opts...)

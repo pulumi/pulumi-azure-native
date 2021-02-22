@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Storage.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getManagementPolicy'.")]
     public static class GetManagementPolicy
     {
+        /// <summary>
+        /// The Get Storage Account ManagementPolicies operation response.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetManagementPolicyResult> InvokeAsync(GetManagementPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementPolicyResult>("azure-nextgen:storage/latest:getManagementPolicy", args ?? new GetManagementPolicyArgs(), options.WithVersion());
     }

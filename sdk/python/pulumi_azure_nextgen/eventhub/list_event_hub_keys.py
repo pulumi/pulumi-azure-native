@@ -120,7 +120,9 @@ def list_event_hub_keys(authorization_rule_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEventHubKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Namespace/EventHub Connection String
+    API Version: 2017-04-01.
+
 
     :param str authorization_rule_name: The authorization rule name.
     :param str event_hub_name: The Event Hub name

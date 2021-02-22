@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Description of a backup which will be performed
 func ListSiteBackupConfiguration(ctx *pulumi.Context, args *ListSiteBackupConfigurationArgs, opts ...pulumi.InvokeOption) (*ListSiteBackupConfigurationResult, error) {
 	var rv ListSiteBackupConfigurationResult
 	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteBackupConfiguration", args, &rv, opts...)

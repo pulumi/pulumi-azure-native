@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// the ISV access token result response.
 func ListSaasResourceAccessToken(ctx *pulumi.Context, args *ListSaasResourceAccessTokenArgs, opts ...pulumi.InvokeOption) (*ListSaasResourceAccessTokenResult, error) {
 	var rv ListSaasResourceAccessTokenResult
 	err := ctx.Invoke("azure-nextgen:saas/v20180301beta:listSaasResourceAccessToken", args, &rv, opts...)

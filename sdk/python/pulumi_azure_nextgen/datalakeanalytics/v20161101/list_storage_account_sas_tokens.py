@@ -61,7 +61,8 @@ def list_storage_account_sas_tokens(account_name: Optional[str] = None,
                                     storage_account_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStorageAccountSasTokensResult:
     """
-    Use this data source to access information about an existing resource.
+    The SAS response that contains the storage account, container and associated SAS token for connection use.
+
 
     :param str account_name: The name of the Data Lake Analytics account.
     :param str container_name: The name of the Azure storage container for which the SAS token is being requested.
