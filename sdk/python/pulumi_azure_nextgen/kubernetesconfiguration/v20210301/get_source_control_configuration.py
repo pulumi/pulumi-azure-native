@@ -242,7 +242,8 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
                                      source_control_configuration_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceControlConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    The SourceControl Configuration object returned in Get & Put response.
+
 
     :param str cluster_name: The name of the kubernetes cluster.
     :param str cluster_resource_name: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).

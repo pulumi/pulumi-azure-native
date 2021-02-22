@@ -15,6 +15,8 @@ __all__ = [
     'get_gateway',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getGateway'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGatewayResult:
     """
@@ -96,12 +98,15 @@ def get_gateway(gateway_id: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    Gateway details.
+    Latest API Version: 2019-12-01.
+
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_gateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getGateway'.")
     __args__ = dict()
     __args__['gatewayId'] = gateway_id
     __args__['resourceGroupName'] = resource_group_name

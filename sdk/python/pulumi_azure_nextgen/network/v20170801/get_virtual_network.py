@@ -180,7 +180,8 @@ def get_virtual_network(expand: Optional[str] = None,
                         virtual_network_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual Network resource.
+
 
     :param str expand: Expands referenced resources.
     :param str resource_group_name: The name of the resource group.

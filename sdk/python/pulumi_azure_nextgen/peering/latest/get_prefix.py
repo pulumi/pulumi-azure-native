@@ -15,6 +15,8 @@ __all__ = [
     'get_prefix',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPrefix'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrefixResult:
     """
@@ -157,13 +159,16 @@ def get_prefix(expand: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixResult:
     """
-    Use this data source to access information about an existing resource.
+    The peering service prefix class.
+    Latest API Version: 2020-10-01.
+
 
     :param str expand: The properties to be expanded.
     :param str peering_service_name: The name of the peering service.
     :param str prefix_name: The name of the prefix.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_prefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPrefix'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['peeringServiceName'] = peering_service_name

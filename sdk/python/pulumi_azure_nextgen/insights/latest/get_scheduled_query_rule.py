@@ -15,6 +15,8 @@ __all__ = [
     'get_scheduled_query_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getScheduledQueryRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScheduledQueryRuleResult:
     """
@@ -239,11 +241,14 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
                              rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledQueryRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    The Log Search Rule resource.
+    Latest API Version: 2018-04-16.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("get_scheduled_query_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getScheduledQueryRule'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name

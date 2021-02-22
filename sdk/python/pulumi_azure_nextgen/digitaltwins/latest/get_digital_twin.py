@@ -15,6 +15,8 @@ __all__ = [
     'get_digital_twin',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:digitaltwins:getDigitalTwin'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDigitalTwinResult:
     """
@@ -176,11 +178,14 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
                      resource_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDigitalTwinResult:
     """
-    Use this data source to access information about an existing resource.
+    The description of the DigitalTwins service.
+    Latest API Version: 2020-12-01.
+
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param str resource_name: The name of the DigitalTwinsInstance.
     """
+    pulumi.log.warn("get_digital_twin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:digitaltwins:getDigitalTwin'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

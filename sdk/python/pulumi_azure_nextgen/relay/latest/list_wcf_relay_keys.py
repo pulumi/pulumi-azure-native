@@ -14,6 +14,8 @@ __all__ = [
     'list_wcf_relay_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:listWCFRelayKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWCFRelayKeysResult:
     """
@@ -96,13 +98,16 @@ def list_wcf_relay_keys(authorization_rule_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWCFRelayKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Namespace/Relay Connection String
+    Latest API Version: 2017-04-01.
+
 
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name
     :param str relay_name: The relay name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("list_wcf_relay_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:listWCFRelayKeys'.")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name

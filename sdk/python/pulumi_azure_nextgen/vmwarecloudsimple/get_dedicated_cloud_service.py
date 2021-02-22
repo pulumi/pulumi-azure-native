@@ -142,7 +142,9 @@ def get_dedicated_cloud_service(dedicated_cloud_service_name: Optional[str] = No
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedCloudServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Dedicated cloud service model
+    API Version: 2019-04-01.
+
 
     :param str dedicated_cloud_service_name: dedicated cloud Service name
     :param str resource_group_name: The name of the resource group

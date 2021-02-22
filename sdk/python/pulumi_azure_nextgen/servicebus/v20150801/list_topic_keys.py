@@ -96,7 +96,8 @@ def list_topic_keys(authorization_rule_name: Optional[str] = None,
                     topic_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTopicKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Namespace/ServiceBus Connection String
+
 
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name

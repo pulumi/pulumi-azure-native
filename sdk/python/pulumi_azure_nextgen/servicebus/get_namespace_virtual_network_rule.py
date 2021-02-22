@@ -83,7 +83,9 @@ def get_namespace_virtual_network_rule(namespace_name: Optional[str] = None,
                                        virtual_network_rule_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceVirtualNetworkRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Single item in a List or Get VirtualNetworkRules operation
+    API Version: 2018-01-01-preview.
+
 
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.

@@ -59,7 +59,9 @@ def list_integration_runtime_auth_key(integration_runtime_name: Optional[str] = 
                                       workspace_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationRuntimeAuthKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    The integration runtime authentication keys.
+    API Version: 2020-12-01.
+
 
     :param str integration_runtime_name: Integration runtime name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -336,7 +336,8 @@ def get_virtual_machine_resource(lab_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    A virtual machine.
+
 
     :param str lab_name: The name of the lab.
     :param str name: The name of the virtual Machine.

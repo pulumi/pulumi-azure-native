@@ -131,7 +131,9 @@ def get_report_by_billing_account(billing_account_id: Optional[str] = None,
                                   report_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportByBillingAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    A report resource.
+    API Version: 2018-08-01-preview.
+
 
     :param str billing_account_id: BillingAccount ID
     :param str report_name: Report Name.

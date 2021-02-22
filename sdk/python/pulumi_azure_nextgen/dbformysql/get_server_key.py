@@ -119,7 +119,9 @@ def get_server_key(key_name: Optional[str] = None,
                    server_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    A MySQL Server key.
+    API Version: 2020-01-01.
+
 
     :param str key_name: The name of the MySQL Server key to be retrieved.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

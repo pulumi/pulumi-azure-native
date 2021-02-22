@@ -15,6 +15,8 @@ __all__ = [
     'get_provider_registration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getProviderRegistration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProviderRegistrationResult:
     def __init__(__self__, id=None, name=None, properties=None, type=None):
@@ -76,10 +78,12 @@ class AwaitableGetProviderRegistrationResult(GetProviderRegistrationResult):
 def get_provider_registration(provider_namespace: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderRegistrationResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2020-11-20.
+
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     """
+    pulumi.log.warn("get_provider_registration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getProviderRegistration'.")
     __args__ = dict()
     __args__['providerNamespace'] = provider_namespace
     if opts is None:

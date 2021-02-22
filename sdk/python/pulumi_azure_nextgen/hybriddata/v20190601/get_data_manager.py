@@ -122,7 +122,8 @@ def get_data_manager(data_manager_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataManagerResult:
     """
-    Use this data source to access information about an existing resource.
+    The DataManager resource.
+
 
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name

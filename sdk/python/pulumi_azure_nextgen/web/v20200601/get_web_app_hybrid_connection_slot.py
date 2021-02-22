@@ -182,7 +182,8 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
                                        slot: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHybridConnectionSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Hybrid Connection contract. This is used to configure a Hybrid Connection.
+
 
     :param str name: The name of the web app.
     :param str namespace_name: The namespace for this hybrid connection.

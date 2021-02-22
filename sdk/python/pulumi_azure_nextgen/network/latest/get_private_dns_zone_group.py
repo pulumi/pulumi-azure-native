@@ -15,6 +15,8 @@ __all__ = [
     'get_private_dns_zone_group',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateDnsZoneGroup'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateDnsZoneGroupResult:
     """
@@ -96,12 +98,15 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateDnsZoneGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Private dns zone group resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str private_dns_zone_group_name: The name of the private dns zone group.
     :param str private_endpoint_name: The name of the private endpoint.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_private_dns_zone_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateDnsZoneGroup'.")
     __args__ = dict()
     __args__['privateDnsZoneGroupName'] = private_dns_zone_group_name
     __args__['privateEndpointName'] = private_endpoint_name

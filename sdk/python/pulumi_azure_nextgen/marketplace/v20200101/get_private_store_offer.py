@@ -203,7 +203,8 @@ def get_private_store_offer(offer_id: Optional[str] = None,
                             private_store_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateStoreOfferResult:
     """
-    Use this data source to access information about an existing resource.
+    The privateStore offer data structure.
+
 
     :param str offer_id: The offer ID to update or delete
     :param str private_store_id: The store ID - must use the tenant ID

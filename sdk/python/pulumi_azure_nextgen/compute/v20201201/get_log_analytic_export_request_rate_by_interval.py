@@ -56,7 +56,8 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
                                                      to_time: Optional[str] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogAnalyticExportRequestRateByIntervalResult:
     """
-    Use this data source to access information about an existing resource.
+    LogAnalytics operation status response
+
 
     :param str blob_container_sas_uri: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
     :param str from_time: From time of the query

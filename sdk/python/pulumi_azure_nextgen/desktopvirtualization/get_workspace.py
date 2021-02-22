@@ -130,7 +130,9 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a Workspace definition.
+    API Version: 2021-01-14-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace

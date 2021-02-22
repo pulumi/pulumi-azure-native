@@ -95,7 +95,8 @@ def get_patch_schedule(name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPatchScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    Response to put/get patch schedules for Redis cache.
+
 
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group.

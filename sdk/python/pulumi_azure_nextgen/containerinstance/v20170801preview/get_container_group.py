@@ -191,7 +191,8 @@ def get_container_group(container_group_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    A container group.
+
 
     :param str container_group_name: The name of the container group.
     :param str resource_group_name: The name of the resource group that contains the container group.

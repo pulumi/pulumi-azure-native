@@ -70,7 +70,9 @@ def get_cluster_gateway_settings(cluster_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterGatewaySettingsResult:
     """
-    Use this data source to access information about an existing resource.
+    Gateway settings.
+    API Version: 2018-06-01-preview.
+
 
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group.

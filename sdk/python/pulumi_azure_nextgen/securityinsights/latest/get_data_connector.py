@@ -14,6 +14,8 @@ __all__ = [
     'get_data_connector',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getDataConnector'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataConnectorResult:
     """
@@ -95,12 +97,15 @@ def get_data_connector(data_connector_id: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataConnectorResult:
     """
-    Use this data source to access information about an existing resource.
+    Data connector.
+    Latest API Version: 2020-01-01.
+
 
     :param str data_connector_id: Connector ID
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("get_data_connector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getDataConnector'.")
     __args__ = dict()
     __args__['dataConnectorId'] = data_connector_id
     __args__['resourceGroupName'] = resource_group_name

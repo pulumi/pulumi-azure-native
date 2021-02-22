@@ -106,7 +106,9 @@ class AwaitableGetManagementLockAtSubscriptionLevelResult(GetManagementLockAtSub
 def get_management_lock_at_subscription_level(lock_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtSubscriptionLevelResult:
     """
-    Use this data source to access information about an existing resource.
+    The lock information.
+    API Version: 2016-09-01.
+
 
     :param str lock_name: The name of the lock to get.
     """

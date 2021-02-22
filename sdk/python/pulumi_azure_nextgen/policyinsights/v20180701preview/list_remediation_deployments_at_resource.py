@@ -60,7 +60,8 @@ def list_remediation_deployments_at_resource(remediation_name: Optional[str] = N
                                              top: Optional[int] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    List of deployments for a remediation.
+
 
     :param str remediation_name: The name of the remediation.
     :param str resource_id: Resource ID.

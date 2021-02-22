@@ -15,6 +15,8 @@ __all__ = [
     'get_ou_container',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getOuContainer'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetOuContainerResult:
     """
@@ -204,12 +206,15 @@ def get_ou_container(domain_service_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOuContainerResult:
     """
-    Use this data source to access information about an existing resource.
+    Resource for OuContainer.
+    Latest API Version: 2020-01-01.
+
 
     :param str domain_service_name: The name of the domain service.
     :param str ou_container_name: The name of the OuContainer.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("get_ou_container is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getOuContainer'.")
     __args__ = dict()
     __args__['domainServiceName'] = domain_service_name
     __args__['ouContainerName'] = ou_container_name

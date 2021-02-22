@@ -15,6 +15,8 @@ __all__ = [
     'get_gallery_application_version',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryApplicationVersion'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGalleryApplicationVersionResult:
     """
@@ -134,7 +136,9 @@ def get_gallery_application_version(expand: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryApplicationVersionResult:
     """
-    Use this data source to access information about an existing resource.
+    Specifies information about the gallery Application Version that you want to create or update.
+    Latest API Version: 2020-09-30.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str gallery_application_name: The name of the gallery Application Definition in which the Application Version resides.
@@ -142,6 +146,7 @@ def get_gallery_application_version(expand: Optional[str] = None,
     :param str gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_gallery_application_version is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryApplicationVersion'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['galleryApplicationName'] = gallery_application_name

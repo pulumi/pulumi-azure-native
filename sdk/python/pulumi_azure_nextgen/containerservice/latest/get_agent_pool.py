@@ -15,6 +15,8 @@ __all__ = [
     'get_agent_pool',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getAgentPool'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAgentPoolResult:
     """
@@ -432,12 +434,15 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
                    resource_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    Agent Pool.
+    Latest API Version: 2020-12-01.
+
 
     :param str agent_pool_name: The name of the agent pool.
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
+    pulumi.log.warn("get_agent_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getAgentPool'.")
     __args__ = dict()
     __args__['agentPoolName'] = agent_pool_name
     __args__['resourceGroupName'] = resource_group_name

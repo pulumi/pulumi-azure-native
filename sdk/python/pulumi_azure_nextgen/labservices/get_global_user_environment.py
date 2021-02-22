@@ -48,7 +48,9 @@ def get_global_user_environment(environment_id: Optional[str] = None,
                                 user_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserEnvironmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents the environments details
+    API Version: 2018-10-15.
+
 
     :param str environment_id: The resourceId of the environment
     :param str expand: Specify the $expand query. Example: 'properties($expand=environment)'

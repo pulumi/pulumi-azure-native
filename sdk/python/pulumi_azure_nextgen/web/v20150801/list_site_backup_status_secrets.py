@@ -263,7 +263,8 @@ def list_site_backup_status_secrets(backup_id: Optional[str] = None,
                                     type: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSiteBackupStatusSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    Backup description
+
 
     :param str backup_id: Id of backup
     :param pulumi.InputType['BackupScheduleArgs'] backup_schedule: Schedule for the backup if it is executed periodically

@@ -227,7 +227,9 @@ def get_network_function(network_function_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkFunctionResult:
     """
-    Use this data source to access information about an existing resource.
+    Network function resource response.
+    API Version: 2020-01-01-preview.
+
 
     :param str network_function_name: The name of the network function resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

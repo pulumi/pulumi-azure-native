@@ -96,7 +96,8 @@ def get_data_connector(data_connector_id: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataConnectorResult:
     """
-    Use this data source to access information about an existing resource.
+    Data connector.
+
 
     :param str data_connector_id: Connector ID
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

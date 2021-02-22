@@ -360,7 +360,9 @@ def get_app_service_plan(name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServicePlanResult:
     """
-    Use this data source to access information about an existing resource.
+    App Service plan.
+    API Version: 2020-10-01.
+
 
     :param str name: Name of the App Service plan.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

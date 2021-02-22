@@ -15,6 +15,8 @@ __all__ = [
     'get_move_collection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getMoveCollection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMoveCollectionResult:
     """
@@ -131,11 +133,14 @@ def get_move_collection(move_collection_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMoveCollectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Define the move collection.
+    Latest API Version: 2021-01-01.
+
 
     :param str move_collection_name: The Move Collection Name.
     :param str resource_group_name: The Resource Group Name.
     """
+    pulumi.log.warn("get_move_collection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getMoveCollection'.")
     __args__ = dict()
     __args__['moveCollectionName'] = move_collection_name
     __args__['resourceGroupName'] = resource_group_name

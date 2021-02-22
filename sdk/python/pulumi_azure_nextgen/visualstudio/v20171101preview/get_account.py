@@ -106,7 +106,8 @@ def get_account(resource_group_name: Optional[str] = None,
                 resource_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    The response to an account resource GET request.
+
 
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     :param str resource_name: Name of the resource.

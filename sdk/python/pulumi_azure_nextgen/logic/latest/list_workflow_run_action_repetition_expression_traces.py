@@ -15,6 +15,8 @@ __all__ = [
     'list_workflow_run_action_repetition_expression_traces',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowRunActionRepetitionExpressionTraces'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWorkflowRunActionRepetitionExpressionTracesResult:
     """
@@ -47,7 +49,9 @@ def list_workflow_run_action_repetition_expression_traces(action_name: Optional[
                                                           workflow_name: Optional[str] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowRunActionRepetitionExpressionTracesResult:
     """
-    Use this data source to access information about an existing resource.
+    The expression traces.
+    Latest API Version: 2019-05-01.
+
 
     :param str action_name: The workflow action name.
     :param str repetition_name: The workflow repetition.
@@ -55,6 +59,7 @@ def list_workflow_run_action_repetition_expression_traces(action_name: Optional[
     :param str run_name: The workflow run name.
     :param str workflow_name: The workflow name.
     """
+    pulumi.log.warn("list_workflow_run_action_repetition_expression_traces is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowRunActionRepetitionExpressionTraces'.")
     __args__ = dict()
     __args__['actionName'] = action_name
     __args__['repetitionName'] = repetition_name

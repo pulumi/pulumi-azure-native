@@ -50,7 +50,8 @@ def list_asset_container_sas(account_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAssetContainerSasResult:
     """
-    Use this data source to access information about an existing resource.
+    The Asset Storage container SAS URLs.
+
 
     :param str account_name: The Media Services account name.
     :param str asset_name: The Asset name.

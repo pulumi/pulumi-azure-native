@@ -143,7 +143,8 @@ def get_sync_agent(resource_group_name: Optional[str] = None,
                    sync_agent_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncAgentResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure SQL Database sync agent.
+
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server on which the sync agent is hosted.

@@ -15,6 +15,8 @@ __all__ = [
     'get_application_gateway',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationGateway'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationGatewayResult:
     """
@@ -491,11 +493,14 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    Application gateway resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str application_gateway_name: The name of the application gateway.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_application_gateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationGateway'.")
     __args__ = dict()
     __args__['applicationGatewayName'] = application_gateway_name
     __args__['resourceGroupName'] = resource_group_name

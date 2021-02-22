@@ -15,6 +15,8 @@ __all__ = [
     'get_static_site',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getStaticSite'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStaticSiteResult:
     """
@@ -203,11 +205,14 @@ def get_static_site(name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteResult:
     """
-    Use this data source to access information about an existing resource.
+    Static Site ARM resource.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the static site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_static_site is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getStaticSite'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

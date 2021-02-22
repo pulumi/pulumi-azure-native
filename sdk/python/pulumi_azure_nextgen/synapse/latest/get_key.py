@@ -14,6 +14,8 @@ __all__ = [
     'get_key',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getKey'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetKeyResult:
     """
@@ -95,12 +97,15 @@ def get_key(key_name: Optional[str] = None,
             workspace_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    A workspace key
+    Latest API Version: 2020-12-01.
+
 
     :param str key_name: The name of the workspace key
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("get_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getKey'.")
     __args__ = dict()
     __args__['keyName'] = key_name
     __args__['resourceGroupName'] = resource_group_name

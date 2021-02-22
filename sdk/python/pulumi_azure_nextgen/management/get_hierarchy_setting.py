@@ -105,7 +105,9 @@ class AwaitableGetHierarchySettingResult(GetHierarchySettingResult):
 def get_hierarchy_setting(group_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHierarchySettingResult:
     """
-    Use this data source to access information about an existing resource.
+    Settings defined at the Management Group scope.
+    API Version: 2020-05-01.
+
 
     :param str group_id: Management Group ID.
     """

@@ -14,6 +14,8 @@ __all__ = [
     'get_configuration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getConfiguration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConfigurationResult:
     """
@@ -143,12 +145,15 @@ def get_configuration(configuration_name: Optional[str] = None,
                       server_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a Configuration.
+    Latest API Version: 2017-12-01.
+
 
     :param str configuration_name: The name of the server configuration.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("get_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getConfiguration'.")
     __args__ = dict()
     __args__['configurationName'] = configuration_name
     __args__['resourceGroupName'] = resource_group_name

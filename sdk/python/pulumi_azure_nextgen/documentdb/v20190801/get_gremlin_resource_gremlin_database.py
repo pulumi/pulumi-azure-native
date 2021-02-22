@@ -105,7 +105,8 @@ def get_gremlin_resource_gremlin_database(account_name: Optional[str] = None,
                                           resource_group_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGremlinResourceGremlinDatabaseResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB Gremlin database.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str database_name: Cosmos DB database name.

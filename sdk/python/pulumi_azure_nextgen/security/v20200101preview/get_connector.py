@@ -94,7 +94,8 @@ class AwaitableGetConnectorResult(GetConnectorResult):
 def get_connector(connector_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
-    Use this data source to access information about an existing resource.
+    The connector setting
+
 
     :param str connector_name: Name of the cloud account connector
     """

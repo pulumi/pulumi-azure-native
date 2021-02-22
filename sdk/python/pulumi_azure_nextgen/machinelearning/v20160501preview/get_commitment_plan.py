@@ -131,7 +131,8 @@ def get_commitment_plan(commitment_plan_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommitmentPlanResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure ML commitment plan resource.
+
 
     :param str commitment_plan_name: The Azure ML commitment plan name.
     :param str resource_group_name: The resource group name.

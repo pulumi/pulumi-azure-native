@@ -49,7 +49,9 @@ def list_device_failover_tars(manager_name: Optional[str] = None,
                               volume_containers: Optional[Sequence[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeviceFailoverTarsResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of all devices in a resource and their eligibility status as a failover target device.
+    API Version: 2017-06-01.
+
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name

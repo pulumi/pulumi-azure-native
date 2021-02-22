@@ -108,7 +108,8 @@ def get_application(application_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Use this data source to access information about an existing resource.
+    The HDInsight cluster application
+
 
     :param str application_name: The constant value for the application name.
     :param str cluster_name: The name of the cluster.

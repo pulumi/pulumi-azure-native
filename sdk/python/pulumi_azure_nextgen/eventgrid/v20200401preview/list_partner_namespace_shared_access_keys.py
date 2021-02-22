@@ -58,7 +58,8 @@ def list_partner_namespace_shared_access_keys(partner_namespace_name: Optional[s
                                               resource_group_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPartnerNamespaceSharedAccessKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Shared access keys of the partner namespace.
+
 
     :param str partner_namespace_name: Name of the partner namespace.
     :param str resource_group_name: The name of the resource group within the user's subscription.

@@ -15,6 +15,8 @@ __all__ = [
     'get_private_endpoint_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getPrivateEndpointConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
@@ -168,12 +170,15 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     workspace_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    The Private Endpoint Connection resource.
+    Latest API Version: 2021-01-01.
+
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the workspace
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getPrivateEndpointConnection'.")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name

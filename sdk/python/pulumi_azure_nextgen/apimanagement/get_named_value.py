@@ -119,7 +119,9 @@ def get_named_value(named_value_id: Optional[str] = None,
                     service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamedValueResult:
     """
-    Use this data source to access information about an existing resource.
+    NamedValue details.
+    API Version: 2019-12-01.
+
 
     :param str named_value_id: Identifier of the NamedValue.
     :param str resource_group_name: The name of the resource group.

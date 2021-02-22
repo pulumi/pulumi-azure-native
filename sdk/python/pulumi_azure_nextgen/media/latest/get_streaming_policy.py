@@ -15,6 +15,8 @@ __all__ = [
     'get_streaming_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStreamingPolicyResult:
     """
@@ -156,12 +158,15 @@ def get_streaming_policy(account_name: Optional[str] = None,
                          streaming_policy_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    A Streaming Policy resource
+    Latest API Version: 2020-05-01.
+
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str streaming_policy_name: The Streaming Policy name.
     """
+    pulumi.log.warn("get_streaming_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingPolicy'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

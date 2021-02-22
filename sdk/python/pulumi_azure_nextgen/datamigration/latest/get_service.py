@@ -15,6 +15,8 @@ __all__ = [
     'get_service',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datamigration:getService'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServiceResult:
     """
@@ -167,11 +169,14 @@ def get_service(group_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    A Database Migration Service resource
+    Latest API Version: 2018-04-19.
+
 
     :param str group_name: Name of the resource group
     :param str service_name: Name of the service
     """
+    pulumi.log.warn("get_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datamigration:getService'.")
     __args__ = dict()
     __args__['groupName'] = group_name
     __args__['serviceName'] = service_name

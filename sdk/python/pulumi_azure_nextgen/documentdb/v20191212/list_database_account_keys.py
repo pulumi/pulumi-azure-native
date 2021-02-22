@@ -82,7 +82,8 @@ def list_database_account_keys(account_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabaseAccountKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The access keys for the given database account.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: Name of an Azure resource group.

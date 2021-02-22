@@ -108,7 +108,9 @@ def get_integration_account_batch_configuration(batch_configuration_name: Option
                                                 resource_group_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountBatchConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    The batch configuration resource definition.
+    API Version: 2019-05-01.
+
 
     :param str batch_configuration_name: The batch configuration name.
     :param str integration_account_name: The integration account name.

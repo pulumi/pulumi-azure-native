@@ -14,6 +14,8 @@ __all__ = [
     'get_group',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getGroup'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGroupResult:
     """
@@ -119,12 +121,15 @@ def get_group(group_id: Optional[str] = None,
               service_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Contract details.
+    Latest API Version: 2019-12-01.
+
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getGroup'.")
     __args__ = dict()
     __args__['groupId'] = group_id
     __args__['resourceGroupName'] = resource_group_name

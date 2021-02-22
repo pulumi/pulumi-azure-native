@@ -180,7 +180,8 @@ def get_policy_resource(lab_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    A Policy.
+
 
     :param str lab_name: The name of the lab.
     :param str name: The name of the policy.

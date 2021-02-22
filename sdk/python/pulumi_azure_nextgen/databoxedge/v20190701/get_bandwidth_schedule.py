@@ -119,7 +119,8 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBandwidthScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    The bandwidth schedule details.
+
 
     :param str device_name: The device name.
     :param str name: The bandwidth schedule name.

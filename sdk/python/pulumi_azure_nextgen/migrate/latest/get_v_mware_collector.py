@@ -15,6 +15,8 @@ __all__ = [
     'get_v_mware_collector',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getVMwareCollector'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVMwareCollectorResult:
     def __init__(__self__, e_tag=None, id=None, name=None, properties=None, type=None):
@@ -78,12 +80,14 @@ def get_v_mware_collector(project_name: Optional[str] = None,
                           vm_ware_collector_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVMwareCollectorResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2019-10-01.
+
 
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     :param str vm_ware_collector_name: Unique name of a VMware collector within a project.
     """
+    pulumi.log.warn("get_v_mware_collector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getVMwareCollector'.")
     __args__ = dict()
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name

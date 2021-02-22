@@ -96,7 +96,8 @@ def get_database_security_alert_policy(database_name: Optional[str] = None,
                                        server_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseSecurityAlertPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    A database security alert policy.
+
 
     :param str database_name: The name of the  database for which the security alert policy is defined.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

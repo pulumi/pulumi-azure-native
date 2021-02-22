@@ -120,7 +120,9 @@ def get_geo_backup_policy(database_name: Optional[str] = None,
                           server_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGeoBackupPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    A database geo backup policy.
+    API Version: 2014-04-01.
+
 
     :param str database_name: The name of the database.
     :param str geo_backup_policy_name: The name of the geo backup policy.

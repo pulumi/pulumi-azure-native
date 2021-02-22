@@ -311,7 +311,8 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
                     virtual_hub_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubResult:
     """
-    Use this data source to access information about an existing resource.
+    VirtualHub Resource.
+
 
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.

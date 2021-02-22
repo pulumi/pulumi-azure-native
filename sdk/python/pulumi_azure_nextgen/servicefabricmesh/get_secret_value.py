@@ -119,7 +119,9 @@ def get_secret_value(resource_group_name: Optional[str] = None,
                      secret_value_resource_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretValueResult:
     """
-    Use this data source to access information about an existing resource.
+    This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+    API Version: 2018-09-01-preview.
+
 
     :param str resource_group_name: Azure resource group name
     :param str secret_resource_name: The name of the secret resource.

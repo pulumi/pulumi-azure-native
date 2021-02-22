@@ -180,7 +180,9 @@ def get_storage_account_credential(device_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountCredentialResult:
     """
-    Use this data source to access information about an existing resource.
+    The storage account credential.
+    API Version: 2020-09-01.
+
 
     :param str device_name: The device name.
     :param str name: The storage account credential name.

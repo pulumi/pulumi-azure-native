@@ -71,7 +71,8 @@ def list_web_app_host_keys_slot(name: Optional[str] = None,
                                 slot: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppHostKeysSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Functions host level keys.
+
 
     :param str name: Site name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

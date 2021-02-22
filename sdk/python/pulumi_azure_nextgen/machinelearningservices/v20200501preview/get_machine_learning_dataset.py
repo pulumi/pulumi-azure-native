@@ -132,7 +132,8 @@ def get_machine_learning_dataset(dataset_name: Optional[str] = None,
                                  workspace_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningDatasetResult:
     """
-    Use this data source to access information about an existing resource.
+    Machine Learning dataset object wrapped into ARM resource envelope.
+
 
     :param str dataset_name: The Dataset name.
     :param str resource_group_name: Name of the resource group in which workspace is located.

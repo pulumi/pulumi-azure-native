@@ -167,7 +167,8 @@ def get_workload_network_dns_service(dns_service_id: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkDnsServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    NSX DNS Service
+
 
     :param str dns_service_id: NSX DNS Service identifier. Generally the same as the DNS Service's display name
     :param str private_cloud_name: Name of the private cloud

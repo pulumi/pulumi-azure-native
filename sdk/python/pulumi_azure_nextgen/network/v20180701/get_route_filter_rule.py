@@ -131,7 +131,8 @@ def get_route_filter_rule(resource_group_name: Optional[str] = None,
                           rule_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteFilterRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Route Filter Rule Resource
+
 
     :param str resource_group_name: The name of the resource group.
     :param str route_filter_name: The name of the route filter.

@@ -14,6 +14,8 @@ __all__ = [
     'get_iscsi_server',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiServer'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIscsiServerResult:
     """
@@ -132,13 +134,16 @@ def get_iscsi_server(device_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIscsiServerResult:
     """
-    Use this data source to access information about an existing resource.
+    The iSCSI server.
+    Latest API Version: 2016-10-01.
+
 
     :param str device_name: The device name.
     :param str iscsi_server_name: The iSCSI server name.
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
+    pulumi.log.warn("get_iscsi_server is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiServer'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['iscsiServerName'] = iscsi_server_name

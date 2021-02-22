@@ -154,7 +154,8 @@ class AwaitableGetBudgetResult(GetBudgetResult):
 def get_budget(name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBudgetResult:
     """
-    Use this data source to access information about an existing resource.
+    A budget resource.
+
 
     :param str name: Budget name.
     """

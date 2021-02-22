@@ -180,7 +180,8 @@ def get_backend(backend_id: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackendResult:
     """
-    Use this data source to access information about an existing resource.
+    Backend details.
+
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.

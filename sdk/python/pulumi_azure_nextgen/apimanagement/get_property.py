@@ -119,7 +119,9 @@ def get_property(prop_id: Optional[str] = None,
                  service_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPropertyResult:
     """
-    Use this data source to access information about an existing resource.
+    Property details.
+    API Version: 2019-01-01.
+
 
     :param str prop_id: Identifier of the property.
     :param str resource_group_name: The name of the resource group.

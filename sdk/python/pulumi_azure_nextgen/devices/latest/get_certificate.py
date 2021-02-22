@@ -15,6 +15,8 @@ __all__ = [
     'get_certificate',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getCertificate'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCertificateResult:
     """
@@ -96,12 +98,15 @@ def get_certificate(certificate_name: Optional[str] = None,
                     resource_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    The X509 Certificate.
+    Latest API Version: 2020-08-31.
+
 
     :param str certificate_name: The name of the certificate
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
+    pulumi.log.warn("get_certificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getCertificate'.")
     __args__ = dict()
     __args__['certificateName'] = certificate_name
     __args__['resourceGroupName'] = resource_group_name

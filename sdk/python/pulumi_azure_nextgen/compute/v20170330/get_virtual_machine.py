@@ -264,7 +264,8 @@ def get_virtual_machine(expand: Optional[str] = None,
                         vm_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a Virtual Machine.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str resource_group_name: The name of the resource group.

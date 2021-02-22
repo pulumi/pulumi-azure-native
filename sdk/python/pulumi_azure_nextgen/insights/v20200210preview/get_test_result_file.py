@@ -63,7 +63,8 @@ def get_test_result_file(continuation_token: Optional[str] = None,
                          web_test_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestResultFileResult:
     """
-    Use this data source to access information about an existing resource.
+    Test result.
+
 
     :param str continuation_token: The continuation token.
     :param str download_as: The format to use when returning the webtest result.

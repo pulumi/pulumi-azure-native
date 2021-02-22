@@ -150,7 +150,8 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCaptureResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about packet capture session.
+
 
     :param str network_watcher_name: The name of the network watcher.
     :param str packet_capture_name: The name of the packet capture session.

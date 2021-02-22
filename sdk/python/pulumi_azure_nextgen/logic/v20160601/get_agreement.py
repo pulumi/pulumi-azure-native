@@ -204,7 +204,8 @@ def get_agreement(agreement_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgreementResult:
     """
-    Use this data source to access information about an existing resource.
+    The integration account agreement.
+
 
     :param str agreement_name: The integration account agreement name.
     :param str integration_account_name: The integration account name.

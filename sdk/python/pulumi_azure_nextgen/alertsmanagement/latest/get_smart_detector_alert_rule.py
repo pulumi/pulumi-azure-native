@@ -15,6 +15,8 @@ __all__ = [
     'get_smart_detector_alert_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:alertsmanagement:getSmartDetectorAlertRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSmartDetectorAlertRuleResult:
     """
@@ -192,12 +194,15 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSmartDetectorAlertRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    The alert rule information
+    Latest API Version: 2019-06-01.
+
 
     :param str alert_rule_name: The name of the alert rule.
     :param bool expand_detector: Indicates if Smart Detector should be expanded.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_smart_detector_alert_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:alertsmanagement:getSmartDetectorAlertRule'.")
     __args__ = dict()
     __args__['alertRuleName'] = alert_rule_name
     __args__['expandDetector'] = expand_detector

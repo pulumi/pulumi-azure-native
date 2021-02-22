@@ -95,7 +95,8 @@ def list_web_app_connection_strings(name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppConnectionStringsResult:
     """
-    Use this data source to access information about an existing resource.
+    String dictionary resource.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

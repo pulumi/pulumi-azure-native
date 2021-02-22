@@ -83,7 +83,8 @@ def get_domain_topic(domain_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainTopicResult:
     """
-    Use this data source to access information about an existing resource.
+    Domain Topic.
+
 
     :param str domain_name: Name of the domain.
     :param str domain_topic_name: Name of the topic.

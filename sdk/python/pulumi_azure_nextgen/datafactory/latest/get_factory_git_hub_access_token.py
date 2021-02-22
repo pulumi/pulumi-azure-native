@@ -14,6 +14,8 @@ __all__ = [
     'get_factory_git_hub_access_token',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getFactoryGitHubAccessToken'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFactoryGitHubAccessTokenResult:
     """
@@ -49,7 +51,9 @@ def get_factory_git_hub_access_token(factory_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryGitHubAccessTokenResult:
     """
-    Use this data source to access information about an existing resource.
+    Get GitHub access token response definition.
+    Latest API Version: 2018-06-01.
+
 
     :param str factory_name: The factory name.
     :param str git_hub_access_code: GitHub access code.
@@ -57,6 +61,7 @@ def get_factory_git_hub_access_token(factory_name: Optional[str] = None,
     :param str git_hub_client_id: GitHub application client ID.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_factory_git_hub_access_token is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getFactoryGitHubAccessToken'.")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['gitHubAccessCode'] = git_hub_access_code

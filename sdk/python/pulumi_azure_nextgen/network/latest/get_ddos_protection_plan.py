@@ -15,6 +15,8 @@ __all__ = [
     'get_ddos_protection_plan',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDdosProtectionPlan'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDdosProtectionPlanResult:
     """
@@ -143,11 +145,14 @@ def get_ddos_protection_plan(ddos_protection_plan_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDdosProtectionPlanResult:
     """
-    Use this data source to access information about an existing resource.
+    A DDoS protection plan in a resource group.
+    Latest API Version: 2020-08-01.
+
 
     :param str ddos_protection_plan_name: The name of the DDoS protection plan.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_ddos_protection_plan is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDdosProtectionPlan'.")
     __args__ = dict()
     __args__['ddosProtectionPlanName'] = ddos_protection_plan_name
     __args__['resourceGroupName'] = resource_group_name

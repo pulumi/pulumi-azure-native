@@ -15,6 +15,8 @@ __all__ = [
     'get_inbound_nat_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getInboundNatRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetInboundNatRuleResult:
     """
@@ -193,13 +195,16 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInboundNatRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Inbound NAT rule of the load balancer.
+    Latest API Version: 2020-08-01.
+
 
     :param str expand: Expands referenced resources.
     :param str inbound_nat_rule_name: The name of the inbound nat rule.
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_inbound_nat_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getInboundNatRule'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['inboundNatRuleName'] = inbound_nat_rule_name

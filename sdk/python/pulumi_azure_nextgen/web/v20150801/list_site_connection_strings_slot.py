@@ -120,7 +120,8 @@ def list_site_connection_strings_slot(name: Optional[str] = None,
                                       slot: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSiteConnectionStringsSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    String dictionary resource
+
 
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group

@@ -131,7 +131,8 @@ def get_variable(automation_account_name: Optional[str] = None,
                  variable_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVariableResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the variable.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.

@@ -147,7 +147,8 @@ def get_machine_group(end_time: Optional[str] = None,
                       workspace_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    A user-defined logical grouping of machines.
+
 
     :param str end_time: UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow
     :param str machine_group_name: Machine Group resource name.

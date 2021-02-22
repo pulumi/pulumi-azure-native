@@ -169,7 +169,8 @@ def get_iscsi_disk(device_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIscsiDiskResult:
     """
-    Use this data source to access information about an existing resource.
+    The iSCSI disk.
+
 
     :param str device_name: The device name.
     :param str disk_name: The disk name.

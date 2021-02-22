@@ -14,6 +14,8 @@ __all__ = [
     'list_web_app_hybrid_connection_keys_slot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHybridConnectionKeysSlot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWebAppHybridConnectionKeysSlotResult:
     """
@@ -109,7 +111,9 @@ def list_web_app_hybrid_connection_keys_slot(name: Optional[str] = None,
                                              slot: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppHybridConnectionKeysSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+    Latest API Version: 2018-11-01.
+
 
     :param str name: The name of the web app.
     :param str namespace_name: The namespace for this hybrid connection.
@@ -117,6 +121,7 @@ def list_web_app_hybrid_connection_keys_slot(name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: The name of the slot for the web app.
     """
+    pulumi.log.warn("list_web_app_hybrid_connection_keys_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHybridConnectionKeysSlot'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name

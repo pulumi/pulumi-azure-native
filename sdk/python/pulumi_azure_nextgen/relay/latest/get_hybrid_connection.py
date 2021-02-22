@@ -14,6 +14,8 @@ __all__ = [
     'get_hybrid_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getHybridConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHybridConnectionResult:
     """
@@ -131,12 +133,15 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of hybrid connection resource.
+    Latest API Version: 2017-04-01.
+
 
     :param str hybrid_connection_name: The hybrid connection name.
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_hybrid_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getHybridConnection'.")
     __args__ = dict()
     __args__['hybridConnectionName'] = hybrid_connection_name
     __args__['namespaceName'] = namespace_name

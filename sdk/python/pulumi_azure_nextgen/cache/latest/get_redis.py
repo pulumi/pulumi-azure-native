@@ -15,6 +15,8 @@ __all__ = [
     'get_redis',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getRedis'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRedisResult:
     """
@@ -335,11 +337,14 @@ def get_redis(name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRedisResult:
     """
-    Use this data source to access information about an existing resource.
+    A single Redis item in List or Get Operation.
+    Latest API Version: 2020-06-01.
+
 
     :param str name: The name of the Redis cache.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_redis is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getRedis'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

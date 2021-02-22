@@ -16,6 +16,8 @@ __all__ = [
     'get_dns_resource_reference_by_tar_resources',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDnsResourceReferenceByTarResources'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDnsResourceReferenceByTarResourcesResult:
     """
@@ -47,10 +49,13 @@ class AwaitableGetDnsResourceReferenceByTarResourcesResult(GetDnsResourceReferen
 def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Sequence[pulumi.InputType['SubResourceArgs']]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsResourceReferenceByTarResourcesResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents the properties of the Dns Resource Reference Result.
+    Latest API Version: 2018-05-01.
+
 
     :param Sequence[pulumi.InputType['SubResourceArgs']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.
     """
+    pulumi.log.warn("get_dns_resource_reference_by_tar_resources is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDnsResourceReferenceByTarResources'.")
     __args__ = dict()
     __args__['targetResources'] = target_resources
     if opts is None:

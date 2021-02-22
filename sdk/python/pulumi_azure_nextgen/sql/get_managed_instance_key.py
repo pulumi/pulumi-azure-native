@@ -131,7 +131,9 @@ def get_managed_instance_key(key_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    A managed instance key.
+    API Version: 2020-08-01-preview.
+
 
     :param str key_name: The name of the managed instance key to be retrieved.
     :param str managed_instance_name: The name of the managed instance.

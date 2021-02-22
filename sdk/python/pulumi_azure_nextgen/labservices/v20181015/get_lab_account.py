@@ -156,7 +156,8 @@ def get_lab_account(expand: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a lab account.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'
     :param str lab_account_name: The name of the lab Account.

@@ -15,6 +15,8 @@ __all__ = [
     'get_service_fabric_schedule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getServiceFabricSchedule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServiceFabricScheduleResult:
     """
@@ -231,7 +233,9 @@ def get_service_fabric_schedule(expand: Optional[str] = None,
                                 user_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceFabricScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    A schedule.
+    Latest API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'
     :param str lab_name: The name of the lab.
@@ -240,6 +244,7 @@ def get_service_fabric_schedule(expand: Optional[str] = None,
     :param str service_fabric_name: The name of the service fabric.
     :param str user_name: The name of the user profile.
     """
+    pulumi.log.warn("get_service_fabric_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getServiceFabricSchedule'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

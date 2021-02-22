@@ -80,7 +80,7 @@ class AwaitableGetTrafficManagerUserMetricsKeyResult(GetTrafficManagerUserMetric
 
 def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficManagerUserMetricsKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    Class representing Traffic Manager User Metrics.
     """
     __args__ = dict()
     if opts is None:

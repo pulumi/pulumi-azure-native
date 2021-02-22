@@ -14,6 +14,8 @@ __all__ = [
     'get_user_assigned_identity',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedidentity:getUserAssignedIdentity'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetUserAssignedIdentityResult:
     """
@@ -130,11 +132,14 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
                                resource_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserAssignedIdentityResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes an identity resource.
+    Latest API Version: 2018-11-30.
+
 
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
     :param str resource_name: The name of the identity resource.
     """
+    pulumi.log.warn("get_user_assigned_identity is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedidentity:getUserAssignedIdentity'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

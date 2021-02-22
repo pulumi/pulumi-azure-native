@@ -16,6 +16,8 @@ __all__ = [
     'list_integration_account_key_vault_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountKeyVaultKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListIntegrationAccountKeyVaultKeysResult:
     """
@@ -62,13 +64,16 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[s
                                             skip_token: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountKeyVaultKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Collection of key vault keys.
+    Latest API Version: 2019-05-01.
+
 
     :param str integration_account_name: The integration account name.
     :param pulumi.InputType['KeyVaultReferenceArgs'] key_vault: The key vault reference.
     :param str resource_group_name: The resource group name.
     :param str skip_token: The skip token.
     """
+    pulumi.log.warn("list_integration_account_key_vault_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountKeyVaultKeys'.")
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
     __args__['keyVault'] = key_vault

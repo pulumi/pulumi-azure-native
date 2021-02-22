@@ -168,7 +168,8 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    The backup policy.
+
 
     :param str backup_policy_name: The name of backup policy to be fetched.
     :param str device_name: The device name

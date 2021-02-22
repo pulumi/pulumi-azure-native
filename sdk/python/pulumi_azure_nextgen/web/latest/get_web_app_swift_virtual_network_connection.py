@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_swift_virtual_network_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSwiftVirtualNetworkConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppSwiftVirtualNetworkConnectionResult:
     """
@@ -119,11 +121,14 @@ def get_web_app_swift_virtual_network_connection(name: Optional[str] = None,
                                                  resource_group_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSwiftVirtualNetworkConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_web_app_swift_virtual_network_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSwiftVirtualNetworkConnection'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

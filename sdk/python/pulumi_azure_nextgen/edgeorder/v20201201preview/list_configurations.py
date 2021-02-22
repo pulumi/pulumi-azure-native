@@ -62,7 +62,8 @@ def list_configurations(configuration_filters: Optional[Sequence[pulumi.InputTyp
                         skip_token: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConfigurationsResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of configurations.
+
 
     :param Sequence[pulumi.InputType['ConfigurationFiltersArgs']] configuration_filters: Holds details about product hierarchy information and filterable property.
     :param pulumi.InputType['CustomerSubscriptionDetailsArgs'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details

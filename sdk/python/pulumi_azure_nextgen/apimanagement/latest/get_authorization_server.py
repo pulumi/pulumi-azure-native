@@ -15,6 +15,8 @@ __all__ = [
     'get_authorization_server',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getAuthorizationServer'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAuthorizationServerResult:
     """
@@ -264,12 +266,15 @@ def get_authorization_server(authsid: Optional[str] = None,
                              service_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationServerResult:
     """
-    Use this data source to access information about an existing resource.
+    External OAuth authorization server settings.
+    Latest API Version: 2019-12-01.
+
 
     :param str authsid: Identifier of the authorization server.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_authorization_server is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getAuthorizationServer'.")
     __args__ = dict()
     __args__['authsid'] = authsid
     __args__['resourceGroupName'] = resource_group_name

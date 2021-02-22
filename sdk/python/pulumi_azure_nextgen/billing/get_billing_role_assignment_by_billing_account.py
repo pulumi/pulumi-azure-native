@@ -190,7 +190,9 @@ def get_billing_role_assignment_by_billing_account(billing_account_name: Optiona
                                                    billing_role_assignment_name: Optional[str] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingRoleAssignmentByBillingAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    The role assignment
+    API Version: 2019-10-01-preview.
+
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
     :param str billing_role_assignment_name: The ID that uniquely identifies a role assignment.

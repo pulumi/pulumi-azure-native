@@ -14,6 +14,8 @@ __all__ = [
     'get_snapshot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSnapshotResult:
     """
@@ -121,7 +123,9 @@ def get_snapshot(account_name: Optional[str] = None,
                  volume_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
-    Use this data source to access information about an existing resource.
+    Snapshot of a Volume
+    Latest API Version: 2020-11-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str pool_name: The name of the capacity pool
@@ -129,6 +133,7 @@ def get_snapshot(account_name: Optional[str] = None,
     :param str snapshot_name: The name of the mount target
     :param str volume_name: The name of the volume
     """
+    pulumi.log.warn("get_snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshot'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name

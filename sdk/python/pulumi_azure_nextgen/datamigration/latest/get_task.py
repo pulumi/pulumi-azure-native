@@ -15,6 +15,8 @@ __all__ = [
     'get_task',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datamigration:getTask'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTaskResult:
     """
@@ -98,7 +100,9 @@ def get_task(expand: Optional[str] = None,
              task_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskResult:
     """
-    Use this data source to access information about an existing resource.
+    A task resource
+    Latest API Version: 2018-04-19.
+
 
     :param str expand: Expand the response
     :param str group_name: Name of the resource group
@@ -106,6 +110,7 @@ def get_task(expand: Optional[str] = None,
     :param str service_name: Name of the service
     :param str task_name: Name of the Task
     """
+    pulumi.log.warn("get_task is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datamigration:getTask'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['groupName'] = group_name

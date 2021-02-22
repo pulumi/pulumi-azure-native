@@ -15,6 +15,8 @@ __all__ = [
     'get_global_user_operation_batch_status',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserOperationBatchStatus'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGlobalUserOperationBatchStatusResult:
     """
@@ -47,11 +49,14 @@ def get_global_user_operation_batch_status(urls: Optional[Sequence[str]] = None,
                                            user_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserOperationBatchStatusResult:
     """
-    Use this data source to access information about an existing resource.
+    Status Details of the long running operation for an environment
+    Latest API Version: 2018-10-15.
+
 
     :param Sequence[str] urls: The operation url of long running operation
     :param str user_name: The name of the user.
     """
+    pulumi.log.warn("get_global_user_operation_batch_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserOperationBatchStatus'.")
     __args__ = dict()
     __args__['urls'] = urls
     __args__['userName'] = user_name

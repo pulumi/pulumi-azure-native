@@ -15,6 +15,8 @@ __all__ = [
     'get_log_profile',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getLogProfile'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLogProfileResult:
     """
@@ -154,10 +156,13 @@ class AwaitableGetLogProfileResult(GetLogProfileResult):
 def get_log_profile(log_profile_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogProfileResult:
     """
-    Use this data source to access information about an existing resource.
+    The log profile resource.
+    Latest API Version: 2016-03-01.
+
 
     :param str log_profile_name: The name of the log profile.
     """
+    pulumi.log.warn("get_log_profile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getLogProfile'.")
     __args__ = dict()
     __args__['logProfileName'] = log_profile_name
     if opts is None:

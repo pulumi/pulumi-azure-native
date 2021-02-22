@@ -15,6 +15,8 @@ __all__ = [
     'get_storage_account',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getStorageAccount'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStorageAccountResult:
     """
@@ -156,12 +158,15 @@ def get_storage_account(device_name: Optional[str] = None,
                         storage_account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a Storage Account on the  Data Box Edge/Gateway device.
+    Latest API Version: 2020-09-01.
+
 
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     :param str storage_account_name: The storage account name.
     """
+    pulumi.log.warn("get_storage_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getStorageAccount'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name

@@ -15,6 +15,8 @@ __all__ = [
     'list_machine_learning_compute_nodes',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listMachineLearningComputeNodes'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListMachineLearningComputeNodesResult:
     """
@@ -73,12 +75,15 @@ def list_machine_learning_compute_nodes(compute_name: Optional[str] = None,
                                         workspace_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMachineLearningComputeNodesResult:
     """
-    Use this data source to access information about an existing resource.
+    Compute node information related to a AmlCompute.
+    Latest API Version: 2021-01-01.
+
 
     :param str compute_name: Name of the Azure Machine Learning compute.
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("list_machine_learning_compute_nodes is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listMachineLearningComputeNodes'.")
     __args__ = dict()
     __args__['computeName'] = compute_name
     __args__['resourceGroupName'] = resource_group_name

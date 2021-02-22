@@ -15,6 +15,8 @@ __all__ = [
     'get_role_assignment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRoleAssignment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRoleAssignmentResult:
     """
@@ -312,12 +314,15 @@ def get_role_assignment(assignment_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    The Role Assignment resource format.
+    Latest API Version: 2017-04-26.
+
 
     :param str assignment_name: The name of the role assignment.
     :param str hub_name: The name of the hub.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_role_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRoleAssignment'.")
     __args__ = dict()
     __args__['assignmentName'] = assignment_name
     __args__['hubName'] = hub_name

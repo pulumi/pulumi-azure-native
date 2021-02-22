@@ -120,7 +120,8 @@ def get_data_pool(account_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    An ADP Data Pool.
+
 
     :param str account_name: The name of the ADP account.
     :param str data_pool_name: The name of the Data Pool.

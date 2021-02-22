@@ -14,6 +14,8 @@ __all__ = [
     'list_workspace_collection_access_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbi:listWorkspaceCollectionAccessKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWorkspaceCollectionAccessKeysResult:
     def __init__(__self__, key1=None, key2=None):
@@ -55,11 +57,13 @@ def list_workspace_collection_access_keys(resource_group_name: Optional[str] = N
                                           workspace_collection_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceCollectionAccessKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2016-01-29.
+
 
     :param str resource_group_name: Azure resource group
     :param str workspace_collection_name: Power BI Embedded Workspace Collection name
     """
+    pulumi.log.warn("list_workspace_collection_access_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbi:listWorkspaceCollectionAccessKeys'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceCollectionName'] = workspace_collection_name

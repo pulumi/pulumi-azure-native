@@ -57,7 +57,9 @@ class AwaitableListSaasResourceAccessTokenResult(ListSaasResourceAccessTokenResu
 def list_saas_resource_access_token(resource_id: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSaasResourceAccessTokenResult:
     """
-    Use this data source to access information about an existing resource.
+    the ISV access token result response.
+    API Version: 2018-03-01-beta.
+
 
     :param str resource_id: The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
     """

@@ -48,7 +48,9 @@ def list_database_principals(cluster_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabasePrincipalsResult:
     """
-    Use this data source to access information about an existing resource.
+    The list Kusto database principals operation response.
+    API Version: 2020-09-18.
+
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.

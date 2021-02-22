@@ -15,6 +15,8 @@ __all__ = [
     'get_signal_r_private_endpoint_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:getSignalRPrivateEndpointConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSignalRPrivateEndpointConnectionResult:
     """
@@ -108,12 +110,15 @@ def get_signal_r_private_endpoint_connection(private_endpoint_connection_name: O
                                              resource_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    A private endpoint connection to SignalR resource
+    Latest API Version: 2020-05-01.
+
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the SignalR resource.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the SignalR resource.
     """
+    pulumi.log.warn("get_signal_r_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:getSignalRPrivateEndpointConnection'.")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name

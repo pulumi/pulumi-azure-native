@@ -15,6 +15,8 @@ __all__ = [
     'list_app_service_plan_hybrid_connection_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listAppServicePlanHybridConnectionKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListAppServicePlanHybridConnectionKeysResult:
     """
@@ -121,13 +123,16 @@ def list_app_service_plan_hybrid_connection_keys(name: Optional[str] = None,
                                                  resource_group_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAppServicePlanHybridConnectionKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the App Service plan.
     :param str namespace_name: The name of the Service Bus namespace.
     :param str relay_name: The name of the Service Bus relay.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("list_app_service_plan_hybrid_connection_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listAppServicePlanHybridConnectionKeys'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name

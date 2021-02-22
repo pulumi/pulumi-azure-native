@@ -166,7 +166,8 @@ class AwaitableGetRemediationAtSubscriptionResult(GetRemediationAtSubscriptionRe
 def get_remediation_at_subscription(remediation_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    The remediation definition.
+
 
     :param str remediation_name: The name of the remediation.
     """

@@ -167,7 +167,8 @@ def get_blueprint(blueprint_name: Optional[str] = None,
                   management_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlueprintResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a Blueprint definition.
+
 
     :param str blueprint_name: name of the blueprint.
     :param str management_group_name: ManagementGroup where blueprint stores.

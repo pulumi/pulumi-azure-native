@@ -15,6 +15,8 @@ __all__ = [
     'get_container',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getContainer'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetContainerResult:
     """
@@ -133,13 +135,16 @@ def get_container(container_name: Optional[str] = None,
                   storage_account_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a container on the  Data Box Edge/Gateway device.
+    Latest API Version: 2020-09-01.
+
 
     :param str container_name: The container Name
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     :param str storage_account_name: The Storage Account Name
     """
+    pulumi.log.warn("get_container is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getContainer'.")
     __args__ = dict()
     __args__['containerName'] = container_name
     __args__['deviceName'] = device_name

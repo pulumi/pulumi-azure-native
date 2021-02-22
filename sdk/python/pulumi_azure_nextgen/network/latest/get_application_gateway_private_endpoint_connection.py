@@ -15,6 +15,8 @@ __all__ = [
     'get_application_gateway_private_endpoint_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationGatewayPrivateEndpointConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationGatewayPrivateEndpointConnectionResult:
     """
@@ -132,12 +134,15 @@ def get_application_gateway_private_endpoint_connection(application_gateway_name
                                                         resource_group_name: Optional[str] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Private Endpoint connection on an application gateway.
+    Latest API Version: 2020-08-01.
+
 
     :param str application_gateway_name: The name of the application gateway.
     :param str connection_name: The name of the application gateway private endpoint connection.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_application_gateway_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationGatewayPrivateEndpointConnection'.")
     __args__ = dict()
     __args__['applicationGatewayName'] = application_gateway_name
     __args__['connectionName'] = connection_name

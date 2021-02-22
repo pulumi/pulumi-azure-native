@@ -15,6 +15,8 @@ __all__ = [
     'list_job_credentials',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databox:listJobCredentials'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListJobCredentialsResult:
     """
@@ -59,11 +61,14 @@ def list_job_credentials(job_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListJobCredentialsResult:
     """
-    Use this data source to access information about an existing resource.
+    List of unencrypted credentials for accessing device.
+    Latest API Version: 2020-11-01.
+
 
     :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name
     """
+    pulumi.log.warn("list_job_credentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databox:listJobCredentials'.")
     __args__ = dict()
     __args__['jobName'] = job_name
     __args__['resourceGroupName'] = resource_group_name

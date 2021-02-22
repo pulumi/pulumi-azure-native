@@ -84,7 +84,8 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
                                 scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Registration assignment.
+
 
     :param bool expand_registration_definition: Tells whether to return registration definition details also along with registration assignment details.
     :param str registration_assignment_id: Guid of the registration assignment.

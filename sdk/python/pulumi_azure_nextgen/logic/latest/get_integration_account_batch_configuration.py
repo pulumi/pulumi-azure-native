@@ -15,6 +15,8 @@ __all__ = [
     'get_integration_account_batch_configuration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountBatchConfiguration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationAccountBatchConfigurationResult:
     """
@@ -108,12 +110,15 @@ def get_integration_account_batch_configuration(batch_configuration_name: Option
                                                 resource_group_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountBatchConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    The batch configuration resource definition.
+    Latest API Version: 2019-05-01.
+
 
     :param str batch_configuration_name: The batch configuration name.
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_integration_account_batch_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountBatchConfiguration'.")
     __args__ = dict()
     __args__['batchConfigurationName'] = batch_configuration_name
     __args__['integrationAccountName'] = integration_account_name

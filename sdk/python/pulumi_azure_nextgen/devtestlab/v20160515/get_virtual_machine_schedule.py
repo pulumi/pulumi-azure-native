@@ -230,7 +230,8 @@ def get_virtual_machine_schedule(expand: Optional[str] = None,
                                  virtual_machine_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    A schedule.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'
     :param str lab_name: The name of the lab.

@@ -15,6 +15,8 @@ __all__ = [
     'get_skus',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkus'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSkusResult:
     def __init__(__self__, id=None, name=None, properties=None, type=None):
@@ -78,12 +80,14 @@ def get_skus(provider_namespace: Optional[str] = None,
              sku: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSkusResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2020-11-20.
+
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str resource_type: The resource type.
     :param str sku: The SKU.
     """
+    pulumi.log.warn("get_skus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkus'.")
     __args__ = dict()
     __args__['providerNamespace'] = provider_namespace
     __args__['resourceType'] = resource_type

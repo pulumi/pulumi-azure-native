@@ -121,7 +121,8 @@ def get_protection_container(container_name: Optional[str] = None,
                              vault_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionContainerResult:
     """
-    Use this data source to access information about an existing resource.
+    Base class for container with backup items. Containers with specific workloads are derived from this class.
+
 
     :param str container_name: Name of the container whose details need to be fetched.
     :param str fabric_name: Name of the fabric where the container belongs.

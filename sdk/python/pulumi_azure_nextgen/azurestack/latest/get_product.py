@@ -15,6 +15,8 @@ __all__ = [
     'get_product',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getProduct'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProductResult:
     """
@@ -300,12 +302,15 @@ def get_product(product_name: Optional[str] = None,
                 resource_group: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
-    Use this data source to access information about an existing resource.
+    Product information.
+    Latest API Version: 2017-06-01.
+
 
     :param str product_name: Name of the product.
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
+    pulumi.log.warn("get_product is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getProduct'.")
     __args__ = dict()
     __args__['productName'] = product_name
     __args__['registrationName'] = registration_name

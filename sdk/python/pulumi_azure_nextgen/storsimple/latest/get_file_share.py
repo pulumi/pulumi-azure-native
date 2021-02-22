@@ -14,6 +14,8 @@ __all__ = [
     'get_file_share',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getFileShare'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFileShareResult:
     """
@@ -169,7 +171,9 @@ def get_file_share(device_name: Optional[str] = None,
                    share_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileShareResult:
     """
-    Use this data source to access information about an existing resource.
+    The File Share.
+    Latest API Version: 2016-10-01.
+
 
     :param str device_name: The device name.
     :param str file_server_name: The file server name.
@@ -177,6 +181,7 @@ def get_file_share(device_name: Optional[str] = None,
     :param str resource_group_name: The resource group name
     :param str share_name: The file share name.
     """
+    pulumi.log.warn("get_file_share is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getFileShare'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['fileServerName'] = file_server_name

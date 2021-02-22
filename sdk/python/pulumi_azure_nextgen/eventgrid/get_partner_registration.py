@@ -258,7 +258,9 @@ def get_partner_registration(partner_registration_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerRegistrationResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about a partner registration.
+    API Version: 2020-04-01-preview.
+
 
     :param str partner_registration_name: Name of the partner registration.
     :param str resource_group_name: The name of the resource group within the user's subscription.

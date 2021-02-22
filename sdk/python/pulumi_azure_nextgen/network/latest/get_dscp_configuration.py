@@ -15,6 +15,8 @@ __all__ = [
     'get_dscp_configuration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDscpConfiguration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDscpConfigurationResult:
     """
@@ -227,11 +229,14 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscpConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    DSCP Configuration in a resource group.
+    Latest API Version: 2020-08-01.
+
 
     :param str dscp_configuration_name: The name of the resource.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_dscp_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDscpConfiguration'.")
     __args__ = dict()
     __args__['dscpConfigurationName'] = dscp_configuration_name
     __args__['resourceGroupName'] = resource_group_name

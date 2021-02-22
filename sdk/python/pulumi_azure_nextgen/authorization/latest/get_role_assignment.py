@@ -15,6 +15,8 @@ __all__ = [
     'get_role_assignment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getRoleAssignment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRoleAssignmentResult:
     """
@@ -83,11 +85,14 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
                         scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Role Assignments
+    Latest API Version: 2015-07-01.
+
 
     :param str role_assignment_name: The name of the role assignment to get.
     :param str scope: The scope of the role assignment.
     """
+    pulumi.log.warn("get_role_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getRoleAssignment'.")
     __args__ = dict()
     __args__['roleAssignmentName'] = role_assignment_name
     __args__['scope'] = scope

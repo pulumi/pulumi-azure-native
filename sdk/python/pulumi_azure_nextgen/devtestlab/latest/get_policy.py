@@ -14,6 +14,8 @@ __all__ = [
     'get_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPolicyResult:
     """
@@ -205,7 +207,9 @@ def get_policy(expand: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    A Policy.
+    Latest API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=description)'
     :param str lab_name: The name of the lab.
@@ -213,6 +217,7 @@ def get_policy(expand: Optional[str] = None,
     :param str policy_set_name: The name of the policy set.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getPolicy'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

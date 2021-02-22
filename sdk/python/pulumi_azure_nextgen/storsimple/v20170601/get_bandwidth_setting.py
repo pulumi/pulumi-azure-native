@@ -108,7 +108,8 @@ def get_bandwidth_setting(bandwidth_setting_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBandwidthSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    The bandwidth setting.
+
 
     :param str bandwidth_setting_name: The name of bandwidth setting to be fetched.
     :param str manager_name: The manager name

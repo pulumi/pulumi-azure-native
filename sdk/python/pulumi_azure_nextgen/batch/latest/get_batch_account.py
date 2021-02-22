@@ -15,6 +15,8 @@ __all__ = [
     'get_batch_account',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getBatchAccount'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBatchAccountResult:
     """
@@ -269,11 +271,14 @@ def get_batch_account(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    Contains information about an Azure Batch account.
+    Latest API Version: 2021-01-01.
+
 
     :param str account_name: The name of the Batch account.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
+    pulumi.log.warn("get_batch_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getBatchAccount'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

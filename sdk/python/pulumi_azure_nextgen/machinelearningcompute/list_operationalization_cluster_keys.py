@@ -107,7 +107,9 @@ def list_operationalization_cluster_keys(cluster_name: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOperationalizationClusterKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Credentials to resources in the cluster.
+    API Version: 2017-08-01-preview.
+
 
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: Name of the resource group in which the cluster is located.

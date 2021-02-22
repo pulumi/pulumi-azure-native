@@ -204,7 +204,8 @@ def get_web_app_deployment(id: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDeploymentResult:
     """
-    Use this data source to access information about an existing resource.
+    User credentials used for publishing activity.
+
 
     :param str id: Deployment ID.
     :param str name: Name of the app.

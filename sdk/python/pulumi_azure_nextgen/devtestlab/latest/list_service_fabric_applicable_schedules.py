@@ -15,6 +15,8 @@ __all__ = [
     'list_service_fabric_applicable_schedules',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listServiceFabricApplicableSchedules'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListServiceFabricApplicableSchedulesResult:
     """
@@ -121,13 +123,16 @@ def list_service_fabric_applicable_schedules(lab_name: Optional[str] = None,
                                              user_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServiceFabricApplicableSchedulesResult:
     """
-    Use this data source to access information about an existing resource.
+    Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+    Latest API Version: 2018-09-15.
+
 
     :param str lab_name: The name of the lab.
     :param str name: The name of the service fabric.
     :param str resource_group_name: The name of the resource group.
     :param str user_name: The name of the user profile.
     """
+    pulumi.log.warn("list_service_fabric_applicable_schedules is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listServiceFabricApplicableSchedules'.")
     __args__ = dict()
     __args__['labName'] = lab_name
     __args__['name'] = name

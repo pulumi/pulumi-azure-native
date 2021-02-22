@@ -15,6 +15,8 @@ __all__ = [
     'list_share_subscription_source_share_synchronization_settings',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSubscriptionSourceShareSynchronizationSettings'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListShareSubscriptionSourceShareSynchronizationSettingsResult:
     """
@@ -61,13 +63,16 @@ def list_share_subscription_source_share_synchronization_settings(account_name: 
                                                                   skip_token: Optional[str] = None,
                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSubscriptionSourceShareSynchronizationSettingsResult:
     """
-    Use this data source to access information about an existing resource.
+    List response for get source share Synchronization settings
+    Latest API Version: 2020-09-01.
+
 
     :param str account_name: The name of the share account.
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     :param str skip_token: Continuation token
     """
+    pulumi.log.warn("list_share_subscription_source_share_synchronization_settings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSubscriptionSourceShareSynchronizationSettings'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

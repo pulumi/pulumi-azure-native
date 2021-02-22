@@ -15,6 +15,8 @@ __all__ = [
     'get_server_endpoint',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getServerEndpoint'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServerEndpointResult:
     """
@@ -289,13 +291,16 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
                         sync_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    Server Endpoint object.
+    Latest API Version: 2020-03-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_endpoint_name: Name of Server Endpoint object.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
+    pulumi.log.warn("get_server_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getServerEndpoint'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverEndpointName'] = server_endpoint_name

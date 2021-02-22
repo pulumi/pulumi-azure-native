@@ -15,6 +15,8 @@ __all__ = [
     'get_patch_schedule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getPatchSchedule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPatchScheduleResult:
     """
@@ -84,12 +86,15 @@ def get_patch_schedule(default: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPatchScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    Response to put/get patch schedules for Redis cache.
+    Latest API Version: 2020-06-01.
+
 
     :param str default: Default string modeled as parameter for auto generation to work correctly.
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_patch_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getPatchSchedule'.")
     __args__ = dict()
     __args__['default'] = default
     __args__['name'] = name

@@ -14,6 +14,8 @@ __all__ = [
     'get_server_administrator',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getServerAdministrator'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServerAdministratorResult:
     """
@@ -118,11 +120,14 @@ def get_server_administrator(resource_group_name: Optional[str] = None,
                              server_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerAdministratorResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a and external administrator to be created.
+    Latest API Version: 2017-12-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("get_server_administrator is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getServerAdministrator'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name

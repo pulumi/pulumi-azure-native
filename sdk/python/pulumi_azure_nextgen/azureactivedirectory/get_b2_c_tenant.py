@@ -128,7 +128,8 @@ def get_b2_c_tenant(resource_group_name: Optional[str] = None,
                     resource_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetB2CTenantResult:
     """
-    Use this data source to access information about an existing resource.
+    API Version: 2019-01-01-preview.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The initial domain name of the B2C tenant.

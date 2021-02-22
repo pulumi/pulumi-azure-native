@@ -47,7 +47,9 @@ def list_cluster_follower_databases(cluster_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterFollowerDatabasesResult:
     """
-    Use this data source to access information about an existing resource.
+    The list Kusto database principals operation response.
+    API Version: 2020-09-18.
+
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.

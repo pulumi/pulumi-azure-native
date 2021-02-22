@@ -120,7 +120,8 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    An object that represents a private endpoint connection for a container registry.
+
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str registry_name: The name of the container registry.

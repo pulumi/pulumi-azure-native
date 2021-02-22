@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_private_endpoint_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPrivateEndpointConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppPrivateEndpointConnectionResult:
     """
@@ -129,11 +131,14 @@ def get_web_app_private_endpoint_connection(name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Private Endpoint Connection ARM resource.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_web_app_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPrivateEndpointConnection'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name

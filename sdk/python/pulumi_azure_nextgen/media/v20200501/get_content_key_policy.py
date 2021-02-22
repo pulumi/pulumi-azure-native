@@ -144,7 +144,8 @@ def get_content_key_policy(account_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentKeyPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    A Content Key Policy resource.
+
 
     :param str account_name: The Media Services account name.
     :param str content_key_policy_name: The Content Key Policy name.

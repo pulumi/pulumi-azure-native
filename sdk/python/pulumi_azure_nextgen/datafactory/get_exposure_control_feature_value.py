@@ -59,7 +59,9 @@ def get_exposure_control_feature_value(feature_name: Optional[str] = None,
                                        location_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExposureControlFeatureValueResult:
     """
-    Use this data source to access information about an existing resource.
+    The exposure control response.
+    API Version: 2018-06-01.
+
 
     :param str feature_name: The feature name.
     :param str feature_type: The feature type.

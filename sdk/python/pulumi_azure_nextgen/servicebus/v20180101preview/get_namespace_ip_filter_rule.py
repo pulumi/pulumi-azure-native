@@ -107,7 +107,8 @@ def get_namespace_ip_filter_rule(ip_filter_rule_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceIpFilterRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Single item in a List or Get IpFilterRules operation
+
 
     :param str ip_filter_rule_name: The IP Filter Rule name.
     :param str namespace_name: The namespace name

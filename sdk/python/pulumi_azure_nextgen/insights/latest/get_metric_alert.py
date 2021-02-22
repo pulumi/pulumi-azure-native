@@ -15,6 +15,8 @@ __all__ = [
     'get_metric_alert',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getMetricAlert'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMetricAlertResult:
     """
@@ -251,11 +253,14 @@ def get_metric_alert(resource_group_name: Optional[str] = None,
                      rule_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetricAlertResult:
     """
-    Use this data source to access information about an existing resource.
+    The metric alert resource.
+    Latest API Version: 2018-03-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("get_metric_alert is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getMetricAlert'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name

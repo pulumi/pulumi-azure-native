@@ -96,7 +96,8 @@ def get_product_policy(policy_id: Optional[str] = None,
                        service_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Policy Contract details.
+
 
     :param str policy_id: The identifier of the Policy.
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.

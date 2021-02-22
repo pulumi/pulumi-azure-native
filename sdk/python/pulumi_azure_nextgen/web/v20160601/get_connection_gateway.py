@@ -117,7 +117,8 @@ def get_connection_gateway(connection_gateway_name: Optional[str] = None,
                            subscription_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    The gateway definition
+
 
     :param str connection_gateway_name: The connection gateway name
     :param str resource_group_name: The resource group

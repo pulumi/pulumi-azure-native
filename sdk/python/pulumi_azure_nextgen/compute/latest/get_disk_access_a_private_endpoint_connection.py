@@ -15,6 +15,8 @@ __all__ = [
     'get_disk_access_a_private_endpoint_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskAccessAPrivateEndpointConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDiskAccessAPrivateEndpointConnectionResult:
     """
@@ -108,12 +110,15 @@ def get_disk_access_a_private_endpoint_connection(disk_access_name: Optional[str
                                                   resource_group_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskAccessAPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    The Private Endpoint Connection resource.
+    Latest API Version: 2020-09-30.
+
 
     :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
     :param str private_endpoint_connection_name: The name of the private endpoint connection
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_disk_access_a_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskAccessAPrivateEndpointConnection'.")
     __args__ = dict()
     __args__['diskAccessName'] = disk_access_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name

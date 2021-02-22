@@ -167,7 +167,9 @@ def get_health_alert(resource_group_name: Optional[str] = None,
                      rule_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHealthAlertResult:
     """
-    Use this data source to access information about an existing resource.
+    The health alert resource.
+    API Version: 2020-08-04-preview.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the rule.

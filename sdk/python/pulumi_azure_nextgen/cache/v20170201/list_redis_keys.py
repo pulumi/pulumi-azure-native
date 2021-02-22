@@ -58,7 +58,8 @@ def list_redis_keys(name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRedisKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Redis cache access keys.
+
 
     :param str name: The name of the Redis cache.
     :param str resource_group_name: The name of the resource group.

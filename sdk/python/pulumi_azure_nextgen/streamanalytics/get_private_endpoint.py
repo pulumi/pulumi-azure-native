@@ -96,7 +96,9 @@ def get_private_endpoint(cluster_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    Complete information about the private endpoint.
+    API Version: 2020-03-01-preview.
+
 
     :param str cluster_name: The name of the cluster.
     :param str private_endpoint_name: The name of the private endpoint.

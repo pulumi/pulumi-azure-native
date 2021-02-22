@@ -192,7 +192,9 @@ def get_blob_service_properties(account_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobServicePropertiesResult:
     """
-    Use this data source to access information about an existing resource.
+    The properties of a storage account’s Blob service.
+    API Version: 2021-01-01.
+
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str blob_services_name: The name of the blob Service within the specified storage account. Blob Service Name must be 'default'

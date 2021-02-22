@@ -194,7 +194,8 @@ def get_user(expand: Optional[str] = None,
              user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Use this data source to access information about an existing resource.
+    The User registered to a lab
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=email)'
     :param str lab_account_name: The name of the lab Account.

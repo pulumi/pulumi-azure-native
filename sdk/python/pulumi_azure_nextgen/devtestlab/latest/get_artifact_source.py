@@ -14,6 +14,8 @@ __all__ = [
     'get_artifact_source',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getArtifactSource'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetArtifactSourceResult:
     """
@@ -228,13 +230,16 @@ def get_artifact_source(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArtifactSourceResult:
     """
-    Use this data source to access information about an existing resource.
+    Properties of an artifact source.
+    Latest API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=displayName)'
     :param str lab_name: The name of the lab.
     :param str name: The name of the artifact source.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_artifact_source is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getArtifactSource'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

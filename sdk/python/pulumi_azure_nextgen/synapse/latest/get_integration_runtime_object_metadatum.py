@@ -15,6 +15,8 @@ __all__ = [
     'get_integration_runtime_object_metadatum',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntimeObjectMetadatum'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationRuntimeObjectMetadatumResult:
     """
@@ -61,13 +63,16 @@ def get_integration_runtime_object_metadatum(integration_runtime_name: Optional[
                                              workspace_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeObjectMetadatumResult:
     """
-    Use this data source to access information about an existing resource.
+    A list of SSIS object metadata.
+    Latest API Version: 2020-12-01.
+
 
     :param str integration_runtime_name: Integration runtime name
     :param str metadata_path: Metadata path.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("get_integration_runtime_object_metadatum is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntimeObjectMetadatum'.")
     __args__ = dict()
     __args__['integrationRuntimeName'] = integration_runtime_name
     __args__['metadataPath'] = metadata_path

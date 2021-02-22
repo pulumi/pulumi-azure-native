@@ -106,7 +106,9 @@ def get_guest_diagnostics_settings_association(association_name: Optional[str] =
                                                resource_uri: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestDiagnosticsSettingsAssociationResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual machine guest diagnostic settings resource.
+    API Version: 2018-06-01-preview.
+
 
     :param str association_name: The name of the diagnostic settings association.
     :param str resource_uri: The fully qualified ID of the resource, including the resource name and resource type.

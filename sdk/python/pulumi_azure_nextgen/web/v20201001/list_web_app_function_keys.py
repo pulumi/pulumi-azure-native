@@ -108,7 +108,8 @@ def list_web_app_function_keys(function_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    String dictionary resource.
+
 
     :param str function_name: Function name.
     :param str name: Site name.

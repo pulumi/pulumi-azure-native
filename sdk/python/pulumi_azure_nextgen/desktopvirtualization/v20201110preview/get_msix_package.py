@@ -204,7 +204,8 @@ def get_msix_package(host_pool_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMSIXPackageResult:
     """
-    Use this data source to access information about an existing resource.
+    Schema for MSIX Package properties.
+
 
     :param str host_pool_name: The name of the host pool within the specified resource group
     :param str msix_package_full_name: The version specific package full name of the MSIX package within specified hostpool

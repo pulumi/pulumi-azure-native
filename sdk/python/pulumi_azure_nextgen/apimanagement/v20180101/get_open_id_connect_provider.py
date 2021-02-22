@@ -131,7 +131,8 @@ def get_open_id_connect_provider(opid: Optional[str] = None,
                                  service_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenIdConnectProviderResult:
     """
-    Use this data source to access information about an existing resource.
+    OpenId Connect Provider details.
+
 
     :param str opid: Identifier of the OpenID Connect Provider.
     :param str resource_group_name: The name of the resource group.

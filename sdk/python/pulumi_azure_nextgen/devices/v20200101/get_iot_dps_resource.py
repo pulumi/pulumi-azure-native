@@ -131,7 +131,8 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotDpsResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    The description of the provisioning service.
+
 
     :param str provisioning_service_name: Name of the provisioning service to retrieve.
     :param str resource_group_name: Resource group name.

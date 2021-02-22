@@ -59,7 +59,9 @@ def list_remediation_deployments_at_subscription(remediation_name: Optional[str]
                                                  top: Optional[int] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    List of deployments for a remediation.
+    API Version: 2019-07-01.
+
 
     :param str remediation_name: The name of the remediation.
     :param int top: Maximum number of records to return.

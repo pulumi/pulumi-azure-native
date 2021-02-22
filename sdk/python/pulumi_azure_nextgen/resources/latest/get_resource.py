@@ -15,6 +15,8 @@ __all__ = [
     'get_resource',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getResource'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetResourceResult:
     """
@@ -170,7 +172,9 @@ def get_resource(parent_resource_path: Optional[str] = None,
                  resource_type: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    Resource information.
+    Latest API Version: 2020-10-01.
+
 
     :param str parent_resource_path: The parent resource identity.
     :param str resource_group_name: The name of the resource group containing the resource to get. The name is case insensitive.
@@ -178,6 +182,7 @@ def get_resource(parent_resource_path: Optional[str] = None,
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str resource_type: The resource type of the resource.
     """
+    pulumi.log.warn("get_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getResource'.")
     __args__ = dict()
     __args__['parentResourcePath'] = parent_resource_path
     __args__['resourceGroupName'] = resource_group_name

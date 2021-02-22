@@ -15,6 +15,8 @@ __all__ = [
     'get_machine',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybridcompute:getMachine'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMachineResult:
     """
@@ -333,12 +335,15 @@ def get_machine(expand: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a hybrid machine.
+    Latest API Version: 2020-08-02.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str name: The name of the hybrid machine.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_machine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybridcompute:getMachine'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['name'] = name

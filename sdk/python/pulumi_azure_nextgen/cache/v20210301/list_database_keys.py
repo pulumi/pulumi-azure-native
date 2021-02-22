@@ -59,7 +59,8 @@ def list_database_keys(cluster_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabaseKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The secret access keys used for authenticating connections to redis
+
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
     :param str database_name: The name of the database.

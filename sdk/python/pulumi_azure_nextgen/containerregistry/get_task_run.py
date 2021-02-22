@@ -157,7 +157,10 @@ def get_task_run(registry_name: Optional[str] = None,
                  task_run_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskRunResult:
     """
-    Use this data source to access information about an existing resource.
+    The task run that has the ARM resource and properties.
+    The task run will have the information of request and result of a run.
+    API Version: 2019-06-01-preview.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.

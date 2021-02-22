@@ -96,7 +96,9 @@ def get_replication_recovery_plan(recovery_plan_name: Optional[str] = None,
                                   resource_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationRecoveryPlanResult:
     """
-    Use this data source to access information about an existing resource.
+    Recovery plan details.
+    API Version: 2018-07-10.
+
 
     :param str recovery_plan_name: Name of the recovery plan.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.

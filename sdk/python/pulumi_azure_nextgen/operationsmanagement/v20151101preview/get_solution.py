@@ -119,7 +119,8 @@ def get_solution(resource_group_name: Optional[str] = None,
                  solution_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionResult:
     """
-    Use this data source to access information about an existing resource.
+    The container for solution.
+
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
     :param str solution_name: User Solution Name.

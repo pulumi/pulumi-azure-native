@@ -15,6 +15,8 @@ __all__ = [
     'get_ddos_custom_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDdosCustomPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDdosCustomPolicyResult:
     """
@@ -155,11 +157,14 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDdosCustomPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    A DDoS custom policy in a resource group.
+    Latest API Version: 2020-08-01.
+
 
     :param str ddos_custom_policy_name: The name of the DDoS custom policy.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_ddos_custom_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDdosCustomPolicy'.")
     __args__ = dict()
     __args__['ddosCustomPolicyName'] = ddos_custom_policy_name
     __args__['resourceGroupName'] = resource_group_name

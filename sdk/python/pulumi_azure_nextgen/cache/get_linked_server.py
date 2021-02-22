@@ -119,7 +119,9 @@ def get_linked_server(linked_server_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServerResult:
     """
-    Use this data source to access information about an existing resource.
+    Response to put/get linked server (with properties) for Redis cache.
+    API Version: 2020-06-01.
+
 
     :param str linked_server_name: The name of the linked server.
     :param str name: The name of the redis cache.

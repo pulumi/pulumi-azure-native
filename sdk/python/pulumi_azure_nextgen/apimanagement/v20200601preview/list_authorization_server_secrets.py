@@ -71,7 +71,8 @@ def list_authorization_server_secrets(authsid: Optional[str] = None,
                                       service_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAuthorizationServerSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    OAuth Server Secrets Contract.
+
 
     :param str authsid: Identifier of the authorization server.
     :param str resource_group_name: The name of the resource group.

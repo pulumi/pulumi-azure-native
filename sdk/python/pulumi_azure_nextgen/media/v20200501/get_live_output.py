@@ -193,7 +193,8 @@ def get_live_output(account_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveOutputResult:
     """
-    Use this data source to access information about an existing resource.
+    The Live Output.
+
 
     :param str account_name: The Media Services account name.
     :param str live_event_name: The name of the live event, maximum length is 32.

@@ -16,6 +16,8 @@ __all__ = [
     'list_integration_account_map_content_callback_url',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountMapContentCallbackUrl'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListIntegrationAccountMapContentCallbackUrlResult:
     """
@@ -111,7 +113,9 @@ def list_integration_account_map_content_callback_url(integration_account_name: 
                                                       resource_group_name: Optional[str] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountMapContentCallbackUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    The workflow trigger callback URL.
+    Latest API Version: 2019-05-01.
+
 
     :param str integration_account_name: The integration account name.
     :param Union[str, 'KeyType'] key_type: The key type.
@@ -119,6 +123,7 @@ def list_integration_account_map_content_callback_url(integration_account_name: 
     :param str not_after: The expiry time.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("list_integration_account_map_content_callback_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountMapContentCallbackUrl'.")
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
     __args__['keyType'] = key_type

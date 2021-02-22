@@ -107,7 +107,8 @@ def get_sql_resource_sql_role_assignment(account_name: Optional[str] = None,
                                          role_assignment_id: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlRoleAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB Role Assignment
+
 
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

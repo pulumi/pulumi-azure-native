@@ -14,6 +14,8 @@ __all__ = [
     'get_route_filter_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRouteFilterRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRouteFilterRuleResult:
     """
@@ -131,12 +133,15 @@ def get_route_filter_rule(resource_group_name: Optional[str] = None,
                           rule_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteFilterRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Route Filter Rule Resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str route_filter_name: The name of the route filter.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("get_route_filter_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRouteFilterRule'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeFilterName'] = route_filter_name

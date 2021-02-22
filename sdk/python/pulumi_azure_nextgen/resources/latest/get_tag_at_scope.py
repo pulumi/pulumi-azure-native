@@ -15,6 +15,8 @@ __all__ = [
     'get_tag_at_scope',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getTagAtScope'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTagAtScopeResult:
     """
@@ -82,10 +84,13 @@ class AwaitableGetTagAtScopeResult(GetTagAtScopeResult):
 def get_tag_at_scope(scope: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagAtScopeResult:
     """
-    Use this data source to access information about an existing resource.
+    Wrapper resource for tags API requests and responses.
+    Latest API Version: 2020-10-01.
+
 
     :param str scope: The resource scope.
     """
+    pulumi.log.warn("get_tag_at_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getTagAtScope'.")
     __args__ = dict()
     __args__['scope'] = scope
     if opts is None:

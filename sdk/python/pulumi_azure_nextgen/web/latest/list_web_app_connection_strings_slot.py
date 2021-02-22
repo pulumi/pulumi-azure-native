@@ -15,6 +15,8 @@ __all__ = [
     'list_web_app_connection_strings_slot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppConnectionStringsSlot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWebAppConnectionStringsSlotResult:
     """
@@ -108,12 +110,15 @@ def list_web_app_connection_strings_slot(name: Optional[str] = None,
                                          slot: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppConnectionStringsSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    String dictionary resource.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the connection settings for the production slot.
     """
+    pulumi.log.warn("list_web_app_connection_strings_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppConnectionStringsSlot'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

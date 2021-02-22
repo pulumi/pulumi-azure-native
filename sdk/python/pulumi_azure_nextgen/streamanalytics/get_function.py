@@ -84,7 +84,9 @@ def get_function(function_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionResult:
     """
-    Use this data source to access information about an existing resource.
+    A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+    API Version: 2016-03-01.
+
 
     :param str function_name: The name of the function.
     :param str job_name: The name of the streaming job.

@@ -507,7 +507,8 @@ def get_web_app(name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppResult:
     """
-    Use this data source to access information about an existing resource.
+    A web app, a mobile app backend, or an API app.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

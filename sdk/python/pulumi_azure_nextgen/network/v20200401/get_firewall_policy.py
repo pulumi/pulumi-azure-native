@@ -192,7 +192,8 @@ def get_firewall_policy(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    FirewallPolicy Resource.
+
 
     :param str expand: Expands referenced resources.
     :param str firewall_policy_name: The name of the Firewall Policy.

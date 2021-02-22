@@ -63,7 +63,8 @@ def list_product_families(customer_subscription_details: Optional[pulumi.InputTy
                           skip_token: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductFamiliesResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of product families.
+
 
     :param pulumi.InputType['CustomerSubscriptionDetailsArgs'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
     :param str expand: $expand is supported on configurations parameter for product, which provides details on the configurations for the product.

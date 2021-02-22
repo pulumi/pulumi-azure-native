@@ -14,6 +14,8 @@ __all__ = [
     'get_partner',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managementpartner:getPartner'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPartnerResult:
     """
@@ -165,10 +167,13 @@ class AwaitableGetPartnerResult(GetPartnerResult):
 def get_partner(partner_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerResult:
     """
-    Use this data source to access information about an existing resource.
+    this is the management partner operations response
+    Latest API Version: 2018-02-01.
+
 
     :param str partner_id: Id of the Partner
     """
+    pulumi.log.warn("get_partner is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managementpartner:getPartner'.")
     __args__ = dict()
     __args__['partnerId'] = partner_id
     if opts is None:

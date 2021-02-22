@@ -15,6 +15,8 @@ __all__ = [
     'get_data_flow',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataFlow'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataFlowResult:
     """
@@ -96,12 +98,15 @@ def get_data_flow(data_flow_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataFlowResult:
     """
-    Use this data source to access information about an existing resource.
+    Data flow resource type.
+    Latest API Version: 2018-06-01.
+
 
     :param str data_flow_name: The data flow name.
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_data_flow is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataFlow'.")
     __args__ = dict()
     __args__['dataFlowName'] = data_flow_name
     __args__['factoryName'] = factory_name

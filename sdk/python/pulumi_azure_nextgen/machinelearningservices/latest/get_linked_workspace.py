@@ -15,6 +15,8 @@ __all__ = [
     'get_linked_workspace',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getLinkedWorkspace'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLinkedWorkspaceResult:
     """
@@ -84,12 +86,15 @@ def get_linked_workspace(link_name: Optional[str] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedWorkspaceResult:
     """
-    Use this data source to access information about an existing resource.
+    Linked workspace.
+    Latest API Version: 2020-03-01.
+
 
     :param str link_name: Friendly name of the linked workspace
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("get_linked_workspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getLinkedWorkspace'.")
     __args__ = dict()
     __args__['linkName'] = link_name
     __args__['resourceGroupName'] = resource_group_name

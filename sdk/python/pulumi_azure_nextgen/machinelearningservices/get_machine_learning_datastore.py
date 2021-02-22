@@ -132,7 +132,9 @@ def get_machine_learning_datastore(datastore_name: Optional[str] = None,
                                    workspace_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningDatastoreResult:
     """
-    Use this data source to access information about an existing resource.
+    Machine Learning datastore object wrapped into ARM resource envelope.
+    API Version: 2020-05-01-preview.
+
 
     :param str datastore_name: The Datastore name.
     :param str resource_group_name: Name of the resource group in which workspace is located.

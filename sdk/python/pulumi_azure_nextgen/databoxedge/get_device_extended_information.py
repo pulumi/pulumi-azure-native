@@ -154,7 +154,9 @@ def get_device_extended_information(device_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceExtendedInformationResult:
     """
-    Use this data source to access information about an existing resource.
+    The extended Info of the Data Box Edge/Gateway device.
+    API Version: 2020-09-01.
+
 
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.

@@ -107,7 +107,8 @@ def get_integration_account(integration_account_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    The integration account.
+
 
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.

@@ -16,6 +16,8 @@ __all__ = [
     'list_connection_consent_links',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listConnectionConsentLinks'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListConnectionConsentLinksResult:
     """
@@ -50,13 +52,16 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
                                   subscription_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionConsentLinksResult:
     """
-    Use this data source to access information about an existing resource.
+    Collection of consent links
+    Latest API Version: 2016-06-01.
+
 
     :param str connection_name: Connection name
     :param Sequence[pulumi.InputType['ConsentLinkParameterDefinitionArgs']] parameters: Collection of resources
     :param str resource_group_name: The resource group
     :param str subscription_id: Subscription Id
     """
+    pulumi.log.warn("list_connection_consent_links is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listConnectionConsentLinks'.")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['parameters'] = parameters

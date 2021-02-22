@@ -250,7 +250,8 @@ def list_web_app_backup_status_secrets_slot(backup_id: Optional[str] = None,
                                             type: Optional['BackupRestoreOperationType'] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupStatusSecretsSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Backup description.
+
 
     :param str backup_id: ID of backup.
     :param str backup_request_name: Name of the backup.

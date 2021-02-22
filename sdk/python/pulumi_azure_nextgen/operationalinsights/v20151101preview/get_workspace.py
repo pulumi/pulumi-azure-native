@@ -179,7 +179,8 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    Use this data source to access information about an existing resource.
+    The top level Workspace resource container.
+
 
     :param str resource_group_name: The resource group name of the workspace.
     :param str workspace_name: Name of the Log Analytics Workspace.

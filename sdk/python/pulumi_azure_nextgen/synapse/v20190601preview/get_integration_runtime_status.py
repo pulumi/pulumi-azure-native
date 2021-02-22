@@ -60,7 +60,8 @@ def get_integration_runtime_status(integration_runtime_name: Optional[str] = Non
                                    workspace_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeStatusResult:
     """
-    Use this data source to access information about an existing resource.
+    Integration runtime status response.
+
 
     :param str integration_runtime_name: Integration runtime name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

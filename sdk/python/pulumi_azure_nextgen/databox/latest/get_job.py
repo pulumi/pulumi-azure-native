@@ -15,6 +15,8 @@ __all__ = [
     'get_job',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databox:getJob'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetJobResult:
     """
@@ -276,12 +278,15 @@ def get_job(expand: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Use this data source to access information about an existing resource.
+    Job Resource.
+    Latest API Version: 2020-11-01.
+
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.
     :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name
     """
+    pulumi.log.warn("get_job is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databox:getJob'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['jobName'] = job_name

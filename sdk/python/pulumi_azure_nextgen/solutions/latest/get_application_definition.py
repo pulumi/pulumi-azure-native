@@ -15,6 +15,8 @@ __all__ = [
     'get_application_definition',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getApplicationDefinition'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationDefinitionResult:
     """
@@ -287,11 +289,14 @@ def get_application_definition(application_definition_name: Optional[str] = None
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about managed application definition.
+    Latest API Version: 2019-07-01.
+
 
     :param str application_definition_name: The name of the managed application definition.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("get_application_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getApplicationDefinition'.")
     __args__ = dict()
     __args__['applicationDefinitionName'] = application_definition_name
     __args__['resourceGroupName'] = resource_group_name

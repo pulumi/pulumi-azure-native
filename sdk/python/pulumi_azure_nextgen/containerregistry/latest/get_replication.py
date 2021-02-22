@@ -15,6 +15,8 @@ __all__ = [
     'get_replication',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getReplication'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReplicationResult:
     """
@@ -120,12 +122,15 @@ def get_replication(registry_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationResult:
     """
-    Use this data source to access information about an existing resource.
+    An object that represents a replication for a container registry.
+    Latest API Version: 2019-05-01.
+
 
     :param str registry_name: The name of the container registry.
     :param str replication_name: The name of the replication.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("get_replication is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getReplication'.")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['replicationName'] = replication_name

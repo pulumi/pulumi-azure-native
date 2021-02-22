@@ -15,6 +15,8 @@ __all__ = [
     'get_gallery_image',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGalleryImage'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGalleryImageResult:
     """
@@ -241,13 +243,16 @@ def get_gallery_image(expand: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents an image from the Azure Marketplace
+    Latest API Version: 2018-10-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=author)'
     :param str gallery_image_name: The name of the gallery Image.
     :param str lab_account_name: The name of the lab Account.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_gallery_image is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGalleryImage'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['galleryImageName'] = gallery_image_name

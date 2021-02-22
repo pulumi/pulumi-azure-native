@@ -15,6 +15,8 @@ __all__ = [
     'get_app',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:iotcentral:getApp'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAppResult:
     """
@@ -155,11 +157,14 @@ def get_app(resource_group_name: Optional[str] = None,
             resource_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
-    Use this data source to access information about an existing resource.
+    The IoT Central application.
+    Latest API Version: 2018-09-01.
+
 
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.
     :param str resource_name: The ARM resource name of the IoT Central application.
     """
+    pulumi.log.warn("get_app is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:iotcentral:getApp'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

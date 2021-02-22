@@ -182,7 +182,9 @@ def get_web_app_vnet_connection_slot(name: Optional[str] = None,
                                      vnet_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppVnetConnectionSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Virtual Network information contract.
+    API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

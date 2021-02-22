@@ -15,6 +15,8 @@ __all__ = [
     'get_dedicated_host_group',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDedicatedHostGroup'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDedicatedHostGroupResult:
     """
@@ -156,12 +158,15 @@ def get_dedicated_host_group(expand: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+    Latest API Version: 2020-12-01.
+
 
     :param str expand: The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
     :param str host_group_name: The name of the dedicated host group.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_dedicated_host_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDedicatedHostGroup'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['hostGroupName'] = host_group_name

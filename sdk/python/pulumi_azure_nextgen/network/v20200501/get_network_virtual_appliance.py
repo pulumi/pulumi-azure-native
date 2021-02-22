@@ -228,7 +228,8 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkVirtualApplianceResult:
     """
-    Use this data source to access information about an existing resource.
+    NetworkVirtualAppliance Resource.
+
 
     :param str expand: Expands referenced resources.
     :param str network_virtual_appliance_name: The name of Network Virtual Appliance.

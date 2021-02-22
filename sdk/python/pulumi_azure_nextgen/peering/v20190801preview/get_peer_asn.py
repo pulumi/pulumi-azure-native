@@ -118,7 +118,8 @@ class AwaitableGetPeerAsnResult(GetPeerAsnResult):
 def get_peer_asn(peer_asn_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeerAsnResult:
     """
-    Use this data source to access information about an existing resource.
+    The essential information related to the peer's ASN.
+
 
     :param str peer_asn_name: The peer ASN name.
     """

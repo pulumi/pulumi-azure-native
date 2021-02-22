@@ -203,7 +203,8 @@ def get_gateway(gateway_resource_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    This type describes a gateway resource.
+
 
     :param str gateway_resource_name: The identity of the gateway.
     :param str resource_group_name: Azure resource group name

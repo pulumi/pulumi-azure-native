@@ -14,6 +14,8 @@ __all__ = [
     'get_virtual_network_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getVirtualNetworkRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualNetworkRuleResult:
     """
@@ -83,12 +85,15 @@ def get_virtual_network_rule(account_name: Optional[str] = None,
                              virtual_network_rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Data Lake Store virtual network rule information.
+    Latest API Version: 2016-11-01.
+
 
     :param str account_name: The name of the Data Lake Store account.
     :param str resource_group_name: The name of the Azure resource group.
     :param str virtual_network_rule_name: The name of the virtual network rule to retrieve.
     """
+    pulumi.log.warn("get_virtual_network_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getVirtualNetworkRule'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

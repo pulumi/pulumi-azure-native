@@ -15,6 +15,8 @@ __all__ = [
     'get_private_cloud',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getPrivateCloud'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateCloudResult:
     """
@@ -275,11 +277,14 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateCloudResult:
     """
-    Use this data source to access information about an existing resource.
+    A private cloud resource
+    Latest API Version: 2020-03-20.
+
 
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("get_private_cloud is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getPrivateCloud'.")
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name

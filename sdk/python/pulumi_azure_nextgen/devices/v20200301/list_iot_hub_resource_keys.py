@@ -59,7 +59,8 @@ def list_iot_hub_resource_keys(resource_group_name: Optional[str] = None,
                                resource_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIotHubResourceKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of shared access policies with a next link.
+
 
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.

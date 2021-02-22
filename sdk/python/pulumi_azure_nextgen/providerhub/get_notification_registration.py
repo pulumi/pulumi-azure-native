@@ -80,7 +80,9 @@ def get_notification_registration(notification_registration_name: Optional[str] 
                                   provider_namespace: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationRegistrationResult:
     """
-    Use this data source to access information about an existing resource.
+    The notification registration definition.
+    API Version: 2020-11-20.
+
 
     :param str notification_registration_name: The notification registration.
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.

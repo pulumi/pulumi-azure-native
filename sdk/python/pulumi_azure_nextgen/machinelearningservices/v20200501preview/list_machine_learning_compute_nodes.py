@@ -73,7 +73,8 @@ def list_machine_learning_compute_nodes(compute_name: Optional[str] = None,
                                         workspace_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMachineLearningComputeNodesResult:
     """
-    Use this data source to access information about an existing resource.
+    Compute node information related to a AmlCompute.
+
 
     :param str compute_name: Name of the Azure Machine Learning compute.
     :param str resource_group_name: Name of the resource group in which workspace is located.

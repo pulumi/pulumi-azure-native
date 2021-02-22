@@ -84,7 +84,9 @@ def get_gateway_certificate_authority(certificate_id: Optional[str] = None,
                                       service_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayCertificateAuthorityResult:
     """
-    Use this data source to access information about an existing resource.
+    Gateway certificate authority details.
+    API Version: 2020-06-01-preview.
+
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'

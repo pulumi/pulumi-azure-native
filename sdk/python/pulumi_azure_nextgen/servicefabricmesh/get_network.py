@@ -107,7 +107,9 @@ def get_network(network_resource_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkResult:
     """
-    Use this data source to access information about an existing resource.
+    This type describes a network resource.
+    API Version: 2018-09-01-preview.
+
 
     :param str network_resource_name: The identity of the network.
     :param str resource_group_name: Azure resource group name

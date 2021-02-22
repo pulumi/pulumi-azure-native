@@ -191,7 +191,9 @@ def get_configuration_store(config_store_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationStoreResult:
     """
-    Use this data source to access information about an existing resource.
+    The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+    API Version: 2020-06-01.
+
 
     :param str config_store_name: The name of the configuration store.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.

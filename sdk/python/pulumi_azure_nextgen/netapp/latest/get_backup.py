@@ -14,6 +14,8 @@ __all__ = [
     'get_backup',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getBackup'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBackupResult:
     """
@@ -169,7 +171,9 @@ def get_backup(account_name: Optional[str] = None,
                volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupResult:
     """
-    Use this data source to access information about an existing resource.
+    Backup of a Volume
+    Latest API Version: 2020-11-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str backup_name: The name of the backup
@@ -177,6 +181,7 @@ def get_backup(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str volume_name: The name of the volume
     """
+    pulumi.log.warn("get_backup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getBackup'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['backupName'] = backup_name

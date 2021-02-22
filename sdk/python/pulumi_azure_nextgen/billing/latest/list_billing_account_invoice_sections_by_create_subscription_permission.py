@@ -15,6 +15,8 @@ __all__ = [
     'list_billing_account_invoice_sections_by_create_subscription_permission',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult:
     """
@@ -58,10 +60,13 @@ class AwaitableListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionRe
 def list_billing_account_invoice_sections_by_create_subscription_permission(billing_account_name: Optional[str] = None,
                                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of invoice section properties with create subscription permission.
+    Latest API Version: 2020-05-01.
+
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
     """
+    pulumi.log.warn("list_billing_account_invoice_sections_by_create_subscription_permission is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission'.")
     __args__ = dict()
     __args__['billingAccountName'] = billing_account_name
     if opts is None:

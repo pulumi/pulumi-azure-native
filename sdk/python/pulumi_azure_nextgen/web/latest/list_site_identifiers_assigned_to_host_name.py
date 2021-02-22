@@ -15,6 +15,8 @@ __all__ = [
     'list_site_identifiers_assigned_to_host_name',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listSiteIdentifiersAssignedToHostName'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListSiteIdentifiersAssignedToHostNameResult:
     """
@@ -58,10 +60,13 @@ class AwaitableListSiteIdentifiersAssignedToHostNameResult(ListSiteIdentifiersAs
 def list_site_identifiers_assigned_to_host_name(name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSiteIdentifiersAssignedToHostNameResult:
     """
-    Use this data source to access information about an existing resource.
+    Collection of identifiers.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the object.
     """
+    pulumi.log.warn("list_site_identifiers_assigned_to_host_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listSiteIdentifiersAssignedToHostName'.")
     __args__ = dict()
     __args__['name'] = name
     if opts is None:

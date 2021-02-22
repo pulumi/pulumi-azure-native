@@ -14,6 +14,8 @@ __all__ = [
     'get_registered_prefix',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getRegisteredPrefix'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRegisteredPrefixResult:
     """
@@ -131,12 +133,15 @@ def get_registered_prefix(peering_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredPrefixResult:
     """
-    Use this data source to access information about an existing resource.
+    The customer's prefix that is registered by the peering service provider.
+    Latest API Version: 2020-10-01.
+
 
     :param str peering_name: The name of the peering.
     :param str registered_prefix_name: The name of the registered prefix.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_registered_prefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getRegisteredPrefix'.")
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['registeredPrefixName'] = registered_prefix_name

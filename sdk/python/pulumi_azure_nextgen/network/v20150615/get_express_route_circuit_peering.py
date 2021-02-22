@@ -228,7 +228,8 @@ def get_express_route_circuit_peering(circuit_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitPeeringResult:
     """
-    Use this data source to access information about an existing resource.
+    Peering in an ExpressRouteCircuit resource.
+
 
     :param str circuit_name: The name of the express route circuit.
     :param str peering_name: The name of the peering.

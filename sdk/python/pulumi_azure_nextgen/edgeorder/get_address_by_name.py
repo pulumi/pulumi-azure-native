@@ -131,7 +131,9 @@ def get_address_by_name(address_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddressByNameResult:
     """
-    Use this data source to access information about an existing resource.
+    Address Resource.
+    API Version: 2020-12-01-preview.
+
 
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

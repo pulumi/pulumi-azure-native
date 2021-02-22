@@ -158,7 +158,8 @@ def get_backup_schedule(backup_policy_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    The backup schedule.
+
 
     :param str backup_policy_name: The backup policy name.
     :param str backup_schedule_name: The name of the backup schedule to be fetched

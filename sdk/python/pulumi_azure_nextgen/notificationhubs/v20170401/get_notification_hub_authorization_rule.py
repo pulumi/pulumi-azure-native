@@ -217,7 +217,8 @@ def get_notification_hub_authorization_rule(authorization_rule_name: Optional[st
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationHubAuthorizationRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of a Namespace AuthorizationRules.
+
 
     :param str authorization_rule_name: authorization rule name.
     :param str namespace_name: The namespace name

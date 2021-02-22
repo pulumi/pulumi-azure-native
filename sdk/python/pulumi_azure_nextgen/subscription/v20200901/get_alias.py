@@ -82,7 +82,8 @@ class AwaitableGetAliasResult(GetAliasResult):
 def get_alias(alias_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
-    Use this data source to access information about an existing resource.
+    Subscription Information with the alias.
+
 
     :param str alias_name: Alias Name
     """

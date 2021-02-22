@@ -16,6 +16,8 @@ __all__ = [
     'list_workflow_version_trigger_callback_url',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowVersionTriggerCallbackUrl'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWorkflowVersionTriggerCallbackUrlResult:
     """
@@ -112,7 +114,9 @@ def list_workflow_version_trigger_callback_url(key_type: Optional[Union[str, 'Ke
                                                workflow_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowVersionTriggerCallbackUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    The workflow trigger callback URL.
+    Latest API Version: 2019-05-01.
+
 
     :param Union[str, 'KeyType'] key_type: The key type.
     :param str not_after: The expiry time.
@@ -121,6 +125,7 @@ def list_workflow_version_trigger_callback_url(key_type: Optional[Union[str, 'Ke
     :param str version_id: The workflow versionId.
     :param str workflow_name: The workflow name.
     """
+    pulumi.log.warn("list_workflow_version_trigger_callback_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowVersionTriggerCallbackUrl'.")
     __args__ = dict()
     __args__['keyType'] = key_type
     __args__['notAfter'] = not_after

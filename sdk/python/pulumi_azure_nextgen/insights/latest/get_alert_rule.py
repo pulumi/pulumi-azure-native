@@ -15,6 +15,8 @@ __all__ = [
     'get_alert_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAlertRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAlertRuleResult:
     """
@@ -179,11 +181,14 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
                    rule_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    The alert rule resource.
+    Latest API Version: 2016-03-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("get_alert_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAlertRule'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name

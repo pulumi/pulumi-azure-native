@@ -227,7 +227,8 @@ def get_front_door(front_door_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontDoorResult:
     """
-    Use this data source to access information about an existing resource.
+    Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+
 
     :param str front_door_name: Name of the Front Door which is globally unique.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.

@@ -190,7 +190,9 @@ def get_iot_sensor(iot_sensor_name: Optional[str] = None,
                    scope: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotSensorResult:
     """
-    Use this data source to access information about an existing resource.
+    IoT sensor model
+    API Version: 2020-08-06-preview.
+
 
     :param str iot_sensor_name: Name of the IoT sensor
     :param str scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)

@@ -14,6 +14,8 @@ __all__ = [
     'list_redis_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listRedisKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListRedisKeysResult:
     """
@@ -58,11 +60,14 @@ def list_redis_keys(name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRedisKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Redis cache access keys.
+    Latest API Version: 2020-06-01.
+
 
     :param str name: The name of the Redis cache.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("list_redis_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listRedisKeys'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

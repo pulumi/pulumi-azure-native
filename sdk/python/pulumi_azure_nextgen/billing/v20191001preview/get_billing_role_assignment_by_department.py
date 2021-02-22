@@ -191,7 +191,8 @@ def get_billing_role_assignment_by_department(billing_account_name: Optional[str
                                               department_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingRoleAssignmentByDepartmentResult:
     """
-    Use this data source to access information about an existing resource.
+    The role assignment
+
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
     :param str billing_role_assignment_name: The ID that uniquely identifies a role assignment.

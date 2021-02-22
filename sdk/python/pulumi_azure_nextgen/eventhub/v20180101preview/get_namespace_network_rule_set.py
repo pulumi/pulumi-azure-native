@@ -119,7 +119,8 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceNetworkRuleSetResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of topic resource.
+
 
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.

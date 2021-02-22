@@ -15,6 +15,8 @@ __all__ = [
     'get_global_user_personal_preferences',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserPersonalPreferences'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGlobalUserPersonalPreferencesResult:
     """
@@ -61,13 +63,16 @@ def get_global_user_personal_preferences(add_remove: Optional[Union[str, 'AddRem
                                          user_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserPersonalPreferencesResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents the PersonalPreferences for the user
+    Latest API Version: 2018-10-15.
+
 
     :param Union[str, 'AddRemove'] add_remove: Enum indicating if user is adding or removing a favorite lab
     :param str lab_account_resource_id: Resource Id of the lab account
     :param str lab_resource_id: Resource Id of the lab to add/remove from the favorites list
     :param str user_name: The name of the user.
     """
+    pulumi.log.warn("get_global_user_personal_preferences is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserPersonalPreferences'.")
     __args__ = dict()
     __args__['addRemove'] = add_remove
     __args__['labAccountResourceId'] = lab_account_resource_id

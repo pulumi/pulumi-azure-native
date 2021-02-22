@@ -15,6 +15,8 @@ __all__ = [
     'get_registration_definition',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedservices:getRegistrationDefinition'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRegistrationDefinitionResult:
     """
@@ -95,11 +97,14 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
                                 scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    Registration definition.
+    Latest API Version: 2019-09-01.
+
 
     :param str registration_definition_id: Guid of the registration definition.
     :param str scope: Scope of the resource.
     """
+    pulumi.log.warn("get_registration_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedservices:getRegistrationDefinition'.")
     __args__ = dict()
     __args__['registrationDefinitionId'] = registration_definition_id
     __args__['scope'] = scope

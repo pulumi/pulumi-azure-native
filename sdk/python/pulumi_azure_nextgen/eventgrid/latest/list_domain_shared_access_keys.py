@@ -14,6 +14,8 @@ __all__ = [
     'list_domain_shared_access_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:listDomainSharedAccessKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListDomainSharedAccessKeysResult:
     """
@@ -58,11 +60,14 @@ def list_domain_shared_access_keys(domain_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainSharedAccessKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Shared access keys of the Domain.
+    Latest API Version: 2020-06-01.
+
 
     :param str domain_name: Name of the domain.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("list_domain_shared_access_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:listDomainSharedAccessKeys'.")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['resourceGroupName'] = resource_group_name

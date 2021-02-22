@@ -14,6 +14,8 @@ __all__ = [
     'get_cloud_endpoint',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getCloudEndpoint'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCloudEndpointResult:
     """
@@ -180,13 +182,16 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
                        sync_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    Cloud Endpoint object.
+    Latest API Version: 2020-03-01.
+
 
     :param str cloud_endpoint_name: Name of Cloud Endpoint object.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
+    pulumi.log.warn("get_cloud_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getCloudEndpoint'.")
     __args__ = dict()
     __args__['cloudEndpointName'] = cloud_endpoint_name
     __args__['resourceGroupName'] = resource_group_name

@@ -59,7 +59,8 @@ def list_lab_vhds(name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLabVhdsResult:
     """
-    Use this data source to access information about an existing resource.
+    The response of a list operation.
+
 
     :param str name: The name of the lab.
     :param str resource_group_name: The name of the resource group.

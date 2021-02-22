@@ -444,7 +444,8 @@ def get_site(name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a web app
+
 
     :param str name: Name of web app
     :param str properties_to_include: Additional web app properties included in the response

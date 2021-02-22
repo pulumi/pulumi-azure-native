@@ -168,7 +168,9 @@ def get_saved_search(resource_group_name: Optional[str] = None,
                      workspace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSavedSearchResult:
     """
-    Use this data source to access information about an existing resource.
+    Value object for saved search results.
+    API Version: 2020-08-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str saved_search_id: The id of the saved search.

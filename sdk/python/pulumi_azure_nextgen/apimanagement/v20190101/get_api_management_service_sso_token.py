@@ -46,7 +46,8 @@ def get_api_management_service_sso_token(resource_group_name: Optional[str] = No
                                          service_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceSsoTokenResult:
     """
-    Use this data source to access information about an existing resource.
+    The response of the GetSsoToken operation.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.

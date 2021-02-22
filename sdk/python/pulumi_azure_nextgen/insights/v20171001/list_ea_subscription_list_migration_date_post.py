@@ -56,7 +56,7 @@ class AwaitableListEASubscriptionListMigrationDatePostResult(ListEASubscriptionL
 
 def list_ea_subscription_list_migration_date_post(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEASubscriptionListMigrationDatePostResult:
     """
-    Use this data source to access information about an existing resource.
+    Subscription migrate date information properties
     """
     __args__ = dict()
     if opts is None:

@@ -264,7 +264,8 @@ def get_node_type(cluster_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNodeTypeResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+
 
     :param str cluster_name: The name of the cluster resource.
     :param str node_type_name: The name of the node type.

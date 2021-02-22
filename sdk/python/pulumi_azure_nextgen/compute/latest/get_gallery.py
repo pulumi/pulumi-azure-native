@@ -15,6 +15,8 @@ __all__ = [
     'get_gallery',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGallery'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGalleryResult:
     """
@@ -144,12 +146,15 @@ def get_gallery(gallery_name: Optional[str] = None,
                 select: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryResult:
     """
-    Use this data source to access information about an existing resource.
+    Specifies information about the Shared Image Gallery that you want to create or update.
+    Latest API Version: 2020-09-30.
+
 
     :param str gallery_name: The name of the Shared Image Gallery.
     :param str resource_group_name: The name of the resource group.
     :param str select: The select expression to apply on the operation.
     """
+    pulumi.log.warn("get_gallery is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGallery'.")
     __args__ = dict()
     __args__['galleryName'] = gallery_name
     __args__['resourceGroupName'] = resource_group_name

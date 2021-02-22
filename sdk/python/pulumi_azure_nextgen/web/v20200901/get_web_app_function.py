@@ -252,7 +252,8 @@ def get_web_app_function(function_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppFunctionResult:
     """
-    Use this data source to access information about an existing resource.
+    Function information.
+
 
     :param str function_name: Function name.
     :param str name: Site name.

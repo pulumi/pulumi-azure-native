@@ -95,7 +95,8 @@ def get_deployment_at_management_group_scope(deployment_name: Optional[str] = No
                                              group_id: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtManagementGroupScopeResult:
     """
-    Use this data source to access information about an existing resource.
+    Deployment information.
+
 
     :param str deployment_name: The name of the deployment.
     :param str group_id: The management group ID.

@@ -179,7 +179,9 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalNetworkGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    A common class for general resource information.
+    API Version: 2020-08-01.
+
 
     :param str local_network_gateway_name: The name of the local network gateway.
     :param str resource_group_name: The name of the resource group.

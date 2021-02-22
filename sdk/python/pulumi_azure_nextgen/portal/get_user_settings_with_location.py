@@ -47,7 +47,9 @@ def get_user_settings_with_location(location: Optional[str] = None,
                                     user_settings_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSettingsWithLocationResult:
     """
-    Use this data source to access information about an existing resource.
+    Response to get user settings
+    API Version: 2018-10-01.
+
 
     :param str location: The provider location
     :param str user_settings_name: The name of the user settings

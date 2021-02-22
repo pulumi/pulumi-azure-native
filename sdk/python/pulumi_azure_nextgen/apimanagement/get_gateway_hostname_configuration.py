@@ -108,7 +108,9 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
                                        service_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayHostnameConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Gateway hostname configuration details.
+    API Version: 2019-12-01.
+
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
     :param str hc_id: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.

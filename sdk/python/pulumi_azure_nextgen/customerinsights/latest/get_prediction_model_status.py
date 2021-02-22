@@ -14,6 +14,8 @@ __all__ = [
     'get_prediction_model_status',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPredictionModelStatus'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPredictionModelStatusResult:
     """
@@ -167,12 +169,15 @@ def get_prediction_model_status(hub_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPredictionModelStatusResult:
     """
-    Use this data source to access information about an existing resource.
+    The prediction model status.
+    Latest API Version: 2017-04-26.
+
 
     :param str hub_name: The name of the hub.
     :param str prediction_name: The name of the Prediction.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_prediction_model_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPredictionModelStatus'.")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['predictionName'] = prediction_name

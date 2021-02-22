@@ -156,7 +156,8 @@ def get_import_pipeline(import_pipeline_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImportPipelineResult:
     """
-    Use this data source to access information about an existing resource.
+    An object that represents an import pipeline for a container registry.
+
 
     :param str import_pipeline_name: The name of the import pipeline.
     :param str registry_name: The name of the container registry.

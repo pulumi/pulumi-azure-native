@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_site_extension_slot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSiteExtensionSlot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppSiteExtensionSlotResult:
     """
@@ -334,13 +336,16 @@ def get_web_app_site_extension_slot(name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSiteExtensionSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Site Extension Information.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Site name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str site_extension_id: Site extension name.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API uses the production slot.
     """
+    pulumi.log.warn("get_web_app_site_extension_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSiteExtensionSlot'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

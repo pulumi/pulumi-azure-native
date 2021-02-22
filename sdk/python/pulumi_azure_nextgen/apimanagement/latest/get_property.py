@@ -14,6 +14,8 @@ __all__ = [
     'get_property',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProperty'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPropertyResult:
     """
@@ -119,12 +121,15 @@ def get_property(prop_id: Optional[str] = None,
                  service_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPropertyResult:
     """
-    Use this data source to access information about an existing resource.
+    Property details.
+    Latest API Version: 2019-01-01.
+
 
     :param str prop_id: Identifier of the property.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_property is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProperty'.")
     __args__ = dict()
     __args__['propId'] = prop_id
     __args__['resourceGroupName'] = resource_group_name

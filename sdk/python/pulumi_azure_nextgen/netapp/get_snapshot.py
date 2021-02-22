@@ -121,7 +121,9 @@ def get_snapshot(account_name: Optional[str] = None,
                  volume_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
-    Use this data source to access information about an existing resource.
+    Snapshot of a Volume
+    API Version: 2020-11-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str pool_name: The name of the capacity pool

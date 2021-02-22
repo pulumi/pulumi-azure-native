@@ -14,6 +14,8 @@ __all__ = [
     'get_data_export',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataExport'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataExportResult:
     """
@@ -155,12 +157,15 @@ def get_data_export(data_export_name: Optional[str] = None,
                     workspace_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataExportResult:
     """
-    Use this data source to access information about an existing resource.
+    The top level data export resource container.
+    Latest API Version: 2020-08-01.
+
 
     :param str data_export_name: The data export rule name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("get_data_export is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataExport'.")
     __args__ = dict()
     __args__['dataExportName'] = data_export_name
     __args__['resourceGroupName'] = resource_group_name

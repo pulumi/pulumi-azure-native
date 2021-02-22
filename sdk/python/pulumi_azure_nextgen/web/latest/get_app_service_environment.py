@@ -15,6 +15,8 @@ __all__ = [
     'get_app_service_environment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getAppServiceEnvironment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAppServiceEnvironmentResult:
     """
@@ -565,11 +567,14 @@ def get_app_service_environment(name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceEnvironmentResult:
     """
-    Use this data source to access information about an existing resource.
+    App Service Environment ARM resource.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the App Service Environment.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_app_service_environment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getAppServiceEnvironment'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

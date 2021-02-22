@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_hybrid_connection_slot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHybridConnectionSlot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppHybridConnectionSlotResult:
     """
@@ -195,7 +197,9 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
                                        slot: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHybridConnectionSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Hybrid Connection contract. This is used to configure a Hybrid Connection.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: The name of the web app.
     :param str namespace_name: The namespace for this hybrid connection.
@@ -203,6 +207,7 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: The name of the slot for the web app.
     """
+    pulumi.log.warn("get_web_app_hybrid_connection_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHybridConnectionSlot'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name

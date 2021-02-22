@@ -14,6 +14,8 @@ __all__ = [
     'get_favorite',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getFavorite'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFavoriteResult:
     """
@@ -167,12 +169,15 @@ def get_favorite(favorite_id: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFavoriteResult:
     """
-    Use this data source to access information about an existing resource.
+    Properties that define a favorite that is associated to an Application Insights component.
+    Latest API Version: 2015-05-01.
+
 
     :param str favorite_id: The Id of a specific favorite defined in the Application Insights component
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
+    pulumi.log.warn("get_favorite is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getFavorite'.")
     __args__ = dict()
     __args__['favoriteId'] = favorite_id
     __args__['resourceGroupName'] = resource_group_name

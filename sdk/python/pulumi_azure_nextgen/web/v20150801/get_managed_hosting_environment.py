@@ -228,7 +228,8 @@ def get_managed_hosting_environment(name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedHostingEnvironmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of an hostingEnvironment (App Service Environment)
+
 
     :param str name: Name of managed hosting environment
     :param str resource_group_name: Name of resource group

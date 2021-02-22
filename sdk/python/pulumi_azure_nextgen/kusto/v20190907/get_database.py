@@ -95,7 +95,8 @@ def get_database(cluster_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    Use this data source to access information about an existing resource.
+    Class representing a Kusto database.
+
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.

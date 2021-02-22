@@ -61,7 +61,9 @@ def get_global_user_personal_preferences(add_remove: Optional[Union[str, 'AddRem
                                          user_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserPersonalPreferencesResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents the PersonalPreferences for the user
+    API Version: 2018-10-15.
+
 
     :param Union[str, 'AddRemove'] add_remove: Enum indicating if user is adding or removing a favorite lab
     :param str lab_account_resource_id: Resource Id of the lab account

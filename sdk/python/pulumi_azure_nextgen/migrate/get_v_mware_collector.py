@@ -78,7 +78,8 @@ def get_v_mware_collector(project_name: Optional[str] = None,
                           vm_ware_collector_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVMwareCollectorResult:
     """
-    Use this data source to access information about an existing resource.
+    API Version: 2019-10-01.
+
 
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.

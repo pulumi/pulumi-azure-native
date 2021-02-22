@@ -216,7 +216,8 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedRegistryResult:
     """
-    Use this data source to access information about an existing resource.
+    An object that represents a connected registry for a container registry.
+
 
     :param str connected_registry_name: The name of the connected registry.
     :param str registry_name: The name of the container registry.

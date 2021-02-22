@@ -15,6 +15,8 @@ __all__ = [
     'get_service_endpoint_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getServiceEndpointPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServiceEndpointPolicyResult:
     """
@@ -156,12 +158,15 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
                                 service_endpoint_policy_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Service End point policy resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str expand: Expands referenced resources.
     :param str resource_group_name: The name of the resource group.
     :param str service_endpoint_policy_name: The name of the service endpoint policy.
     """
+    pulumi.log.warn("get_service_endpoint_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getServiceEndpointPolicy'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

@@ -15,6 +15,8 @@ __all__ = [
     'get_task',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getTask'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTaskResult:
     """
@@ -217,12 +219,16 @@ def get_task(registry_name: Optional[str] = None,
              task_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskResult:
     """
-    Use this data source to access information about an existing resource.
+    The task that has the ARM resource and task properties.
+    The task will have all information to schedule a run against it.
+    Latest API Version: 2019-04-01.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str task_name: The name of the container registry task.
     """
+    pulumi.log.warn("get_task is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getTask'.")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name

@@ -167,7 +167,9 @@ def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    An account data transfer object.
+    API Version: 2020-09-01.
+
 
     :param str account_name: The name of the share account.
     :param str resource_group_name: The resource group name.

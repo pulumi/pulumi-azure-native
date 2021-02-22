@@ -335,7 +335,8 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
                         resource_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    Managed cluster.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.

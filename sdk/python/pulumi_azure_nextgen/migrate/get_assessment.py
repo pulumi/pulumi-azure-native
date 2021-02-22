@@ -97,7 +97,9 @@ def get_assessment(assessment_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
-    Use this data source to access information about an existing resource.
+    An assessment created for a group in the Migration project.
+    API Version: 2019-10-01.
+
 
     :param str assessment_name: Unique name of an assessment within a project.
     :param str group_name: Unique name of a group within a project.

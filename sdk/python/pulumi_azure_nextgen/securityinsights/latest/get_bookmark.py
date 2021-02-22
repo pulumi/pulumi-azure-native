@@ -15,6 +15,8 @@ __all__ = [
     'get_bookmark',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getBookmark'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBookmarkResult:
     """
@@ -240,12 +242,15 @@ def get_bookmark(bookmark_id: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBookmarkResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a bookmark in Azure Security Insights.
+    Latest API Version: 2020-01-01.
+
 
     :param str bookmark_id: Bookmark ID
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("get_bookmark is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getBookmark'.")
     __args__ = dict()
     __args__['bookmarkId'] = bookmark_id
     __args__['resourceGroupName'] = resource_group_name

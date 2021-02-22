@@ -83,7 +83,8 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceAuthorizationRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of a Namespace AuthorizationRules.
+
 
     :param str authorization_rule_name: The authorizationRule name.
     :param str namespace_name: The Namespace Name

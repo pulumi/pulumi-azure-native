@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_machine_image_template',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:virtualmachineimages:getVirtualMachineImageTemplate'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineImageTemplateResult:
     """
@@ -203,11 +205,14 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineImageTemplateResult:
     """
-    Use this data source to access information about an existing resource.
+    Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+    Latest API Version: 2020-02-14.
+
 
     :param str image_template_name: The name of the image Template
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_virtual_machine_image_template is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:virtualmachineimages:getVirtualMachineImageTemplate'.")
     __args__ = dict()
     __args__['imageTemplateName'] = image_template_name
     __args__['resourceGroupName'] = resource_group_name

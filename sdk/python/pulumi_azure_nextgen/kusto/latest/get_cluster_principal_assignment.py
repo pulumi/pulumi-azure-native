@@ -14,6 +14,8 @@ __all__ = [
     'get_cluster_principal_assignment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getClusterPrincipalAssignment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetClusterPrincipalAssignmentResult:
     """
@@ -155,12 +157,15 @@ def get_cluster_principal_assignment(cluster_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterPrincipalAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Class representing a cluster principal assignment.
+    Latest API Version: 2020-09-18.
+
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str principal_assignment_name: The name of the Kusto principalAssignment.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("get_cluster_principal_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getClusterPrincipalAssignment'.")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['principalAssignmentName'] = principal_assignment_name

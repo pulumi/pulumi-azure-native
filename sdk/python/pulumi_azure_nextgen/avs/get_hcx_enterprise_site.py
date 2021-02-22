@@ -95,7 +95,9 @@ def get_hcx_enterprise_site(hcx_enterprise_site_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHcxEnterpriseSiteResult:
     """
-    Use this data source to access information about an existing resource.
+    An HCX Enterprise Site resource
+    API Version: 2020-03-20.
+
 
     :param str hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud
     :param str private_cloud_name: Name of the private cloud

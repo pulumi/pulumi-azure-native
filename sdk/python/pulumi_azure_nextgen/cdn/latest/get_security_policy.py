@@ -15,6 +15,8 @@ __all__ = [
     'get_security_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getSecurityPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSecurityPolicyResult:
     """
@@ -117,12 +119,15 @@ def get_security_policy(profile_name: Optional[str] = None,
                         security_policy_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    SecurityPolicy association for AzureFrontDoor profile
+    Latest API Version: 2020-09-01.
+
 
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str security_policy_name: Name of the security policy under the profile.
     """
+    pulumi.log.warn("get_security_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getSecurityPolicy'.")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name

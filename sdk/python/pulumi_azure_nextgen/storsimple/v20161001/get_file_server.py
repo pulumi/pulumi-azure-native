@@ -120,7 +120,8 @@ def get_file_server(device_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileServerResult:
     """
-    Use this data source to access information about an existing resource.
+    The file server.
+
 
     :param str device_name: The device name.
     :param str file_server_name: The file server name.

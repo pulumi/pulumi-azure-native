@@ -170,7 +170,9 @@ def get_resource(parent_resource_path: Optional[str] = None,
                  resource_type: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    Resource information.
+    API Version: 2020-10-01.
+
 
     :param str parent_resource_path: The parent resource identity.
     :param str resource_group_name: The name of the resource group containing the resource to get. The name is case insensitive.

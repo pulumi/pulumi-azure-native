@@ -133,7 +133,8 @@ def get_bookmark_relation(bookmark_id: Optional[str] = None,
                           workspace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBookmarkRelationResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a relation between two resources
+
 
     :param str bookmark_id: Bookmark ID
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

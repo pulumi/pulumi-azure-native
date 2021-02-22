@@ -108,7 +108,8 @@ def get_service_runner(lab_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceRunnerResult:
     """
-    Use this data source to access information about an existing resource.
+    A container for a managed identity to execute DevTest lab services.
+
 
     :param str lab_name: The name of the lab.
     :param str name: The name of the service runner.

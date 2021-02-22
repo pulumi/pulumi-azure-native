@@ -169,7 +169,9 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    The agentpool that has the ARM resource and properties.
+    The agentpool will have all information to create an agent pool.
+
 
     :param str agent_pool_name: The name of the agent pool.
     :param str registry_name: The name of the container registry.

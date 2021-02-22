@@ -154,7 +154,8 @@ def get_rule(profile_name: Optional[str] = None,
              rule_set_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Friendly Rules name mapping to the any Rules or secret related information.
+
 
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.

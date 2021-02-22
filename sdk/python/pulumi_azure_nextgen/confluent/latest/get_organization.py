@@ -15,6 +15,8 @@ __all__ = [
     'get_organization',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:confluent:getOrganization'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetOrganizationResult:
     """
@@ -167,11 +169,14 @@ def get_organization(organization_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
     """
-    Use this data source to access information about an existing resource.
+    Organization resource.
+    Latest API Version: 2020-03-01.
+
 
     :param str organization_name: Organization resource name
     :param str resource_group_name: Resource group name
     """
+    pulumi.log.warn("get_organization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:confluent:getOrganization'.")
     __args__ = dict()
     __args__['organizationName'] = organization_name
     __args__['resourceGroupName'] = resource_group_name

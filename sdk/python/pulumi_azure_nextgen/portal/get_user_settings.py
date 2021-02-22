@@ -46,7 +46,9 @@ class AwaitableGetUserSettingsResult(GetUserSettingsResult):
 def get_user_settings(user_settings_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSettingsResult:
     """
-    Use this data source to access information about an existing resource.
+    Response to get user settings
+    API Version: 2018-10-01.
+
 
     :param str user_settings_name: The name of the user settings
     """

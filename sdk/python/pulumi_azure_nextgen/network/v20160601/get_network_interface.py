@@ -216,7 +216,8 @@ def get_network_interface(expand: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
-    Use this data source to access information about an existing resource.
+    A NetworkInterface in a resource group
+
 
     :param str expand: expand references resources.
     :param str network_interface_name: The name of the network interface.

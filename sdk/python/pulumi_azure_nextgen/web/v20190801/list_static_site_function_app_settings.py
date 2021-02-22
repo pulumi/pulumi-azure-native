@@ -94,7 +94,8 @@ def list_static_site_function_app_settings(name: Optional[str] = None,
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteFunctionAppSettingsResult:
     """
-    Use this data source to access information about an existing resource.
+    String dictionary resource.
+
 
     :param str name: Name of the static site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

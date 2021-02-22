@@ -143,7 +143,9 @@ def get_certificate(automation_account_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the certificate.
+    API Version: 2019-06-01.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str certificate_name: The name of certificate.

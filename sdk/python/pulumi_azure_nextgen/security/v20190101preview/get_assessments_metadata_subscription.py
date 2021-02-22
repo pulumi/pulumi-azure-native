@@ -195,7 +195,8 @@ class AwaitableGetAssessmentsMetadataSubscriptionResult(GetAssessmentsMetadataSu
 def get_assessments_metadata_subscription(assessment_metadata_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentsMetadataSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    Security assessment metadata
+
 
     :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
     """

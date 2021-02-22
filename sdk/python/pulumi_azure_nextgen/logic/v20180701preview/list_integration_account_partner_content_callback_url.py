@@ -111,7 +111,8 @@ def list_integration_account_partner_content_callback_url(integration_account_na
                                                           resource_group_name: Optional[str] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountPartnerContentCallbackUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    The workflow trigger callback URL.
+
 
     :param str integration_account_name: The integration account name.
     :param Union[str, 'KeyType'] key_type: The key type.

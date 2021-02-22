@@ -15,6 +15,8 @@ __all__ = [
     'list_bot_connection_service_providers',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listBotConnectionServiceProviders'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListBotConnectionServiceProvidersResult:
     """
@@ -57,8 +59,10 @@ class AwaitableListBotConnectionServiceProvidersResult(ListBotConnectionServiceP
 
 def list_bot_connection_service_providers(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBotConnectionServiceProvidersResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of bot service providers response.
+    Latest API Version: 2020-06-02.
     """
+    pulumi.log.warn("list_bot_connection_service_providers is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listBotConnectionServiceProviders'.")
     __args__ = dict()
     if opts is None:
         opts = pulumi.InvokeOptions()

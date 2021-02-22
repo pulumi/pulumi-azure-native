@@ -15,6 +15,8 @@ __all__ = [
     'get_packet_capture',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPacketCapture'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPacketCaptureResult:
     """
@@ -156,12 +158,15 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCaptureResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about packet capture session.
+    Latest API Version: 2020-08-01.
+
 
     :param str network_watcher_name: The name of the network watcher.
     :param str packet_capture_name: The name of the packet capture session.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_packet_capture is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPacketCapture'.")
     __args__ = dict()
     __args__['networkWatcherName'] = network_watcher_name
     __args__['packetCaptureName'] = packet_capture_name

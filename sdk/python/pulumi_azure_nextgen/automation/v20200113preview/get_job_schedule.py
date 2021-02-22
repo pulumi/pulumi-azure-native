@@ -132,7 +132,8 @@ def get_job_schedule(automation_account_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the job schedule.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str job_schedule_id: The job schedule name.

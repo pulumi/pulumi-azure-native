@@ -14,6 +14,8 @@ __all__ = [
     'list_workspace_notebook_access_token',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listWorkspaceNotebookAccessToken'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWorkspaceNotebookAccessTokenResult:
     def __init__(__self__, access_token=None, expires_in=None, host_name=None, notebook_resource_id=None, public_dns=None, refresh_token=None, scope=None, token_type=None):
@@ -103,11 +105,13 @@ def list_workspace_notebook_access_token(resource_group_name: Optional[str] = No
                                          workspace_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceNotebookAccessTokenResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2021-01-01.
+
 
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("list_workspace_notebook_access_token is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listWorkspaceNotebookAccessToken'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name

@@ -168,7 +168,9 @@ def list_product_details(product_name: Optional[str] = None,
                          resource_group: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductDetailsResult:
     """
-    Use this data source to access information about an existing resource.
+    Extended description about the product required for installing it into Azure Stack.
+    API Version: 2017-06-01.
+
 
     :param str product_name: Name of the product.
     :param str registration_name: Name of the Azure Stack registration.

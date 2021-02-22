@@ -15,6 +15,8 @@ __all__ = [
     'list_web_app_auth_settings',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppAuthSettings'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWebAppAuthSettingsResult:
     """
@@ -590,11 +592,14 @@ def list_web_app_auth_settings(name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppAuthSettingsResult:
     """
-    Use this data source to access information about an existing resource.
+    Configuration settings for the Azure App Service Authentication / Authorization feature.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("list_web_app_auth_settings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppAuthSettings'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

@@ -77,7 +77,8 @@ def get_entity(filter: Optional[str] = None,
                view: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes the result of the request to view entities.
+
 
     :param str filter: The filter parameter allows you to filter on the name or display name fields. You can check for equality on the name field (e.g. name eq '{entityName}')  and you can check for substrings on either the name or display name fields(e.g. contains(name, '{substringToSearch}'), contains(displayName, '{substringToSearch')). Note that the '{entityName}' and '{substringToSearch}' fields are checked case insensitively.
     :param str group_name: A filter which allows the get entities call to focus on a particular group (i.e. "$filter=name eq 'groupName'")

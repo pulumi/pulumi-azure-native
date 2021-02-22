@@ -15,6 +15,8 @@ __all__ = [
     'get_afd_endpoint',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDEndpoint'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAFDEndpointResult:
     """
@@ -165,12 +167,15 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
+    Latest API Version: 2020-09-01.
+
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_afd_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDEndpoint'.")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['profileName'] = profile_name

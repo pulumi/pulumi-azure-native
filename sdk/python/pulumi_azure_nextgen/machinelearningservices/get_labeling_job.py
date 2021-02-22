@@ -98,7 +98,9 @@ def get_labeling_job(include_job_instructions: Optional[bool] = None,
                      workspace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabelingJobResult:
     """
-    Use this data source to access information about an existing resource.
+    Machine Learning labeling job object wrapped into ARM resource envelope.
+    API Version: 2020-09-01-preview.
+
 
     :param bool include_job_instructions: Boolean value to indicate whether to include JobInstructions in response.
     :param bool include_label_categories: Boolean value to indicate whether to include LabelCategories in response.

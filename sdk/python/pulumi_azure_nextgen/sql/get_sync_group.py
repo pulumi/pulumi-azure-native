@@ -229,7 +229,9 @@ def get_sync_group(database_name: Optional[str] = None,
                    sync_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure SQL Database sync group.
+    API Version: 2020-08-01-preview.
+
 
     :param str database_name: The name of the database on which the sync group is hosted.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

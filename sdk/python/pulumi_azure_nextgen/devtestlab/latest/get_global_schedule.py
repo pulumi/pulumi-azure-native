@@ -15,6 +15,8 @@ __all__ = [
     'get_global_schedule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getGlobalSchedule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGlobalScheduleResult:
     """
@@ -228,12 +230,15 @@ def get_global_schedule(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalScheduleResult:
     """
-    Use this data source to access information about an existing resource.
+    A schedule.
+    Latest API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'
     :param str name: The name of the schedule.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_global_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getGlobalSchedule'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['name'] = name

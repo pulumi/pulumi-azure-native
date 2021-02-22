@@ -15,6 +15,8 @@ __all__ = [
     'get_job',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getJob'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetJobResult:
     """
@@ -421,13 +423,16 @@ def get_job(experiment_name: Optional[str] = None,
             workspace_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about a Job.
+    Latest API Version: 2018-05-01.
+
 
     :param str experiment_name: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
     :param str job_name: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
     """
+    pulumi.log.warn("get_job is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getJob'.")
     __args__ = dict()
     __args__['experimentName'] = experiment_name
     __args__['jobName'] = job_name

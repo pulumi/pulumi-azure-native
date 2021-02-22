@@ -15,6 +15,8 @@ __all__ = [
     'get_user',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getUser'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetUserResult:
     """
@@ -120,12 +122,15 @@ def get_user(device_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+    Latest API Version: 2020-09-01.
+
 
     :param str device_name: The device name.
     :param str name: The user name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_user is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getUser'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name

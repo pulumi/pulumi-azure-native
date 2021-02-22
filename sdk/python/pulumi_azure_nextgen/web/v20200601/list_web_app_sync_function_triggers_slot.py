@@ -59,7 +59,8 @@ def list_web_app_sync_function_triggers_slot(name: Optional[str] = None,
                                              slot: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSyncFunctionTriggersSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Function secrets.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

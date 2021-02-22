@@ -122,7 +122,8 @@ def get_rule(namespace_name: Optional[str] = None,
              topic_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of Rule Resource.
+
 
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.

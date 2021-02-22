@@ -108,7 +108,8 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDomainResult:
     """
-    Use this data source to access information about an existing resource.
+    CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
+
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.
     :param str endpoint_name: Name of the endpoint within the CDN profile.

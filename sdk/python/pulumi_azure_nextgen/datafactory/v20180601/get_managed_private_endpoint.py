@@ -97,7 +97,8 @@ def get_managed_private_endpoint(factory_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrivateEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    Managed private endpoint resource type.
+
 
     :param str factory_name: The factory name.
     :param str managed_private_endpoint_name: Managed private endpoint name

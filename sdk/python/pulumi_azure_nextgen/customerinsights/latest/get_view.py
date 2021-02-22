@@ -14,6 +14,8 @@ __all__ = [
     'get_view',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getView'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetViewResult:
     """
@@ -156,13 +158,16 @@ def get_view(hub_name: Optional[str] = None,
              view_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewResult:
     """
-    Use this data source to access information about an existing resource.
+    The view resource format.
+    Latest API Version: 2017-04-26.
+
 
     :param str hub_name: The name of the hub.
     :param str resource_group_name: The name of the resource group.
     :param str user_id: The user ID. Use * to retrieve hub level view.
     :param str view_name: The name of the view.
     """
+    pulumi.log.warn("get_view is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getView'.")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['resourceGroupName'] = resource_group_name

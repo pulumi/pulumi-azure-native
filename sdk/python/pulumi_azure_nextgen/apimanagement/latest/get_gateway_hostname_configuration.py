@@ -14,6 +14,8 @@ __all__ = [
     'get_gateway_hostname_configuration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getGatewayHostnameConfiguration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGatewayHostnameConfigurationResult:
     """
@@ -108,13 +110,16 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
                                        service_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayHostnameConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Gateway hostname configuration details.
+    Latest API Version: 2019-12-01.
+
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
     :param str hc_id: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_gateway_hostname_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getGatewayHostnameConfiguration'.")
     __args__ = dict()
     __args__['gatewayId'] = gateway_id
     __args__['hcId'] = hc_id

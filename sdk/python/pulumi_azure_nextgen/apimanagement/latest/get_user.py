@@ -15,6 +15,8 @@ __all__ = [
     'get_user',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getUser'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetUserResult:
     """
@@ -168,12 +170,15 @@ def get_user(resource_group_name: Optional[str] = None,
              user_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Use this data source to access information about an existing resource.
+    User details.
+    Latest API Version: 2019-12-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     :param str user_id: User identifier. Must be unique in the current API Management service instance.
     """
+    pulumi.log.warn("get_user is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getUser'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

@@ -15,6 +15,8 @@ __all__ = [
     'get_event_hub',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getEventHub'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEventHubResult:
     """
@@ -156,12 +158,15 @@ def get_event_hub(event_hub_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubResult:
     """
-    Use this data source to access information about an existing resource.
+    Single item in List or Get Event Hub operation
+    Latest API Version: 2017-04-01.
+
 
     :param str event_hub_name: The Event Hub name
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
+    pulumi.log.warn("get_event_hub is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getEventHub'.")
     __args__ = dict()
     __args__['eventHubName'] = event_hub_name
     __args__['namespaceName'] = namespace_name

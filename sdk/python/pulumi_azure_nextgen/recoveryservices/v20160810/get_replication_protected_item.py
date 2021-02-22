@@ -98,7 +98,8 @@ def get_replication_protected_item(fabric_name: Optional[str] = None,
                                    resource_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationProtectedItemResult:
     """
-    Use this data source to access information about an existing resource.
+    Replication protected item.
+
 
     :param str fabric_name: Fabric unique name.
     :param str protection_container_name: Protection container name.

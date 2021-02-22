@@ -15,6 +15,8 @@ __all__ = [
     'get_machine_learning_compute',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getMachineLearningCompute'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMachineLearningComputeResult:
     """
@@ -144,12 +146,15 @@ def get_machine_learning_compute(compute_name: Optional[str] = None,
                                  workspace_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningComputeResult:
     """
-    Use this data source to access information about an existing resource.
+    Machine Learning compute object wrapped into ARM resource envelope.
+    Latest API Version: 2021-01-01.
+
 
     :param str compute_name: Name of the Azure Machine Learning compute.
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("get_machine_learning_compute is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getMachineLearningCompute'.")
     __args__ = dict()
     __args__['computeName'] = compute_name
     __args__['resourceGroupName'] = resource_group_name

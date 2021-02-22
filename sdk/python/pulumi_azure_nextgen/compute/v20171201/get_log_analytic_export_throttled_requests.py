@@ -112,7 +112,8 @@ def get_log_analytic_export_throttled_requests(blob_container_sas_uri: Optional[
                                                to_time: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogAnalyticExportThrottledRequestsResult:
     """
-    Use this data source to access information about an existing resource.
+    LogAnalytics operation status response
+
 
     :param str blob_container_sas_uri: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
     :param str from_time: From time of the query

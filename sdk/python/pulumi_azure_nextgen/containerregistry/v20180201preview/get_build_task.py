@@ -180,7 +180,8 @@ def get_build_task(build_task_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildTaskResult:
     """
-    Use this data source to access information about an existing resource.
+    The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+
 
     :param str build_task_name: The name of the container registry build task.
     :param str registry_name: The name of the container registry.

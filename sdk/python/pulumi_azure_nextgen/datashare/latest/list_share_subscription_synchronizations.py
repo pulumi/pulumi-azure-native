@@ -15,6 +15,8 @@ __all__ = [
     'list_share_subscription_synchronizations',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSubscriptionSynchronizations'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListShareSubscriptionSynchronizationsResult:
     """
@@ -63,7 +65,9 @@ def list_share_subscription_synchronizations(account_name: Optional[str] = None,
                                              skip_token: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSubscriptionSynchronizationsResult:
     """
-    Use this data source to access information about an existing resource.
+    A consumer side list of share subscription synchronizations
+    Latest API Version: 2020-09-01.
+
 
     :param str account_name: The name of the share account.
     :param str filter: Filters the results using OData syntax.
@@ -72,6 +76,7 @@ def list_share_subscription_synchronizations(account_name: Optional[str] = None,
     :param str share_subscription_name: The name of the share subscription.
     :param str skip_token: Continuation token
     """
+    pulumi.log.warn("list_share_subscription_synchronizations is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSubscriptionSynchronizations'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['filter'] = filter

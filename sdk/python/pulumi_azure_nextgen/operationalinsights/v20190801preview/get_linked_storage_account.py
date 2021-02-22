@@ -95,7 +95,8 @@ def get_linked_storage_account(data_source_type: Optional[str] = None,
                                workspace_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedStorageAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    Linked storage accounts top level resource container.
+
 
     :param str data_source_type: Linked storage accounts type.
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.

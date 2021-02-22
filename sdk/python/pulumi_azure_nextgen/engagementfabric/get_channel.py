@@ -107,7 +107,9 @@ def get_channel(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
-    Use this data source to access information about an existing resource.
+    The EngagementFabric channel
+    API Version: 2018-09-01-preview.
+
 
     :param str account_name: Account Name
     :param str channel_name: Channel Name

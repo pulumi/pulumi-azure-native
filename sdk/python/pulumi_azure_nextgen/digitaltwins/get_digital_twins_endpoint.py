@@ -84,7 +84,9 @@ def get_digital_twins_endpoint(endpoint_name: Optional[str] = None,
                                resource_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDigitalTwinsEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    DigitalTwinsInstance endpoint resource.
+    API Version: 2020-12-01.
+
 
     :param str endpoint_name: Name of Endpoint Resource.
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.

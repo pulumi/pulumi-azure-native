@@ -15,6 +15,8 @@ __all__ = [
     'list_key_by_automation_account',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:listKeyByAutomationAccount'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListKeyByAutomationAccountResult:
     def __init__(__self__, keys=None):
@@ -44,11 +46,13 @@ def list_key_by_automation_account(automation_account_name: Optional[str] = None
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKeyByAutomationAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2019-06-01.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("list_key_by_automation_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:listKeyByAutomationAccount'.")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name

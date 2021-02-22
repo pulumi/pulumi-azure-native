@@ -14,6 +14,8 @@ __all__ = [
     'list_open_shift_cluster_credentials',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:redhatopenshift:listOpenShiftClusterCredentials'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListOpenShiftClusterCredentialsResult:
     """
@@ -58,11 +60,14 @@ def list_open_shift_cluster_credentials(resource_group_name: Optional[str] = Non
                                         resource_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOpenShiftClusterCredentialsResult:
     """
-    Use this data source to access information about an existing resource.
+    OpenShiftClusterCredentials represents an OpenShift cluster's credentials
+    Latest API Version: 2020-04-30.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the OpenShift cluster resource.
     """
+    pulumi.log.warn("list_open_shift_cluster_credentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:redhatopenshift:listOpenShiftClusterCredentials'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

@@ -15,6 +15,8 @@ __all__ = [
     'list_domain_recommendations',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:listDomainRecommendations'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListDomainRecommendationsResult:
     """
@@ -59,11 +61,14 @@ def list_domain_recommendations(keywords: Optional[str] = None,
                                 max_domain_recommendations: Optional[int] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainRecommendationsResult:
     """
-    Use this data source to access information about an existing resource.
+    Collection of domain name identifiers.
+    Latest API Version: 2020-10-01.
+
 
     :param str keywords: Keywords to be used for generating domain recommendations.
     :param int max_domain_recommendations: Maximum number of recommendations.
     """
+    pulumi.log.warn("list_domain_recommendations is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:listDomainRecommendations'.")
     __args__ = dict()
     __args__['keywords'] = keywords
     __args__['maxDomainRecommendations'] = max_domain_recommendations

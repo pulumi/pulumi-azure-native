@@ -14,6 +14,8 @@ __all__ = [
     'get_content_item',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getContentItem'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetContentItemResult:
     """
@@ -84,13 +86,16 @@ def get_content_item(content_item_id: Optional[str] = None,
                      service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentItemResult:
     """
-    Use this data source to access information about an existing resource.
+    Content type contract details.
+    Latest API Version: 2019-12-01.
+
 
     :param str content_item_id: Content item identifier.
     :param str content_type_id: Content type identifier.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_content_item is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getContentItem'.")
     __args__ = dict()
     __args__['contentItemId'] = content_item_id
     __args__['contentTypeId'] = content_type_id

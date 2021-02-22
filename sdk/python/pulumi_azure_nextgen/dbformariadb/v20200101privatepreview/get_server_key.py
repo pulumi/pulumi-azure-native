@@ -119,7 +119,8 @@ def get_server_key(key_name: Optional[str] = None,
                    server_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    A MariaDB Server key.
+
 
     :param str key_name: The name of the MariaDB Server key to be retrieved.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

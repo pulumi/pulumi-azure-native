@@ -46,7 +46,9 @@ class AwaitableListLocationConsortiumsResult(ListLocationConsortiumsResult):
 def list_location_consortiums(location_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLocationConsortiumsResult:
     """
-    Use this data source to access information about an existing resource.
+    Collection of the consortium payload.
+    API Version: 2018-06-01-preview.
+
 
     :param str location_name: Location Name.
     """

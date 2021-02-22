@@ -110,7 +110,8 @@ def get_workspace_collection(resource_group_name: Optional[str] = None,
                              workspace_collection_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceCollectionResult:
     """
-    Use this data source to access information about an existing resource.
+    API Version: 2016-01-29.
+
 
     :param str resource_group_name: Azure resource group
     :param str workspace_collection_name: Power BI Embedded Workspace Collection name

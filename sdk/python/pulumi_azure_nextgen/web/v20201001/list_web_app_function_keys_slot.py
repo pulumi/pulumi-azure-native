@@ -109,7 +109,8 @@ def list_web_app_function_keys_slot(function_name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionKeysSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    String dictionary resource.
+
 
     :param str function_name: Function name.
     :param str name: Site name.

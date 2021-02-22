@@ -15,6 +15,8 @@ __all__ = [
     'get_formula',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getFormula'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFormulaResult:
     """
@@ -193,13 +195,16 @@ def get_formula(expand: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFormulaResult:
     """
-    Use this data source to access information about an existing resource.
+    A formula for creating a VM, specifying an image base and other parameters
+    Latest API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=description)'
     :param str lab_name: The name of the lab.
     :param str name: The name of the formula.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_formula is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getFormula'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

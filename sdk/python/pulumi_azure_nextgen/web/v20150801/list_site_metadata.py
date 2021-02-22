@@ -118,7 +118,8 @@ def list_site_metadata(name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSiteMetadataResult:
     """
-    Use this data source to access information about an existing resource.
+    String dictionary resource
+
 
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group

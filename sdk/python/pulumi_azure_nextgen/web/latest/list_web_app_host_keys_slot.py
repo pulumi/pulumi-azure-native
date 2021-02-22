@@ -14,6 +14,8 @@ __all__ = [
     'list_web_app_host_keys_slot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHostKeysSlot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWebAppHostKeysSlotResult:
     """
@@ -71,12 +73,15 @@ def list_web_app_host_keys_slot(name: Optional[str] = None,
                                 slot: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppHostKeysSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Functions host level keys.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Site name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot.
     """
+    pulumi.log.warn("list_web_app_host_keys_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHostKeysSlot'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

@@ -110,7 +110,9 @@ def list_workflow_callback_url(key_type: Optional[Union[str, 'KeyType']] = None,
                                workflow_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowCallbackUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    The workflow trigger callback URL.
+    API Version: 2019-05-01.
+
 
     :param Union[str, 'KeyType'] key_type: The key type.
     :param str not_after: The expiry time.

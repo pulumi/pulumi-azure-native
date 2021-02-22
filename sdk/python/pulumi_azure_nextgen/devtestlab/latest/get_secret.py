@@ -14,6 +14,8 @@ __all__ = [
     'get_secret',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getSecret'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSecretResult:
     """
@@ -133,7 +135,9 @@ def get_secret(expand: Optional[str] = None,
                user_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
-    Use this data source to access information about an existing resource.
+    A secret.
+    Latest API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=value)'
     :param str lab_name: The name of the lab.
@@ -141,6 +145,7 @@ def get_secret(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str user_name: The name of the user profile.
     """
+    pulumi.log.warn("get_secret is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getSecret'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

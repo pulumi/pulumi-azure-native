@@ -47,7 +47,9 @@ def get_build_log_link(build_id: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildLogLinkResult:
     """
-    Use this data source to access information about an existing resource.
+    The result of get log link operation.
+    API Version: 2018-02-01-preview.
+
 
     :param str build_id: The build ID.
     :param str registry_name: The name of the container registry.

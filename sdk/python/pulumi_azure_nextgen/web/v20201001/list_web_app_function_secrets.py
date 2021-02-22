@@ -59,7 +59,8 @@ def list_web_app_function_secrets(function_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    Function secrets.
+
 
     :param str function_name: Function name.
     :param str name: Site name.

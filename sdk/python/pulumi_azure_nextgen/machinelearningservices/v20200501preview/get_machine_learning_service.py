@@ -133,7 +133,8 @@ def get_machine_learning_service(expand: Optional[bool] = None,
                                  workspace_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Machine Learning service object wrapped into ARM resource envelope.
+
 
     :param bool expand: Set to True to include Model details.
     :param str resource_group_name: Name of the resource group in which workspace is located.

@@ -179,7 +179,8 @@ def get_adc_catalog(catalog_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADCCatalogResult:
     """
-    Use this data source to access information about an existing resource.
+    Azure Data Catalog.
+
 
     :param str catalog_name: The name of the data catalog in the specified subscription and resource group.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

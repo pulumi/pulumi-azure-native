@@ -15,6 +15,8 @@ __all__ = [
     'get_job',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:importexport:getJob'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetJobResult:
     """
@@ -131,11 +133,14 @@ def get_job(job_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Use this data source to access information about an existing resource.
+    Contains the job information.
+    Latest API Version: 2020-08-01.
+
 
     :param str job_name: The name of the import/export job.
     :param str resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
     """
+    pulumi.log.warn("get_job is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:importexport:getJob'.")
     __args__ = dict()
     __args__['jobName'] = job_name
     __args__['resourceGroupName'] = resource_group_name

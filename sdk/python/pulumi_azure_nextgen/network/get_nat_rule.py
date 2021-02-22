@@ -168,7 +168,9 @@ def get_nat_rule(gateway_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    VpnGatewayNatRule Resource.
+    API Version: 2020-08-01.
+
 
     :param str gateway_name: The name of the gateway.
     :param str nat_rule_name: The name of the nat rule.

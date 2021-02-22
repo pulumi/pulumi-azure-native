@@ -104,7 +104,9 @@ def getazure_ad_metric(azure_ad_metrics_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetazureADMetricResult:
     """
-    Use this data source to access information about an existing resource.
+    AzureADMetrics resource.
+    API Version: 2020-07-01-preview.
+
 
     :param str azure_ad_metrics_name: Name of the azureADMetrics instance.
     :param str resource_group_name: Name of an Azure resource group.

@@ -118,7 +118,8 @@ def get_private_endpoint_connection(parent_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    API Version: 2020-06-01.
+
 
     :param str parent_name: The name of the parent resource (namely, either, the topic name or domain name).
     :param str parent_type: The type of the parent resource. This can be either \'topics\' or \'domains\'.

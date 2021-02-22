@@ -193,7 +193,9 @@ def get_formula(expand: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFormulaResult:
     """
-    Use this data source to access information about an existing resource.
+    A formula for creating a VM, specifying an image base and other parameters
+    API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=description)'
     :param str lab_name: The name of the lab.

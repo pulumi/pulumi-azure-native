@@ -168,7 +168,9 @@ def get_user(resource_group_name: Optional[str] = None,
              user_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Use this data source to access information about an existing resource.
+    User details.
+    API Version: 2019-12-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.

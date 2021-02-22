@@ -143,7 +143,9 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBastionHostResult:
     """
-    Use this data source to access information about an existing resource.
+    Bastion Host resource.
+    API Version: 2020-08-01.
+
 
     :param str bastion_host_name: The name of the Bastion Host.
     :param str resource_group_name: The name of the resource group.

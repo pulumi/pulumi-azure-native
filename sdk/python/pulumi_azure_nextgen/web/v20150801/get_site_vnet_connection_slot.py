@@ -182,7 +182,8 @@ def get_site_vnet_connection_slot(name: Optional[str] = None,
                                   vnet_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteVNETConnectionSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
+
 
     :param str name: The name of the web app
     :param str resource_group_name: The resource group name

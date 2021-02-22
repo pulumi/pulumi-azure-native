@@ -14,6 +14,8 @@ __all__ = [
     'list_workspace_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:listWorkspaceKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWorkspaceKeysResult:
     """
@@ -58,11 +60,14 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Workspace authorization keys for a workspace.
+    Latest API Version: 2016-04-01.
+
 
     :param str resource_group_name: The name of the resource group to which the machine learning workspace belongs.
     :param str workspace_name: The name of the machine learning workspace.
     """
+    pulumi.log.warn("list_workspace_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:listWorkspaceKeys'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name

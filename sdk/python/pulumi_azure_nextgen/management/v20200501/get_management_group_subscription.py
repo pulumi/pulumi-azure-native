@@ -119,7 +119,8 @@ def get_management_group_subscription(group_id: Optional[str] = None,
                                       subscription_id: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    The details of subscription under management group.
+
 
     :param str group_id: Management Group ID.
     :param str subscription_id: Subscription ID.

@@ -123,7 +123,8 @@ def get_protected_item(container_name: Optional[str] = None,
                        vault_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectedItemResult:
     """
-    Use this data source to access information about an existing resource.
+    Base class for backup items.
+
 
     :param str container_name: Container name associated with the backed up item.
     :param str fabric_name: Fabric name associated with the backed up item.

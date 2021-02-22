@@ -15,6 +15,8 @@ __all__ = [
     'list_global_user_labs',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:listGlobalUserLabs'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListGlobalUserLabsResult:
     """
@@ -46,10 +48,13 @@ class AwaitableListGlobalUserLabsResult(ListGlobalUserLabsResult):
 def list_global_user_labs(user_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGlobalUserLabsResult:
     """
-    Use this data source to access information about an existing resource.
+    Lists the labs owned by a user
+    Latest API Version: 2018-10-15.
+
 
     :param str user_name: The name of the user.
     """
+    pulumi.log.warn("list_global_user_labs is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:listGlobalUserLabs'.")
     __args__ = dict()
     __args__['userName'] = user_name
     if opts is None:

@@ -14,6 +14,8 @@ __all__ = [
     'list_topic_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:listTopicKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListTopicKeysResult:
     """
@@ -120,13 +122,16 @@ def list_topic_keys(authorization_rule_name: Optional[str] = None,
                     topic_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTopicKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Namespace/ServiceBus Connection String
+    Latest API Version: 2017-04-01.
+
 
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str topic_name: The topic name.
     """
+    pulumi.log.warn("list_topic_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:listTopicKeys'.")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name

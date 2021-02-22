@@ -83,7 +83,8 @@ def get_managed_instance_azure_ad_only_authentication(authentication_name: Optio
                                                       resource_group_name: Optional[str] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceAzureADOnlyAuthenticationResult:
     """
-    Use this data source to access information about an existing resource.
+    Azure Active Directory only authentication.
+
 
     :param str authentication_name: The name of server azure active directory only authentication.
     :param str managed_instance_name: The name of the managed instance.

@@ -192,7 +192,9 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSmartDetectorAlertRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    The alert rule information
+    API Version: 2019-06-01.
+
 
     :param str alert_rule_name: The name of the alert rule.
     :param bool expand_detector: Indicates if Smart Detector should be expanded.

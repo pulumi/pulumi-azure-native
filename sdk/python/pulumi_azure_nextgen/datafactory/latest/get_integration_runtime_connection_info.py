@@ -14,6 +14,8 @@ __all__ = [
     'get_integration_runtime_connection_info',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getIntegrationRuntimeConnectionInfo'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationRuntimeConnectionInfoResult:
     """
@@ -107,12 +109,15 @@ def get_integration_runtime_connection_info(factory_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeConnectionInfoResult:
     """
-    Use this data source to access information about an existing resource.
+    Connection information for encrypting the on-premises data source credentials.
+    Latest API Version: 2018-06-01.
+
 
     :param str factory_name: The factory name.
     :param str integration_runtime_name: The integration runtime name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_integration_runtime_connection_info is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getIntegrationRuntimeConnectionInfo'.")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['integrationRuntimeName'] = integration_runtime_name

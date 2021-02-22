@@ -83,7 +83,9 @@ def get_table(account_name: Optional[str] = None,
               table_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
-    Use this data source to access information about an existing resource.
+    Properties of the table, including Id, resource name, resource type.
+    API Version: 2021-01-01.
+
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

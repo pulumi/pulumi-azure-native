@@ -14,6 +14,8 @@ __all__ = [
     'list_iot_dps_resource_keys_for_key_name',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotDpsResourceKeysForKeyName'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListIotDpsResourceKeysForKeyNameResult:
     """
@@ -83,12 +85,15 @@ def list_iot_dps_resource_keys_for_key_name(key_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIotDpsResourceKeysForKeyNameResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of the shared access key.
+    Latest API Version: 2020-03-01.
+
 
     :param str key_name: Logical key name to get key-values for.
     :param str provisioning_service_name: Name of the provisioning service.
     :param str resource_group_name: The name of the resource group that contains the provisioning service.
     """
+    pulumi.log.warn("list_iot_dps_resource_keys_for_key_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotDpsResourceKeysForKeyName'.")
     __args__ = dict()
     __args__['keyName'] = key_name
     __args__['provisioningServiceName'] = provisioning_service_name

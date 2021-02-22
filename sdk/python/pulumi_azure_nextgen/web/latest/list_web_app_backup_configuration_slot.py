@@ -15,6 +15,8 @@ __all__ = [
     'list_web_app_backup_configuration_slot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupConfigurationSlot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWebAppBackupConfigurationSlotResult:
     """
@@ -156,12 +158,15 @@ def list_web_app_backup_configuration_slot(name: Optional[str] = None,
                                            slot: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupConfigurationSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of a backup which will be performed.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the backup configuration for the production slot.
     """
+    pulumi.log.warn("list_web_app_backup_configuration_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupConfigurationSlot'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

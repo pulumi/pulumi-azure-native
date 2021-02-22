@@ -95,7 +95,8 @@ def get_firewall_rule(cache_name: Optional[str] = None,
                       rule_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+
 
     :param str cache_name: The name of the Redis cache.
     :param str resource_group_name: The name of the resource group.

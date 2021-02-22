@@ -46,7 +46,8 @@ def list_delegation_setting_secrets(resource_group_name: Optional[str] = None,
                                     service_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDelegationSettingSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.

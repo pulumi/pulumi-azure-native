@@ -15,6 +15,8 @@ __all__ = [
     'get_private_store_offer',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:marketplace:getPrivateStoreOffer'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateStoreOfferResult:
     """
@@ -203,11 +205,14 @@ def get_private_store_offer(offer_id: Optional[str] = None,
                             private_store_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateStoreOfferResult:
     """
-    Use this data source to access information about an existing resource.
+    The privateStore offer data structure.
+    Latest API Version: 2020-01-01.
+
 
     :param str offer_id: The offer ID to update or delete
     :param str private_store_id: The store ID - must use the tenant ID
     """
+    pulumi.log.warn("get_private_store_offer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:marketplace:getPrivateStoreOffer'.")
     __args__ = dict()
     __args__['offerId'] = offer_id
     __args__['privateStoreId'] = private_store_id

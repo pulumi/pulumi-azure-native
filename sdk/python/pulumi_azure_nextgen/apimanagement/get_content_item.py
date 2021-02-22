@@ -84,7 +84,9 @@ def get_content_item(content_item_id: Optional[str] = None,
                      service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentItemResult:
     """
-    Use this data source to access information about an existing resource.
+    Content type contract details.
+    API Version: 2019-12-01.
+
 
     :param str content_item_id: Content item identifier.
     :param str content_type_id: Content type identifier.

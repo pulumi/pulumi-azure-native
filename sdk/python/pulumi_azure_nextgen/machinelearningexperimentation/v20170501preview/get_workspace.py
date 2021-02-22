@@ -167,7 +167,8 @@ def get_workspace(account_name: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    Use this data source to access information about an existing resource.
+    An object that represents a machine learning team account workspace.
+
 
     :param str account_name: The name of the machine learning team account.
     :param str resource_group_name: The name of the resource group to which the machine learning team account belongs.

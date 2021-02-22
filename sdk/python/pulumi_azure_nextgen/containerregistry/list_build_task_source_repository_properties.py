@@ -84,7 +84,9 @@ def list_build_task_source_repository_properties(build_task_name: Optional[str] 
                                                  resource_group_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBuildTaskSourceRepositoryPropertiesResult:
     """
-    Use this data source to access information about an existing resource.
+    The properties of the source code repository.
+    API Version: 2018-02-01-preview.
+
 
     :param str build_task_name: The name of the container registry build task.
     :param str registry_name: The name of the container registry.

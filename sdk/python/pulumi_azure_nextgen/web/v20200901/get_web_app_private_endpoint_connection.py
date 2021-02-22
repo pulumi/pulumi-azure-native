@@ -129,7 +129,8 @@ def get_web_app_private_endpoint_connection(name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Private Endpoint Connection ARM resource.
+
 
     :param str name: Name of the site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

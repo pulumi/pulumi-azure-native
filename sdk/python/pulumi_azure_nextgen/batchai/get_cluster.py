@@ -252,7 +252,9 @@ def get_cluster(cluster_name: Optional[str] = None,
                 workspace_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about a Cluster.
+    API Version: 2018-05-01.
+
 
     :param str cluster_name: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

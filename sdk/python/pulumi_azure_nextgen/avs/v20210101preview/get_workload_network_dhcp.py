@@ -131,7 +131,8 @@ def get_workload_network_dhcp(dhcp_id: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkDhcpResult:
     """
-    Use this data source to access information about an existing resource.
+    NSX DHCP
+
 
     :param str dhcp_id: NSX DHCP identifier. Generally the same as the DHCP display name
     :param str private_cloud_name: Name of the private cloud

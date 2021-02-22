@@ -155,7 +155,9 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityLogAlertResult:
     """
-    Use this data source to access information about an existing resource.
+    An Activity Log Alert rule resource.
+    API Version: 2020-10-01.
+
 
     :param str activity_log_alert_name: The name of the Activity Log Alert rule.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -15,6 +15,8 @@ __all__ = [
     'list_media_service_edge_policies',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listMediaServiceEdgePolicies'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListMediaServiceEdgePoliciesResult:
     def __init__(__self__, usage_data_collection_policy=None):
@@ -42,12 +44,14 @@ def list_media_service_edge_policies(account_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMediaServiceEdgePoliciesResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2020-05-01.
+
 
     :param str account_name: The Media Services account name.
     :param str device_id: Unique identifier of the edge device.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("list_media_service_edge_policies is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listMediaServiceEdgePolicies'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['deviceId'] = device_id

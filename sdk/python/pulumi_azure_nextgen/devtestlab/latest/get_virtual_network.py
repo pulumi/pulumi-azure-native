@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_network',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualNetwork'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualNetworkResult:
     """
@@ -193,13 +195,16 @@ def get_virtual_network(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
-    Use this data source to access information about an existing resource.
+    A virtual network.
+    Latest API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=externalSubnets)'
     :param str lab_name: The name of the lab.
     :param str name: The name of the virtual network.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_virtual_network is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualNetwork'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

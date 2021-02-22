@@ -14,6 +14,8 @@ __all__ = [
     'get_domain_topic',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getDomainTopic'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDomainTopicResult:
     """
@@ -83,12 +85,15 @@ def get_domain_topic(domain_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainTopicResult:
     """
-    Use this data source to access information about an existing resource.
+    Domain Topic.
+    Latest API Version: 2020-06-01.
+
 
     :param str domain_name: Name of the domain.
     :param str domain_topic_name: Name of the topic.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("get_domain_topic is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getDomainTopic'.")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['domainTopicName'] = domain_topic_name

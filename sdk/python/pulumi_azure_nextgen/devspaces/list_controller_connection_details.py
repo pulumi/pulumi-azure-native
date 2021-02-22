@@ -45,7 +45,8 @@ def list_controller_connection_details(name: Optional[str] = None,
                                        target_container_host_resource_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListControllerConnectionDetailsResult:
     """
-    Use this data source to access information about an existing resource.
+    API Version: 2019-04-01.
+
 
     :param str name: Name of the resource.
     :param str resource_group_name: Resource group to which the resource belongs.

@@ -81,7 +81,8 @@ def get_job(job_collection_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Use this data source to access information about an existing resource.
+    API Version: 2016-03-01.
+
 
     :param str job_collection_name: The job collection name.
     :param str job_name: The job name.

@@ -14,6 +14,8 @@ __all__ = [
     'get_sql_pool_sensitivity_label',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolSensitivityLabel'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlPoolSensitivityLabelResult:
     """
@@ -192,7 +194,9 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
                                    workspace_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolSensitivityLabelResult:
     """
-    Use this data source to access information about an existing resource.
+    A sensitivity label.
+    Latest API Version: 2020-12-01.
+
 
     :param str column_name: The name of the column.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -202,6 +206,7 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
     :param str table_name: The name of the table.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("get_sql_pool_sensitivity_label is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolSensitivityLabel'.")
     __args__ = dict()
     __args__['columnName'] = column_name
     __args__['resourceGroupName'] = resource_group_name

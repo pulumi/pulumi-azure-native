@@ -106,7 +106,8 @@ class AwaitableGetConfigurationProfileResult(GetConfigurationProfileResult):
 def get_configuration_profile(profile_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileResult:
     """
-    Use this data source to access information about an existing resource.
+    A profile object that contains change analysis configuration, such as notification settings, for this subscription
+
 
     :param str profile_name: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
     """

@@ -62,7 +62,8 @@ def list_connection_keys(connection_name: Optional[str] = None,
                          validity_time_span: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    API Version: 2015-08-01-preview.
+
 
     :param str connection_name: The connection name.
     :param str id: Resource Id

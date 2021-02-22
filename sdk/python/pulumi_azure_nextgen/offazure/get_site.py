@@ -116,7 +116,9 @@ def get_site(resource_group_name: Optional[str] = None,
              site_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteResult:
     """
-    Use this data source to access information about an existing resource.
+    Site REST Resource.
+    API Version: 2020-07-07.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: Site name.

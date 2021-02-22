@@ -15,6 +15,8 @@ __all__ = [
     'get_replication_storage_classification_mapping',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationStorageClassificationMapping'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReplicationStorageClassificationMappingResult:
     """
@@ -98,7 +100,9 @@ def get_replication_storage_classification_mapping(fabric_name: Optional[str] = 
                                                    storage_classification_name: Optional[str] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationStorageClassificationMappingResult:
     """
-    Use this data source to access information about an existing resource.
+    Storage mapping object.
+    Latest API Version: 2018-07-10.
+
 
     :param str fabric_name: Fabric name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
@@ -106,6 +110,7 @@ def get_replication_storage_classification_mapping(fabric_name: Optional[str] = 
     :param str storage_classification_mapping_name: Storage classification mapping name.
     :param str storage_classification_name: Storage classification name.
     """
+    pulumi.log.warn("get_replication_storage_classification_mapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationStorageClassificationMapping'.")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['resourceGroupName'] = resource_group_name

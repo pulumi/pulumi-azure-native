@@ -95,7 +95,8 @@ def get_deployment_at_scope(deployment_name: Optional[str] = None,
                             scope: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtScopeResult:
     """
-    Use this data source to access information about an existing resource.
+    Deployment information.
+
 
     :param str deployment_name: The name of the deployment.
     :param str scope: The scope of a deployment.

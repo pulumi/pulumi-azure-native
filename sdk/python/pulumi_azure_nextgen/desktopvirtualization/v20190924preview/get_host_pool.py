@@ -263,7 +263,8 @@ def get_host_pool(host_pool_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a HostPool definition.
+
 
     :param str host_pool_name: The name of the host pool within the specified resource group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

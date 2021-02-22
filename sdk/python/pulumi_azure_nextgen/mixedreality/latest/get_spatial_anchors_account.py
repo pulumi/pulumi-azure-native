@@ -15,6 +15,8 @@ __all__ = [
     'get_spatial_anchors_account',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:getSpatialAnchorsAccount'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSpatialAnchorsAccountResult:
     """
@@ -191,11 +193,14 @@ def get_spatial_anchors_account(account_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpatialAnchorsAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    SpatialAnchorsAccount Response.
+    Latest API Version: 2021-01-01.
+
 
     :param str account_name: Name of an Mixed Reality Account.
     :param str resource_group_name: Name of an Azure resource group.
     """
+    pulumi.log.warn("get_spatial_anchors_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:getSpatialAnchorsAccount'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

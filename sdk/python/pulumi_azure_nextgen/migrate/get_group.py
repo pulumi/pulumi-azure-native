@@ -96,7 +96,9 @@ def get_group(group_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    A group created in a Migration project.
+    API Version: 2019-10-01.
+
 
     :param str group_name: Unique name of a group within a project.
     :param str project_name: Name of the Azure Migrate project.

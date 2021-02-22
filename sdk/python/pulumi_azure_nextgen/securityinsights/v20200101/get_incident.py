@@ -288,7 +288,8 @@ def get_incident(incident_id: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents an incident in Azure Security Insights.
+
 
     :param str incident_id: Incident ID
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

@@ -243,7 +243,9 @@ def get_environment(environment_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents an environment instance
+    API Version: 2018-10-15.
+
 
     :param str environment_name: The name of the environment.
     :param str environment_setting_name: The name of the environment Setting.

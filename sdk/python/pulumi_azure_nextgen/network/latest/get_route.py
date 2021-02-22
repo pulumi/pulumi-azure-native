@@ -14,6 +14,8 @@ __all__ = [
     'get_route',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRoute'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRouteResult:
     """
@@ -143,12 +145,15 @@ def get_route(resource_group_name: Optional[str] = None,
               route_table_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
-    Use this data source to access information about an existing resource.
+    Route resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str route_name: The name of the route.
     :param str route_table_name: The name of the route table.
     """
+    pulumi.log.warn("get_route is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRoute'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeName'] = route_name

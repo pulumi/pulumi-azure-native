@@ -240,7 +240,8 @@ def get_python2_package(automation_account_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPython2PackageResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the module type.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str package_name: The python package name.

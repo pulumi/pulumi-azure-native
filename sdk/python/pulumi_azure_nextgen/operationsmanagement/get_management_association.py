@@ -98,7 +98,9 @@ def get_management_association(management_association_name: Optional[str] = None
                                resource_type: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementAssociationResult:
     """
-    Use this data source to access information about an existing resource.
+    The container for solution.
+    API Version: 2015-11-01-preview.
+
 
     :param str management_association_name: User ManagementAssociation Name.
     :param str provider_name: Provider name for the parent resource.

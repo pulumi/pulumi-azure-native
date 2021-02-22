@@ -15,6 +15,8 @@ __all__ = [
     'get_input',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getInput'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetInputResult:
     """
@@ -84,12 +86,15 @@ def get_input(input_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInputResult:
     """
-    Use this data source to access information about an existing resource.
+    An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+    Latest API Version: 2016-03-01.
+
 
     :param str input_name: The name of the input.
     :param str job_name: The name of the streaming job.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("get_input is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getInput'.")
     __args__ = dict()
     __args__['inputName'] = input_name
     __args__['jobName'] = job_name

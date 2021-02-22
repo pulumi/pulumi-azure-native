@@ -239,7 +239,8 @@ def get_share_subscription(account_name: Optional[str] = None,
                            share_subscription_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetShareSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    A share subscription data transfer object.
+
 
     :param str account_name: The name of the share account.
     :param str resource_group_name: The resource group name.

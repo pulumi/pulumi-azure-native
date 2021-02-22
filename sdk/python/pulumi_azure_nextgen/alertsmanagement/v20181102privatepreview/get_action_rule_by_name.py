@@ -107,7 +107,8 @@ def get_action_rule_by_name(action_rule_name: Optional[str] = None,
                             resource_group: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionRuleByNameResult:
     """
-    Use this data source to access information about an existing resource.
+    Action rule object containing target scope, conditions and suppression logic
+
 
     :param str action_rule_name: The name of action rule that needs to be fetched
     :param str resource_group: Resource group name where the resource is created.

@@ -17,6 +17,8 @@ __all__ = [
     'list_custom_api_wsdl_interfaces',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listCustomApiWsdlInterfaces'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListCustomApiWsdlInterfacesResult:
     """
@@ -53,7 +55,9 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
                                     url: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCustomApiWsdlInterfacesResult:
     """
-    Use this data source to access information about an existing resource.
+    A list of custom API WSDL interfaces
+    Latest API Version: 2016-06-01.
+
 
     :param str content: The WSDL content
     :param Union[str, 'WsdlImportMethod'] import_method: The WSDL import method
@@ -62,6 +66,7 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
     :param str subscription_id: Subscription Id
     :param str url: The WSDL URL
     """
+    pulumi.log.warn("list_custom_api_wsdl_interfaces is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listCustomApiWsdlInterfaces'.")
     __args__ = dict()
     __args__['content'] = content
     __args__['importMethod'] = import_method

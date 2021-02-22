@@ -17,6 +17,8 @@ __all__ = [
     'list_web_app_backup_status_secrets_slot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupStatusSecretsSlot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWebAppBackupStatusSecretsSlotResult:
     """
@@ -261,7 +263,9 @@ def list_web_app_backup_status_secrets_slot(backup_id: Optional[str] = None,
                                             storage_account_url: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupStatusSecretsSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Backup description.
+    Latest API Version: 2020-10-01.
+
 
     :param str backup_id: ID of backup.
     :param str backup_name: Name of the backup.
@@ -274,6 +278,7 @@ def list_web_app_backup_status_secrets_slot(backup_id: Optional[str] = None,
     :param str slot: Name of web app slot. If not specified then will default to production slot.
     :param str storage_account_url: SAS URL to the container.
     """
+    pulumi.log.warn("list_web_app_backup_status_secrets_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupStatusSecretsSlot'.")
     __args__ = dict()
     __args__['backupId'] = backup_id
     __args__['backupName'] = backup_name

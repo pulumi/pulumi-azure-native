@@ -15,6 +15,8 @@ __all__ = [
     'get_backup_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getBackupPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBackupPolicyResult:
     """
@@ -192,12 +194,15 @@ def get_backup_policy(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Backup policy information
+    Latest API Version: 2020-11-01.
+
 
     :param str account_name: The name of the NetApp account
     :param str backup_policy_name: Backup policy Name which uniquely identify backup policy.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_backup_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getBackupPolicy'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['backupPolicyName'] = backup_policy_name

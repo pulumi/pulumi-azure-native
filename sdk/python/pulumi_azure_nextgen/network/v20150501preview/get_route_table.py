@@ -143,7 +143,8 @@ def get_route_table(resource_group_name: Optional[str] = None,
                     route_table_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableResult:
     """
-    Use this data source to access information about an existing resource.
+    RouteTable resource
+
 
     :param str resource_group_name: The name of the resource group.
     :param str route_table_name: The name of the route table.

@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_network_link',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkLink'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualNetworkLinkResult:
     """
@@ -156,12 +158,15 @@ def get_virtual_network_link(private_zone_name: Optional[str] = None,
                              virtual_network_link_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkLinkResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a link to virtual network for a Private DNS zone.
+    Latest API Version: 2020-06-01.
+
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_link_name: The name of the virtual network link.
     """
+    pulumi.log.warn("get_virtual_network_link is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkLink'.")
     __args__ = dict()
     __args__['privateZoneName'] = private_zone_name
     __args__['resourceGroupName'] = resource_group_name

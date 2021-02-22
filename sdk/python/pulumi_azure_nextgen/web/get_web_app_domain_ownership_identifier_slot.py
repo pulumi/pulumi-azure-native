@@ -109,7 +109,9 @@ def get_web_app_domain_ownership_identifier_slot(domain_ownership_identifier_nam
                                                  slot: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDomainOwnershipIdentifierSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    A domain specific resource identifier.
+    API Version: 2020-10-01.
+
 
     :param str domain_ownership_identifier_name: Name of domain ownership identifier.
     :param str name: Name of the app.

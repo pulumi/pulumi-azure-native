@@ -108,7 +108,9 @@ def get_managed_instance_private_endpoint_connection(managed_instance_name: Opti
                                                      resource_group_name: Optional[str] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstancePrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    A private endpoint connection
+    API Version: 2020-08-01-preview.
+
 
     :param str managed_instance_name: The name of the managed instance.
     :param str private_endpoint_connection_name: The name of the private endpoint connection.

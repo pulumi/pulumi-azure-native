@@ -226,7 +226,9 @@ class AwaitableGetViewResult(GetViewResult):
 def get_view(view_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewResult:
     """
-    Use this data source to access information about an existing resource.
+    States and configurations of Cost Analysis.
+    API Version: 2020-06-01.
+
 
     :param str view_name: View name
     """

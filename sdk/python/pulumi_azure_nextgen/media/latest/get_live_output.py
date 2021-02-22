@@ -15,6 +15,8 @@ __all__ = [
     'get_live_output',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getLiveOutput'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLiveOutputResult:
     """
@@ -193,13 +195,16 @@ def get_live_output(account_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveOutputResult:
     """
-    Use this data source to access information about an existing resource.
+    The Live Output.
+    Latest API Version: 2020-05-01.
+
 
     :param str account_name: The Media Services account name.
     :param str live_event_name: The name of the live event, maximum length is 32.
     :param str live_output_name: The name of the live output.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_live_output is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getLiveOutput'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['liveEventName'] = live_event_name

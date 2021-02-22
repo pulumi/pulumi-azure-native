@@ -15,6 +15,8 @@ __all__ = [
     'get_snapshot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getSnapshot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSnapshotResult:
     """
@@ -311,11 +313,14 @@ def get_snapshot(resource_group_name: Optional[str] = None,
                  snapshot_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
-    Use this data source to access information about an existing resource.
+    Snapshot resource.
+    Latest API Version: 2020-09-30.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
     """
+    pulumi.log.warn("get_snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getSnapshot'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['snapshotName'] = snapshot_name

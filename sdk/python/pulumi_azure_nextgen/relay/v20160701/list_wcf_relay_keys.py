@@ -96,7 +96,8 @@ def list_wcf_relay_keys(authorization_rule_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWCFRelayKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Namespace/Relay Connection String
+
 
     :param str authorization_rule_name: The authorizationRule name.
     :param str namespace_name: The Namespace Name

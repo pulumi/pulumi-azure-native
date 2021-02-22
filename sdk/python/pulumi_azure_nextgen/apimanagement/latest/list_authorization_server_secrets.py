@@ -14,6 +14,8 @@ __all__ = [
     'list_authorization_server_secrets',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listAuthorizationServerSecrets'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListAuthorizationServerSecretsResult:
     """
@@ -47,12 +49,15 @@ def list_authorization_server_secrets(authsid: Optional[str] = None,
                                       service_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAuthorizationServerSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+    Latest API Version: 2019-12-01.
+
 
     :param str authsid: Identifier of the authorization server.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("list_authorization_server_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listAuthorizationServerSecrets'.")
     __args__ = dict()
     __args__['authsid'] = authsid
     __args__['resourceGroupName'] = resource_group_name

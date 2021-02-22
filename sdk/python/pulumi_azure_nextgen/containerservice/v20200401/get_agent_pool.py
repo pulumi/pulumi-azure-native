@@ -336,7 +336,8 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
                    resource_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    Agent Pool.
+
 
     :param str agent_pool_name: The name of the agent pool.
     :param str resource_group_name: The name of the resource group.

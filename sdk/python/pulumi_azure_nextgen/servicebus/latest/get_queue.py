@@ -15,6 +15,8 @@ __all__ = [
     'get_queue',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getQueue'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetQueueResult:
     """
@@ -324,12 +326,15 @@ def get_queue(namespace_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of queue Resource.
+    Latest API Version: 2017-04-01.
+
 
     :param str namespace_name: The namespace name
     :param str queue_name: The queue name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_queue is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getQueue'.")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['queueName'] = queue_name

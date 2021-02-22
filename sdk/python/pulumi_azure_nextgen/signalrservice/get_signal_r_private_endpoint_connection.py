@@ -108,7 +108,9 @@ def get_signal_r_private_endpoint_connection(private_endpoint_connection_name: O
                                              resource_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    A private endpoint connection to SignalR resource
+    API Version: 2020-05-01.
+
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the SignalR resource.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -15,6 +15,8 @@ __all__ = [
     'get_storage_domain',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getStorageDomain'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStorageDomainResult:
     """
@@ -108,12 +110,15 @@ def get_storage_domain(manager_name: Optional[str] = None,
                        storage_domain_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageDomainResult:
     """
-    Use this data source to access information about an existing resource.
+    The storage domain.
+    Latest API Version: 2016-10-01.
+
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     :param str storage_domain_name: The storage domain name.
     """
+    pulumi.log.warn("get_storage_domain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getStorageDomain'.")
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name

@@ -15,6 +15,8 @@ __all__ = [
     'get_deployment_at_management_group_scope',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtManagementGroupScope'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDeploymentAtManagementGroupScopeResult:
     """
@@ -107,11 +109,14 @@ def get_deployment_at_management_group_scope(deployment_name: Optional[str] = No
                                              group_id: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtManagementGroupScopeResult:
     """
-    Use this data source to access information about an existing resource.
+    Deployment information.
+    Latest API Version: 2020-10-01.
+
 
     :param str deployment_name: The name of the deployment.
     :param str group_id: The management group ID.
     """
+    pulumi.log.warn("get_deployment_at_management_group_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtManagementGroupScope'.")
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     __args__['groupId'] = group_id

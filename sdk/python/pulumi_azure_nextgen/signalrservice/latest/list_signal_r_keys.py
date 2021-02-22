@@ -14,6 +14,8 @@ __all__ = [
     'list_signal_r_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:listSignalRKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListSignalRKeysResult:
     """
@@ -82,11 +84,14 @@ def list_signal_r_keys(resource_group_name: Optional[str] = None,
                        resource_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSignalRKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    A class represents the access keys of SignalR service.
+    Latest API Version: 2020-05-01.
+
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the SignalR resource.
     """
+    pulumi.log.warn("list_signal_r_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:listSignalRKeys'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

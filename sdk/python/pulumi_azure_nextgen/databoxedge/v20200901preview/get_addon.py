@@ -97,7 +97,8 @@ def get_addon(addon_name: Optional[str] = None,
               role_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonResult:
     """
-    Use this data source to access information about an existing resource.
+    Role Addon
+
 
     :param str addon_name: The addon name.
     :param str device_name: The device name.

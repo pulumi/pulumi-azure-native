@@ -15,6 +15,8 @@ __all__ = [
     'get_peer_asn',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeerAsn'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPeerAsnResult:
     """
@@ -130,10 +132,13 @@ class AwaitableGetPeerAsnResult(GetPeerAsnResult):
 def get_peer_asn(peer_asn_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeerAsnResult:
     """
-    Use this data source to access information about an existing resource.
+    The essential information related to the peer's ASN.
+    Latest API Version: 2020-10-01.
+
 
     :param str peer_asn_name: The peer ASN name.
     """
+    pulumi.log.warn("get_peer_asn is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeerAsn'.")
     __args__ = dict()
     __args__['peerAsnName'] = peer_asn_name
     if opts is None:

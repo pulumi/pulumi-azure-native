@@ -70,7 +70,8 @@ def list_manager_public_encryption_key(manager_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagerPublicEncryptionKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents the secrets encrypted using Symmetric Encryption Key.
+
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name

@@ -15,6 +15,8 @@ __all__ = [
     'get_relationship',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRelationship'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRelationshipResult:
     """
@@ -216,12 +218,15 @@ def get_relationship(hub_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRelationshipResult:
     """
-    Use this data source to access information about an existing resource.
+    The relationship resource format.
+    Latest API Version: 2017-04-26.
+
 
     :param str hub_name: The name of the hub.
     :param str relationship_name: The name of the relationship.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_relationship is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRelationship'.")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['relationshipName'] = relationship_name

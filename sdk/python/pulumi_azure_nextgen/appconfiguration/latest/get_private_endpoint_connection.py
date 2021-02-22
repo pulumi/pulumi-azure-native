@@ -15,6 +15,8 @@ __all__ = [
     'get_private_endpoint_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:getPrivateEndpointConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
@@ -108,12 +110,15 @@ def get_private_endpoint_connection(config_store_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    A private endpoint connection
+    Latest API Version: 2020-06-01.
+
 
     :param str config_store_name: The name of the configuration store.
     :param str private_endpoint_connection_name: Private endpoint connection name
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:getPrivateEndpointConnection'.")
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name

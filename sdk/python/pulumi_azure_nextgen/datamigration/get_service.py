@@ -167,7 +167,9 @@ def get_service(group_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    A Database Migration Service resource
+    API Version: 2018-04-19.
+
 
     :param str group_name: Name of the resource group
     :param str service_name: Name of the service

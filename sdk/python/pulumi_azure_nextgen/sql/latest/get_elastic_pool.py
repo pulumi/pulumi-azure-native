@@ -14,6 +14,8 @@ __all__ = [
     'get_elastic_pool',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getElasticPool'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetElasticPoolResult:
     """
@@ -203,12 +205,15 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
                      server_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a database elastic pool.
+    Latest API Version: 2014-04-01.
+
 
     :param str elastic_pool_name: The name of the elastic pool to be retrieved.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("get_elastic_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getElasticPool'.")
     __args__ = dict()
     __args__['elasticPoolName'] = elastic_pool_name
     __args__['resourceGroupName'] = resource_group_name

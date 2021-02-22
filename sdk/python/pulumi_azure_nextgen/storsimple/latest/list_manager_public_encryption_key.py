@@ -14,6 +14,8 @@ __all__ = [
     'list_manager_public_encryption_key',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listManagerPublicEncryptionKey'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListManagerPublicEncryptionKeyResult:
     """
@@ -70,11 +72,14 @@ def list_manager_public_encryption_key(manager_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagerPublicEncryptionKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents the secrets encrypted using Symmetric Encryption Key.
+    Latest API Version: 2017-06-01.
+
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
+    pulumi.log.warn("list_manager_public_encryption_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listManagerPublicEncryptionKey'.")
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name

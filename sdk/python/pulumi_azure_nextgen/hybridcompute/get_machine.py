@@ -333,7 +333,9 @@ def get_machine(expand: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a hybrid machine.
+    API Version: 2020-08-02.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str name: The name of the hybrid machine.

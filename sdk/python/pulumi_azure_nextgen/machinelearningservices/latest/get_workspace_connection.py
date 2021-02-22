@@ -14,6 +14,8 @@ __all__ = [
     'get_workspace_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getWorkspaceConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWorkspaceConnectionResult:
     """
@@ -131,12 +133,15 @@ def get_workspace_connection(connection_name: Optional[str] = None,
                              workspace_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Workspace connection.
+    Latest API Version: 2021-01-01.
+
 
     :param str connection_name: Friendly name of the workspace connection
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("get_workspace_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getWorkspaceConnection'.")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name

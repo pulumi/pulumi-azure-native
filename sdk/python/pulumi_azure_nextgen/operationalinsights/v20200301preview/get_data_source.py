@@ -119,7 +119,8 @@ def get_data_source(data_source_name: Optional[str] = None,
                     workspace_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSourceResult:
     """
-    Use this data source to access information about an existing resource.
+    Datasources under OMS Workspace.
+
 
     :param str data_source_name: Name of the datasource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

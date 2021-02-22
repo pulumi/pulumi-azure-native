@@ -144,7 +144,8 @@ def get_storage_account_credential(credential_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountCredentialResult:
     """
-    Use this data source to access information about an existing resource.
+    The storage account credential
+
 
     :param str credential_name: The name of storage account credential to be fetched.
     :param str manager_name: The manager name

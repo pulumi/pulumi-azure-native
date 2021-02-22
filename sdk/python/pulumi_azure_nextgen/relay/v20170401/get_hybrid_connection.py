@@ -131,7 +131,8 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of hybrid connection resource.
+
 
     :param str hybrid_connection_name: The hybrid connection name.
     :param str namespace_name: The namespace name

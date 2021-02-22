@@ -132,7 +132,8 @@ def get_origin(endpoint_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginResult:
     """
-    Use this data source to access information about an existing resource.
+    CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+
 
     :param str endpoint_name: Name of the endpoint within the CDN profile.
     :param str origin_name: Name of the origin, an arbitrary value but it needs to be unique under endpoint

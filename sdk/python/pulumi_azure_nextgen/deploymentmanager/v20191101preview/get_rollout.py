@@ -204,7 +204,8 @@ def get_rollout(resource_group_name: Optional[str] = None,
                 rollout_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRolloutResult:
     """
-    Use this data source to access information about an existing resource.
+    Defines the PUT rollout request body.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param int retry_attempt: Rollout retry attempt ordinal to get the result of. If not specified, result of the latest attempt will be returned.

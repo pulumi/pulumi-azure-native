@@ -15,6 +15,8 @@ __all__ = [
     'get_nat_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNatRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNatRuleResult:
     """
@@ -168,12 +170,15 @@ def get_nat_rule(gateway_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    VpnGatewayNatRule Resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str gateway_name: The name of the gateway.
     :param str nat_rule_name: The name of the nat rule.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
+    pulumi.log.warn("get_nat_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNatRule'.")
     __args__ = dict()
     __args__['gatewayName'] = gateway_name
     __args__['natRuleName'] = nat_rule_name

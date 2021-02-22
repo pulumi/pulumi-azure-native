@@ -15,6 +15,8 @@ __all__ = [
     'list_database_account_connection_strings',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:listDatabaseAccountConnectionStrings'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListDatabaseAccountConnectionStringsResult:
     """
@@ -47,11 +49,14 @@ def list_database_account_connection_strings(account_name: Optional[str] = None,
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabaseAccountConnectionStringsResult:
     """
-    Use this data source to access information about an existing resource.
+    The connection strings for the given database account.
+    Latest API Version: 2021-01-15.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("list_database_account_connection_strings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:listDatabaseAccountConnectionStrings'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

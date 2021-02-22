@@ -58,7 +58,9 @@ def get_registry_credentials(registry_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryCredentialsResult:
     """
-    Use this data source to access information about an existing resource.
+    The result of a request to get the administrator login credentials for a container registry.
+    API Version: 2016-06-27-preview.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.

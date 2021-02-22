@@ -108,7 +108,8 @@ def get_storage_domain(manager_name: Optional[str] = None,
                        storage_domain_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageDomainResult:
     """
-    Use this data source to access information about an existing resource.
+    The storage domain.
+
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name

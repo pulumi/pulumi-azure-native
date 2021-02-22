@@ -48,7 +48,8 @@ def list_device_failover_sets(device_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeviceFailoverSetsResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of failover sets.
+
 
     :param str device_name: The device name
     :param str manager_name: The manager name

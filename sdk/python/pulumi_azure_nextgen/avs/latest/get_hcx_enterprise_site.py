@@ -14,6 +14,8 @@ __all__ = [
     'get_hcx_enterprise_site',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getHcxEnterpriseSite'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHcxEnterpriseSiteResult:
     """
@@ -95,12 +97,15 @@ def get_hcx_enterprise_site(hcx_enterprise_site_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHcxEnterpriseSiteResult:
     """
-    Use this data source to access information about an existing resource.
+    An HCX Enterprise Site resource
+    Latest API Version: 2020-03-20.
+
 
     :param str hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("get_hcx_enterprise_site is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getHcxEnterpriseSite'.")
     __args__ = dict()
     __args__['hcxEnterpriseSiteName'] = hcx_enterprise_site_name
     __args__['privateCloudName'] = private_cloud_name

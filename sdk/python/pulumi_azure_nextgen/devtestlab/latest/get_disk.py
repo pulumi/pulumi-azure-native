@@ -14,6 +14,8 @@ __all__ = [
     'get_disk',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getDisk'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDiskResult:
     """
@@ -217,7 +219,9 @@ def get_disk(expand: Optional[str] = None,
              user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskResult:
     """
-    Use this data source to access information about an existing resource.
+    A Disk.
+    Latest API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=diskType)'
     :param str lab_name: The name of the lab.
@@ -225,6 +229,7 @@ def get_disk(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str user_name: The name of the user profile.
     """
+    pulumi.log.warn("get_disk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getDisk'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

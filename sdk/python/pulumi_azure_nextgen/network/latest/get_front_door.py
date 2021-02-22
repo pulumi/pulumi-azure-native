@@ -15,6 +15,8 @@ __all__ = [
     'get_front_door',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFrontDoor'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFrontDoorResult:
     """
@@ -251,11 +253,14 @@ def get_front_door(front_door_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontDoorResult:
     """
-    Use this data source to access information about an existing resource.
+    Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+    Latest API Version: 2020-05-01.
+
 
     :param str front_door_name: Name of the Front Door which is globally unique.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_front_door is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFrontDoor'.")
     __args__ = dict()
     __args__['frontDoorName'] = front_door_name
     __args__['resourceGroupName'] = resource_group_name

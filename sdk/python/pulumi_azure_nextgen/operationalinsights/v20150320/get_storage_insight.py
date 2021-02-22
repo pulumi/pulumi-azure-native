@@ -144,7 +144,8 @@ def get_storage_insight(resource_group_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageInsightResult:
     """
-    Use this data source to access information about an existing resource.
+    The top level storage insight resource container.
+
 
     :param str resource_group_name: The Resource Group name.
     :param str storage_insight_name: Name of the storageInsightsConfigs resource

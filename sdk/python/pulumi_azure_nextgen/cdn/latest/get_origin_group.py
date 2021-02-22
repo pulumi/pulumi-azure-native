@@ -15,6 +15,8 @@ __all__ = [
     'get_origin_group',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getOriginGroup'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetOriginGroupResult:
     """
@@ -157,13 +159,16 @@ def get_origin_group(endpoint_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+    Latest API Version: 2020-09-01.
+
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
     :param str origin_group_name: Name of the origin group which is unique within the endpoint.
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_origin_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getOriginGroup'.")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['originGroupName'] = origin_group_name

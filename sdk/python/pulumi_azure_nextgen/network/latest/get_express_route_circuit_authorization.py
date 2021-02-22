@@ -14,6 +14,8 @@ __all__ = [
     'get_express_route_circuit_authorization',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCircuitAuthorization'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExpressRouteCircuitAuthorizationResult:
     """
@@ -119,12 +121,15 @@ def get_express_route_circuit_authorization(authorization_name: Optional[str] = 
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitAuthorizationResult:
     """
-    Use this data source to access information about an existing resource.
+    Authorization in an ExpressRouteCircuit resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str authorization_name: The name of the authorization.
     :param str circuit_name: The name of the express route circuit.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_express_route_circuit_authorization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCircuitAuthorization'.")
     __args__ = dict()
     __args__['authorizationName'] = authorization_name
     __args__['circuitName'] = circuit_name

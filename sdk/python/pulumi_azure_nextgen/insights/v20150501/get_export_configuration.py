@@ -263,7 +263,8 @@ def get_export_configuration(export_id: Optional[str] = None,
                              resource_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Properties that define a Continuous Export configuration.
+
 
     :param str export_id: The Continuous Export configuration ID. This is unique within a Application Insights component.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

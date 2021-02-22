@@ -15,6 +15,8 @@ __all__ = [
     'get_storage_sync_service',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getStorageSyncService'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStorageSyncServiceResult:
     """
@@ -179,11 +181,14 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
                              storage_sync_service_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageSyncServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Storage Sync Service object.
+    Latest API Version: 2020-03-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
+    pulumi.log.warn("get_storage_sync_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getStorageSyncService'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageSyncServiceName'] = storage_sync_service_name

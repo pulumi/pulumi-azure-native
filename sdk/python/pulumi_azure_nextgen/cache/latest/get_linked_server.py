@@ -14,6 +14,8 @@ __all__ = [
     'get_linked_server',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getLinkedServer'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLinkedServerResult:
     """
@@ -119,12 +121,15 @@ def get_linked_server(linked_server_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServerResult:
     """
-    Use this data source to access information about an existing resource.
+    Response to put/get linked server (with properties) for Redis cache.
+    Latest API Version: 2020-06-01.
+
 
     :param str linked_server_name: The name of the linked server.
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_linked_server is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getLinkedServer'.")
     __args__ = dict()
     __args__['linkedServerName'] = linked_server_name
     __args__['name'] = name

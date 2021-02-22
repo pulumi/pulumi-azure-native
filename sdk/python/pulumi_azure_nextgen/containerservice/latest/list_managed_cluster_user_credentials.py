@@ -15,6 +15,8 @@ __all__ = [
     'list_managed_cluster_user_credentials',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:listManagedClusterUserCredentials'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListManagedClusterUserCredentialsResult:
     """
@@ -47,11 +49,14 @@ def list_managed_cluster_user_credentials(resource_group_name: Optional[str] = N
                                           resource_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterUserCredentialsResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of credential result response.
+    Latest API Version: 2020-12-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
+    pulumi.log.warn("list_managed_cluster_user_credentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:listManagedClusterUserCredentials'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

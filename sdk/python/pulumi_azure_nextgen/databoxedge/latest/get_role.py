@@ -15,6 +15,8 @@ __all__ = [
     'get_role',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getRole'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRoleResult:
     """
@@ -96,12 +98,15 @@ def get_role(device_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleResult:
     """
-    Use this data source to access information about an existing resource.
+    Compute role.
+    Latest API Version: 2020-09-01.
+
 
     :param str device_name: The device name.
     :param str name: The role name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_role is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getRole'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name

@@ -217,7 +217,8 @@ def get_sync_member(database_name: Optional[str] = None,
                     sync_member_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncMemberResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure SQL Database sync member.
+
 
     :param str database_name: The name of the database on which the sync group is hosted.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

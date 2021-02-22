@@ -131,7 +131,8 @@ def get_job(job_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Use this data source to access information about an existing resource.
+    Contains the job information.
+
 
     :param str job_name: The name of the import/export job.
     :param str resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.

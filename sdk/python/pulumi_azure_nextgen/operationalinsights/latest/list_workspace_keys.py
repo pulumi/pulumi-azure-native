@@ -14,6 +14,8 @@ __all__ = [
     'list_workspace_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:listWorkspaceKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWorkspaceKeysResult:
     """
@@ -58,11 +60,14 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    The shared keys for a workspace.
+    Latest API Version: 2015-03-20.
+
 
     :param str resource_group_name: The Resource Group name.
     :param str workspace_name: The Log Analytics Workspace name.
     """
+    pulumi.log.warn("list_workspace_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:listWorkspaceKeys'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name

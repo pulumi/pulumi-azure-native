@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_machine_run_command_by_virtual_machine',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineRunCommandByVirtualMachine'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineRunCommandByVirtualMachineResult:
     """
@@ -229,13 +231,16 @@ def get_virtual_machine_run_command_by_virtual_machine(expand: Optional[str] = N
                                                        vm_name: Optional[str] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineRunCommandByVirtualMachineResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a Virtual Machine run command.
+    Latest API Version: 2020-12-01.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str resource_group_name: The name of the resource group.
     :param str run_command_name: The name of the virtual machine run command.
     :param str vm_name: The name of the virtual machine containing the run command.
     """
+    pulumi.log.warn("get_virtual_machine_run_command_by_virtual_machine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineRunCommandByVirtualMachine'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

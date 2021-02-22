@@ -15,6 +15,8 @@ __all__ = [
     'get_web_app_relay_service_connection_slot',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppRelayServiceConnectionSlot'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebAppRelayServiceConnectionSlotResult:
     """
@@ -160,13 +162,16 @@ def get_web_app_relay_service_connection_slot(entity_name: Optional[str] = None,
                                               slot: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppRelayServiceConnectionSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Hybrid Connection for an App Service app.
+    Latest API Version: 2020-10-01.
+
 
     :param str entity_name: Name of the hybrid connection.
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get a hybrid connection for the production slot.
     """
+    pulumi.log.warn("get_web_app_relay_service_connection_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppRelayServiceConnectionSlot'.")
     __args__ = dict()
     __args__['entityName'] = entity_name
     __args__['name'] = name

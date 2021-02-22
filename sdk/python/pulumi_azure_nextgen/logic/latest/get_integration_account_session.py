@@ -14,6 +14,8 @@ __all__ = [
     'get_integration_account_session',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountSession'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationAccountSessionResult:
     """
@@ -131,12 +133,15 @@ def get_integration_account_session(integration_account_name: Optional[str] = No
                                     session_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountSessionResult:
     """
-    Use this data source to access information about an existing resource.
+    The integration account session.
+    Latest API Version: 2019-05-01.
+
 
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     :param str session_name: The integration account session name.
     """
+    pulumi.log.warn("get_integration_account_session is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountSession'.")
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
     __args__['resourceGroupName'] = resource_group_name

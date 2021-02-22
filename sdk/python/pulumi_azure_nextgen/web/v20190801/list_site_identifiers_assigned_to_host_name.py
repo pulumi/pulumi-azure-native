@@ -58,7 +58,8 @@ class AwaitableListSiteIdentifiersAssignedToHostNameResult(ListSiteIdentifiersAs
 def list_site_identifiers_assigned_to_host_name(name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSiteIdentifiersAssignedToHostNameResult:
     """
-    Use this data source to access information about an existing resource.
+    Collection of identifiers.
+
 
     :param str name: Name of the object.
     """

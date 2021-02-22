@@ -15,6 +15,8 @@ __all__ = [
     'list_database_principals',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listDatabasePrincipals'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListDatabasePrincipalsResult:
     """
@@ -48,12 +50,15 @@ def list_database_principals(cluster_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabasePrincipalsResult:
     """
-    Use this data source to access information about an existing resource.
+    The list Kusto database principals operation response.
+    Latest API Version: 2020-09-18.
+
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("list_database_principals is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listDatabasePrincipals'.")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['databaseName'] = database_name

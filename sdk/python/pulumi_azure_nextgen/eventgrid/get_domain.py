@@ -192,7 +192,9 @@ def get_domain(domain_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
-    Use this data source to access information about an existing resource.
+    EventGrid Domain.
+    API Version: 2020-06-01.
+
 
     :param str domain_name: Name of the domain.
     :param str resource_group_name: The name of the resource group within the user's subscription.

@@ -59,7 +59,9 @@ def list_gateway_keys(gateway_id: Optional[str] = None,
                       service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGatewayKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Gateway authentication keys.
+    API Version: 2019-12-01.
+
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
     :param str resource_group_name: The name of the resource group.

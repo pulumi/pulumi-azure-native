@@ -15,6 +15,8 @@ __all__ = [
     'get_webhook',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getWebhook'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebhookResult:
     """
@@ -204,12 +206,15 @@ def get_webhook(automation_account_name: Optional[str] = None,
                 webhook_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebhookResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the webhook type.
+    Latest API Version: 2015-10-31.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
     :param str webhook_name: The webhook name.
     """
+    pulumi.log.warn("get_webhook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getWebhook'.")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name

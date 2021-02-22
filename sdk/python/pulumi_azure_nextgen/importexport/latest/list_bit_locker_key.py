@@ -15,6 +15,8 @@ __all__ = [
     'list_bit_locker_key',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:importexport:listBitLockerKey'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListBitLockerKeyResult:
     """
@@ -47,11 +49,14 @@ def list_bit_locker_key(job_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBitLockerKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    GetBitLockerKeys response
+    Latest API Version: 2020-08-01.
+
 
     :param str job_name: The name of the import/export job.
     :param str resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
     """
+    pulumi.log.warn("list_bit_locker_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:importexport:listBitLockerKey'.")
     __args__ = dict()
     __args__['jobName'] = job_name
     __args__['resourceGroupName'] = resource_group_name

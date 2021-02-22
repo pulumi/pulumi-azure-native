@@ -132,7 +132,8 @@ def get_iscsi_server(device_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIscsiServerResult:
     """
-    Use this data source to access information about an existing resource.
+    The iSCSI server.
+
 
     :param str device_name: The device name.
     :param str iscsi_server_name: The iSCSI server name.

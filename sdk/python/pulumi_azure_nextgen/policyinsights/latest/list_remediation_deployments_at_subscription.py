@@ -15,6 +15,8 @@ __all__ = [
     'list_remediation_deployments_at_subscription',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:listRemediationDeploymentsAtSubscription'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListRemediationDeploymentsAtSubscriptionResult:
     """
@@ -59,11 +61,14 @@ def list_remediation_deployments_at_subscription(remediation_name: Optional[str]
                                                  top: Optional[int] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    List of deployments for a remediation.
+    Latest API Version: 2019-07-01.
+
 
     :param str remediation_name: The name of the remediation.
     :param int top: Maximum number of records to return.
     """
+    pulumi.log.warn("list_remediation_deployments_at_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:listRemediationDeploymentsAtSubscription'.")
     __args__ = dict()
     __args__['remediationName'] = remediation_name
     __args__['top'] = top

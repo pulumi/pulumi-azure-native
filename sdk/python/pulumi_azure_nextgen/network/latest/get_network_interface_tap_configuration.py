@@ -15,6 +15,8 @@ __all__ = [
     'get_network_interface_tap_configuration',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkInterfaceTapConfiguration'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNetworkInterfaceTapConfigurationResult:
     """
@@ -108,12 +110,15 @@ def get_network_interface_tap_configuration(network_interface_name: Optional[str
                                             tap_configuration_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceTapConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    Tap configuration in a Network Interface.
+    Latest API Version: 2020-08-01.
+
 
     :param str network_interface_name: The name of the network interface.
     :param str resource_group_name: The name of the resource group.
     :param str tap_configuration_name: The name of the tap configuration.
     """
+    pulumi.log.warn("get_network_interface_tap_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkInterfaceTapConfiguration'.")
     __args__ = dict()
     __args__['networkInterfaceName'] = network_interface_name
     __args__['resourceGroupName'] = resource_group_name

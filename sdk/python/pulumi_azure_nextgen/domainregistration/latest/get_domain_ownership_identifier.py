@@ -15,6 +15,8 @@ __all__ = [
     'get_domain_ownership_identifier',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:getDomainOwnershipIdentifier'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDomainOwnershipIdentifierResult:
     """
@@ -108,12 +110,15 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainOwnershipIdentifierResult:
     """
-    Use this data source to access information about an existing resource.
+    Domain ownership Identifier.
+    Latest API Version: 2020-10-01.
+
 
     :param str domain_name: Name of domain.
     :param str name: Name of identifier.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_domain_ownership_identifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:getDomainOwnershipIdentifier'.")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['name'] = name

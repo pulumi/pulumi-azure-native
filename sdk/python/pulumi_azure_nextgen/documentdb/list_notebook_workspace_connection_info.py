@@ -59,7 +59,9 @@ def list_notebook_workspace_connection_info(account_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNotebookWorkspaceConnectionInfoResult:
     """
-    Use this data source to access information about an existing resource.
+    The connection info for the given notebook workspace
+    API Version: 2021-01-15.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str notebook_workspace_name: The name of the notebook workspace resource.

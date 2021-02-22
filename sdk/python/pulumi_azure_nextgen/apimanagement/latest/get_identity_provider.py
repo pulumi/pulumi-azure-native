@@ -14,6 +14,8 @@ __all__ = [
     'get_identity_provider',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getIdentityProvider'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIdentityProviderResult:
     """
@@ -179,12 +181,15 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
                           service_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityProviderResult:
     """
-    Use this data source to access information about an existing resource.
+    Identity Provider details.
+    Latest API Version: 2019-12-01.
+
 
     :param str identity_provider_name: Identity Provider Type identifier.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("get_identity_provider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getIdentityProvider'.")
     __args__ = dict()
     __args__['identityProviderName'] = identity_provider_name
     __args__['resourceGroupName'] = resource_group_name

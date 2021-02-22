@@ -187,7 +187,8 @@ def get_multiple_activation_key(multiple_activation_key_name: Optional[str] = No
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMultipleActivationKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    MAK key details.
+
 
     :param str multiple_activation_key_name: The name of the MAK key.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

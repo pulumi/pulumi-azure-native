@@ -96,7 +96,9 @@ def get_prediction_training_results(hub_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPredictionTrainingResultsResult:
     """
-    Use this data source to access information about an existing resource.
+    The training results of the prediction.
+    API Version: 2017-04-26.
+
 
     :param str hub_name: The name of the hub.
     :param str prediction_name: The name of the Prediction.

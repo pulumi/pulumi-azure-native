@@ -264,7 +264,8 @@ def get_public_ip_address(expand: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPAddressResult:
     """
-    Use this data source to access information about an existing resource.
+    Public IP address resource.
+
 
     :param str expand: Expands referenced resources.
     :param str public_ip_address_name: The name of the subnet.

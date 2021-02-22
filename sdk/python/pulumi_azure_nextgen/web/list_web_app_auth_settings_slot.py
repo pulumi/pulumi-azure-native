@@ -591,7 +591,9 @@ def list_web_app_auth_settings_slot(name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppAuthSettingsSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Configuration settings for the Azure App Service Authentication / Authorization feature.
+    API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

@@ -15,6 +15,8 @@ __all__ = [
     'get_storage_account_credential',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getStorageAccountCredential'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStorageAccountCredentialResult:
     """
@@ -132,12 +134,15 @@ def get_storage_account_credential(manager_name: Optional[str] = None,
                                    storage_account_credential_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountCredentialResult:
     """
-    Use this data source to access information about an existing resource.
+    The storage account credential.
+    Latest API Version: 2017-06-01.
+
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     :param str storage_account_credential_name: The name of storage account credential to be fetched.
     """
+    pulumi.log.warn("get_storage_account_credential is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getStorageAccountCredential'.")
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name

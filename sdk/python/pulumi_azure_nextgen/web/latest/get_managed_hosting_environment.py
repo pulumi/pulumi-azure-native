@@ -15,6 +15,8 @@ __all__ = [
     'get_managed_hosting_environment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getManagedHostingEnvironment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagedHostingEnvironmentResult:
     """
@@ -228,11 +230,14 @@ def get_managed_hosting_environment(name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedHostingEnvironmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of an hostingEnvironment (App Service Environment)
+    Latest API Version: 2015-08-01.
+
 
     :param str name: Name of managed hosting environment
     :param str resource_group_name: Name of resource group
     """
+    pulumi.log.warn("get_managed_hosting_environment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getManagedHostingEnvironment'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

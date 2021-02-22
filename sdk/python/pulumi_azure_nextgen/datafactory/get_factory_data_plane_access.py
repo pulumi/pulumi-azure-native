@@ -76,7 +76,9 @@ def get_factory_data_plane_access(access_resource_path: Optional[str] = None,
                                   start_time: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryDataPlaneAccessResult:
     """
-    Use this data source to access information about an existing resource.
+    Get Data Plane read only token response definition.
+    API Version: 2018-06-01.
+
 
     :param str access_resource_path: The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
     :param str expire_time: Expiration time for the token. Maximum duration for the token is eight hours and by default the token will expire in eight hours.

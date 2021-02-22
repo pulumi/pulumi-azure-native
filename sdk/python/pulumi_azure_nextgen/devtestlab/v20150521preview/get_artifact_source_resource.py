@@ -191,7 +191,8 @@ def get_artifact_source_resource(lab_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArtifactSourceResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    Properties of an artifact source.
+
 
     :param str lab_name: The name of the lab.
     :param str name: The name of the artifact source.

@@ -59,7 +59,9 @@ def get_webhook_callback_config(registry_name: Optional[str] = None,
                                 webhook_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebhookCallbackConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    The configuration of service URI and custom headers for the webhook.
+    API Version: 2019-05-01.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.

@@ -62,7 +62,8 @@ def list_job_output_files(job_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListJobOutputFilesResult:
     """
-    Use this data source to access information about an existing resource.
+    Values returned by the List operation.
+
 
     :param str job_name: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
     :param int linkexpiryinminutes: The number of minutes after which the download link will expire.

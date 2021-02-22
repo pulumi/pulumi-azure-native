@@ -96,7 +96,9 @@ def get_product_setting(operational_insights_resource_provider: Optional[str] = 
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    The Setting.
+    API Version: 2019-01-01-preview.
+
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

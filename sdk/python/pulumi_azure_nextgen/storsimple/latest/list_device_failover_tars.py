@@ -15,6 +15,8 @@ __all__ = [
     'list_device_failover_tars',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listDeviceFailoverTars'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListDeviceFailoverTarsResult:
     """
@@ -49,13 +51,16 @@ def list_device_failover_tars(manager_name: Optional[str] = None,
                               volume_containers: Optional[Sequence[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeviceFailoverTarsResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of all devices in a resource and their eligibility status as a failover target device.
+    Latest API Version: 2017-06-01.
+
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     :param str source_device_name: The source device name on which failover is performed.
     :param Sequence[str] volume_containers: The list of path IDs of the volume containers that needs to be failed-over, for which we want to fetch the eligible targets.
     """
+    pulumi.log.warn("list_device_failover_tars is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listDeviceFailoverTars'.")
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name

@@ -15,6 +15,8 @@ __all__ = [
     'get_guest_configuration_hcrpassignment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:guestconfiguration:getGuestConfigurationHCRPAssignment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGuestConfigurationHCRPAssignmentResult:
     """
@@ -96,12 +98,15 @@ def get_guest_configuration_hcrpassignment(guest_configuration_assignment_name: 
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestConfigurationHCRPAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Guest configuration assignment is an association between a machine and guest configuration.
+    Latest API Version: 2020-06-25.
+
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.
     :param str machine_name: The name of the ARC machine.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_guest_configuration_hcrpassignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:guestconfiguration:getGuestConfigurationHCRPAssignment'.")
     __args__ = dict()
     __args__['guestConfigurationAssignmentName'] = guest_configuration_assignment_name
     __args__['machineName'] = machine_name

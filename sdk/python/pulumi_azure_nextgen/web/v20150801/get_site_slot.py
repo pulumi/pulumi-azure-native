@@ -445,7 +445,8 @@ def get_site_slot(name: Optional[str] = None,
                   slot: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a web app
+
 
     :param str name: Name of web app
     :param str properties_to_include: Additional web app properties included in the response

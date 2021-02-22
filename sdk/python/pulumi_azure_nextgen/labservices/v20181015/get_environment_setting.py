@@ -218,7 +218,8 @@ def get_environment_setting(environment_setting_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents settings of an environment, from which environment instances would be created
+
 
     :param str environment_setting_name: The name of the environment Setting.
     :param str expand: Specify the $expand query. Example: 'properties($select=publishingState)'

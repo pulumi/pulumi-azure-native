@@ -48,7 +48,8 @@ def list_streaming_locator_content_keys(account_name: Optional[str] = None,
                                         streaming_locator_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStreamingLocatorContentKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Class of response for listContentKeys action
+
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.

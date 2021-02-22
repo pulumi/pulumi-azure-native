@@ -14,6 +14,8 @@ __all__ = [
     'list_web_app_sync_function_triggers',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSyncFunctionTriggers'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWebAppSyncFunctionTriggersResult:
     """
@@ -58,11 +60,14 @@ def list_web_app_sync_function_triggers(name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSyncFunctionTriggersResult:
     """
-    Use this data source to access information about an existing resource.
+    Function secrets.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("list_web_app_sync_function_triggers is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSyncFunctionTriggers'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

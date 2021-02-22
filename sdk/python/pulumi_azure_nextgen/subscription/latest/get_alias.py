@@ -15,6 +15,8 @@ __all__ = [
     'get_alias',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:subscription:getAlias'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAliasResult:
     """
@@ -82,10 +84,13 @@ class AwaitableGetAliasResult(GetAliasResult):
 def get_alias(alias_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
-    Use this data source to access information about an existing resource.
+    Subscription Information with the alias.
+    Latest API Version: 2020-09-01.
+
 
     :param str alias_name: Alias Name
     """
+    pulumi.log.warn("get_alias is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:subscription:getAlias'.")
     __args__ = dict()
     __args__['aliasName'] = alias_name
     if opts is None:

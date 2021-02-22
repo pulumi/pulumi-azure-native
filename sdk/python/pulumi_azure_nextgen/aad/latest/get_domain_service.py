@@ -15,6 +15,8 @@ __all__ = [
     'get_domain_service',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getDomainService'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDomainServiceResult:
     """
@@ -287,11 +289,14 @@ def get_domain_service(domain_service_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Domain service.
+    Latest API Version: 2020-01-01.
+
 
     :param str domain_service_name: The name of the domain service.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("get_domain_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getDomainService'.")
     __args__ = dict()
     __args__['domainServiceName'] = domain_service_name
     __args__['resourceGroupName'] = resource_group_name

@@ -15,6 +15,8 @@ __all__ = [
     'get_user_settings_with_location',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getUserSettingsWithLocation'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetUserSettingsWithLocationResult:
     """
@@ -47,11 +49,14 @@ def get_user_settings_with_location(location: Optional[str] = None,
                                     user_settings_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSettingsWithLocationResult:
     """
-    Use this data source to access information about an existing resource.
+    Response to get user settings
+    Latest API Version: 2018-10-01.
+
 
     :param str location: The provider location
     :param str user_settings_name: The name of the user settings
     """
+    pulumi.log.warn("get_user_settings_with_location is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getUserSettingsWithLocation'.")
     __args__ = dict()
     __args__['location'] = location
     __args__['userSettingsName'] = user_settings_name

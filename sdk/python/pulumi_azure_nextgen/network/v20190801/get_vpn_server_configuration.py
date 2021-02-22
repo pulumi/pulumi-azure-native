@@ -251,7 +251,8 @@ def get_vpn_server_configuration(resource_group_name: Optional[str] = None,
                                  vpn_server_configuration_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnServerConfigurationResult:
     """
-    Use this data source to access information about an existing resource.
+    VpnServerConfiguration Resource.
+
 
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.
     :param str vpn_server_configuration_name: The name of the VpnServerConfiguration being retrieved.

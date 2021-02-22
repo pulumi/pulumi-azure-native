@@ -15,6 +15,8 @@ __all__ = [
     'get_peering',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeering'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPeeringResult:
     """
@@ -167,11 +169,14 @@ def get_peering(peering_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringResult:
     """
-    Use this data source to access information about an existing resource.
+    Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+    Latest API Version: 2020-10-01.
+
 
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_peering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPeering'.")
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['resourceGroupName'] = resource_group_name

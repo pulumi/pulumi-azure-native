@@ -15,6 +15,8 @@ __all__ = [
     'get_monitoring_config',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getMonitoringConfig'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMonitoringConfigResult:
     """
@@ -84,12 +86,15 @@ def get_monitoring_config(device_name: Optional[str] = None,
                           role_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitoringConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    The metric setting details for the role
+    Latest API Version: 2020-09-01.
+
 
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     :param str role_name: The role name.
     """
+    pulumi.log.warn("get_monitoring_config is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getMonitoringConfig'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name

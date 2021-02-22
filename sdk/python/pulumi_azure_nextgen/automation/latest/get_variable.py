@@ -14,6 +14,8 @@ __all__ = [
     'get_variable',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getVariable'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVariableResult:
     """
@@ -131,12 +133,15 @@ def get_variable(automation_account_name: Optional[str] = None,
                  variable_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVariableResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the variable.
+    Latest API Version: 2019-06-01.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
     :param str variable_name: The name of variable.
     """
+    pulumi.log.warn("get_variable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getVariable'.")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name

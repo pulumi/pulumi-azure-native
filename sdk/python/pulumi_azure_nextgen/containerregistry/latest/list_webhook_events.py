@@ -15,6 +15,8 @@ __all__ = [
     'list_webhook_events',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listWebhookEvents'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWebhookEventsResult:
     """
@@ -60,12 +62,15 @@ def list_webhook_events(registry_name: Optional[str] = None,
                         webhook_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebhookEventsResult:
     """
-    Use this data source to access information about an existing resource.
+    The result of a request to list events for a webhook.
+    Latest API Version: 2019-05-01.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str webhook_name: The name of the webhook.
     """
+    pulumi.log.warn("list_webhook_events is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listWebhookEvents'.")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name

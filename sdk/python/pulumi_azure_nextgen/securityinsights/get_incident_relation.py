@@ -133,7 +133,9 @@ def get_incident_relation(incident_id: Optional[str] = None,
                           workspace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentRelationResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a relation between two resources
+    API Version: 2019-01-01-preview.
+
 
     :param str incident_id: Incident ID
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

@@ -165,7 +165,9 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDEndpointResult:
     """
-    Use this data source to access information about an existing resource.
+    CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
+    API Version: 2020-09-01.
+
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
     :param str profile_name: Name of the CDN profile which is unique within the resource group.

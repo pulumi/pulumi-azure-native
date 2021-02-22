@@ -15,6 +15,8 @@ __all__ = [
     'get_lab',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getLab'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLabResult:
     """
@@ -229,13 +231,16 @@ def get_lab(expand: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a lab.
+    Latest API Version: 2018-10-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
     :param str lab_account_name: The name of the lab Account.
     :param str lab_name: The name of the lab.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_lab is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getLab'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labAccountName'] = lab_account_name

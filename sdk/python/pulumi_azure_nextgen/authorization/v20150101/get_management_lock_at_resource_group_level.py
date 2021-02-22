@@ -94,7 +94,8 @@ def get_management_lock_at_resource_group_level(lock_name: Optional[str] = None,
                                                 resource_group_name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtResourceGroupLevelResult:
     """
-    Use this data source to access information about an existing resource.
+    Management lock information.
+
 
     :param str lock_name: The lock name.
     :param str resource_group_name: The resource group name.

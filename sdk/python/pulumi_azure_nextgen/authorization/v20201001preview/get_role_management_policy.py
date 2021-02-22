@@ -155,7 +155,8 @@ def get_role_management_policy(role_management_policy_name: Optional[str] = None
                                scope: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleManagementPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Role management policy
+
 
     :param str role_management_policy_name: The name (guid) of the role management policy to get.
     :param str scope: The scope of the role management policy.

@@ -167,7 +167,8 @@ def get_dedicated_hsm(name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHsmResult:
     """
-    Use this data source to access information about an existing resource.
+    Resource information with extended details.
+
 
     :param str name: The name of the dedicated HSM.
     :param str resource_group_name: The name of the Resource Group to which the dedicated hsm belongs.

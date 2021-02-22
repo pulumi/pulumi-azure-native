@@ -131,7 +131,8 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalReachConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    A global reach connection resource
+
 
     :param str global_reach_connection_name: Name of the global reach connection in the private cloud
     :param str private_cloud_name: Name of the private cloud

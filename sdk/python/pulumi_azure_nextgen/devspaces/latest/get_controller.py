@@ -15,6 +15,8 @@ __all__ = [
     'get_controller',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devspaces:getController'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetControllerResult:
     def __init__(__self__, data_plane_fqdn=None, host_suffix=None, id=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, target_container_host_api_server_fqdn=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None, type=None):
@@ -176,11 +178,13 @@ def get_controller(name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControllerResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2019-04-01.
+
 
     :param str name: Name of the resource.
     :param str resource_group_name: Resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_controller is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devspaces:getController'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

@@ -15,6 +15,8 @@ __all__ = [
     'get_deployment_script',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentScript'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDeploymentScriptResult:
     """
@@ -131,11 +133,14 @@ def get_deployment_script(resource_group_name: Optional[str] = None,
                           script_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentScriptResult:
     """
-    Use this data source to access information about an existing resource.
+    Deployment script object.
+    Latest API Version: 2020-10-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str script_name: Name of the deployment script.
     """
+    pulumi.log.warn("get_deployment_script is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentScript'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['scriptName'] = script_name

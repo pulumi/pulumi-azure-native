@@ -96,7 +96,8 @@ def get_trigger(factory_name: Optional[str] = None,
                 trigger_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTriggerResult:
     """
-    Use this data source to access information about an existing resource.
+    Trigger resource type.
+
 
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.

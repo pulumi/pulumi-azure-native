@@ -168,7 +168,8 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
                             version_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublishedBlueprintResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a published Blueprint.
+
 
     :param str blueprint_name: name of the blueprint.
     :param str management_group_name: ManagementGroup where blueprint stores.

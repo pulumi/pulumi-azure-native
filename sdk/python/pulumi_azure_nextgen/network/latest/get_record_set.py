@@ -15,6 +15,8 @@ __all__ = [
     'get_record_set',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRecordSet'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRecordSetResult:
     """
@@ -229,13 +231,16 @@ def get_record_set(private_zone_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRecordSetResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+    Latest API Version: 2020-06-01.
+
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param str record_type: The type of DNS record in this record set.
     :param str relative_record_set_name: The name of the record set, relative to the name of the zone.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_record_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRecordSet'.")
     __args__ = dict()
     __args__['privateZoneName'] = private_zone_name
     __args__['recordType'] = record_type

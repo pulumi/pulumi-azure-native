@@ -155,7 +155,9 @@ def get_workload_network_port_mirroring(port_mirroring_id: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkPortMirroringResult:
     """
-    Use this data source to access information about an existing resource.
+    NSX Port Mirroring
+    API Version: 2020-07-17-preview.
+
 
     :param str port_mirroring_id: NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
     :param str private_cloud_name: Name of the private cloud

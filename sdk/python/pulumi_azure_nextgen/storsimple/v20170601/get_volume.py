@@ -193,7 +193,8 @@ def get_volume(device_name: Optional[str] = None,
                volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
-    Use this data source to access information about an existing resource.
+    The volume.
+
 
     :param str device_name: The device name
     :param str manager_name: The manager name

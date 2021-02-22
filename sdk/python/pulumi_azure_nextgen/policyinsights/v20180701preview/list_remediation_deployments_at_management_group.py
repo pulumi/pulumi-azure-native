@@ -61,7 +61,8 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
                                                      top: Optional[int] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtManagementGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    List of deployments for a remediation.
+
 
     :param str management_group_id: Management group ID.
     :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.

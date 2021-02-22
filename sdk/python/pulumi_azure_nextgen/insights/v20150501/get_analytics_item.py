@@ -146,7 +146,8 @@ def get_analytics_item(id: Optional[str] = None,
                        scope_path: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAnalyticsItemResult:
     """
-    Use this data source to access information about an existing resource.
+    Properties that define an Analytics item that is associated to an Application Insights component.
+
 
     :param str id: The Id of a specific item defined in the Application Insights component
     :param str name: The name of a specific item defined in the Application Insights component

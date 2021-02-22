@@ -108,7 +108,9 @@ def get_private_endpoint_connection(namespace_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Properties of the PrivateEndpointConnection.
+    API Version: 2018-01-01-preview.
+
 
     :param str namespace_name: The Namespace name
     :param str private_endpoint_connection_name: The PrivateEndpointConnection name

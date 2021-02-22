@@ -14,6 +14,8 @@ __all__ = [
     'list_subscription_secrets',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listSubscriptionSecrets'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListSubscriptionSecretsResult:
     """
@@ -59,12 +61,15 @@ def list_subscription_secrets(resource_group_name: Optional[str] = None,
                               sid: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSubscriptionSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    Subscription keys.
+    Latest API Version: 2019-12-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     :param str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
     """
+    pulumi.log.warn("list_subscription_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listSubscriptionSecrets'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

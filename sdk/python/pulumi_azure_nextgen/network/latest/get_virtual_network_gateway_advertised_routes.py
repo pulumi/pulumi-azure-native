@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_network_gateway_advertised_routes',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayAdvertisedRoutes'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualNetworkGatewayAdvertisedRoutesResult:
     """
@@ -48,12 +50,15 @@ def get_virtual_network_gateway_advertised_routes(peer: Optional[str] = None,
                                                   virtual_network_gateway_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayAdvertisedRoutesResult:
     """
-    Use this data source to access information about an existing resource.
+    List of virtual network gateway routes.
+    Latest API Version: 2020-08-01.
+
 
     :param str peer: The IP address of the peer.
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The name of the virtual network gateway.
     """
+    pulumi.log.warn("get_virtual_network_gateway_advertised_routes is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayAdvertisedRoutes'.")
     __args__ = dict()
     __args__['peer'] = peer
     __args__['resourceGroupName'] = resource_group_name

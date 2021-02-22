@@ -167,7 +167,9 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWCFRelayResult:
     """
-    Use this data source to access information about an existing resource.
+    Description of the WCF relay resource.
+    API Version: 2017-04-01.
+
 
     :param str namespace_name: The namespace name
     :param str relay_name: The relay name.

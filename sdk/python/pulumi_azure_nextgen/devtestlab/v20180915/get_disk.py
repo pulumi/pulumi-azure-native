@@ -217,7 +217,8 @@ def get_disk(expand: Optional[str] = None,
              user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskResult:
     """
-    Use this data source to access information about an existing resource.
+    A Disk.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=diskType)'
     :param str lab_name: The name of the lab.

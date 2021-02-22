@@ -95,7 +95,8 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainOwnershipIdentifierResult:
     """
-    Use this data source to access information about an existing resource.
+    Domain ownership Identifier.
+
 
     :param str domain_name: Name of domain.
     :param str name: Name of identifier.

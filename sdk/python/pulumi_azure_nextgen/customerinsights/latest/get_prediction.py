@@ -15,6 +15,8 @@ __all__ = [
     'get_prediction',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPrediction'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPredictionResult:
     """
@@ -276,12 +278,15 @@ def get_prediction(hub_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPredictionResult:
     """
-    Use this data source to access information about an existing resource.
+    The prediction resource format.
+    Latest API Version: 2017-04-26.
+
 
     :param str hub_name: The name of the hub.
     :param str prediction_name: The name of the Prediction.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_prediction is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPrediction'.")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['predictionName'] = prediction_name

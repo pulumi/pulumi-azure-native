@@ -84,7 +84,8 @@ def get_tag_by_product(product_id: Optional[str] = None,
                        tag_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagByProductResult:
     """
-    Use this data source to access information about an existing resource.
+    Tag Contract details.
+
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.

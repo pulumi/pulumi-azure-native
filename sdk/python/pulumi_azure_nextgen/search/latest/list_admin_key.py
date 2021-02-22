@@ -14,6 +14,8 @@ __all__ = [
     'list_admin_key',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:listAdminKey'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListAdminKeyResult:
     """
@@ -58,11 +60,14 @@ def list_admin_key(resource_group_name: Optional[str] = None,
                    search_service_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAdminKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+    Latest API Version: 2020-08-01.
+
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
     """
+    pulumi.log.warn("list_admin_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:listAdminKey'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchServiceName'] = search_service_name

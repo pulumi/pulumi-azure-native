@@ -263,7 +263,8 @@ def get_cloud_connector(connector_name: Optional[str] = None,
                         expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudConnectorResult:
     """
-    Use this data source to access information about an existing resource.
+    The Connector model definition
+
 
     :param str connector_name: Connector Name.
     :param str expand: May be used to expand the collectionInfo property. By default, collectionInfo is not included.

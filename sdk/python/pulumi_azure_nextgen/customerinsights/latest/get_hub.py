@@ -15,6 +15,8 @@ __all__ = [
     'get_hub',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getHub'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHubResult:
     """
@@ -155,11 +157,14 @@ def get_hub(hub_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHubResult:
     """
-    Use this data source to access information about an existing resource.
+    Hub resource.
+    Latest API Version: 2017-04-26.
+
 
     :param str hub_name: The name of the hub.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_hub is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getHub'.")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['resourceGroupName'] = resource_group_name

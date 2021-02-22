@@ -118,7 +118,9 @@ def get_data_collection_rule_association(association_name: Optional[str] = None,
                                          resource_uri: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCollectionRuleAssociationResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of generic ARM proxy resource.
+    API Version: 2019-11-01-preview.
+
 
     :param str association_name: The name of the association.
     :param str resource_uri: The identifier of the resource.

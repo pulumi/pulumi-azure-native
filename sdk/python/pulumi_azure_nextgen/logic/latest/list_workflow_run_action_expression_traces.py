@@ -15,6 +15,8 @@ __all__ = [
     'list_workflow_run_action_expression_traces',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowRunActionExpressionTraces'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWorkflowRunActionExpressionTracesResult:
     """
@@ -46,13 +48,16 @@ def list_workflow_run_action_expression_traces(action_name: Optional[str] = None
                                                workflow_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowRunActionExpressionTracesResult:
     """
-    Use this data source to access information about an existing resource.
+    The expression traces.
+    Latest API Version: 2019-05-01.
+
 
     :param str action_name: The workflow action name.
     :param str resource_group_name: The resource group name.
     :param str run_name: The workflow run name.
     :param str workflow_name: The workflow name.
     """
+    pulumi.log.warn("list_workflow_run_action_expression_traces is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowRunActionExpressionTraces'.")
     __args__ = dict()
     __args__['actionName'] = action_name
     __args__['resourceGroupName'] = resource_group_name

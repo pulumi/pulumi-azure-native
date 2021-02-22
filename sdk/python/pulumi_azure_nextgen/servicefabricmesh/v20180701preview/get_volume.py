@@ -143,7 +143,8 @@ def get_volume(resource_group_name: Optional[str] = None,
                volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
-    Use this data source to access information about an existing resource.
+    This type describes a volume resource.
+
 
     :param str resource_group_name: Azure resource group name
     :param str volume_name: The identity of the volume.

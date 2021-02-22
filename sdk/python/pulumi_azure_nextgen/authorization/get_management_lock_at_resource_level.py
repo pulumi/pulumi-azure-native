@@ -111,7 +111,9 @@ def get_management_lock_at_resource_level(lock_name: Optional[str] = None,
                                           resource_type: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtResourceLevelResult:
     """
-    Use this data source to access information about an existing resource.
+    The lock information.
+    API Version: 2016-09-01.
+
 
     :param str lock_name: The name of lock.
     :param str parent_resource_path: An extra path parameter needed in some services, like SQL Databases.

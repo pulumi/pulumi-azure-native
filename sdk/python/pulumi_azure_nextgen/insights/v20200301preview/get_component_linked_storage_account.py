@@ -83,7 +83,8 @@ def get_component_linked_storage_account(resource_group_name: Optional[str] = No
                                          storage_type: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentLinkedStorageAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    An Application Insights component linked storage accounts
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.

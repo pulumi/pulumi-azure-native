@@ -216,7 +216,8 @@ def get_load_balancer(expand: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
-    Use this data source to access information about an existing resource.
+    LoadBalancer resource
+
 
     :param str expand: expand references resources.
     :param str load_balancer_name: The name of the loadBalancer.

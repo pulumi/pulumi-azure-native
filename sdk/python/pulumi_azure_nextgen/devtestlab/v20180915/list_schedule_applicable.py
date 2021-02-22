@@ -60,7 +60,8 @@ def list_schedule_applicable(lab_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListScheduleApplicableResult:
     """
-    Use this data source to access information about an existing resource.
+    The response of a list operation.
+
 
     :param str lab_name: The name of the lab.
     :param str name: The name of the schedule.

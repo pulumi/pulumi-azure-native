@@ -119,7 +119,9 @@ def get_order_collection_by_name(order_collection_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderCollectionByNameResult:
     """
-    Use this data source to access information about an existing resource.
+    Specifies the properties or parameters for an order collection. Order collection is a grouping of one or more orders.
+    API Version: 2020-12-01-preview.
+
 
     :param str order_collection_name: The name of the order collection
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

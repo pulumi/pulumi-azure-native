@@ -190,7 +190,8 @@ class AwaitableGetAttestationAtSubscriptionResult(GetAttestationAtSubscriptionRe
 def get_attestation_at_subscription(attestation_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttestationAtSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    An attestation resource.
+
 
     :param str attestation_name: The name of the attestation.
     """

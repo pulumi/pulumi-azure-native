@@ -313,7 +313,8 @@ def get_incident(incident_id: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents an incident in Azure Security Insights.
+
 
     :param str incident_id: Incident ID
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

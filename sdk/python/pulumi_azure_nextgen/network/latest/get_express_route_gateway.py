@@ -15,6 +15,8 @@ __all__ = [
     'get_express_route_gateway',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteGateway'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExpressRouteGatewayResult:
     """
@@ -155,11 +157,14 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteGatewayResult:
     """
-    Use this data source to access information about an existing resource.
+    ExpressRoute gateway resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_express_route_gateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteGateway'.")
     __args__ = dict()
     __args__['expressRouteGatewayName'] = express_route_gateway_name
     __args__['resourceGroupName'] = resource_group_name

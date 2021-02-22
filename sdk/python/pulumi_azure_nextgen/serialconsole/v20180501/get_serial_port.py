@@ -85,7 +85,8 @@ def get_serial_port(parent_resource: Optional[str] = None,
                     serial_port: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSerialPortResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents the serial port of the parent resource.
+
 
     :param str parent_resource: The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
     :param str parent_resource_type: The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'

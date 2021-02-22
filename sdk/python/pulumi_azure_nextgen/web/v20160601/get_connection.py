@@ -117,7 +117,8 @@ def get_connection(connection_name: Optional[str] = None,
                    subscription_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    API connection
+
 
     :param str connection_name: Connection name
     :param str resource_group_name: The resource group

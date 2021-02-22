@@ -96,7 +96,8 @@ def get_threat_intelligence_indicator(name: Optional[str] = None,
                                       workspace_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThreatIntelligenceIndicatorResult:
     """
-    Use this data source to access information about an existing resource.
+    Threat intelligence information object.
+
 
     :param str name: Threat intelligence indicator name field.
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.

@@ -276,7 +276,8 @@ def get_prediction(hub_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPredictionResult:
     """
-    Use this data source to access information about an existing resource.
+    The prediction resource format.
+
 
     :param str hub_name: The name of the hub.
     :param str prediction_name: The name of the Prediction.

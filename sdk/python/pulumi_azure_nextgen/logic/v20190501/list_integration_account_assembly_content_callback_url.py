@@ -108,7 +108,8 @@ def list_integration_account_assembly_content_callback_url(assembly_artifact_nam
                                                            resource_group_name: Optional[str] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountAssemblyContentCallbackUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    The workflow trigger callback URL.
+
 
     :param str assembly_artifact_name: The assembly artifact name.
     :param str integration_account_name: The integration account name.

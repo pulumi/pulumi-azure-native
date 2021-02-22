@@ -46,7 +46,8 @@ def get_profile_supported_optimization_types(profile_name: Optional[str] = None,
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileSupportedOptimizationTypesResult:
     """
-    Use this data source to access information about an existing resource.
+    The result of the GetSupportedOptimizationTypes API
+
 
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.

@@ -181,7 +181,8 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInboundNatRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Inbound NAT rule of the load balancer.
+
 
     :param str expand: Expands referenced resources.
     :param str inbound_nat_rule_name: The name of the inbound nat rule.

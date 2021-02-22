@@ -193,7 +193,9 @@ def get_virtual_network(expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
-    Use this data source to access information about an existing resource.
+    A virtual network.
+    API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=externalSubnets)'
     :param str lab_name: The name of the lab.

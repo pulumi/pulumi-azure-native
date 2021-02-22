@@ -14,6 +14,8 @@ __all__ = [
     'get_backup_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBackupPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBackupPolicyResult:
     """
@@ -168,13 +170,16 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    The backup policy.
+    Latest API Version: 2017-06-01.
+
 
     :param str backup_policy_name: The name of backup policy to be fetched.
     :param str device_name: The device name
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
+    pulumi.log.warn("get_backup_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBackupPolicy'.")
     __args__ = dict()
     __args__['backupPolicyName'] = backup_policy_name
     __args__['deviceName'] = device_name

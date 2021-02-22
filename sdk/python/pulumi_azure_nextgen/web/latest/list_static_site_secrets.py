@@ -15,6 +15,8 @@ __all__ = [
     'list_static_site_secrets',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listStaticSiteSecrets'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListStaticSiteSecretsResult:
     """
@@ -107,11 +109,14 @@ def list_static_site_secrets(name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    String dictionary resource.
+    Latest API Version: 2020-10-01.
+
 
     :param str name: Name of the static site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("list_static_site_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listStaticSiteSecrets'.")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

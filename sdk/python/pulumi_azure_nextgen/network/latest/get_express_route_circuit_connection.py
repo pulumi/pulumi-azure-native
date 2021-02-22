@@ -15,6 +15,8 @@ __all__ = [
     'get_express_route_circuit_connection',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCircuitConnection'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExpressRouteCircuitConnectionResult:
     """
@@ -169,13 +171,16 @@ def get_express_route_circuit_connection(circuit_name: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str circuit_name: The name of the express route circuit.
     :param str connection_name: The name of the express route circuit connection.
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_express_route_circuit_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCircuitConnection'.")
     __args__ = dict()
     __args__['circuitName'] = circuit_name
     __args__['connectionName'] = connection_name

@@ -14,6 +14,8 @@ __all__ = [
     'get_service',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:windowsiot:getService'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServiceResult:
     """
@@ -166,11 +168,14 @@ def get_service(device_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    The description of the Windows IoT Device Service.
+    Latest API Version: 2019-06-01.
+
 
     :param str device_name: The name of the Windows IoT Device Service.
     :param str resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
     """
+    pulumi.log.warn("get_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:windowsiot:getService'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name

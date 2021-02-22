@@ -15,6 +15,8 @@ __all__ = [
     'get_profile',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getProfile'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProfileResult:
     """
@@ -179,11 +181,14 @@ def get_profile(profile_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
-    Use this data source to access information about an existing resource.
+    Class representing a Traffic Manager profile.
+    Latest API Version: 2018-04-01.
+
 
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group containing the Traffic Manager profile.
     """
+    pulumi.log.warn("get_profile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getProfile'.")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name

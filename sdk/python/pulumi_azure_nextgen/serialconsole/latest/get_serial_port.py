@@ -14,6 +14,8 @@ __all__ = [
     'get_serial_port',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:serialconsole:getSerialPort'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSerialPortResult:
     """
@@ -85,7 +87,9 @@ def get_serial_port(parent_resource: Optional[str] = None,
                     serial_port: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSerialPortResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents the serial port of the parent resource.
+    Latest API Version: 2018-05-01.
+
 
     :param str parent_resource: The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
     :param str parent_resource_type: The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
@@ -93,6 +97,7 @@ def get_serial_port(parent_resource: Optional[str] = None,
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str serial_port: The name of the serial port to connect to.
     """
+    pulumi.log.warn("get_serial_port is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:serialconsole:getSerialPort'.")
     __args__ = dict()
     __args__['parentResource'] = parent_resource
     __args__['parentResourceType'] = parent_resource_type

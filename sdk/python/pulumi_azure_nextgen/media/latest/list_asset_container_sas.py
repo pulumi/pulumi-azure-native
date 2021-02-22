@@ -15,6 +15,8 @@ __all__ = [
     'list_asset_container_sas',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listAssetContainerSas'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListAssetContainerSasResult:
     """
@@ -50,7 +52,9 @@ def list_asset_container_sas(account_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAssetContainerSasResult:
     """
-    Use this data source to access information about an existing resource.
+    The Asset Storage container SAS URLs.
+    Latest API Version: 2020-05-01.
+
 
     :param str account_name: The Media Services account name.
     :param str asset_name: The Asset name.
@@ -58,6 +62,7 @@ def list_asset_container_sas(account_name: Optional[str] = None,
     :param Union[str, 'AssetContainerPermission'] permissions: The permissions to set on the SAS URL.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("list_asset_container_sas is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listAssetContainerSas'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['assetName'] = asset_name

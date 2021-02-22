@@ -15,6 +15,8 @@ __all__ = [
     'get_console_with_location',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getConsoleWithLocation'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConsoleWithLocationResult:
     """
@@ -47,11 +49,14 @@ def get_console_with_location(console_name: Optional[str] = None,
                               location: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsoleWithLocationResult:
     """
-    Use this data source to access information about an existing resource.
+    Cloud shell console
+    Latest API Version: 2018-10-01.
+
 
     :param str console_name: The name of the console
     :param str location: The provider location
     """
+    pulumi.log.warn("get_console_with_location is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getConsoleWithLocation'.")
     __args__ = dict()
     __args__['consoleName'] = console_name
     __args__['location'] = location

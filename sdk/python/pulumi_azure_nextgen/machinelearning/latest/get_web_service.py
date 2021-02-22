@@ -15,6 +15,8 @@ __all__ = [
     'get_web_service',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:getWebService'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebServiceResult:
     """
@@ -108,12 +110,15 @@ def get_web_service(region: Optional[str] = None,
                     web_service_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    Instance of an Azure ML web service resource.
+    Latest API Version: 2017-01-01.
+
 
     :param str region: The region for which encrypted credential parameters are valid.
     :param str resource_group_name: Name of the resource group in which the web service is located.
     :param str web_service_name: The name of the web service.
     """
+    pulumi.log.warn("get_web_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:getWebService'.")
     __args__ = dict()
     __args__['region'] = region
     __args__['resourceGroupName'] = resource_group_name

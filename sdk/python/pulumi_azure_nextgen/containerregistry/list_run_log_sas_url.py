@@ -47,7 +47,9 @@ def list_run_log_sas_url(registry_name: Optional[str] = None,
                          run_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRunLogSasUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    The result of get log link operation.
+    API Version: 2019-04-01.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.

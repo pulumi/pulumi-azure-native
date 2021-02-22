@@ -14,6 +14,8 @@ __all__ = [
     'list_gateway_keys',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listGatewayKeys'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListGatewayKeysResult:
     """
@@ -59,12 +61,15 @@ def list_gateway_keys(gateway_id: Optional[str] = None,
                       service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGatewayKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Gateway authentication keys.
+    Latest API Version: 2019-12-01.
+
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("list_gateway_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listGatewayKeys'.")
     __args__ = dict()
     __args__['gatewayId'] = gateway_id
     __args__['resourceGroupName'] = resource_group_name

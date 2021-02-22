@@ -14,6 +14,8 @@ __all__ = [
     'get_iscsi_disk',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiDisk'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIscsiDiskResult:
     """
@@ -169,7 +171,9 @@ def get_iscsi_disk(device_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIscsiDiskResult:
     """
-    Use this data source to access information about an existing resource.
+    The iSCSI disk.
+    Latest API Version: 2016-10-01.
+
 
     :param str device_name: The device name.
     :param str disk_name: The disk name.
@@ -177,6 +181,7 @@ def get_iscsi_disk(device_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
+    pulumi.log.warn("get_iscsi_disk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiDisk'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['diskName'] = disk_name

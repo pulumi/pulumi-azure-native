@@ -15,6 +15,8 @@ __all__ = [
     'get_dataset',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataset'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDatasetResult:
     """
@@ -96,12 +98,15 @@ def get_dataset(dataset_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatasetResult:
     """
-    Use this data source to access information about an existing resource.
+    Dataset resource type.
+    Latest API Version: 2018-06-01.
+
 
     :param str dataset_name: The dataset name.
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_dataset is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataset'.")
     __args__ = dict()
     __args__['datasetName'] = dataset_name
     __args__['factoryName'] = factory_name

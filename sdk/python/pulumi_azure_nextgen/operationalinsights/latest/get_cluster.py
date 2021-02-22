@@ -15,6 +15,8 @@ __all__ = [
     'get_cluster',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getCluster'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetClusterResult:
     """
@@ -239,11 +241,14 @@ def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    The top level Log Analytics cluster resource container.
+    Latest API Version: 2020-10-01.
+
 
     :param str cluster_name: Name of the Log Analytics Cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("get_cluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getCluster'.")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name

@@ -15,6 +15,8 @@ __all__ = [
     'get_chap_setting',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getChapSetting'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetChapSettingResult:
     """
@@ -85,13 +87,16 @@ def get_chap_setting(chap_user_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChapSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    Challenge-Handshake Authentication Protocol (CHAP) setting
+    Latest API Version: 2016-10-01.
+
 
     :param str chap_user_name: The user name of chap to be fetched.
     :param str device_name: The device name.
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
+    pulumi.log.warn("get_chap_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getChapSetting'.")
     __args__ = dict()
     __args__['chapUserName'] = chap_user_name
     __args__['deviceName'] = device_name

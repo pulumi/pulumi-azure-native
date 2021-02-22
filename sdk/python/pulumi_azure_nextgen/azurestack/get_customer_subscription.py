@@ -95,7 +95,9 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
                               resource_group: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerSubscriptionResult:
     """
-    Use this data source to access information about an existing resource.
+    Customer subscription.
+    API Version: 2017-06-01.
+
 
     :param str customer_subscription_name: Name of the product.
     :param str registration_name: Name of the Azure Stack registration.

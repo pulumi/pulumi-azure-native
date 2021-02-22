@@ -14,6 +14,8 @@ __all__ = [
     'get_table',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getTable'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTableResult:
     """
@@ -83,12 +85,15 @@ def get_table(account_name: Optional[str] = None,
               table_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
-    Use this data source to access information about an existing resource.
+    Properties of the table, including Id, resource name, resource type.
+    Latest API Version: 2021-01-01.
+
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str table_name: A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
     """
+    pulumi.log.warn("get_table is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getTable'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

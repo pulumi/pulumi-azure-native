@@ -95,7 +95,8 @@ def get_policy(policy_id: Optional[str] = None,
                service_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Policy Contract details.
+
 
     :param str policy_id: The identifier of the Policy.
     :param str resource_group_name: The name of the resource group.

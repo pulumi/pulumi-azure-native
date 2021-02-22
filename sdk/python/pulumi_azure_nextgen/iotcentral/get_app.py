@@ -155,7 +155,9 @@ def get_app(resource_group_name: Optional[str] = None,
             resource_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
-    Use this data source to access information about an existing resource.
+    The IoT Central application.
+    API Version: 2018-09-01.
+
 
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.
     :param str resource_name: The ARM resource name of the IoT Central application.

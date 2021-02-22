@@ -15,6 +15,8 @@ __all__ = [
     'get_jit_request',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getJitRequest'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetJitRequestResult:
     """
@@ -191,11 +193,14 @@ def get_jit_request(jit_request_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJitRequestResult:
     """
-    Use this data source to access information about an existing resource.
+    Information about JIT request definition.
+    Latest API Version: 2019-07-01.
+
 
     :param str jit_request_name: The name of the JIT request.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("get_jit_request is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getJitRequest'.")
     __args__ = dict()
     __args__['jitRequestName'] = jit_request_name
     __args__['resourceGroupName'] = resource_group_name

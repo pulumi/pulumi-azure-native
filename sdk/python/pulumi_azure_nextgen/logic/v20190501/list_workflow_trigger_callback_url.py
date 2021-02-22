@@ -108,7 +108,8 @@ def list_workflow_trigger_callback_url(resource_group_name: Optional[str] = None
                                        workflow_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowTriggerCallbackUrlResult:
     """
-    Use this data source to access information about an existing resource.
+    The workflow trigger callback URL.
+
 
     :param str resource_group_name: The resource group name.
     :param str trigger_name: The workflow trigger name.

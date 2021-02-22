@@ -96,7 +96,9 @@ def get_job_credential(credential_name: Optional[str] = None,
                        server_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobCredentialResult:
     """
-    Use this data source to access information about an existing resource.
+    A stored credential that can be used by a job to connect to target databases.
+    API Version: 2020-08-01-preview.
+
 
     :param str credential_name: The name of the credential.
     :param str job_agent_name: The name of the job agent.

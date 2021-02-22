@@ -15,6 +15,8 @@ __all__ = [
     'get_app_service_certificate_order_certificate',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:certificateregistration:getAppServiceCertificateOrderCertificate'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAppServiceCertificateOrderCertificateResult:
     """
@@ -156,12 +158,15 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
                                                   resource_group_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceCertificateOrderCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    Key Vault container ARM resource for a certificate that is purchased through Azure.
+    Latest API Version: 2020-10-01.
+
 
     :param str certificate_order_name: Name of the certificate order.
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("get_app_service_certificate_order_certificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:certificateregistration:getAppServiceCertificateOrderCertificate'.")
     __args__ = dict()
     __args__['certificateOrderName'] = certificate_order_name
     __args__['name'] = name

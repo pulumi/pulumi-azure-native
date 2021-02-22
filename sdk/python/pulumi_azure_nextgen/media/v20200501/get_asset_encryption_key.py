@@ -60,7 +60,8 @@ def get_asset_encryption_key(account_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetEncryptionKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    Data needed to decrypt asset files encrypted with legacy storage encryption.
+
 
     :param str account_name: The Media Services account name.
     :param str asset_name: The Asset name.

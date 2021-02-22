@@ -107,7 +107,8 @@ def get_configuration_profile_preference(configuration_profile_preference_name: 
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfilePreferenceResult:
     """
-    Use this data source to access information about an existing resource.
+    Definition of the configuration profile preference.
+
 
     :param str configuration_profile_preference_name: The configuration profile preference name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

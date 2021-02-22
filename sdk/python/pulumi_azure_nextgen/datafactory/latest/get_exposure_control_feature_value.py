@@ -14,6 +14,8 @@ __all__ = [
     'get_exposure_control_feature_value',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getExposureControlFeatureValue'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExposureControlFeatureValueResult:
     """
@@ -59,12 +61,15 @@ def get_exposure_control_feature_value(feature_name: Optional[str] = None,
                                        location_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExposureControlFeatureValueResult:
     """
-    Use this data source to access information about an existing resource.
+    The exposure control response.
+    Latest API Version: 2018-06-01.
+
 
     :param str feature_name: The feature name.
     :param str feature_type: The feature type.
     :param str location_id: The location identifier.
     """
+    pulumi.log.warn("get_exposure_control_feature_value is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getExposureControlFeatureValue'.")
     __args__ = dict()
     __args__['featureName'] = feature_name
     __args__['featureType'] = feature_type

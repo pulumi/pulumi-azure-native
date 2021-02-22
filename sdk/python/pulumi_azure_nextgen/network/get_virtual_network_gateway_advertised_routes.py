@@ -48,7 +48,9 @@ def get_virtual_network_gateway_advertised_routes(peer: Optional[str] = None,
                                                   virtual_network_gateway_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayAdvertisedRoutesResult:
     """
-    Use this data source to access information about an existing resource.
+    List of virtual network gateway routes.
+    API Version: 2020-08-01.
+
 
     :param str peer: The IP address of the peer.
     :param str resource_group_name: The name of the resource group.

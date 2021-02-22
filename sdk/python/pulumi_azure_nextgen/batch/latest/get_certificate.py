@@ -15,6 +15,8 @@ __all__ = [
     'get_certificate',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getCertificate'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCertificateResult:
     """
@@ -183,12 +185,15 @@ def get_certificate(account_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    Contains information about a certificate.
+    Latest API Version: 2021-01-01.
+
 
     :param str account_name: The name of the Batch account.
     :param str certificate_name: The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
+    pulumi.log.warn("get_certificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getCertificate'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['certificateName'] = certificate_name

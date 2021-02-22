@@ -96,7 +96,9 @@ def list_notification_hub_keys(authorization_rule_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNotificationHubKeysResult:
     """
-    Use this data source to access information about an existing resource.
+    Namespace/NotificationHub Connection String
+    API Version: 2017-04-01.
+
 
     :param str authorization_rule_name: The connection string of the NotificationHub for the specified authorizationRule.
     :param str namespace_name: The namespace name.

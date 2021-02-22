@@ -14,6 +14,8 @@ __all__ = [
     'list_web_app_function_secrets',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppFunctionSecrets'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListWebAppFunctionSecretsResult:
     """
@@ -59,12 +61,15 @@ def list_web_app_function_secrets(function_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    Function secrets.
+    Latest API Version: 2020-10-01.
+
 
     :param str function_name: Function name.
     :param str name: Site name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("list_web_app_function_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppFunctionSecrets'.")
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['name'] = name

@@ -155,7 +155,8 @@ def get_product(product_id: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
-    Use this data source to access information about an existing resource.
+    Product details.
+
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.

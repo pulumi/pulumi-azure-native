@@ -15,6 +15,8 @@ __all__ = [
     'get_job',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getJob'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetJobResult:
     """
@@ -205,13 +207,16 @@ def get_job(account_name: Optional[str] = None,
             transform_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Use this data source to access information about an existing resource.
+    A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+    Latest API Version: 2020-05-01.
+
 
     :param str account_name: The Media Services account name.
     :param str job_name: The Job name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str transform_name: The Transform name.
     """
+    pulumi.log.warn("get_job is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getJob'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['jobName'] = job_name

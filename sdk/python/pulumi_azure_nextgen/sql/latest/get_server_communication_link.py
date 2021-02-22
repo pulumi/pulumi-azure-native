@@ -14,6 +14,8 @@ __all__ = [
     'get_server_communication_link',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServerCommunicationLink'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServerCommunicationLinkResult:
     """
@@ -119,12 +121,15 @@ def get_server_communication_link(communication_link_name: Optional[str] = None,
                                   server_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerCommunicationLinkResult:
     """
-    Use this data source to access information about an existing resource.
+    Server communication link.
+    Latest API Version: 2014-04-01.
+
 
     :param str communication_link_name: The name of the server communication link.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("get_server_communication_link is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServerCommunicationLink'.")
     __args__ = dict()
     __args__['communicationLinkName'] = communication_link_name
     __args__['resourceGroupName'] = resource_group_name

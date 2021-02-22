@@ -73,7 +73,8 @@ def get_image_upload_url_for_entity_type(entity_type: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageUploadUrlForEntityTypeResult:
     """
-    Use this data source to access information about an existing resource.
+    The image definition.
+
 
     :param str entity_type: Type of entity. Can be Profile or Interaction.
     :param str entity_type_name: Name of the entity type.

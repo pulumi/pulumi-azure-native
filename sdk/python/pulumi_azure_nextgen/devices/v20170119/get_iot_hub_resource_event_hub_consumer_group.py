@@ -72,7 +72,8 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optio
                                                   resource_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubResourceEventHubConsumerGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    The properties of the EventHubConsumerGroupInfo object.
+
 
     :param str event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.
     :param str name: The name of the consumer group to retrieve.

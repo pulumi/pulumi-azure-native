@@ -167,7 +167,9 @@ def get_graph_query(resource_group_name: Optional[str] = None,
                     resource_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGraphQueryResult:
     """
-    Use this data source to access information about an existing resource.
+    Graph Query entity definition.
+    API Version: 2020-04-01-preview.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the Graph Query resource.

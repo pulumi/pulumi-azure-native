@@ -143,7 +143,8 @@ def get_proximity_placement_group(proximity_placement_group_name: Optional[str] 
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProximityPlacementGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Specifies information about the proximity placement group.
+
 
     :param str proximity_placement_group_name: The name of the proximity placement group.
     :param str resource_group_name: The name of the resource group.

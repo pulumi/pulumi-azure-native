@@ -15,6 +15,8 @@ __all__ = [
     'get_email_template',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getEmailTemplate'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEmailTemplateResult:
     """
@@ -144,12 +146,15 @@ def get_email_template(resource_group_name: Optional[str] = None,
                        template_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailTemplateResult:
     """
-    Use this data source to access information about an existing resource.
+    Email Template details.
+    Latest API Version: 2019-12-01.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     :param str template_name: Email Template Name Identifier.
     """
+    pulumi.log.warn("get_email_template is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getEmailTemplate'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

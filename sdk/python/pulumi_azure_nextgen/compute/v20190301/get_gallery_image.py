@@ -240,7 +240,8 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
-    Use this data source to access information about an existing resource.
+    Specifies information about the gallery Image Definition that you want to create or update.
+
 
     :param str gallery_image_name: The name of the gallery Image Definition to be retrieved.
     :param str gallery_name: The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.

@@ -15,6 +15,8 @@ __all__ = [
     'get_rule_set',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRuleSet'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRuleSetResult:
     """
@@ -105,12 +107,15 @@ def get_rule_set(profile_name: Optional[str] = None,
                  rule_set_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleSetResult:
     """
-    Use this data source to access information about an existing resource.
+    Friendly RuleSet name mapping to the any RuleSet or secret related information.
+    Latest API Version: 2020-09-01.
+
 
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rule_set_name: Name of the rule set under the profile which is unique globally.
     """
+    pulumi.log.warn("get_rule_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRuleSet'.")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name

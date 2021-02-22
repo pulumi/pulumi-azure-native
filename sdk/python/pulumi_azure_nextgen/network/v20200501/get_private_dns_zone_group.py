@@ -96,7 +96,8 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateDnsZoneGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Private dns zone group resource.
+
 
     :param str private_dns_zone_group_name: The name of the private dns zone group.
     :param str private_endpoint_name: The name of the private endpoint.

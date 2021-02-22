@@ -15,6 +15,8 @@ __all__ = [
     'get_protected_item',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectedItem'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProtectedItemResult:
     """
@@ -123,7 +125,9 @@ def get_protected_item(container_name: Optional[str] = None,
                        vault_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectedItemResult:
     """
-    Use this data source to access information about an existing resource.
+    Base class for backup items.
+    Latest API Version: 2021-01-01.
+
 
     :param str container_name: Container name associated with the backed up item.
     :param str fabric_name: Fabric name associated with the backed up item.
@@ -132,6 +136,7 @@ def get_protected_item(container_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("get_protected_item is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectedItem'.")
     __args__ = dict()
     __args__['containerName'] = container_name
     __args__['fabricName'] = fabric_name

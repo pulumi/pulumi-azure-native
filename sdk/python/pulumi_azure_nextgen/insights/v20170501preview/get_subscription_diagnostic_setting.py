@@ -154,7 +154,8 @@ class AwaitableGetSubscriptionDiagnosticSettingResult(GetSubscriptionDiagnosticS
 def get_subscription_diagnostic_setting(name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionDiagnosticSettingResult:
     """
-    Use this data source to access information about an existing resource.
+    The subscription diagnostic setting resource.
+
 
     :param str name: The name of the diagnostic setting.
     """

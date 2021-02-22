@@ -109,7 +109,8 @@ def get_datastore(cluster_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatastoreResult:
     """
-    Use this data source to access information about an existing resource.
+    A datastore resource
+
 
     :param str cluster_name: Name of the cluster in the private cloud
     :param str datastore_name: Name of the datastore in the private cloud cluster

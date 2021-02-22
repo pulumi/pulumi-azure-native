@@ -15,6 +15,8 @@ __all__ = [
     'get_policy',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getPolicy'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPolicyResult:
     """
@@ -212,11 +214,14 @@ def get_policy(policy_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    Defines web application firewall policy for Azure CDN.
+    Latest API Version: 2020-09-01.
+
 
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("get_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getPolicy'.")
     __args__ = dict()
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name

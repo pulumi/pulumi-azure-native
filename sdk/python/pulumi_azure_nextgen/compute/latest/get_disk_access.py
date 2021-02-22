@@ -15,6 +15,8 @@ __all__ = [
     'get_disk_access',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskAccess'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDiskAccessResult:
     """
@@ -131,11 +133,14 @@ def get_disk_access(disk_access_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskAccessResult:
     """
-    Use this data source to access information about an existing resource.
+    disk access resource.
+    Latest API Version: 2020-09-30.
+
 
     :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_disk_access is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskAccess'.")
     __args__ = dict()
     __args__['diskAccessName'] = disk_access_name
     __args__['resourceGroupName'] = resource_group_name

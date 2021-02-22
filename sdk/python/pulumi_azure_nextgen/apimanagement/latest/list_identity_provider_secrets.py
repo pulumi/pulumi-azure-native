@@ -14,6 +14,8 @@ __all__ = [
     'list_identity_provider_secrets',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listIdentityProviderSecrets'.""", DeprecationWarning)
+
 @pulumi.output_type
 class ListIdentityProviderSecretsResult:
     """
@@ -47,12 +49,15 @@ def list_identity_provider_secrets(identity_provider_name: Optional[str] = None,
                                    service_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIdentityProviderSecretsResult:
     """
-    Use this data source to access information about an existing resource.
+    Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+    Latest API Version: 2019-12-01.
+
 
     :param str identity_provider_name: Identity Provider Type identifier.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
+    pulumi.log.warn("list_identity_provider_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listIdentityProviderSecrets'.")
     __args__ = dict()
     __args__['identityProviderName'] = identity_provider_name
     __args__['resourceGroupName'] = resource_group_name

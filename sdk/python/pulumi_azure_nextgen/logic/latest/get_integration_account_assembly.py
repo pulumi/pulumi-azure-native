@@ -15,6 +15,8 @@ __all__ = [
     'get_integration_account_assembly',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountAssembly'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationAccountAssemblyResult:
     """
@@ -108,12 +110,15 @@ def get_integration_account_assembly(assembly_artifact_name: Optional[str] = Non
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountAssemblyResult:
     """
-    Use this data source to access information about an existing resource.
+    The assembly definition.
+    Latest API Version: 2019-05-01.
+
 
     :param str assembly_artifact_name: The assembly artifact name.
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_integration_account_assembly is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountAssembly'.")
     __args__ = dict()
     __args__['assemblyArtifactName'] = assembly_artifact_name
     __args__['integrationAccountName'] = integration_account_name

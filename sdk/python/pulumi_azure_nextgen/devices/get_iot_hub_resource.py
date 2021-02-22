@@ -131,7 +131,9 @@ def get_iot_hub_resource(resource_group_name: Optional[str] = None,
                          resource_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubResourceResult:
     """
-    Use this data source to access information about an existing resource.
+    The description of the IoT hub.
+    API Version: 2020-08-31.
+
 
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.

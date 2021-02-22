@@ -58,7 +58,8 @@ def list_saas_subscription_level_access_token(resource_group_name: Optional[str]
                                               resource_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSaasSubscriptionLevelAccessTokenResult:
     """
-    Use this data source to access information about an existing resource.
+    the ISV access token result response.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the resource.

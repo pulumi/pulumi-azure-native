@@ -131,7 +131,9 @@ def get_role_definition(role_definition_id: Optional[str] = None,
                         scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    Role definition.
+    API Version: 2015-07-01.
+
 
     :param str role_definition_id: The ID of the role definition.
     :param str scope: The scope of the role definition.

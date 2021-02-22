@@ -158,7 +158,9 @@ def get_service_fabric(expand: Optional[str] = None,
                        user_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceFabricResult:
     """
-    Use this data source to access information about an existing resource.
+    A Service Fabric.
+    API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
     :param str lab_name: The name of the lab.

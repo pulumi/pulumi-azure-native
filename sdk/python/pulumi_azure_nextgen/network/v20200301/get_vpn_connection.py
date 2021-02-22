@@ -276,7 +276,8 @@ def get_vpn_connection(connection_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnConnectionResult:
     """
-    Use this data source to access information about an existing resource.
+    VpnConnection Resource.
+
 
     :param str connection_name: The name of the vpn connection.
     :param str gateway_name: The name of the gateway.

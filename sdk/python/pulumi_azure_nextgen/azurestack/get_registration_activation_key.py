@@ -46,7 +46,9 @@ def get_registration_activation_key(registration_name: Optional[str] = None,
                                     resource_group: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationActivationKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    The resource containing the Azure Stack activation key.
+    API Version: 2017-06-01.
+
 
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.

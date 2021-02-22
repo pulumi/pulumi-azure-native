@@ -180,7 +180,8 @@ def get_web_app_premier_add_on_slot(name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPremierAddOnSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Premier add-on.
+
 
     :param str name: Name of the app.
     :param str premier_add_on_name: Add-on name.

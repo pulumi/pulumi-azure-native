@@ -191,7 +191,9 @@ def get_spatial_anchors_account(account_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpatialAnchorsAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    SpatialAnchorsAccount Response.
+    API Version: 2021-01-01.
+
 
     :param str account_name: Name of an Mixed Reality Account.
     :param str resource_group_name: Name of an Azure resource group.

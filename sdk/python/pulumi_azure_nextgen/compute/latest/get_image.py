@@ -15,6 +15,8 @@ __all__ = [
     'get_image',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getImage'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetImageResult:
     """
@@ -156,12 +158,15 @@ def get_image(expand: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
-    Use this data source to access information about an existing resource.
+    The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+    Latest API Version: 2020-12-01.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str image_name: The name of the image.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_image is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getImage'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['imageName'] = image_name

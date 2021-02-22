@@ -134,7 +134,8 @@ def list_web_app_site_push_settings_slot(name: Optional[str] = None,
                                          slot: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSitePushSettingsSlotResult:
     """
-    Use this data source to access information about an existing resource.
+    Push settings for the App.
+
 
     :param str name: Name of web app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

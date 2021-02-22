@@ -15,6 +15,8 @@ __all__ = [
     'get_streaming_locator',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingLocator'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStreamingLocatorResult:
     """
@@ -204,12 +206,15 @@ def get_streaming_locator(account_name: Optional[str] = None,
                           streaming_locator_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingLocatorResult:
     """
-    Use this data source to access information about an existing resource.
+    A Streaming Locator resource
+    Latest API Version: 2020-05-01.
+
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str streaming_locator_name: The Streaming Locator name.
     """
+    pulumi.log.warn("get_streaming_locator is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingLocator'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

@@ -14,6 +14,8 @@ __all__ = [
     'get_firewall_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getFirewallRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFirewallRuleResult:
     """
@@ -119,12 +121,15 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
                       server_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a server firewall rule.
+    Latest API Version: 2014-04-01.
+
 
     :param str firewall_rule_name: The name of the firewall rule.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("get_firewall_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getFirewallRule'.")
     __args__ = dict()
     __args__['firewallRuleName'] = firewall_rule_name
     __args__['resourceGroupName'] = resource_group_name

@@ -14,6 +14,8 @@ __all__ = [
     'get_registered_asn',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getRegisteredAsn'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRegisteredAsnResult:
     """
@@ -107,12 +109,15 @@ def get_registered_asn(peering_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredAsnResult:
     """
-    Use this data source to access information about an existing resource.
+    The customer's ASN that is registered by the peering service provider.
+    Latest API Version: 2020-10-01.
+
 
     :param str peering_name: The name of the peering.
     :param str registered_asn_name: The name of the registered ASN.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_registered_asn is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getRegisteredAsn'.")
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['registeredAsnName'] = registered_asn_name

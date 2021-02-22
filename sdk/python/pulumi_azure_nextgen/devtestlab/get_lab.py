@@ -338,7 +338,9 @@ def get_lab(expand: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
     """
-    Use this data source to access information about an existing resource.
+    A lab.
+    API Version: 2018-09-15.
+
 
     :param str expand: Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
     :param str name: The name of the lab.

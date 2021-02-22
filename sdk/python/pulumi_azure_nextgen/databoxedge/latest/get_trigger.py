@@ -15,6 +15,8 @@ __all__ = [
     'get_trigger',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getTrigger'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTriggerResult:
     """
@@ -96,12 +98,15 @@ def get_trigger(device_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTriggerResult:
     """
-    Use this data source to access information about an existing resource.
+    Trigger details.
+    Latest API Version: 2020-09-01.
+
 
     :param str device_name: The device name.
     :param str name: The trigger name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_trigger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getTrigger'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name

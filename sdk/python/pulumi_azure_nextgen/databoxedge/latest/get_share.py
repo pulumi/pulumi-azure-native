@@ -15,6 +15,8 @@ __all__ = [
     'get_share',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getShare'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetShareResult:
     """
@@ -204,12 +206,15 @@ def get_share(device_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetShareResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a share on the  Data Box Edge/Gateway device.
+    Latest API Version: 2020-09-01.
+
 
     :param str device_name: The device name.
     :param str name: The share name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_share is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getShare'.")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name

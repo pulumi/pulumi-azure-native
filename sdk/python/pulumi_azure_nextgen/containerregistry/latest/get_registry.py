@@ -15,6 +15,8 @@ __all__ = [
     'get_registry',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getRegistry'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRegistryResult:
     """
@@ -203,11 +205,14 @@ def get_registry(registry_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryResult:
     """
-    Use this data source to access information about an existing resource.
+    An object that represents a container registry.
+    Latest API Version: 2019-05-01.
+
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("get_registry is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getRegistry'.")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name

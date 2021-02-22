@@ -83,7 +83,8 @@ def get_cost_allocation_rule(billing_account_id: Optional[str] = None,
                              rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCostAllocationRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    The cost allocation rule model definition
+
 
     :param str billing_account_id: BillingAccount ID
     :param str rule_name: Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.

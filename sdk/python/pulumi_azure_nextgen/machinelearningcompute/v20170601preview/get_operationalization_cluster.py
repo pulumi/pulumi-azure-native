@@ -215,7 +215,8 @@ def get_operationalization_cluster(cluster_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOperationalizationClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    Instance of an Azure ML Operationalization Cluster resource.
+
 
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: Name of the resource group in which the cluster is located.

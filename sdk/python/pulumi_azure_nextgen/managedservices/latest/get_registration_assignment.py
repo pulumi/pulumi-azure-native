@@ -15,6 +15,8 @@ __all__ = [
     'get_registration_assignment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedservices:getRegistrationAssignment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRegistrationAssignmentResult:
     """
@@ -84,12 +86,15 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
                                 scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Registration assignment.
+    Latest API Version: 2019-09-01.
+
 
     :param bool expand_registration_definition: Tells whether to return registration definition details also along with registration assignment details.
     :param str registration_assignment_id: Guid of the registration assignment.
     :param str scope: Scope of the resource.
     """
+    pulumi.log.warn("get_registration_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedservices:getRegistrationAssignment'.")
     __args__ = dict()
     __args__['expandRegistrationDefinition'] = expand_registration_definition
     __args__['registrationAssignmentId'] = registration_assignment_id

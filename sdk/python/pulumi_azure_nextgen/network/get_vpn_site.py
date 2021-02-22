@@ -227,7 +227,9 @@ def get_vpn_site(resource_group_name: Optional[str] = None,
                  vpn_site_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnSiteResult:
     """
-    Use this data source to access information about an existing resource.
+    VpnSite Resource.
+    API Version: 2020-08-01.
+
 
     :param str resource_group_name: The resource group name of the VpnSite.
     :param str vpn_site_name: The name of the VpnSite being retrieved.

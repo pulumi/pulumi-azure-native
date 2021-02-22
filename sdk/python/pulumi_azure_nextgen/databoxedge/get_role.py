@@ -96,7 +96,9 @@ def get_role(device_name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleResult:
     """
-    Use this data source to access information about an existing resource.
+    Compute role.
+    API Version: 2020-09-01.
+
 
     :param str device_name: The device name.
     :param str name: The role name.

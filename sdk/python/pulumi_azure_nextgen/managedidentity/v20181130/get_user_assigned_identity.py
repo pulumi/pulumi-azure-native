@@ -130,7 +130,8 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
                                resource_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserAssignedIdentityResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes an identity resource.
+
 
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
     :param str resource_name: The name of the identity resource.

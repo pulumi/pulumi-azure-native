@@ -94,7 +94,9 @@ class AwaitableGetVendorResult(GetVendorResult):
 def get_vendor(vendor_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorResult:
     """
-    Use this data source to access information about an existing resource.
+    Vendor resource.
+    API Version: 2020-01-01-preview.
+
 
     :param str vendor_name: The name of the vendor.
     """

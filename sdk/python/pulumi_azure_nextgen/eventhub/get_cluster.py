@@ -155,7 +155,9 @@ def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    Single Event Hubs Cluster resource in List or Get operations.
+    API Version: 2018-01-01-preview.
+
 
     :param str cluster_name: The name of the Event Hubs Cluster.
     :param str resource_group_name: Name of the resource group within the azure subscription.

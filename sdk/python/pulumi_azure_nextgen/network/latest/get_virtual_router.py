@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_router',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualRouter'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualRouterResult:
     """
@@ -180,12 +182,15 @@ def get_virtual_router(expand: Optional[str] = None,
                        virtual_router_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualRouterResult:
     """
-    Use this data source to access information about an existing resource.
+    VirtualRouter Resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str expand: Expands referenced resources.
     :param str resource_group_name: The name of the resource group.
     :param str virtual_router_name: The name of the Virtual Router.
     """
+    pulumi.log.warn("get_virtual_router is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualRouter'.")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

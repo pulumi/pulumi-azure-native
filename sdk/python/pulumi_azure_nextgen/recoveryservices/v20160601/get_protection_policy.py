@@ -120,7 +120,8 @@ def get_protection_policy(policy_name: Optional[str] = None,
                           vault_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    The base class for backup policy. Workload-specific backup policies are derived from this class.
+
 
     :param str policy_name: The backup policy name used in this GET operation.
     :param str resource_group_name: The name of the resource group associated with the Recovery Services vault.

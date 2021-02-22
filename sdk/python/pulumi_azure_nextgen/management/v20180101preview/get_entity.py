@@ -59,7 +59,8 @@ def get_entity(group_name: Optional[str] = None,
                skiptoken: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes the result of the request to view entities.
+
 
     :param str group_name: A filter which allows the call to be filtered for a specific group.
     :param str skiptoken: Page continuation token is only used if a previous operation returned a partial result. 

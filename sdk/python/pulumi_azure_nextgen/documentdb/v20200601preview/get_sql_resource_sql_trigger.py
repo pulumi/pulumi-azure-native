@@ -119,7 +119,8 @@ def get_sql_resource_sql_trigger(account_name: Optional[str] = None,
                                  trigger_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlTriggerResult:
     """
-    Use this data source to access information about an existing resource.
+    An Azure Cosmos DB trigger.
+
 
     :param str account_name: Cosmos DB database account name.
     :param str container_name: Cosmos DB container name.

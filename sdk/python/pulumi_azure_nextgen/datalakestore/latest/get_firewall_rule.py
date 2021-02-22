@@ -14,6 +14,8 @@ __all__ = [
     'get_firewall_rule',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getFirewallRule'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFirewallRuleResult:
     """
@@ -95,12 +97,15 @@ def get_firewall_rule(account_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
-    Use this data source to access information about an existing resource.
+    Data Lake Store firewall rule information.
+    Latest API Version: 2016-11-01.
+
 
     :param str account_name: The name of the Data Lake Store account.
     :param str firewall_rule_name: The name of the firewall rule to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
+    pulumi.log.warn("get_firewall_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getFirewallRule'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['firewallRuleName'] = firewall_rule_name

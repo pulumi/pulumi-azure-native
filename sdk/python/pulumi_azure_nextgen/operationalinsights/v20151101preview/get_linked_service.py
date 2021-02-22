@@ -83,7 +83,8 @@ def get_linked_service(linked_service_name: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServiceResult:
     """
-    Use this data source to access information about an existing resource.
+    The top level Linked service resource container.
+
 
     :param str linked_service_name: Name of the linked service.
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.

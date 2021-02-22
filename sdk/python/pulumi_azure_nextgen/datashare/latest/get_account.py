@@ -15,6 +15,8 @@ __all__ = [
     'get_account',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getAccount'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAccountResult:
     """
@@ -167,11 +169,14 @@ def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Use this data source to access information about an existing resource.
+    An account data transfer object.
+    Latest API Version: 2020-09-01.
+
 
     :param str account_name: The name of the share account.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("get_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getAccount'.")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

@@ -15,6 +15,8 @@ __all__ = [
     'get_addon',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getAddon'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAddonResult:
     """
@@ -97,13 +99,16 @@ def get_addon(addon_name: Optional[str] = None,
               role_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonResult:
     """
-    Use this data source to access information about an existing resource.
+    Role Addon
+    Latest API Version: 2020-09-01.
+
 
     :param str addon_name: The addon name.
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     :param str role_name: The role name.
     """
+    pulumi.log.warn("get_addon is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getAddon'.")
     __args__ = dict()
     __args__['addonName'] = addon_name
     __args__['deviceName'] = device_name

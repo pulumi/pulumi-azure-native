@@ -61,7 +61,9 @@ def list_build_step_build_arguments(build_task_name: Optional[str] = None,
                                     step_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBuildStepBuildArgumentsResult:
     """
-    Use this data source to access information about an existing resource.
+    The list of build arguments for a build step.
+    API Version: 2018-02-01-preview.
+
 
     :param str build_task_name: The name of the container registry build task.
     :param str registry_name: The name of the container registry.

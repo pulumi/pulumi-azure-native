@@ -14,6 +14,8 @@ __all__ = [
     'get_sql_pool_transparent_data_encryption',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolTransparentDataEncryption'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlPoolTransparentDataEncryptionResult:
     """
@@ -96,13 +98,16 @@ def get_sql_pool_transparent_data_encryption(resource_group_name: Optional[str] 
                                              workspace_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolTransparentDataEncryptionResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a Sql pool transparent data encryption configuration.
+    Latest API Version: 2020-12-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sql_pool_name: SQL pool name
     :param str transparent_data_encryption_name: The name of the transparent data encryption configuration.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("get_sql_pool_transparent_data_encryption is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolTransparentDataEncryption'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlPoolName'] = sql_pool_name

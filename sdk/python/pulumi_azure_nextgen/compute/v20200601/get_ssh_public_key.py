@@ -106,7 +106,8 @@ def get_ssh_public_key(resource_group_name: Optional[str] = None,
                        ssh_public_key_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshPublicKeyResult:
     """
-    Use this data source to access information about an existing resource.
+    Specifies information about the SSH public key.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str ssh_public_key_name: The name of the SSH public key.

@@ -14,6 +14,8 @@ __all__ = [
     'get_application_type_version',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getApplicationTypeVersion'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationTypeVersionResult:
     """
@@ -144,13 +146,16 @@ def get_application_type_version(application_type_name: Optional[str] = None,
                                  version: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationTypeVersionResult:
     """
-    Use this data source to access information about an existing resource.
+    An application type version resource for the specified application type name resource.
+    Latest API Version: 2020-03-01.
+
 
     :param str application_type_name: The name of the application type name resource.
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     :param str version: The application type version.
     """
+    pulumi.log.warn("get_application_type_version is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getApplicationTypeVersion'.")
     __args__ = dict()
     __args__['applicationTypeName'] = application_type_name
     __args__['clusterName'] = cluster_name

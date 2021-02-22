@@ -166,7 +166,8 @@ def get_site_source_control(name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteSourceControlResult:
     """
-    Use this data source to access information about an existing resource.
+    Describes the source control configuration for web app
+
 
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group

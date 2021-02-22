@@ -15,6 +15,8 @@ __all__ = [
     'get_assessment',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessment'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAssessmentResult:
     """
@@ -156,12 +158,15 @@ def get_assessment(assessment_name: Optional[str] = None,
                    resource_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Security assessment on a resource
+    Latest API Version: 2020-01-01.
+
 
     :param str assessment_name: The Assessment Key - Unique key for the assessment type
     :param str expand: OData expand. Optional.
     :param str resource_id: The identifier of the resource.
     """
+    pulumi.log.warn("get_assessment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessment'.")
     __args__ = dict()
     __args__['assessmentName'] = assessment_name
     __args__['expand'] = expand

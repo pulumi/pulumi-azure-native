@@ -15,6 +15,8 @@ __all__ = [
     'get_custom_ip_prefix',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getCustomIPPrefix'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCustomIPPrefixResult:
     """
@@ -192,12 +194,15 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomIPPrefixResult:
     """
-    Use this data source to access information about an existing resource.
+    Custom IP prefix resource.
+    Latest API Version: 2020-08-01.
+
 
     :param str custom_ip_prefix_name: The name of the custom IP prefix.
     :param str expand: Expands referenced resources.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("get_custom_ip_prefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getCustomIPPrefix'.")
     __args__ = dict()
     __args__['customIpPrefixName'] = custom_ip_prefix_name
     __args__['expand'] = expand

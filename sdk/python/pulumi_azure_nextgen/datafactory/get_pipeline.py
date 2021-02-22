@@ -192,7 +192,9 @@ def get_pipeline(factory_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
-    Use this data source to access information about an existing resource.
+    Pipeline resource type.
+    API Version: 2018-06-01.
+
 
     :param str factory_name: The factory name.
     :param str pipeline_name: The pipeline name.

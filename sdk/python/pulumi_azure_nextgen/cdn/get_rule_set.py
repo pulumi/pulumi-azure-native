@@ -105,7 +105,9 @@ def get_rule_set(profile_name: Optional[str] = None,
                  rule_set_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleSetResult:
     """
-    Use this data source to access information about an existing resource.
+    Friendly RuleSet name mapping to the any RuleSet or secret related information.
+    API Version: 2020-09-01.
+
 
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.

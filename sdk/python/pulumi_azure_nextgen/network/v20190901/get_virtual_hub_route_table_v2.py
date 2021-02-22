@@ -108,7 +108,8 @@ def get_virtual_hub_route_table_v2(resource_group_name: Optional[str] = None,
                                    virtual_hub_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubRouteTableV2Result:
     """
-    Use this data source to access information about an existing resource.
+    VirtualHubRouteTableV2 Resource.
+
 
     :param str resource_group_name: The resource group name of the VirtualHubRouteTableV2.
     :param str route_table_name: The name of the VirtualHubRouteTableV2.

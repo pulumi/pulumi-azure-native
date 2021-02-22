@@ -15,6 +15,8 @@ __all__ = [
     'get_skus_nested_resource_type_third',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkusNestedResourceTypeThird'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSkusNestedResourceTypeThirdResult:
     def __init__(__self__, id=None, name=None, properties=None, type=None):
@@ -81,7 +83,8 @@ def get_skus_nested_resource_type_third(nested_resource_type_first: Optional[str
                                         sku: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSkusNestedResourceTypeThirdResult:
     """
-    Use this data source to access information about an existing resource.
+    Latest API Version: 2020-11-20.
+
 
     :param str nested_resource_type_first: The first child resource type.
     :param str nested_resource_type_second: The second child resource type.
@@ -90,6 +93,7 @@ def get_skus_nested_resource_type_third(nested_resource_type_first: Optional[str
     :param str resource_type: The resource type.
     :param str sku: The SKU.
     """
+    pulumi.log.warn("get_skus_nested_resource_type_third is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkusNestedResourceTypeThird'.")
     __args__ = dict()
     __args__['nestedResourceTypeFirst'] = nested_resource_type_first
     __args__['nestedResourceTypeSecond'] = nested_resource_type_second

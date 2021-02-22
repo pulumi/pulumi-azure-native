@@ -192,7 +192,8 @@ def get_share(device_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetShareResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents a share on the  Data Box Edge/Gateway device.
+
 
     :param str device_name: The device name.
     :param str name: The share name.

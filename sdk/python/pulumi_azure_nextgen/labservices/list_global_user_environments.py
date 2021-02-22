@@ -47,7 +47,9 @@ def list_global_user_environments(lab_id: Optional[str] = None,
                                   user_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGlobalUserEnvironmentsResult:
     """
-    Use this data source to access information about an existing resource.
+    Represents the list of environments owned by a user
+    API Version: 2018-10-15.
+
 
     :param str lab_id: The resource Id of the lab
     :param str user_name: The name of the user.

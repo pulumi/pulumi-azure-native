@@ -239,7 +239,9 @@ def get_action_group(action_group_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    An action group resource.
+    API Version: 2019-06-01.
+
 
     :param str action_group_name: The name of the action group.
     :param str resource_group_name: The name of the resource group.

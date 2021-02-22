@@ -170,7 +170,8 @@ def get_event_channel(event_channel_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventChannelResult:
     """
-    Use this data source to access information about an existing resource.
+    Event Channel.
+
 
     :param str event_channel_name: Name of the event channel.
     :param str partner_namespace_name: Name of the partner namespace.

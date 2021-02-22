@@ -210,7 +210,8 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
                      server_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    An elastic pool.
+
 
     :param str elastic_pool_name: The name of the elastic pool.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -93,7 +93,9 @@ class AwaitableGetIotSiteResult(GetIotSiteResult):
 def get_iot_site(scope: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotSiteResult:
     """
-    Use this data source to access information about an existing resource.
+    IoT site model
+    API Version: 2020-08-06-preview.
+
 
     :param str scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
     """

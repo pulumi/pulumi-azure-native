@@ -15,6 +15,8 @@ __all__ = [
     'get_vault',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:keyvault:getVault'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVaultResult:
     """
@@ -107,11 +109,14 @@ def get_vault(resource_group_name: Optional[str] = None,
               vault_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVaultResult:
     """
-    Use this data source to access information about an existing resource.
+    Resource information with extended details.
+    Latest API Version: 2019-09-01.
+
 
     :param str resource_group_name: The name of the Resource Group to which the vault belongs.
     :param str vault_name: The name of the vault.
     """
+    pulumi.log.warn("get_vault is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:keyvault:getVault'.")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name

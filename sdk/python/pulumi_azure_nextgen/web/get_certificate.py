@@ -359,7 +359,9 @@ def get_certificate(name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    SSL certificate for an app.
+    API Version: 2020-10-01.
+
 
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group to which the resource belongs.

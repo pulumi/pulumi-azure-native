@@ -15,6 +15,8 @@ __all__ = [
     'get_route',
 ]
 
+warnings.warn("""The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRoute'.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRouteResult:
     """
@@ -250,13 +252,16 @@ def get_route(endpoint_name: Optional[str] = None,
               route_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
-    Use this data source to access information about an existing resource.
+    Friendly Routes name mapping to the any Routes or secret related information.
+    Latest API Version: 2020-09-01.
+
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str route_name: Name of the routing rule.
     """
+    pulumi.log.warn("get_route is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRoute'.")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['profileName'] = profile_name
