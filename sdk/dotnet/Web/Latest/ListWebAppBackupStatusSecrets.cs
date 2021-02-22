@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupStatusSecrets'.")]
     public static class ListWebAppBackupStatusSecrets
     {
+        /// <summary>
+        /// Backup description.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListWebAppBackupStatusSecretsResult> InvokeAsync(ListWebAppBackupStatusSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupStatusSecretsResult>("azure-nextgen:web/latest:listWebAppBackupStatusSecrets", args ?? new ListWebAppBackupStatusSecretsArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights
 {
     public static class GetKpi
     {
+        /// <summary>
+        /// The KPI resource format.
+        /// API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetKpiResult> InvokeAsync(GetKpiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKpiResult>("azure-nextgen:customerinsights:getKpi", args ?? new GetKpiArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Batch
 {
     public static class GetPool
     {
+        /// <summary>
+        /// Contains information about a pool.
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-nextgen:batch:getPool", args ?? new GetPoolArgs(), options.WithVersion());
     }

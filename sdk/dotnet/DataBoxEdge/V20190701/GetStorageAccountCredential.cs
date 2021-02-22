@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
 {
     public static class GetStorageAccountCredential
     {
+        /// <summary>
+        /// The storage account credential.
+        /// </summary>
         public static Task<GetStorageAccountCredentialResult> InvokeAsync(GetStorageAccountCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-nextgen:databoxedge/v20190701:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithVersion());
     }

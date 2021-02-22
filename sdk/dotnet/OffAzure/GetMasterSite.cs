@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.OffAzure
 {
     public static class GetMasterSite
     {
+        /// <summary>
+        /// Site REST Resource.
+        /// API Version: 2020-07-07.
+        /// </summary>
         public static Task<GetMasterSiteResult> InvokeAsync(GetMasterSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMasterSiteResult>("azure-nextgen:offazure:getMasterSite", args ?? new GetMasterSiteArgs(), options.WithVersion());
     }

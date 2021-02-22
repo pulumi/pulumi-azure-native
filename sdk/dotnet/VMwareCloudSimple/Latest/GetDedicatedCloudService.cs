@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getDedicatedCloudService'.")]
     public static class GetDedicatedCloudService
     {
+        /// <summary>
+        /// Dedicated cloud service model
+        /// Latest API Version: 2019-04-01.
+        /// </summary>
         public static Task<GetDedicatedCloudServiceResult> InvokeAsync(GetDedicatedCloudServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudServiceResult>("azure-nextgen:vmwarecloudsimple/latest:getDedicatedCloudService", args ?? new GetDedicatedCloudServiceArgs(), options.WithVersion());
     }

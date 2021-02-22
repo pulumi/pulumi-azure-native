@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Cache.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listRedisKeys'.")]
     public static class ListRedisKeys
     {
+        /// <summary>
+        /// Redis cache access keys.
+        /// Latest API Version: 2020-06-01.
+        /// </summary>
         public static Task<ListRedisKeysResult> InvokeAsync(ListRedisKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRedisKeysResult>("azure-nextgen:cache/latest:listRedisKeys", args ?? new ListRedisKeysArgs(), options.WithVersion());
     }

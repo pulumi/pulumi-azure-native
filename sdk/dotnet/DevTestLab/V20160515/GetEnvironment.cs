@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 {
     public static class GetEnvironment
     {
+        /// <summary>
+        /// An environment, which is essentially an ARM template deployment.
+        /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-nextgen:devtestlab/v20160515:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
     }

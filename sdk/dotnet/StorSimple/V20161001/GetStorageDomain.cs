@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 {
     public static class GetStorageDomain
     {
+        /// <summary>
+        /// The storage domain.
+        /// </summary>
         public static Task<GetStorageDomainResult> InvokeAsync(GetStorageDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageDomainResult>("azure-nextgen:storsimple/v20161001:getStorageDomain", args ?? new GetStorageDomainArgs(), options.WithVersion());
     }

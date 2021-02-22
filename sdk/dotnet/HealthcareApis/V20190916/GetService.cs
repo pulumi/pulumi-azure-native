@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20190916
 {
     public static class GetService
     {
+        /// <summary>
+        /// The description of the service.
+        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:healthcareapis/v20190916:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }

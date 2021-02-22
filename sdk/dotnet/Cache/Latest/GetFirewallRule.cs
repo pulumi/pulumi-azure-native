@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Cache.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getFirewallRule'.")]
     public static class GetFirewallRule
     {
+        /// <summary>
+        /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+        /// Latest API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:cache/latest:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }

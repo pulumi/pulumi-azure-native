@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class GetWebAppPremierAddOn
     {
+        /// <summary>
+        /// Premier add-on.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppPremierAddOnResult> InvokeAsync(GetWebAppPremierAddOnArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPremierAddOnResult>("azure-nextgen:web:getWebAppPremierAddOn", args ?? new GetWebAppPremierAddOnArgs(), options.WithVersion());
     }

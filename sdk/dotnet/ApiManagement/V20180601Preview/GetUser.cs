@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
 {
     public static class GetUser
     {
+        /// <summary>
+        /// User details.
+        /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-nextgen:apimanagement/v20180601preview:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }

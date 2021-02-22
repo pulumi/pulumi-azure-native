@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFrontDoor'.")]
     public static class GetFrontDoor
     {
+        /// <summary>
+        /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetFrontDoorResult> InvokeAsync(GetFrontDoorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFrontDoorResult>("azure-nextgen:network/latest:getFrontDoor", args ?? new GetFrontDoorArgs(), options.WithVersion());
     }

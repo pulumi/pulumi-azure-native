@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Sql
 {
     public static class GetServerTrustGroup
     {
+        /// <summary>
+        /// A server trust group.
+        /// API Version: 2020-08-01-preview.
+        /// </summary>
         public static Task<GetServerTrustGroupResult> InvokeAsync(GetServerTrustGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerTrustGroupResult>("azure-nextgen:sql:getServerTrustGroup", args ?? new GetServerTrustGroupArgs(), options.WithVersion());
     }

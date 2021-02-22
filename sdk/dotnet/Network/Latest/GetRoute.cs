@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRoute'.")]
     public static class GetRoute
     {
+        /// <summary>
+        /// Route resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-nextgen:network/latest:getRoute", args ?? new GetRouteArgs(), options.WithVersion());
     }

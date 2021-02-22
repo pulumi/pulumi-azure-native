@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200101
 {
     public static class GetServerKey
     {
+        /// <summary>
+        /// A PostgreSQL Server key.
+        /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-nextgen:dbforpostgresql/v20200101:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200701
 {
     public static class ListManagedClusterMonitoringUserCredentials
     {
+        /// <summary>
+        /// The list of credential result response.
+        /// </summary>
         public static Task<ListManagedClusterMonitoringUserCredentialsResult> InvokeAsync(ListManagedClusterMonitoringUserCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterMonitoringUserCredentialsResult>("azure-nextgen:containerservice/v20200701:listManagedClusterMonitoringUserCredentials", args ?? new ListManagedClusterMonitoringUserCredentialsArgs(), options.WithVersion());
     }

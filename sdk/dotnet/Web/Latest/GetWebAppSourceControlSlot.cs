@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSourceControlSlot'.")]
     public static class GetWebAppSourceControlSlot
     {
+        /// <summary>
+        /// Source control configuration for an app.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppSourceControlSlotResult> InvokeAsync(GetWebAppSourceControlSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlSlotResult>("azure-nextgen:web/latest:getWebAppSourceControlSlot", args ?? new GetWebAppSourceControlSlotArgs(), options.WithVersion());
     }

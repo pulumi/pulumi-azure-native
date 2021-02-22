@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountCassandraTable'.")]
     public static class GetDatabaseAccountCassandraTable
     {
+        /// <summary>
+        /// An Azure Cosmos DB Cassandra table.
+        /// Latest API Version: 2016-03-31.
+        /// </summary>
         public static Task<GetDatabaseAccountCassandraTableResult> InvokeAsync(GetDatabaseAccountCassandraTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraTableResult>("azure-nextgen:documentdb/latest:getDatabaseAccountCassandraTable", args ?? new GetDatabaseAccountCassandraTableArgs(), options.WithVersion());
     }

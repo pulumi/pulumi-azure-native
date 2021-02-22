@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
 {
     public static class GetBuildTask
     {
+        /// <summary>
+        /// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+        /// </summary>
         public static Task<GetBuildTaskResult> InvokeAsync(GetBuildTaskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBuildTaskResult>("azure-nextgen:containerregistry/v20180201preview:getBuildTask", args ?? new GetBuildTaskArgs(), options.WithVersion());
     }

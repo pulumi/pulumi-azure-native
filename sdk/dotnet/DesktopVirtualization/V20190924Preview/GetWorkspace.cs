@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190924Preview
 {
     public static class GetWorkspace
     {
+        /// <summary>
+        /// Represents a Workspace definition.
+        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:desktopvirtualization/v20190924preview:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }

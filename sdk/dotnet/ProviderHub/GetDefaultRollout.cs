@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ProviderHub
 {
     public static class GetDefaultRollout
     {
+        /// <summary>
+        /// Default rollout definition.
+        /// API Version: 2020-11-20.
+        /// </summary>
         public static Task<GetDefaultRolloutResult> InvokeAsync(GetDefaultRolloutArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultRolloutResult>("azure-nextgen:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutArgs(), options.WithVersion());
     }

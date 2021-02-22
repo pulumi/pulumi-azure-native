@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EventGrid
 {
     public static class GetSystemTopicEventSubscriptionFullUrl
     {
+        /// <summary>
+        /// Full endpoint url of an event subscription
+        /// API Version: 2020-04-01-preview.
+        /// </summary>
         public static Task<GetSystemTopicEventSubscriptionFullUrlResult> InvokeAsync(GetSystemTopicEventSubscriptionFullUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicEventSubscriptionFullUrlResult>("azure-nextgen:eventgrid:getSystemTopicEventSubscriptionFullUrl", args ?? new GetSystemTopicEventSubscriptionFullUrlArgs(), options.WithVersion());
     }

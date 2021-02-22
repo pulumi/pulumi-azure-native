@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Insights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getExportConfiguration'.")]
     public static class GetExportConfiguration
     {
+        /// <summary>
+        /// Properties that define a Continuous Export configuration.
+        /// Latest API Version: 2015-05-01.
+        /// </summary>
         public static Task<GetExportConfigurationResult> InvokeAsync(GetExportConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExportConfigurationResult>("azure-nextgen:insights/latest:getExportConfiguration", args ?? new GetExportConfigurationArgs(), options.WithVersion());
     }

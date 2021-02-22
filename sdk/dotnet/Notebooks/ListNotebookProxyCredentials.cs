@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Notebooks
 {
     public static class ListNotebookProxyCredentials
     {
+        /// <summary>
+        /// Credentials and other properties of NotebookProxy resource
+        /// API Version: 2019-10-11-preview.
+        /// </summary>
         public static Task<ListNotebookProxyCredentialsResult> InvokeAsync(ListNotebookProxyCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNotebookProxyCredentialsResult>("azure-nextgen:notebooks:listNotebookProxyCredentials", args ?? new ListNotebookProxyCredentialsArgs(), options.WithVersion());
     }

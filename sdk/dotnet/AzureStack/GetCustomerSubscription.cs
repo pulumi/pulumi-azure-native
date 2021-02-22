@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AzureStack
 {
     public static class GetCustomerSubscription
     {
+        /// <summary>
+        /// Customer subscription.
+        /// API Version: 2017-06-01.
+        /// </summary>
         public static Task<GetCustomerSubscriptionResult> InvokeAsync(GetCustomerSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-nextgen:azurestack:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithVersion());
     }

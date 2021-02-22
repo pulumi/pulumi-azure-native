@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.LabServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:listGlobalUserLabs'.")]
     public static class ListGlobalUserLabs
     {
+        /// <summary>
+        /// Lists the labs owned by a user
+        /// Latest API Version: 2018-10-15.
+        /// </summary>
         public static Task<ListGlobalUserLabsResult> InvokeAsync(ListGlobalUserLabsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserLabsResult>("azure-nextgen:labservices/latest:listGlobalUserLabs", args ?? new ListGlobalUserLabsArgs(), options.WithVersion());
     }

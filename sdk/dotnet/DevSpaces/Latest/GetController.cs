@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevSpaces.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devspaces:getController'.")]
     public static class GetController
     {
+        /// <summary>
+        /// 
+        /// Latest API Version: 2019-04-01.
+        /// </summary>
         public static Task<GetControllerResult> InvokeAsync(GetControllerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetControllerResult>("azure-nextgen:devspaces/latest:getController", args ?? new GetControllerArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Insights
 {
     public static class GetMetricAlert
     {
+        /// <summary>
+        /// The metric alert resource.
+        /// API Version: 2018-03-01.
+        /// </summary>
         public static Task<GetMetricAlertResult> InvokeAsync(GetMetricAlertArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMetricAlertResult>("azure-nextgen:insights:getMetricAlert", args ?? new GetMetricAlertArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Search
 {
     public static class GetPrivateEndpointConnection
     {
+        /// <summary>
+        /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-nextgen:search:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
 {
     public static class ListDatabasePrincipals
     {
+        /// <summary>
+        /// The list Kusto database principals operation response.
+        /// </summary>
         public static Task<ListDatabasePrincipalsResult> InvokeAsync(ListDatabasePrincipalsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabasePrincipalsResult>("azure-nextgen:kusto/v20200918:listDatabasePrincipals", args ?? new ListDatabasePrincipalsArgs(), options.WithVersion());
     }

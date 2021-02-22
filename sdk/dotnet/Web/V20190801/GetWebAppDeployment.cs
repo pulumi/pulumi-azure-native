@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 {
     public static class GetWebAppDeployment
     {
+        /// <summary>
+        /// User credentials used for publishing activity.
+        /// </summary>
         public static Task<GetWebAppDeploymentResult> InvokeAsync(GetWebAppDeploymentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentResult>("azure-nextgen:web/v20190801:getWebAppDeployment", args ?? new GetWebAppDeploymentArgs(), options.WithVersion());
     }

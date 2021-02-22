@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     public static class GetBookmarkRelation
     {
+        /// <summary>
+        /// Represents a relation between two resources
+        /// </summary>
         public static Task<GetBookmarkRelationResult> InvokeAsync(GetBookmarkRelationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkRelationResult>("azure-nextgen:securityinsights/v20190101preview:getBookmarkRelation", args ?? new GetBookmarkRelationArgs(), options.WithVersion());
     }

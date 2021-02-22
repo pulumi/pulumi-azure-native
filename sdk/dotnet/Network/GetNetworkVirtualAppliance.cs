@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetNetworkVirtualAppliance
     {
+        /// <summary>
+        /// NetworkVirtualAppliance Resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetNetworkVirtualApplianceResult> InvokeAsync(GetNetworkVirtualApplianceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkVirtualApplianceResult>("azure-nextgen:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceArgs(), options.WithVersion());
     }

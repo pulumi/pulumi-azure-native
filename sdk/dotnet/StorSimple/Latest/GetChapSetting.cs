@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getChapSetting'.")]
     public static class GetChapSetting
     {
+        /// <summary>
+        /// Challenge-Handshake Authentication Protocol (CHAP) setting
+        /// Latest API Version: 2016-10-01.
+        /// </summary>
         public static Task<GetChapSettingResult> InvokeAsync(GetChapSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetChapSettingResult>("azure-nextgen:storsimple/latest:getChapSetting", args ?? new GetChapSettingArgs(), options.WithVersion());
     }

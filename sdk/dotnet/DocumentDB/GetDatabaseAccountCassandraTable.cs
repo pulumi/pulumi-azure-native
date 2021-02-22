@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DocumentDB
 {
     public static class GetDatabaseAccountCassandraTable
     {
+        /// <summary>
+        /// An Azure Cosmos DB Cassandra table.
+        /// API Version: 2016-03-31.
+        /// </summary>
         public static Task<GetDatabaseAccountCassandraTableResult> InvokeAsync(GetDatabaseAccountCassandraTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraTableResult>("azure-nextgen:documentdb:getDatabaseAccountCassandraTable", args ?? new GetDatabaseAccountCassandraTableArgs(), options.WithVersion());
     }

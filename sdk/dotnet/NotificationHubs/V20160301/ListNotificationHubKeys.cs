@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20160301
 {
     public static class ListNotificationHubKeys
     {
+        /// <summary>
+        /// Namespace/NotificationHub Connection String
+        /// </summary>
         public static Task<ListNotificationHubKeysResult> InvokeAsync(ListNotificationHubKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNotificationHubKeysResult>("azure-nextgen:notificationhubs/v20160301:listNotificationHubKeys", args ?? new ListNotificationHubKeysArgs(), options.WithVersion());
     }

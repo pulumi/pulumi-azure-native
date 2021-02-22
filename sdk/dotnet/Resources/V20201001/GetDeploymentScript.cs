@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Resources.V20201001
 {
     public static class GetDeploymentScript
     {
+        /// <summary>
+        /// Deployment script object.
+        /// </summary>
         public static Task<GetDeploymentScriptResult> InvokeAsync(GetDeploymentScriptArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentScriptResult>("azure-nextgen:resources/v20201001:getDeploymentScript", args ?? new GetDeploymentScriptArgs(), options.WithVersion());
     }

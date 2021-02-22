@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetGatewayHostnameConfiguration
     {
+        /// <summary>
+        /// Gateway hostname configuration details.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetGatewayHostnameConfigurationResult> InvokeAsync(GetGatewayHostnameConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayHostnameConfigurationResult>("azure-nextgen:apimanagement:getGatewayHostnameConfiguration", args ?? new GetGatewayHostnameConfigurationArgs(), options.WithVersion());
     }

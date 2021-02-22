@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listTenantAccessGitSecrets'.")]
     public static class ListTenantAccessGitSecrets
     {
+        /// <summary>
+        /// Tenant access information contract of the API Management service.
+        /// Latest API Version: 2019-12-01.
+        /// </summary>
         public static Task<ListTenantAccessGitSecretsResult> InvokeAsync(ListTenantAccessGitSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTenantAccessGitSecretsResult>("azure-nextgen:apimanagement/latest:listTenantAccessGitSecrets", args ?? new ListTenantAccessGitSecretsArgs(), options.WithVersion());
     }

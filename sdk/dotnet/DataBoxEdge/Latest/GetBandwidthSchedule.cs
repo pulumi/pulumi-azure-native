@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getBandwidthSchedule'.")]
     public static class GetBandwidthSchedule
     {
+        /// <summary>
+        /// The bandwidth schedule details.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetBandwidthScheduleResult> InvokeAsync(GetBandwidthScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthScheduleResult>("azure-nextgen:databoxedge/latest:getBandwidthSchedule", args ?? new GetBandwidthScheduleArgs(), options.WithVersion());
     }

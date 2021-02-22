@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Storage.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getQueue'.")]
     public static class GetQueue
     {
+        /// <summary>
+        /// 
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-nextgen:storage/latest:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
     }

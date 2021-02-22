@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Synapse.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolWorkloadClassifier'.")]
     public static class GetSqlPoolWorkloadClassifier
     {
+        /// <summary>
+        /// Workload classifier operations for a data warehouse
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetSqlPoolWorkloadClassifierResult> InvokeAsync(GetSqlPoolWorkloadClassifierArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadClassifierResult>("azure-nextgen:synapse/latest:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierArgs(), options.WithVersion());
     }

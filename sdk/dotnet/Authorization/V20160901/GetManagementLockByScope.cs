@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Authorization.V20160901
 {
     public static class GetManagementLockByScope
     {
+        /// <summary>
+        /// The lock information.
+        /// </summary>
         public static Task<GetManagementLockByScopeResult> InvokeAsync(GetManagementLockByScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockByScopeResult>("azure-nextgen:authorization/v20160901:getManagementLockByScope", args ?? new GetManagementLockByScopeArgs(), options.WithVersion());
     }

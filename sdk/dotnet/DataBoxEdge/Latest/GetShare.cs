@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getShare'.")]
     public static class GetShare
     {
+        /// <summary>
+        /// Represents a share on the  Data Box Edge/Gateway device.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-nextgen:databoxedge/latest:getShare", args ?? new GetShareArgs(), options.WithVersion());
     }

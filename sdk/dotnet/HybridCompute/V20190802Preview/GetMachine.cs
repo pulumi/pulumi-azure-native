@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
 {
     public static class GetMachine
     {
+        /// <summary>
+        /// Describes a hybrid machine.
+        /// </summary>
         public static Task<GetMachineResult> InvokeAsync(GetMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-nextgen:hybridcompute/v20190802preview:getMachine", args ?? new GetMachineArgs(), options.WithVersion());
     }

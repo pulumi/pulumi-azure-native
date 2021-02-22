@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
 {
     public static class GetCredential
     {
+        /// <summary>
+        /// Definition of the credential.
+        /// </summary>
         public static Task<GetCredentialResult> InvokeAsync(GetCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-nextgen:automation/v20151031:getCredential", args ?? new GetCredentialArgs(), options.WithVersion());
     }

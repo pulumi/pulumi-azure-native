@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 {
     public static class GetNamespaceAuthorizationRule
     {
+        /// <summary>
+        /// Description of a namespace authorization rule.
+        /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-nextgen:servicebus/v20180101preview:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithVersion());
     }

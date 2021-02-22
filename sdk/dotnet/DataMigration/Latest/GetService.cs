@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataMigration.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datamigration:getService'.")]
     public static class GetService
     {
+        /// <summary>
+        /// A Database Migration Service resource
+        /// Latest API Version: 2018-04-19.
+        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:datamigration/latest:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }

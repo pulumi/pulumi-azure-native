@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getEnvironment'.")]
     public static class GetEnvironment
     {
+        /// <summary>
+        /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+        /// Latest API Version: 2020-05-15.
+        /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-nextgen:timeseriesinsights/latest:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
     }

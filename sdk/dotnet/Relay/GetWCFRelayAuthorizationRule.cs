@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Relay
 {
     public static class GetWCFRelayAuthorizationRule
     {
+        /// <summary>
+        /// Description of a namespace authorization rule.
+        /// API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetWCFRelayAuthorizationRuleResult> InvokeAsync(GetWCFRelayAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayAuthorizationRuleResult>("azure-nextgen:relay:getWCFRelayAuthorizationRule", args ?? new GetWCFRelayAuthorizationRuleArgs(), options.WithVersion());
     }

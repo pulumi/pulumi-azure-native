@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Migrate
 {
     public static class GetMoveResource
     {
+        /// <summary>
+        /// Defines the move resource.
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetMoveResourceResult> InvokeAsync(GetMoveResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMoveResourceResult>("azure-nextgen:migrate:getMoveResource", args ?? new GetMoveResourceArgs(), options.WithVersion());
     }

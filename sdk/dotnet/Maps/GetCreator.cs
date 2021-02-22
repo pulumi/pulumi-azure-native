@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Maps
 {
     public static class GetCreator
     {
+        /// <summary>
+        /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
+        /// API Version: 2020-02-01-preview.
+        /// </summary>
         public static Task<GetCreatorResult> InvokeAsync(GetCreatorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCreatorResult>("azure-nextgen:maps:getCreator", args ?? new GetCreatorArgs(), options.WithVersion());
     }

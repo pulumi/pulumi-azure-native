@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AadIam.V20170401
 {
     public static class GetDiagnosticSetting
     {
+        /// <summary>
+        /// The diagnostic setting resource.
+        /// </summary>
         public static Task<GetDiagnosticSettingResult> InvokeAsync(GetDiagnosticSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticSettingResult>("azure-nextgen:aadiam/v20170401:getDiagnosticSetting", args ?? new GetDiagnosticSettingArgs(), options.WithVersion());
     }

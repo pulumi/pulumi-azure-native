@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.NetApp.V20201101
 {
     public static class GetSnapshotPolicy
     {
+        /// <summary>
+        /// Snapshot policy information
+        /// </summary>
         public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure-nextgen:netapp/v20201101:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithVersion());
     }

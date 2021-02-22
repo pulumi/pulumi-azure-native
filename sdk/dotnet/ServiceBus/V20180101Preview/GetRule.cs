@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 {
     public static class GetRule
     {
+        /// <summary>
+        /// Description of Rule Resource.
+        /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-nextgen:servicebus/v20180101preview:getRule", args ?? new GetRuleArgs(), options.WithVersion());
     }

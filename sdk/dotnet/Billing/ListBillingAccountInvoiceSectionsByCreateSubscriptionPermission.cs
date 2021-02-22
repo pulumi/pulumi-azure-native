@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Billing
 {
     public static class ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission
     {
+        /// <summary>
+        /// The list of invoice section properties with create subscription permission.
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> InvokeAsync(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult>("azure-nextgen:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args ?? new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs(), options.WithVersion());
     }

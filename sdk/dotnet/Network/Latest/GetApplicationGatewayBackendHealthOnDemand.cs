@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationGatewayBackendHealthOnDemand'.")]
     public static class GetApplicationGatewayBackendHealthOnDemand
     {
+        /// <summary>
+        /// Result of on demand test probe.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetApplicationGatewayBackendHealthOnDemandResult> InvokeAsync(GetApplicationGatewayBackendHealthOnDemandArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayBackendHealthOnDemandResult>("azure-nextgen:network/latest:getApplicationGatewayBackendHealthOnDemand", args ?? new GetApplicationGatewayBackendHealthOnDemandArgs(), options.WithVersion());
     }

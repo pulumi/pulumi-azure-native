@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Insights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getWebTest'.")]
     public static class GetWebTest
     {
+        /// <summary>
+        /// An Application Insights web test definition.
+        /// Latest API Version: 2015-05-01.
+        /// </summary>
         public static Task<GetWebTestResult> InvokeAsync(GetWebTestArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-nextgen:insights/latest:getWebTest", args ?? new GetWebTestArgs(), options.WithVersion());
     }

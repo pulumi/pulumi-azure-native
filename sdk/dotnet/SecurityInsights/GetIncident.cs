@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights
 {
     public static class GetIncident
     {
+        /// <summary>
+        /// Represents an incident in Azure Security Insights.
+        /// API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetIncidentResult> InvokeAsync(GetIncidentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azure-nextgen:securityinsights:getIncident", args ?? new GetIncidentArgs(), options.WithVersion());
     }

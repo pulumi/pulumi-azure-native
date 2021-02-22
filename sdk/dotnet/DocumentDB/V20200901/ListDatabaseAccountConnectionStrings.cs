@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200901
 {
     public static class ListDatabaseAccountConnectionStrings
     {
+        /// <summary>
+        /// The connection strings for the given database account.
+        /// </summary>
         public static Task<ListDatabaseAccountConnectionStringsResult> InvokeAsync(ListDatabaseAccountConnectionStringsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountConnectionStringsResult>("azure-nextgen:documentdb/v20200901:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsArgs(), options.WithVersion());
     }

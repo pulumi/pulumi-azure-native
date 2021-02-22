@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Storage
 {
     public static class GetBlobServiceProperties
     {
+        /// <summary>
+        /// The properties of a storage account’s Blob service.
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetBlobServicePropertiesResult> InvokeAsync(GetBlobServicePropertiesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobServicePropertiesResult>("azure-nextgen:storage:getBlobServiceProperties", args ?? new GetBlobServicePropertiesArgs(), options.WithVersion());
     }

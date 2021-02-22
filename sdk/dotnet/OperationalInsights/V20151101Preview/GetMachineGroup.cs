@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
 {
     public static class GetMachineGroup
     {
+        /// <summary>
+        /// A user-defined logical grouping of machines.
+        /// </summary>
         public static Task<GetMachineGroupResult> InvokeAsync(GetMachineGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineGroupResult>("azure-nextgen:operationalinsights/v20151101preview:getMachineGroup", args ?? new GetMachineGroupArgs(), options.WithVersion());
     }

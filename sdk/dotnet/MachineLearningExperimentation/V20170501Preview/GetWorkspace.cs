@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
 {
     public static class GetWorkspace
     {
+        /// <summary>
+        /// An object that represents a machine learning team account workspace.
+        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:machinelearningexperimentation/v20170501preview:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }

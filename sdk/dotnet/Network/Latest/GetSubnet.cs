@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getSubnet'.")]
     public static class GetSubnet
     {
+        /// <summary>
+        /// Subnet in a virtual network resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure-nextgen:network/latest:getSubnet", args ?? new GetSubnetArgs(), options.WithVersion());
     }

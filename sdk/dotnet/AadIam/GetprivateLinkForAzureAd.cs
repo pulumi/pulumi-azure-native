@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AadIam
 {
     public static class GetprivateLinkForAzureAd
     {
+        /// <summary>
+        /// PrivateLink Policy configuration object.
+        /// API Version: 2020-03-01-preview.
+        /// </summary>
         public static Task<GetprivateLinkForAzureAdResult> InvokeAsync(GetprivateLinkForAzureAdArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkForAzureAdResult>("azure-nextgen:aadiam:getprivateLinkForAzureAd", args ?? new GetprivateLinkForAzureAdArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AzureStack.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:listProductDetails'.")]
     public static class ListProductDetails
     {
+        /// <summary>
+        /// Extended description about the product required for installing it into Azure Stack.
+        /// Latest API Version: 2017-06-01.
+        /// </summary>
         public static Task<ListProductDetailsResult> InvokeAsync(ListProductDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-nextgen:azurestack/latest:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithVersion());
     }

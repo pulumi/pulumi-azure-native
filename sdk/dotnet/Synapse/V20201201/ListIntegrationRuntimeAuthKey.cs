@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
 {
     public static class ListIntegrationRuntimeAuthKey
     {
+        /// <summary>
+        /// The integration runtime authentication keys.
+        /// </summary>
         public static Task<ListIntegrationRuntimeAuthKeyResult> InvokeAsync(ListIntegrationRuntimeAuthKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationRuntimeAuthKeyResult>("azure-nextgen:synapse/v20201201:listIntegrationRuntimeAuthKey", args ?? new ListIntegrationRuntimeAuthKeyArgs(), options.WithVersion());
     }

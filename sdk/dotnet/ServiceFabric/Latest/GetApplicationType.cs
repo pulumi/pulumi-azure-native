@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ServiceFabric.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getApplicationType'.")]
     public static class GetApplicationType
     {
+        /// <summary>
+        /// The application type name resource
+        /// Latest API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetApplicationTypeResult> InvokeAsync(GetApplicationTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeResult>("azure-nextgen:servicefabric/latest:getApplicationType", args ?? new GetApplicationTypeArgs(), options.WithVersion());
     }

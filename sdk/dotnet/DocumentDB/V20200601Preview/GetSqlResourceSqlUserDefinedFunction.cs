@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
 {
     public static class GetSqlResourceSqlUserDefinedFunction
     {
+        /// <summary>
+        /// An Azure Cosmos DB userDefinedFunction.
+        /// </summary>
         public static Task<GetSqlResourceSqlUserDefinedFunctionResult> InvokeAsync(GetSqlResourceSqlUserDefinedFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlUserDefinedFunctionResult>("azure-nextgen:documentdb/v20200601preview:getSqlResourceSqlUserDefinedFunction", args ?? new GetSqlResourceSqlUserDefinedFunctionArgs(), options.WithVersion());
     }

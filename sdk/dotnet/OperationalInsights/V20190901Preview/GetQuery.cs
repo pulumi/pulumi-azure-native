@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190901Preview
 {
     public static class GetQuery
     {
+        /// <summary>
+        /// A Log Analytics QueryPack-Query definition.
+        /// </summary>
         public static Task<GetQueryResult> InvokeAsync(GetQueryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueryResult>("azure-nextgen:operationalinsights/v20190901preview:getQuery", args ?? new GetQueryArgs(), options.WithVersion());
     }

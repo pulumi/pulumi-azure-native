@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 {
     public static class GetIntegrationServiceEnvironmentManagedApi
     {
+        /// <summary>
+        /// The managed api definition.
+        /// </summary>
         public static Task<GetIntegrationServiceEnvironmentManagedApiResult> InvokeAsync(GetIntegrationServiceEnvironmentManagedApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationServiceEnvironmentManagedApiResult>("azure-nextgen:logic/v20190501:getIntegrationServiceEnvironmentManagedApi", args ?? new GetIntegrationServiceEnvironmentManagedApiArgs(), options.WithVersion());
     }

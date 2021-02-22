@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
 {
     public static class GetQueueServiceProperties
     {
+        /// <summary>
+        /// The properties of a storage account’s Queue service.
+        /// </summary>
         public static Task<GetQueueServicePropertiesResult> InvokeAsync(GetQueueServicePropertiesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueServicePropertiesResult>("azure-nextgen:storage/v20190601:getQueueServiceProperties", args ?? new GetQueueServicePropertiesArgs(), options.WithVersion());
     }

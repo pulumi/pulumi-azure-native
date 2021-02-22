@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getAuthorizationServer'.")]
     public static class GetAuthorizationServer
     {
+        /// <summary>
+        /// External OAuth authorization server settings.
+        /// Latest API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetAuthorizationServerResult> InvokeAsync(GetAuthorizationServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationServerResult>("azure-nextgen:apimanagement/latest:getAuthorizationServer", args ?? new GetAuthorizationServerArgs(), options.WithVersion());
     }

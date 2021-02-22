@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AzureStack.V20170601
 {
     public static class GetRegistration
     {
+        /// <summary>
+        /// Registration information.
+        /// </summary>
         public static Task<GetRegistrationResult> InvokeAsync(GetRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-nextgen:azurestack/v20170601:getRegistration", args ?? new GetRegistrationArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
 {
     public static class GetAddressByName
     {
+        /// <summary>
+        /// Address Resource.
+        /// </summary>
         public static Task<GetAddressByNameResult> InvokeAsync(GetAddressByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAddressByNameResult>("azure-nextgen:edgeorder/v20201201preview:getAddressByName", args ?? new GetAddressByNameArgs(), options.WithVersion());
     }

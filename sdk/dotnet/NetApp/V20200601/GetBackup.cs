@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
 {
     public static class GetBackup
     {
+        /// <summary>
+        /// Backup of a Volume
+        /// </summary>
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-nextgen:netapp/v20200601:getBackup", args ?? new GetBackupArgs(), options.WithVersion());
     }

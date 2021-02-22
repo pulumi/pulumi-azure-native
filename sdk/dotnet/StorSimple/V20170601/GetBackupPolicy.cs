@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
 {
     public static class GetBackupPolicy
     {
+        /// <summary>
+        /// The backup policy.
+        /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-nextgen:storsimple/v20170601:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 {
     public static class GetImportPipeline
     {
+        /// <summary>
+        /// An object that represents an import pipeline for a container registry.
+        /// </summary>
         public static Task<GetImportPipelineResult> InvokeAsync(GetImportPipelineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImportPipelineResult>("azure-nextgen:containerregistry/v20191201preview:getImportPipeline", args ?? new GetImportPipelineArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Relay.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getWCFRelay'.")]
     public static class GetWCFRelay
     {
+        /// <summary>
+        /// Description of the WCF relay resource.
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetWCFRelayResult> InvokeAsync(GetWCFRelayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayResult>("azure-nextgen:relay/latest:getWCFRelay", args ?? new GetWCFRelayArgs(), options.WithVersion());
     }

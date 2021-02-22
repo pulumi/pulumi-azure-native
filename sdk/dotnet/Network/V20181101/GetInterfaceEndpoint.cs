@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20181101
 {
     public static class GetInterfaceEndpoint
     {
+        /// <summary>
+        /// Interface endpoint resource.
+        /// </summary>
         public static Task<GetInterfaceEndpointResult> InvokeAsync(GetInterfaceEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInterfaceEndpointResult>("azure-nextgen:network/v20181101:getInterfaceEndpoint", args ?? new GetInterfaceEndpointArgs(), options.WithVersion());
     }

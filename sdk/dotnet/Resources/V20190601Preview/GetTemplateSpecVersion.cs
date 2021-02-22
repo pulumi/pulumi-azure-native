@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
 {
     public static class GetTemplateSpecVersion
     {
+        /// <summary>
+        /// Template Spec Version object.
+        /// </summary>
         public static Task<GetTemplateSpecVersionResult> InvokeAsync(GetTemplateSpecVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure-nextgen:resources/v20190601preview:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithVersion());
     }

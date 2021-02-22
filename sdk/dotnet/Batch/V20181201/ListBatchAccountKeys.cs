@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Batch.V20181201
 {
     public static class ListBatchAccountKeys
     {
+        /// <summary>
+        /// A set of Azure Batch account keys.
+        /// </summary>
         public static Task<ListBatchAccountKeysResult> InvokeAsync(ListBatchAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBatchAccountKeysResult>("azure-nextgen:batch/v20181201:listBatchAccountKeys", args ?? new ListBatchAccountKeysArgs(), options.WithVersion());
     }

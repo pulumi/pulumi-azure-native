@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EventHub
 {
     public static class GetNamespaceAuthorizationRule
     {
+        /// <summary>
+        /// Single item in a List or Get AuthorizationRule operation
+        /// API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-nextgen:eventhub:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Sql
 {
     public static class GetTransparentDataEncryption
     {
+        /// <summary>
+        /// Represents a database transparent data encryption configuration.
+        /// API Version: 2014-04-01.
+        /// </summary>
         public static Task<GetTransparentDataEncryptionResult> InvokeAsync(GetTransparentDataEncryptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransparentDataEncryptionResult>("azure-nextgen:sql:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionArgs(), options.WithVersion());
     }

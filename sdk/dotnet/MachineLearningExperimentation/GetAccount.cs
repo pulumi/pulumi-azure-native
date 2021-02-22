@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation
 {
     public static class GetAccount
     {
+        /// <summary>
+        /// An object that represents a machine learning team account.
+        /// API Version: 2017-05-01-preview.
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:machinelearningexperimentation:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

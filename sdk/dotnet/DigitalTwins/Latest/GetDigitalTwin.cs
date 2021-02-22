@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DigitalTwins.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:digitaltwins:getDigitalTwin'.")]
     public static class GetDigitalTwin
     {
+        /// <summary>
+        /// The description of the DigitalTwins service.
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetDigitalTwinResult> InvokeAsync(GetDigitalTwinArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinResult>("azure-nextgen:digitaltwins/latest:getDigitalTwin", args ?? new GetDigitalTwinArgs(), options.WithVersion());
     }

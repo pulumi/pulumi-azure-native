@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataShare
 {
     public static class ListShareSynchronizations
     {
+        /// <summary>
+        /// List response for get ShareSynchronization.
+        /// API Version: 2020-09-01.
+        /// </summary>
         public static Task<ListShareSynchronizationsResult> InvokeAsync(ListShareSynchronizationsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListShareSynchronizationsResult>("azure-nextgen:datashare:listShareSynchronizations", args ?? new ListShareSynchronizationsArgs(), options.WithVersion());
     }

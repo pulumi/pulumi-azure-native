@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20210101
 {
     public static class GetAttestationAtResourceGroup
     {
+        /// <summary>
+        /// An attestation resource.
+        /// </summary>
         public static Task<GetAttestationAtResourceGroupResult> InvokeAsync(GetAttestationAtResourceGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceGroupResult>("azure-nextgen:policyinsights/v20210101:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupArgs(), options.WithVersion());
     }

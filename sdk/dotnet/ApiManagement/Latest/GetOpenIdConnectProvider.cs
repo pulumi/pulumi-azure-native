@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getOpenIdConnectProvider'.")]
     public static class GetOpenIdConnectProvider
     {
+        /// <summary>
+        /// OpenId Connect Provider details.
+        /// Latest API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetOpenIdConnectProviderResult> InvokeAsync(GetOpenIdConnectProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOpenIdConnectProviderResult>("azure-nextgen:apimanagement/latest:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderArgs(), options.WithVersion());
     }

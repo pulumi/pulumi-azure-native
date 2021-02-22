@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 {
     public static class GetSystemTopic
     {
+        /// <summary>
+        /// EventGrid System Topic.
+        /// </summary>
         public static Task<GetSystemTopicResult> InvokeAsync(GetSystemTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicResult>("azure-nextgen:eventgrid/v20200401preview:getSystemTopic", args ?? new GetSystemTopicArgs(), options.WithVersion());
     }

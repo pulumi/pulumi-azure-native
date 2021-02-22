@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.BatchAI.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobOutputFiles'.")]
     public static class ListJobOutputFiles
     {
+        /// <summary>
+        /// Values returned by the List operation.
+        /// Latest API Version: 2018-05-01.
+        /// </summary>
         public static Task<ListJobOutputFilesResult> InvokeAsync(ListJobOutputFilesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListJobOutputFilesResult>("azure-nextgen:batchai/latest:listJobOutputFiles", args ?? new ListJobOutputFilesArgs(), options.WithVersion());
     }

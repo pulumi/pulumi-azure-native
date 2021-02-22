@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Storage.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:listStorageAccountKeys'.")]
     public static class ListStorageAccountKeys
     {
+        /// <summary>
+        /// The response from the ListKeys operation.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<ListStorageAccountKeysResult> InvokeAsync(ListStorageAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-nextgen:storage/latest:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithVersion());
     }

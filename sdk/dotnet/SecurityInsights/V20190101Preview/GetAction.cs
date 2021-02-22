@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     public static class GetAction
     {
+        /// <summary>
+        /// Action for alert rule.
+        /// </summary>
         public static Task<GetActionResult> InvokeAsync(GetActionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActionResult>("azure-nextgen:securityinsights/v20190101preview:getAction", args ?? new GetActionArgs(), options.WithVersion());
     }

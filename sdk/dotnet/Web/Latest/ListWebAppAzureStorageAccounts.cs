@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppAzureStorageAccounts'.")]
     public static class ListWebAppAzureStorageAccounts
     {
+        /// <summary>
+        /// AzureStorageInfo dictionary resource.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListWebAppAzureStorageAccountsResult> InvokeAsync(ListWebAppAzureStorageAccountsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAzureStorageAccountsResult>("azure-nextgen:web/latest:listWebAppAzureStorageAccounts", args ?? new ListWebAppAzureStorageAccountsArgs(), options.WithVersion());
     }

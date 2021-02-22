@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 {
     public static class GetAppServicePlan
     {
+        /// <summary>
+        /// App Service plan.
+        /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure-nextgen:web/v20190801:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithVersion());
     }

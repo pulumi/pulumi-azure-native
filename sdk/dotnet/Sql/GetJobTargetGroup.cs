@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Sql
 {
     public static class GetJobTargetGroup
     {
+        /// <summary>
+        /// A group of job targets.
+        /// API Version: 2020-08-01-preview.
+        /// </summary>
         public static Task<GetJobTargetGroupResult> InvokeAsync(GetJobTargetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobTargetGroupResult>("azure-nextgen:sql:getJobTargetGroup", args ?? new GetJobTargetGroupArgs(), options.WithVersion());
     }

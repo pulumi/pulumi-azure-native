@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getSecret'.")]
     public static class GetSecret
     {
+        /// <summary>
+        /// A secret.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-nextgen:devtestlab/latest:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
     }

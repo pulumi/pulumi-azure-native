@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetRulesEngine
     {
+        /// <summary>
+        /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetRulesEngineResult> InvokeAsync(GetRulesEngineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRulesEngineResult>("azure-nextgen:network:getRulesEngine", args ?? new GetRulesEngineArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetVirtualWan
     {
+        /// <summary>
+        /// VirtualWAN Resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetVirtualWanResult> InvokeAsync(GetVirtualWanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWanResult>("azure-nextgen:network:getVirtualWan", args ?? new GetVirtualWanArgs(), options.WithVersion());
     }

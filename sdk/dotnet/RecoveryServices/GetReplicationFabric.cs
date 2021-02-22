@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.RecoveryServices
 {
     public static class GetReplicationFabric
     {
+        /// <summary>
+        /// Fabric definition.
+        /// API Version: 2018-07-10.
+        /// </summary>
         public static Task<GetReplicationFabricResult> InvokeAsync(GetReplicationFabricArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-nextgen:recoveryservices:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithVersion());
     }

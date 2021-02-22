@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Automation
 {
     public static class GetJobSchedule
     {
+        /// <summary>
+        /// Definition of the job schedule.
+        /// API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetJobScheduleResult> InvokeAsync(GetJobScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobScheduleResult>("azure-nextgen:automation:getJobSchedule", args ?? new GetJobScheduleArgs(), options.WithVersion());
     }

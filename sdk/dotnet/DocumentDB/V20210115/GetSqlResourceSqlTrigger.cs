@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20210115
 {
     public static class GetSqlResourceSqlTrigger
     {
+        /// <summary>
+        /// An Azure Cosmos DB trigger.
+        /// </summary>
         public static Task<GetSqlResourceSqlTriggerResult> InvokeAsync(GetSqlResourceSqlTriggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlTriggerResult>("azure-nextgen:documentdb/v20210115:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerArgs(), options.WithVersion());
     }

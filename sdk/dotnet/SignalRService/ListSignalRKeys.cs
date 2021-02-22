@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.SignalRService
 {
     public static class ListSignalRKeys
     {
+        /// <summary>
+        /// A class represents the access keys of SignalR service.
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<ListSignalRKeysResult> InvokeAsync(ListSignalRKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSignalRKeysResult>("azure-nextgen:signalrservice:listSignalRKeys", args ?? new ListSignalRKeysArgs(), options.WithVersion());
     }

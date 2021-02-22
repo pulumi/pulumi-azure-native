@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.NotificationHubs.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:getNotificationHubAuthorizationRule'.")]
     public static class GetNotificationHubAuthorizationRule
     {
+        /// <summary>
+        /// Description of a Namespace AuthorizationRules.
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetNotificationHubAuthorizationRuleResult> InvokeAsync(GetNotificationHubAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubAuthorizationRuleResult>("azure-nextgen:notificationhubs/latest:getNotificationHubAuthorizationRule", args ?? new GetNotificationHubAuthorizationRuleArgs(), options.WithVersion());
     }

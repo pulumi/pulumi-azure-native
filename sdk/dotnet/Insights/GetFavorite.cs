@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Insights
 {
     public static class GetFavorite
     {
+        /// <summary>
+        /// Properties that define a favorite that is associated to an Application Insights component.
+        /// API Version: 2015-05-01.
+        /// </summary>
         public static Task<GetFavoriteResult> InvokeAsync(GetFavoriteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteResult>("azure-nextgen:insights:getFavorite", args ?? new GetFavoriteArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EventGrid
 {
     public static class GetPrivateEndpointConnection
     {
+        /// <summary>
+        /// 
+        /// API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-nextgen:eventgrid:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
     }

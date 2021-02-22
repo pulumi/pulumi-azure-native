@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetCache
     {
+        /// <summary>
+        /// Cache details.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-nextgen:apimanagement:getCache", args ?? new GetCacheArgs(), options.WithVersion());
     }

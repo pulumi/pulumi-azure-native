@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataMigration
 {
     public static class GetServiceTask
     {
+        /// <summary>
+        /// A task resource
+        /// API Version: 2018-07-15-preview.
+        /// </summary>
         public static Task<GetServiceTaskResult> InvokeAsync(GetServiceTaskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTaskResult>("azure-nextgen:datamigration:getServiceTask", args ?? new GetServiceTaskArgs(), options.WithVersion());
     }

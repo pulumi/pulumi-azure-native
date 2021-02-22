@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EventHub
 {
     public static class GetConsumerGroup
     {
+        /// <summary>
+        /// Single item in List or Get Consumer group operation
+        /// API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetConsumerGroupResult> InvokeAsync(GetConsumerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azure-nextgen:eventhub:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithVersion());
     }

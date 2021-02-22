@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
 {
     public static class GetMap
     {
+        /// <summary>
+        /// The integration account map.
+        /// </summary>
         public static Task<GetMapResult> InvokeAsync(GetMapArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("azure-nextgen:logic/v20160601:getMap", args ?? new GetMapArgs(), options.WithVersion());
     }

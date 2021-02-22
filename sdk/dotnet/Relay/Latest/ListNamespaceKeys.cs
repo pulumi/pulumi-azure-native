@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Relay.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:listNamespaceKeys'.")]
     public static class ListNamespaceKeys
     {
+        /// <summary>
+        /// Namespace/Relay Connection String
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-nextgen:relay/latest:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
     }

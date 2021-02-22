@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Insights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAutoscaleSetting'.")]
     public static class GetAutoscaleSetting
     {
+        /// <summary>
+        /// The autoscale setting resource.
+        /// Latest API Version: 2015-04-01.
+        /// </summary>
         public static Task<GetAutoscaleSettingResult> InvokeAsync(GetAutoscaleSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutoscaleSettingResult>("azure-nextgen:insights/latest:getAutoscaleSetting", args ?? new GetAutoscaleSettingArgs(), options.WithVersion());
     }

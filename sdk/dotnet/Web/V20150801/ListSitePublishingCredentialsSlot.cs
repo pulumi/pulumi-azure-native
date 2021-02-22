@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class ListSitePublishingCredentialsSlot
     {
+        /// <summary>
+        /// Represents user credentials used for publishing activity
+        /// </summary>
         public static Task<ListSitePublishingCredentialsSlotResult> InvokeAsync(ListSitePublishingCredentialsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSitePublishingCredentialsSlotResult>("azure-nextgen:web/v20150801:listSitePublishingCredentialsSlot", args ?? new ListSitePublishingCredentialsSlotArgs(), options.WithVersion());
     }

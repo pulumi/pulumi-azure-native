@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AzureStack
 {
     public static class ListProductDetails
     {
+        /// <summary>
+        /// Extended description about the product required for installing it into Azure Stack.
+        /// API Version: 2017-06-01.
+        /// </summary>
         public static Task<ListProductDetailsResult> InvokeAsync(ListProductDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListProductDetailsResult>("azure-nextgen:azurestack:listProductDetails", args ?? new ListProductDetailsArgs(), options.WithVersion());
     }

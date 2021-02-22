@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DocumentDB
 {
     public static class GetPrivateEndpointConnection
     {
+        /// <summary>
+        /// A private endpoint connection
+        /// API Version: 2021-01-15.
+        /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-nextgen:documentdb:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
     }

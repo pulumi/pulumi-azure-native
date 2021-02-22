@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualHubBgpConnection'.")]
     public static class GetVirtualHubBgpConnection
     {
+        /// <summary>
+        /// Virtual Appliance Site resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetVirtualHubBgpConnectionResult> InvokeAsync(GetVirtualHubBgpConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubBgpConnectionResult>("azure-nextgen:network/latest:getVirtualHubBgpConnection", args ?? new GetVirtualHubBgpConnectionArgs(), options.WithVersion());
     }

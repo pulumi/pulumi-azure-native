@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Management.V20200201
 {
     public static class GetHierarchySetting
     {
+        /// <summary>
+        /// Settings defined at the Management Group scope.
+        /// </summary>
         public static Task<GetHierarchySettingResult> InvokeAsync(GetHierarchySettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHierarchySettingResult>("azure-nextgen:management/v20200201:getHierarchySetting", args ?? new GetHierarchySettingArgs(), options.WithVersion());
     }

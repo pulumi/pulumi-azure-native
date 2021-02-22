@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
 {
     public static class GetAccount
     {
+        /// <summary>
+        /// The EngagementFabric account
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:engagementfabric/v20180901preview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
     public static class GetIntegrationRuntimeConnectionInfo
     {
+        /// <summary>
+        /// Connection information for encrypting the on-premises data source credentials.
+        /// </summary>
         public static Task<GetIntegrationRuntimeConnectionInfoResult> InvokeAsync(GetIntegrationRuntimeConnectionInfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeConnectionInfoResult>("azure-nextgen:synapse/v20190601preview:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoArgs(), options.WithVersion());
     }

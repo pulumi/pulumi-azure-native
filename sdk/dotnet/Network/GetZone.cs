@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetZone
     {
+        /// <summary>
+        /// Describes a DNS zone.
+        /// API Version: 2018-05-01.
+        /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure-nextgen:network:getZone", args ?? new GetZoneArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Search
 {
     public static class GetService
     {
+        /// <summary>
+        /// Describes an Azure Cognitive Search service and its current state.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:search:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }

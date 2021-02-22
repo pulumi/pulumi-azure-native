@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listDelegationSettingSecrets'.")]
     public static class ListDelegationSettingSecrets
     {
+        /// <summary>
+        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// Latest API Version: 2019-12-01.
+        /// </summary>
         public static Task<ListDelegationSettingSecretsResult> InvokeAsync(ListDelegationSettingSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDelegationSettingSecretsResult>("azure-nextgen:apimanagement/latest:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DocumentDB
 {
     public static class GetDatabaseAccountMongoDBDatabase
     {
+        /// <summary>
+        /// An Azure Cosmos DB MongoDB database.
+        /// API Version: 2016-03-31.
+        /// </summary>
         public static Task<GetDatabaseAccountMongoDBDatabaseResult> InvokeAsync(GetDatabaseAccountMongoDBDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBDatabaseResult>("azure-nextgen:documentdb:getDatabaseAccountMongoDBDatabase", args ?? new GetDatabaseAccountMongoDBDatabaseArgs(), options.WithVersion());
     }

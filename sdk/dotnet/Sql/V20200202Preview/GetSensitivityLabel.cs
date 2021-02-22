@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 {
     public static class GetSensitivityLabel
     {
+        /// <summary>
+        /// A sensitivity label.
+        /// </summary>
         public static Task<GetSensitivityLabelResult> InvokeAsync(GetSensitivityLabelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSensitivityLabelResult>("azure-nextgen:sql/v20200202preview:getSensitivityLabel", args ?? new GetSensitivityLabelArgs(), options.WithVersion());
     }

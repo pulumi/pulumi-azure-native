@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Automation
 {
     public static class GetVariable
     {
+        /// <summary>
+        /// Definition of the variable.
+        /// API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetVariableResult> InvokeAsync(GetVariableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-nextgen:automation:getVariable", args ?? new GetVariableArgs(), options.WithVersion());
     }

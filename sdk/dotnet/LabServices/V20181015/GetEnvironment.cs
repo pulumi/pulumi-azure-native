@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 {
     public static class GetEnvironment
     {
+        /// <summary>
+        /// Represents an environment instance
+        /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-nextgen:labservices/v20181015:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
     }

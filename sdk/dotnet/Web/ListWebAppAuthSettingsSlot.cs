@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class ListWebAppAuthSettingsSlot
     {
+        /// <summary>
+        /// Configuration settings for the Azure App Service Authentication / Authorization feature.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListWebAppAuthSettingsSlotResult> InvokeAsync(ListWebAppAuthSettingsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsSlotResult>("azure-nextgen:web:listWebAppAuthSettingsSlot", args ?? new ListWebAppAuthSettingsSlotArgs(), options.WithVersion());
     }

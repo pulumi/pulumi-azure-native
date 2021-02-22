@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 {
     public static class GetIntegrationAccountCertificate
     {
+        /// <summary>
+        /// The integration account certificate.
+        /// </summary>
         public static Task<GetIntegrationAccountCertificateResult> InvokeAsync(GetIntegrationAccountCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountCertificateResult>("azure-nextgen:logic/v20180701preview:getIntegrationAccountCertificate", args ?? new GetIntegrationAccountCertificateArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 {
     public static class GetApiRelease
     {
+        /// <summary>
+        /// ApiRelease details.
+        /// </summary>
         public static Task<GetApiReleaseResult> InvokeAsync(GetApiReleaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiReleaseResult>("azure-nextgen:apimanagement/v20191201:getApiRelease", args ?? new GetApiReleaseArgs(), options.WithVersion());
     }

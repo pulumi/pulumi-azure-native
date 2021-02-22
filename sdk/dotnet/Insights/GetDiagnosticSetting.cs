@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Insights
 {
     public static class GetDiagnosticSetting
     {
+        /// <summary>
+        /// The diagnostic setting resource.
+        /// API Version: 2017-05-01-preview.
+        /// </summary>
         public static Task<GetDiagnosticSettingResult> InvokeAsync(GetDiagnosticSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticSettingResult>("azure-nextgen:insights:getDiagnosticSetting", args ?? new GetDiagnosticSettingArgs(), options.WithVersion());
     }

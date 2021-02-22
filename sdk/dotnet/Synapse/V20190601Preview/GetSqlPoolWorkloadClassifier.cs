@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
     public static class GetSqlPoolWorkloadClassifier
     {
+        /// <summary>
+        /// Workload classifier operations for a data warehouse
+        /// </summary>
         public static Task<GetSqlPoolWorkloadClassifierResult> InvokeAsync(GetSqlPoolWorkloadClassifierArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadClassifierResult>("azure-nextgen:synapse/v20190601preview:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierArgs(), options.WithVersion());
     }

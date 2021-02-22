@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCircuitAuthorization'.")]
     public static class GetExpressRouteCircuitAuthorization
     {
+        /// <summary>
+        /// Authorization in an ExpressRouteCircuit resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetExpressRouteCircuitAuthorizationResult> InvokeAsync(GetExpressRouteCircuitAuthorizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitAuthorizationResult>("azure-nextgen:network/latest:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationArgs(), options.WithVersion());
     }

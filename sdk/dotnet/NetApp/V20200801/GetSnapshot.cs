@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.NetApp.V20200801
 {
     public static class GetSnapshot
     {
+        /// <summary>
+        /// Snapshot of a Volume
+        /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-nextgen:netapp/v20200801:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
     }

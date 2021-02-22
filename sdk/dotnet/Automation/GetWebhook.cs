@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Automation
 {
     public static class GetWebhook
     {
+        /// <summary>
+        /// Definition of the webhook type.
+        /// API Version: 2015-10-31.
+        /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-nextgen:automation:getWebhook", args ?? new GetWebhookArgs(), options.WithVersion());
     }

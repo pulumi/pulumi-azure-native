@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 {
     public static class GetVpnSite
     {
+        /// <summary>
+        /// VpnSite Resource.
+        /// </summary>
         public static Task<GetVpnSiteResult> InvokeAsync(GetVpnSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpnSiteResult>("azure-nextgen:network/v20200701:getVpnSite", args ?? new GetVpnSiteArgs(), options.WithVersion());
     }

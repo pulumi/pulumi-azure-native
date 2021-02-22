@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
     public static class GetSqlPoolSensitivityLabel
     {
+        /// <summary>
+        /// A sensitivity label.
+        /// </summary>
         public static Task<GetSqlPoolSensitivityLabelResult> InvokeAsync(GetSqlPoolSensitivityLabelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolSensitivityLabelResult>("azure-nextgen:synapse/v20190601preview:getSqlPoolSensitivityLabel", args ?? new GetSqlPoolSensitivityLabelArgs(), options.WithVersion());
     }

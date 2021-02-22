@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EventHub
 {
     public static class GetNamespaceIpFilterRule
     {
+        /// <summary>
+        /// Single item in a List or Get IpFilterRules operation
+        /// API Version: 2018-01-01-preview.
+        /// </summary>
         public static Task<GetNamespaceIpFilterRuleResult> InvokeAsync(GetNamespaceIpFilterRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceIpFilterRuleResult>("azure-nextgen:eventhub:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleArgs(), options.WithVersion());
     }

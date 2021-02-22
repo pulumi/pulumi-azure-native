@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getRole'.")]
     public static class GetRole
     {
+        /// <summary>
+        /// Compute role.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("azure-nextgen:databoxedge/latest:getRole", args ?? new GetRoleArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
 {
     public static class GetDeploymentLogFileUrl
     {
+        /// <summary>
+        /// Log file URL payload
+        /// </summary>
         public static Task<GetDeploymentLogFileUrlResult> InvokeAsync(GetDeploymentLogFileUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentLogFileUrlResult>("azure-nextgen:appplatform/v20190501preview:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlArgs(), options.WithVersion());
     }

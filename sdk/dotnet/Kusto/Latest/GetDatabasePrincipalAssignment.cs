@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Kusto.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getDatabasePrincipalAssignment'.")]
     public static class GetDatabasePrincipalAssignment
     {
+        /// <summary>
+        /// Class representing a database principal assignment.
+        /// Latest API Version: 2020-09-18.
+        /// </summary>
         public static Task<GetDatabasePrincipalAssignmentResult> InvokeAsync(GetDatabasePrincipalAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabasePrincipalAssignmentResult>("azure-nextgen:kusto/latest:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentArgs(), options.WithVersion());
     }

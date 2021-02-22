@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights
 {
     public static class GetIncidentComment
     {
+        /// <summary>
+        /// Represents an incident comment
+        /// API Version: 2019-01-01-preview.
+        /// </summary>
         public static Task<GetIncidentCommentResult> InvokeAsync(GetIncidentCommentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentCommentResult>("azure-nextgen:securityinsights:getIncidentComment", args ?? new GetIncidentCommentArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Logic
 {
     public static class GetRosettaNetProcessConfiguration
     {
+        /// <summary>
+        /// The integration account RosettaNet process configuration.
+        /// API Version: 2016-06-01.
+        /// </summary>
         public static Task<GetRosettaNetProcessConfigurationResult> InvokeAsync(GetRosettaNetProcessConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRosettaNetProcessConfigurationResult>("azure-nextgen:logic:getRosettaNetProcessConfiguration", args ?? new GetRosettaNetProcessConfigurationArgs(), options.WithVersion());
     }

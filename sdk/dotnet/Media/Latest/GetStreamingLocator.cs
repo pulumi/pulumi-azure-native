@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Media.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingLocator'.")]
     public static class GetStreamingLocator
     {
+        /// <summary>
+        /// A Streaming Locator resource
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetStreamingLocatorResult> InvokeAsync(GetStreamingLocatorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingLocatorResult>("azure-nextgen:media/latest:getStreamingLocator", args ?? new GetStreamingLocatorArgs(), options.WithVersion());
     }

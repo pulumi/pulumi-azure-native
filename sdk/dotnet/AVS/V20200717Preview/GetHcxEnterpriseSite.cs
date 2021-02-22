@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 {
     public static class GetHcxEnterpriseSite
     {
+        /// <summary>
+        /// An HCX Enterprise Site resource
+        /// </summary>
         public static Task<GetHcxEnterpriseSiteResult> InvokeAsync(GetHcxEnterpriseSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHcxEnterpriseSiteResult>("azure-nextgen:avs/v20200717preview:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteArgs(), options.WithVersion());
     }

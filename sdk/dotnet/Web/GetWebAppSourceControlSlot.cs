@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class GetWebAppSourceControlSlot
     {
+        /// <summary>
+        /// Source control configuration for an app.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppSourceControlSlotResult> InvokeAsync(GetWebAppSourceControlSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlSlotResult>("azure-nextgen:web:getWebAppSourceControlSlot", args ?? new GetWebAppSourceControlSlotArgs(), options.WithVersion());
     }

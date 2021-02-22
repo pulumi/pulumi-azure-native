@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 {
     public static class GetIdentityProvider
     {
+        /// <summary>
+        /// Identity Provider details.
+        /// </summary>
         public static Task<GetIdentityProviderResult> InvokeAsync(GetIdentityProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIdentityProviderResult>("azure-nextgen:apimanagement/v20191201preview:getIdentityProvider", args ?? new GetIdentityProviderArgs(), options.WithVersion());
     }

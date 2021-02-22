@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetAuthorizationServer
     {
+        /// <summary>
+        /// External OAuth authorization server settings.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetAuthorizationServerResult> InvokeAsync(GetAuthorizationServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationServerResult>("azure-nextgen:apimanagement:getAuthorizationServer", args ?? new GetAuthorizationServerArgs(), options.WithVersion());
     }

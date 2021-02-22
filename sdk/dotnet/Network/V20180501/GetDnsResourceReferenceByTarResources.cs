@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20180501
 {
     public static class GetDnsResourceReferenceByTarResources
     {
+        /// <summary>
+        /// Represents the properties of the Dns Resource Reference Result.
+        /// </summary>
         public static Task<GetDnsResourceReferenceByTarResourcesResult> InvokeAsync(GetDnsResourceReferenceByTarResourcesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDnsResourceReferenceByTarResourcesResult>("azure-nextgen:network/v20180501:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesArgs(), options.WithVersion());
     }

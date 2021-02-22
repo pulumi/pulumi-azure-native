@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Synapse.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPool'.")]
     public static class GetSqlPool
     {
+        /// <summary>
+        /// A SQL Analytics pool
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetSqlPoolResult> InvokeAsync(GetSqlPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolResult>("azure-nextgen:synapse/latest:getSqlPool", args ?? new GetSqlPoolArgs(), options.WithVersion());
     }

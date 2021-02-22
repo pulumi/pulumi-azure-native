@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Storage
 {
     public static class GetStorageAccount
     {
+        /// <summary>
+        /// The storage account.
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-nextgen:storage:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
     }

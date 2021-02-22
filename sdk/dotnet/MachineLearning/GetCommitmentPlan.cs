@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.MachineLearning
 {
     public static class GetCommitmentPlan
     {
+        /// <summary>
+        /// An Azure ML commitment plan resource.
+        /// API Version: 2016-05-01-preview.
+        /// </summary>
         public static Task<GetCommitmentPlanResult> InvokeAsync(GetCommitmentPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azure-nextgen:machinelearning:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithVersion());
     }

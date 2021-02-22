@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Batch
 {
     public static class GetCertificate
     {
+        /// <summary>
+        /// Contains information about a certificate.
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-nextgen:batch:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }

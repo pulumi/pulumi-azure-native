@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 {
     public static class GetBlobContainerImmutabilityPolicy
     {
+        /// <summary>
+        /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+        /// </summary>
         public static Task<GetBlobContainerImmutabilityPolicyResult> InvokeAsync(GetBlobContainerImmutabilityPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerImmutabilityPolicyResult>("azure-nextgen:storage/v20200801preview:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyArgs(), options.WithVersion());
     }

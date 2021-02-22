@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.HybridNetwork
 {
     public static class ListDeviceRegistrationKey
     {
+        /// <summary>
+        /// The device registration key.
+        /// API Version: 2020-01-01-preview.
+        /// </summary>
         public static Task<ListDeviceRegistrationKeyResult> InvokeAsync(ListDeviceRegistrationKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceRegistrationKeyResult>("azure-nextgen:hybridnetwork:listDeviceRegistrationKey", args ?? new ListDeviceRegistrationKeyArgs(), options.WithVersion());
     }

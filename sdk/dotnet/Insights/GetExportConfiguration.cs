@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Insights
 {
     public static class GetExportConfiguration
     {
+        /// <summary>
+        /// Properties that define a Continuous Export configuration.
+        /// API Version: 2015-05-01.
+        /// </summary>
         public static Task<GetExportConfigurationResult> InvokeAsync(GetExportConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExportConfigurationResult>("azure-nextgen:insights:getExportConfiguration", args ?? new GetExportConfigurationArgs(), options.WithVersion());
     }

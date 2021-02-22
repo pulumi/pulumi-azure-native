@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataShare.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSynchronizations'.")]
     public static class ListShareSynchronizations
     {
+        /// <summary>
+        /// List response for get ShareSynchronization.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<ListShareSynchronizationsResult> InvokeAsync(ListShareSynchronizationsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListShareSynchronizationsResult>("azure-nextgen:datashare/latest:listShareSynchronizations", args ?? new ListShareSynchronizationsArgs(), options.WithVersion());
     }

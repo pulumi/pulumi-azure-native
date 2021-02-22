@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.LabServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getEnvironment'.")]
     public static class GetEnvironment
     {
+        /// <summary>
+        /// Represents an environment instance
+        /// Latest API Version: 2018-10-15.
+        /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-nextgen:labservices/latest:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
     }

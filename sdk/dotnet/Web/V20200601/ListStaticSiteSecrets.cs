@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 {
     public static class ListStaticSiteSecrets
     {
+        /// <summary>
+        /// String dictionary resource.
+        /// </summary>
         public static Task<ListStaticSiteSecretsResult> InvokeAsync(ListStaticSiteSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteSecretsResult>("azure-nextgen:web/v20200601:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsArgs(), options.WithVersion());
     }

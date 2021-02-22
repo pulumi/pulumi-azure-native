@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
 {
     public static class GetNamespaceAuthorizationRule
     {
+        /// <summary>
+        /// Description of a Namespace AuthorizationRules.
+        /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-nextgen:relay/v20160701:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithVersion());
     }

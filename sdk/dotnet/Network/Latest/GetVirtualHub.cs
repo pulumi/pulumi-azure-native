@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualHub'.")]
     public static class GetVirtualHub
     {
+        /// <summary>
+        /// VirtualHub Resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure-nextgen:network/latest:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithVersion());
     }

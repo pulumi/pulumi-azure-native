@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20180201
 {
     public static class ListWebAppApplicationSettings
     {
+        /// <summary>
+        /// String dictionary resource.
+        /// </summary>
         public static Task<ListWebAppApplicationSettingsResult> InvokeAsync(ListWebAppApplicationSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppApplicationSettingsResult>("azure-nextgen:web/v20180201:listWebAppApplicationSettings", args ?? new ListWebAppApplicationSettingsArgs(), options.WithVersion());
     }

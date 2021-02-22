@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listMachineLearningComputeNodes'.")]
     public static class ListMachineLearningComputeNodes
     {
+        /// <summary>
+        /// Compute node information related to a AmlCompute.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<ListMachineLearningComputeNodesResult> InvokeAsync(ListMachineLearningComputeNodesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeNodesResult>("azure-nextgen:machinelearningservices/latest:listMachineLearningComputeNodes", args ?? new ListMachineLearningComputeNodesArgs(), options.WithVersion());
     }

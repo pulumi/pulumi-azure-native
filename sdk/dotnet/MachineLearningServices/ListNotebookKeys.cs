@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
 {
     public static class ListNotebookKeys
     {
+        /// <summary>
+        /// 
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<ListNotebookKeysResult> InvokeAsync(ListNotebookKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNotebookKeysResult>("azure-nextgen:machinelearningservices:listNotebookKeys", args ?? new ListNotebookKeysArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Kusto.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getCluster'.")]
     public static class GetCluster
     {
+        /// <summary>
+        /// Class representing a Kusto cluster.
+        /// Latest API Version: 2020-09-18.
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:kusto/latest:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

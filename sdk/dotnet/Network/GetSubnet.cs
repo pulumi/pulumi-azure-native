@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetSubnet
     {
+        /// <summary>
+        /// Subnet in a virtual network resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure-nextgen:network:getSubnet", args ?? new GetSubnetArgs(), options.WithVersion());
     }

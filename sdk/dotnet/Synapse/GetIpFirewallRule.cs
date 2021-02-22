@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Synapse
 {
     public static class GetIpFirewallRule
     {
+        /// <summary>
+        /// IP firewall rule
+        /// API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetIpFirewallRuleResult> InvokeAsync(GetIpFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIpFirewallRuleResult>("azure-nextgen:synapse:getIpFirewallRule", args ?? new GetIpFirewallRuleArgs(), options.WithVersion());
     }

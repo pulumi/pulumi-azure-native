@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StorSimple
 {
     public static class ListManagerPublicEncryptionKey
     {
+        /// <summary>
+        /// Represents the secrets encrypted using Symmetric Encryption Key.
+        /// API Version: 2017-06-01.
+        /// </summary>
         public static Task<ListManagerPublicEncryptionKeyResult> InvokeAsync(ListManagerPublicEncryptionKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagerPublicEncryptionKeyResult>("azure-nextgen:storsimple:listManagerPublicEncryptionKey", args ?? new ListManagerPublicEncryptionKeyArgs(), options.WithVersion());
     }

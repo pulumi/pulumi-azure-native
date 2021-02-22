@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Sql.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServerAzureADAdministrator'.")]
     public static class GetServerAzureADAdministrator
     {
+        /// <summary>
+        /// An server Active Directory Administrator.
+        /// Latest API Version: 2014-04-01.
+        /// </summary>
         public static Task<GetServerAzureADAdministratorResult> InvokeAsync(GetServerAzureADAdministratorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADAdministratorResult>("azure-nextgen:sql/latest:getServerAzureADAdministrator", args ?? new GetServerAzureADAdministratorArgs(), options.WithVersion());
     }

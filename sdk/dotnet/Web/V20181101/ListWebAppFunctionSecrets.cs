@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20181101
 {
     public static class ListWebAppFunctionSecrets
     {
+        /// <summary>
+        /// Function secrets.
+        /// </summary>
         public static Task<ListWebAppFunctionSecretsResult> InvokeAsync(ListWebAppFunctionSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionSecretsResult>("azure-nextgen:web/v20181101:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsArgs(), options.WithVersion());
     }

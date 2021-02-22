@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.NetApp.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshotPolicy'.")]
     public static class GetSnapshotPolicy
     {
+        /// <summary>
+        /// Snapshot policy information
+        /// Latest API Version: 2020-11-01.
+        /// </summary>
         public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure-nextgen:netapp/latest:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithVersion());
     }

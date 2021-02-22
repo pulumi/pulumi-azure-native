@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Security
 {
     public static class GetIotSensor
     {
+        /// <summary>
+        /// IoT sensor model
+        /// API Version: 2020-08-06-preview.
+        /// </summary>
         public static Task<GetIotSensorResult> InvokeAsync(GetIotSensorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotSensorResult>("azure-nextgen:security:getIotSensor", args ?? new GetIotSensorArgs(), options.WithVersion());
     }

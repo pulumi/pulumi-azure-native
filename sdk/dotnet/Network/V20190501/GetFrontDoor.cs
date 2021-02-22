@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20190501
 {
     public static class GetFrontDoor
     {
+        /// <summary>
+        /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+        /// </summary>
         public static Task<GetFrontDoorResult> InvokeAsync(GetFrontDoorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFrontDoorResult>("azure-nextgen:network/v20190501:getFrontDoor", args ?? new GetFrontDoorArgs(), options.WithVersion());
     }

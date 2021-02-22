@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 {
     public static class GetScopeMap
     {
+        /// <summary>
+        /// An object that represents a scope map for a container registry.
+        /// </summary>
         public static Task<GetScopeMapResult> InvokeAsync(GetScopeMapArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScopeMapResult>("azure-nextgen:containerregistry/v20201101preview:getScopeMap", args ?? new GetScopeMapArgs(), options.WithVersion());
     }

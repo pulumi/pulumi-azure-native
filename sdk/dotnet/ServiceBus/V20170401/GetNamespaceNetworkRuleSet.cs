@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
 {
     public static class GetNamespaceNetworkRuleSet
     {
+        /// <summary>
+        /// Description of NetworkRuleSet resource.
+        /// </summary>
         public static Task<GetNamespaceNetworkRuleSetResult> InvokeAsync(GetNamespaceNetworkRuleSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceNetworkRuleSetResult>("azure-nextgen:servicebus/v20170401:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetArgs(), options.WithVersion());
     }

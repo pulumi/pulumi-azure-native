@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EdgeOrder
 {
     public static class GetOrderCollectionByName
     {
+        /// <summary>
+        /// Specifies the properties or parameters for an order collection. Order collection is a grouping of one or more orders.
+        /// API Version: 2020-12-01-preview.
+        /// </summary>
         public static Task<GetOrderCollectionByNameResult> InvokeAsync(GetOrderCollectionByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderCollectionByNameResult>("azure-nextgen:edgeorder:getOrderCollectionByName", args ?? new GetOrderCollectionByNameArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFlowLog'.")]
     public static class GetFlowLog
     {
+        /// <summary>
+        /// A flow log resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetFlowLogResult> InvokeAsync(GetFlowLogArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFlowLogResult>("azure-nextgen:network/latest:getFlowLog", args ?? new GetFlowLogArgs(), options.WithVersion());
     }

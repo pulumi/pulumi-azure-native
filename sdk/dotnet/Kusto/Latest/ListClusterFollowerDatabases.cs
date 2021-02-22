@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Kusto.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listClusterFollowerDatabases'.")]
     public static class ListClusterFollowerDatabases
     {
+        /// <summary>
+        /// The list Kusto database principals operation response.
+        /// Latest API Version: 2020-09-18.
+        /// </summary>
         public static Task<ListClusterFollowerDatabasesResult> InvokeAsync(ListClusterFollowerDatabasesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListClusterFollowerDatabasesResult>("azure-nextgen:kusto/latest:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesArgs(), options.WithVersion());
     }

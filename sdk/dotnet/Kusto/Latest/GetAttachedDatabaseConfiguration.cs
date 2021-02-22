@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Kusto.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getAttachedDatabaseConfiguration'.")]
     public static class GetAttachedDatabaseConfiguration
     {
+        /// <summary>
+        /// Class representing an attached database configuration.
+        /// Latest API Version: 2020-09-18.
+        /// </summary>
         public static Task<GetAttachedDatabaseConfigurationResult> InvokeAsync(GetAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-nextgen:kusto/latest:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithVersion());
     }

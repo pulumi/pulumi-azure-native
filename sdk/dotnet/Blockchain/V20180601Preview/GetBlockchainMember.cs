@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
 {
     public static class GetBlockchainMember
     {
+        /// <summary>
+        /// Payload of the blockchain member which is exposed in the request/response of the resource provider.
+        /// </summary>
         public static Task<GetBlockchainMemberResult> InvokeAsync(GetBlockchainMemberArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlockchainMemberResult>("azure-nextgen:blockchain/v20180601preview:getBlockchainMember", args ?? new GetBlockchainMemberArgs(), options.WithVersion());
     }

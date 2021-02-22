@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetPrivateLinkService
     {
+        /// <summary>
+        /// Private link service resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetPrivateLinkServiceResult> InvokeAsync(GetPrivateLinkServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServiceResult>("azure-nextgen:network:getPrivateLinkService", args ?? new GetPrivateLinkServiceArgs(), options.WithVersion());
     }

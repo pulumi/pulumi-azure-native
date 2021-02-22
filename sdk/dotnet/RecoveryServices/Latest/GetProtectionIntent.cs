@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionIntent'.")]
     public static class GetProtectionIntent
     {
+        /// <summary>
+        /// Base class for backup ProtectionIntent.
+        /// Latest API Version: 2017-07-01.
+        /// </summary>
         public static Task<GetProtectionIntentResult> InvokeAsync(GetProtectionIntentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azure-nextgen:recoveryservices/latest:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithVersion());
     }

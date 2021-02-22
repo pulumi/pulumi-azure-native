@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights
 {
     public static class GetPredictionModelStatus
     {
+        /// <summary>
+        /// The prediction model status.
+        /// API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetPredictionModelStatusResult> InvokeAsync(GetPredictionModelStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionModelStatusResult>("azure-nextgen:customerinsights:getPredictionModelStatus", args ?? new GetPredictionModelStatusArgs(), options.WithVersion());
     }

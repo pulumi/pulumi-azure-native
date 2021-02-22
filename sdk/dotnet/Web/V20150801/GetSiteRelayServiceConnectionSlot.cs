@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSiteRelayServiceConnectionSlot
     {
+        /// <summary>
+        /// Class that represents a BizTalk Hybrid Connection
+        /// </summary>
         public static Task<GetSiteRelayServiceConnectionSlotResult> InvokeAsync(GetSiteRelayServiceConnectionSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteRelayServiceConnectionSlotResult>("azure-nextgen:web/v20150801:getSiteRelayServiceConnectionSlot", args ?? new GetSiteRelayServiceConnectionSlotArgs(), options.WithVersion());
     }

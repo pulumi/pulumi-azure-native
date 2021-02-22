@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetVirtualNetworkGatewayVpnclientConnectionHealth
     {
+        /// <summary>
+        /// List of virtual network gateway vpn client connection health.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> InvokeAsync(GetVirtualNetworkGatewayVpnclientConnectionHealthArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayVpnclientConnectionHealthResult>("azure-nextgen:network:getVirtualNetworkGatewayVpnclientConnectionHealth", args ?? new GetVirtualNetworkGatewayVpnclientConnectionHealthArgs(), options.WithVersion());
     }

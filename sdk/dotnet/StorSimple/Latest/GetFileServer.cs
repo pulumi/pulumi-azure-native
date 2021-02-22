@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getFileServer'.")]
     public static class GetFileServer
     {
+        /// <summary>
+        /// The file server.
+        /// Latest API Version: 2016-10-01.
+        /// </summary>
         public static Task<GetFileServerResult> InvokeAsync(GetFileServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileServerResult>("azure-nextgen:storsimple/latest:getFileServer", args ?? new GetFileServerArgs(), options.WithVersion());
     }

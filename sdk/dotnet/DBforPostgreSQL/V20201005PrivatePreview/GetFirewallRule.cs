@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
 {
     public static class GetFirewallRule
     {
+        /// <summary>
+        /// Represents a server group firewall rule.
+        /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:dbforpostgresql/v20201005privatepreview:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }

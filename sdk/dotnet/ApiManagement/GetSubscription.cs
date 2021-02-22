@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetSubscription
     {
+        /// <summary>
+        /// Subscription details.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-nextgen:apimanagement:getSubscription", args ?? new GetSubscriptionArgs(), options.WithVersion());
     }

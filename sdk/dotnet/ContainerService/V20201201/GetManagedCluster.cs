@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
 {
     public static class GetManagedCluster
     {
+        /// <summary>
+        /// Managed cluster.
+        /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-nextgen:containerservice/v20201201:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithVersion());
     }

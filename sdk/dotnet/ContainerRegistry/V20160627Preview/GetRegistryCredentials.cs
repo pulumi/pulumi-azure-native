@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20160627Preview
 {
     public static class GetRegistryCredentials
     {
+        /// <summary>
+        /// The result of a request to get the administrator login credentials for a container registry.
+        /// </summary>
         public static Task<GetRegistryCredentialsResult> InvokeAsync(GetRegistryCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryCredentialsResult>("azure-nextgen:containerregistry/v20160627preview:getRegistryCredentials", args ?? new GetRegistryCredentialsArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
 {
     public static class GetDataSet
     {
+        /// <summary>
+        /// A DataSet data transfer object.
+        /// </summary>
         public static Task<GetDataSetResult> InvokeAsync(GetDataSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetResult>("azure-nextgen:datashare/v20181101preview:getDataSet", args ?? new GetDataSetArgs(), options.WithVersion());
     }

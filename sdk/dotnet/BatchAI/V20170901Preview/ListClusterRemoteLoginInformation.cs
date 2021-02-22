@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
 {
     public static class ListClusterRemoteLoginInformation
     {
+        /// <summary>
+        /// Values returned by the List operation.
+        /// </summary>
         public static Task<ListClusterRemoteLoginInformationResult> InvokeAsync(ListClusterRemoteLoginInformationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListClusterRemoteLoginInformationResult>("azure-nextgen:batchai/v20170901preview:listClusterRemoteLoginInformation", args ?? new ListClusterRemoteLoginInformationArgs(), options.WithVersion());
     }

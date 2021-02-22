@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
 {
     public static class GetExpressRouteCircuitPeering
     {
+        /// <summary>
+        /// Peering in a ExpressRouteCircuit resource
+        /// </summary>
         public static Task<GetExpressRouteCircuitPeeringResult> InvokeAsync(GetExpressRouteCircuitPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitPeeringResult>("azure-nextgen:network/v20150501preview:getExpressRouteCircuitPeering", args ?? new GetExpressRouteCircuitPeeringArgs(), options.WithVersion());
     }

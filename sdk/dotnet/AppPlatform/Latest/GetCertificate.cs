@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AppPlatform.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getCertificate'.")]
     public static class GetCertificate
     {
+        /// <summary>
+        /// Certificate resource payload.
+        /// Latest API Version: 2020-07-01.
+        /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-nextgen:appplatform/latest:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }

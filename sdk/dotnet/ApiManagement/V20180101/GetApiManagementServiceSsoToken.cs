@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
 {
     public static class GetApiManagementServiceSsoToken
     {
+        /// <summary>
+        /// The response of the GetSsoToken operation.
+        /// </summary>
         public static Task<GetApiManagementServiceSsoTokenResult> InvokeAsync(GetApiManagementServiceSsoTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceSsoTokenResult>("azure-nextgen:apimanagement/v20180101:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenArgs(), options.WithVersion());
     }

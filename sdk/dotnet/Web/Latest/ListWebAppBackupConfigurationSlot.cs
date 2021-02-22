@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupConfigurationSlot'.")]
     public static class ListWebAppBackupConfigurationSlot
     {
+        /// <summary>
+        /// Description of a backup which will be performed.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListWebAppBackupConfigurationSlotResult> InvokeAsync(ListWebAppBackupConfigurationSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupConfigurationSlotResult>("azure-nextgen:web/latest:listWebAppBackupConfigurationSlot", args ?? new ListWebAppBackupConfigurationSlotArgs(), options.WithVersion());
     }

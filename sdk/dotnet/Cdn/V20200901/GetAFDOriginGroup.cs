@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 {
     public static class GetAFDOriginGroup
     {
+        /// <summary>
+        /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+        /// </summary>
         public static Task<GetAFDOriginGroupResult> InvokeAsync(GetAFDOriginGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginGroupResult>("azure-nextgen:cdn/v20200901:getAFDOriginGroup", args ?? new GetAFDOriginGroupArgs(), options.WithVersion());
     }

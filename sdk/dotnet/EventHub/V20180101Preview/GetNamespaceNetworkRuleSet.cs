@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 {
     public static class GetNamespaceNetworkRuleSet
     {
+        /// <summary>
+        /// Description of topic resource.
+        /// </summary>
         public static Task<GetNamespaceNetworkRuleSetResult> InvokeAsync(GetNamespaceNetworkRuleSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceNetworkRuleSetResult>("azure-nextgen:eventhub/v20180101preview:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Logic.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountSchema'.")]
     public static class GetIntegrationAccountSchema
     {
+        /// <summary>
+        /// The integration account schema.
+        /// Latest API Version: 2019-05-01.
+        /// </summary>
         public static Task<GetIntegrationAccountSchemaResult> InvokeAsync(GetIntegrationAccountSchemaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountSchemaResult>("azure-nextgen:logic/latest:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Insights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getComponentCurrentBillingFeature'.")]
     public static class GetComponentCurrentBillingFeature
     {
+        /// <summary>
+        /// An Application Insights component billing features
+        /// Latest API Version: 2015-05-01.
+        /// </summary>
         public static Task<GetComponentCurrentBillingFeatureResult> InvokeAsync(GetComponentCurrentBillingFeatureArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComponentCurrentBillingFeatureResult>("azure-nextgen:insights/latest:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureArgs(), options.WithVersion());
     }

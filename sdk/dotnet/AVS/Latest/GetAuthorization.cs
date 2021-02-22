@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AVS.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getAuthorization'.")]
     public static class GetAuthorization
     {
+        /// <summary>
+        /// ExpressRoute Circuit Authorization
+        /// Latest API Version: 2020-03-20.
+        /// </summary>
         public static Task<GetAuthorizationResult> InvokeAsync(GetAuthorizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-nextgen:avs/latest:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 {
     public static class GetJobCredential
     {
+        /// <summary>
+        /// A stored credential that can be used by a job to connect to target databases.
+        /// </summary>
         public static Task<GetJobCredentialResult> InvokeAsync(GetJobCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobCredentialResult>("azure-nextgen:sql/v20200202preview:getJobCredential", args ?? new GetJobCredentialArgs(), options.WithVersion());
     }

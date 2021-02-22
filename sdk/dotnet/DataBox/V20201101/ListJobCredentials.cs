@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101
 {
     public static class ListJobCredentials
     {
+        /// <summary>
+        /// List of unencrypted credentials for accessing device.
+        /// </summary>
         public static Task<ListJobCredentialsResult> InvokeAsync(ListJobCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListJobCredentialsResult>("azure-nextgen:databox/v20201101:listJobCredentials", args ?? new ListJobCredentialsArgs(), options.WithVersion());
     }

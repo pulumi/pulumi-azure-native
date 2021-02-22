@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataFactory.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getIntegrationRuntimeConnectionInfo'.")]
     public static class GetIntegrationRuntimeConnectionInfo
     {
+        /// <summary>
+        /// Connection information for encrypting the on-premises data source credentials.
+        /// Latest API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetIntegrationRuntimeConnectionInfoResult> InvokeAsync(GetIntegrationRuntimeConnectionInfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeConnectionInfoResult>("azure-nextgen:datafactory/latest:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoArgs(), options.WithVersion());
     }

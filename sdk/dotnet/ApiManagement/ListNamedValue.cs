@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class ListNamedValue
     {
+        /// <summary>
+        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<ListNamedValueResult> InvokeAsync(ListNamedValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNamedValueResult>("azure-nextgen:apimanagement:listNamedValue", args ?? new ListNamedValueArgs(), options.WithVersion());
     }

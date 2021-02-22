@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
 {
     public static class ListShareSubscriptionSynchronizationDetails
     {
+        /// <summary>
+        /// details of synchronization
+        /// </summary>
         public static Task<ListShareSubscriptionSynchronizationDetailsResult> InvokeAsync(ListShareSubscriptionSynchronizationDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListShareSubscriptionSynchronizationDetailsResult>("azure-nextgen:datashare/v20181101preview:listShareSubscriptionSynchronizationDetails", args ?? new ListShareSubscriptionSynchronizationDetailsArgs(), options.WithVersion());
     }

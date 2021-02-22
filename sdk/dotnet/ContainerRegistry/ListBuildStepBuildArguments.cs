@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
 {
     public static class ListBuildStepBuildArguments
     {
+        /// <summary>
+        /// The list of build arguments for a build step.
+        /// API Version: 2018-02-01-preview.
+        /// </summary>
         public static Task<ListBuildStepBuildArgumentsResult> InvokeAsync(ListBuildStepBuildArgumentsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBuildStepBuildArgumentsResult>("azure-nextgen:containerregistry:listBuildStepBuildArguments", args ?? new ListBuildStepBuildArgumentsArgs(), options.WithVersion());
     }

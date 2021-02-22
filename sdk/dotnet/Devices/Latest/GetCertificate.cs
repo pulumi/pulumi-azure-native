@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Devices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getCertificate'.")]
     public static class GetCertificate
     {
+        /// <summary>
+        /// The X509 Certificate.
+        /// Latest API Version: 2020-08-31.
+        /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-nextgen:devices/latest:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }

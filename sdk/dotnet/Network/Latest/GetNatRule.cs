@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNatRule'.")]
     public static class GetNatRule
     {
+        /// <summary>
+        /// VpnGatewayNatRule Resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetNatRuleResult> InvokeAsync(GetNatRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNatRuleResult>("azure-nextgen:network/latest:getNatRule", args ?? new GetNatRuleArgs(), options.WithVersion());
     }

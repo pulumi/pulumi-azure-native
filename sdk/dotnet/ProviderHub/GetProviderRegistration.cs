@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ProviderHub
 {
     public static class GetProviderRegistration
     {
+        /// <summary>
+        /// 
+        /// API Version: 2020-11-20.
+        /// </summary>
         public static Task<GetProviderRegistrationResult> InvokeAsync(GetProviderRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProviderRegistrationResult>("azure-nextgen:providerhub:getProviderRegistration", args ?? new GetProviderRegistrationArgs(), options.WithVersion());
     }

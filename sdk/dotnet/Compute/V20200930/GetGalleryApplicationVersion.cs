@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
 {
     public static class GetGalleryApplicationVersion
     {
+        /// <summary>
+        /// Specifies information about the gallery Application Version that you want to create or update.
+        /// </summary>
         public static Task<GetGalleryApplicationVersionResult> InvokeAsync(GetGalleryApplicationVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryApplicationVersionResult>("azure-nextgen:compute/v20200930:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionArgs(), options.WithVersion());
     }

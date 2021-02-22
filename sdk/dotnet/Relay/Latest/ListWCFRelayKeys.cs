@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Relay.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:listWCFRelayKeys'.")]
     public static class ListWCFRelayKeys
     {
+        /// <summary>
+        /// Namespace/Relay Connection String
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<ListWCFRelayKeysResult> InvokeAsync(ListWCFRelayKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWCFRelayKeysResult>("azure-nextgen:relay/latest:listWCFRelayKeys", args ?? new ListWCFRelayKeysArgs(), options.WithVersion());
     }

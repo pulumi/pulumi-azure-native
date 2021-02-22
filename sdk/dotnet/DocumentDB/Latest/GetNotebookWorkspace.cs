@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getNotebookWorkspace'.")]
     public static class GetNotebookWorkspace
     {
+        /// <summary>
+        /// A notebook workspace resource
+        /// Latest API Version: 2021-01-15.
+        /// </summary>
         public static Task<GetNotebookWorkspaceResult> InvokeAsync(GetNotebookWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookWorkspaceResult>("azure-nextgen:documentdb/latest:getNotebookWorkspace", args ?? new GetNotebookWorkspaceArgs(), options.WithVersion());
     }

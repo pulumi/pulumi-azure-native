@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ServiceBus.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getMigrationConfig'.")]
     public static class GetMigrationConfig
     {
+        /// <summary>
+        /// Single item in List or Get Migration Config operation
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetMigrationConfigResult> InvokeAsync(GetMigrationConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-nextgen:servicebus/latest:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithVersion());
     }

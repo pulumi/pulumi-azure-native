@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
 {
     public static class GetFactory
     {
+        /// <summary>
+        /// Factory resource type.
+        /// </summary>
         public static Task<GetFactoryResult> InvokeAsync(GetFactoryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryResult>("azure-nextgen:datafactory/v20170901preview:getFactory", args ?? new GetFactoryArgs(), options.WithVersion());
     }

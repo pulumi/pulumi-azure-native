@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetBastionShareableLink
     {
+        /// <summary>
+        /// Response for all the Bastion Shareable Link endpoints.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetBastionShareableLinkResult> InvokeAsync(GetBastionShareableLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBastionShareableLinkResult>("azure-nextgen:network:getBastionShareableLink", args ?? new GetBastionShareableLinkArgs(), options.WithVersion());
     }

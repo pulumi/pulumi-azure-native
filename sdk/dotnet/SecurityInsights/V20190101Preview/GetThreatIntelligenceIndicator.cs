@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     public static class GetThreatIntelligenceIndicator
     {
+        /// <summary>
+        /// Threat intelligence information object.
+        /// </summary>
         public static Task<GetThreatIntelligenceIndicatorResult> InvokeAsync(GetThreatIntelligenceIndicatorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelligenceIndicatorResult>("azure-nextgen:securityinsights/v20190101preview:getThreatIntelligenceIndicator", args ?? new GetThreatIntelligenceIndicatorArgs(), options.WithVersion());
     }

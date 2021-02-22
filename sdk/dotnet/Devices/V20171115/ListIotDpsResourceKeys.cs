@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Devices.V20171115
 {
     public static class ListIotDpsResourceKeys
     {
+        /// <summary>
+        /// List of shared access keys.
+        /// </summary>
         public static Task<ListIotDpsResourceKeysResult> InvokeAsync(ListIotDpsResourceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysResult>("azure-nextgen:devices/v20171115:listIotDpsResourceKeys", args ?? new ListIotDpsResourceKeysArgs(), options.WithVersion());
     }

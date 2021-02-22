@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 {
     public static class GetLoadBalancerBackendAddressPool
     {
+        /// <summary>
+        /// Pool of backend IP addresses.
+        /// </summary>
         public static Task<GetLoadBalancerBackendAddressPoolResult> InvokeAsync(GetLoadBalancerBackendAddressPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerBackendAddressPoolResult>("azure-nextgen:network/v20200701:getLoadBalancerBackendAddressPool", args ?? new GetLoadBalancerBackendAddressPoolArgs(), options.WithVersion());
     }

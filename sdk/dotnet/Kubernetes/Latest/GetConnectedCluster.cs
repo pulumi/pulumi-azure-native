@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Kubernetes.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kubernetes:getConnectedCluster'.")]
     public static class GetConnectedCluster
     {
+        /// <summary>
+        /// Represents a connected cluster.
+        /// Latest API Version: 2021-03-01.
+        /// </summary>
         public static Task<GetConnectedClusterResult> InvokeAsync(GetConnectedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectedClusterResult>("azure-nextgen:kubernetes/latest:getConnectedCluster", args ?? new GetConnectedClusterArgs(), options.WithVersion());
     }

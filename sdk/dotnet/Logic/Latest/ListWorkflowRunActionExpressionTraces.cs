@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Logic.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowRunActionExpressionTraces'.")]
     public static class ListWorkflowRunActionExpressionTraces
     {
+        /// <summary>
+        /// The expression traces.
+        /// Latest API Version: 2019-05-01.
+        /// </summary>
         public static Task<ListWorkflowRunActionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionExpressionTracesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionExpressionTracesResult>("azure-nextgen:logic/latest:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesArgs(), options.WithVersion());
     }

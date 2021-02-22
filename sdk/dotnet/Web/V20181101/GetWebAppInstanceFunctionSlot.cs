@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20181101
 {
     public static class GetWebAppInstanceFunctionSlot
     {
+        /// <summary>
+        /// Web Job Information.
+        /// </summary>
         public static Task<GetWebAppInstanceFunctionSlotResult> InvokeAsync(GetWebAppInstanceFunctionSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppInstanceFunctionSlotResult>("azure-nextgen:web/v20181101:getWebAppInstanceFunctionSlot", args ?? new GetWebAppInstanceFunctionSlotArgs(), options.WithVersion());
     }

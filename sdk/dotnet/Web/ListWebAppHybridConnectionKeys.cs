@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class ListWebAppHybridConnectionKeys
     {
+        /// <summary>
+        /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+        /// API Version: 2018-11-01.
+        /// </summary>
         public static Task<ListWebAppHybridConnectionKeysResult> InvokeAsync(ListWebAppHybridConnectionKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHybridConnectionKeysResult>("azure-nextgen:web:listWebAppHybridConnectionKeys", args ?? new ListWebAppHybridConnectionKeysArgs(), options.WithVersion());
     }

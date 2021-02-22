@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 {
     public static class GetConnectedRegistry
     {
+        /// <summary>
+        /// An object that represents a connected registry for a container registry.
+        /// </summary>
         public static Task<GetConnectedRegistryResult> InvokeAsync(GetConnectedRegistryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectedRegistryResult>("azure-nextgen:containerregistry/v20201101preview:getConnectedRegistry", args ?? new GetConnectedRegistryArgs(), options.WithVersion());
     }

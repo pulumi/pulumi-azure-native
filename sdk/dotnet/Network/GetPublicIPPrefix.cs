@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetPublicIPPrefix
     {
+        /// <summary>
+        /// Public IP prefix resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetPublicIPPrefixResult> InvokeAsync(GetPublicIPPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPPrefixResult>("azure-nextgen:network:getPublicIPPrefix", args ?? new GetPublicIPPrefixArgs(), options.WithVersion());
     }

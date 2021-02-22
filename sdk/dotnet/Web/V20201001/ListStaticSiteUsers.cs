@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20201001
 {
     public static class ListStaticSiteUsers
     {
+        /// <summary>
+        /// Collection of static site custom users.
+        /// </summary>
         public static Task<ListStaticSiteUsersResult> InvokeAsync(ListStaticSiteUsersArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteUsersResult>("azure-nextgen:web/v20201001:listStaticSiteUsers", args ?? new ListStaticSiteUsersArgs(), options.WithVersion());
     }

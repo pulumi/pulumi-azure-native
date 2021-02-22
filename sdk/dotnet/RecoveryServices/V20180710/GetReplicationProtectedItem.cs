@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
 {
     public static class GetReplicationProtectedItem
     {
+        /// <summary>
+        /// Replication protected item.
+        /// </summary>
         public static Task<GetReplicationProtectedItemResult> InvokeAsync(GetReplicationProtectedItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectedItemResult>("azure-nextgen:recoveryservices/v20180710:getReplicationProtectedItem", args ?? new GetReplicationProtectedItemArgs(), options.WithVersion());
     }

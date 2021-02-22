@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSiteHostNameBinding
     {
+        /// <summary>
+        /// A host name binding object
+        /// </summary>
         public static Task<GetSiteHostNameBindingResult> InvokeAsync(GetSiteHostNameBindingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteHostNameBindingResult>("azure-nextgen:web/v20150801:getSiteHostNameBinding", args ?? new GetSiteHostNameBindingArgs(), options.WithVersion());
     }

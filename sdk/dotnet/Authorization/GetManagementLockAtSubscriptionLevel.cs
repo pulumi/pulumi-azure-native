@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Authorization
 {
     public static class GetManagementLockAtSubscriptionLevel
     {
+        /// <summary>
+        /// The lock information.
+        /// API Version: 2016-09-01.
+        /// </summary>
         public static Task<GetManagementLockAtSubscriptionLevelResult> InvokeAsync(GetManagementLockAtSubscriptionLevelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtSubscriptionLevelResult>("azure-nextgen:authorization:getManagementLockAtSubscriptionLevel", args ?? new GetManagementLockAtSubscriptionLevelArgs(), options.WithVersion());
     }

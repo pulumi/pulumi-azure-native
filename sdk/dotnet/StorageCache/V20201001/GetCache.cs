@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
 {
     public static class GetCache
     {
+        /// <summary>
+        /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+        /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-nextgen:storagecache/v20201001:getCache", args ?? new GetCacheArgs(), options.WithVersion());
     }

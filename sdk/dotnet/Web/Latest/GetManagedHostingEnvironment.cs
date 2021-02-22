@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getManagedHostingEnvironment'.")]
     public static class GetManagedHostingEnvironment
     {
+        /// <summary>
+        /// Description of an hostingEnvironment (App Service Environment)
+        /// Latest API Version: 2015-08-01.
+        /// </summary>
         public static Task<GetManagedHostingEnvironmentResult> InvokeAsync(GetManagedHostingEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHostingEnvironmentResult>("azure-nextgen:web/latest:getManagedHostingEnvironment", args ?? new GetManagedHostingEnvironmentArgs(), options.WithVersion());
     }

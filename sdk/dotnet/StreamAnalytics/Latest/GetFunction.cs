@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getFunction'.")]
     public static class GetFunction
     {
+        /// <summary>
+        /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+        /// Latest API Version: 2016-03-01.
+        /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("azure-nextgen:streamanalytics/latest:getFunction", args ?? new GetFunctionArgs(), options.WithVersion());
     }

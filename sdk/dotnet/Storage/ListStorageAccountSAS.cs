@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Storage
 {
     public static class ListStorageAccountSAS
     {
+        /// <summary>
+        /// The List SAS credentials operation response.
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<ListStorageAccountSASResult> InvokeAsync(ListStorageAccountSASArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSASResult>("azure-nextgen:storage:listStorageAccountSAS", args ?? new ListStorageAccountSASArgs(), options.WithVersion());
     }

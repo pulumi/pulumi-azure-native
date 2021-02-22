@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 {
     public static class GetAssetEncryptionKey
     {
+        /// <summary>
+        /// Data needed to decrypt asset files encrypted with legacy storage encryption.
+        /// </summary>
         public static Task<GetAssetEncryptionKeyResult> InvokeAsync(GetAssetEncryptionKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssetEncryptionKeyResult>("azure-nextgen:media/v20200501:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyArgs(), options.WithVersion());
     }

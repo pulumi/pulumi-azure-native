@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
 {
     public static class ListRunLogSasUrl
     {
+        /// <summary>
+        /// The result of get log link operation.
+        /// API Version: 2019-04-01.
+        /// </summary>
         public static Task<ListRunLogSasUrlResult> InvokeAsync(ListRunLogSasUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRunLogSasUrlResult>("azure-nextgen:containerregistry:listRunLogSasUrl", args ?? new ListRunLogSasUrlArgs(), options.WithVersion());
     }

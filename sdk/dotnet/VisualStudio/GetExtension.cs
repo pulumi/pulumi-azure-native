@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.VisualStudio
 {
     public static class GetExtension
     {
+        /// <summary>
+        /// The response to an extension resource GET request.
+        /// API Version: 2014-04-01-preview.
+        /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-nextgen:visualstudio:getExtension", args ?? new GetExtensionArgs(), options.WithVersion());
     }

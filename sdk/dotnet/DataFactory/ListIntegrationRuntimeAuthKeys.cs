@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataFactory
 {
     public static class ListIntegrationRuntimeAuthKeys
     {
+        /// <summary>
+        /// The integration runtime authentication keys.
+        /// API Version: 2018-06-01.
+        /// </summary>
         public static Task<ListIntegrationRuntimeAuthKeysResult> InvokeAsync(ListIntegrationRuntimeAuthKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationRuntimeAuthKeysResult>("azure-nextgen:datafactory:listIntegrationRuntimeAuthKeys", args ?? new ListIntegrationRuntimeAuthKeysArgs(), options.WithVersion());
     }

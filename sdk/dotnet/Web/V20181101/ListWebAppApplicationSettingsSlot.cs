@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20181101
 {
     public static class ListWebAppApplicationSettingsSlot
     {
+        /// <summary>
+        /// String dictionary resource.
+        /// </summary>
         public static Task<ListWebAppApplicationSettingsSlotResult> InvokeAsync(ListWebAppApplicationSettingsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppApplicationSettingsSlotResult>("azure-nextgen:web/v20181101:listWebAppApplicationSettingsSlot", args ?? new ListWebAppApplicationSettingsSlotArgs(), options.WithVersion());
     }

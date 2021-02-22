@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listStaticSiteFunctionAppSettings'.")]
     public static class ListStaticSiteFunctionAppSettings
     {
+        /// <summary>
+        /// String dictionary resource.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListStaticSiteFunctionAppSettingsResult> InvokeAsync(ListStaticSiteFunctionAppSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteFunctionAppSettingsResult>("azure-nextgen:web/latest:listStaticSiteFunctionAppSettings", args ?? new ListStaticSiteFunctionAppSettingsArgs(), options.WithVersion());
     }

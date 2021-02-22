@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetVirtualNetworkPeering
     {
+        /// <summary>
+        /// Peerings in a virtual network resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetVirtualNetworkPeeringResult> InvokeAsync(GetVirtualNetworkPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkPeeringResult>("azure-nextgen:network:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringArgs(), options.WithVersion());
     }

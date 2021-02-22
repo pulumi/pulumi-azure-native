@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StorSimple
 {
     public static class ListManagerActivationKey
     {
+        /// <summary>
+        /// The key.
+        /// API Version: 2017-06-01.
+        /// </summary>
         public static Task<ListManagerActivationKeyResult> InvokeAsync(ListManagerActivationKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagerActivationKeyResult>("azure-nextgen:storsimple:listManagerActivationKey", args ?? new ListManagerActivationKeyArgs(), options.WithVersion());
     }

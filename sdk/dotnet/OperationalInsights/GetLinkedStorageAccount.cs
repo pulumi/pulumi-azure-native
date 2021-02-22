@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights
 {
     public static class GetLinkedStorageAccount
     {
+        /// <summary>
+        /// Linked storage accounts top level resource container.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetLinkedStorageAccountResult> InvokeAsync(GetLinkedStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedStorageAccountResult>("azure-nextgen:operationalinsights:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountArgs(), options.WithVersion());
     }

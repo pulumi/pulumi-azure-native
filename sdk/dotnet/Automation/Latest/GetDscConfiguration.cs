@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Automation.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getDscConfiguration'.")]
     public static class GetDscConfiguration
     {
+        /// <summary>
+        /// Definition of the configuration type.
+        /// Latest API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetDscConfigurationResult> InvokeAsync(GetDscConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDscConfigurationResult>("azure-nextgen:automation/latest:getDscConfiguration", args ?? new GetDscConfigurationArgs(), options.WithVersion());
     }

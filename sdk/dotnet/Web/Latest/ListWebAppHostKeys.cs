@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHostKeys'.")]
     public static class ListWebAppHostKeys
     {
+        /// <summary>
+        /// Functions host level keys.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListWebAppHostKeysResult> InvokeAsync(ListWebAppHostKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHostKeysResult>("azure-nextgen:web/latest:listWebAppHostKeys", args ?? new ListWebAppHostKeysArgs(), options.WithVersion());
     }

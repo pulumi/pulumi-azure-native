@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Sql
 {
     public static class GetSyncMember
     {
+        /// <summary>
+        /// An Azure SQL Database sync member.
+        /// API Version: 2020-08-01-preview.
+        /// </summary>
         public static Task<GetSyncMemberResult> InvokeAsync(GetSyncMemberArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSyncMemberResult>("azure-nextgen:sql:getSyncMember", args ?? new GetSyncMemberArgs(), options.WithVersion());
     }

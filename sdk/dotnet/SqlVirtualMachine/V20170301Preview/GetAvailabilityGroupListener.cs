@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
 {
     public static class GetAvailabilityGroupListener
     {
+        /// <summary>
+        /// A SQL Server availability group listener.
+        /// </summary>
         public static Task<GetAvailabilityGroupListenerResult> InvokeAsync(GetAvailabilityGroupListenerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityGroupListenerResult>("azure-nextgen:sqlvirtualmachine/v20170301preview:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerArgs(), options.WithVersion());
     }

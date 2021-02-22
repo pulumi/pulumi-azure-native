@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Search.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:getService'.")]
     public static class GetService
     {
+        /// <summary>
+        /// Describes an Azure Cognitive Search service and its current state.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:search/latest:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }

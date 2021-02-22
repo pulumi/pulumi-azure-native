@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Devices.V20200301
 {
     public static class GetIotDpsResourcePrivateEndpointConnection
     {
+        /// <summary>
+        /// The private endpoint connection of a provisioning service
+        /// </summary>
         public static Task<GetIotDpsResourcePrivateEndpointConnectionResult> InvokeAsync(GetIotDpsResourcePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourcePrivateEndpointConnectionResult>("azure-nextgen:devices/v20200301:getIotDpsResourcePrivateEndpointConnection", args ?? new GetIotDpsResourcePrivateEndpointConnectionArgs(), options.WithVersion());
     }

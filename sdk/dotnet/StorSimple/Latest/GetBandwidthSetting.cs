@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBandwidthSetting'.")]
     public static class GetBandwidthSetting
     {
+        /// <summary>
+        /// The bandwidth setting.
+        /// Latest API Version: 2017-06-01.
+        /// </summary>
         public static Task<GetBandwidthSettingResult> InvokeAsync(GetBandwidthSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthSettingResult>("azure-nextgen:storsimple/latest:getBandwidthSetting", args ?? new GetBandwidthSettingArgs(), options.WithVersion());
     }

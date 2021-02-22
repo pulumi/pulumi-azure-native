@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 {
     public static class GetVirtualRouter
     {
+        /// <summary>
+        /// VirtualRouter Resource.
+        /// </summary>
         public static Task<GetVirtualRouterResult> InvokeAsync(GetVirtualRouterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterResult>("azure-nextgen:network/v20200701:getVirtualRouter", args ?? new GetVirtualRouterArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.CostManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getView'.")]
     public static class GetView
     {
+        /// <summary>
+        /// States and configurations of Cost Analysis.
+        /// Latest API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetViewResult> InvokeAsync(GetViewArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-nextgen:costmanagement/latest:getView", args ?? new GetViewArgs(), options.WithVersion());
     }

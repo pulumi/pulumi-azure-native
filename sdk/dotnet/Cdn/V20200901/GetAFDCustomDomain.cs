@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 {
     public static class GetAFDCustomDomain
     {
+        /// <summary>
+        /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+        /// </summary>
         public static Task<GetAFDCustomDomainResult> InvokeAsync(GetAFDCustomDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAFDCustomDomainResult>("azure-nextgen:cdn/v20200901:getAFDCustomDomain", args ?? new GetAFDCustomDomainArgs(), options.WithVersion());
     }

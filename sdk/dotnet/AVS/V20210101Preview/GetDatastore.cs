@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AVS.V20210101Preview
 {
     public static class GetDatastore
     {
+        /// <summary>
+        /// A datastore resource
+        /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-nextgen:avs/v20210101preview:getDatastore", args ?? new GetDatastoreArgs(), options.WithVersion());
     }

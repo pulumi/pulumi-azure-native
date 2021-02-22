@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview
 {
     public static class GetCloudService
     {
+        /// <summary>
+        /// Describes the cloud service.
+        /// </summary>
         public static Task<GetCloudServiceResult> InvokeAsync(GetCloudServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudServiceResult>("azure-nextgen:compute/v20201001preview:getCloudService", args ?? new GetCloudServiceArgs(), options.WithVersion());
     }

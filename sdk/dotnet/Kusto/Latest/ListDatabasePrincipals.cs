@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Kusto.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listDatabasePrincipals'.")]
     public static class ListDatabasePrincipals
     {
+        /// <summary>
+        /// The list Kusto database principals operation response.
+        /// Latest API Version: 2020-09-18.
+        /// </summary>
         public static Task<ListDatabasePrincipalsResult> InvokeAsync(ListDatabasePrincipalsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabasePrincipalsResult>("azure-nextgen:kusto/latest:listDatabasePrincipals", args ?? new ListDatabasePrincipalsArgs(), options.WithVersion());
     }

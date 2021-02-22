@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 {
     public static class ListWebAppSyncFunctionTriggersSlot
     {
+        /// <summary>
+        /// Function secrets.
+        /// </summary>
         public static Task<ListWebAppSyncFunctionTriggersSlotResult> InvokeAsync(ListWebAppSyncFunctionTriggersSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSyncFunctionTriggersSlotResult>("azure-nextgen:web/v20200601:listWebAppSyncFunctionTriggersSlot", args ?? new ListWebAppSyncFunctionTriggersSlotArgs(), options.WithVersion());
     }

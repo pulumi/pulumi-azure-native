@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.LabServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getLabAccount'.")]
     public static class GetLabAccount
     {
+        /// <summary>
+        /// Represents a lab account.
+        /// Latest API Version: 2018-10-15.
+        /// </summary>
         public static Task<GetLabAccountResult> InvokeAsync(GetLabAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountResult>("azure-nextgen:labservices/latest:getLabAccount", args ?? new GetLabAccountArgs(), options.WithVersion());
     }

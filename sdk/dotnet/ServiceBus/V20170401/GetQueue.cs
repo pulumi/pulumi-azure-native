@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
 {
     public static class GetQueue
     {
+        /// <summary>
+        /// Description of queue Resource.
+        /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-nextgen:servicebus/v20170401:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
     }

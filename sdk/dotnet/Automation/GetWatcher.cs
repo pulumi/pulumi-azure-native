@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Automation
 {
     public static class GetWatcher
     {
+        /// <summary>
+        /// Definition of the watcher type.
+        /// API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetWatcherResult> InvokeAsync(GetWatcherArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWatcherResult>("azure-nextgen:automation:getWatcher", args ?? new GetWatcherArgs(), options.WithVersion());
     }

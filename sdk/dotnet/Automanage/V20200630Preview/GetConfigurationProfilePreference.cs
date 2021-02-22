@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
 {
     public static class GetConfigurationProfilePreference
     {
+        /// <summary>
+        /// Definition of the configuration profile preference.
+        /// </summary>
         public static Task<GetConfigurationProfilePreferenceResult> InvokeAsync(GetConfigurationProfilePreferenceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilePreferenceResult>("azure-nextgen:automanage/v20200630preview:getConfigurationProfilePreference", args ?? new GetConfigurationProfilePreferenceArgs(), options.WithVersion());
     }

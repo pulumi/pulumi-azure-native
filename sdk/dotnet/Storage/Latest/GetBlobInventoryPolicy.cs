@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Storage.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobInventoryPolicy'.")]
     public static class GetBlobInventoryPolicy
     {
+        /// <summary>
+        /// The storage account blob inventory policy.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetBlobInventoryPolicyResult> InvokeAsync(GetBlobInventoryPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobInventoryPolicyResult>("azure-nextgen:storage/latest:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyArgs(), options.WithVersion());
     }

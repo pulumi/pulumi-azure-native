@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
 {
     public static class GetNotebookWorkspace
     {
+        /// <summary>
+        /// A notebook workspace resource
+        /// </summary>
         public static Task<GetNotebookWorkspaceResult> InvokeAsync(GetNotebookWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookWorkspaceResult>("azure-nextgen:documentdb/v20191212:getNotebookWorkspace", args ?? new GetNotebookWorkspaceArgs(), options.WithVersion());
     }

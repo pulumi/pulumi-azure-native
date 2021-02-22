@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DBforMySQL.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getServerKey'.")]
     public static class GetServerKey
     {
+        /// <summary>
+        /// A MySQL Server key.
+        /// Latest API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-nextgen:dbformysql/latest:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
     }

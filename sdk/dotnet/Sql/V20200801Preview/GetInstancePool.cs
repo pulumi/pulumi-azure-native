@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 {
     public static class GetInstancePool
     {
+        /// <summary>
+        /// An Azure SQL instance pool.
+        /// </summary>
         public static Task<GetInstancePoolResult> InvokeAsync(GetInstancePoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstancePoolResult>("azure-nextgen:sql/v20200801preview:getInstancePool", args ?? new GetInstancePoolArgs(), options.WithVersion());
     }

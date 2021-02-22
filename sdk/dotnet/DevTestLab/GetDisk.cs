@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DevTestLab
 {
     public static class GetDisk
     {
+        /// <summary>
+        /// A Disk.
+        /// API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-nextgen:devtestlab:getDisk", args ?? new GetDiskArgs(), options.WithVersion());
     }

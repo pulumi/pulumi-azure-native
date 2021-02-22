@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:listDatabaseAccountConnectionStrings'.")]
     public static class ListDatabaseAccountConnectionStrings
     {
+        /// <summary>
+        /// The connection strings for the given database account.
+        /// Latest API Version: 2021-01-15.
+        /// </summary>
         public static Task<ListDatabaseAccountConnectionStringsResult> InvokeAsync(ListDatabaseAccountConnectionStringsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountConnectionStringsResult>("azure-nextgen:documentdb/latest:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsArgs(), options.WithVersion());
     }

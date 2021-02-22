@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
     public static class GetPrivateEndpointConnection
     {
+        /// <summary>
+        /// A private endpoint connection
+        /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-nextgen:synapse/v20190601preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
     }

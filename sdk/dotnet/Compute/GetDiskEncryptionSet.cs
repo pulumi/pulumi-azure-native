@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Compute
 {
     public static class GetDiskEncryptionSet
     {
+        /// <summary>
+        /// disk encryption set resource.
+        /// API Version: 2020-09-30.
+        /// </summary>
         public static Task<GetDiskEncryptionSetResult> InvokeAsync(GetDiskEncryptionSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure-nextgen:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetArgs(), options.WithVersion());
     }

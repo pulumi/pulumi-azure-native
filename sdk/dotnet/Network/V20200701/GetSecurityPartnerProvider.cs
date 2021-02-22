@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 {
     public static class GetSecurityPartnerProvider
     {
+        /// <summary>
+        /// Security Partner Provider resource.
+        /// </summary>
         public static Task<GetSecurityPartnerProviderResult> InvokeAsync(GetSecurityPartnerProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPartnerProviderResult>("azure-nextgen:network/v20200701:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderArgs(), options.WithVersion());
     }

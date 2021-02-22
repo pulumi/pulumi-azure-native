@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetApplicationSecurityGroup
     {
+        /// <summary>
+        /// An application security group in a resource group.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetApplicationSecurityGroupResult> InvokeAsync(GetApplicationSecurityGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationSecurityGroupResult>("azure-nextgen:network:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupArgs(), options.WithVersion());
     }

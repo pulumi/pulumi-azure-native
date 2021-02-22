@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.NetApp
 {
     public static class GetPool
     {
+        /// <summary>
+        /// Capacity pool resource
+        /// API Version: 2020-11-01.
+        /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-nextgen:netapp:getPool", args ?? new GetPoolArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetApiOperationPolicy
     {
+        /// <summary>
+        /// Policy Contract details.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetApiOperationPolicyResult> InvokeAsync(GetApiOperationPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiOperationPolicyResult>("azure-nextgen:apimanagement:getApiOperationPolicy", args ?? new GetApiOperationPolicyArgs(), options.WithVersion());
     }

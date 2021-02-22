@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AzureData
 {
     public static class GetSqlManagedInstance
     {
+        /// <summary>
+        /// A SqlManagedInstance.
+        /// API Version: 2020-09-08-preview.
+        /// </summary>
         public static Task<GetSqlManagedInstanceResult> InvokeAsync(GetSqlManagedInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure-nextgen:azuredata:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 {
     public static class GetDscpConfiguration
     {
+        /// <summary>
+        /// DSCP Configuration in a resource group.
+        /// </summary>
         public static Task<GetDscpConfigurationResult> InvokeAsync(GetDscpConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDscpConfigurationResult>("azure-nextgen:network/v20200601:getDscpConfiguration", args ?? new GetDscpConfigurationArgs(), options.WithVersion());
     }

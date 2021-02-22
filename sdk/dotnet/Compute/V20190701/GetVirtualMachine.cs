@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
 {
     public static class GetVirtualMachine
     {
+        /// <summary>
+        /// Describes a Virtual Machine.
+        /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-nextgen:compute/v20190701:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithVersion());
     }

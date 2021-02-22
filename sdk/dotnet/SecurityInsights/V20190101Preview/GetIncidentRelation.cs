@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     public static class GetIncidentRelation
     {
+        /// <summary>
+        /// Represents a relation between two resources
+        /// </summary>
         public static Task<GetIncidentRelationResult> InvokeAsync(GetIncidentRelationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentRelationResult>("azure-nextgen:securityinsights/v20190101preview:getIncidentRelation", args ?? new GetIncidentRelationArgs(), options.WithVersion());
     }

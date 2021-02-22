@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StorSimple
 {
     public static class ListDeviceFailoverSets
     {
+        /// <summary>
+        /// The list of failover sets.
+        /// API Version: 2017-06-01.
+        /// </summary>
         public static Task<ListDeviceFailoverSetsResult> InvokeAsync(ListDeviceFailoverSetsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverSetsResult>("azure-nextgen:storsimple:listDeviceFailoverSets", args ?? new ListDeviceFailoverSetsArgs(), options.WithVersion());
     }

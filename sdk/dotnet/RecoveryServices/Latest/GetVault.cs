@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getVault'.")]
     public static class GetVault
     {
+        /// <summary>
+        /// Resource information, as returned by the resource provider.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-nextgen:recoveryservices/latest:getVault", args ?? new GetVaultArgs(), options.WithVersion());
     }

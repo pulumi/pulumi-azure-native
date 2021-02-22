@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StorSimple
 {
     public static class GetStorageAccountCredential
     {
+        /// <summary>
+        /// The storage account credential.
+        /// API Version: 2017-06-01.
+        /// </summary>
         public static Task<GetStorageAccountCredentialResult> InvokeAsync(GetStorageAccountCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-nextgen:storsimple:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithVersion());
     }

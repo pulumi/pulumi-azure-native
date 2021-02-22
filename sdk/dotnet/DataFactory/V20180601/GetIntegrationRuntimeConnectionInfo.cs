@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
 {
     public static class GetIntegrationRuntimeConnectionInfo
     {
+        /// <summary>
+        /// Connection information for encrypting the on-premises data source credentials.
+        /// </summary>
         public static Task<GetIntegrationRuntimeConnectionInfoResult> InvokeAsync(GetIntegrationRuntimeConnectionInfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeConnectionInfoResult>("azure-nextgen:datafactory/v20180601:getIntegrationRuntimeConnectionInfo", args ?? new GetIntegrationRuntimeConnectionInfoArgs(), options.WithVersion());
     }

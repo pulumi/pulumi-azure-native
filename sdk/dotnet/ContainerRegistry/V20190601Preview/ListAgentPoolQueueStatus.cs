@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 {
     public static class ListAgentPoolQueueStatus
     {
+        /// <summary>
+        /// The QueueStatus of Agent Pool
+        /// </summary>
         public static Task<ListAgentPoolQueueStatusResult> InvokeAsync(ListAgentPoolQueueStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAgentPoolQueueStatusResult>("azure-nextgen:containerregistry/v20190601preview:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusArgs(), options.WithVersion());
     }

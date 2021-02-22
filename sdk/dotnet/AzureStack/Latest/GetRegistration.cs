@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AzureStack.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistration'.")]
     public static class GetRegistration
     {
+        /// <summary>
+        /// Registration information.
+        /// Latest API Version: 2017-06-01.
+        /// </summary>
         public static Task<GetRegistrationResult> InvokeAsync(GetRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationResult>("azure-nextgen:azurestack/latest:getRegistration", args ?? new GetRegistrationArgs(), options.WithVersion());
     }

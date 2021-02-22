@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20180901Preview
 {
     public static class GetGraphQuery
     {
+        /// <summary>
+        /// Graph Query entity definition.
+        /// </summary>
         public static Task<GetGraphQueryResult> InvokeAsync(GetGraphQueryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGraphQueryResult>("azure-nextgen:resourcegraph/v20180901preview:getGraphQuery", args ?? new GetGraphQueryArgs(), options.WithVersion());
     }

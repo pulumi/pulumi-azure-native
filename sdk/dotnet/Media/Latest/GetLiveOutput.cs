@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Media.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getLiveOutput'.")]
     public static class GetLiveOutput
     {
+        /// <summary>
+        /// The Live Output.
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetLiveOutputResult> InvokeAsync(GetLiveOutputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLiveOutputResult>("azure-nextgen:media/latest:getLiveOutput", args ?? new GetLiveOutputArgs(), options.WithVersion());
     }

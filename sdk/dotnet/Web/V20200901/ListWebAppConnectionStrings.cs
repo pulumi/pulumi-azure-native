@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20200901
 {
     public static class ListWebAppConnectionStrings
     {
+        /// <summary>
+        /// String dictionary resource.
+        /// </summary>
         public static Task<ListWebAppConnectionStringsResult> InvokeAsync(ListWebAppConnectionStringsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppConnectionStringsResult>("azure-nextgen:web/v20200901:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 {
     public static class ListWebAppFunctionKeys
     {
+        /// <summary>
+        /// String dictionary resource.
+        /// </summary>
         public static Task<ListWebAppFunctionKeysResult> InvokeAsync(ListWebAppFunctionKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionKeysResult>("azure-nextgen:web/v20190801:listWebAppFunctionKeys", args ?? new ListWebAppFunctionKeysArgs(), options.WithVersion());
     }

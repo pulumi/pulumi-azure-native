@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 {
     public static class GetSecret
     {
+        /// <summary>
+        /// A secret.
+        /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-nextgen:devtestlab/v20160515:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
     }

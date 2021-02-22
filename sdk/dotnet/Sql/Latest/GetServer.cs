@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Sql.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServer'.")]
     public static class GetServer
     {
+        /// <summary>
+        /// Represents a server.
+        /// Latest API Version: 2014-04-01.
+        /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-nextgen:sql/latest:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }

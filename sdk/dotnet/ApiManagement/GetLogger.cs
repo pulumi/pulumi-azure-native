@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetLogger
     {
+        /// <summary>
+        /// Logger details.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetLoggerResult> InvokeAsync(GetLoggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoggerResult>("azure-nextgen:apimanagement:getLogger", args ?? new GetLoggerArgs(), options.WithVersion());
     }

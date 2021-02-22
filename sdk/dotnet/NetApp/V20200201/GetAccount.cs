@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.NetApp.V20200201
 {
     public static class GetAccount
     {
+        /// <summary>
+        /// NetApp account resource
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:netapp/v20200201:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
 {
     public static class GetBandwidthSchedule
     {
+        /// <summary>
+        /// The bandwidth schedule details.
+        /// </summary>
         public static Task<GetBandwidthScheduleResult> InvokeAsync(GetBandwidthScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthScheduleResult>("azure-nextgen:databoxedge/v20200501preview:getBandwidthSchedule", args ?? new GetBandwidthScheduleArgs(), options.WithVersion());
     }

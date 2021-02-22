@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Synapse.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolSensitivityLabel'.")]
     public static class GetSqlPoolSensitivityLabel
     {
+        /// <summary>
+        /// A sensitivity label.
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetSqlPoolSensitivityLabelResult> InvokeAsync(GetSqlPoolSensitivityLabelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolSensitivityLabelResult>("azure-nextgen:synapse/latest:getSqlPoolSensitivityLabel", args ?? new GetSqlPoolSensitivityLabelArgs(), options.WithVersion());
     }

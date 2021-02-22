@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
 {
     public static class GetRoleAssignment
     {
+        /// <summary>
+        /// The Role Assignment resource format.
+        /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-nextgen:customerinsights/v20170426:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithVersion());
     }

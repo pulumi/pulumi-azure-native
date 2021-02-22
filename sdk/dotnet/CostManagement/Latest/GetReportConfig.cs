@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.CostManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getReportConfig'.")]
     public static class GetReportConfig
     {
+        /// <summary>
+        /// A report config resource.
+        /// Latest API Version: 2018-05-31.
+        /// </summary>
         public static Task<GetReportConfigResult> InvokeAsync(GetReportConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportConfigResult>("azure-nextgen:costmanagement/latest:getReportConfig", args ?? new GetReportConfigArgs(), options.WithVersion());
     }

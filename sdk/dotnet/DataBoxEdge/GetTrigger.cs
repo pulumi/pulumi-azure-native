@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
 {
     public static class GetTrigger
     {
+        /// <summary>
+        /// Trigger details.
+        /// API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-nextgen:databoxedge:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
     }

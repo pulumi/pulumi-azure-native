@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getArtifactSource'.")]
     public static class GetArtifactSource
     {
+        /// <summary>
+        /// Properties of an artifact source.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetArtifactSourceResult> InvokeAsync(GetArtifactSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-nextgen:devtestlab/latest:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithVersion());
     }

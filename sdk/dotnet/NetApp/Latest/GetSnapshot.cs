@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.NetApp.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshot'.")]
     public static class GetSnapshot
     {
+        /// <summary>
+        /// Snapshot of a Volume
+        /// Latest API Version: 2020-11-01.
+        /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-nextgen:netapp/latest:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
     }

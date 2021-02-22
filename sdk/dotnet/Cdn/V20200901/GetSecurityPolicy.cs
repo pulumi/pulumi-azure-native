@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 {
     public static class GetSecurityPolicy
     {
+        /// <summary>
+        /// SecurityPolicy association for AzureFrontDoor profile
+        /// </summary>
         public static Task<GetSecurityPolicyResult> InvokeAsync(GetSecurityPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPolicyResult>("azure-nextgen:cdn/v20200901:getSecurityPolicy", args ?? new GetSecurityPolicyArgs(), options.WithVersion());
     }

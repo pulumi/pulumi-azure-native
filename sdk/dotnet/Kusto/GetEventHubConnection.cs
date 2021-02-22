@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Kusto
 {
     public static class GetEventHubConnection
     {
+        /// <summary>
+        /// Class representing an event hub connection.
+        /// API Version: 2018-09-07-preview.
+        /// </summary>
         public static Task<GetEventHubConnectionResult> InvokeAsync(GetEventHubConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubConnectionResult>("azure-nextgen:kusto:getEventHubConnection", args ?? new GetEventHubConnectionArgs(), options.WithVersion());
     }

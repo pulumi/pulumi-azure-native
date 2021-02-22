@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.EventHub.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getConsumerGroup'.")]
     public static class GetConsumerGroup
     {
+        /// <summary>
+        /// Single item in List or Get Consumer group operation
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetConsumerGroupResult> InvokeAsync(GetConsumerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azure-nextgen:eventhub/latest:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithVersion());
     }

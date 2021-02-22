@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20201001
 {
     public static class ListWebAppBackupStatusSecretsSlot
     {
+        /// <summary>
+        /// Backup description.
+        /// </summary>
         public static Task<ListWebAppBackupStatusSecretsSlotResult> InvokeAsync(ListWebAppBackupStatusSecretsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupStatusSecretsSlotResult>("azure-nextgen:web/v20201001:listWebAppBackupStatusSecretsSlot", args ?? new ListWebAppBackupStatusSecretsSlotArgs(), options.WithVersion());
     }

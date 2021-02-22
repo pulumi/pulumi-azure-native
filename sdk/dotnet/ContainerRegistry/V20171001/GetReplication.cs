@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20171001
 {
     public static class GetReplication
     {
+        /// <summary>
+        /// An object that represents a replication for a container registry.
+        /// </summary>
         public static Task<GetReplicationResult> InvokeAsync(GetReplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationResult>("azure-nextgen:containerregistry/v20171001:getReplication", args ?? new GetReplicationArgs(), options.WithVersion());
     }

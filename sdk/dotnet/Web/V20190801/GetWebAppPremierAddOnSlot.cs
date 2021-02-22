@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 {
     public static class GetWebAppPremierAddOnSlot
     {
+        /// <summary>
+        /// Premier add-on.
+        /// </summary>
         public static Task<GetWebAppPremierAddOnSlotResult> InvokeAsync(GetWebAppPremierAddOnSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPremierAddOnSlotResult>("azure-nextgen:web/v20190801:getWebAppPremierAddOnSlot", args ?? new GetWebAppPremierAddOnSlotArgs(), options.WithVersion());
     }

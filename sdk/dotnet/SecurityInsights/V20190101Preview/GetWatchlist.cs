@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     public static class GetWatchlist
     {
+        /// <summary>
+        /// Represents a Watchlist in Azure Security Insights.
+        /// </summary>
         public static Task<GetWatchlistResult> InvokeAsync(GetWatchlistArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistResult>("azure-nextgen:securityinsights/v20190101preview:getWatchlist", args ?? new GetWatchlistArgs(), options.WithVersion());
     }

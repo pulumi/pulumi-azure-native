@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.EventGrid.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getTopic'.")]
     public static class GetTopic
     {
+        /// <summary>
+        /// EventGrid Topic
+        /// Latest API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-nextgen:eventgrid/latest:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
     }

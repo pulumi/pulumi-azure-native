@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Portal.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getUserSettings'.")]
     public static class GetUserSettings
     {
+        /// <summary>
+        /// Response to get user settings
+        /// Latest API Version: 2018-10-01.
+        /// </summary>
         public static Task<GetUserSettingsResult> InvokeAsync(GetUserSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsResult>("azure-nextgen:portal/latest:getUserSettings", args ?? new GetUserSettingsArgs(), options.WithVersion());
     }

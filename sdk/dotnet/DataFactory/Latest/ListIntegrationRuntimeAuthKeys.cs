@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataFactory.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:listIntegrationRuntimeAuthKeys'.")]
     public static class ListIntegrationRuntimeAuthKeys
     {
+        /// <summary>
+        /// The integration runtime authentication keys.
+        /// Latest API Version: 2018-06-01.
+        /// </summary>
         public static Task<ListIntegrationRuntimeAuthKeysResult> InvokeAsync(ListIntegrationRuntimeAuthKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationRuntimeAuthKeysResult>("azure-nextgen:datafactory/latest:listIntegrationRuntimeAuthKeys", args ?? new ListIntegrationRuntimeAuthKeysArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetFlowLog
     {
+        /// <summary>
+        /// A flow log resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetFlowLogResult> InvokeAsync(GetFlowLogArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFlowLogResult>("azure-nextgen:network:getFlowLog", args ?? new GetFlowLogArgs(), options.WithVersion());
     }

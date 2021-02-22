@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Relay.V20170401
 {
     public static class ListWCFRelayKeys
     {
+        /// <summary>
+        /// Namespace/Relay Connection String
+        /// </summary>
         public static Task<ListWCFRelayKeysResult> InvokeAsync(ListWCFRelayKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWCFRelayKeysResult>("azure-nextgen:relay/v20170401:listWCFRelayKeys", args ?? new ListWCFRelayKeysArgs(), options.WithVersion());
     }

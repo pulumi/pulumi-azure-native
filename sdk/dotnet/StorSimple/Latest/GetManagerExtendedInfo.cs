@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManagerExtendedInfo'.")]
     public static class GetManagerExtendedInfo
     {
+        /// <summary>
+        /// The extended info of the manager.
+        /// Latest API Version: 2017-06-01.
+        /// </summary>
         public static Task<GetManagerExtendedInfoResult> InvokeAsync(GetManagerExtendedInfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagerExtendedInfoResult>("azure-nextgen:storsimple/latest:getManagerExtendedInfo", args ?? new GetManagerExtendedInfoArgs(), options.WithVersion());
     }

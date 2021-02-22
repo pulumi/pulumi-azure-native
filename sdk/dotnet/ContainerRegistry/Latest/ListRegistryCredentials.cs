@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryCredentials'.")]
     public static class ListRegistryCredentials
     {
+        /// <summary>
+        /// The response from the ListCredentials operation.
+        /// Latest API Version: 2019-05-01.
+        /// </summary>
         public static Task<ListRegistryCredentialsResult> InvokeAsync(ListRegistryCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-nextgen:containerregistry/latest:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithVersion());
     }

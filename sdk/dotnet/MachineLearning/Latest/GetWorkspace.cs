@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.MachineLearning.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:getWorkspace'.")]
     public static class GetWorkspace
     {
+        /// <summary>
+        /// An object that represents a machine learning workspace.
+        /// Latest API Version: 2016-04-01.
+        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:machinelearning/latest:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }

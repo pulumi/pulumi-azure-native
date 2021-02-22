@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Media
 {
     public static class ListStreamingLocatorContentKeys
     {
+        /// <summary>
+        /// Class of response for listContentKeys action
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<ListStreamingLocatorContentKeysResult> InvokeAsync(ListStreamingLocatorContentKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorContentKeysResult>("azure-nextgen:media:listStreamingLocatorContentKeys", args ?? new ListStreamingLocatorContentKeysArgs(), options.WithVersion());
     }

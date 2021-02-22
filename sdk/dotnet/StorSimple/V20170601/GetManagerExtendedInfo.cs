@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
 {
     public static class GetManagerExtendedInfo
     {
+        /// <summary>
+        /// The extended info of the manager.
+        /// </summary>
         public static Task<GetManagerExtendedInfoResult> InvokeAsync(GetManagerExtendedInfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagerExtendedInfoResult>("azure-nextgen:storsimple/v20170601:getManagerExtendedInfo", args ?? new GetManagerExtendedInfoArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AVS.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getHcxEnterpriseSite'.")]
     public static class GetHcxEnterpriseSite
     {
+        /// <summary>
+        /// An HCX Enterprise Site resource
+        /// Latest API Version: 2020-03-20.
+        /// </summary>
         public static Task<GetHcxEnterpriseSiteResult> InvokeAsync(GetHcxEnterpriseSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHcxEnterpriseSiteResult>("azure-nextgen:avs/latest:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteArgs(), options.WithVersion());
     }

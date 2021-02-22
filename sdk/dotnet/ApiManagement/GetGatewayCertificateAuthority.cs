@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetGatewayCertificateAuthority
     {
+        /// <summary>
+        /// Gateway certificate authority details.
+        /// API Version: 2020-06-01-preview.
+        /// </summary>
         public static Task<GetGatewayCertificateAuthorityResult> InvokeAsync(GetGatewayCertificateAuthorityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayCertificateAuthorityResult>("azure-nextgen:apimanagement:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityArgs(), options.WithVersion());
     }

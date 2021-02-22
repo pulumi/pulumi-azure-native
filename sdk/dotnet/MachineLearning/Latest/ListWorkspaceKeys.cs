@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.MachineLearning.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:listWorkspaceKeys'.")]
     public static class ListWorkspaceKeys
     {
+        /// <summary>
+        /// Workspace authorization keys for a workspace.
+        /// Latest API Version: 2016-04-01.
+        /// </summary>
         public static Task<ListWorkspaceKeysResult> InvokeAsync(ListWorkspaceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-nextgen:machinelearning/latest:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithVersion());
     }

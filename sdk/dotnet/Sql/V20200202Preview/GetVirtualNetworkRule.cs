@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 {
     public static class GetVirtualNetworkRule
     {
+        /// <summary>
+        /// A virtual network rule.
+        /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-nextgen:sql/v20200202preview:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
 {
     public static class GetPrivateEndpointConnection
     {
+        /// <summary>
+        /// A private endpoint connection
+        /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-nextgen:dbformariadb/v20180601:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
     }

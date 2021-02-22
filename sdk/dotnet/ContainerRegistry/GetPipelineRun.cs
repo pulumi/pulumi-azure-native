@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
 {
     public static class GetPipelineRun
     {
+        /// <summary>
+        /// An object that represents a pipeline run for a container registry.
+        /// API Version: 2020-11-01-preview.
+        /// </summary>
         public static Task<GetPipelineRunResult> InvokeAsync(GetPipelineRunArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineRunResult>("azure-nextgen:containerregistry:getPipelineRun", args ?? new GetPipelineRunArgs(), options.WithVersion());
     }

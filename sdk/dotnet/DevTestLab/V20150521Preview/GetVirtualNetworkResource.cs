@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 {
     public static class GetVirtualNetworkResource
     {
+        /// <summary>
+        /// A virtual network.
+        /// </summary>
         public static Task<GetVirtualNetworkResourceResult> InvokeAsync(GetVirtualNetworkResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResourceResult>("azure-nextgen:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceArgs(), options.WithVersion());
     }

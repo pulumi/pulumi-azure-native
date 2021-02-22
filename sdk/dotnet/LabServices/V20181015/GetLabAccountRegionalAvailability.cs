@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 {
     public static class GetLabAccountRegionalAvailability
     {
+        /// <summary>
+        /// The response model from the GetRegionalAvailability action
+        /// </summary>
         public static Task<GetLabAccountRegionalAvailabilityResult> InvokeAsync(GetLabAccountRegionalAvailabilityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountRegionalAvailabilityResult>("azure-nextgen:labservices/v20181015:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityArgs(), options.WithVersion());
     }

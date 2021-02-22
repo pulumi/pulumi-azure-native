@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getWebApplicationFirewallPolicy'.")]
     public static class GetWebApplicationFirewallPolicy
     {
+        /// <summary>
+        /// Defines web application firewall policy.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetWebApplicationFirewallPolicyResult> InvokeAsync(GetWebApplicationFirewallPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebApplicationFirewallPolicyResult>("azure-nextgen:network/latest:getWebApplicationFirewallPolicy", args ?? new GetWebApplicationFirewallPolicyArgs(), options.WithVersion());
     }

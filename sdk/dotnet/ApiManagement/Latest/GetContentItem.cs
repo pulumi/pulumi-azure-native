@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getContentItem'.")]
     public static class GetContentItem
     {
+        /// <summary>
+        /// Content type contract details.
+        /// Latest API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetContentItemResult> InvokeAsync(GetContentItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContentItemResult>("azure-nextgen:apimanagement/latest:getContentItem", args ?? new GetContentItemArgs(), options.WithVersion());
     }

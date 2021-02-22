@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Security.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getIotSecuritySolution'.")]
     public static class GetIotSecuritySolution
     {
+        /// <summary>
+        /// IoT Security solution configuration and resource information.
+        /// Latest API Version: 2019-08-01.
+        /// </summary>
         public static Task<GetIotSecuritySolutionResult> InvokeAsync(GetIotSecuritySolutionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotSecuritySolutionResult>("azure-nextgen:security/latest:getIotSecuritySolution", args ?? new GetIotSecuritySolutionArgs(), options.WithVersion());
     }

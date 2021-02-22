@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ProviderHub.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkusNestedResourceTypeSecond'.")]
     public static class GetSkusNestedResourceTypeSecond
     {
+        /// <summary>
+        /// 
+        /// Latest API Version: 2020-11-20.
+        /// </summary>
         public static Task<GetSkusNestedResourceTypeSecondResult> InvokeAsync(GetSkusNestedResourceTypeSecondArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeSecondResult>("azure-nextgen:providerhub/latest:getSkusNestedResourceTypeSecond", args ?? new GetSkusNestedResourceTypeSecondArgs(), options.WithVersion());
     }

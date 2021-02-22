@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AppConfiguration.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:getConfigurationStore'.")]
     public static class GetConfigurationStore
     {
+        /// <summary>
+        /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+        /// Latest API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure-nextgen:appconfiguration/latest:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithVersion());
     }

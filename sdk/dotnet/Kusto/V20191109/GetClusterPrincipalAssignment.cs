@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Kusto.V20191109
 {
     public static class GetClusterPrincipalAssignment
     {
+        /// <summary>
+        /// Class representing a cluster principal assignment.
+        /// </summary>
         public static Task<GetClusterPrincipalAssignmentResult> InvokeAsync(GetClusterPrincipalAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterPrincipalAssignmentResult>("azure-nextgen:kusto/v20191109:getClusterPrincipalAssignment", args ?? new GetClusterPrincipalAssignmentArgs(), options.WithVersion());
     }

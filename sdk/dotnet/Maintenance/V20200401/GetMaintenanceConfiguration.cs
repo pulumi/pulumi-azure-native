@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Maintenance.V20200401
 {
     public static class GetMaintenanceConfiguration
     {
+        /// <summary>
+        /// Maintenance configuration record type
+        /// </summary>
         public static Task<GetMaintenanceConfigurationResult> InvokeAsync(GetMaintenanceConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-nextgen:maintenance/v20200401:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithVersion());
     }

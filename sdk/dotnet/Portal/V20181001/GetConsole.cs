@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Portal.V20181001
 {
     public static class GetConsole
     {
+        /// <summary>
+        /// Cloud shell console
+        /// </summary>
         public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-nextgen:portal/v20181001:getConsole", args ?? new GetConsoleArgs(), options.WithVersion());
     }

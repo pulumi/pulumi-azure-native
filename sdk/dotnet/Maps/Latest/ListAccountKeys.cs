@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Maps.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:maps:listAccountKeys'.")]
     public static class ListAccountKeys
     {
+        /// <summary>
+        /// The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+        /// Latest API Version: 2018-05-01.
+        /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-nextgen:maps/latest:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppPublishingCredentialsSlot'.")]
     public static class ListWebAppPublishingCredentialsSlot
     {
+        /// <summary>
+        /// User credentials used for publishing activity.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListWebAppPublishingCredentialsSlotResult> InvokeAsync(ListWebAppPublishingCredentialsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppPublishingCredentialsSlotResult>("azure-nextgen:web/latest:listWebAppPublishingCredentialsSlot", args ?? new ListWebAppPublishingCredentialsSlotArgs(), options.WithVersion());
     }

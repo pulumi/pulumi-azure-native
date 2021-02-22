@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
 {
     public static class GetAutomationAccount
     {
+        /// <summary>
+        /// Definition of the automation account type.
+        /// </summary>
         public static Task<GetAutomationAccountResult> InvokeAsync(GetAutomationAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationAccountResult>("azure-nextgen:automation/v20190601:getAutomationAccount", args ?? new GetAutomationAccountArgs(), options.WithVersion());
     }

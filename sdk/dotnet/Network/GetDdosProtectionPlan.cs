@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetDdosProtectionPlan
     {
+        /// <summary>
+        /// A DDoS protection plan in a resource group.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetDdosProtectionPlanResult> InvokeAsync(GetDdosProtectionPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDdosProtectionPlanResult>("azure-nextgen:network:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanArgs(), options.WithVersion());
     }

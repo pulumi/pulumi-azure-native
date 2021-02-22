@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Quantum
 {
     public static class GetWorkspace
     {
+        /// <summary>
+        /// The resource proxy definition object for quantum workspace.
+        /// API Version: 2019-11-04-preview.
+        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:quantum:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }

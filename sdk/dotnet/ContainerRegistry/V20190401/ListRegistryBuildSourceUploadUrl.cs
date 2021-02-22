@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401
 {
     public static class ListRegistryBuildSourceUploadUrl
     {
+        /// <summary>
+        /// The properties of a response to source upload request.
+        /// </summary>
         public static Task<ListRegistryBuildSourceUploadUrlResult> InvokeAsync(ListRegistryBuildSourceUploadUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryBuildSourceUploadUrlResult>("azure-nextgen:containerregistry/v20190401:listRegistryBuildSourceUploadUrl", args ?? new ListRegistryBuildSourceUploadUrlArgs(), options.WithVersion());
     }

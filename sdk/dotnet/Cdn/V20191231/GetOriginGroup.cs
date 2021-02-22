@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231
 {
     public static class GetOriginGroup
     {
+        /// <summary>
+        /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+        /// </summary>
         public static Task<GetOriginGroupResult> InvokeAsync(GetOriginGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOriginGroupResult>("azure-nextgen:cdn/v20191231:getOriginGroup", args ?? new GetOriginGroupArgs(), options.WithVersion());
     }

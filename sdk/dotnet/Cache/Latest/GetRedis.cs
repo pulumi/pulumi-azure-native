@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Cache.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getRedis'.")]
     public static class GetRedis
     {
+        /// <summary>
+        /// A single Redis item in List or Get Operation.
+        /// Latest API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetRedisResult> InvokeAsync(GetRedisArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRedisResult>("azure-nextgen:cache/latest:getRedis", args ?? new GetRedisArgs(), options.WithVersion());
     }

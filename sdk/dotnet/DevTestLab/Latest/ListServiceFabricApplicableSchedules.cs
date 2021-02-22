@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listServiceFabricApplicableSchedules'.")]
     public static class ListServiceFabricApplicableSchedules
     {
+        /// <summary>
+        /// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<ListServiceFabricApplicableSchedulesResult> InvokeAsync(ListServiceFabricApplicableSchedulesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListServiceFabricApplicableSchedulesResult>("azure-nextgen:devtestlab/latest:listServiceFabricApplicableSchedules", args ?? new ListServiceFabricApplicableSchedulesArgs(), options.WithVersion());
     }

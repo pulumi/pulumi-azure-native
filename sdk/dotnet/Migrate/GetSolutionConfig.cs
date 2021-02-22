@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Migrate
 {
     public static class GetSolutionConfig
     {
+        /// <summary>
+        /// Class representing the config for the solution in the migrate project.
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
         public static Task<GetSolutionConfigResult> InvokeAsync(GetSolutionConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionConfigResult>("azure-nextgen:migrate:getSolutionConfig", args ?? new GetSolutionConfigArgs(), options.WithVersion());
     }

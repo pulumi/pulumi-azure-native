@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSiteLogsConfig
     {
+        /// <summary>
+        /// Configuration of Azure web site
+        /// </summary>
         public static Task<GetSiteLogsConfigResult> InvokeAsync(GetSiteLogsConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteLogsConfigResult>("azure-nextgen:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Automation.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getWatcher'.")]
     public static class GetWatcher
     {
+        /// <summary>
+        /// Definition of the watcher type.
+        /// Latest API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetWatcherResult> InvokeAsync(GetWatcherArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWatcherResult>("azure-nextgen:automation/latest:getWatcher", args ?? new GetWatcherArgs(), options.WithVersion());
     }

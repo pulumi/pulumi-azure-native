@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights
 {
     public static class GetWorkspace
     {
+        /// <summary>
+        /// The top level Workspace resource container.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:operationalinsights:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkProfile'.")]
     public static class GetNetworkProfile
     {
+        /// <summary>
+        /// Network profile resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetNetworkProfileResult> InvokeAsync(GetNetworkProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkProfileResult>("azure-nextgen:network/latest:getNetworkProfile", args ?? new GetNetworkProfileArgs(), options.WithVersion());
     }

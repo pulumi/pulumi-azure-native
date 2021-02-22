@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.OffAzure.V20200101
 {
     public static class GetSite
     {
+        /// <summary>
+        /// Site REST Resource.
+        /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-nextgen:offazure/v20200101:getSite", args ?? new GetSiteArgs(), options.WithVersion());
     }

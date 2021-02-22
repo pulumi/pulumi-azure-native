@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 {
     public static class GetVirtualHubIpConfiguration
     {
+        /// <summary>
+        /// IpConfigurations.
+        /// </summary>
         public static Task<GetVirtualHubIpConfigurationResult> InvokeAsync(GetVirtualHubIpConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubIpConfigurationResult>("azure-nextgen:network/v20200501:getVirtualHubIpConfiguration", args ?? new GetVirtualHubIpConfigurationArgs(), options.WithVersion());
     }

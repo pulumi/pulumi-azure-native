@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 {
     public static class GetIntegrationAccountBatchConfiguration
     {
+        /// <summary>
+        /// The batch configuration resource definition.
+        /// </summary>
         public static Task<GetIntegrationAccountBatchConfigurationResult> InvokeAsync(GetIntegrationAccountBatchConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountBatchConfigurationResult>("azure-nextgen:logic/v20190501:getIntegrationAccountBatchConfiguration", args ?? new GetIntegrationAccountBatchConfigurationArgs(), options.WithVersion());
     }

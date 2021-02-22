@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Compute.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskAccessAPrivateEndpointConnection'.")]
     public static class GetDiskAccessAPrivateEndpointConnection
     {
+        /// <summary>
+        /// The Private Endpoint Connection resource.
+        /// Latest API Version: 2020-09-30.
+        /// </summary>
         public static Task<GetDiskAccessAPrivateEndpointConnectionResult> InvokeAsync(GetDiskAccessAPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessAPrivateEndpointConnectionResult>("azure-nextgen:compute/latest:getDiskAccessAPrivateEndpointConnection", args ?? new GetDiskAccessAPrivateEndpointConnectionArgs(), options.WithVersion());
     }

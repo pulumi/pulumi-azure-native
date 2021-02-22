@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Authorization.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicyAssignment'.")]
     public static class GetPolicyAssignment
     {
+        /// <summary>
+        /// The policy assignment.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetPolicyAssignmentResult> InvokeAsync(GetPolicyAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentResult>("azure-nextgen:authorization/latest:getPolicyAssignment", args ?? new GetPolicyAssignmentArgs(), options.WithVersion());
     }

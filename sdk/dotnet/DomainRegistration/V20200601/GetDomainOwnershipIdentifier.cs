@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20200601
 {
     public static class GetDomainOwnershipIdentifier
     {
+        /// <summary>
+        /// Domain ownership Identifier.
+        /// </summary>
         public static Task<GetDomainOwnershipIdentifierResult> InvokeAsync(GetDomainOwnershipIdentifierArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainOwnershipIdentifierResult>("azure-nextgen:domainregistration/v20200601:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
 {
     public static class GetSqlResourceSqlRoleAssignment
     {
+        /// <summary>
+        /// An Azure Cosmos DB Role Assignment
+        /// </summary>
         public static Task<GetSqlResourceSqlRoleAssignmentResult> InvokeAsync(GetSqlResourceSqlRoleAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlRoleAssignmentResult>("azure-nextgen:documentdb/v20200601preview:getSqlResourceSqlRoleAssignment", args ?? new GetSqlResourceSqlRoleAssignmentArgs(), options.WithVersion());
     }

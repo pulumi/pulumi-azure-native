@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
 {
     public static class GetLinkedService
     {
+        /// <summary>
+        /// Linked service.
+        /// API Version: 2020-09-01-preview.
+        /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-nextgen:machinelearningservices:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
     }

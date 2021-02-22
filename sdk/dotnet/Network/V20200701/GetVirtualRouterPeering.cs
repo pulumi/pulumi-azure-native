@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 {
     public static class GetVirtualRouterPeering
     {
+        /// <summary>
+        /// Virtual Router Peering resource.
+        /// </summary>
         public static Task<GetVirtualRouterPeeringResult> InvokeAsync(GetVirtualRouterPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterPeeringResult>("azure-nextgen:network/v20200701:getVirtualRouterPeering", args ?? new GetVirtualRouterPeeringArgs(), options.WithVersion());
     }

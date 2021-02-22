@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCustomApi'.")]
     public static class GetCustomApi
     {
+        /// <summary>
+        /// A custom API
+        /// Latest API Version: 2016-06-01.
+        /// </summary>
         public static Task<GetCustomApiResult> InvokeAsync(GetCustomApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-nextgen:web/latest:getCustomApi", args ?? new GetCustomApiArgs(), options.WithVersion());
     }

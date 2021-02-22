@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DBforMySQL.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getVirtualNetworkRule'.")]
     public static class GetVirtualNetworkRule
     {
+        /// <summary>
+        /// A virtual network rule.
+        /// Latest API Version: 2017-12-01.
+        /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-nextgen:dbformysql/latest:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithVersion());
     }

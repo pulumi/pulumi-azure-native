@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20170915Preview
 {
     public static class ListTopicSharedAccessKeys
     {
+        /// <summary>
+        /// Shared access keys of the Topic
+        /// </summary>
         public static Task<ListTopicSharedAccessKeysResult> InvokeAsync(ListTopicSharedAccessKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTopicSharedAccessKeysResult>("azure-nextgen:eventgrid/v20170915preview:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysArgs(), options.WithVersion());
     }

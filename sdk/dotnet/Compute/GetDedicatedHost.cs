@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Compute
 {
     public static class GetDedicatedHost
     {
+        /// <summary>
+        /// Specifies information about the Dedicated host.
+        /// API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure-nextgen:compute:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithVersion());
     }

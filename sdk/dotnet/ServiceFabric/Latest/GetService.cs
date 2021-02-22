@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ServiceFabric.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getService'.")]
     public static class GetService
     {
+        /// <summary>
+        /// The service resource.
+        /// Latest API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:servicefabric/latest:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }

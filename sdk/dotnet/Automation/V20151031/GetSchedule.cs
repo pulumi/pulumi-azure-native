@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
 {
     public static class GetSchedule
     {
+        /// <summary>
+        /// Definition of the schedule.
+        /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-nextgen:automation/v20151031:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
     }

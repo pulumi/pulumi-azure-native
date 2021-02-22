@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class GetWebAppSlotConfigurationNames
     {
+        /// <summary>
+        /// Slot Config names azure resource.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppSlotConfigurationNamesResult> InvokeAsync(GetWebAppSlotConfigurationNamesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSlotConfigurationNamesResult>("azure-nextgen:web:getWebAppSlotConfigurationNames", args ?? new GetWebAppSlotConfigurationNamesArgs(), options.WithVersion());
     }

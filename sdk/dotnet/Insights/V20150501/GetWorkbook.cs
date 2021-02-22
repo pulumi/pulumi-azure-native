@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
 {
     public static class GetWorkbook
     {
+        /// <summary>
+        /// An Application Insights workbook definition.
+        /// </summary>
         public static Task<GetWorkbookResult> InvokeAsync(GetWorkbookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookResult>("azure-nextgen:insights/v20150501:getWorkbook", args ?? new GetWorkbookArgs(), options.WithVersion());
     }

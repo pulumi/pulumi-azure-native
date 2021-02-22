@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ManagedServices
 {
     public static class GetRegistrationDefinition
     {
+        /// <summary>
+        /// Registration definition.
+        /// API Version: 2019-09-01.
+        /// </summary>
         public static Task<GetRegistrationDefinitionResult> InvokeAsync(GetRegistrationDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationDefinitionResult>("azure-nextgen:managedservices:getRegistrationDefinition", args ?? new GetRegistrationDefinitionArgs(), options.WithVersion());
     }

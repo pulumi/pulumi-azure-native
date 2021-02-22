@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 {
     public static class GetDdosCustomPolicy
     {
+        /// <summary>
+        /// A DDoS custom policy in a resource group.
+        /// </summary>
         public static Task<GetDdosCustomPolicyResult> InvokeAsync(GetDdosCustomPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDdosCustomPolicyResult>("azure-nextgen:network/v20200601:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyArgs(), options.WithVersion());
     }

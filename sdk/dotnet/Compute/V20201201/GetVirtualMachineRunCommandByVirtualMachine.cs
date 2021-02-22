@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20201201
 {
     public static class GetVirtualMachineRunCommandByVirtualMachine
     {
+        /// <summary>
+        /// Describes a Virtual Machine run command.
+        /// </summary>
         public static Task<GetVirtualMachineRunCommandByVirtualMachineResult> InvokeAsync(GetVirtualMachineRunCommandByVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRunCommandByVirtualMachineResult>("azure-nextgen:compute/v20201201:getVirtualMachineRunCommandByVirtualMachine", args ?? new GetVirtualMachineRunCommandByVirtualMachineArgs(), options.WithVersion());
     }

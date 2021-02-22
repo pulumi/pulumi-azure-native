@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
 {
     public static class GetReplicationMigrationItem
     {
+        /// <summary>
+        /// Migration item.
+        /// </summary>
         public static Task<GetReplicationMigrationItemResult> InvokeAsync(GetReplicationMigrationItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationMigrationItemResult>("azure-nextgen:recoveryservices/v20180710:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemArgs(), options.WithVersion());
     }

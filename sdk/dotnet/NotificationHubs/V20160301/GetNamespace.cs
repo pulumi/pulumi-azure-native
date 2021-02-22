@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20160301
 {
     public static class GetNamespace
     {
+        /// <summary>
+        /// Description of a Namespace resource.
+        /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-nextgen:notificationhubs/v20160301:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }

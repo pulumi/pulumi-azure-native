@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
 {
     public static class GetIntegrationRuntimeObjectMetadatum
     {
+        /// <summary>
+        /// A list of SSIS object metadata.
+        /// </summary>
         public static Task<GetIntegrationRuntimeObjectMetadatumResult> InvokeAsync(GetIntegrationRuntimeObjectMetadatumArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeObjectMetadatumResult>("azure-nextgen:datafactory/v20180601:getIntegrationRuntimeObjectMetadatum", args ?? new GetIntegrationRuntimeObjectMetadatumArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getInboundNatRule'.")]
     public static class GetInboundNatRule
     {
+        /// <summary>
+        /// Inbound NAT rule of the load balancer.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetInboundNatRuleResult> InvokeAsync(GetInboundNatRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInboundNatRuleResult>("azure-nextgen:network/latest:getInboundNatRule", args ?? new GetInboundNatRuleArgs(), options.WithVersion());
     }

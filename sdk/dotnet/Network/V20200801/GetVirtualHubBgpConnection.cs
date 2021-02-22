@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200801
 {
     public static class GetVirtualHubBgpConnection
     {
+        /// <summary>
+        /// Virtual Appliance Site resource.
+        /// </summary>
         public static Task<GetVirtualHubBgpConnectionResult> InvokeAsync(GetVirtualHubBgpConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubBgpConnectionResult>("azure-nextgen:network/v20200801:getVirtualHubBgpConnection", args ?? new GetVirtualHubBgpConnectionArgs(), options.WithVersion());
     }

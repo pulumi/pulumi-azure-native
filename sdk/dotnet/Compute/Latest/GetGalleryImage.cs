@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Compute.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryImage'.")]
     public static class GetGalleryImage
     {
+        /// <summary>
+        /// Specifies information about the gallery image definition that you want to create or update.
+        /// Latest API Version: 2020-09-30.
+        /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-nextgen:compute/latest:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithVersion());
     }

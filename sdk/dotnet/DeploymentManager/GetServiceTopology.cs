@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DeploymentManager
 {
     public static class GetServiceTopology
     {
+        /// <summary>
+        /// The resource representation of a service topology.
+        /// API Version: 2019-11-01-preview.
+        /// </summary>
         public static Task<GetServiceTopologyResult> InvokeAsync(GetServiceTopologyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTopologyResult>("azure-nextgen:deploymentmanager:getServiceTopology", args ?? new GetServiceTopologyArgs(), options.WithVersion());
     }

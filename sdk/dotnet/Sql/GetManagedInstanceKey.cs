@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Sql
 {
     public static class GetManagedInstanceKey
     {
+        /// <summary>
+        /// A managed instance key.
+        /// API Version: 2020-08-01-preview.
+        /// </summary>
         public static Task<GetManagedInstanceKeyResult> InvokeAsync(GetManagedInstanceKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceKeyResult>("azure-nextgen:sql:getManagedInstanceKey", args ?? new GetManagedInstanceKeyArgs(), options.WithVersion());
     }

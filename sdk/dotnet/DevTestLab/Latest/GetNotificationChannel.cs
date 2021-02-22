@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getNotificationChannel'.")]
     public static class GetNotificationChannel
     {
+        /// <summary>
+        /// A notification.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetNotificationChannelResult> InvokeAsync(GetNotificationChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationChannelResult>("azure-nextgen:devtestlab/latest:getNotificationChannel", args ?? new GetNotificationChannelArgs(), options.WithVersion());
     }

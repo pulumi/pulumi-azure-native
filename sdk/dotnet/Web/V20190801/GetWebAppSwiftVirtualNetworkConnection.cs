@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 {
     public static class GetWebAppSwiftVirtualNetworkConnection
     {
+        /// <summary>
+        /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+        /// </summary>
         public static Task<GetWebAppSwiftVirtualNetworkConnectionResult> InvokeAsync(GetWebAppSwiftVirtualNetworkConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionResult>("azure-nextgen:web/v20190801:getWebAppSwiftVirtualNetworkConnection", args ?? new GetWebAppSwiftVirtualNetworkConnectionArgs(), options.WithVersion());
     }

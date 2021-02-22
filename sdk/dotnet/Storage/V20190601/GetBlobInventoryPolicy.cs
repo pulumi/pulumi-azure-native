@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
 {
     public static class GetBlobInventoryPolicy
     {
+        /// <summary>
+        /// The storage account blob inventory policy.
+        /// </summary>
         public static Task<GetBlobInventoryPolicyResult> InvokeAsync(GetBlobInventoryPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobInventoryPolicyResult>("azure-nextgen:storage/v20190601:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyArgs(), options.WithVersion());
     }

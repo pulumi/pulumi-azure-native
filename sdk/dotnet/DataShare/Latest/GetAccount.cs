@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataShare.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getAccount'.")]
     public static class GetAccount
     {
+        /// <summary>
+        /// An account data transfer object.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:datashare/latest:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

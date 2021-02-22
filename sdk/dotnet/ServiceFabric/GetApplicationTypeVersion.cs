@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ServiceFabric
 {
     public static class GetApplicationTypeVersion
     {
+        /// <summary>
+        /// An application type version resource for the specified application type name resource.
+        /// API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetApplicationTypeVersionResult> InvokeAsync(GetApplicationTypeVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeVersionResult>("azure-nextgen:servicefabric:getApplicationTypeVersion", args ?? new GetApplicationTypeVersionArgs(), options.WithVersion());
     }

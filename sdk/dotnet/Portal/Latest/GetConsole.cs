@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Portal.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getConsole'.")]
     public static class GetConsole
     {
+        /// <summary>
+        /// Cloud shell console
+        /// Latest API Version: 2018-10-01.
+        /// </summary>
         public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-nextgen:portal/latest:getConsole", args ?? new GetConsoleArgs(), options.WithVersion());
     }

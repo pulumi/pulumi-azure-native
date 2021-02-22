@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Media.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAsset'.")]
     public static class GetAsset
     {
+        /// <summary>
+        /// An Asset.
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-nextgen:media/latest:getAsset", args ?? new GetAssetArgs(), options.WithVersion());
     }

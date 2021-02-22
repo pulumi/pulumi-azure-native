@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
 {
     public static class GetProximityPlacementGroup
     {
+        /// <summary>
+        /// Specifies information about the proximity placement group.
+        /// </summary>
         public static Task<GetProximityPlacementGroupResult> InvokeAsync(GetProximityPlacementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProximityPlacementGroupResult>("azure-nextgen:compute/v20180401:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupArgs(), options.WithVersion());
     }

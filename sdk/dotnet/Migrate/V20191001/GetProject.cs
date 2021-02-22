@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
 {
     public static class GetProject
     {
+        /// <summary>
+        /// Azure Migrate Project.
+        /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-nextgen:migrate/v20191001:getProject", args ?? new GetProjectArgs(), options.WithVersion());
     }

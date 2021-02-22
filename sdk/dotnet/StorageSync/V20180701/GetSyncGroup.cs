@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StorageSync.V20180701
 {
     public static class GetSyncGroup
     {
+        /// <summary>
+        /// Sync Group object.
+        /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-nextgen:storagesync/v20180701:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithVersion());
     }

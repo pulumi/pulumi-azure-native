@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StorSimple
 {
     public static class GetBandwidthSetting
     {
+        /// <summary>
+        /// The bandwidth setting.
+        /// API Version: 2017-06-01.
+        /// </summary>
         public static Task<GetBandwidthSettingResult> InvokeAsync(GetBandwidthSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthSettingResult>("azure-nextgen:storsimple:getBandwidthSetting", args ?? new GetBandwidthSettingArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EventHub
 {
     public static class GetCluster
     {
+        /// <summary>
+        /// Single Event Hubs Cluster resource in List or Get operations.
+        /// API Version: 2018-01-01-preview.
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:eventhub:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Media.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listStreamingLocatorContentKeys'.")]
     public static class ListStreamingLocatorContentKeys
     {
+        /// <summary>
+        /// Class of response for listContentKeys action
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<ListStreamingLocatorContentKeysResult> InvokeAsync(ListStreamingLocatorContentKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorContentKeysResult>("azure-nextgen:media/latest:listStreamingLocatorContentKeys", args ?? new ListStreamingLocatorContentKeysArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
 {
     public static class GetBuildLogLink
     {
+        /// <summary>
+        /// The result of get log link operation.
+        /// API Version: 2018-02-01-preview.
+        /// </summary>
         public static Task<GetBuildLogLinkResult> InvokeAsync(GetBuildLogLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBuildLogLinkResult>("azure-nextgen:containerregistry:getBuildLogLink", args ?? new GetBuildLogLinkArgs(), options.WithVersion());
     }

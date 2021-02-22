@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Batch.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getApplication'.")]
     public static class GetApplication
     {
+        /// <summary>
+        /// Contains information about an application in a Batch account.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-nextgen:batch/latest:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
     }

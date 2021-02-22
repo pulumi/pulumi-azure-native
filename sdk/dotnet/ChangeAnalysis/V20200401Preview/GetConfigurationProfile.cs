@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
 {
     public static class GetConfigurationProfile
     {
+        /// <summary>
+        /// A profile object that contains change analysis configuration, such as notification settings, for this subscription
+        /// </summary>
         public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("azure-nextgen:changeanalysis/v20200401preview:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Synapse.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntime'.")]
     public static class GetIntegrationRuntime
     {
+        /// <summary>
+        /// Integration runtime resource type.
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetIntegrationRuntimeResult> InvokeAsync(GetIntegrationRuntimeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-nextgen:synapse/latest:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithVersion());
     }

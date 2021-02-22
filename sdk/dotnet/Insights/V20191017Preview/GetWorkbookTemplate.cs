@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
 {
     public static class GetWorkbookTemplate
     {
+        /// <summary>
+        /// An Application Insights workbook template definition.
+        /// </summary>
         public static Task<GetWorkbookTemplateResult> InvokeAsync(GetWorkbookTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookTemplateResult>("azure-nextgen:insights/v20191017preview:getWorkbookTemplate", args ?? new GetWorkbookTemplateArgs(), options.WithVersion());
     }

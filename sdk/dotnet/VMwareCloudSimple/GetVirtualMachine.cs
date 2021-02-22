@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple
 {
     public static class GetVirtualMachine
     {
+        /// <summary>
+        /// Virtual machine model
+        /// API Version: 2019-04-01.
+        /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-nextgen:vmwarecloudsimple:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithVersion());
     }

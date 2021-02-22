@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:listStorageAccountSasTokens'.")]
     public static class ListStorageAccountSasTokens
     {
+        /// <summary>
+        /// The SAS response that contains the storage account, container and associated SAS token for connection use.
+        /// Latest API Version: 2016-11-01.
+        /// </summary>
         public static Task<ListStorageAccountSasTokensResult> InvokeAsync(ListStorageAccountSasTokensArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSasTokensResult>("azure-nextgen:datalakeanalytics/latest:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensArgs(), options.WithVersion());
     }

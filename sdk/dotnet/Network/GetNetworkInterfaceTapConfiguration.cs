@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetNetworkInterfaceTapConfiguration
     {
+        /// <summary>
+        /// Tap configuration in a Network Interface.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetNetworkInterfaceTapConfigurationResult> InvokeAsync(GetNetworkInterfaceTapConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceTapConfigurationResult>("azure-nextgen:network:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationArgs(), options.WithVersion());
     }

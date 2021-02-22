@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200101
 {
     public static class GetRecordSet
     {
+        /// <summary>
+        /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+        /// </summary>
         public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-nextgen:network/v20200101:getRecordSet", args ?? new GetRecordSetArgs(), options.WithVersion());
     }

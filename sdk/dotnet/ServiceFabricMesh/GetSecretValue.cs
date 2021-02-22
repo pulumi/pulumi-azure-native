@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
 {
     public static class GetSecretValue
     {
+        /// <summary>
+        /// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+        /// API Version: 2018-09-01-preview.
+        /// </summary>
         public static Task<GetSecretValueResult> InvokeAsync(GetSecretValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretValueResult>("azure-nextgen:servicefabricmesh:getSecretValue", args ?? new GetSecretValueArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Cdn
 {
     public static class GetAFDOrigin
     {
+        /// <summary>
+        /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+        /// API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetAFDOriginResult> InvokeAsync(GetAFDOriginArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginResult>("azure-nextgen:cdn:getAFDOrigin", args ?? new GetAFDOriginArgs(), options.WithVersion());
     }

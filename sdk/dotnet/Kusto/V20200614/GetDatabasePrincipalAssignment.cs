@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Kusto.V20200614
 {
     public static class GetDatabasePrincipalAssignment
     {
+        /// <summary>
+        /// Class representing a database principal assignment.
+        /// </summary>
         public static Task<GetDatabasePrincipalAssignmentResult> InvokeAsync(GetDatabasePrincipalAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabasePrincipalAssignmentResult>("azure-nextgen:kusto/v20200614:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentArgs(), options.WithVersion());
     }

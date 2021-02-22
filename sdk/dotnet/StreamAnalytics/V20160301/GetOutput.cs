@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
 {
     public static class GetOutput
     {
+        /// <summary>
+        /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+        /// </summary>
         public static Task<GetOutputResult> InvokeAsync(GetOutputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOutputResult>("azure-nextgen:streamanalytics/v20160301:getOutput", args ?? new GetOutputArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getWorkspaceConnection'.")]
     public static class GetWorkspaceConnection
     {
+        /// <summary>
+        /// Workspace connection.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetWorkspaceConnectionResult> InvokeAsync(GetWorkspaceConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceConnectionResult>("azure-nextgen:machinelearningservices/latest:getWorkspaceConnection", args ?? new GetWorkspaceConnectionArgs(), options.WithVersion());
     }

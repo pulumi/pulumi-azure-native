@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.VisualStudio
 {
     public static class GetAccount
     {
+        /// <summary>
+        /// The response to an account resource GET request.
+        /// API Version: 2014-04-01-preview.
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:visualstudio:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

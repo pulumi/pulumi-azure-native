@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
 {
     public static class GetRole
     {
+        /// <summary>
+        /// Compute role.
+        /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("azure-nextgen:databoxedge/v20200501preview:getRole", args ?? new GetRoleArgs(), options.WithVersion());
     }

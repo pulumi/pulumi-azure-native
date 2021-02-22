@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Media
 {
     public static class GetContentKeyPolicyPropertiesWithSecrets
     {
+        /// <summary>
+        /// The properties of the Content Key Policy.
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetContentKeyPolicyPropertiesWithSecretsResult> InvokeAsync(GetContentKeyPolicyPropertiesWithSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyPropertiesWithSecretsResult>("azure-nextgen:media:getContentKeyPolicyPropertiesWithSecrets", args ?? new GetContentKeyPolicyPropertiesWithSecretsArgs(), options.WithVersion());
     }

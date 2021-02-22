@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory
 {
     public static class GetB2CTenant
     {
+        /// <summary>
+        /// 
+        /// API Version: 2019-01-01-preview.
+        /// </summary>
         public static Task<GetB2CTenantResult> InvokeAsync(GetB2CTenantArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetB2CTenantResult>("azure-nextgen:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantArgs(), options.WithVersion());
     }

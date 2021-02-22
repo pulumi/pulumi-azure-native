@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Management.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroupSubscription'.")]
     public static class GetManagementGroupSubscription
     {
+        /// <summary>
+        /// The details of subscription under management group.
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetManagementGroupSubscriptionResult> InvokeAsync(GetManagementGroupSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupSubscriptionResult>("azure-nextgen:management/latest:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionArgs(), options.WithVersion());
     }

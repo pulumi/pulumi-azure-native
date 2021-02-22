@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Security.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAdaptiveApplicationControl'.")]
     public static class GetAdaptiveApplicationControl
     {
+        /// <summary>
+        /// 
+        /// Latest API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetAdaptiveApplicationControlResult> InvokeAsync(GetAdaptiveApplicationControlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAdaptiveApplicationControlResult>("azure-nextgen:security/latest:getAdaptiveApplicationControl", args ?? new GetAdaptiveApplicationControlArgs(), options.WithVersion());
     }

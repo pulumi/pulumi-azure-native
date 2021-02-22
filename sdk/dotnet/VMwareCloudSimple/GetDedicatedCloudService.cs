@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple
 {
     public static class GetDedicatedCloudService
     {
+        /// <summary>
+        /// Dedicated cloud service model
+        /// API Version: 2019-04-01.
+        /// </summary>
         public static Task<GetDedicatedCloudServiceResult> InvokeAsync(GetDedicatedCloudServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudServiceResult>("azure-nextgen:vmwarecloudsimple:getDedicatedCloudService", args ?? new GetDedicatedCloudServiceArgs(), options.WithVersion());
     }

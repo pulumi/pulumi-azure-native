@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Resources.V20191001
 {
     public static class GetDeploymentAtSubscriptionScope
     {
+        /// <summary>
+        /// Deployment information.
+        /// </summary>
         public static Task<GetDeploymentAtSubscriptionScopeResult> InvokeAsync(GetDeploymentAtSubscriptionScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtSubscriptionScopeResult>("azure-nextgen:resources/v20191001:getDeploymentAtSubscriptionScope", args ?? new GetDeploymentAtSubscriptionScopeArgs(), options.WithVersion());
     }

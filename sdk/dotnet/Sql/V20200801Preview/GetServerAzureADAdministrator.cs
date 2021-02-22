@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 {
     public static class GetServerAzureADAdministrator
     {
+        /// <summary>
+        /// Azure Active Directory administrator.
+        /// </summary>
         public static Task<GetServerAzureADAdministratorResult> InvokeAsync(GetServerAzureADAdministratorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADAdministratorResult>("azure-nextgen:sql/v20200801preview:getServerAzureADAdministrator", args ?? new GetServerAzureADAdministratorArgs(), options.WithVersion());
     }

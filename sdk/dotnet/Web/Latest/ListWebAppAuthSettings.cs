@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppAuthSettings'.")]
     public static class ListWebAppAuthSettings
     {
+        /// <summary>
+        /// Configuration settings for the Azure App Service Authentication / Authorization feature.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListWebAppAuthSettingsResult> InvokeAsync(ListWebAppAuthSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsResult>("azure-nextgen:web/latest:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsArgs(), options.WithVersion());
     }

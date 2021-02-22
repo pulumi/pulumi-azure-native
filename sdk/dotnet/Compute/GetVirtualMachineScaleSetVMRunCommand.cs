@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Compute
 {
     public static class GetVirtualMachineScaleSetVMRunCommand
     {
+        /// <summary>
+        /// Describes a Virtual Machine run command.
+        /// API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetVirtualMachineScaleSetVMRunCommandResult> InvokeAsync(GetVirtualMachineScaleSetVMRunCommandArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMRunCommandResult>("azure-nextgen:compute:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandArgs(), options.WithVersion());
     }

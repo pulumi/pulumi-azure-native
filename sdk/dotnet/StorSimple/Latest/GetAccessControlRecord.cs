@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getAccessControlRecord'.")]
     public static class GetAccessControlRecord
     {
+        /// <summary>
+        /// The access control record.
+        /// Latest API Version: 2017-06-01.
+        /// </summary>
         public static Task<GetAccessControlRecordResult> InvokeAsync(GetAccessControlRecordArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessControlRecordResult>("azure-nextgen:storsimple/latest:getAccessControlRecord", args ?? new GetAccessControlRecordArgs(), options.WithVersion());
     }

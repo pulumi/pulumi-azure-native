@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights
 {
     public static class GetCluster
     {
+        /// <summary>
+        /// The top level Log Analytics cluster resource container.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:operationalinsights:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

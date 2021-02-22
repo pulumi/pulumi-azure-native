@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listSubscriptionSecrets'.")]
     public static class ListSubscriptionSecrets
     {
+        /// <summary>
+        /// Subscription keys.
+        /// Latest API Version: 2019-12-01.
+        /// </summary>
         public static Task<ListSubscriptionSecretsResult> InvokeAsync(ListSubscriptionSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSubscriptionSecretsResult>("azure-nextgen:apimanagement/latest:listSubscriptionSecrets", args ?? new ListSubscriptionSecretsArgs(), options.WithVersion());
     }

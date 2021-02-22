@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Logic.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationServiceEnvironmentManagedApi'.")]
     public static class GetIntegrationServiceEnvironmentManagedApi
     {
+        /// <summary>
+        /// The managed api definition.
+        /// Latest API Version: 2019-05-01.
+        /// </summary>
         public static Task<GetIntegrationServiceEnvironmentManagedApiResult> InvokeAsync(GetIntegrationServiceEnvironmentManagedApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationServiceEnvironmentManagedApiResult>("azure-nextgen:logic/latest:getIntegrationServiceEnvironmentManagedApi", args ?? new GetIntegrationServiceEnvironmentManagedApiArgs(), options.WithVersion());
     }

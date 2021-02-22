@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview
 {
     public static class GetApplication
     {
+        /// <summary>
+        /// Schema for Application properties.
+        /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-nextgen:desktopvirtualization/v20201102preview:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
     }

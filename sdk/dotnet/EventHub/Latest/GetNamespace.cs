@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.EventHub.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getNamespace'.")]
     public static class GetNamespace
     {
+        /// <summary>
+        /// Single Namespace item in List or Get Operation
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-nextgen:eventhub/latest:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }

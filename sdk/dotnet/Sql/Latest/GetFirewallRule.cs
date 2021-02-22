@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Sql.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getFirewallRule'.")]
     public static class GetFirewallRule
     {
+        /// <summary>
+        /// Represents a server firewall rule.
+        /// Latest API Version: 2014-04-01.
+        /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:sql/latest:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }

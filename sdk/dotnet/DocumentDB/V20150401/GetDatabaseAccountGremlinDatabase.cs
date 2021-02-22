@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150401
 {
     public static class GetDatabaseAccountGremlinDatabase
     {
+        /// <summary>
+        /// An Azure Cosmos DB Gremlin database.
+        /// </summary>
         public static Task<GetDatabaseAccountGremlinDatabaseResult> InvokeAsync(GetDatabaseAccountGremlinDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinDatabaseResult>("azure-nextgen:documentdb/v20150401:getDatabaseAccountGremlinDatabase", args ?? new GetDatabaseAccountGremlinDatabaseArgs(), options.WithVersion());
     }

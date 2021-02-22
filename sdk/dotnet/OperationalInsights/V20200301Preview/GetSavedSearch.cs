@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
 {
     public static class GetSavedSearch
     {
+        /// <summary>
+        /// Value object for saved search results.
+        /// </summary>
         public static Task<GetSavedSearchResult> InvokeAsync(GetSavedSearchArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSavedSearchResult>("azure-nextgen:operationalinsights/v20200301preview:getSavedSearch", args ?? new GetSavedSearchArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Search
 {
     public static class GetSharedPrivateLinkResource
     {
+        /// <summary>
+        /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetSharedPrivateLinkResourceResult> InvokeAsync(GetSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSharedPrivateLinkResourceResult>("azure-nextgen:search:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceArgs(), options.WithVersion());
     }

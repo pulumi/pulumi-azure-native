@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 {
     public static class GetDatabaseSecurityAlertPolicy
     {
+        /// <summary>
+        /// A database security alert policy.
+        /// </summary>
         public static Task<GetDatabaseSecurityAlertPolicyResult> InvokeAsync(GetDatabaseSecurityAlertPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseSecurityAlertPolicyResult>("azure-nextgen:sql/v20200202preview:getDatabaseSecurityAlertPolicy", args ?? new GetDatabaseSecurityAlertPolicyArgs(), options.WithVersion());
     }

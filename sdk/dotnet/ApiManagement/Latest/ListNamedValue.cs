@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listNamedValue'.")]
     public static class ListNamedValue
     {
+        /// <summary>
+        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// Latest API Version: 2019-12-01.
+        /// </summary>
         public static Task<ListNamedValueResult> InvokeAsync(ListNamedValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNamedValueResult>("azure-nextgen:apimanagement/latest:listNamedValue", args ?? new ListNamedValueArgs(), options.WithVersion());
     }

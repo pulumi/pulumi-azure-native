@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StorageSync
 {
     public static class GetStorageSyncService
     {
+        /// <summary>
+        /// Storage Sync Service object.
+        /// API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetStorageSyncServiceResult> InvokeAsync(GetStorageSyncServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageSyncServiceResult>("azure-nextgen:storagesync:getStorageSyncService", args ?? new GetStorageSyncServiceArgs(), options.WithVersion());
     }

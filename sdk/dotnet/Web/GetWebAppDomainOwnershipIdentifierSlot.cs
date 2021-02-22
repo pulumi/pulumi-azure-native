@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class GetWebAppDomainOwnershipIdentifierSlot
     {
+        /// <summary>
+        /// A domain specific resource identifier.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppDomainOwnershipIdentifierSlotResult> InvokeAsync(GetWebAppDomainOwnershipIdentifierSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDomainOwnershipIdentifierSlotResult>("azure-nextgen:web:getWebAppDomainOwnershipIdentifierSlot", args ?? new GetWebAppDomainOwnershipIdentifierSlotArgs(), options.WithVersion());
     }

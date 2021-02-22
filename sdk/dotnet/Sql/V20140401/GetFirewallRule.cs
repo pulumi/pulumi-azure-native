@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
 {
     public static class GetFirewallRule
     {
+        /// <summary>
+        /// Represents a server firewall rule.
+        /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:sql/v20140401:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }

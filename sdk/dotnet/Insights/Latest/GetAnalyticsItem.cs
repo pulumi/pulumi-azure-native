@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Insights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getAnalyticsItem'.")]
     public static class GetAnalyticsItem
     {
+        /// <summary>
+        /// Properties that define an Analytics item that is associated to an Application Insights component.
+        /// Latest API Version: 2015-05-01.
+        /// </summary>
         public static Task<GetAnalyticsItemResult> InvokeAsync(GetAnalyticsItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsItemResult>("azure-nextgen:insights/latest:getAnalyticsItem", args ?? new GetAnalyticsItemArgs(), options.WithVersion());
     }

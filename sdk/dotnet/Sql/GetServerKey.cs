@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Sql
 {
     public static class GetServerKey
     {
+        /// <summary>
+        /// A server key.
+        /// API Version: 2020-08-01-preview.
+        /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-nextgen:sql:getServerKey", args ?? new GetServerKeyArgs(), options.WithVersion());
     }

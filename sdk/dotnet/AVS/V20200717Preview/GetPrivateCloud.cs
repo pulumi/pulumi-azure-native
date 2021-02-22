@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 {
     public static class GetPrivateCloud
     {
+        /// <summary>
+        /// A private cloud resource
+        /// </summary>
         public static Task<GetPrivateCloudResult> InvokeAsync(GetPrivateCloudArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateCloudResult>("azure-nextgen:avs/v20200717preview:getPrivateCloud", args ?? new GetPrivateCloudArgs(), options.WithVersion());
     }

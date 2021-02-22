@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 {
     public static class GetHubVirtualNetworkConnection
     {
+        /// <summary>
+        /// HubVirtualNetworkConnection Resource.
+        /// </summary>
         public static Task<GetHubVirtualNetworkConnectionResult> InvokeAsync(GetHubVirtualNetworkConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHubVirtualNetworkConnectionResult>("azure-nextgen:network/v20200501:getHubVirtualNetworkConnection", args ?? new GetHubVirtualNetworkConnectionArgs(), options.WithVersion());
     }

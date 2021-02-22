@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 {
     public static class GetGlobalUserEnvironment
     {
+        /// <summary>
+        /// Represents the environments details
+        /// </summary>
         public static Task<GetGlobalUserEnvironmentResult> InvokeAsync(GetGlobalUserEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserEnvironmentResult>("azure-nextgen:labservices/v20181015:getGlobalUserEnvironment", args ?? new GetGlobalUserEnvironmentArgs(), options.WithVersion());
     }

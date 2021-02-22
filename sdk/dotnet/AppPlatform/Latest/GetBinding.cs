@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AppPlatform.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getBinding'.")]
     public static class GetBinding
     {
+        /// <summary>
+        /// Binding resource payload
+        /// Latest API Version: 2020-07-01.
+        /// </summary>
         public static Task<GetBindingResult> InvokeAsync(GetBindingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azure-nextgen:appplatform/latest:getBinding", args ?? new GetBindingArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
 {
     public static class GetDeployment
     {
+        /// <summary>
+        /// Deployment resource payload
+        /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-nextgen:appplatform/v20201101preview:getDeployment", args ?? new GetDeploymentArgs(), options.WithVersion());
     }

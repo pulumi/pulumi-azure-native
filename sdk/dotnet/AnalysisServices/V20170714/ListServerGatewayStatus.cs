@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
 {
     public static class ListServerGatewayStatus
     {
+        /// <summary>
+        /// Status of gateway is live
+        /// </summary>
         public static Task<ListServerGatewayStatusResult> InvokeAsync(ListServerGatewayStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListServerGatewayStatusResult>("azure-nextgen:analysisservices/v20170714:listServerGatewayStatus", args ?? new ListServerGatewayStatusArgs(), options.WithVersion());
     }

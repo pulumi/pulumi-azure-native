@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 {
     public static class ListWebAppBackupConfiguration
     {
+        /// <summary>
+        /// Description of a backup which will be performed.
+        /// </summary>
         public static Task<ListWebAppBackupConfigurationResult> InvokeAsync(ListWebAppBackupConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupConfigurationResult>("azure-nextgen:web/v20160801:listWebAppBackupConfiguration", args ?? new ListWebAppBackupConfigurationArgs(), options.WithVersion());
     }

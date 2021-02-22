@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetIpAllocation
     {
+        /// <summary>
+        /// IpAllocation resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetIpAllocationResult> InvokeAsync(GetIpAllocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIpAllocationResult>("azure-nextgen:network:getIpAllocation", args ?? new GetIpAllocationArgs(), options.WithVersion());
     }

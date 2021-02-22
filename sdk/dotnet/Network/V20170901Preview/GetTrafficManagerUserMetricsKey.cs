@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20170901Preview
 {
     public static class GetTrafficManagerUserMetricsKey
     {
+        /// <summary>
+        /// Class representing a Traffic Manager Real User Metrics key response.
+        /// </summary>
         public static Task<GetTrafficManagerUserMetricsKeyResult> InvokeAsync(GetTrafficManagerUserMetricsKeyArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerUserMetricsKeyResult>("azure-nextgen:network/v20170901preview:getTrafficManagerUserMetricsKey", args ?? new GetTrafficManagerUserMetricsKeyArgs(), options.WithVersion());
     }

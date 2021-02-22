@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 {
     public static class GetServerAzureADOnlyAuthentication
     {
+        /// <summary>
+        /// Azure Active Directory only authentication.
+        /// </summary>
         public static Task<GetServerAzureADOnlyAuthenticationResult> InvokeAsync(GetServerAzureADOnlyAuthenticationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADOnlyAuthenticationResult>("azure-nextgen:sql/v20200801preview:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationArgs(), options.WithVersion());
     }

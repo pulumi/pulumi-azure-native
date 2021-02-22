@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 {
     public static class GetTopic
     {
+        /// <summary>
+        /// Description of topic resource.
+        /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-nextgen:servicebus/v20180101preview:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Media.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetEncryptionKey'.")]
     public static class GetAssetEncryptionKey
     {
+        /// <summary>
+        /// Data needed to decrypt asset files encrypted with legacy storage encryption.
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetAssetEncryptionKeyResult> InvokeAsync(GetAssetEncryptionKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssetEncryptionKeyResult>("azure-nextgen:media/latest:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyArgs(), options.WithVersion());
     }

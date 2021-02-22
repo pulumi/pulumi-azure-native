@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
 {
     public static class GetPartnerNamespace
     {
+        /// <summary>
+        /// EventGrid Partner Namespace.
+        /// </summary>
         public static Task<GetPartnerNamespaceResult> InvokeAsync(GetPartnerNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerNamespaceResult>("azure-nextgen:eventgrid/v20201015preview:getPartnerNamespace", args ?? new GetPartnerNamespaceArgs(), options.WithVersion());
     }

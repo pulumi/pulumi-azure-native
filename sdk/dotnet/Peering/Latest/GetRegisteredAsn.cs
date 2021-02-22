@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Peering.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getRegisteredAsn'.")]
     public static class GetRegisteredAsn
     {
+        /// <summary>
+        /// The customer's ASN that is registered by the peering service provider.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetRegisteredAsnResult> InvokeAsync(GetRegisteredAsnArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredAsnResult>("azure-nextgen:peering/latest:getRegisteredAsn", args ?? new GetRegisteredAsnArgs(), options.WithVersion());
     }

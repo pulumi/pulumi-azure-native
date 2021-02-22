@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 {
     public static class GetManagedInstancePrivateEndpointConnection
     {
+        /// <summary>
+        /// A private endpoint connection
+        /// </summary>
         public static Task<GetManagedInstancePrivateEndpointConnectionResult> InvokeAsync(GetManagedInstancePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstancePrivateEndpointConnectionResult>("azure-nextgen:sql/v20200202preview:getManagedInstancePrivateEndpointConnection", args ?? new GetManagedInstancePrivateEndpointConnectionArgs(), options.WithVersion());
     }

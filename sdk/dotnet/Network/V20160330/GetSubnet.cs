@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20160330
 {
     public static class GetSubnet
     {
+        /// <summary>
+        /// Subnet in a VirtualNetwork resource
+        /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure-nextgen:network/v20160330:getSubnet", args ?? new GetSubnetArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 {
     public static class GetAccessControlRecord
     {
+        /// <summary>
+        /// The access control record
+        /// </summary>
         public static Task<GetAccessControlRecordResult> InvokeAsync(GetAccessControlRecordArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessControlRecordResult>("azure-nextgen:storsimple/v20161001:getAccessControlRecord", args ?? new GetAccessControlRecordArgs(), options.WithVersion());
     }

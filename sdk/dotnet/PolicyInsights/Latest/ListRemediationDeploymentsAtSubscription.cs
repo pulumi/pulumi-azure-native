@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.PolicyInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:listRemediationDeploymentsAtSubscription'.")]
     public static class ListRemediationDeploymentsAtSubscription
     {
+        /// <summary>
+        /// List of deployments for a remediation.
+        /// Latest API Version: 2019-07-01.
+        /// </summary>
         public static Task<ListRemediationDeploymentsAtSubscriptionResult> InvokeAsync(ListRemediationDeploymentsAtSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtSubscriptionResult>("azure-nextgen:policyinsights/latest:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionArgs(), options.WithVersion());
     }

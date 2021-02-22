@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Automation.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getAutomationAccount'.")]
     public static class GetAutomationAccount
     {
+        /// <summary>
+        /// Definition of the automation account type.
+        /// Latest API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetAutomationAccountResult> InvokeAsync(GetAutomationAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationAccountResult>("azure-nextgen:automation/latest:getAutomationAccount", args ?? new GetAutomationAccountArgs(), options.WithVersion());
     }

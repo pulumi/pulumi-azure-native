@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Automation
 {
     public static class GetModule
     {
+        /// <summary>
+        /// Definition of the module type.
+        /// API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetModuleResult> InvokeAsync(GetModuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-nextgen:automation:getModule", args ?? new GetModuleArgs(), options.WithVersion());
     }

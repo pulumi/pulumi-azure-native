@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Compute.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getProximityPlacementGroup'.")]
     public static class GetProximityPlacementGroup
     {
+        /// <summary>
+        /// Specifies information about the proximity placement group.
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetProximityPlacementGroupResult> InvokeAsync(GetProximityPlacementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProximityPlacementGroupResult>("azure-nextgen:compute/latest:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 {
     public static class GetNamespace
     {
+        /// <summary>
+        /// Description of a namespace resource.
+        /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-nextgen:servicebus/v20180101preview:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRunLogSasUrl'.")]
     public static class ListRunLogSasUrl
     {
+        /// <summary>
+        /// The result of get log link operation.
+        /// Latest API Version: 2019-04-01.
+        /// </summary>
         public static Task<ListRunLogSasUrlResult> InvokeAsync(ListRunLogSasUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRunLogSasUrlResult>("azure-nextgen:containerregistry/latest:listRunLogSasUrl", args ?? new ListRunLogSasUrlArgs(), options.WithVersion());
     }

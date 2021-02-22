@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview
 {
     public static class GetApplicationGroup
     {
+        /// <summary>
+        /// Represents a ApplicationGroup definition.
+        /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-nextgen:desktopvirtualization/v20201019preview:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithVersion());
     }

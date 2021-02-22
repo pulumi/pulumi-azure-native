@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
 {
     public static class GetComponentCurrentBillingFeature
     {
+        /// <summary>
+        /// An Application Insights component billing features
+        /// </summary>
         public static Task<GetComponentCurrentBillingFeatureResult> InvokeAsync(GetComponentCurrentBillingFeatureArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComponentCurrentBillingFeatureResult>("azure-nextgen:insights/v20150501:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureArgs(), options.WithVersion());
     }

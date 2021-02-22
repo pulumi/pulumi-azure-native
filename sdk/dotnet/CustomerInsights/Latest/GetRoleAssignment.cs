@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRoleAssignment'.")]
     public static class GetRoleAssignment
     {
+        /// <summary>
+        /// The Role Assignment resource format.
+        /// Latest API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-nextgen:customerinsights/latest:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithVersion());
     }

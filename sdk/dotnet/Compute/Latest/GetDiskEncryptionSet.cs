@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Compute.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskEncryptionSet'.")]
     public static class GetDiskEncryptionSet
     {
+        /// <summary>
+        /// disk encryption set resource.
+        /// Latest API Version: 2020-09-30.
+        /// </summary>
         public static Task<GetDiskEncryptionSetResult> InvokeAsync(GetDiskEncryptionSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure-nextgen:compute/latest:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetArgs(), options.WithVersion());
     }

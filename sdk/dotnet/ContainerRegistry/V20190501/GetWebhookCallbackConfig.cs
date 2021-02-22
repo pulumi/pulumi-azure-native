@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501
 {
     public static class GetWebhookCallbackConfig
     {
+        /// <summary>
+        /// The configuration of service URI and custom headers for the webhook.
+        /// </summary>
         public static Task<GetWebhookCallbackConfigResult> InvokeAsync(GetWebhookCallbackConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookCallbackConfigResult>("azure-nextgen:containerregistry/v20190501:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigArgs(), options.WithVersion());
     }

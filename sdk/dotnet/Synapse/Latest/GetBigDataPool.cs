@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Synapse.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getBigDataPool'.")]
     public static class GetBigDataPool
     {
+        /// <summary>
+        /// A Big Data pool
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetBigDataPoolResult> InvokeAsync(GetBigDataPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBigDataPoolResult>("azure-nextgen:synapse/latest:getBigDataPool", args ?? new GetBigDataPoolArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayVpnclientIpsecParameters'.")]
     public static class GetVirtualNetworkGatewayVpnclientIpsecParameters
     {
+        /// <summary>
+        /// An IPSec parameters for a virtual network gateway P2S connection.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> InvokeAsync(GetVirtualNetworkGatewayVpnclientIpsecParametersArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayVpnclientIpsecParametersResult>("azure-nextgen:network/latest:getVirtualNetworkGatewayVpnclientIpsecParameters", args ?? new GetVirtualNetworkGatewayVpnclientIpsecParametersArgs(), options.WithVersion());
     }

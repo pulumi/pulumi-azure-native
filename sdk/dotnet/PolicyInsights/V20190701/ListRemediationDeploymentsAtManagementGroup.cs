@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20190701
 {
     public static class ListRemediationDeploymentsAtManagementGroup
     {
+        /// <summary>
+        /// List of deployments for a remediation.
+        /// </summary>
         public static Task<ListRemediationDeploymentsAtManagementGroupResult> InvokeAsync(ListRemediationDeploymentsAtManagementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtManagementGroupResult>("azure-nextgen:policyinsights/v20190701:listRemediationDeploymentsAtManagementGroup", args ?? new ListRemediationDeploymentsAtManagementGroupArgs(), options.WithVersion());
     }

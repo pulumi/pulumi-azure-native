@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Maintenance.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:maintenance:getMaintenanceConfiguration'.")]
     public static class GetMaintenanceConfiguration
     {
+        /// <summary>
+        /// Maintenance configuration record type
+        /// Latest API Version: 2020-04-01.
+        /// </summary>
         public static Task<GetMaintenanceConfigurationResult> InvokeAsync(GetMaintenanceConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-nextgen:maintenance/latest:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithVersion());
     }

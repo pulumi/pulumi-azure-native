@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 {
     public static class GetManagedInstance
     {
+        /// <summary>
+        /// An Azure SQL managed instance.
+        /// </summary>
         public static Task<GetManagedInstanceResult> InvokeAsync(GetManagedInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceResult>("azure-nextgen:sql/v20200801preview:getManagedInstance", args ?? new GetManagedInstanceArgs(), options.WithVersion());
     }

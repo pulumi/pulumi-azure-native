@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:listWorkspaceKeys'.")]
     public static class ListWorkspaceKeys
     {
+        /// <summary>
+        /// The shared keys for a workspace.
+        /// Latest API Version: 2015-03-20.
+        /// </summary>
         public static Task<ListWorkspaceKeysResult> InvokeAsync(ListWorkspaceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-nextgen:operationalinsights/latest:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithVersion());
     }

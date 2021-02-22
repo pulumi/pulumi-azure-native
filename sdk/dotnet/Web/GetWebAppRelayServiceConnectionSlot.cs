@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class GetWebAppRelayServiceConnectionSlot
     {
+        /// <summary>
+        /// Hybrid Connection for an App Service app.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppRelayServiceConnectionSlotResult> InvokeAsync(GetWebAppRelayServiceConnectionSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppRelayServiceConnectionSlotResult>("azure-nextgen:web:getWebAppRelayServiceConnectionSlot", args ?? new GetWebAppRelayServiceConnectionSlotArgs(), options.WithVersion());
     }

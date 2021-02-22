@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class ListWebAppAzureStorageAccountsSlot
     {
+        /// <summary>
+        /// AzureStorageInfo dictionary resource.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListWebAppAzureStorageAccountsSlotResult> InvokeAsync(ListWebAppAzureStorageAccountsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAzureStorageAccountsSlotResult>("azure-nextgen:web:listWebAppAzureStorageAccountsSlot", args ?? new ListWebAppAzureStorageAccountsSlotArgs(), options.WithVersion());
     }

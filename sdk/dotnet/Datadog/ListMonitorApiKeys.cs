@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Datadog
 {
     public static class ListMonitorApiKeys
     {
+        /// <summary>
+        /// Response of a list operation.
+        /// API Version: 2020-02-01-preview.
+        /// </summary>
         public static Task<ListMonitorApiKeysResult> InvokeAsync(ListMonitorApiKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorApiKeysResult>("azure-nextgen:datadog:listMonitorApiKeys", args ?? new ListMonitorApiKeysArgs(), options.WithVersion());
     }

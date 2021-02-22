@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Batch.V20190401
 {
     public static class GetApplicationPackage
     {
+        /// <summary>
+        /// An application package which represents a particular version of an application.
+        /// </summary>
         public static Task<GetApplicationPackageResult> InvokeAsync(GetApplicationPackageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationPackageResult>("azure-nextgen:batch/v20190401:getApplicationPackage", args ?? new GetApplicationPackageArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 {
     public static class GetIntegrationAccountPartner
     {
+        /// <summary>
+        /// The integration account partner.
+        /// </summary>
         public static Task<GetIntegrationAccountPartnerResult> InvokeAsync(GetIntegrationAccountPartnerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountPartnerResult>("azure-nextgen:logic/v20190501:getIntegrationAccountPartner", args ?? new GetIntegrationAccountPartnerArgs(), options.WithVersion());
     }

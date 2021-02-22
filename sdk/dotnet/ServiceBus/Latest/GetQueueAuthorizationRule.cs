@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ServiceBus.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getQueueAuthorizationRule'.")]
     public static class GetQueueAuthorizationRule
     {
+        /// <summary>
+        /// Description of a namespace authorization rule.
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetQueueAuthorizationRuleResult> InvokeAsync(GetQueueAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueAuthorizationRuleResult>("azure-nextgen:servicebus/latest:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleArgs(), options.WithVersion());
     }

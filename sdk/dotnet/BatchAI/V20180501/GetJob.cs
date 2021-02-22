@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
 {
     public static class GetJob
     {
+        /// <summary>
+        /// Information about a Job.
+        /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-nextgen:batchai/v20180501:getJob", args ?? new GetJobArgs(), options.WithVersion());
     }

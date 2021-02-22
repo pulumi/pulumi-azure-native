@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
 {
     public static class GetInvitation
     {
+        /// <summary>
+        /// A Invitation data transfer object.
+        /// </summary>
         public static Task<GetInvitationResult> InvokeAsync(GetInvitationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInvitationResult>("azure-nextgen:datashare/v20191101:getInvitation", args ?? new GetInvitationArgs(), options.WithVersion());
     }

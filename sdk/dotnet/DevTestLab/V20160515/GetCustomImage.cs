@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 {
     public static class GetCustomImage
     {
+        /// <summary>
+        /// A custom image.
+        /// </summary>
         public static Task<GetCustomImageResult> InvokeAsync(GetCustomImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomImageResult>("azure-nextgen:devtestlab/v20160515:getCustomImage", args ?? new GetCustomImageArgs(), options.WithVersion());
     }

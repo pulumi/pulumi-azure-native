@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190505Preview
 {
     public static class GetActionRuleByName
     {
+        /// <summary>
+        /// Action rule object containing target scope, conditions and suppression logic
+        /// </summary>
         public static Task<GetActionRuleByNameResult> InvokeAsync(GetActionRuleByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActionRuleByNameResult>("azure-nextgen:alertsmanagement/v20190505preview:getActionRuleByName", args ?? new GetActionRuleByNameArgs(), options.WithVersion());
     }

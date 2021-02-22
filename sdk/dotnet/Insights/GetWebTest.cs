@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Insights
 {
     public static class GetWebTest
     {
+        /// <summary>
+        /// An Application Insights web test definition.
+        /// API Version: 2015-05-01.
+        /// </summary>
         public static Task<GetWebTestResult> InvokeAsync(GetWebTestArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-nextgen:insights:getWebTest", args ?? new GetWebTestArgs(), options.WithVersion());
     }

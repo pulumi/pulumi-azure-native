@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EdgeOrder
 {
     public static class ListConfigurations
     {
+        /// <summary>
+        /// The list of configurations.
+        /// API Version: 2020-12-01-preview.
+        /// </summary>
         public static Task<ListConfigurationsResult> InvokeAsync(ListConfigurationsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationsResult>("azure-nextgen:edgeorder:listConfigurations", args ?? new ListConfigurationsArgs(), options.WithVersion());
     }

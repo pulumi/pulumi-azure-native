@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Media
 {
     public static class ListMediaServiceKeys
     {
+        /// <summary>
+        /// The response body for a ListKeys API.
+        /// API Version: 2015-10-01.
+        /// </summary>
         public static Task<ListMediaServiceKeysResult> InvokeAsync(ListMediaServiceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceKeysResult>("azure-nextgen:media:listMediaServiceKeys", args ?? new ListMediaServiceKeysArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 {
     public static class ListIntegrationAccountMapContentCallbackUrl
     {
+        /// <summary>
+        /// The workflow trigger callback URL.
+        /// </summary>
         public static Task<ListIntegrationAccountMapContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountMapContentCallbackUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountMapContentCallbackUrlResult>("azure-nextgen:logic/v20190501:listIntegrationAccountMapContentCallbackUrl", args ?? new ListIntegrationAccountMapContentCallbackUrlArgs(), options.WithVersion());
     }

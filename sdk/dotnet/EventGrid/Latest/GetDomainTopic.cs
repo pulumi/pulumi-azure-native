@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.EventGrid.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getDomainTopic'.")]
     public static class GetDomainTopic
     {
+        /// <summary>
+        /// Domain Topic.
+        /// Latest API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetDomainTopicResult> InvokeAsync(GetDomainTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicResult>("azure-nextgen:eventgrid/latest:getDomainTopic", args ?? new GetDomainTopicArgs(), options.WithVersion());
     }

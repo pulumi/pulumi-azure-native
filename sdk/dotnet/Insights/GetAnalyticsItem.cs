@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Insights
 {
     public static class GetAnalyticsItem
     {
+        /// <summary>
+        /// Properties that define an Analytics item that is associated to an Application Insights component.
+        /// API Version: 2015-05-01.
+        /// </summary>
         public static Task<GetAnalyticsItemResult> InvokeAsync(GetAnalyticsItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsItemResult>("azure-nextgen:insights:getAnalyticsItem", args ?? new GetAnalyticsItemArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
 {
     public static class GetSqlResourceSqlStoredProcedure
     {
+        /// <summary>
+        /// An Azure Cosmos DB storedProcedure.
+        /// </summary>
         public static Task<GetSqlResourceSqlStoredProcedureResult> InvokeAsync(GetSqlResourceSqlStoredProcedureArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlStoredProcedureResult>("azure-nextgen:documentdb/v20191212:getSqlResourceSqlStoredProcedure", args ?? new GetSqlResourceSqlStoredProcedureArgs(), options.WithVersion());
     }

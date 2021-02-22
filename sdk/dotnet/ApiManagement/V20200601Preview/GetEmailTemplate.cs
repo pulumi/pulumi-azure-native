@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 {
     public static class GetEmailTemplate
     {
+        /// <summary>
+        /// Email Template details.
+        /// </summary>
         public static Task<GetEmailTemplateResult> InvokeAsync(GetEmailTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEmailTemplateResult>("azure-nextgen:apimanagement/v20200601preview:getEmailTemplate", args ?? new GetEmailTemplateArgs(), options.WithVersion());
     }

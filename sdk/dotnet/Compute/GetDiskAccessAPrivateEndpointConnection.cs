@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Compute
 {
     public static class GetDiskAccessAPrivateEndpointConnection
     {
+        /// <summary>
+        /// The Private Endpoint Connection resource.
+        /// API Version: 2020-09-30.
+        /// </summary>
         public static Task<GetDiskAccessAPrivateEndpointConnectionResult> InvokeAsync(GetDiskAccessAPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessAPrivateEndpointConnectionResult>("azure-nextgen:compute:getDiskAccessAPrivateEndpointConnection", args ?? new GetDiskAccessAPrivateEndpointConnectionArgs(), options.WithVersion());
     }

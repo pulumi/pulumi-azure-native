@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20200501Preview
 {
     public static class GetGuestUsage
     {
+        /// <summary>
+        /// Guest Usages Resource
+        /// </summary>
         public static Task<GetGuestUsageResult> InvokeAsync(GetGuestUsageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGuestUsageResult>("azure-nextgen:azureactivedirectory/v20200501preview:getGuestUsage", args ?? new GetGuestUsageArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 {
     public static class ListOpenIdConnectProviderSecrets
     {
+        /// <summary>
+        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// </summary>
         public static Task<ListOpenIdConnectProviderSecretsResult> InvokeAsync(ListOpenIdConnectProviderSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListOpenIdConnectProviderSecretsResult>("azure-nextgen:apimanagement/v20191201preview:listOpenIdConnectProviderSecrets", args ?? new ListOpenIdConnectProviderSecretsArgs(), options.WithVersion());
     }

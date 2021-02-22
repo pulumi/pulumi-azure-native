@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Marketplace
 {
     public static class GetPrivateStoreOffer
     {
+        /// <summary>
+        /// The privateStore offer data structure.
+        /// API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetPrivateStoreOfferResult> InvokeAsync(GetPrivateStoreOfferArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreOfferResult>("azure-nextgen:marketplace:getPrivateStoreOffer", args ?? new GetPrivateStoreOfferArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Kusto.V20200215
 {
     public static class GetDataConnection
     {
+        /// <summary>
+        /// Class representing an data connection.
+        /// </summary>
         public static Task<GetDataConnectionResult> InvokeAsync(GetDataConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectionResult>("azure-nextgen:kusto/v20200215:getDataConnection", args ?? new GetDataConnectionArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20170601
 {
     public static class GetVirtualNetworkGatewayLearnedRoutes
     {
+        /// <summary>
+        /// List of virtual network gateway routes
+        /// </summary>
         public static Task<GetVirtualNetworkGatewayLearnedRoutesResult> InvokeAsync(GetVirtualNetworkGatewayLearnedRoutesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayLearnedRoutesResult>("azure-nextgen:network/v20170601:getVirtualNetworkGatewayLearnedRoutes", args ?? new GetVirtualNetworkGatewayLearnedRoutesArgs(), options.WithVersion());
     }

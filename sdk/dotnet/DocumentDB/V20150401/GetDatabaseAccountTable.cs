@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150401
 {
     public static class GetDatabaseAccountTable
     {
+        /// <summary>
+        /// An Azure Cosmos DB Table.
+        /// </summary>
         public static Task<GetDatabaseAccountTableResult> InvokeAsync(GetDatabaseAccountTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountTableResult>("azure-nextgen:documentdb/v20150401:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableArgs(), options.WithVersion());
     }

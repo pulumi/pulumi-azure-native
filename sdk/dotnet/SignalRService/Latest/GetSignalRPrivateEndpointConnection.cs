@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.SignalRService.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:getSignalRPrivateEndpointConnection'.")]
     public static class GetSignalRPrivateEndpointConnection
     {
+        /// <summary>
+        /// A private endpoint connection to SignalR resource
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetSignalRPrivateEndpointConnectionResult> InvokeAsync(GetSignalRPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRPrivateEndpointConnectionResult>("azure-nextgen:signalrservice/latest:getSignalRPrivateEndpointConnection", args ?? new GetSignalRPrivateEndpointConnectionArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
 {
     public static class GetReplicationProtectionContainerMapping
     {
+        /// <summary>
+        /// Protection container mapping object.
+        /// </summary>
         public static Task<GetReplicationProtectionContainerMappingResult> InvokeAsync(GetReplicationProtectionContainerMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectionContainerMappingResult>("azure-nextgen:recoveryservices/v20160810:getReplicationProtectionContainerMapping", args ?? new GetReplicationProtectionContainerMappingArgs(), options.WithVersion());
     }

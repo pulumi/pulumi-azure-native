@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.HealthBot.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:healthbot:getBot'.")]
     public static class GetBot
     {
+        /// <summary>
+        /// HealthBot resource definition
+        /// Latest API Version: 2020-12-08.
+        /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-nextgen:healthbot/latest:getBot", args ?? new GetBotArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 {
     public static class ListTenantAccessSecrets
     {
+        /// <summary>
+        /// Tenant access information contract of the API Management service.
+        /// </summary>
         public static Task<ListTenantAccessSecretsResult> InvokeAsync(ListTenantAccessSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTenantAccessSecretsResult>("azure-nextgen:apimanagement/v20191201preview:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsArgs(), options.WithVersion());
     }

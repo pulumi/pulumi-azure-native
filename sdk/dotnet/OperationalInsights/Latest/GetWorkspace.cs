@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getWorkspace'.")]
     public static class GetWorkspace
     {
+        /// <summary>
+        /// The top level Workspace resource container.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:operationalinsights/latest:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }

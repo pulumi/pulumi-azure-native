@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.EventHub.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:listEventHubKeys'.")]
     public static class ListEventHubKeys
     {
+        /// <summary>
+        /// Namespace/EventHub Connection String
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<ListEventHubKeysResult> InvokeAsync(ListEventHubKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListEventHubKeysResult>("azure-nextgen:eventhub/latest:listEventHubKeys", args ?? new ListEventHubKeysArgs(), options.WithVersion());
     }

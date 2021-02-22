@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:listDatabaseAccountKeys'.")]
     public static class ListDatabaseAccountKeys
     {
+        /// <summary>
+        /// The access keys for the given database account.
+        /// Latest API Version: 2021-01-15.
+        /// </summary>
         public static Task<ListDatabaseAccountKeysResult> InvokeAsync(ListDatabaseAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountKeysResult>("azure-nextgen:documentdb/latest:listDatabaseAccountKeys", args ?? new ListDatabaseAccountKeysArgs(), options.WithVersion());
     }

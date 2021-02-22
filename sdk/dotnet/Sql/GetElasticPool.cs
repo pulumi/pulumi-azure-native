@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Sql
 {
     public static class GetElasticPool
     {
+        /// <summary>
+        /// Represents a database elastic pool.
+        /// API Version: 2014-04-01.
+        /// </summary>
         public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure-nextgen:sql:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
 {
     public static class GetUser
     {
+        /// <summary>
+        /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+        /// API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-nextgen:databoxedge:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }

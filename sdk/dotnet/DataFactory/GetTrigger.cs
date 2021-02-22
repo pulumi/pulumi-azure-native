@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataFactory
 {
     public static class GetTrigger
     {
+        /// <summary>
+        /// Trigger resource type.
+        /// API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-nextgen:datafactory:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
     }

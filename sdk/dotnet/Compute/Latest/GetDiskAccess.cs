@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Compute.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskAccess'.")]
     public static class GetDiskAccess
     {
+        /// <summary>
+        /// disk access resource.
+        /// Latest API Version: 2020-09-30.
+        /// </summary>
         public static Task<GetDiskAccessResult> InvokeAsync(GetDiskAccessArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessResult>("azure-nextgen:compute/latest:getDiskAccess", args ?? new GetDiskAccessArgs(), options.WithVersion());
     }

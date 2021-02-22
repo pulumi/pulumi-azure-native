@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationvCenter'.")]
     public static class GetReplicationvCenter
     {
+        /// <summary>
+        /// vCenter definition.
+        /// Latest API Version: 2018-07-10.
+        /// </summary>
         public static Task<GetReplicationvCenterResult> InvokeAsync(GetReplicationvCenterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationvCenterResult>("azure-nextgen:recoveryservices/latest:getReplicationvCenter", args ?? new GetReplicationvCenterArgs(), options.WithVersion());
     }

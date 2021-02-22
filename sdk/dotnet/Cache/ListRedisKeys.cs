@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Cache
 {
     public static class ListRedisKeys
     {
+        /// <summary>
+        /// Redis cache access keys.
+        /// API Version: 2020-06-01.
+        /// </summary>
         public static Task<ListRedisKeysResult> InvokeAsync(ListRedisKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRedisKeysResult>("azure-nextgen:cache:listRedisKeys", args ?? new ListRedisKeysArgs(), options.WithVersion());
     }

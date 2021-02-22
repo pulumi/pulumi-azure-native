@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetTagByProduct
     {
+        /// <summary>
+        /// Tag Contract details.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetTagByProductResult> InvokeAsync(GetTagByProductArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagByProductResult>("azure-nextgen:apimanagement:getTagByProduct", args ?? new GetTagByProductArgs(), options.WithVersion());
     }

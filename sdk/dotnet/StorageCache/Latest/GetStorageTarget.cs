@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorageCache.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagecache:getStorageTarget'.")]
     public static class GetStorageTarget
     {
+        /// <summary>
+        /// Type of the Storage Target.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetStorageTargetResult> InvokeAsync(GetStorageTargetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-nextgen:storagecache/latest:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithVersion());
     }

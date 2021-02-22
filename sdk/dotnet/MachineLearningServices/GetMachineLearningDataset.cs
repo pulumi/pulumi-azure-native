@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
 {
     public static class GetMachineLearningDataset
     {
+        /// <summary>
+        /// Machine Learning dataset object wrapped into ARM resource envelope.
+        /// API Version: 2020-05-01-preview.
+        /// </summary>
         public static Task<GetMachineLearningDatasetResult> InvokeAsync(GetMachineLearningDatasetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningDatasetResult>("azure-nextgen:machinelearningservices:getMachineLearningDataset", args ?? new GetMachineLearningDatasetArgs(), options.WithVersion());
     }

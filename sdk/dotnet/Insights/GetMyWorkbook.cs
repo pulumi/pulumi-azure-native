@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Insights
 {
     public static class GetMyWorkbook
     {
+        /// <summary>
+        /// An Application Insights private workbook definition.
+        /// API Version: 2020-10-20.
+        /// </summary>
         public static Task<GetMyWorkbookResult> InvokeAsync(GetMyWorkbookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMyWorkbookResult>("azure-nextgen:insights:getMyWorkbook", args ?? new GetMyWorkbookArgs(), options.WithVersion());
     }

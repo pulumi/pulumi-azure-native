@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StorSimple
 {
     public static class ListDeviceFailoverTars
     {
+        /// <summary>
+        /// The list of all devices in a resource and their eligibility status as a failover target device.
+        /// API Version: 2017-06-01.
+        /// </summary>
         public static Task<ListDeviceFailoverTarsResult> InvokeAsync(ListDeviceFailoverTarsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverTarsResult>("azure-nextgen:storsimple:listDeviceFailoverTars", args ?? new ListDeviceFailoverTarsArgs(), options.WithVersion());
     }

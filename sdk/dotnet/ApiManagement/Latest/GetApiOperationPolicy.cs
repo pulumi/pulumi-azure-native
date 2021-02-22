@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiOperationPolicy'.")]
     public static class GetApiOperationPolicy
     {
+        /// <summary>
+        /// Policy Contract details.
+        /// Latest API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetApiOperationPolicyResult> InvokeAsync(GetApiOperationPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiOperationPolicyResult>("azure-nextgen:apimanagement/latest:getApiOperationPolicy", args ?? new GetApiOperationPolicyArgs(), options.WithVersion());
     }

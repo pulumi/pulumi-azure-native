@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
 {
     public static class GetManagedNetwork
     {
+        /// <summary>
+        /// The Managed Network resource
+        /// </summary>
         public static Task<GetManagedNetworkResult> InvokeAsync(GetManagedNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkResult>("azure-nextgen:managednetwork/v20190601preview:getManagedNetwork", args ?? new GetManagedNetworkArgs(), options.WithVersion());
     }

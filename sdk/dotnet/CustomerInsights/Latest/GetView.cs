@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getView'.")]
     public static class GetView
     {
+        /// <summary>
+        /// The view resource format.
+        /// Latest API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetViewResult> InvokeAsync(GetViewArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-nextgen:customerinsights/latest:getView", args ?? new GetViewArgs(), options.WithVersion());
     }

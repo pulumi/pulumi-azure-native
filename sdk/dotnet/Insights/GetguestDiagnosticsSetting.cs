@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Insights
 {
     public static class GetguestDiagnosticsSetting
     {
+        /// <summary>
+        /// Virtual machine guest diagnostics settings resource.
+        /// API Version: 2018-06-01-preview.
+        /// </summary>
         public static Task<GetguestDiagnosticsSettingResult> InvokeAsync(GetguestDiagnosticsSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetguestDiagnosticsSettingResult>("azure-nextgen:insights:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingArgs(), options.WithVersion());
     }

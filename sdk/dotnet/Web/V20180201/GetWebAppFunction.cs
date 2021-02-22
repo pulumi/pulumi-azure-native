@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20180201
 {
     public static class GetWebAppFunction
     {
+        /// <summary>
+        /// Function information.
+        /// </summary>
         public static Task<GetWebAppFunctionResult> InvokeAsync(GetWebAppFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFunctionResult>("azure-nextgen:web/v20180201:getWebAppFunction", args ?? new GetWebAppFunctionArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Resources.V20200801
 {
     public static class GetResource
     {
+        /// <summary>
+        /// Resource information.
+        /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("azure-nextgen:resources/v20200801:getResource", args ?? new GetResourceArgs(), options.WithVersion());
     }

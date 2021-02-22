@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetOpenIdConnectProvider
     {
+        /// <summary>
+        /// OpenId Connect Provider details.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetOpenIdConnectProviderResult> InvokeAsync(GetOpenIdConnectProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOpenIdConnectProviderResult>("azure-nextgen:apimanagement:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderArgs(), options.WithVersion());
     }

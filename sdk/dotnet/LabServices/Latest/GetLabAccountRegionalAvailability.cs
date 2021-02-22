@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.LabServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getLabAccountRegionalAvailability'.")]
     public static class GetLabAccountRegionalAvailability
     {
+        /// <summary>
+        /// The response model from the GetRegionalAvailability action
+        /// Latest API Version: 2018-10-15.
+        /// </summary>
         public static Task<GetLabAccountRegionalAvailabilityResult> InvokeAsync(GetLabAccountRegionalAvailabilityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountRegionalAvailabilityResult>("azure-nextgen:labservices/latest:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityArgs(), options.WithVersion());
     }

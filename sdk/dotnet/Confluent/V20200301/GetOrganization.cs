@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Confluent.V20200301
 {
     public static class GetOrganization
     {
+        /// <summary>
+        /// Organization resource.
+        /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(GetOrganizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-nextgen:confluent/v20200301:getOrganization", args ?? new GetOrganizationArgs(), options.WithVersion());
     }

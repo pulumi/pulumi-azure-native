@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class GetWebAppSiteExtensionSlot
     {
+        /// <summary>
+        /// Site Extension Information.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppSiteExtensionSlotResult> InvokeAsync(GetWebAppSiteExtensionSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteExtensionSlotResult>("azure-nextgen:web:getWebAppSiteExtensionSlot", args ?? new GetWebAppSiteExtensionSlotArgs(), options.WithVersion());
     }

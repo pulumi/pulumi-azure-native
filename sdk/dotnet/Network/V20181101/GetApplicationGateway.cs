@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20181101
 {
     public static class GetApplicationGateway
     {
+        /// <summary>
+        /// Application gateway resource
+        /// </summary>
         public static Task<GetApplicationGatewayResult> InvokeAsync(GetApplicationGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayResult>("azure-nextgen:network/v20181101:getApplicationGateway", args ?? new GetApplicationGatewayArgs(), options.WithVersion());
     }

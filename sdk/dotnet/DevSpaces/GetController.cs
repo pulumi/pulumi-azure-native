@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DevSpaces
 {
     public static class GetController
     {
+        /// <summary>
+        /// 
+        /// API Version: 2019-04-01.
+        /// </summary>
         public static Task<GetControllerResult> InvokeAsync(GetControllerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetControllerResult>("azure-nextgen:devspaces:getController", args ?? new GetControllerArgs(), options.WithVersion());
     }

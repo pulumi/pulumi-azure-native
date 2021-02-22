@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 {
     public static class GetHub
     {
+        /// <summary>
+        /// Hub resource.
+        /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure-nextgen:customerinsights/v20170101:getHub", args ?? new GetHubArgs(), options.WithVersion());
     }

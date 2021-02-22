@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
 {
     public static class GetShare
     {
+        /// <summary>
+        /// A share data transfer object.
+        /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-nextgen:datashare/v20200901:getShare", args ?? new GetShareArgs(), options.WithVersion());
     }

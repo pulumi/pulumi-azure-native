@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork
 {
     public static class GetDelegatedSubnetServiceDetails
     {
+        /// <summary>
+        /// Represents an instance of a orchestrator.
+        /// API Version: 2020-08-08-preview.
+        /// </summary>
         public static Task<GetDelegatedSubnetServiceDetailsResult> InvokeAsync(GetDelegatedSubnetServiceDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedSubnetServiceDetailsResult>("azure-nextgen:delegatednetwork:getDelegatedSubnetServiceDetails", args ?? new GetDelegatedSubnetServiceDetailsArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class GetCustomApi
     {
+        /// <summary>
+        /// A custom API
+        /// API Version: 2016-06-01.
+        /// </summary>
         public static Task<GetCustomApiResult> InvokeAsync(GetCustomApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-nextgen:web:getCustomApi", args ?? new GetCustomApiArgs(), options.WithVersion());
     }

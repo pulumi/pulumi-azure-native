@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Security
 {
     public static class GetJitNetworkAccessPolicy
     {
+        /// <summary>
+        /// 
+        /// API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetJitNetworkAccessPolicyResult> InvokeAsync(GetJitNetworkAccessPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJitNetworkAccessPolicyResult>("azure-nextgen:security:getJitNetworkAccessPolicy", args ?? new GetJitNetworkAccessPolicyArgs(), options.WithVersion());
     }

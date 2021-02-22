@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.HybridData.V20190601
 {
     public static class GetJobDefinition
     {
+        /// <summary>
+        /// Job Definition.
+        /// </summary>
         public static Task<GetJobDefinitionResult> InvokeAsync(GetJobDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("azure-nextgen:hybriddata/v20190601:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithVersion());
     }

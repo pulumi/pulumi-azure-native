@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataLakeStore
 {
     public static class GetAccount
     {
+        /// <summary>
+        /// Data Lake Store account information.
+        /// API Version: 2016-11-01.
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:datalakestore:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

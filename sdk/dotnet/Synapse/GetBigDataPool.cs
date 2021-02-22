@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Synapse
 {
     public static class GetBigDataPool
     {
+        /// <summary>
+        /// A Big Data pool
+        /// API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetBigDataPoolResult> InvokeAsync(GetBigDataPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBigDataPoolResult>("azure-nextgen:synapse:getBigDataPool", args ?? new GetBigDataPoolArgs(), options.WithVersion());
     }

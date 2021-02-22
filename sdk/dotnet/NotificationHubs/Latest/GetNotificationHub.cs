@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.NotificationHubs.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:getNotificationHub'.")]
     public static class GetNotificationHub
     {
+        /// <summary>
+        /// Description of a NotificationHub Resource.
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetNotificationHubResult> InvokeAsync(GetNotificationHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubResult>("azure-nextgen:notificationhubs/latest:getNotificationHub", args ?? new GetNotificationHubArgs(), options.WithVersion());
     }

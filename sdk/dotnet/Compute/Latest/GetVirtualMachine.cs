@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Compute.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachine'.")]
     public static class GetVirtualMachine
     {
+        /// <summary>
+        /// Describes a Virtual Machine.
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-nextgen:compute/latest:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithVersion());
     }

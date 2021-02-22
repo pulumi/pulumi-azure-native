@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EventHub
 {
     public static class GetEventHubAuthorizationRule
     {
+        /// <summary>
+        /// Single item in a List or Get AuthorizationRule operation
+        /// API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetEventHubAuthorizationRuleResult> InvokeAsync(GetEventHubAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubAuthorizationRuleResult>("azure-nextgen:eventhub:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleArgs(), options.WithVersion());
     }

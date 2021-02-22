@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.LabServices
 {
     public static class GetGalleryImage
     {
+        /// <summary>
+        /// Represents an image from the Azure Marketplace
+        /// API Version: 2018-10-15.
+        /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-nextgen:labservices:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithVersion());
     }

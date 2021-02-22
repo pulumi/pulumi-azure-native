@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.EdgeOrder
 {
     public static class ListProductFamilies
     {
+        /// <summary>
+        /// The list of product families.
+        /// API Version: 2020-12-01-preview.
+        /// </summary>
         public static Task<ListProductFamiliesResult> InvokeAsync(ListProductFamiliesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListProductFamiliesResult>("azure-nextgen:edgeorder:listProductFamilies", args ?? new ListProductFamiliesArgs(), options.WithVersion());
     }

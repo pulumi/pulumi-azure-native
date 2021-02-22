@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
 {
     public static class GetActivityLogAlert
     {
+        /// <summary>
+        /// An activity log alert resource.
+        /// </summary>
         public static Task<GetActivityLogAlertResult> InvokeAsync(GetActivityLogAlertArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActivityLogAlertResult>("azure-nextgen:insights/v20170401:getActivityLogAlert", args ?? new GetActivityLogAlertArgs(), options.WithVersion());
     }

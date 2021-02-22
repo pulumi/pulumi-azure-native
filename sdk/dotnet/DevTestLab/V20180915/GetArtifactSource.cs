@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 {
     public static class GetArtifactSource
     {
+        /// <summary>
+        /// Properties of an artifact source.
+        /// </summary>
         public static Task<GetArtifactSourceResult> InvokeAsync(GetArtifactSourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-nextgen:devtestlab/v20180915:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithVersion());
     }

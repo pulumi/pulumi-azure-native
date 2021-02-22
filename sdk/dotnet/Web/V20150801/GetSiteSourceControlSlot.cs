@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSiteSourceControlSlot
     {
+        /// <summary>
+        /// Describes the source control configuration for web app
+        /// </summary>
         public static Task<GetSiteSourceControlSlotResult> InvokeAsync(GetSiteSourceControlSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSourceControlSlotResult>("azure-nextgen:web/v20150801:getSiteSourceControlSlot", args ?? new GetSiteSourceControlSlotArgs(), options.WithVersion());
     }

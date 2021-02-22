@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20190901
 {
     public static class GetP2sVpnGatewayP2sVpnConnectionHealthDetailed
     {
+        /// <summary>
+        /// P2S Vpn connection detailed health written to sas url.
+        /// </summary>
         public static Task<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> InvokeAsync(GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult>("azure-nextgen:network/v20190901:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs(), options.WithVersion());
     }

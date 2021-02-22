@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachineRdpFileContents'.")]
     public static class GetVirtualMachineRdpFileContents
     {
+        /// <summary>
+        /// Represents a .rdp file
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetVirtualMachineRdpFileContentsResult> InvokeAsync(GetVirtualMachineRdpFileContentsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRdpFileContentsResult>("azure-nextgen:devtestlab/latest:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StorSimple
 {
     public static class GetVolume
     {
+        /// <summary>
+        /// The volume.
+        /// API Version: 2017-06-01.
+        /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-nextgen:storsimple:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
     }

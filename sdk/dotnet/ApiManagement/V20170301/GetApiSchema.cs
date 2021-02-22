@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
 {
     public static class GetApiSchema
     {
+        /// <summary>
+        /// Schema Contract details.
+        /// </summary>
         public static Task<GetApiSchemaResult> InvokeAsync(GetApiSchemaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-nextgen:apimanagement/v20170301:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithVersion());
     }

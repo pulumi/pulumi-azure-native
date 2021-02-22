@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetVirtualNetworkGatewayVpnclientIpsecParameters
     {
+        /// <summary>
+        /// An IPSec parameters for a virtual network gateway P2S connection.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> InvokeAsync(GetVirtualNetworkGatewayVpnclientIpsecParametersArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayVpnclientIpsecParametersResult>("azure-nextgen:network:getVirtualNetworkGatewayVpnclientIpsecParameters", args ?? new GetVirtualNetworkGatewayVpnclientIpsecParametersArgs(), options.WithVersion());
     }

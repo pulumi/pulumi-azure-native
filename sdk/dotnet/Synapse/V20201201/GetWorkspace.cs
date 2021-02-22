@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
 {
     public static class GetWorkspace
     {
+        /// <summary>
+        /// A workspace
+        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:synapse/v20201201:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }

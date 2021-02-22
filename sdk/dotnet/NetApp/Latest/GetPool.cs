@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.NetApp.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getPool'.")]
     public static class GetPool
     {
+        /// <summary>
+        /// Capacity pool resource
+        /// Latest API Version: 2020-11-01.
+        /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-nextgen:netapp/latest:getPool", args ?? new GetPoolArgs(), options.WithVersion());
     }

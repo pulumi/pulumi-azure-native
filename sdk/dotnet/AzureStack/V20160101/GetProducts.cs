@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AzureStack.V20160101
 {
     public static class GetProducts
     {
+        /// <summary>
+        /// Pageable list of products.
+        /// </summary>
         public static Task<GetProductsResult> InvokeAsync(GetProductsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductsResult>("azure-nextgen:azurestack/v20160101:getProducts", args ?? new GetProductsArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
 {
     public static class GetLinkedWorkspace
     {
+        /// <summary>
+        /// Linked workspace.
+        /// API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetLinkedWorkspaceResult> InvokeAsync(GetLinkedWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedWorkspaceResult>("azure-nextgen:machinelearningservices:getLinkedWorkspace", args ?? new GetLinkedWorkspaceArgs(), options.WithVersion());
     }

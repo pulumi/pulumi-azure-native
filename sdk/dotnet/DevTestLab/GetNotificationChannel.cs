@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DevTestLab
 {
     public static class GetNotificationChannel
     {
+        /// <summary>
+        /// A notification.
+        /// API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetNotificationChannelResult> InvokeAsync(GetNotificationChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationChannelResult>("azure-nextgen:devtestlab:getNotificationChannel", args ?? new GetNotificationChannelArgs(), options.WithVersion());
     }

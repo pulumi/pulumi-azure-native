@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class ListSiteAuthSettings
     {
+        /// <summary>
+        /// Configuration settings for the Azure App Service Authentication / Authorization feature.
+        /// </summary>
         public static Task<ListSiteAuthSettingsResult> InvokeAsync(ListSiteAuthSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSiteAuthSettingsResult>("azure-nextgen:web/v20150801:listSiteAuthSettings", args ?? new ListSiteAuthSettingsArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.OffAzure.V20200707
 {
     public static class GetHyperVSite
     {
+        /// <summary>
+        /// Site REST Resource.
+        /// </summary>
         public static Task<GetHyperVSiteResult> InvokeAsync(GetHyperVSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVSiteResult>("azure-nextgen:offazure/v20200707:getHyperVSite", args ?? new GetHyperVSiteArgs(), options.WithVersion());
     }

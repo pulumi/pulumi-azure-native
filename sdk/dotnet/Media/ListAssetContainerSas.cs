@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Media
 {
     public static class ListAssetContainerSas
     {
+        /// <summary>
+        /// The Asset Storage container SAS URLs.
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<ListAssetContainerSasResult> InvokeAsync(ListAssetContainerSasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAssetContainerSasResult>("azure-nextgen:media:listAssetContainerSas", args ?? new ListAssetContainerSasArgs(), options.WithVersion());
     }

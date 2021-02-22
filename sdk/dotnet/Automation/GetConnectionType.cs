@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Automation
 {
     public static class GetConnectionType
     {
+        /// <summary>
+        /// Definition of the connection type.
+        /// API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetConnectionTypeResult> InvokeAsync(GetConnectionTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionTypeResult>("azure-nextgen:automation:getConnectionType", args ?? new GetConnectionTypeArgs(), options.WithVersion());
     }

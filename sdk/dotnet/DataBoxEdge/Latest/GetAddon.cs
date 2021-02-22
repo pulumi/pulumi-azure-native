@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getAddon'.")]
     public static class GetAddon
     {
+        /// <summary>
+        /// Role Addon
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-nextgen:databoxedge/latest:getAddon", args ?? new GetAddonArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
 {
     public static class GetReplicationStorageClassificationMapping
     {
+        /// <summary>
+        /// Storage mapping object.
+        /// </summary>
         public static Task<GetReplicationStorageClassificationMappingResult> InvokeAsync(GetReplicationStorageClassificationMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationStorageClassificationMappingResult>("azure-nextgen:recoveryservices/v20180710:getReplicationStorageClassificationMapping", args ?? new GetReplicationStorageClassificationMappingArgs(), options.WithVersion());
     }

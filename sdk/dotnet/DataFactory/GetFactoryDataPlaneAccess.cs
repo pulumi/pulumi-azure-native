@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataFactory
 {
     public static class GetFactoryDataPlaneAccess
     {
+        /// <summary>
+        /// Get Data Plane read only token response definition.
+        /// API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetFactoryDataPlaneAccessResult> InvokeAsync(GetFactoryDataPlaneAccessArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryDataPlaneAccessResult>("azure-nextgen:datafactory:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessArgs(), options.WithVersion());
     }

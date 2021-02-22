@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 {
     public static class GetAccountFilter
     {
+        /// <summary>
+        /// An Account Filter.
+        /// </summary>
         public static Task<GetAccountFilterResult> InvokeAsync(GetAccountFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountFilterResult>("azure-nextgen:media/v20200501:getAccountFilter", args ?? new GetAccountFilterArgs(), options.WithVersion());
     }

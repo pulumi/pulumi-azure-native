@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
 {
     public static class GetExposureControlFeatureValue
     {
+        /// <summary>
+        /// The exposure control response.
+        /// </summary>
         public static Task<GetExposureControlFeatureValueResult> InvokeAsync(GetExposureControlFeatureValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExposureControlFeatureValueResult>("azure-nextgen:datafactory/v20180601:getExposureControlFeatureValue", args ?? new GetExposureControlFeatureValueArgs(), options.WithVersion());
     }

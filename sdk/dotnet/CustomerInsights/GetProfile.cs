@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights
 {
     public static class GetProfile
     {
+        /// <summary>
+        /// The profile resource format.
+        /// API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-nextgen:customerinsights:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
     }

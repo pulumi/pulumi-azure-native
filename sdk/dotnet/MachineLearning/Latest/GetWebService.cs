@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.MachineLearning.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:getWebService'.")]
     public static class GetWebService
     {
+        /// <summary>
+        /// Instance of an Azure ML web service resource.
+        /// Latest API Version: 2017-01-01.
+        /// </summary>
         public static Task<GetWebServiceResult> InvokeAsync(GetWebServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebServiceResult>("azure-nextgen:machinelearning/latest:getWebService", args ?? new GetWebServiceArgs(), options.WithVersion());
     }

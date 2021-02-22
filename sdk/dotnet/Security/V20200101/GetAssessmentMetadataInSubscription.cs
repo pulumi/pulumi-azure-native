@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Security.V20200101
 {
     public static class GetAssessmentMetadataInSubscription
     {
+        /// <summary>
+        /// Security assessment metadata
+        /// </summary>
         public static Task<GetAssessmentMetadataInSubscriptionResult> InvokeAsync(GetAssessmentMetadataInSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentMetadataInSubscriptionResult>("azure-nextgen:security/v20200101:getAssessmentMetadataInSubscription", args ?? new GetAssessmentMetadataInSubscriptionArgs(), options.WithVersion());
     }

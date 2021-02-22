@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 {
     public static class GetWebAppHybridConnection
     {
+        /// <summary>
+        /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
+        /// </summary>
         public static Task<GetWebAppHybridConnectionResult> InvokeAsync(GetWebAppHybridConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionResult>("azure-nextgen:web/v20160801:getWebAppHybridConnection", args ?? new GetWebAppHybridConnectionArgs(), options.WithVersion());
     }

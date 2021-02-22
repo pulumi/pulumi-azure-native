@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getConnectorMapping'.")]
     public static class GetConnectorMapping
     {
+        /// <summary>
+        /// The connector mapping resource format.
+        /// Latest API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetConnectorMappingResult> InvokeAsync(GetConnectorMappingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorMappingResult>("azure-nextgen:customerinsights/latest:getConnectorMapping", args ?? new GetConnectorMappingArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getStorageInsightConfig'.")]
     public static class GetStorageInsightConfig
     {
+        /// <summary>
+        /// The top level storage insight resource container.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetStorageInsightConfigResult> InvokeAsync(GetStorageInsightConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageInsightConfigResult>("azure-nextgen:operationalinsights/latest:getStorageInsightConfig", args ?? new GetStorageInsightConfigArgs(), options.WithVersion());
     }

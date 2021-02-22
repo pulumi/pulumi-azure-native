@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.LabServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGalleryImage'.")]
     public static class GetGalleryImage
     {
+        /// <summary>
+        /// Represents an image from the Azure Marketplace
+        /// Latest API Version: 2018-10-15.
+        /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-nextgen:labservices/latest:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AppConfiguration.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:listConfigurationStoreKeyValue'.")]
     public static class ListConfigurationStoreKeyValue
     {
+        /// <summary>
+        /// The result of a request to retrieve a key-value from the specified configuration store.
+        /// Latest API Version: 2020-06-01.
+        /// </summary>
         public static Task<ListConfigurationStoreKeyValueResult> InvokeAsync(ListConfigurationStoreKeyValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeyValueResult>("azure-nextgen:appconfiguration/latest:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueArgs(), options.WithVersion());
     }

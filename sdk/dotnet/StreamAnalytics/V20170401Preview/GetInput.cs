@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 {
     public static class GetInput
     {
+        /// <summary>
+        /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+        /// </summary>
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-nextgen:streamanalytics/v20170401preview:getInput", args ?? new GetInputArgs(), options.WithVersion());
     }

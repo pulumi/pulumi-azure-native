@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Batch
 {
     public static class GetApplication
     {
+        /// <summary>
+        /// Contains information about an application in a Batch account.
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-nextgen:batch:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
     }

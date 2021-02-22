@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.PowerBI
 {
     public static class ListWorkspaceCollectionAccessKeys
     {
+        /// <summary>
+        /// 
+        /// API Version: 2016-01-29.
+        /// </summary>
         public static Task<ListWorkspaceCollectionAccessKeysResult> InvokeAsync(ListWorkspaceCollectionAccessKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceCollectionAccessKeysResult>("azure-nextgen:powerbi:listWorkspaceCollectionAccessKeys", args ?? new ListWorkspaceCollectionAccessKeysArgs(), options.WithVersion());
     }

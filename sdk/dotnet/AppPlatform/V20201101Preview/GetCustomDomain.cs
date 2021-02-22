@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
 {
     public static class GetCustomDomain
     {
+        /// <summary>
+        /// Custom domain resource payload.
+        /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-nextgen:appplatform/v20201101preview:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Storage
 {
     public static class GetObjectReplicationPolicy
     {
+        /// <summary>
+        /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetObjectReplicationPolicyResult> InvokeAsync(GetObjectReplicationPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetObjectReplicationPolicyResult>("azure-nextgen:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyArgs(), options.WithVersion());
     }

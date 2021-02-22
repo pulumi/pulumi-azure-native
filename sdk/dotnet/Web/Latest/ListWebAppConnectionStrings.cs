@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppConnectionStrings'.")]
     public static class ListWebAppConnectionStrings
     {
+        /// <summary>
+        /// String dictionary resource.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListWebAppConnectionStringsResult> InvokeAsync(ListWebAppConnectionStringsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppConnectionStringsResult>("azure-nextgen:web/latest:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsArgs(), options.WithVersion());
     }

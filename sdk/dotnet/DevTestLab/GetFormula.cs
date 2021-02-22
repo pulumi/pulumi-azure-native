@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DevTestLab
 {
     public static class GetFormula
     {
+        /// <summary>
+        /// A formula for creating a VM, specifying an image base and other parameters
+        /// API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetFormulaResult> InvokeAsync(GetFormulaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResult>("azure-nextgen:devtestlab:getFormula", args ?? new GetFormulaArgs(), options.WithVersion());
     }

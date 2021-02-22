@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorageSync.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getCloudEndpoint'.")]
     public static class GetCloudEndpoint
     {
+        /// <summary>
+        /// Cloud Endpoint object.
+        /// Latest API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetCloudEndpointResult> InvokeAsync(GetCloudEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudEndpointResult>("azure-nextgen:storagesync/latest:getCloudEndpoint", args ?? new GetCloudEndpointArgs(), options.WithVersion());
     }

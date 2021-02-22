@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Automation
 {
     public static class GetSourceControl
     {
+        /// <summary>
+        /// Definition of the source control.
+        /// API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-nextgen:automation:getSourceControl", args ?? new GetSourceControlArgs(), options.WithVersion());
     }

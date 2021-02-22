@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVpnConnection'.")]
     public static class GetVpnConnection
     {
+        /// <summary>
+        /// VpnConnection Resource.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetVpnConnectionResult> InvokeAsync(GetVpnConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpnConnectionResult>("azure-nextgen:network/latest:getVpnConnection", args ?? new GetVpnConnectionArgs(), options.WithVersion());
     }

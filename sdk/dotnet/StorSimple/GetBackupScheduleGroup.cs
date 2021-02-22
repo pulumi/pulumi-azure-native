@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.StorSimple
 {
     public static class GetBackupScheduleGroup
     {
+        /// <summary>
+        /// The Backup Schedule Group
+        /// API Version: 2016-10-01.
+        /// </summary>
         public static Task<GetBackupScheduleGroupResult> InvokeAsync(GetBackupScheduleGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupScheduleGroupResult>("azure-nextgen:storsimple:getBackupScheduleGroup", args ?? new GetBackupScheduleGroupArgs(), options.WithVersion());
     }

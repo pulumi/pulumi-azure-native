@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataFactory
 {
     public static class GetIntegrationRuntimeStatus
     {
+        /// <summary>
+        /// Integration runtime status response.
+        /// API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetIntegrationRuntimeStatusResult> InvokeAsync(GetIntegrationRuntimeStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeStatusResult>("azure-nextgen:datafactory:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusArgs(), options.WithVersion());
     }

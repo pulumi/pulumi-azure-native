@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getLinkedService'.")]
     public static class GetLinkedService
     {
+        /// <summary>
+        /// The top level Linked service resource container.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-nextgen:operationalinsights/latest:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.KeyVault
 {
     public static class GetManagedHsm
     {
+        /// <summary>
+        /// Resource information with extended details.
+        /// API Version: 2020-04-01-preview.
+        /// </summary>
         public static Task<GetManagedHsmResult> InvokeAsync(GetManagedHsmArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHsmResult>("azure-nextgen:keyvault:getManagedHsm", args ?? new GetManagedHsmArgs(), options.WithVersion());
     }

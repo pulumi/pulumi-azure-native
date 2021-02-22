@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Synapse.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getWorkspaceAadAdmin'.")]
     public static class GetWorkspaceAadAdmin
     {
+        /// <summary>
+        /// Workspace active directory administrator
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetWorkspaceAadAdminResult> InvokeAsync(GetWorkspaceAadAdminArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceAadAdminResult>("azure-nextgen:synapse/latest:getWorkspaceAadAdmin", args ?? new GetWorkspaceAadAdminArgs(), options.WithVersion());
     }

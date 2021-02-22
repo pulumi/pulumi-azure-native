@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AlertsManagement
 {
     public static class GetSmartDetectorAlertRule
     {
+        /// <summary>
+        /// The alert rule information
+        /// API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetSmartDetectorAlertRuleResult> InvokeAsync(GetSmartDetectorAlertRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSmartDetectorAlertRuleResult>("azure-nextgen:alertsmanagement:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleArgs(), options.WithVersion());
     }

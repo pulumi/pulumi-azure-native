@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Databricks.V20180401
 {
     public static class GetWorkspace
     {
+        /// <summary>
+        /// Information about workspace.
+        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:databricks/v20180401:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }

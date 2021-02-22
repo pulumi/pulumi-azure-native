@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getImageUploadUrlForData'.")]
     public static class GetImageUploadUrlForData
     {
+        /// <summary>
+        /// The image definition.
+        /// Latest API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetImageUploadUrlForDataResult> InvokeAsync(GetImageUploadUrlForDataArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageUploadUrlForDataResult>("azure-nextgen:customerinsights/latest:getImageUploadUrlForData", args ?? new GetImageUploadUrlForDataArgs(), options.WithVersion());
     }

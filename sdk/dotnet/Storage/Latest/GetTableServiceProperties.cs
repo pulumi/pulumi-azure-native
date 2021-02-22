@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Storage.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getTableServiceProperties'.")]
     public static class GetTableServiceProperties
     {
+        /// <summary>
+        /// The properties of a storage account’s Table service.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetTableServicePropertiesResult> InvokeAsync(GetTableServicePropertiesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableServicePropertiesResult>("azure-nextgen:storage/latest:getTableServiceProperties", args ?? new GetTableServicePropertiesArgs(), options.WithVersion());
     }

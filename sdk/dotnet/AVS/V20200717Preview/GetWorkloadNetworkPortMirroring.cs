@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 {
     public static class GetWorkloadNetworkPortMirroring
     {
+        /// <summary>
+        /// NSX Port Mirroring
+        /// </summary>
         public static Task<GetWorkloadNetworkPortMirroringResult> InvokeAsync(GetWorkloadNetworkPortMirroringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkPortMirroringResult>("azure-nextgen:avs/v20200717preview:getWorkloadNetworkPortMirroring", args ?? new GetWorkloadNetworkPortMirroringArgs(), options.WithVersion());
     }

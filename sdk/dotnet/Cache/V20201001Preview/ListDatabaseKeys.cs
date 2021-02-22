@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
 {
     public static class ListDatabaseKeys
     {
+        /// <summary>
+        /// The secret access keys used for authenticating connections to redis
+        /// </summary>
         public static Task<ListDatabaseKeysResult> InvokeAsync(ListDatabaseKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseKeysResult>("azure-nextgen:cache/v20201001preview:listDatabaseKeys", args ?? new ListDatabaseKeysArgs(), options.WithVersion());
     }

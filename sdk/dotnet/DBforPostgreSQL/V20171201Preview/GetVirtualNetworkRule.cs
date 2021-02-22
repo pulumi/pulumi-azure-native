@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview
 {
     public static class GetVirtualNetworkRule
     {
+        /// <summary>
+        /// A virtual network rule.
+        /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-nextgen:dbforpostgresql/v20171201preview:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithVersion());
     }

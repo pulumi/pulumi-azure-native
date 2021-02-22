@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DocumentDB
 {
     public static class GetDatabaseAccountSqlContainer
     {
+        /// <summary>
+        /// An Azure Cosmos DB container.
+        /// API Version: 2016-03-31.
+        /// </summary>
         public static Task<GetDatabaseAccountSqlContainerResult> InvokeAsync(GetDatabaseAccountSqlContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountSqlContainerResult>("azure-nextgen:documentdb:getDatabaseAccountSqlContainer", args ?? new GetDatabaseAccountSqlContainerArgs(), options.WithVersion());
     }

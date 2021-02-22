@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataFactory
 {
     public static class GetLinkedService
     {
+        /// <summary>
+        /// Linked service resource type.
+        /// API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-nextgen:datafactory:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
     }

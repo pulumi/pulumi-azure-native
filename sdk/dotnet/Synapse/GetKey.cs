@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Synapse
 {
     public static class GetKey
     {
+        /// <summary>
+        /// A workspace key
+        /// API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-nextgen:synapse:getKey", args ?? new GetKeyArgs(), options.WithVersion());
     }

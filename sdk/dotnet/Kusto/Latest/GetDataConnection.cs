@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Kusto.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getDataConnection'.")]
     public static class GetDataConnection
     {
+        /// <summary>
+        /// Class representing an data connection.
+        /// Latest API Version: 2020-09-18.
+        /// </summary>
         public static Task<GetDataConnectionResult> InvokeAsync(GetDataConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectionResult>("azure-nextgen:kusto/latest:getDataConnection", args ?? new GetDataConnectionArgs(), options.WithVersion());
     }

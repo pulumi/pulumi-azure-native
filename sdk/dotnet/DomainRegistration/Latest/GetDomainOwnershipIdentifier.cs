@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DomainRegistration.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:getDomainOwnershipIdentifier'.")]
     public static class GetDomainOwnershipIdentifier
     {
+        /// <summary>
+        /// Domain ownership Identifier.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetDomainOwnershipIdentifierResult> InvokeAsync(GetDomainOwnershipIdentifierArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainOwnershipIdentifierResult>("azure-nextgen:domainregistration/latest:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierArgs(), options.WithVersion());
     }

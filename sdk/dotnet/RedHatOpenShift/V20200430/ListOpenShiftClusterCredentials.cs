@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
 {
     public static class ListOpenShiftClusterCredentials
     {
+        /// <summary>
+        /// OpenShiftClusterCredentials represents an OpenShift cluster's credentials
+        /// </summary>
         public static Task<ListOpenShiftClusterCredentialsResult> InvokeAsync(ListOpenShiftClusterCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterCredentialsResult>("azure-nextgen:redhatopenshift/v20200430:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsArgs(), options.WithVersion());
     }

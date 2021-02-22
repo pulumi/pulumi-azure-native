@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.RecoveryServices
 {
     public static class GetReplicationRecoveryServicesProvider
     {
+        /// <summary>
+        /// Provider details.
+        /// API Version: 2018-07-10.
+        /// </summary>
         public static Task<GetReplicationRecoveryServicesProviderResult> InvokeAsync(GetReplicationRecoveryServicesProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryServicesProviderResult>("azure-nextgen:recoveryservices:getReplicationRecoveryServicesProvider", args ?? new GetReplicationRecoveryServicesProviderArgs(), options.WithVersion());
     }

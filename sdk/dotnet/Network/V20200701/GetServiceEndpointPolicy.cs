@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 {
     public static class GetServiceEndpointPolicy
     {
+        /// <summary>
+        /// Service End point policy resource.
+        /// </summary>
         public static Task<GetServiceEndpointPolicyResult> InvokeAsync(GetServiceEndpointPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointPolicyResult>("azure-nextgen:network/v20200701:getServiceEndpointPolicy", args ?? new GetServiceEndpointPolicyArgs(), options.WithVersion());
     }

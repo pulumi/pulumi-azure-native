@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
 {
     public static class GetReplicationPolicy
     {
+        /// <summary>
+        /// Protection profile details.
+        /// </summary>
         public static Task<GetReplicationPolicyResult> InvokeAsync(GetReplicationPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationPolicyResult>("azure-nextgen:recoveryservices/v20180110:getReplicationPolicy", args ?? new GetReplicationPolicyArgs(), options.WithVersion());
     }

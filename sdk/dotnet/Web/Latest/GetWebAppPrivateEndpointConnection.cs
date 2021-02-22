@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPrivateEndpointConnection'.")]
     public static class GetWebAppPrivateEndpointConnection
     {
+        /// <summary>
+        /// Private Endpoint Connection ARM resource.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppPrivateEndpointConnectionResult> InvokeAsync(GetWebAppPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPrivateEndpointConnectionResult>("azure-nextgen:web/latest:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Portal.V20190101Preview
 {
     public static class GetDashboard
     {
+        /// <summary>
+        /// The shared dashboard resource definition.
+        /// </summary>
         public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azure-nextgen:portal/v20190101preview:getDashboard", args ?? new GetDashboardArgs(), options.WithVersion());
     }

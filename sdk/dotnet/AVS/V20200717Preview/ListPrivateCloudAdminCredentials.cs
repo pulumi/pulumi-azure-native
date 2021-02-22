@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 {
     public static class ListPrivateCloudAdminCredentials
     {
+        /// <summary>
+        /// Administrative credentials for accessing vCenter and NSX-T
+        /// </summary>
         public static Task<ListPrivateCloudAdminCredentialsResult> InvokeAsync(ListPrivateCloudAdminCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListPrivateCloudAdminCredentialsResult>("azure-nextgen:avs/v20200717preview:listPrivateCloudAdminCredentials", args ?? new ListPrivateCloudAdminCredentialsArgs(), options.WithVersion());
     }

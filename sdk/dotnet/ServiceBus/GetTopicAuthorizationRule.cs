@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ServiceBus
 {
     public static class GetTopicAuthorizationRule
     {
+        /// <summary>
+        /// Description of a namespace authorization rule.
+        /// API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetTopicAuthorizationRuleResult> InvokeAsync(GetTopicAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure-nextgen:servicebus:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataFactory.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getIntegrationRuntimeObjectMetadatum'.")]
     public static class GetIntegrationRuntimeObjectMetadatum
     {
+        /// <summary>
+        /// A list of SSIS object metadata.
+        /// Latest API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetIntegrationRuntimeObjectMetadatumResult> InvokeAsync(GetIntegrationRuntimeObjectMetadatumArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeObjectMetadatumResult>("azure-nextgen:datafactory/latest:getIntegrationRuntimeObjectMetadatum", args ?? new GetIntegrationRuntimeObjectMetadatumArgs(), options.WithVersion());
     }

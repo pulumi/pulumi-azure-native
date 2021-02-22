@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Solutions
 {
     public static class GetJitRequest
     {
+        /// <summary>
+        /// Information about JIT request definition.
+        /// API Version: 2019-07-01.
+        /// </summary>
         public static Task<GetJitRequestResult> InvokeAsync(GetJitRequestArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-nextgen:solutions:getJitRequest", args ?? new GetJitRequestArgs(), options.WithVersion());
     }

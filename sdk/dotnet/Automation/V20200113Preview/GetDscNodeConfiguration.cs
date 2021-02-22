@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
 {
     public static class GetDscNodeConfiguration
     {
+        /// <summary>
+        /// Definition of the dsc node configuration.
+        /// </summary>
         public static Task<GetDscNodeConfigurationResult> InvokeAsync(GetDscNodeConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDscNodeConfigurationResult>("azure-nextgen:automation/v20200113preview:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Insights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:listEASubscriptionListMigrationDatePost'.")]
     public static class ListEASubscriptionListMigrationDatePost
     {
+        /// <summary>
+        /// Subscription migrate date information properties
+        /// Latest API Version: 2017-10-01.
+        /// </summary>
         public static Task<ListEASubscriptionListMigrationDatePostResult> InvokeAsync(ListEASubscriptionListMigrationDatePostArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListEASubscriptionListMigrationDatePostResult>("azure-nextgen:insights/latest:listEASubscriptionListMigrationDatePost", args ?? new ListEASubscriptionListMigrationDatePostArgs(), options.WithVersion());
     }

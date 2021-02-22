@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Consumption.V20171230Preview
 {
     public static class GetBudget
     {
+        /// <summary>
+        /// A budget resource.
+        /// </summary>
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azure-nextgen:consumption/v20171230preview:getBudget", args ?? new GetBudgetArgs(), options.WithVersion());
     }

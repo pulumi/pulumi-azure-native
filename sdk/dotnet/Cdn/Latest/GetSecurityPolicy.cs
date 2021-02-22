@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Cdn.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getSecurityPolicy'.")]
     public static class GetSecurityPolicy
     {
+        /// <summary>
+        /// SecurityPolicy association for AzureFrontDoor profile
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetSecurityPolicyResult> InvokeAsync(GetSecurityPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPolicyResult>("azure-nextgen:cdn/latest:getSecurityPolicy", args ?? new GetSecurityPolicyArgs(), options.WithVersion());
     }

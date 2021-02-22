@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSwiftVirtualNetworkConnection'.")]
     public static class GetWebAppSwiftVirtualNetworkConnection
     {
+        /// <summary>
+        /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppSwiftVirtualNetworkConnectionResult> InvokeAsync(GetWebAppSwiftVirtualNetworkConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionResult>("azure-nextgen:web/latest:getWebAppSwiftVirtualNetworkConnection", args ?? new GetWebAppSwiftVirtualNetworkConnectionArgs(), options.WithVersion());
     }

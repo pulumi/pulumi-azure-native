@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
 {
     public static class GetManager
     {
+        /// <summary>
+        /// The StorSimple Manager.
+        /// </summary>
         public static Task<GetManagerResult> InvokeAsync(GetManagerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagerResult>("azure-nextgen:storsimple/v20170601:getManager", args ?? new GetManagerArgs(), options.WithVersion());
     }

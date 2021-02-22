@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
     public static class GetIntegrationRuntimeStatus
     {
+        /// <summary>
+        /// Integration runtime status response.
+        /// </summary>
         public static Task<GetIntegrationRuntimeStatusResult> InvokeAsync(GetIntegrationRuntimeStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeStatusResult>("azure-nextgen:synapse/v20190601preview:getIntegrationRuntimeStatus", args ?? new GetIntegrationRuntimeStatusArgs(), options.WithVersion());
     }

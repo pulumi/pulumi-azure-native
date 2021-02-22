@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     public static class GetBookmark
     {
+        /// <summary>
+        /// Represents a bookmark in Azure Security Insights.
+        /// </summary>
         public static Task<GetBookmarkResult> InvokeAsync(GetBookmarkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkResult>("azure-nextgen:securityinsights/v20190101preview:getBookmark", args ?? new GetBookmarkArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSiteSlotConfigNames
     {
+        /// <summary>
+        /// Slot Config names azure resource
+        /// </summary>
         public static Task<GetSiteSlotConfigNamesResult> InvokeAsync(GetSiteSlotConfigNamesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSlotConfigNamesResult>("azure-nextgen:web/v20150801:getSiteSlotConfigNames", args ?? new GetSiteSlotConfigNamesArgs(), options.WithVersion());
     }

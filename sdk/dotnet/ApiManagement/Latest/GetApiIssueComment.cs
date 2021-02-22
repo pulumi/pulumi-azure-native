@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiIssueComment'.")]
     public static class GetApiIssueComment
     {
+        /// <summary>
+        /// Issue Comment Contract details.
+        /// Latest API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetApiIssueCommentResult> InvokeAsync(GetApiIssueCommentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueCommentResult>("azure-nextgen:apimanagement/latest:getApiIssueComment", args ?? new GetApiIssueCommentArgs(), options.WithVersion());
     }

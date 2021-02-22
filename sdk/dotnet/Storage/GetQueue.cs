@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Storage
 {
     public static class GetQueue
     {
+        /// <summary>
+        /// 
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-nextgen:storage:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
     }

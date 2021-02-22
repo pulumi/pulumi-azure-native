@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
 {
     public static class GetConsumerGroup
     {
+        /// <summary>
+        /// Single item in List or Get Consumer group operation
+        /// </summary>
         public static Task<GetConsumerGroupResult> InvokeAsync(GetConsumerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azure-nextgen:eventhub/v20170401:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithVersion());
     }

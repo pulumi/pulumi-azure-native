@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getProfile'.")]
     public static class GetProfile
     {
+        /// <summary>
+        /// The profile resource format.
+        /// Latest API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-nextgen:customerinsights/latest:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
     }

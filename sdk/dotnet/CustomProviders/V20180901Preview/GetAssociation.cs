@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
 {
     public static class GetAssociation
     {
+        /// <summary>
+        /// The resource definition of this association.
+        /// </summary>
         public static Task<GetAssociationResult> InvokeAsync(GetAssociationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssociationResult>("azure-nextgen:customproviders/v20180901preview:getAssociation", args ?? new GetAssociationArgs(), options.WithVersion());
     }

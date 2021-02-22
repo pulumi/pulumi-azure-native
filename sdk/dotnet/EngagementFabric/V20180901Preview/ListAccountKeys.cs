@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
 {
     public static class ListAccountKeys
     {
+        /// <summary>
+        /// The list of the EngagementFabric account keys
+        /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-nextgen:engagementfabric/v20180901preview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
     }

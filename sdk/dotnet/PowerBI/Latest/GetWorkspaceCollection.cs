@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.PowerBI.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbi:getWorkspaceCollection'.")]
     public static class GetWorkspaceCollection
     {
+        /// <summary>
+        /// 
+        /// Latest API Version: 2016-01-29.
+        /// </summary>
         public static Task<GetWorkspaceCollectionResult> InvokeAsync(GetWorkspaceCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceCollectionResult>("azure-nextgen:powerbi/latest:getWorkspaceCollection", args ?? new GetWorkspaceCollectionArgs(), options.WithVersion());
     }

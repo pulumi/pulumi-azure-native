@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getWebhookCallbackConfig'.")]
     public static class GetWebhookCallbackConfig
     {
+        /// <summary>
+        /// The configuration of service URI and custom headers for the webhook.
+        /// Latest API Version: 2019-05-01.
+        /// </summary>
         public static Task<GetWebhookCallbackConfigResult> InvokeAsync(GetWebhookCallbackConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookCallbackConfigResult>("azure-nextgen:containerregistry/latest:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigArgs(), options.WithVersion());
     }

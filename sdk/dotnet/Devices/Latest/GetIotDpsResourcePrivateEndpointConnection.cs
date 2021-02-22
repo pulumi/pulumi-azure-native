@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Devices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotDpsResourcePrivateEndpointConnection'.")]
     public static class GetIotDpsResourcePrivateEndpointConnection
     {
+        /// <summary>
+        /// The private endpoint connection of a provisioning service
+        /// Latest API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetIotDpsResourcePrivateEndpointConnectionResult> InvokeAsync(GetIotDpsResourcePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourcePrivateEndpointConnectionResult>("azure-nextgen:devices/latest:getIotDpsResourcePrivateEndpointConnection", args ?? new GetIotDpsResourcePrivateEndpointConnectionArgs(), options.WithVersion());
     }

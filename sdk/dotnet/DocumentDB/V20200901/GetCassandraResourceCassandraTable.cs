@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200901
 {
     public static class GetCassandraResourceCassandraTable
     {
+        /// <summary>
+        /// An Azure Cosmos DB Cassandra table.
+        /// </summary>
         public static Task<GetCassandraResourceCassandraTableResult> InvokeAsync(GetCassandraResourceCassandraTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraResourceCassandraTableResult>("azure-nextgen:documentdb/v20200901:getCassandraResourceCassandraTable", args ?? new GetCassandraResourceCassandraTableArgs(), options.WithVersion());
     }

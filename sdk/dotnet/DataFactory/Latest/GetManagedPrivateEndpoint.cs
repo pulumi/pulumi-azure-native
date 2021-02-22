@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataFactory.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getManagedPrivateEndpoint'.")]
     public static class GetManagedPrivateEndpoint
     {
+        /// <summary>
+        /// Managed private endpoint resource type.
+        /// Latest API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetManagedPrivateEndpointResult> InvokeAsync(GetManagedPrivateEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-nextgen:datafactory/latest:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithVersion());
     }

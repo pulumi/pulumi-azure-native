@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Advisor.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:advisor:getSuppression'.")]
     public static class GetSuppression
     {
+        /// <summary>
+        /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+        /// Latest API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetSuppressionResult> InvokeAsync(GetSuppressionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-nextgen:advisor/latest:getSuppression", args ?? new GetSuppressionArgs(), options.WithVersion());
     }

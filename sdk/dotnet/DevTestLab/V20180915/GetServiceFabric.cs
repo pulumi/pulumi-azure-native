@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 {
     public static class GetServiceFabric
     {
+        /// <summary>
+        /// A Service Fabric.
+        /// </summary>
         public static Task<GetServiceFabricResult> InvokeAsync(GetServiceFabricArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceFabricResult>("azure-nextgen:devtestlab/v20180915:getServiceFabric", args ?? new GetServiceFabricArgs(), options.WithVersion());
     }

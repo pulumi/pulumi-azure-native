@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkLink'.")]
     public static class GetVirtualNetworkLink
     {
+        /// <summary>
+        /// Describes a link to virtual network for a Private DNS zone.
+        /// Latest API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetVirtualNetworkLinkResult> InvokeAsync(GetVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkLinkResult>("azure-nextgen:network/latest:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkArgs(), options.WithVersion());
     }

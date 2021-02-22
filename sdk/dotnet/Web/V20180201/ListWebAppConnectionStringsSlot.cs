@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20180201
 {
     public static class ListWebAppConnectionStringsSlot
     {
+        /// <summary>
+        /// String dictionary resource.
+        /// </summary>
         public static Task<ListWebAppConnectionStringsSlotResult> InvokeAsync(ListWebAppConnectionStringsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppConnectionStringsSlotResult>("azure-nextgen:web/v20180201:listWebAppConnectionStringsSlot", args ?? new ListWebAppConnectionStringsSlotArgs(), options.WithVersion());
     }

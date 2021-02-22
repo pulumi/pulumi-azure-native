@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20200210Preview
 {
     public static class GetTestResultFile
     {
+        /// <summary>
+        /// Test result.
+        /// </summary>
         public static Task<GetTestResultFileResult> InvokeAsync(GetTestResultFileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultFileResult>("azure-nextgen:insights/v20200210preview:getTestResultFile", args ?? new GetTestResultFileArgs(), options.WithVersion());
     }

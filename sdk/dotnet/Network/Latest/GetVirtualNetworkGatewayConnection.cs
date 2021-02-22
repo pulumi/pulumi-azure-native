@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayConnection'.")]
     public static class GetVirtualNetworkGatewayConnection
     {
+        /// <summary>
+        /// A common class for general resource information.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetVirtualNetworkGatewayConnectionResult> InvokeAsync(GetVirtualNetworkGatewayConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayConnectionResult>("azure-nextgen:network/latest:getVirtualNetworkGatewayConnection", args ?? new GetVirtualNetworkGatewayConnectionArgs(), options.WithVersion());
     }

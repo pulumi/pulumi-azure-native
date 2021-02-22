@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Security
 {
     public static class GetAdaptiveApplicationControl
     {
+        /// <summary>
+        /// 
+        /// API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetAdaptiveApplicationControlResult> InvokeAsync(GetAdaptiveApplicationControlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAdaptiveApplicationControlResult>("azure-nextgen:security:getAdaptiveApplicationControl", args ?? new GetAdaptiveApplicationControlArgs(), options.WithVersion());
     }

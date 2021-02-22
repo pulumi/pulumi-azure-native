@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Aad
 {
     public static class GetDomainService
     {
+        /// <summary>
+        /// Domain service.
+        /// API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetDomainServiceResult> InvokeAsync(GetDomainServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-nextgen:aad:getDomainService", args ?? new GetDomainServiceArgs(), options.WithVersion());
     }

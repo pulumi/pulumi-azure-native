@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkInterfaceTapConfiguration'.")]
     public static class GetNetworkInterfaceTapConfiguration
     {
+        /// <summary>
+        /// Tap configuration in a Network Interface.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetNetworkInterfaceTapConfigurationResult> InvokeAsync(GetNetworkInterfaceTapConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceTapConfigurationResult>("azure-nextgen:network/latest:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationArgs(), options.WithVersion());
     }

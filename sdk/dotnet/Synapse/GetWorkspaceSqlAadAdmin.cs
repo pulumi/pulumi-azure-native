@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Synapse
 {
     public static class GetWorkspaceSqlAadAdmin
     {
+        /// <summary>
+        /// Workspace active directory administrator
+        /// API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetWorkspaceSqlAadAdminResult> InvokeAsync(GetWorkspaceSqlAadAdminArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSqlAadAdminResult>("azure-nextgen:synapse:getWorkspaceSqlAadAdmin", args ?? new GetWorkspaceSqlAadAdminArgs(), options.WithVersion());
     }

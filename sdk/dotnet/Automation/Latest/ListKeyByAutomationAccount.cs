@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Automation.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:listKeyByAutomationAccount'.")]
     public static class ListKeyByAutomationAccount
     {
+        /// <summary>
+        /// 
+        /// Latest API Version: 2019-06-01.
+        /// </summary>
         public static Task<ListKeyByAutomationAccountResult> InvokeAsync(ListKeyByAutomationAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListKeyByAutomationAccountResult>("azure-nextgen:automation/latest:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountArgs(), options.WithVersion());
     }

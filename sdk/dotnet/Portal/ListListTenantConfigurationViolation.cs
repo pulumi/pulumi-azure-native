@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Portal
 {
     public static class ListListTenantConfigurationViolation
     {
+        /// <summary>
+        /// List of list of items that violate tenant's configuration.
+        /// API Version: 2020-09-01-preview.
+        /// </summary>
         public static Task<ListListTenantConfigurationViolationResult> InvokeAsync(ListListTenantConfigurationViolationArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListListTenantConfigurationViolationResult>("azure-nextgen:portal:listListTenantConfigurationViolation", args ?? new ListListTenantConfigurationViolationArgs(), options.WithVersion());
     }

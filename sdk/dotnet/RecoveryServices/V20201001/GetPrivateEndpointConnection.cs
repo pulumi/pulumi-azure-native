@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
 {
     public static class GetPrivateEndpointConnection
     {
+        /// <summary>
+        /// Private Endpoint Connection Response Properties
+        /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-nextgen:recoveryservices/v20201001:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
     }

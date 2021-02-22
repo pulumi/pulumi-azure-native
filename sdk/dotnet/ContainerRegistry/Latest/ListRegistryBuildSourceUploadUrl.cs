@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryBuildSourceUploadUrl'.")]
     public static class ListRegistryBuildSourceUploadUrl
     {
+        /// <summary>
+        /// The properties of a response to source upload request.
+        /// Latest API Version: 2019-04-01.
+        /// </summary>
         public static Task<ListRegistryBuildSourceUploadUrlResult> InvokeAsync(ListRegistryBuildSourceUploadUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryBuildSourceUploadUrlResult>("azure-nextgen:containerregistry/latest:listRegistryBuildSourceUploadUrl", args ?? new ListRegistryBuildSourceUploadUrlArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190201Preview
 {
     public static class ListDomainSharedAccessKeys
     {
+        /// <summary>
+        /// Shared access keys of the Domain
+        /// </summary>
         public static Task<ListDomainSharedAccessKeysResult> InvokeAsync(ListDomainSharedAccessKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDomainSharedAccessKeysResult>("azure-nextgen:eventgrid/v20190201preview:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysArgs(), options.WithVersion());
     }

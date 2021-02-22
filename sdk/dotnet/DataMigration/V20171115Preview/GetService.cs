@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview
 {
     public static class GetService
     {
+        /// <summary>
+        /// A Data Migration Service resource
+        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:datamigration/v20171115preview:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }

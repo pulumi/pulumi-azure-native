@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.MixedReality.V20190228Preview
 {
     public static class GetSpatialAnchorsAccount
     {
+        /// <summary>
+        /// SpatialAnchorsAccount Response.
+        /// </summary>
         public static Task<GetSpatialAnchorsAccountResult> InvokeAsync(GetSpatialAnchorsAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSpatialAnchorsAccountResult>("azure-nextgen:mixedreality/v20190228preview:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountArgs(), options.WithVersion());
     }

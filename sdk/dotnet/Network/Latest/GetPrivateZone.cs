@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateZone'.")]
     public static class GetPrivateZone
     {
+        /// <summary>
+        /// Describes a Private DNS zone.
+        /// Latest API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetPrivateZoneResult> InvokeAsync(GetPrivateZoneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateZoneResult>("azure-nextgen:network/latest:getPrivateZone", args ?? new GetPrivateZoneArgs(), options.WithVersion());
     }

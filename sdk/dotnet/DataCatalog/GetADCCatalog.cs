@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataCatalog
 {
     public static class GetADCCatalog
     {
+        /// <summary>
+        /// Azure Data Catalog.
+        /// API Version: 2016-03-30.
+        /// </summary>
         public static Task<GetADCCatalogResult> InvokeAsync(GetADCCatalogArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetADCCatalogResult>("azure-nextgen:datacatalog:getADCCatalog", args ?? new GetADCCatalogArgs(), options.WithVersion());
     }

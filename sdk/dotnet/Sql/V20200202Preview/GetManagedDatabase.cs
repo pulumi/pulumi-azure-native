@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 {
     public static class GetManagedDatabase
     {
+        /// <summary>
+        /// A managed database resource.
+        /// </summary>
         public static Task<GetManagedDatabaseResult> InvokeAsync(GetManagedDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseResult>("azure-nextgen:sql/v20200202preview:getManagedDatabase", args ?? new GetManagedDatabaseArgs(), options.WithVersion());
     }

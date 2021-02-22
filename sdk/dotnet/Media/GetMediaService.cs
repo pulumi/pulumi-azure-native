@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Media
 {
     public static class GetMediaService
     {
+        /// <summary>
+        /// A Media Services account.
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetMediaServiceResult> InvokeAsync(GetMediaServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-nextgen:media:getMediaService", args ?? new GetMediaServiceArgs(), options.WithVersion());
     }

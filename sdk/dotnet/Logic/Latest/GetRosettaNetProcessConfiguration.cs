@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Logic.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getRosettaNetProcessConfiguration'.")]
     public static class GetRosettaNetProcessConfiguration
     {
+        /// <summary>
+        /// The integration account RosettaNet process configuration.
+        /// Latest API Version: 2016-06-01.
+        /// </summary>
         public static Task<GetRosettaNetProcessConfigurationResult> InvokeAsync(GetRosettaNetProcessConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRosettaNetProcessConfigurationResult>("azure-nextgen:logic/latest:getRosettaNetProcessConfiguration", args ?? new GetRosettaNetProcessConfigurationArgs(), options.WithVersion());
     }

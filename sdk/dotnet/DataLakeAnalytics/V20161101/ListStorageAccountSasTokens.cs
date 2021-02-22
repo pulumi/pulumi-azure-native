@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
 {
     public static class ListStorageAccountSasTokens
     {
+        /// <summary>
+        /// The SAS response that contains the storage account, container and associated SAS token for connection use.
+        /// </summary>
         public static Task<ListStorageAccountSasTokensResult> InvokeAsync(ListStorageAccountSasTokensArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSasTokensResult>("azure-nextgen:datalakeanalytics/v20161101:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensArgs(), options.WithVersion());
     }

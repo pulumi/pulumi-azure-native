@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Addons
 {
     public static class GetSupportPlanType
     {
+        /// <summary>
+        /// The status of the Canonical support plan.
+        /// API Version: 2018-03-01.
+        /// </summary>
         public static Task<GetSupportPlanTypeResult> InvokeAsync(GetSupportPlanTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSupportPlanTypeResult>("azure-nextgen:addons:getSupportPlanType", args ?? new GetSupportPlanTypeArgs(), options.WithVersion());
     }

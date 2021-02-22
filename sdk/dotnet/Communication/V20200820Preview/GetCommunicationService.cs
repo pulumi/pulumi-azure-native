@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Communication.V20200820Preview
 {
     public static class GetCommunicationService
     {
+        /// <summary>
+        /// A class representing a CommunicationService resource.
+        /// </summary>
         public static Task<GetCommunicationServiceResult> InvokeAsync(GetCommunicationServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCommunicationServiceResult>("azure-nextgen:communication/v20200820preview:getCommunicationService", args ?? new GetCommunicationServiceArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Migrate.V20210101
 {
     public static class GetMoveCollection
     {
+        /// <summary>
+        /// Define the move collection.
+        /// </summary>
         public static Task<GetMoveCollectionResult> InvokeAsync(GetMoveCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMoveCollectionResult>("azure-nextgen:migrate/v20210101:getMoveCollection", args ?? new GetMoveCollectionArgs(), options.WithVersion());
     }

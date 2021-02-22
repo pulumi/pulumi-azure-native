@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Resources.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtManagementGroupScope'.")]
     public static class GetDeploymentAtManagementGroupScope
     {
+        /// <summary>
+        /// Deployment information.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetDeploymentAtManagementGroupScopeResult> InvokeAsync(GetDeploymentAtManagementGroupScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtManagementGroupScopeResult>("azure-nextgen:resources/latest:getDeploymentAtManagementGroupScope", args ?? new GetDeploymentAtManagementGroupScopeArgs(), options.WithVersion());
     }

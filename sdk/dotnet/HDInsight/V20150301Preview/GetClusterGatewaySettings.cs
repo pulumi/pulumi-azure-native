@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
 {
     public static class GetClusterGatewaySettings
     {
+        /// <summary>
+        /// Gateway settings.
+        /// </summary>
         public static Task<GetClusterGatewaySettingsResult> InvokeAsync(GetClusterGatewaySettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterGatewaySettingsResult>("azure-nextgen:hdinsight/v20150301preview:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
 {
     public static class GetApplicationDefinition
     {
+        /// <summary>
+        /// Information about managed application definition.
+        /// </summary>
         public static Task<GetApplicationDefinitionResult> InvokeAsync(GetApplicationDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-nextgen:solutions/v20200821preview:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithVersion());
     }

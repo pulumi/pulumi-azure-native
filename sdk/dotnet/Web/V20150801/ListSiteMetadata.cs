@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class ListSiteMetadata
     {
+        /// <summary>
+        /// String dictionary resource
+        /// </summary>
         public static Task<ListSiteMetadataResult> InvokeAsync(ListSiteMetadataArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSiteMetadataResult>("azure-nextgen:web/v20150801:listSiteMetadata", args ?? new ListSiteMetadataArgs(), options.WithVersion());
     }

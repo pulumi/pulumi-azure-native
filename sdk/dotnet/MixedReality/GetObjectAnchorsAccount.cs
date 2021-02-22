@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.MixedReality
 {
     public static class GetObjectAnchorsAccount
     {
+        /// <summary>
+        /// ObjectAnchorsAccount Response.
+        /// API Version: 2021-03-01-preview.
+        /// </summary>
         public static Task<GetObjectAnchorsAccountResult> InvokeAsync(GetObjectAnchorsAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetObjectAnchorsAccountResult>("azure-nextgen:mixedreality:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountArgs(), options.WithVersion());
     }

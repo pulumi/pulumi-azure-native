@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 {
     public static class GetWorkloadNetworkDhcp
     {
+        /// <summary>
+        /// NSX DHCP
+        /// </summary>
         public static Task<GetWorkloadNetworkDhcpResult> InvokeAsync(GetWorkloadNetworkDhcpArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDhcpResult>("azure-nextgen:avs/v20200717preview:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpArgs(), options.WithVersion());
     }

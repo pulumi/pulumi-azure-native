@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetVirtualNetworkLink
     {
+        /// <summary>
+        /// Describes a link to virtual network for a Private DNS zone.
+        /// API Version: 2020-06-01.
+        /// </summary>
         public static Task<GetVirtualNetworkLinkResult> InvokeAsync(GetVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkLinkResult>("azure-nextgen:network:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkArgs(), options.WithVersion());
     }

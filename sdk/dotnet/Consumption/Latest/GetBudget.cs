@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Consumption.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:consumption:getBudget'.")]
     public static class GetBudget
     {
+        /// <summary>
+        /// A budget resource.
+        /// Latest API Version: 2019-10-01.
+        /// </summary>
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azure-nextgen:consumption/latest:getBudget", args ?? new GetBudgetArgs(), options.WithVersion());
     }

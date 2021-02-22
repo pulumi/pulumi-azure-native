@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetServerFarm
     {
+        /// <summary>
+        /// App Service Plan Model
+        /// </summary>
         public static Task<GetServerFarmResult> InvokeAsync(GetServerFarmArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerFarmResult>("azure-nextgen:web/v20150801:getServerFarm", args ?? new GetServerFarmArgs(), options.WithVersion());
     }

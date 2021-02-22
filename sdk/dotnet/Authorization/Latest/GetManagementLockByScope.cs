@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Authorization.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockByScope'.")]
     public static class GetManagementLockByScope
     {
+        /// <summary>
+        /// The lock information.
+        /// Latest API Version: 2016-09-01.
+        /// </summary>
         public static Task<GetManagementLockByScopeResult> InvokeAsync(GetManagementLockByScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockByScopeResult>("azure-nextgen:authorization/latest:getManagementLockByScope", args ?? new GetManagementLockByScopeArgs(), options.WithVersion());
     }

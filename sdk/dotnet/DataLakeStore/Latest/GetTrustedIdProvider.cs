@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataLakeStore.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getTrustedIdProvider'.")]
     public static class GetTrustedIdProvider
     {
+        /// <summary>
+        /// Data Lake Store trusted identity provider information.
+        /// Latest API Version: 2016-11-01.
+        /// </summary>
         public static Task<GetTrustedIdProviderResult> InvokeAsync(GetTrustedIdProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTrustedIdProviderResult>("azure-nextgen:datalakestore/latest:getTrustedIdProvider", args ?? new GetTrustedIdProviderArgs(), options.WithVersion());
     }

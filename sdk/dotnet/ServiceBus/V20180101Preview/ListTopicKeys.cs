@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 {
     public static class ListTopicKeys
     {
+        /// <summary>
+        /// Namespace/ServiceBus Connection String
+        /// </summary>
         public static Task<ListTopicKeysResult> InvokeAsync(ListTopicKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTopicKeysResult>("azure-nextgen:servicebus/v20180101preview:listTopicKeys", args ?? new ListTopicKeysArgs(), options.WithVersion());
     }

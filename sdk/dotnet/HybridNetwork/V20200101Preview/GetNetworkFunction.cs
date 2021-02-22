@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 {
     public static class GetNetworkFunction
     {
+        /// <summary>
+        /// Network function resource response.
+        /// </summary>
         public static Task<GetNetworkFunctionResult> InvokeAsync(GetNetworkFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFunctionResult>("azure-nextgen:hybridnetwork/v20200101preview:getNetworkFunction", args ?? new GetNetworkFunctionArgs(), options.WithVersion());
     }

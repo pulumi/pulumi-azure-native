@@ -11,6 +11,11 @@ namespace Pulumi.AzureNextGen.ServiceFabric
 {
     public static class GetCluster
     {
+        /// <summary>
+        /// The cluster resource
+        /// 
+        /// API Version: 2020-03-01.
+        /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:servicefabric:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getInput'.")]
     public static class GetInput
     {
+        /// <summary>
+        /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+        /// Latest API Version: 2016-03-01.
+        /// </summary>
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-nextgen:streamanalytics/latest:getInput", args ?? new GetInputArgs(), options.WithVersion());
     }

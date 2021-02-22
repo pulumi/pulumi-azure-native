@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
 {
     public static class GetServer
     {
+        /// <summary>
+        /// Represents a server.
+        /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-nextgen:dbforpostgresql/v20200214preview:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }

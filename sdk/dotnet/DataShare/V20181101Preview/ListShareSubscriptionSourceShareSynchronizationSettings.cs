@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
 {
     public static class ListShareSubscriptionSourceShareSynchronizationSettings
     {
+        /// <summary>
+        /// List response for get source share Synchronization settings
+        /// </summary>
         public static Task<ListShareSubscriptionSourceShareSynchronizationSettingsResult> InvokeAsync(ListShareSubscriptionSourceShareSynchronizationSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListShareSubscriptionSourceShareSynchronizationSettingsResult>("azure-nextgen:datashare/v20181101preview:listShareSubscriptionSourceShareSynchronizationSettings", args ?? new ListShareSubscriptionSourceShareSynchronizationSettingsArgs(), options.WithVersion());
     }

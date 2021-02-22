@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Logic.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountSchemaContentCallbackUrl'.")]
     public static class ListIntegrationAccountSchemaContentCallbackUrl
     {
+        /// <summary>
+        /// The workflow trigger callback URL.
+        /// Latest API Version: 2019-05-01.
+        /// </summary>
         public static Task<ListIntegrationAccountSchemaContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountSchemaContentCallbackUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountSchemaContentCallbackUrlResult>("azure-nextgen:logic/latest:listIntegrationAccountSchemaContentCallbackUrl", args ?? new ListIntegrationAccountSchemaContentCallbackUrlArgs(), options.WithVersion());
     }

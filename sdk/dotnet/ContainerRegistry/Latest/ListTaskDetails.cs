@@ -9,8 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listTaskDetails'.")]
     public static class ListTaskDetails
     {
+        /// <summary>
+        /// The task that has the ARM resource and task properties. 
+        /// The task will have all information to schedule a run against it.
+        /// Latest API Version: 2019-04-01.
+        /// </summary>
         public static Task<ListTaskDetailsResult> InvokeAsync(ListTaskDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTaskDetailsResult>("azure-nextgen:containerregistry/latest:listTaskDetails", args ?? new ListTaskDetailsArgs(), options.WithVersion());
     }

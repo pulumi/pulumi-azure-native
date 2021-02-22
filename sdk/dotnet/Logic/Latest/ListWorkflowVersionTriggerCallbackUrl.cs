@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Logic.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listWorkflowVersionTriggerCallbackUrl'.")]
     public static class ListWorkflowVersionTriggerCallbackUrl
     {
+        /// <summary>
+        /// The workflow trigger callback URL.
+        /// Latest API Version: 2019-05-01.
+        /// </summary>
         public static Task<ListWorkflowVersionTriggerCallbackUrlResult> InvokeAsync(ListWorkflowVersionTriggerCallbackUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowVersionTriggerCallbackUrlResult>("azure-nextgen:logic/latest:listWorkflowVersionTriggerCallbackUrl", args ?? new ListWorkflowVersionTriggerCallbackUrlArgs(), options.WithVersion());
     }

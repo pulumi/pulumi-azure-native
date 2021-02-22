@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200601
 {
     public static class GetDomainTopic
     {
+        /// <summary>
+        /// Domain Topic.
+        /// </summary>
         public static Task<GetDomainTopicResult> InvokeAsync(GetDomainTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicResult>("azure-nextgen:eventgrid/v20200601:getDomainTopic", args ?? new GetDomainTopicArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ApiManagement
 {
     public static class GetApiVersionSet
     {
+        /// <summary>
+        /// Api Version Set Contract details.
+        /// API Version: 2019-12-01.
+        /// </summary>
         public static Task<GetApiVersionSetResult> InvokeAsync(GetApiVersionSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure-nextgen:apimanagement:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithVersion());
     }

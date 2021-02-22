@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetNetworkExperimentProfile
     {
+        /// <summary>
+        /// Defines an Network Experiment Profile and lists of Experiments
+        /// API Version: 2019-11-01.
+        /// </summary>
         public static Task<GetNetworkExperimentProfileResult> InvokeAsync(GetNetworkExperimentProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkExperimentProfileResult>("azure-nextgen:network:getNetworkExperimentProfile", args ?? new GetNetworkExperimentProfileArgs(), options.WithVersion());
     }

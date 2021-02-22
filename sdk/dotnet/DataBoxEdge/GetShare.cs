@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
 {
     public static class GetShare
     {
+        /// <summary>
+        /// Represents a share on the  Data Box Edge/Gateway device.
+        /// API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-nextgen:databoxedge:getShare", args ?? new GetShareArgs(), options.WithVersion());
     }

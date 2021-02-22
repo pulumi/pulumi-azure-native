@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ContainerService
 {
     public static class GetAgentPool
     {
+        /// <summary>
+        /// Agent Pool.
+        /// API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-nextgen:containerservice:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithVersion());
     }

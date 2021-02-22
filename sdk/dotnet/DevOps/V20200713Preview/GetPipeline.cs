@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevOps.V20200713Preview
 {
     public static class GetPipeline
     {
+        /// <summary>
+        /// Pipeline used to configure Continuous Integration (CI) &amp; Continuous Delivery (CD) for Azure resources.
+        /// </summary>
         public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-nextgen:devops/v20200713preview:getPipeline", args ?? new GetPipelineArgs(), options.WithVersion());
     }

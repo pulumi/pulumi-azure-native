@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Peering
 {
     public static class GetPeering
     {
+        /// <summary>
+        /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetPeeringResult> InvokeAsync(GetPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringResult>("azure-nextgen:peering:getPeering", args ?? new GetPeeringArgs(), options.WithVersion());
     }

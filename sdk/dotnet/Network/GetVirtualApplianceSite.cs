@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetVirtualApplianceSite
     {
+        /// <summary>
+        /// Virtual Appliance Site resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetVirtualApplianceSiteResult> InvokeAsync(GetVirtualApplianceSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualApplianceSiteResult>("azure-nextgen:network:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteArgs(), options.WithVersion());
     }

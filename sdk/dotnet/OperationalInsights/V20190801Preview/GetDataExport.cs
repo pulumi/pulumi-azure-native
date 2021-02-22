@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
 {
     public static class GetDataExport
     {
+        /// <summary>
+        /// The top level data export resource container.
+        /// </summary>
         public static Task<GetDataExportResult> InvokeAsync(GetDataExportArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azure-nextgen:operationalinsights/v20190801preview:getDataExport", args ?? new GetDataExportArgs(), options.WithVersion());
     }

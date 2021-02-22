@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Synapse.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getPrivateLinkHub'.")]
     public static class GetPrivateLinkHub
     {
+        /// <summary>
+        /// A privateLinkHub
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetPrivateLinkHubResult> InvokeAsync(GetPrivateLinkHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkHubResult>("azure-nextgen:synapse/latest:getPrivateLinkHub", args ?? new GetPrivateLinkHubArgs(), options.WithVersion());
     }

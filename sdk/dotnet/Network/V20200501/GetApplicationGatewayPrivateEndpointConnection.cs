@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 {
     public static class GetApplicationGatewayPrivateEndpointConnection
     {
+        /// <summary>
+        /// Private Endpoint connection on an application gateway.
+        /// </summary>
         public static Task<GetApplicationGatewayPrivateEndpointConnectionResult> InvokeAsync(GetApplicationGatewayPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayPrivateEndpointConnectionResult>("azure-nextgen:network/v20200501:getApplicationGatewayPrivateEndpointConnection", args ?? new GetApplicationGatewayPrivateEndpointConnectionArgs(), options.WithVersion());
     }

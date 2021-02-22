@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
 {
     public static class GetServerGroup
     {
+        /// <summary>
+        /// Represents a server group for create.
+        /// </summary>
         public static Task<GetServerGroupResult> InvokeAsync(GetServerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerGroupResult>("azure-nextgen:dbforpostgresql/v20201005privatepreview:getServerGroup", args ?? new GetServerGroupArgs(), options.WithVersion());
     }

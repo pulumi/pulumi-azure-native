@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
 {
     public static class GetService
     {
+        /// <summary>
+        /// Service resource
+        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:appplatform/v20200701:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }

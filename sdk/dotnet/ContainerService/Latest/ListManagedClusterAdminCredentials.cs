@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ContainerService.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:listManagedClusterAdminCredentials'.")]
     public static class ListManagedClusterAdminCredentials
     {
+        /// <summary>
+        /// The list of credential result response.
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<ListManagedClusterAdminCredentialsResult> InvokeAsync(ListManagedClusterAdminCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterAdminCredentialsResult>("azure-nextgen:containerservice/latest:listManagedClusterAdminCredentials", args ?? new ListManagedClusterAdminCredentialsArgs(), options.WithVersion());
     }

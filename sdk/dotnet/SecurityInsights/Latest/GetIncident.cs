@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.SecurityInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getIncident'.")]
     public static class GetIncident
     {
+        /// <summary>
+        /// Represents an incident in Azure Security Insights.
+        /// Latest API Version: 2020-01-01.
+        /// </summary>
         public static Task<GetIncidentResult> InvokeAsync(GetIncidentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azure-nextgen:securityinsights/latest:getIncident", args ?? new GetIncidentArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 {
     public static class GetLocalNetworkGateway
     {
+        /// <summary>
+        /// A common class for general resource information.
+        /// </summary>
         public static Task<GetLocalNetworkGatewayResult> InvokeAsync(GetLocalNetworkGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocalNetworkGatewayResult>("azure-nextgen:network/v20200501:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayArgs(), options.WithVersion());
     }

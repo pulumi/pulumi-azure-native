@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights
 {
     public static class GetImageUploadUrlForData
     {
+        /// <summary>
+        /// The image definition.
+        /// API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetImageUploadUrlForDataResult> InvokeAsync(GetImageUploadUrlForDataArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageUploadUrlForDataResult>("azure-nextgen:customerinsights:getImageUploadUrlForData", args ?? new GetImageUploadUrlForDataArgs(), options.WithVersion());
     }

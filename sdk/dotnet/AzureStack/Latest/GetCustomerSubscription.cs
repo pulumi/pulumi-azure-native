@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AzureStack.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getCustomerSubscription'.")]
     public static class GetCustomerSubscription
     {
+        /// <summary>
+        /// Customer subscription.
+        /// Latest API Version: 2017-06-01.
+        /// </summary>
         public static Task<GetCustomerSubscriptionResult> InvokeAsync(GetCustomerSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-nextgen:azurestack/latest:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithVersion());
     }

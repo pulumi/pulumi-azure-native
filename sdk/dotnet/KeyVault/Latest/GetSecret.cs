@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.KeyVault.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:keyvault:getSecret'.")]
     public static class GetSecret
     {
+        /// <summary>
+        /// Resource information with extended details.
+        /// Latest API Version: 2019-09-01.
+        /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-nextgen:keyvault/latest:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
     }

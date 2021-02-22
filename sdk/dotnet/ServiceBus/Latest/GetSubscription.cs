@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ServiceBus.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getSubscription'.")]
     public static class GetSubscription
     {
+        /// <summary>
+        /// Description of subscription resource.
+        /// Latest API Version: 2017-04-01.
+        /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-nextgen:servicebus/latest:getSubscription", args ?? new GetSubscriptionArgs(), options.WithVersion());
     }

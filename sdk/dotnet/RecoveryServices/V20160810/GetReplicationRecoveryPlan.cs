@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
 {
     public static class GetReplicationRecoveryPlan
     {
+        /// <summary>
+        /// Recovery plan details.
+        /// </summary>
         public static Task<GetReplicationRecoveryPlanResult> InvokeAsync(GetReplicationRecoveryPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryPlanResult>("azure-nextgen:recoveryservices/v20160810:getReplicationRecoveryPlan", args ?? new GetReplicationRecoveryPlanArgs(), options.WithVersion());
     }

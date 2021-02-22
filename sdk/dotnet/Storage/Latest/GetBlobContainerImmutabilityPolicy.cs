@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Storage.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobContainerImmutabilityPolicy'.")]
     public static class GetBlobContainerImmutabilityPolicy
     {
+        /// <summary>
+        /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetBlobContainerImmutabilityPolicyResult> InvokeAsync(GetBlobContainerImmutabilityPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerImmutabilityPolicyResult>("azure-nextgen:storage/latest:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyArgs(), options.WithVersion());
     }

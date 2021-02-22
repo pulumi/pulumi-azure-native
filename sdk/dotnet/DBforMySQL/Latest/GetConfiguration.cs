@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DBforMySQL.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getConfiguration'.")]
     public static class GetConfiguration
     {
+        /// <summary>
+        /// Represents a Configuration.
+        /// Latest API Version: 2017-12-01.
+        /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-nextgen:dbformysql/latest:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
     }

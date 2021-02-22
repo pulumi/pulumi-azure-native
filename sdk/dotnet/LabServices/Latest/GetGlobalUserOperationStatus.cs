@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.LabServices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserOperationStatus'.")]
     public static class GetGlobalUserOperationStatus
     {
+        /// <summary>
+        /// Status Details of the long running operation for an environment
+        /// Latest API Version: 2018-10-15.
+        /// </summary>
         public static Task<GetGlobalUserOperationStatusResult> InvokeAsync(GetGlobalUserOperationStatusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationStatusResult>("azure-nextgen:labservices/latest:getGlobalUserOperationStatus", args ?? new GetGlobalUserOperationStatusArgs(), options.WithVersion());
     }

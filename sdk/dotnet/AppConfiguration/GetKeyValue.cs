@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.AppConfiguration
 {
     public static class GetKeyValue
     {
+        /// <summary>
+        /// The key-value resource along with all resource properties.
+        /// API Version: 2020-07-01-preview.
+        /// </summary>
         public static Task<GetKeyValueResult> InvokeAsync(GetKeyValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyValueResult>("azure-nextgen:appconfiguration:getKeyValue", args ?? new GetKeyValueArgs(), options.WithVersion());
     }

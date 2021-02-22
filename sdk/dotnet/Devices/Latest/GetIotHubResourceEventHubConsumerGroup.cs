@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Devices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotHubResourceEventHubConsumerGroup'.")]
     public static class GetIotHubResourceEventHubConsumerGroup
     {
+        /// <summary>
+        /// The properties of the EventHubConsumerGroupInfo object.
+        /// Latest API Version: 2020-08-31.
+        /// </summary>
         public static Task<GetIotHubResourceEventHubConsumerGroupResult> InvokeAsync(GetIotHubResourceEventHubConsumerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceEventHubConsumerGroupResult>("azure-nextgen:devices/latest:getIotHubResourceEventHubConsumerGroup", args ?? new GetIotHubResourceEventHubConsumerGroupArgs(), options.WithVersion());
     }

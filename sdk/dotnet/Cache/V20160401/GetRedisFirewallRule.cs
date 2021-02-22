@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
 {
     public static class GetRedisFirewallRule
     {
+        /// <summary>
+        /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+        /// </summary>
         public static Task<GetRedisFirewallRuleResult> InvokeAsync(GetRedisFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRedisFirewallRuleResult>("azure-nextgen:cache/v20160401:getRedisFirewallRule", args ?? new GetRedisFirewallRuleArgs(), options.WithVersion());
     }

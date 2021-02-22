@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.SerialConsole.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:serialconsole:getSerialPort'.")]
     public static class GetSerialPort
     {
+        /// <summary>
+        /// Represents the serial port of the parent resource.
+        /// Latest API Version: 2018-05-01.
+        /// </summary>
         public static Task<GetSerialPortResult> InvokeAsync(GetSerialPortArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSerialPortResult>("azure-nextgen:serialconsole/latest:getSerialPort", args ?? new GetSerialPortArgs(), options.WithVersion());
     }

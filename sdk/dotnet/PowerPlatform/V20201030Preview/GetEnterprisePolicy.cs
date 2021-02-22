@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
 {
     public static class GetEnterprisePolicy
     {
+        /// <summary>
+        /// Definition of the EnterprisePolicy.
+        /// </summary>
         public static Task<GetEnterprisePolicyResult> InvokeAsync(GetEnterprisePolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnterprisePolicyResult>("azure-nextgen:powerplatform/v20201030preview:getEnterprisePolicy", args ?? new GetEnterprisePolicyArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
 {
     public static class GetAlertsSuppressionRule
     {
+        /// <summary>
+        /// Describes the suppression rule
+        /// </summary>
         public static Task<GetAlertsSuppressionRuleResult> InvokeAsync(GetAlertsSuppressionRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertsSuppressionRuleResult>("azure-nextgen:security/v20190101preview:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 {
     public static class ListIntegrationAccountKeyVaultKeys
     {
+        /// <summary>
+        /// Collection of key vault keys.
+        /// </summary>
         public static Task<ListIntegrationAccountKeyVaultKeysResult> InvokeAsync(ListIntegrationAccountKeyVaultKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountKeyVaultKeysResult>("azure-nextgen:logic/v20190501:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysArgs(), options.WithVersion());
     }

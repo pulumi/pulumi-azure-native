@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
 {
     public static class GetDataPool
     {
+        /// <summary>
+        /// An ADP Data Pool.
+        /// </summary>
         public static Task<GetDataPoolResult> InvokeAsync(GetDataPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataPoolResult>("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:getDataPool", args ?? new GetDataPoolArgs(), options.WithVersion());
     }

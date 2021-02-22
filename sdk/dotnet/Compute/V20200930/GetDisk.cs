@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
 {
     public static class GetDisk
     {
+        /// <summary>
+        /// Disk resource.
+        /// </summary>
         public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-nextgen:compute/v20200930:getDisk", args ?? new GetDiskArgs(), options.WithVersion());
     }

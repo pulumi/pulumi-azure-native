@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.OffAzure.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:offazure:getHyperVSite'.")]
     public static class GetHyperVSite
     {
+        /// <summary>
+        /// Site REST Resource.
+        /// Latest API Version: 2020-07-07.
+        /// </summary>
         public static Task<GetHyperVSiteResult> InvokeAsync(GetHyperVSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVSiteResult>("azure-nextgen:offazure/latest:getHyperVSite", args ?? new GetHyperVSiteArgs(), options.WithVersion());
     }

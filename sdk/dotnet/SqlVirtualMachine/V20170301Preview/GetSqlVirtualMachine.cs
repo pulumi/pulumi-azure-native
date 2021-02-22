@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
 {
     public static class GetSqlVirtualMachine
     {
+        /// <summary>
+        /// A SQL virtual machine.
+        /// </summary>
         public static Task<GetSqlVirtualMachineResult> InvokeAsync(GetSqlVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineResult>("azure-nextgen:sqlvirtualmachine/v20170301preview:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineArgs(), options.WithVersion());
     }

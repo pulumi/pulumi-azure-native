@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20201001
 {
     public static class GetWebAppPrivateEndpointConnection
     {
+        /// <summary>
+        /// Private Endpoint Connection ARM resource.
+        /// </summary>
         public static Task<GetWebAppPrivateEndpointConnectionResult> InvokeAsync(GetWebAppPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPrivateEndpointConnectionResult>("azure-nextgen:web/v20201001:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionArgs(), options.WithVersion());
     }

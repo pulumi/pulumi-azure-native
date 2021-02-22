@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Search
 {
     public static class ListQueryKeyBySearchService
     {
+        /// <summary>
+        /// Response containing the query API keys for a given Azure Cognitive Search service.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<ListQueryKeyBySearchServiceResult> InvokeAsync(ListQueryKeyBySearchServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListQueryKeyBySearchServiceResult>("azure-nextgen:search:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceArgs(), options.WithVersion());
     }

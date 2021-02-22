@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ProviderHub
 {
     public static class GetSkusNestedResourceTypeFirst
     {
+        /// <summary>
+        /// 
+        /// API Version: 2020-11-20.
+        /// </summary>
         public static Task<GetSkusNestedResourceTypeFirstResult> InvokeAsync(GetSkusNestedResourceTypeFirstArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeFirstResult>("azure-nextgen:providerhub:getSkusNestedResourceTypeFirst", args ?? new GetSkusNestedResourceTypeFirstArgs(), options.WithVersion());
     }

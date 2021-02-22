@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20171001
 {
     public static class ListEASubscriptionListMigrationDatePost
     {
+        /// <summary>
+        /// Subscription migrate date information properties
+        /// </summary>
         public static Task<ListEASubscriptionListMigrationDatePostResult> InvokeAsync(ListEASubscriptionListMigrationDatePostArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListEASubscriptionListMigrationDatePostResult>("azure-nextgen:insights/v20171001:listEASubscriptionListMigrationDatePost", args ?? new ListEASubscriptionListMigrationDatePostArgs(), options.WithVersion());
     }

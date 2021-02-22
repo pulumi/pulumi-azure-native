@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AzureStack.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistrationActivationKey'.")]
     public static class GetRegistrationActivationKey
     {
+        /// <summary>
+        /// The resource containing the Azure Stack activation key.
+        /// Latest API Version: 2017-06-01.
+        /// </summary>
         public static Task<GetRegistrationActivationKeyResult> InvokeAsync(GetRegistrationActivationKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationActivationKeyResult>("azure-nextgen:azurestack/latest:getRegistrationActivationKey", args ?? new GetRegistrationActivationKeyArgs(), options.WithVersion());
     }

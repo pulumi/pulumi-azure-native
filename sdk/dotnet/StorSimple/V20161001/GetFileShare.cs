@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 {
     public static class GetFileShare
     {
+        /// <summary>
+        /// The File Share.
+        /// </summary>
         public static Task<GetFileShareResult> InvokeAsync(GetFileShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-nextgen:storsimple/v20161001:getFileShare", args ?? new GetFileShareArgs(), options.WithVersion());
     }

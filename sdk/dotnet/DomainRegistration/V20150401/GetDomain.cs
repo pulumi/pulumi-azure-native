@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20150401
 {
     public static class GetDomain
     {
+        /// <summary>
+        /// Information about a domain.
+        /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-nextgen:domainregistration/v20150401:getDomain", args ?? new GetDomainArgs(), options.WithVersion());
     }

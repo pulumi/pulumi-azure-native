@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Datadog
 {
     public static class ListMonitorLinkedResources
     {
+        /// <summary>
+        /// Response of a list operation.
+        /// API Version: 2020-02-01-preview.
+        /// </summary>
         public static Task<ListMonitorLinkedResourcesResult> InvokeAsync(ListMonitorLinkedResourcesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorLinkedResourcesResult>("azure-nextgen:datadog:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesArgs(), options.WithVersion());
     }

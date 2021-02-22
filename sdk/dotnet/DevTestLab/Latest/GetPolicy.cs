@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getPolicy'.")]
     public static class GetPolicy
     {
+        /// <summary>
+        /// A Policy.
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-nextgen:devtestlab/latest:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetCertificateCsr
     {
+        /// <summary>
+        /// Certificate signing request object
+        /// </summary>
         public static Task<GetCertificateCsrResult> InvokeAsync(GetCertificateCsrArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateCsrResult>("azure-nextgen:web/v20150801:getCertificateCsr", args ?? new GetCertificateCsrArgs(), options.WithVersion());
     }

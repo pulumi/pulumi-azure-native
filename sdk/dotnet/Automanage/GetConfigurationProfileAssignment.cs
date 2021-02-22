@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Automanage
 {
     public static class GetConfigurationProfileAssignment
     {
+        /// <summary>
+        /// Configuration profile assignment is an association between a VM and automanage profile configuration.
+        /// API Version: 2020-06-30-preview.
+        /// </summary>
         public static Task<GetConfigurationProfileAssignmentResult> InvokeAsync(GetConfigurationProfileAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileAssignmentResult>("azure-nextgen:automanage:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentArgs(), options.WithVersion());
     }

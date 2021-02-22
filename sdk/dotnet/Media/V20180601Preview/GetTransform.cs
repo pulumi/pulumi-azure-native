@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
 {
     public static class GetTransform
     {
+        /// <summary>
+        /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+        /// </summary>
         public static Task<GetTransformResult> InvokeAsync(GetTransformArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-nextgen:media/v20180601preview:getTransform", args ?? new GetTransformArgs(), options.WithVersion());
     }

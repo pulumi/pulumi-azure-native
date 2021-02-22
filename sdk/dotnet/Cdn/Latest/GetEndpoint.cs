@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Cdn.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getEndpoint'.")]
     public static class GetEndpoint
     {
+        /// <summary>
+        /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
+        /// Latest API Version: 2020-09-01.
+        /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-nextgen:cdn/latest:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
     }

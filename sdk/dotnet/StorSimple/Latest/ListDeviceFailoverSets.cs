@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listDeviceFailoverSets'.")]
     public static class ListDeviceFailoverSets
     {
+        /// <summary>
+        /// The list of failover sets.
+        /// Latest API Version: 2017-06-01.
+        /// </summary>
         public static Task<ListDeviceFailoverSetsResult> InvokeAsync(ListDeviceFailoverSetsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverSetsResult>("azure-nextgen:storsimple/latest:listDeviceFailoverSets", args ?? new ListDeviceFailoverSetsArgs(), options.WithVersion());
     }

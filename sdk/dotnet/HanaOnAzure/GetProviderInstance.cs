@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.HanaOnAzure
 {
     public static class GetProviderInstance
     {
+        /// <summary>
+        /// A provider instance associated with a SAP monitor.
+        /// API Version: 2020-02-07-preview.
+        /// </summary>
         public static Task<GetProviderInstanceResult> InvokeAsync(GetProviderInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-nextgen:hanaonazure:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithVersion());
     }

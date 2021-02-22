@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
 {
     public static class GetPartnerTopicEventSubscriptionDeliveryAttributes
     {
+        /// <summary>
+        /// Result of the Get delivery attributes operation.
+        /// </summary>
         public static Task<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetPartnerTopicEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicEventSubscriptionDeliveryAttributesResult>("azure-nextgen:eventgrid/v20201015preview:getPartnerTopicEventSubscriptionDeliveryAttributes", args ?? new GetPartnerTopicEventSubscriptionDeliveryAttributesArgs(), options.WithVersion());
     }

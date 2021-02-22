@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetPrivateEndpoint
     {
+        /// <summary>
+        /// Private endpoint resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-nextgen:network:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithVersion());
     }

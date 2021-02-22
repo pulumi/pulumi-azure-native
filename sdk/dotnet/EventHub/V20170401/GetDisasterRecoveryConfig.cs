@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
 {
     public static class GetDisasterRecoveryConfig
     {
+        /// <summary>
+        /// Single item in List or Get Alias(Disaster Recovery configuration) operation
+        /// </summary>
         public static Task<GetDisasterRecoveryConfigResult> InvokeAsync(GetDisasterRecoveryConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigResult>("azure-nextgen:eventhub/v20170401:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigArgs(), options.WithVersion());
     }

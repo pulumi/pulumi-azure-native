@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20180201
 {
     public static class ListWebAppHostKeysSlot
     {
+        /// <summary>
+        /// Functions host level keys.
+        /// </summary>
         public static Task<ListWebAppHostKeysSlotResult> InvokeAsync(ListWebAppHostKeysSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHostKeysSlotResult>("azure-nextgen:web/v20180201:listWebAppHostKeysSlot", args ?? new ListWebAppHostKeysSlotArgs(), options.WithVersion());
     }

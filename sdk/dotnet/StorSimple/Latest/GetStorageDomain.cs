@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getStorageDomain'.")]
     public static class GetStorageDomain
     {
+        /// <summary>
+        /// The storage domain.
+        /// Latest API Version: 2016-10-01.
+        /// </summary>
         public static Task<GetStorageDomainResult> InvokeAsync(GetStorageDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageDomainResult>("azure-nextgen:storsimple/latest:getStorageDomain", args ?? new GetStorageDomainArgs(), options.WithVersion());
     }

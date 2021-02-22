@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Storage
 {
     public static class GetTable
     {
+        /// <summary>
+        /// Properties of the table, including Id, resource name, resource type.
+        /// API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-nextgen:storage:getTable", args ?? new GetTableArgs(), options.WithVersion());
     }

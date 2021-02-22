@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppRelayServiceConnection'.")]
     public static class GetWebAppRelayServiceConnection
     {
+        /// <summary>
+        /// Hybrid Connection for an App Service app.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetWebAppRelayServiceConnectionResult> InvokeAsync(GetWebAppRelayServiceConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppRelayServiceConnectionResult>("azure-nextgen:web/latest:getWebAppRelayServiceConnection", args ?? new GetWebAppRelayServiceConnectionArgs(), options.WithVersion());
     }

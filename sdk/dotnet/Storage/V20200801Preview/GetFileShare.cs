@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 {
     public static class GetFileShare
     {
+        /// <summary>
+        /// Properties of the file share, including Id, resource name, resource type, Etag.
+        /// </summary>
         public static Task<GetFileShareResult> InvokeAsync(GetFileShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-nextgen:storage/v20200801preview:getFileShare", args ?? new GetFileShareArgs(), options.WithVersion());
     }

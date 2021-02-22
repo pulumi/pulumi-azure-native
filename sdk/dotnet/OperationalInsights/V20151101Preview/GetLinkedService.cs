@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
 {
     public static class GetLinkedService
     {
+        /// <summary>
+        /// The top level Linked service resource container.
+        /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-nextgen:operationalinsights/v20151101preview:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
     }

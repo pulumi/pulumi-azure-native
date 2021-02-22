@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Automation
 {
     public static class GetRunbook
     {
+        /// <summary>
+        /// Definition of the runbook type.
+        /// API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetRunbookResult> InvokeAsync(GetRunbookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRunbookResult>("azure-nextgen:automation:getRunbook", args ?? new GetRunbookArgs(), options.WithVersion());
     }

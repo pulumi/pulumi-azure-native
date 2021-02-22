@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Maps.V20170101Preview
 {
     public static class ListAccountKeys
     {
+        /// <summary>
+        /// The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+        /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-nextgen:maps/v20170101preview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
     }

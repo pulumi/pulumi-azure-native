@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.AVS.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:listPrivateCloudAdminCredentials'.")]
     public static class ListPrivateCloudAdminCredentials
     {
+        /// <summary>
+        /// Administrative credentials for accessing vCenter and NSX-T
+        /// Latest API Version: 2020-03-20.
+        /// </summary>
         public static Task<ListPrivateCloudAdminCredentialsResult> InvokeAsync(ListPrivateCloudAdminCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListPrivateCloudAdminCredentialsResult>("azure-nextgen:avs/latest:listPrivateCloudAdminCredentials", args ?? new ListPrivateCloudAdminCredentialsArgs(), options.WithVersion());
     }

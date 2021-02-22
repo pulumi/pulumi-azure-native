@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
 {
     public static class GetPrivateLinkScope
     {
+        /// <summary>
+        /// An Azure Monitor PrivateLinkScope definition.
+        /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-nextgen:insights/v20191017preview:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithVersion());
     }

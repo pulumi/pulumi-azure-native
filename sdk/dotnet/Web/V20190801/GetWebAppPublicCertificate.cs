@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 {
     public static class GetWebAppPublicCertificate
     {
+        /// <summary>
+        /// Public certificate object
+        /// </summary>
         public static Task<GetWebAppPublicCertificateResult> InvokeAsync(GetWebAppPublicCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPublicCertificateResult>("azure-nextgen:web/v20190801:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateArgs(), options.WithVersion());
     }

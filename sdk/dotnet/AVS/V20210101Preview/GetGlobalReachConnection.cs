@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AVS.V20210101Preview
 {
     public static class GetGlobalReachConnection
     {
+        /// <summary>
+        /// A global reach connection resource
+        /// </summary>
         public static Task<GetGlobalReachConnectionResult> InvokeAsync(GetGlobalReachConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalReachConnectionResult>("azure-nextgen:avs/v20210101preview:getGlobalReachConnection", args ?? new GetGlobalReachConnectionArgs(), options.WithVersion());
     }

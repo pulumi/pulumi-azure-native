@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountMongoDBCollection'.")]
     public static class GetDatabaseAccountMongoDBCollection
     {
+        /// <summary>
+        /// An Azure Cosmos DB MongoDB collection.
+        /// Latest API Version: 2016-03-31.
+        /// </summary>
         public static Task<GetDatabaseAccountMongoDBCollectionResult> InvokeAsync(GetDatabaseAccountMongoDBCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBCollectionResult>("azure-nextgen:documentdb/latest:getDatabaseAccountMongoDBCollection", args ?? new GetDatabaseAccountMongoDBCollectionArgs(), options.WithVersion());
     }

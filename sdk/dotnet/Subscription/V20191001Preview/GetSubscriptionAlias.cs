@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Subscription.V20191001Preview
 {
     public static class GetSubscriptionAlias
     {
+        /// <summary>
+        /// Subscription Information with the alias.
+        /// </summary>
         public static Task<GetSubscriptionAliasResult> InvokeAsync(GetSubscriptionAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionAliasResult>("azure-nextgen:subscription/v20191001preview:getSubscriptionAlias", args ?? new GetSubscriptionAliasArgs(), options.WithVersion());
     }

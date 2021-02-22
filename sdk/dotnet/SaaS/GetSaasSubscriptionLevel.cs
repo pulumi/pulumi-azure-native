@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.SaaS
 {
     public static class GetSaasSubscriptionLevel
     {
+        /// <summary>
+        /// SaaS REST API resource definition.
+        /// API Version: 2018-03-01-beta.
+        /// </summary>
         public static Task<GetSaasSubscriptionLevelResult> InvokeAsync(GetSaasSubscriptionLevelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSaasSubscriptionLevelResult>("azure-nextgen:saas:getSaasSubscriptionLevel", args ?? new GetSaasSubscriptionLevelArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataLakeStore
 {
     public static class GetFirewallRule
     {
+        /// <summary>
+        /// Data Lake Store firewall rule information.
+        /// API Version: 2016-11-01.
+        /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-nextgen:datalakestore:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
     }

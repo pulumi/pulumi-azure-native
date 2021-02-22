@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Authorization.V20200401Preview
 {
     public static class GetRoleAssignment
     {
+        /// <summary>
+        /// Role Assignments
+        /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-nextgen:authorization/v20200401preview:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithVersion());
     }

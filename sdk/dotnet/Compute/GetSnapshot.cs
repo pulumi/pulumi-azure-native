@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Compute
 {
     public static class GetSnapshot
     {
+        /// <summary>
+        /// Snapshot resource.
+        /// API Version: 2020-09-30.
+        /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-nextgen:compute:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Synapse.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getKey'.")]
     public static class GetKey
     {
+        /// <summary>
+        /// A workspace key
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-nextgen:synapse/latest:getKey", args ?? new GetKeyArgs(), options.WithVersion());
     }

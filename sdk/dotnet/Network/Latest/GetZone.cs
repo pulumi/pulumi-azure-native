@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getZone'.")]
     public static class GetZone
     {
+        /// <summary>
+        /// Describes a DNS zone.
+        /// Latest API Version: 2018-05-01.
+        /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure-nextgen:network/latest:getZone", args ?? new GetZoneArgs(), options.WithVersion());
     }

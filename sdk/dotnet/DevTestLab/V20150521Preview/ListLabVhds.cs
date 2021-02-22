@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 {
     public static class ListLabVhds
     {
+        /// <summary>
+        /// The response of a list operation.
+        /// </summary>
         public static Task<ListLabVhdsResult> InvokeAsync(ListLabVhdsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListLabVhdsResult>("azure-nextgen:devtestlab/v20150521preview:listLabVhds", args ?? new ListLabVhdsArgs(), options.WithVersion());
     }

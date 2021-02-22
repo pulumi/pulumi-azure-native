@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ContainerInstance
 {
     public static class GetContainerGroup
     {
+        /// <summary>
+        /// A container group.
+        /// API Version: 2020-11-01.
+        /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-nextgen:containerinstance:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithVersion());
     }

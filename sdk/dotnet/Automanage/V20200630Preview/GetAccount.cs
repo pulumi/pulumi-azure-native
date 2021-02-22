@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
 {
     public static class GetAccount
     {
+        /// <summary>
+        /// Definition of the Automanage account.
+        /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:automanage/v20200630preview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }

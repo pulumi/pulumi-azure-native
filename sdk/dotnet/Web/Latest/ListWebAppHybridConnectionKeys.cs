@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Web.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHybridConnectionKeys'.")]
     public static class ListWebAppHybridConnectionKeys
     {
+        /// <summary>
+        /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+        /// Latest API Version: 2018-11-01.
+        /// </summary>
         public static Task<ListWebAppHybridConnectionKeysResult> InvokeAsync(ListWebAppHybridConnectionKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHybridConnectionKeysResult>("azure-nextgen:web/latest:listWebAppHybridConnectionKeys", args ?? new ListWebAppHybridConnectionKeysArgs(), options.WithVersion());
     }

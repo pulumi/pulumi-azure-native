@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.ProviderHub
 {
     public static class GetSkus
     {
+        /// <summary>
+        /// 
+        /// API Version: 2020-11-20.
+        /// </summary>
         public static Task<GetSkusResult> InvokeAsync(GetSkusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSkusResult>("azure-nextgen:providerhub:getSkus", args ?? new GetSkusArgs(), options.WithVersion());
     }

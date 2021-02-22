@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Migrate.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getProject'.")]
     public static class GetProject
     {
+        /// <summary>
+        /// Azure Migrate Project.
+        /// Latest API Version: 2019-10-01.
+        /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-nextgen:migrate/latest:getProject", args ?? new GetProjectArgs(), options.WithVersion());
     }

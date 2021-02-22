@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSiteDeploymentSlot
     {
+        /// <summary>
+        /// Represents user credentials used for publishing activity
+        /// </summary>
         public static Task<GetSiteDeploymentSlotResult> InvokeAsync(GetSiteDeploymentSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteDeploymentSlotResult>("azure-nextgen:web/v20150801:getSiteDeploymentSlot", args ?? new GetSiteDeploymentSlotArgs(), options.WithVersion());
     }

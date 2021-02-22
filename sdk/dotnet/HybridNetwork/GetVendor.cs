@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.HybridNetwork
 {
     public static class GetVendor
     {
+        /// <summary>
+        /// Vendor resource.
+        /// API Version: 2020-01-01-preview.
+        /// </summary>
         public static Task<GetVendorResult> InvokeAsync(GetVendorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("azure-nextgen:hybridnetwork:getVendor", args ?? new GetVendorArgs(), options.WithVersion());
     }

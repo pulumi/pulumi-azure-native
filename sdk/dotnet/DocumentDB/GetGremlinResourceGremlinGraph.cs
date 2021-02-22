@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DocumentDB
 {
     public static class GetGremlinResourceGremlinGraph
     {
+        /// <summary>
+        /// An Azure Cosmos DB Gremlin graph.
+        /// API Version: 2021-01-15.
+        /// </summary>
         public static Task<GetGremlinResourceGremlinGraphResult> InvokeAsync(GetGremlinResourceGremlinGraphArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGremlinResourceGremlinGraphResult>("azure-nextgen:documentdb:getGremlinResourceGremlinGraph", args ?? new GetGremlinResourceGremlinGraphArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
 {
     public static class GetNotificationHubAuthorizationRule
     {
+        /// <summary>
+        /// Description of a Namespace AuthorizationRules.
+        /// </summary>
         public static Task<GetNotificationHubAuthorizationRuleResult> InvokeAsync(GetNotificationHubAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubAuthorizationRuleResult>("azure-nextgen:notificationhubs/v20170401:getNotificationHubAuthorizationRule", args ?? new GetNotificationHubAuthorizationRuleArgs(), options.WithVersion());
     }

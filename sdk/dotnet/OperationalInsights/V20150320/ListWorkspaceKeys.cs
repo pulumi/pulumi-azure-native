@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
 {
     public static class ListWorkspaceKeys
     {
+        /// <summary>
+        /// The shared keys for a workspace.
+        /// </summary>
         public static Task<ListWorkspaceKeysResult> InvokeAsync(ListWorkspaceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-nextgen:operationalinsights/v20150320:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithVersion());
     }

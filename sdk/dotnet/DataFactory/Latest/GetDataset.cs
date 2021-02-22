@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DataFactory.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataset'.")]
     public static class GetDataset
     {
+        /// <summary>
+        /// Dataset resource type.
+        /// Latest API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetDatasetResult> InvokeAsync(GetDatasetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("azure-nextgen:datafactory/latest:getDataset", args ?? new GetDatasetArgs(), options.WithVersion());
     }

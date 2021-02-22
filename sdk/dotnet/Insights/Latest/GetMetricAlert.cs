@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Insights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getMetricAlert'.")]
     public static class GetMetricAlert
     {
+        /// <summary>
+        /// The metric alert resource.
+        /// Latest API Version: 2018-03-01.
+        /// </summary>
         public static Task<GetMetricAlertResult> InvokeAsync(GetMetricAlertArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMetricAlertResult>("azure-nextgen:insights/latest:getMetricAlert", args ?? new GetMetricAlertArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 {
     public static class GetAddon
     {
+        /// <summary>
+        /// An addon resource
+        /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-nextgen:avs/v20200717preview:getAddon", args ?? new GetAddonArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Insights
 {
     public static class GetComponent
     {
+        /// <summary>
+        /// An Application Insights component definition.
+        /// API Version: 2015-05-01.
+        /// </summary>
         public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azure-nextgen:insights:getComponent", args ?? new GetComponentArgs(), options.WithVersion());
     }

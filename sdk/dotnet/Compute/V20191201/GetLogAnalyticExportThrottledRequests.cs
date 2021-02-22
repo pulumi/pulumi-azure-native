@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
 {
     public static class GetLogAnalyticExportThrottledRequests
     {
+        /// <summary>
+        /// LogAnalytics operation status response
+        /// </summary>
         public static Task<GetLogAnalyticExportThrottledRequestsResult> InvokeAsync(GetLogAnalyticExportThrottledRequestsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportThrottledRequestsResult>("azure-nextgen:compute/v20191201:getLogAnalyticExportThrottledRequests", args ?? new GetLogAnalyticExportThrottledRequestsArgs(), options.WithVersion());
     }

@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Blueprint
 {
     public static class GetPublishedBlueprint
     {
+        /// <summary>
+        /// Represents a published blueprint.
+        /// API Version: 2018-11-01-preview.
+        /// </summary>
         public static Task<GetPublishedBlueprintResult> InvokeAsync(GetPublishedBlueprintArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublishedBlueprintResult>("azure-nextgen:blueprint:getPublishedBlueprint", args ?? new GetPublishedBlueprintArgs(), options.WithVersion());
     }

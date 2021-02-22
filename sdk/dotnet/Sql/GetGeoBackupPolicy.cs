@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Sql
 {
     public static class GetGeoBackupPolicy
     {
+        /// <summary>
+        /// A database geo backup policy.
+        /// API Version: 2014-04-01.
+        /// </summary>
         public static Task<GetGeoBackupPolicyResult> InvokeAsync(GetGeoBackupPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGeoBackupPolicyResult>("azure-nextgen:sql:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyArgs(), options.WithVersion());
     }

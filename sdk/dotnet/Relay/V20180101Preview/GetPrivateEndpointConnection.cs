@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Relay.V20180101Preview
 {
     public static class GetPrivateEndpointConnection
     {
+        /// <summary>
+        /// Private endpoint connection resource.
+        /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-nextgen:relay/v20180101preview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
     }

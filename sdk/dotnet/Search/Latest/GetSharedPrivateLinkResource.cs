@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Search.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:getSharedPrivateLinkResource'.")]
     public static class GetSharedPrivateLinkResource
     {
+        /// <summary>
+        /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetSharedPrivateLinkResourceResult> InvokeAsync(GetSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSharedPrivateLinkResourceResult>("azure-nextgen:search/latest:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceArgs(), options.WithVersion());
     }

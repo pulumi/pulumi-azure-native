@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.PolicyInsights.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtResource'.")]
     public static class GetRemediationAtResource
     {
+        /// <summary>
+        /// The remediation definition.
+        /// Latest API Version: 2019-07-01.
+        /// </summary>
         public static Task<GetRemediationAtResourceResult> InvokeAsync(GetRemediationAtResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceResult>("azure-nextgen:policyinsights/latest:getRemediationAtResource", args ?? new GetRemediationAtResourceArgs(), options.WithVersion());
     }

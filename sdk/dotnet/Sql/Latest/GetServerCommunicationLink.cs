@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Sql.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServerCommunicationLink'.")]
     public static class GetServerCommunicationLink
     {
+        /// <summary>
+        /// Server communication link.
+        /// Latest API Version: 2014-04-01.
+        /// </summary>
         public static Task<GetServerCommunicationLinkResult> InvokeAsync(GetServerCommunicationLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerCommunicationLinkResult>("azure-nextgen:sql/latest:getServerCommunicationLink", args ?? new GetServerCommunicationLinkArgs(), options.WithVersion());
     }

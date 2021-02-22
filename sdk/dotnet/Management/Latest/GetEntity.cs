@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Management.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getEntity'.")]
     public static class GetEntity
     {
+        /// <summary>
+        /// Describes the result of the request to view entities.
+        /// Latest API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-nextgen:management/latest:getEntity", args ?? new GetEntityArgs(), options.WithVersion());
     }

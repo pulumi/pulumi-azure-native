@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Devices.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotHubResource'.")]
     public static class GetIotHubResource
     {
+        /// <summary>
+        /// The description of the IoT hub.
+        /// Latest API Version: 2020-08-31.
+        /// </summary>
         public static Task<GetIotHubResourceResult> InvokeAsync(GetIotHubResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceResult>("azure-nextgen:devices/latest:getIotHubResource", args ?? new GetIotHubResourceArgs(), options.WithVersion());
     }

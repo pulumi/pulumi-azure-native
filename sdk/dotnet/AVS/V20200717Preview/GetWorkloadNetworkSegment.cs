@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 {
     public static class GetWorkloadNetworkSegment
     {
+        /// <summary>
+        /// NSX Segment
+        /// </summary>
         public static Task<GetWorkloadNetworkSegmentResult> InvokeAsync(GetWorkloadNetworkSegmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkSegmentResult>("azure-nextgen:avs/v20200717preview:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentArgs(), options.WithVersion());
     }

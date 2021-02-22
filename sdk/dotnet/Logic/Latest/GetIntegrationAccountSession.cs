@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Logic.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountSession'.")]
     public static class GetIntegrationAccountSession
     {
+        /// <summary>
+        /// The integration account session.
+        /// Latest API Version: 2019-05-01.
+        /// </summary>
         public static Task<GetIntegrationAccountSessionResult> InvokeAsync(GetIntegrationAccountSessionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountSessionResult>("azure-nextgen:logic/latest:getIntegrationAccountSession", args ?? new GetIntegrationAccountSessionArgs(), options.WithVersion());
     }

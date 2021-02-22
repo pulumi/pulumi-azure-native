@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 {
     public static class GetNamespaceVirtualNetworkRule
     {
+        /// <summary>
+        /// Single item in a List or Get VirtualNetworkRules operation
+        /// </summary>
         public static Task<GetNamespaceVirtualNetworkRuleResult> InvokeAsync(GetNamespaceVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceVirtualNetworkRuleResult>("azure-nextgen:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleArgs(), options.WithVersion());
     }

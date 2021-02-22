@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getFormula'.")]
     public static class GetFormula
     {
+        /// <summary>
+        /// A formula for creating a VM, specifying an image base and other parameters
+        /// Latest API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetFormulaResult> InvokeAsync(GetFormulaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResult>("azure-nextgen:devtestlab/latest:getFormula", args ?? new GetFormulaArgs(), options.WithVersion());
     }

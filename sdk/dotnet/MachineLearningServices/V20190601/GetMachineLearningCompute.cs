@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20190601
 {
     public static class GetMachineLearningCompute
     {
+        /// <summary>
+        /// Machine Learning compute object wrapped into ARM resource envelope.
+        /// </summary>
         public static Task<GetMachineLearningComputeResult> InvokeAsync(GetMachineLearningComputeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningComputeResult>("azure-nextgen:machinelearningservices/v20190601:getMachineLearningCompute", args ?? new GetMachineLearningComputeArgs(), options.WithVersion());
     }

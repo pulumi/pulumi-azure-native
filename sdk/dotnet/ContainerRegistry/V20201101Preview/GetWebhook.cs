@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 {
     public static class GetWebhook
     {
+        /// <summary>
+        /// An object that represents a webhook for a container registry.
+        /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-nextgen:containerregistry/v20201101preview:getWebhook", args ?? new GetWebhookArgs(), options.WithVersion());
     }

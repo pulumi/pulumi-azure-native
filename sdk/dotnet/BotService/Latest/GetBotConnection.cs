@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.BotService.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getBotConnection'.")]
     public static class GetBotConnection
     {
+        /// <summary>
+        /// Bot channel resource definition
+        /// Latest API Version: 2020-06-02.
+        /// </summary>
         public static Task<GetBotConnectionResult> InvokeAsync(GetBotConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotConnectionResult>("azure-nextgen:botservice/latest:getBotConnection", args ?? new GetBotConnectionArgs(), options.WithVersion());
     }

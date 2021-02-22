@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Media
 {
     public static class GetAssetFilter
     {
+        /// <summary>
+        /// An Asset Filter.
+        /// API Version: 2020-05-01.
+        /// </summary>
         public static Task<GetAssetFilterResult> InvokeAsync(GetAssetFilterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAssetFilterResult>("azure-nextgen:media:getAssetFilter", args ?? new GetAssetFilterArgs(), options.WithVersion());
     }

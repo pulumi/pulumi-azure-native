@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Synapse
 {
     public static class GetSqlPoolWorkloadGroup
     {
+        /// <summary>
+        /// Workload group operations for a sql pool
+        /// API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetSqlPoolWorkloadGroupResult> InvokeAsync(GetSqlPoolWorkloadGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadGroupResult>("azure-nextgen:synapse:getSqlPoolWorkloadGroup", args ?? new GetSqlPoolWorkloadGroupArgs(), options.WithVersion());
     }

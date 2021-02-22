@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetRouteTable
     {
+        /// <summary>
+        /// Route table resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure-nextgen:network:getRouteTable", args ?? new GetRouteTableArgs(), options.WithVersion());
     }

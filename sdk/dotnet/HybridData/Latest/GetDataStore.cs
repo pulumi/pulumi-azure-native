@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.HybridData.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getDataStore'.")]
     public static class GetDataStore
     {
+        /// <summary>
+        /// Data store.
+        /// Latest API Version: 2019-06-01.
+        /// </summary>
         public static Task<GetDataStoreResult> InvokeAsync(GetDataStoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataStoreResult>("azure-nextgen:hybriddata/latest:getDataStore", args ?? new GetDataStoreArgs(), options.WithVersion());
     }

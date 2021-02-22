@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights
 {
     public static class GetPrediction
     {
+        /// <summary>
+        /// The prediction resource format.
+        /// API Version: 2017-04-26.
+        /// </summary>
         public static Task<GetPredictionResult> InvokeAsync(GetPredictionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionResult>("azure-nextgen:customerinsights:getPrediction", args ?? new GetPredictionArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 {
     public static class ListWorkflowRunActionExpressionTraces
     {
+        /// <summary>
+        /// The expression traces.
+        /// </summary>
         public static Task<ListWorkflowRunActionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionExpressionTracesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionExpressionTracesResult>("azure-nextgen:logic/v20190501:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesArgs(), options.WithVersion());
     }

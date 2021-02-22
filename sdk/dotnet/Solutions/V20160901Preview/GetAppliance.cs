@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
 {
     public static class GetAppliance
     {
+        /// <summary>
+        /// Information about appliance.
+        /// </summary>
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-nextgen:solutions/v20160901preview:getAppliance", args ?? new GetApplianceArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 {
     public static class ListStorageAccountKeys
     {
+        /// <summary>
+        /// The response from the ListKeys operation.
+        /// </summary>
         public static Task<ListStorageAccountKeysResult> InvokeAsync(ListStorageAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-nextgen:storage/v20200801preview:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithVersion());
     }

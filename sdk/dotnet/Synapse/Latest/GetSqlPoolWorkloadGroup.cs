@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Synapse.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolWorkloadGroup'.")]
     public static class GetSqlPoolWorkloadGroup
     {
+        /// <summary>
+        /// Workload group operations for a sql pool
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetSqlPoolWorkloadGroupResult> InvokeAsync(GetSqlPoolWorkloadGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadGroupResult>("azure-nextgen:synapse/latest:getSqlPoolWorkloadGroup", args ?? new GetSqlPoolWorkloadGroupArgs(), options.WithVersion());
     }

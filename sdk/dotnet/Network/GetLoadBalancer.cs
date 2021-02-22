@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetLoadBalancer
     {
+        /// <summary>
+        /// LoadBalancer resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-nextgen:network:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithVersion());
     }

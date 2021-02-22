@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 {
     public static class GetRoute
     {
+        /// <summary>
+        /// Friendly Routes name mapping to the any Routes or secret related information.
+        /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-nextgen:cdn/v20200901:getRoute", args ?? new GetRouteArgs(), options.WithVersion());
     }

@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
     public static class GetSqlPoolTransparentDataEncryption
     {
+        /// <summary>
+        /// Represents a Sql pool transparent data encryption configuration.
+        /// </summary>
         public static Task<GetSqlPoolTransparentDataEncryptionResult> InvokeAsync(GetSqlPoolTransparentDataEncryptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolTransparentDataEncryptionResult>("azure-nextgen:synapse/v20190601preview:getSqlPoolTransparentDataEncryption", args ?? new GetSqlPoolTransparentDataEncryptionArgs(), options.WithVersion());
     }

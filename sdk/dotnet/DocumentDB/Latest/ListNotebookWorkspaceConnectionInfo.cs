@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:listNotebookWorkspaceConnectionInfo'.")]
     public static class ListNotebookWorkspaceConnectionInfo
     {
+        /// <summary>
+        /// The connection info for the given notebook workspace
+        /// Latest API Version: 2021-01-15.
+        /// </summary>
         public static Task<ListNotebookWorkspaceConnectionInfoResult> InvokeAsync(ListNotebookWorkspaceConnectionInfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNotebookWorkspaceConnectionInfoResult>("azure-nextgen:documentdb/latest:listNotebookWorkspaceConnectionInfo", args ?? new ListNotebookWorkspaceConnectionInfoArgs(), options.WithVersion());
     }

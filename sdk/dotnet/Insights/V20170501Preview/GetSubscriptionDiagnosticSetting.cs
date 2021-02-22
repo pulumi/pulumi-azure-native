@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
 {
     public static class GetSubscriptionDiagnosticSetting
     {
+        /// <summary>
+        /// The subscription diagnostic setting resource.
+        /// </summary>
         public static Task<GetSubscriptionDiagnosticSettingResult> InvokeAsync(GetSubscriptionDiagnosticSettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionDiagnosticSettingResult>("azure-nextgen:insights/v20170501preview:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingArgs(), options.WithVersion());
     }

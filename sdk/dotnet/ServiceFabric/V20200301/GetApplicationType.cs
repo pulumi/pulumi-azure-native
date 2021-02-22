@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200301
 {
     public static class GetApplicationType
     {
+        /// <summary>
+        /// The application type name resource
+        /// </summary>
         public static Task<GetApplicationTypeResult> InvokeAsync(GetApplicationTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeResult>("azure-nextgen:servicefabric/v20200301:getApplicationType", args ?? new GetApplicationTypeArgs(), options.WithVersion());
     }

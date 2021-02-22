@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
 {
     public static class GetSecret
     {
+        /// <summary>
+        /// Resource information with extended details.
+        /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-nextgen:keyvault/v20200401preview:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
     }

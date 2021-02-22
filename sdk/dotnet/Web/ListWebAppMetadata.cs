@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Web
 {
     public static class ListWebAppMetadata
     {
+        /// <summary>
+        /// String dictionary resource.
+        /// API Version: 2020-10-01.
+        /// </summary>
         public static Task<ListWebAppMetadataResult> InvokeAsync(ListWebAppMetadataArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppMetadataResult>("azure-nextgen:web:listWebAppMetadata", args ?? new ListWebAppMetadataArgs(), options.WithVersion());
     }

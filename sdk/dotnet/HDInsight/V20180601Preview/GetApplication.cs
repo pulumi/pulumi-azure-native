@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview
 {
     public static class GetApplication
     {
+        /// <summary>
+        /// The HDInsight cluster application
+        /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-nextgen:hdinsight/v20180601preview:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
     }

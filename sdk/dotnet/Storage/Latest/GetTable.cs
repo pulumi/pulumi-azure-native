@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Storage.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getTable'.")]
     public static class GetTable
     {
+        /// <summary>
+        /// Properties of the table, including Id, resource name, resource type.
+        /// Latest API Version: 2021-01-01.
+        /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-nextgen:storage/latest:getTable", args ?? new GetTableArgs(), options.WithVersion());
     }

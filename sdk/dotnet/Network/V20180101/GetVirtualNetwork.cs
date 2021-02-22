@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Network.V20180101
 {
     public static class GetVirtualNetwork
     {
+        /// <summary>
+        /// Virtual Network resource.
+        /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-nextgen:network/v20180101:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Compute.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getLogAnalyticExportRequestRateByInterval'.")]
     public static class GetLogAnalyticExportRequestRateByInterval
     {
+        /// <summary>
+        /// LogAnalytics operation status response
+        /// Latest API Version: 2020-12-01.
+        /// </summary>
         public static Task<GetLogAnalyticExportRequestRateByIntervalResult> InvokeAsync(GetLogAnalyticExportRequestRateByIntervalArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportRequestRateByIntervalResult>("azure-nextgen:compute/latest:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalArgs(), options.WithVersion());
     }

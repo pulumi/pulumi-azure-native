@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Authorization
 {
     public static class GetAccessReviewScheduleDefinitionById
     {
+        /// <summary>
+        /// Access Review Schedule Definition.
+        /// API Version: 2018-05-01-preview.
+        /// </summary>
         public static Task<GetAccessReviewScheduleDefinitionByIdResult> InvokeAsync(GetAccessReviewScheduleDefinitionByIdArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessReviewScheduleDefinitionByIdResult>("azure-nextgen:authorization:getAccessReviewScheduleDefinitionById", args ?? new GetAccessReviewScheduleDefinitionByIdArgs(), options.WithVersion());
     }

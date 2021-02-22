@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DataFactory
 {
     public static class GetPipeline
     {
+        /// <summary>
+        /// Pipeline resource type.
+        /// API Version: 2018-06-01.
+        /// </summary>
         public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-nextgen:datafactory:getPipeline", args ?? new GetPipelineArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Attestation.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:attestation:getAttestationProvider'.")]
     public static class GetAttestationProvider
     {
+        /// <summary>
+        /// Attestation service response message.
+        /// Latest API Version: 2020-10-01.
+        /// </summary>
         public static Task<GetAttestationProviderResult> InvokeAsync(GetAttestationProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azure-nextgen:attestation/latest:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithVersion());
     }

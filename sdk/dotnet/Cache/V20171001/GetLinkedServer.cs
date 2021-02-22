@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cache.V20171001
 {
     public static class GetLinkedServer
     {
+        /// <summary>
+        /// Response to put/get linked server (with properties) for Redis cache.
+        /// </summary>
         public static Task<GetLinkedServerResult> InvokeAsync(GetLinkedServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-nextgen:cache/v20171001:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithVersion());
     }

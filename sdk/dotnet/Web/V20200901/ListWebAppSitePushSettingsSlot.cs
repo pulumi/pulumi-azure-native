@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Web.V20200901
 {
     public static class ListWebAppSitePushSettingsSlot
     {
+        /// <summary>
+        /// Push settings for the App.
+        /// </summary>
         public static Task<ListWebAppSitePushSettingsSlotResult> InvokeAsync(ListWebAppSitePushSettingsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSitePushSettingsSlotResult>("azure-nextgen:web/v20200901:listWebAppSitePushSettingsSlot", args ?? new ListWebAppSitePushSettingsSlotArgs(), options.WithVersion());
     }

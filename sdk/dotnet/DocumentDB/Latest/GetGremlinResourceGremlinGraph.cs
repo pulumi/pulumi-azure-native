@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getGremlinResourceGremlinGraph'.")]
     public static class GetGremlinResourceGremlinGraph
     {
+        /// <summary>
+        /// An Azure Cosmos DB Gremlin graph.
+        /// Latest API Version: 2021-01-15.
+        /// </summary>
         public static Task<GetGremlinResourceGremlinGraphResult> InvokeAsync(GetGremlinResourceGremlinGraphArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGremlinResourceGremlinGraphResult>("azure-nextgen:documentdb/latest:getGremlinResourceGremlinGraph", args ?? new GetGremlinResourceGremlinGraphArgs(), options.WithVersion());
     }

@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.ProviderHub.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getProviderRegistration'.")]
     public static class GetProviderRegistration
     {
+        /// <summary>
+        /// 
+        /// Latest API Version: 2020-11-20.
+        /// </summary>
         public static Task<GetProviderRegistrationResult> InvokeAsync(GetProviderRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProviderRegistrationResult>("azure-nextgen:providerhub/latest:getProviderRegistration", args ?? new GetProviderRegistrationArgs(), options.WithVersion());
     }

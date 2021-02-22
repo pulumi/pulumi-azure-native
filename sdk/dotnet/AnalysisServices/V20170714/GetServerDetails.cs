@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
 {
     public static class GetServerDetails
     {
+        /// <summary>
+        /// Represents an instance of an Analysis Services resource.
+        /// </summary>
         public static Task<GetServerDetailsResult> InvokeAsync(GetServerDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerDetailsResult>("azure-nextgen:analysisservices/v20170714:getServerDetails", args ?? new GetServerDetailsArgs(), options.WithVersion());
     }

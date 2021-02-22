@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DevSpaces
 {
     public static class ListControllerConnectionDetails
     {
+        /// <summary>
+        /// 
+        /// API Version: 2019-04-01.
+        /// </summary>
         public static Task<ListControllerConnectionDetailsResult> InvokeAsync(ListControllerConnectionDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListControllerConnectionDetailsResult>("azure-nextgen:devspaces:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsArgs(), options.WithVersion());
     }

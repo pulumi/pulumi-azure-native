@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.BotService
 {
     public static class ListBotConnectionServiceProviders
     {
+        /// <summary>
+        /// The list of bot service providers response.
+        /// API Version: 2020-06-02.
+        /// </summary>
         public static Task<ListBotConnectionServiceProvidersResult> InvokeAsync(ListBotConnectionServiceProvidersArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBotConnectionServiceProvidersResult>("azure-nextgen:botservice:listBotConnectionServiceProviders", args ?? new ListBotConnectionServiceProvidersArgs(), options.WithVersion());
     }

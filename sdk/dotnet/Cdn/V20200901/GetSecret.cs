@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 {
     public static class GetSecret
     {
+        /// <summary>
+        /// Friendly Secret name mapping to the any Secret or secret related information.
+        /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-nextgen:cdn/v20200901:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
     }

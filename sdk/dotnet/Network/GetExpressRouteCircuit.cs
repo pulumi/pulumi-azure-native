@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Network
 {
     public static class GetExpressRouteCircuit
     {
+        /// <summary>
+        /// ExpressRouteCircuit resource.
+        /// API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetExpressRouteCircuitResult> InvokeAsync(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure-nextgen:network:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithVersion());
     }

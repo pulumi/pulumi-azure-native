@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DevTestLab
 {
     public static class GetGlobalSchedule
     {
+        /// <summary>
+        /// A schedule.
+        /// API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetGlobalScheduleResult> InvokeAsync(GetGlobalScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalScheduleResult>("azure-nextgen:devtestlab:getGlobalSchedule", args ?? new GetGlobalScheduleArgs(), options.WithVersion());
     }

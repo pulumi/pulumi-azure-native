@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
 {
     public static class GetSubscription
     {
+        /// <summary>
+        /// Description of subscription resource.
+        /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-nextgen:servicebus/v20140901:getSubscription", args ?? new GetSubscriptionArgs(), options.WithVersion());
     }

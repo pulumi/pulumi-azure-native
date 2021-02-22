@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights
 {
     public static class GetEntityInsights
     {
+        /// <summary>
+        /// The Get Insights result operation response.
+        /// API Version: 2019-01-01-preview.
+        /// </summary>
         public static Task<GetEntityInsightsResult> InvokeAsync(GetEntityInsightsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEntityInsightsResult>("azure-nextgen:securityinsights:getEntityInsights", args ?? new GetEntityInsightsArgs(), options.WithVersion());
     }

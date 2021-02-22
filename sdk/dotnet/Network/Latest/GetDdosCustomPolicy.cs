@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNextGen.Network.Latest
 {
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDdosCustomPolicy'.")]
     public static class GetDdosCustomPolicy
     {
+        /// <summary>
+        /// A DDoS custom policy in a resource group.
+        /// Latest API Version: 2020-08-01.
+        /// </summary>
         public static Task<GetDdosCustomPolicyResult> InvokeAsync(GetDdosCustomPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDdosCustomPolicyResult>("azure-nextgen:network/latest:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyArgs(), options.WithVersion());
     }

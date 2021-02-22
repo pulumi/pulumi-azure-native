@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.DevTestLab
 {
     public static class GetUser
     {
+        /// <summary>
+        /// Profile of a lab user.
+        /// API Version: 2018-09-15.
+        /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-nextgen:devtestlab:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }

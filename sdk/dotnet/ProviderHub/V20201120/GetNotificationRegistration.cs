@@ -11,6 +11,9 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
 {
     public static class GetNotificationRegistration
     {
+        /// <summary>
+        /// The notification registration definition.
+        /// </summary>
         public static Task<GetNotificationRegistrationResult> InvokeAsync(GetNotificationRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationRegistrationResult>("azure-nextgen:providerhub/v20201120:getNotificationRegistration", args ?? new GetNotificationRegistrationArgs(), options.WithVersion());
     }

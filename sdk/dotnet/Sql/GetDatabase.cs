@@ -11,6 +11,10 @@ namespace Pulumi.AzureNextGen.Sql
 {
     public static class GetDatabase
     {
+        /// <summary>
+        /// Represents a database.
+        /// API Version: 2014-04-01.
+        /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:sql:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }
