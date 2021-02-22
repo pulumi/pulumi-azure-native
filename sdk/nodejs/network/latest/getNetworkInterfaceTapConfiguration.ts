@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Tap configuration in a Network Interface.
+ * Latest API Version: 2020-08-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkInterfaceTapConfiguration'. */
 export function getNetworkInterfaceTapConfiguration(args: GetNetworkInterfaceTapConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceTapConfigurationResult> {
+    pulumi.log.warn("getNetworkInterfaceTapConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkInterfaceTapConfiguration'.")
     if (!opts) {
         opts = {}
     }

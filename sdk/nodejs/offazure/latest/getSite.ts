@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Site REST Resource.
+ * Latest API Version: 2020-07-07.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:offazure:getSite'. */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
+    pulumi.log.warn("getSite is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:offazure:getSite'.")
     if (!opts) {
         opts = {}
     }

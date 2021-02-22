@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Compute role.
+ * API Version: 2020-09-01.
+ */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
     if (!opts) {
         opts = {}

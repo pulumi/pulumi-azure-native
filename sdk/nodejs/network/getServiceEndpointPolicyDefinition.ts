@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Service Endpoint policy definitions.
+ * API Version: 2020-08-01.
+ */
 export function getServiceEndpointPolicyDefinition(args: GetServiceEndpointPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyDefinitionResult> {
     if (!opts) {
         opts = {}

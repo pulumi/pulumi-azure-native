@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+ * Latest API Version: 2020-09-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getCustomDomain'. */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
+    pulumi.log.warn("getCustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getCustomDomain'.")
     if (!opts) {
         opts = {}
     }

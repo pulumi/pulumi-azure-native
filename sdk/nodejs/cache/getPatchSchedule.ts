@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Response to put/get patch schedules for Redis cache.
+ * API Version: 2020-06-01.
+ */
 export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchScheduleResult> {
     if (!opts) {
         opts = {}

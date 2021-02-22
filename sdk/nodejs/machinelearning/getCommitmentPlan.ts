@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * An Azure ML commitment plan resource.
+ * API Version: 2016-05-01-preview.
+ */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
     if (!opts) {
         opts = {}

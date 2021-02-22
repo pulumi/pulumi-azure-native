@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Action for alert rule.
+ * API Version: 2020-01-01.
+ */
 export function getAction(args: GetActionArgs, opts?: pulumi.InvokeOptions): Promise<GetActionResult> {
     if (!opts) {
         opts = {}

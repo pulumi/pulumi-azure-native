@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Site Extension Information.
+ * API Version: 2020-10-01.
+ */
 export function getWebAppSiteExtensionSlot(args: GetWebAppSiteExtensionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionSlotResult> {
     if (!opts) {
         opts = {}

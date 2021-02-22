@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * A manifest file that defines the custom resource provider resources.
+ * API Version: 2018-09-01-preview.
+ */
 export function getCustomResourceProvider(args: GetCustomResourceProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomResourceProviderResult> {
     if (!opts) {
         opts = {}

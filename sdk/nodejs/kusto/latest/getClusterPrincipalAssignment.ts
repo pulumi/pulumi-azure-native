@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Class representing a cluster principal assignment.
+ * Latest API Version: 2020-09-18.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getClusterPrincipalAssignment'. */
 export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPrincipalAssignmentResult> {
+    pulumi.log.warn("getClusterPrincipalAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getClusterPrincipalAssignment'.")
     if (!opts) {
         opts = {}
     }

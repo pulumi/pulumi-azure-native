@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Source control configuration for an app.
+ * API Version: 2020-10-01.
+ */
 export function getWebAppSourceControlSlot(args: GetWebAppSourceControlSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlSlotResult> {
     if (!opts) {
         opts = {}

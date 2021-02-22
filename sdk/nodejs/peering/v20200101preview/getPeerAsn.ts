@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The essential information related to the peer's ASN.
+ */
 export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
     if (!opts) {
         opts = {}

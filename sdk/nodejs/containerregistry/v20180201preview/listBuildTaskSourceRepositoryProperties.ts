@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The properties of the source code repository.
+ */
 export function listBuildTaskSourceRepositoryProperties(args: ListBuildTaskSourceRepositoryPropertiesArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildTaskSourceRepositoryPropertiesResult> {
     if (!opts) {
         opts = {}

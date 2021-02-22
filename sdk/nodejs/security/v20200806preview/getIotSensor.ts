@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * IoT sensor model
+ */
 export function getIotSensor(args: GetIotSensorArgs, opts?: pulumi.InvokeOptions): Promise<GetIotSensorResult> {
     if (!opts) {
         opts = {}

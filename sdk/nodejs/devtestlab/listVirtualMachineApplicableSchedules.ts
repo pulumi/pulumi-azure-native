@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+ * API Version: 2018-09-15.
+ */
 export function listVirtualMachineApplicableSchedules(args: ListVirtualMachineApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListVirtualMachineApplicableSchedulesResult> {
     if (!opts) {
         opts = {}

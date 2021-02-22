@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Response for list BGP peer status API service call
+ */
 export function getVirtualNetworkGatewayBgpPeerStatus(args: GetVirtualNetworkGatewayBgpPeerStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayBgpPeerStatusResult> {
     if (!opts) {
         opts = {}

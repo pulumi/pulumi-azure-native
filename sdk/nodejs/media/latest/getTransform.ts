@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+ * Latest API Version: 2020-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getTransform'. */
 export function getTransform(args: GetTransformArgs, opts?: pulumi.InvokeOptions): Promise<GetTransformResult> {
+    pulumi.log.warn("getTransform is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getTransform'.")
     if (!opts) {
         opts = {}
     }

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * OpenShift Managed cluster.
+ * Latest API Version: 2019-04-30.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getOpenShiftManagedCluster'. */
 export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftManagedClusterResult> {
+    pulumi.log.warn("getOpenShiftManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getOpenShiftManagedCluster'.")
     if (!opts) {
         opts = {}
     }

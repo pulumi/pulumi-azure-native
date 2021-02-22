@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Collection of backup items.
+ * Latest API Version: 2020-10-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSiteBackups'. */
 export function listWebAppSiteBackups(args: ListWebAppSiteBackupsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSiteBackupsResult> {
+    pulumi.log.warn("listWebAppSiteBackups is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSiteBackups'.")
     if (!opts) {
         opts = {}
     }

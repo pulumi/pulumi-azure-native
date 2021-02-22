@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Slot Config names azure resource.
+ */
 export function getWebAppSlotConfigurationNames(args: GetWebAppSlotConfigurationNamesArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotConfigurationNamesResult> {
     if (!opts) {
         opts = {}

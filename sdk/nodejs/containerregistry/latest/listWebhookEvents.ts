@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The result of a request to list events for a webhook.
+ * Latest API Version: 2019-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listWebhookEvents'. */
 export function listWebhookEvents(args: ListWebhookEventsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebhookEventsResult> {
+    pulumi.log.warn("listWebhookEvents is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listWebhookEvents'.")
     if (!opts) {
         opts = {}
     }

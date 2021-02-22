@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A host name binding object
+ */
 export function getSiteHostNameBinding(args: GetSiteHostNameBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteHostNameBindingResult> {
     if (!opts) {
         opts = {}

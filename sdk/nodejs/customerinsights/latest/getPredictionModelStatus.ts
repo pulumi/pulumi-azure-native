@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The prediction model status.
+ * Latest API Version: 2017-04-26.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPredictionModelStatus'. */
 export function getPredictionModelStatus(args: GetPredictionModelStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionModelStatusResult> {
+    pulumi.log.warn("getPredictionModelStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPredictionModelStatus'.")
     if (!opts) {
         opts = {}
     }

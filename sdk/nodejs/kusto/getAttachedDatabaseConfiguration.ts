@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Class representing an attached database configuration.
+ * API Version: 2020-09-18.
+ */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
     if (!opts) {
         opts = {}

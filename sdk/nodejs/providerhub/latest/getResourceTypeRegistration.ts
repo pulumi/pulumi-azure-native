@@ -5,7 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Latest API Version: 2020-11-20.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getResourceTypeRegistration'. */
 export function getResourceTypeRegistration(args: GetResourceTypeRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTypeRegistrationResult> {
+    pulumi.log.warn("getResourceTypeRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getResourceTypeRegistration'.")
     if (!opts) {
         opts = {}
     }

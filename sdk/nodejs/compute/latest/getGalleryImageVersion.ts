@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Specifies information about the gallery image version that you want to create or update.
+ * Latest API Version: 2020-09-30.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryImageVersion'. */
 export function getGalleryImageVersion(args: GetGalleryImageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageVersionResult> {
+    pulumi.log.warn("getGalleryImageVersion is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryImageVersion'.")
     if (!opts) {
         opts = {}
     }

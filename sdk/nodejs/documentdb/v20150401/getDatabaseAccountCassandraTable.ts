@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure Cosmos DB Cassandra table.
+ */
 export function getDatabaseAccountCassandraTable(args: GetDatabaseAccountCassandraTableArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountCassandraTableResult> {
     if (!opts) {
         opts = {}

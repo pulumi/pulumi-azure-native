@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure Cosmos DB Gremlin graph.
+ * Latest API Version: 2021-01-15.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getGremlinResourceGremlinGraph'. */
 export function getGremlinResourceGremlinGraph(args: GetGremlinResourceGremlinGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGremlinResourceGremlinGraphResult> {
+    pulumi.log.warn("getGremlinResourceGremlinGraph is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getGremlinResourceGremlinGraph'.")
     if (!opts) {
         opts = {}
     }

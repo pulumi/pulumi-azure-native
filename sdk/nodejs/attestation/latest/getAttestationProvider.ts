@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Attestation service response message.
+ * Latest API Version: 2020-10-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:attestation:getAttestationProvider'. */
 export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationProviderResult> {
+    pulumi.log.warn("getAttestationProvider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:attestation:getAttestationProvider'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Definition of the module type.
+ * API Version: 2019-06-01.
+ */
 export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPython2PackageResult> {
     if (!opts) {
         opts = {}

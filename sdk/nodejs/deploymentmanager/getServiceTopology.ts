@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The resource representation of a service topology.
+ * API Version: 2019-11-01-preview.
+ */
 export function getServiceTopology(args: GetServiceTopologyArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTopologyResult> {
     if (!opts) {
         opts = {}

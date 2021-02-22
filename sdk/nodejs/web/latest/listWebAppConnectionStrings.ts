@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * String dictionary resource.
+ * Latest API Version: 2020-10-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppConnectionStrings'. */
 export function listWebAppConnectionStrings(args: ListWebAppConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppConnectionStringsResult> {
+    pulumi.log.warn("listWebAppConnectionStrings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppConnectionStrings'.")
     if (!opts) {
         opts = {}
     }

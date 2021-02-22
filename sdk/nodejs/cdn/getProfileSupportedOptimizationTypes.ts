@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The result of the GetSupportedOptimizationTypes API
+ * API Version: 2020-09-01.
+ */
 export function getProfileSupportedOptimizationTypes(args: GetProfileSupportedOptimizationTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileSupportedOptimizationTypesResult> {
     if (!opts) {
         opts = {}

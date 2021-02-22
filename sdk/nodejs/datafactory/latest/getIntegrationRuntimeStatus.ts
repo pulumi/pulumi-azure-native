@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Integration runtime status response.
+ * Latest API Version: 2018-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getIntegrationRuntimeStatus'. */
 export function getIntegrationRuntimeStatus(args: GetIntegrationRuntimeStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeStatusResult> {
+    pulumi.log.warn("getIntegrationRuntimeStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getIntegrationRuntimeStatus'.")
     if (!opts) {
         opts = {}
     }

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The extended Info of the Data Box Edge/Gateway device.
+ * Latest API Version: 2020-09-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getDeviceExtendedInformation'. */
 export function getDeviceExtendedInformation(args: GetDeviceExtendedInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceExtendedInformationResult> {
+    pulumi.log.warn("getDeviceExtendedInformation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getDeviceExtendedInformation'.")
     if (!opts) {
         opts = {}
     }

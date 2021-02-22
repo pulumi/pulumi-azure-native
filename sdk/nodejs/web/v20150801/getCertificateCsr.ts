@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Certificate signing request object
+ */
 export function getCertificateCsr(args: GetCertificateCsrArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateCsrResult> {
     if (!opts) {
         opts = {}

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+ * Latest API Version: 2016-03-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getOutput'. */
 export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetOutputResult> {
+    pulumi.log.warn("getOutput is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getOutput'.")
     if (!opts) {
         opts = {}
     }

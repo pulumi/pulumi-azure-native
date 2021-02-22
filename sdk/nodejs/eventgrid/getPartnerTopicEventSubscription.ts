@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Event Subscription
+ * API Version: 2020-04-01-preview.
+ */
 export function getPartnerTopicEventSubscription(args: GetPartnerTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicEventSubscriptionResult> {
     if (!opts) {
         opts = {}

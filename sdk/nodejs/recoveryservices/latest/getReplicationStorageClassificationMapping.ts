@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Storage mapping object.
+ * Latest API Version: 2018-07-10.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationStorageClassificationMapping'. */
 export function getReplicationStorageClassificationMapping(args: GetReplicationStorageClassificationMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationStorageClassificationMappingResult> {
+    pulumi.log.warn("getReplicationStorageClassificationMapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationStorageClassificationMapping'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Describes the source control configuration for web app
+ */
 export function getSiteSourceControlSlot(args: GetSiteSourceControlSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteSourceControlSlotResult> {
     if (!opts) {
         opts = {}

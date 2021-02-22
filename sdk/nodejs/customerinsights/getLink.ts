@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The link resource format.
+ * API Version: 2017-04-26.
+ */
 export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
     if (!opts) {
         opts = {}

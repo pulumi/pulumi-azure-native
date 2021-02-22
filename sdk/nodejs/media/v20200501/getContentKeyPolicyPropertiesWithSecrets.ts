@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The properties of the Content Key Policy.
+ */
 export function getContentKeyPolicyPropertiesWithSecrets(args: GetContentKeyPolicyPropertiesWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetContentKeyPolicyPropertiesWithSecretsResult> {
     if (!opts) {
         opts = {}

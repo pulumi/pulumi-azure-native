@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure SQL Database sync member.
+ */
 export function getSyncMember(args: GetSyncMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncMemberResult> {
     if (!opts) {
         opts = {}

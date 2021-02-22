@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The top level storage insight resource container.
+ * Latest API Version: 2020-08-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getStorageInsightConfig'. */
 export function getStorageInsightConfig(args: GetStorageInsightConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageInsightConfigResult> {
+    pulumi.log.warn("getStorageInsightConfig is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getStorageInsightConfig'.")
     if (!opts) {
         opts = {}
     }

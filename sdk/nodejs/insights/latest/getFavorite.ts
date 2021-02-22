@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Properties that define a favorite that is associated to an Application Insights component.
+ * Latest API Version: 2015-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getFavorite'. */
 export function getFavorite(args: GetFavoriteArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteResult> {
+    pulumi.log.warn("getFavorite is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getFavorite'.")
     if (!opts) {
         opts = {}
     }

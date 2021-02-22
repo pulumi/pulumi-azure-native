@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Contains information about a database Threat Detection policy.
+ * Latest API Version: 2014-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDatabaseThreatDetectionPolicy'. */
 export function getDatabaseThreatDetectionPolicy(args: GetDatabaseThreatDetectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseThreatDetectionPolicyResult> {
+    pulumi.log.warn("getDatabaseThreatDetectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDatabaseThreatDetectionPolicy'.")
     if (!opts) {
         opts = {}
     }

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents a database.
+ * Latest API Version: 2014-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDatabase'. */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
+    pulumi.log.warn("getDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDatabase'.")
     if (!opts) {
         opts = {}
     }

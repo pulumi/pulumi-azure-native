@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * details of synchronization
+ * API Version: 2020-09-01.
+ */
 export function listShareSubscriptionSynchronizationDetails(args: ListShareSubscriptionSynchronizationDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSubscriptionSynchronizationDetailsResult> {
     if (!opts) {
         opts = {}

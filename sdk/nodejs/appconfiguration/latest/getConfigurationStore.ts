@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+ * Latest API Version: 2020-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:getConfigurationStore'. */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
+    pulumi.log.warn("getConfigurationStore is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:getConfigurationStore'.")
     if (!opts) {
         opts = {}
     }

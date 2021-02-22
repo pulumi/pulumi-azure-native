@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Workspace active directory administrator
+ * Latest API Version: 2020-12-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getWorkspaceAadAdmin'. */
 export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceAadAdminResult> {
+    pulumi.log.warn("getWorkspaceAadAdmin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getWorkspaceAadAdmin'.")
     if (!opts) {
         opts = {}
     }

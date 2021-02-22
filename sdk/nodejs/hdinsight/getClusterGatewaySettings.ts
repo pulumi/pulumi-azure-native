@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Gateway settings.
+ * API Version: 2018-06-01-preview.
+ */
 export function getClusterGatewaySettings(args: GetClusterGatewaySettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterGatewaySettingsResult> {
     if (!opts) {
         opts = {}

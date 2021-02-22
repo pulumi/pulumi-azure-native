@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+ */
 export function getRedisFirewallRule(args: GetRedisFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisFirewallRuleResult> {
     if (!opts) {
         opts = {}

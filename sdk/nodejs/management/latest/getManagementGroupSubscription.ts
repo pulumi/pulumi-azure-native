@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The details of subscription under management group.
+ * Latest API Version: 2020-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroupSubscription'. */
 export function getManagementGroupSubscription(args: GetManagementGroupSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupSubscriptionResult> {
+    pulumi.log.warn("getManagementGroupSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroupSubscription'.")
     if (!opts) {
         opts = {}
     }

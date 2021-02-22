@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Response containing the query API keys for a given Azure Cognitive Search service.
+ * Latest API Version: 2020-08-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:listQueryKeyBySearchService'. */
 export function listQueryKeyBySearchService(args: ListQueryKeyBySearchServiceArgs, opts?: pulumi.InvokeOptions): Promise<ListQueryKeyBySearchServiceResult> {
+    pulumi.log.warn("listQueryKeyBySearchService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:listQueryKeyBySearchService'.")
     if (!opts) {
         opts = {}
     }

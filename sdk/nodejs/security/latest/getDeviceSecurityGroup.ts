@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The device security group resource
+ * Latest API Version: 2019-08-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getDeviceSecurityGroup'. */
 export function getDeviceSecurityGroup(args: GetDeviceSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceSecurityGroupResult> {
+    pulumi.log.warn("getDeviceSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getDeviceSecurityGroup'.")
     if (!opts) {
         opts = {}
     }

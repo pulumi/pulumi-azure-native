@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * LogAnalytics operation status response
+ */
 export function getLogAnalyticExportThrottledRequests(args: GetLogAnalyticExportThrottledRequestsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportThrottledRequestsResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An object that represents a connected registry for a container registry.
+ */
 export function getConnectedRegistry(args: GetConnectedRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedRegistryResult> {
     if (!opts) {
         opts = {}

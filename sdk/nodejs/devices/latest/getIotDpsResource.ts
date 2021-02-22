@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The description of the provisioning service.
+ * Latest API Version: 2020-03-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotDpsResource'. */
 export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourceResult> {
+    pulumi.log.warn("getIotDpsResource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotDpsResource'.")
     if (!opts) {
         opts = {}
     }

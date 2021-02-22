@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Namespace/ServiceBus Connection String
+ * Latest API Version: 2017-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:listQueueKeys'. */
 export function listQueueKeys(args: ListQueueKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListQueueKeysResult> {
+    pulumi.log.warn("listQueueKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:listQueueKeys'.")
     if (!opts) {
         opts = {}
     }

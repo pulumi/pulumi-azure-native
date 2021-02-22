@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The policy set definition.
+ * Latest API Version: 2020-09-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicySetDefinition'. */
 export function getPolicySetDefinition(args: GetPolicySetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionResult> {
+    pulumi.log.warn("getPolicySetDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicySetDefinition'.")
     if (!opts) {
         opts = {}
     }

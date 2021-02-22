@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * A private link scoped resource
+ * API Version: 2019-10-17-preview.
+ */
 export function getPrivateLinkScopedResource(args: GetPrivateLinkScopedResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopedResourceResult> {
     if (!opts) {
         opts = {}

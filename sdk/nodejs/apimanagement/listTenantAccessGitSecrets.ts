@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Tenant access information contract of the API Management service.
+ * API Version: 2019-12-01.
+ */
 export function listTenantAccessGitSecrets(args: ListTenantAccessGitSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListTenantAccessGitSecretsResult> {
     if (!opts) {
         opts = {}

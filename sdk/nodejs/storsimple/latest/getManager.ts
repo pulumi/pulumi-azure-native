@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The StorSimple Manager.
+ * Latest API Version: 2017-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManager'. */
 export function getManager(args: GetManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerResult> {
+    pulumi.log.warn("getManager is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManager'.")
     if (!opts) {
         opts = {}
     }

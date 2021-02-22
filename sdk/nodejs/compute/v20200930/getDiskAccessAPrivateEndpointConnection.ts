@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The Private Endpoint Connection resource.
+ */
 export function getDiskAccessAPrivateEndpointConnection(args: GetDiskAccessAPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessAPrivateEndpointConnectionResult> {
     if (!opts) {
         opts = {}

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents a .rdp file
+ * Latest API Version: 2018-09-15.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachineRdpFileContents'. */
 export function getVirtualMachineRdpFileContents(args: GetVirtualMachineRdpFileContentsArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRdpFileContentsResult> {
+    pulumi.log.warn("getVirtualMachineRdpFileContents is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachineRdpFileContents'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The workflow trigger callback URL.
+ */
 export function listAgreementContentCallbackUrl(args: ListAgreementContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListAgreementContentCallbackUrlResult> {
     if (!opts) {
         opts = {}

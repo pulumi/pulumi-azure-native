@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Describes a Virtual Machine run command.
+ * API Version: 2020-12-01.
+ */
 export function getVirtualMachineScaleSetVMRunCommand(args: GetVirtualMachineScaleSetVMRunCommandArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMRunCommandResult> {
     if (!opts) {
         opts = {}

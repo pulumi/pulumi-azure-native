@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * OpenId Connect Provider details.
+ */
 export function getOpenIdConnectProvider(args: GetOpenIdConnectProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenIdConnectProviderResult> {
     if (!opts) {
         opts = {}

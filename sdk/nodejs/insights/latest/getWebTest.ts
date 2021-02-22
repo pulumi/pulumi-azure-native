@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Application Insights web test definition.
+ * Latest API Version: 2015-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getWebTest'. */
 export function getWebTest(args: GetWebTestArgs, opts?: pulumi.InvokeOptions): Promise<GetWebTestResult> {
+    pulumi.log.warn("getWebTest is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getWebTest'.")
     if (!opts) {
         opts = {}
     }

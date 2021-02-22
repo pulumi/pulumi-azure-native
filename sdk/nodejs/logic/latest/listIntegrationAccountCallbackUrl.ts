@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The callback url.
+ * Latest API Version: 2019-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountCallbackUrl'. */
 export function listIntegrationAccountCallbackUrl(args: ListIntegrationAccountCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountCallbackUrlResult> {
+    pulumi.log.warn("listIntegrationAccountCallbackUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountCallbackUrl'.")
     if (!opts) {
         opts = {}
     }

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Base class for backup policy. Workload-specific backup policies are derived from this class.
+ * Latest API Version: 2021-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionPolicy'. */
 export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionPolicyResult> {
+    pulumi.log.warn("getProtectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionPolicy'.")
     if (!opts) {
         opts = {}
     }

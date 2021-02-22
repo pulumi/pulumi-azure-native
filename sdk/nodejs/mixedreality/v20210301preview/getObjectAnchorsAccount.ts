@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * ObjectAnchorsAccount Response.
+ */
 export function getObjectAnchorsAccount(args: GetObjectAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectAnchorsAccountResult> {
     if (!opts) {
         opts = {}

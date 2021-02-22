@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Description of a NotificationHub Resource.
+ * Latest API Version: 2017-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:getNotificationHub'. */
 export function getNotificationHub(args: GetNotificationHubArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubResult> {
+    pulumi.log.warn("getNotificationHub is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:getNotificationHub'.")
     if (!opts) {
         opts = {}
     }

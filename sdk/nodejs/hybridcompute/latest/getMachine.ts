@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Describes a hybrid machine.
+ * Latest API Version: 2020-08-02.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybridcompute:getMachine'. */
 export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineResult> {
+    pulumi.log.warn("getMachine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybridcompute:getMachine'.")
     if (!opts) {
         opts = {}
     }

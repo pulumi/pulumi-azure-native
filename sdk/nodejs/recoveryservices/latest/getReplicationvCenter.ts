@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * vCenter definition.
+ * Latest API Version: 2018-07-10.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationvCenter'. */
 export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationvCenterResult> {
+    pulumi.log.warn("getReplicationvCenter is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationvCenter'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * An ADP Data Pool.
+ * API Version: 2020-07-01-preview.
+ */
 export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDataPoolResult> {
     if (!opts) {
         opts = {}

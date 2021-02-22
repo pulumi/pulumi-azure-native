@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The extended info of the manager.
+ * Latest API Version: 2017-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManagerExtendedInfo'. */
 export function getManagerExtendedInfo(args: GetManagerExtendedInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerExtendedInfoResult> {
+    pulumi.log.warn("getManagerExtendedInfo is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManagerExtendedInfo'.")
     if (!opts) {
         opts = {}
     }

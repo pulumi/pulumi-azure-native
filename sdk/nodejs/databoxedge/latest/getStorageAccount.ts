@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents a Storage Account on the  Data Box Edge/Gateway device.
+ * Latest API Version: 2020-09-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getStorageAccount'. */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
+    pulumi.log.warn("getStorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getStorageAccount'.")
     if (!opts) {
         opts = {}
     }

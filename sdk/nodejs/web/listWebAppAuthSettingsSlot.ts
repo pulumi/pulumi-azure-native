@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Configuration settings for the Azure App Service Authentication / Authorization feature.
+ * API Version: 2020-10-01.
+ */
 export function listWebAppAuthSettingsSlot(args: ListWebAppAuthSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAuthSettingsSlotResult> {
     if (!opts) {
         opts = {}

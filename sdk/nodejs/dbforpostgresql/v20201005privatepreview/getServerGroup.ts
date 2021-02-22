@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents a server group for create.
+ */
 export function getServerGroup(args: GetServerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetServerGroupResult> {
     if (!opts) {
         opts = {}

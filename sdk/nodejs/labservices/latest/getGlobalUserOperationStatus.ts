@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Status Details of the long running operation for an environment
+ * Latest API Version: 2018-10-15.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserOperationStatus'. */
 export function getGlobalUserOperationStatus(args: GetGlobalUserOperationStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserOperationStatusResult> {
+    pulumi.log.warn("getGlobalUserOperationStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserOperationStatus'.")
     if (!opts) {
         opts = {}
     }

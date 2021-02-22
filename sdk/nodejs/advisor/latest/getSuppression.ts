@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+ * Latest API Version: 2020-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:advisor:getSuppression'. */
 export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionResult> {
+    pulumi.log.warn("getSuppression is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:advisor:getSuppression'.")
     if (!opts) {
         opts = {}
     }

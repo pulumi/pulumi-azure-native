@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Issue Comment Contract details.
+ * Latest API Version: 2019-12-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiIssueComment'. */
 export function getApiIssueComment(args: GetApiIssueCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueCommentResult> {
+    pulumi.log.warn("getApiIssueComment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiIssueComment'.")
     if (!opts) {
         opts = {}
     }

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Defines web application firewall policy.
+ * Latest API Version: 2020-11-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPolicy'. */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
+    pulumi.log.warn("getPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPolicy'.")
     if (!opts) {
         opts = {}
     }

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Specifies information about the proximity placement group.
+ * Latest API Version: 2020-12-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getProximityPlacementGroup'. */
 export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProximityPlacementGroupResult> {
+    pulumi.log.warn("getProximityPlacementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getProximityPlacementGroup'.")
     if (!opts) {
         opts = {}
     }

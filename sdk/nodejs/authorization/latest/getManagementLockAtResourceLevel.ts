@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The lock information.
+ * Latest API Version: 2016-09-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockAtResourceLevel'. */
 export function getManagementLockAtResourceLevel(args: GetManagementLockAtResourceLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceLevelResult> {
+    pulumi.log.warn("getManagementLockAtResourceLevel is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockAtResourceLevel'.")
     if (!opts) {
         opts = {}
     }

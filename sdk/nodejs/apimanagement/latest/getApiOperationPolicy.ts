@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Policy Contract details.
+ * Latest API Version: 2019-12-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiOperationPolicy'. */
 export function getApiOperationPolicy(args: GetApiOperationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiOperationPolicyResult> {
+    pulumi.log.warn("getApiOperationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiOperationPolicy'.")
     if (!opts) {
         opts = {}
     }

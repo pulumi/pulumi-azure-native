@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * An Azure Cosmos DB SQL database.
+ * API Version: 2021-01-15.
+ */
 export function getSqlResourceSqlDatabase(args: GetSqlResourceSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlDatabaseResult> {
     if (!opts) {
         opts = {}

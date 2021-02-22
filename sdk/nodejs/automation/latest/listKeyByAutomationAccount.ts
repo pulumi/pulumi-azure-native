@@ -5,7 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Latest API Version: 2019-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:listKeyByAutomationAccount'. */
 export function listKeyByAutomationAccount(args: ListKeyByAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<ListKeyByAutomationAccountResult> {
+    pulumi.log.warn("listKeyByAutomationAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:listKeyByAutomationAccount'.")
     if (!opts) {
         opts = {}
     }

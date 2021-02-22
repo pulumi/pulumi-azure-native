@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Event Channel.
+ */
 export function getEventChannel(args: GetEventChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetEventChannelResult> {
     if (!opts) {
         opts = {}

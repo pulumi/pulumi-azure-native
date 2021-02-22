@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Integration runtime resource type.
+ * Latest API Version: 2020-12-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntime'. */
 export function getIntegrationRuntime(args: GetIntegrationRuntimeArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeResult> {
+    pulumi.log.warn("getIntegrationRuntime is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntime'.")
     if (!opts) {
         opts = {}
     }

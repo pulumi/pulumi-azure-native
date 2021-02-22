@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * API Version: 2016-01-29.
+ */
 export function getWorkspaceCollection(args: GetWorkspaceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceCollectionResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The workflow trigger callback URL.
+ * API Version: 2019-05-01.
+ */
 export function listIntegrationAccountAssemblyContentCallbackUrl(args: ListIntegrationAccountAssemblyContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountAssemblyContentCallbackUrlResult> {
     if (!opts) {
         opts = {}

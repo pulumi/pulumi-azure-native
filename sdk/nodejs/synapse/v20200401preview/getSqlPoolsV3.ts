@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A sql pool resource.
+ */
 export function getSqlPoolsV3(args: GetSqlPoolsV3Args, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolsV3Result> {
     if (!opts) {
         opts = {}

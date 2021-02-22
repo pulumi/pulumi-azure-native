@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Registration information.
+ * Latest API Version: 2017-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistration'. */
 export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationResult> {
+    pulumi.log.warn("getRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistration'.")
     if (!opts) {
         opts = {}
     }

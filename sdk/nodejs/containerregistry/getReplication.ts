@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * An object that represents a replication for a container registry.
+ * API Version: 2019-05-01.
+ */
 export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+ * API Version: 2020-06-01.
+ */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
     if (!opts) {
         opts = {}

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Connection information for encrypting the on-premises data source credentials.
+ * Latest API Version: 2018-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getIntegrationRuntimeConnectionInfo'. */
 export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeConnectionInfoResult> {
+    pulumi.log.warn("getIntegrationRuntimeConnectionInfo is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getIntegrationRuntimeConnectionInfo'.")
     if (!opts) {
         opts = {}
     }

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * EventGrid Domain.
+ * Latest API Version: 2020-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getDomain'. */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
+    pulumi.log.warn("getDomain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getDomain'.")
     if (!opts) {
         opts = {}
     }

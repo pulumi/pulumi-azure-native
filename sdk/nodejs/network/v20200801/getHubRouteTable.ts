@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * RouteTable resource in a virtual hub.
+ */
 export function getHubRouteTable(args: GetHubRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetHubRouteTableResult> {
     if (!opts) {
         opts = {}

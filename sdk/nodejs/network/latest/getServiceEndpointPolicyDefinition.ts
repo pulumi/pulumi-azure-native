@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Service Endpoint policy definitions.
+ * Latest API Version: 2020-08-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getServiceEndpointPolicyDefinition'. */
 export function getServiceEndpointPolicyDefinition(args: GetServiceEndpointPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyDefinitionResult> {
+    pulumi.log.warn("getServiceEndpointPolicyDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getServiceEndpointPolicyDefinition'.")
     if (!opts) {
         opts = {}
     }

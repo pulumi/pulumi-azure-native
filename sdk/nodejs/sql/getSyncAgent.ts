@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * An Azure SQL Database sync agent.
+ * API Version: 2020-08-01-preview.
+ */
 export function getSyncAgent(args: GetSyncAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncAgentResult> {
     if (!opts) {
         opts = {}

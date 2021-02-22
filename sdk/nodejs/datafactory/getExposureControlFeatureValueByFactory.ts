@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The exposure control response.
+ * API Version: 2018-06-01.
+ */
 export function getExposureControlFeatureValueByFactory(args: GetExposureControlFeatureValueByFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetExposureControlFeatureValueByFactoryResult> {
     if (!opts) {
         opts = {}

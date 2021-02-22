@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Instance of an Azure ML web service resource.
+ * Latest API Version: 2017-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:getWebService'. */
 export function getWebService(args: GetWebServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebServiceResult> {
+    pulumi.log.warn("getWebService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearning:getWebService'.")
     if (!opts) {
         opts = {}
     }

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * ExpressRoute Circuit Authorization
+ * Latest API Version: 2020-03-20.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getAuthorization'. */
 export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationResult> {
+    pulumi.log.warn("getAuthorization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getAuthorization'.")
     if (!opts) {
         opts = {}
     }

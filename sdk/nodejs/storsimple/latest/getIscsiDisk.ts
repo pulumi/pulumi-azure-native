@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The iSCSI disk.
+ * Latest API Version: 2016-10-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiDisk'. */
 export function getIscsiDisk(args: GetIscsiDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiDiskResult> {
+    pulumi.log.warn("getIscsiDisk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiDisk'.")
     if (!opts) {
         opts = {}
     }

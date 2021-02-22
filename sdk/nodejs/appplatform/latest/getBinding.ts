@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Binding resource payload
+ * Latest API Version: 2020-07-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getBinding'. */
 export function getBinding(args: GetBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBindingResult> {
+    pulumi.log.warn("getBinding is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getBinding'.")
     if (!opts) {
         opts = {}
     }

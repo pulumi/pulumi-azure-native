@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * LogAnalytics operation status response
+ * Latest API Version: 2020-12-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getLogAnalyticExportThrottledRequests'. */
 export function getLogAnalyticExportThrottledRequests(args: GetLogAnalyticExportThrottledRequestsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportThrottledRequestsResult> {
+    pulumi.log.warn("getLogAnalyticExportThrottledRequests is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getLogAnalyticExportThrottledRequests'.")
     if (!opts) {
         opts = {}
     }

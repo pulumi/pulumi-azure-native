@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * External OAuth authorization server settings.
+ */
 export function getAuthorizationServer(args: GetAuthorizationServerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationServerResult> {
     if (!opts) {
         opts = {}

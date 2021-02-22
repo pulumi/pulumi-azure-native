@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The role assignment
+ * API Version: 2019-10-01-preview.
+ */
 export function getBillingRoleAssignmentByDepartment(args: GetBillingRoleAssignmentByDepartmentArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingRoleAssignmentByDepartmentResult> {
     if (!opts) {
         opts = {}

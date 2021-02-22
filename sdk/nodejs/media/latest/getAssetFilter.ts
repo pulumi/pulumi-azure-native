@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Asset Filter.
+ * Latest API Version: 2020-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetFilter'. */
 export function getAssetFilter(args: GetAssetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetFilterResult> {
+    pulumi.log.warn("getAssetFilter is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetFilter'.")
     if (!opts) {
         opts = {}
     }

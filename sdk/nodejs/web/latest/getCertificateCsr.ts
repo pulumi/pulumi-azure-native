@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Certificate signing request object
+ * Latest API Version: 2015-08-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCertificateCsr'. */
 export function getCertificateCsr(args: GetCertificateCsrArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateCsrResult> {
+    pulumi.log.warn("getCertificateCsr is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCertificateCsr'.")
     if (!opts) {
         opts = {}
     }

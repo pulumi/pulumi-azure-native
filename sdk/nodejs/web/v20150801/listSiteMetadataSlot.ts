@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * String dictionary resource
+ */
 export function listSiteMetadataSlot(args: ListSiteMetadataSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteMetadataSlotResult> {
     if (!opts) {
         opts = {}

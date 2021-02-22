@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents the serial port of the parent resource.
+ */
 export function getSerialPort(args: GetSerialPortArgs, opts?: pulumi.InvokeOptions): Promise<GetSerialPortResult> {
     if (!opts) {
         opts = {}

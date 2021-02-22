@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Lists the labs owned by a user
+ * API Version: 2018-10-15.
+ */
 export function listGlobalUserLabs(args: ListGlobalUserLabsArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalUserLabsResult> {
     if (!opts) {
         opts = {}

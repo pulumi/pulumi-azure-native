@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Administrative credentials for accessing vCenter and NSX-T
+ * Latest API Version: 2020-03-20.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:listPrivateCloudAdminCredentials'. */
 export function listPrivateCloudAdminCredentials(args: ListPrivateCloudAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateCloudAdminCredentialsResult> {
+    pulumi.log.warn("listPrivateCloudAdminCredentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:listPrivateCloudAdminCredentials'.")
     if (!opts) {
         opts = {}
     }

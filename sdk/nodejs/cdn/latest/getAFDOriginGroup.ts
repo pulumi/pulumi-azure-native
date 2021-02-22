@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+ * Latest API Version: 2020-09-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDOriginGroup'. */
 export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginGroupResult> {
+    pulumi.log.warn("getAFDOriginGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDOriginGroup'.")
     if (!opts) {
         opts = {}
     }

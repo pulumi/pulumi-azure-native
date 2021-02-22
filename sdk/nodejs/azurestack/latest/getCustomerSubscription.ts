@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Customer subscription.
+ * Latest API Version: 2017-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getCustomerSubscription'. */
 export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerSubscriptionResult> {
+    pulumi.log.warn("getCustomerSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getCustomerSubscription'.")
     if (!opts) {
         opts = {}
     }

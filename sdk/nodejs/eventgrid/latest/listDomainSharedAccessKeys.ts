@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Shared access keys of the Domain.
+ * Latest API Version: 2020-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:listDomainSharedAccessKeys'. */
 export function listDomainSharedAccessKeys(args: ListDomainSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainSharedAccessKeysResult> {
+    pulumi.log.warn("listDomainSharedAccessKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:listDomainSharedAccessKeys'.")
     if (!opts) {
         opts = {}
     }

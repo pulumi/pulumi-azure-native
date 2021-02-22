@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Secrets related to a Machine Learning compute. Might differ for every type of compute.
+ * Latest API Version: 2021-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listMachineLearningComputeKeys'. */
 export function listMachineLearningComputeKeys(args: ListMachineLearningComputeKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListMachineLearningComputeKeysResult> {
+    pulumi.log.warn("listMachineLearningComputeKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listMachineLearningComputeKeys'.")
     if (!opts) {
         opts = {}
     }

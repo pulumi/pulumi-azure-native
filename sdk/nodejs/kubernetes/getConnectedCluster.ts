@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Represents a connected cluster.
+ * API Version: 2021-03-01.
+ */
 export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedClusterResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * A budget resource.
+ * API Version: 2018-10-01.
+ */
 export function getBudgetByResourceGroupName(args: GetBudgetByResourceGroupNameArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetByResourceGroupNameResult> {
     if (!opts) {
         opts = {}

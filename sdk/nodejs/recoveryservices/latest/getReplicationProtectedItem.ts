@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Replication protected item.
+ * Latest API Version: 2018-07-10.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationProtectedItem'. */
 export function getReplicationProtectedItem(args: GetReplicationProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectedItemResult> {
+    pulumi.log.warn("getReplicationProtectedItem is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationProtectedItem'.")
     if (!opts) {
         opts = {}
     }

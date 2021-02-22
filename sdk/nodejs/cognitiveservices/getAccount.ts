@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+ * API Version: 2017-04-18.
+ */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {
         opts = {}

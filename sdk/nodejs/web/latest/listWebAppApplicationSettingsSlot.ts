@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * String dictionary resource.
+ * Latest API Version: 2020-10-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppApplicationSettingsSlot'. */
 export function listWebAppApplicationSettingsSlot(args: ListWebAppApplicationSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppApplicationSettingsSlotResult> {
+    pulumi.log.warn("listWebAppApplicationSettingsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppApplicationSettingsSlot'.")
     if (!opts) {
         opts = {}
     }

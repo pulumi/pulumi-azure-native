@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Static Site ARM resource.
+ * Latest API Version: 2020-10-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getStaticSite'. */
 export function getStaticSite(args: GetStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteResult> {
+    pulumi.log.warn("getStaticSite is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getStaticSite'.")
     if (!opts) {
         opts = {}
     }

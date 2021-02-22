@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents an instance of an Analysis Services resource.
+ * Latest API Version: 2017-08-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:analysisservices:getServerDetails'. */
 export function getServerDetails(args: GetServerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDetailsResult> {
+    pulumi.log.warn("getServerDetails is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:analysisservices:getServerDetails'.")
     if (!opts) {
         opts = {}
     }

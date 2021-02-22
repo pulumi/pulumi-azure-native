@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The remediation definition.
+ * Latest API Version: 2019-07-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtManagementGroup'. */
 export function getRemediationAtManagementGroup(args: GetRemediationAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtManagementGroupResult> {
+    pulumi.log.warn("getRemediationAtManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtManagementGroup'.")
     if (!opts) {
         opts = {}
     }

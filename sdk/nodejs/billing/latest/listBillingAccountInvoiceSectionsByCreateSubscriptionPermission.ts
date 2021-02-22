@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The list of invoice section properties with create subscription permission.
+ * Latest API Version: 2020-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission'. */
 export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(args: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs, opts?: pulumi.InvokeOptions): Promise<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> {
+    pulumi.log.warn("listBillingAccountInvoiceSectionsByCreateSubscriptionPermission is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission'.")
     if (!opts) {
         opts = {}
     }

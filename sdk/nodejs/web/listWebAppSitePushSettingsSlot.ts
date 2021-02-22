@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Push settings for the App.
+ * API Version: 2020-10-01.
+ */
 export function listWebAppSitePushSettingsSlot(args: ListWebAppSitePushSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSitePushSettingsSlotResult> {
     if (!opts) {
         opts = {}

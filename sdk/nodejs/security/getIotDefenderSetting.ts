@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * IoT Defender settings
+ * API Version: 2020-08-06-preview.
+ */
 export function getIotDefenderSetting(args?: GetIotDefenderSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDefenderSettingResult> {
     args = args || {};
     if (!opts) {

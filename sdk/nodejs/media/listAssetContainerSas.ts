@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The Asset Storage container SAS URLs.
+ * API Version: 2020-05-01.
+ */
 export function listAssetContainerSas(args: ListAssetContainerSasArgs, opts?: pulumi.InvokeOptions): Promise<ListAssetContainerSasResult> {
     if (!opts) {
         opts = {}

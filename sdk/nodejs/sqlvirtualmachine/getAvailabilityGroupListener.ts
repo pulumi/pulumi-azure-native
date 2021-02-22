@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * A SQL Server availability group listener.
+ * API Version: 2017-03-01-preview.
+ */
 export function getAvailabilityGroupListener(args: GetAvailabilityGroupListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityGroupListenerResult> {
     if (!opts) {
         opts = {}

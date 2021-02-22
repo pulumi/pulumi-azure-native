@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Data needed to decrypt asset files encrypted with legacy storage encryption.
+ * Latest API Version: 2020-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetEncryptionKey'. */
 export function getAssetEncryptionKey(args: GetAssetEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetEncryptionKeyResult> {
+    pulumi.log.warn("getAssetEncryptionKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetEncryptionKey'.")
     if (!opts) {
         opts = {}
     }

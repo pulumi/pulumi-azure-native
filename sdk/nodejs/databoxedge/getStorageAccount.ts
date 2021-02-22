@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Represents a Storage Account on the  Data Box Edge/Gateway device.
+ * API Version: 2020-09-01.
+ */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
     if (!opts) {
         opts = {}

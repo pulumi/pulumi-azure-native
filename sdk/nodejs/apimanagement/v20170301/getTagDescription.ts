@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Contract details.
+ */
 export function getTagDescription(args: GetTagDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTagDescriptionResult> {
     if (!opts) {
         opts = {}

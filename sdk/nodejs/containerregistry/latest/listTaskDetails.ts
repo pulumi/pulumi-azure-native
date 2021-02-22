@@ -5,7 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The task that has the ARM resource and task properties.
+ * The task will have all information to schedule a run against it.
+ * Latest API Version: 2019-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listTaskDetails'. */
 export function listTaskDetails(args: ListTaskDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListTaskDetailsResult> {
+    pulumi.log.warn("listTaskDetails is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listTaskDetails'.")
     if (!opts) {
         opts = {}
     }

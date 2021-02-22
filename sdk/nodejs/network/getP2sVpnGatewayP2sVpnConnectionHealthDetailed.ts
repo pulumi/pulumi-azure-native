@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * P2S Vpn connection detailed health written to sas url.
+ * API Version: 2020-08-01.
+ */
 export function getP2sVpnGatewayP2sVpnConnectionHealthDetailed(args: GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> {
     if (!opts) {
         opts = {}

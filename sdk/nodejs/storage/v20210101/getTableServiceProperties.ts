@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The properties of a storage account’s Table service.
+ */
 export function getTableServiceProperties(args: GetTableServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetTableServicePropertiesResult> {
     if (!opts) {
         opts = {}

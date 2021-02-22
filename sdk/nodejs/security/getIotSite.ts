@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * IoT site model
+ * API Version: 2020-08-06-preview.
+ */
 export function getIotSite(args: GetIotSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetIotSiteResult> {
     if (!opts) {
         opts = {}

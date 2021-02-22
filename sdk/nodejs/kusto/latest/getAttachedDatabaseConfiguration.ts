@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Class representing an attached database configuration.
+ * Latest API Version: 2020-09-18.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getAttachedDatabaseConfiguration'. */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
+    pulumi.log.warn("getAttachedDatabaseConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getAttachedDatabaseConfiguration'.")
     if (!opts) {
         opts = {}
     }

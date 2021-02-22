@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents a disaster recovery configuration.
+ * Latest API Version: 2014-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDisasterRecoveryConfiguration'. */
 export function getDisasterRecoveryConfiguration(args: GetDisasterRecoveryConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigurationResult> {
+    pulumi.log.warn("getDisasterRecoveryConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getDisasterRecoveryConfiguration'.")
     if (!opts) {
         opts = {}
     }

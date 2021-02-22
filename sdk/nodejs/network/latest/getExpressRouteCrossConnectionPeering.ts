@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Peering in an ExpressRoute Cross Connection resource.
+ * Latest API Version: 2020-08-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCrossConnectionPeering'. */
 export function getExpressRouteCrossConnectionPeering(args: GetExpressRouteCrossConnectionPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCrossConnectionPeeringResult> {
+    pulumi.log.warn("getExpressRouteCrossConnectionPeering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCrossConnectionPeering'.")
     if (!opts) {
         opts = {}
     }

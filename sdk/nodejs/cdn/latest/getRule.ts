@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Friendly Rules name mapping to the any Rules or secret related information.
+ * Latest API Version: 2020-09-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRule'. */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
+    pulumi.log.warn("getRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRule'.")
     if (!opts) {
         opts = {}
     }

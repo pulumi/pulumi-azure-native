@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * VpnConnection Resource.
+ * Latest API Version: 2020-08-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVpnConnection'. */
 export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
+    pulumi.log.warn("getVpnConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVpnConnection'.")
     if (!opts) {
         opts = {}
     }

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Class of response for listPaths action
+ * Latest API Version: 2020-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listStreamingLocatorPaths'. */
 export function listStreamingLocatorPaths(args: ListStreamingLocatorPathsArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorPathsResult> {
+    pulumi.log.warn("listStreamingLocatorPaths is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listStreamingLocatorPaths'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Class representing the config for the solution in the migrate project.
+ */
 export function getSolutionConfig(args: GetSolutionConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionConfigResult> {
     if (!opts) {
         opts = {}

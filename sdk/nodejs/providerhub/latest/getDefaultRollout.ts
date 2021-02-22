@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Default rollout definition.
+ * Latest API Version: 2020-11-20.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getDefaultRollout'. */
 export function getDefaultRollout(args: GetDefaultRolloutArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultRolloutResult> {
+    pulumi.log.warn("getDefaultRollout is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getDefaultRollout'.")
     if (!opts) {
         opts = {}
     }

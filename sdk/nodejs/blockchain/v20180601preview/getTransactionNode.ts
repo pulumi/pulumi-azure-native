@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Payload of the transaction node which is the request/response of the resource provider.
+ */
 export function getTransactionNode(args: GetTransactionNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetTransactionNodeResult> {
     if (!opts) {
         opts = {}

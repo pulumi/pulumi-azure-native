@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Define the move collection.
+ * API Version: 2021-01-01.
+ */
 export function getMoveCollection(args: GetMoveCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveCollectionResult> {
     if (!opts) {
         opts = {}

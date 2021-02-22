@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Settings defined at the Management Group scope.
+ * API Version: 2020-05-01.
+ */
 export function getHierarchySetting(args: GetHierarchySettingArgs, opts?: pulumi.InvokeOptions): Promise<GetHierarchySettingResult> {
     if (!opts) {
         opts = {}

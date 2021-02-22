@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Site REST Resource.
+ * Latest API Version: 2020-07-07.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:offazure:getHyperVSite'. */
 export function getHyperVSite(args: GetHyperVSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHyperVSiteResult> {
+    pulumi.log.warn("getHyperVSite is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:offazure:getHyperVSite'.")
     if (!opts) {
         opts = {}
     }

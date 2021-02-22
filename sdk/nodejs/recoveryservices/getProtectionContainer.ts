@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Base class for container with backup items. Containers with specific workloads are derived from this class.
+ * API Version: 2021-01-01.
+ */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
     if (!opts) {
         opts = {}

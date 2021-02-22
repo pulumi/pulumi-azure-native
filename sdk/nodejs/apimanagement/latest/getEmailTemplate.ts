@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Email Template details.
+ * Latest API Version: 2019-12-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getEmailTemplate'. */
 export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailTemplateResult> {
+    pulumi.log.warn("getEmailTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getEmailTemplate'.")
     if (!opts) {
         opts = {}
     }

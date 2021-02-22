@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Describes a Private DNS zone.
+ */
 export function getPrivateZone(args: GetPrivateZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateZoneResult> {
     if (!opts) {
         opts = {}

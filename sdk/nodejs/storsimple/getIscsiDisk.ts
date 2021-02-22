@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The iSCSI disk.
+ * API Version: 2016-10-01.
+ */
 export function getIscsiDisk(args: GetIscsiDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiDiskResult> {
     if (!opts) {
         opts = {}

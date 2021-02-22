@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The assembly definition.
+ * Latest API Version: 2019-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountAssembly'. */
 export function getIntegrationAccountAssembly(args: GetIntegrationAccountAssemblyArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountAssemblyResult> {
+    pulumi.log.warn("getIntegrationAccountAssembly is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountAssembly'.")
     if (!opts) {
         opts = {}
     }

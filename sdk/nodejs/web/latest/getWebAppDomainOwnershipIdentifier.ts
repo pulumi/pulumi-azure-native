@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A domain specific resource identifier.
+ * Latest API Version: 2020-10-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDomainOwnershipIdentifier'. */
 export function getWebAppDomainOwnershipIdentifier(args: GetWebAppDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierResult> {
+    pulumi.log.warn("getWebAppDomainOwnershipIdentifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDomainOwnershipIdentifier'.")
     if (!opts) {
         opts = {}
     }

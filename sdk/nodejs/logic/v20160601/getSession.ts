@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The integration account session.
+ */
 export function getSession(args: GetSessionArgs, opts?: pulumi.InvokeOptions): Promise<GetSessionResult> {
     if (!opts) {
         opts = {}

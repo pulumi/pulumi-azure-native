@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Single item in List or Get Migration Config operation
+ * Latest API Version: 2017-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getMigrationConfig'. */
 export function getMigrationConfig(args: GetMigrationConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationConfigResult> {
+    pulumi.log.warn("getMigrationConfig is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getMigrationConfig'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Definition of ARM tracked top level resource.
+ * API Version: 2019-11-01-preview.
+ */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
     if (!opts) {
         opts = {}

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Collection of key vault keys.
+ * Latest API Version: 2019-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountKeyVaultKeys'. */
 export function listIntegrationAccountKeyVaultKeys(args: ListIntegrationAccountKeyVaultKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountKeyVaultKeysResult> {
+    pulumi.log.warn("listIntegrationAccountKeyVaultKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountKeyVaultKeys'.")
     if (!opts) {
         opts = {}
     }

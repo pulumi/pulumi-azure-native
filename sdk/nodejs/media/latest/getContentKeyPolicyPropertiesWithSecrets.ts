@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The properties of the Content Key Policy.
+ * Latest API Version: 2020-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getContentKeyPolicyPropertiesWithSecrets'. */
 export function getContentKeyPolicyPropertiesWithSecrets(args: GetContentKeyPolicyPropertiesWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetContentKeyPolicyPropertiesWithSecretsResult> {
+    pulumi.log.warn("getContentKeyPolicyPropertiesWithSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getContentKeyPolicyPropertiesWithSecrets'.")
     if (!opts) {
         opts = {}
     }

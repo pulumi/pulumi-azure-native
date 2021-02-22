@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Extended description about the product required for installing it into Azure Stack.
+ * API Version: 2017-06-01.
+ */
 export function listProductDetails(args: ListProductDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductDetailsResult> {
     if (!opts) {
         opts = {}

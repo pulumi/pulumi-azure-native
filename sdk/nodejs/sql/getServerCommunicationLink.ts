@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Server communication link.
+ * API Version: 2014-04-01.
+ */
 export function getServerCommunicationLink(args: GetServerCommunicationLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCommunicationLinkResult> {
     if (!opts) {
         opts = {}

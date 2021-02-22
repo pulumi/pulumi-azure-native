@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Redis cache access keys.
+ * Latest API Version: 2020-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listRedisKeys'. */
 export function listRedisKeys(args: ListRedisKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRedisKeysResult> {
+    pulumi.log.warn("listRedisKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listRedisKeys'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The view resource format.
+ * API Version: 2017-04-26.
+ */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
     if (!opts) {
         opts = {}

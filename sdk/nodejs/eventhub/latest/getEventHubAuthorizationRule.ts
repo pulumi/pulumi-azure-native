@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Single item in a List or Get AuthorizationRule operation
+ * Latest API Version: 2017-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getEventHubAuthorizationRule'. */
 export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubAuthorizationRuleResult> {
+    pulumi.log.warn("getEventHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getEventHubAuthorizationRule'.")
     if (!opts) {
         opts = {}
     }

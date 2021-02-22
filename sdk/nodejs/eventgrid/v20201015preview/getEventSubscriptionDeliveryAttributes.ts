@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Result of the Get delivery attributes operation.
+ */
 export function getEventSubscriptionDeliveryAttributes(args: GetEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionDeliveryAttributesResult> {
     if (!opts) {
         opts = {}

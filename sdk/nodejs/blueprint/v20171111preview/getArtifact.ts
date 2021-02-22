@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents a Blueprint artifact.
+ */
 export function getArtifact(args: GetArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * A Postgres Instance.
+ * API Version: 2020-09-08-preview.
+ */
 export function getPostgresInstance(args: GetPostgresInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetPostgresInstanceResult> {
     if (!opts) {
         opts = {}

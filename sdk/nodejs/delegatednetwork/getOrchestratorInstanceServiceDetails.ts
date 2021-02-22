@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Represents an instance of a orchestrator.
+ * API Version: 2020-08-08-preview.
+ */
 export function getOrchestratorInstanceServiceDetails(args: GetOrchestratorInstanceServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrchestratorInstanceServiceDetailsResult> {
     if (!opts) {
         opts = {}

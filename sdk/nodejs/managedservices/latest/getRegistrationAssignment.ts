@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Registration assignment.
+ * Latest API Version: 2019-09-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedservices:getRegistrationAssignment'. */
 export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationAssignmentResult> {
+    pulumi.log.warn("getRegistrationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedservices:getRegistrationAssignment'.")
     if (!opts) {
         opts = {}
     }

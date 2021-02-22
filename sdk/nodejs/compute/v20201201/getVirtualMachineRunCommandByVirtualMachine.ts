@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Describes a Virtual Machine run command.
+ */
 export function getVirtualMachineRunCommandByVirtualMachine(args: GetVirtualMachineRunCommandByVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRunCommandByVirtualMachineResult> {
     if (!opts) {
         opts = {}

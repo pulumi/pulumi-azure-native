@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+ * API Version: 2020-04-30.
+ */
 export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftClusterResult> {
     if (!opts) {
         opts = {}

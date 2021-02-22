@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Alert rule.
+ * Latest API Version: 2020-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getAlertRule'. */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
+    pulumi.log.warn("getAlertRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getAlertRule'.")
     if (!opts) {
         opts = {}
     }

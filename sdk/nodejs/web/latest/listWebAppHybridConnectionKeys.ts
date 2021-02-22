@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
+ * Latest API Version: 2018-11-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHybridConnectionKeys'. */
 export function listWebAppHybridConnectionKeys(args: ListWebAppHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHybridConnectionKeysResult> {
+    pulumi.log.warn("listWebAppHybridConnectionKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHybridConnectionKeys'.")
     if (!opts) {
         opts = {}
     }

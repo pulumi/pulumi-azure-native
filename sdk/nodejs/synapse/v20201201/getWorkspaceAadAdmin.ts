@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Workspace active directory administrator
+ */
 export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceAadAdminResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents a .rdp file
+ */
 export function getVirtualMachineRdpFileContents(args: GetVirtualMachineRdpFileContentsArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRdpFileContentsResult> {
     if (!opts) {
         opts = {}

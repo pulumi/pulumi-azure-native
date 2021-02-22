@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Describes an Azure Cognitive Search service and its current state.
+ * Latest API Version: 2020-08-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:getService'. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+    pulumi.log.warn("getService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:getService'.")
     if (!opts) {
         opts = {}
     }

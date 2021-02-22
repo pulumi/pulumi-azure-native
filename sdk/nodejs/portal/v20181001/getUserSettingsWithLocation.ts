@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Response to get user settings
+ */
 export function getUserSettingsWithLocation(args: GetUserSettingsWithLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSettingsWithLocationResult> {
     if (!opts) {
         opts = {}

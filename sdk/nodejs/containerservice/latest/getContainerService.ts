@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Container service.
+ * Latest API Version: 2017-01-31.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getContainerService'. */
 export function getContainerService(args: GetContainerServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerServiceResult> {
+    pulumi.log.warn("getContainerService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getContainerService'.")
     if (!opts) {
         opts = {}
     }

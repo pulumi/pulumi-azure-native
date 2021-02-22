@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A virtual network rule.
+ * Latest API Version: 2018-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformariadb:getVirtualNetworkRule'. */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
+    pulumi.log.warn("getVirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformariadb:getVirtualNetworkRule'.")
     if (!opts) {
         opts = {}
     }

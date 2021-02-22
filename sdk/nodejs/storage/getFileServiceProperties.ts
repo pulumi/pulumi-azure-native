@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The properties of File services in storage account.
+ * API Version: 2021-01-01.
+ */
 export function getFileServiceProperties(args: GetFileServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServicePropertiesResult> {
     if (!opts) {
         opts = {}

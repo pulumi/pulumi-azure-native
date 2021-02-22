@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Full endpoint url of an event subscription
+ * Latest API Version: 2020-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getEventSubscriptionFullUrl'. */
 export function getEventSubscriptionFullUrl(args: GetEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionFullUrlResult> {
+    pulumi.log.warn("getEventSubscriptionFullUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getEventSubscriptionFullUrl'.")
     if (!opts) {
         opts = {}
     }

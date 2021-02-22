@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Response to put/get linked server (with properties) for Redis cache.
+ */
 export function getRedisLinkedServer(args: GetRedisLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisLinkedServerResult> {
     if (!opts) {
         opts = {}

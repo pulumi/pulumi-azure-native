@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Template Spec Version object.
+ * API Version: 2019-06-01-preview.
+ */
 export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecVersionResult> {
     if (!opts) {
         opts = {}

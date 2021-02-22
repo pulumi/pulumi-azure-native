@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Interface endpoint resource.
+ */
 export function getInterfaceEndpoint(args: GetInterfaceEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetInterfaceEndpointResult> {
     if (!opts) {
         opts = {}

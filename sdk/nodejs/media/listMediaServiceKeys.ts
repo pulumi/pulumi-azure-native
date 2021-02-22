@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The response body for a ListKeys API.
+ * API Version: 2015-10-01.
+ */
 export function listMediaServiceKeys(args: ListMediaServiceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaServiceKeysResult> {
     if (!opts) {
         opts = {}

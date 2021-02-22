@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Specifies information about the Shared Image Gallery that you want to create or update.
+ * API Version: 2020-09-30.
+ */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
     if (!opts) {
         opts = {}

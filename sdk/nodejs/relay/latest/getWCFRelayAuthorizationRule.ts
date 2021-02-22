@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Description of a namespace authorization rule.
+ * Latest API Version: 2017-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getWCFRelayAuthorizationRule'. */
 export function getWCFRelayAuthorizationRule(args: GetWCFRelayAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayAuthorizationRuleResult> {
+    pulumi.log.warn("getWCFRelayAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getWCFRelayAuthorizationRule'.")
     if (!opts) {
         opts = {}
     }

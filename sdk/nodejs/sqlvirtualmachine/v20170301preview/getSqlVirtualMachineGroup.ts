@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A SQL virtual machine group.
+ */
 export function getSqlVirtualMachineGroup(args: GetSqlVirtualMachineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlVirtualMachineGroupResult> {
     if (!opts) {
         opts = {}

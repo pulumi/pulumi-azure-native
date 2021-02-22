@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Bot channel resource definition
+ * Latest API Version: 2020-06-02.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listBotConnectionWithSecrets'. */
 export function listBotConnectionWithSecrets(args: ListBotConnectionWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotConnectionWithSecretsResult> {
+    pulumi.log.warn("listBotConnectionWithSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listBotConnectionWithSecrets'.")
     if (!opts) {
         opts = {}
     }

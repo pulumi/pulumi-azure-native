@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The iSCSI server.
+ */
 export function getIscsiServer(args: GetIscsiServerArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiServerResult> {
     if (!opts) {
         opts = {}

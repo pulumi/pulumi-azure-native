@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The peering service prefix class.
+ * API Version: 2020-10-01.
+ */
 export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixResult> {
     if (!opts) {
         opts = {}

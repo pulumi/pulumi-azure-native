@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Schema for MSIX Package properties.
+ */
 export function getMSIXPackage(args: GetMSIXPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetMSIXPackageResult> {
     if (!opts) {
         opts = {}

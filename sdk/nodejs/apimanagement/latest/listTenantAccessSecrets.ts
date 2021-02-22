@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Tenant access information contract of the API Management service.
+ * Latest API Version: 2019-12-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listTenantAccessSecrets'. */
 export function listTenantAccessSecrets(args: ListTenantAccessSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListTenantAccessSecretsResult> {
+    pulumi.log.warn("listTenantAccessSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listTenantAccessSecrets'.")
     if (!opts) {
         opts = {}
     }

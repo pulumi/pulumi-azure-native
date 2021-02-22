@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The management group details.
+ * Latest API Version: 2020-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroup'. */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
+    pulumi.log.warn("getManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroup'.")
     if (!opts) {
         opts = {}
     }

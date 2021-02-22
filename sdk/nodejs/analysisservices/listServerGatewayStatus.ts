@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Status of gateway is live.
+ * API Version: 2017-08-01.
+ */
 export function listServerGatewayStatus(args: ListServerGatewayStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListServerGatewayStatusResult> {
     if (!opts) {
         opts = {}

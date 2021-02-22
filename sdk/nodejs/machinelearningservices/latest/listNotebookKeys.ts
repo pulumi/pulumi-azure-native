@@ -5,7 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Latest API Version: 2021-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listNotebookKeys'. */
 export function listNotebookKeys(args: ListNotebookKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNotebookKeysResult> {
+    pulumi.log.warn("listNotebookKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listNotebookKeys'.")
     if (!opts) {
         opts = {}
     }

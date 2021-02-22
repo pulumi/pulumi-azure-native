@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An server Active Directory Administrator.
+ * Latest API Version: 2014-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServerAzureADAdministrator'. */
 export function getServerAzureADAdministrator(args: GetServerAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADAdministratorResult> {
+    pulumi.log.warn("getServerAzureADAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServerAzureADAdministrator'.")
     if (!opts) {
         opts = {}
     }

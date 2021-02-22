@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Properties that define a favorite that is associated to an Application Insights component.
+ * API Version: 2015-05-01.
+ */
 export function getFavorite(args: GetFavoriteArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Friendly Routes name mapping to the any Routes or secret related information.
+ * API Version: 2020-09-01.
+ */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
     if (!opts) {
         opts = {}

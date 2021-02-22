@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A database security alert policy.
+ */
 export function getDatabaseSecurityAlertPolicy(args: GetDatabaseSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseSecurityAlertPolicyResult> {
     if (!opts) {
         opts = {}

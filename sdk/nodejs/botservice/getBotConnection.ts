@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Bot channel resource definition
+ * API Version: 2020-06-02.
+ */
 export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotConnectionResult> {
     if (!opts) {
         opts = {}

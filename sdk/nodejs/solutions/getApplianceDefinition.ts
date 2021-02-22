@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Information about appliance definition.
+ * API Version: 2016-09-01-preview.
+ */
 export function getApplianceDefinition(args: GetApplianceDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplianceDefinitionResult> {
     if (!opts) {
         opts = {}

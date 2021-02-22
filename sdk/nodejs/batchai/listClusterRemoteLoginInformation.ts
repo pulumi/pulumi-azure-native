@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Values returned by the List operation.
+ * API Version: 2018-05-01.
+ */
 export function listClusterRemoteLoginInformation(args: ListClusterRemoteLoginInformationArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterRemoteLoginInformationResult> {
     if (!opts) {
         opts = {}

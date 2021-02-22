@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The relationship link resource format.
+ */
 export function getRelationshipLink(args: GetRelationshipLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetRelationshipLinkResult> {
     if (!opts) {
         opts = {}

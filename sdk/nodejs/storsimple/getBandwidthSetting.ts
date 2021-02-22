@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The bandwidth setting.
+ * API Version: 2017-06-01.
+ */
 export function getBandwidthSetting(args: GetBandwidthSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthSettingResult> {
     if (!opts) {
         opts = {}

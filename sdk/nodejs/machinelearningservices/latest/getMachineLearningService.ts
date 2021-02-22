@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Machine Learning service object wrapped into ARM resource envelope.
+ * Latest API Version: 2021-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getMachineLearningService'. */
 export function getMachineLearningService(args: GetMachineLearningServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningServiceResult> {
+    pulumi.log.warn("getMachineLearningService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getMachineLearningService'.")
     if (!opts) {
         opts = {}
     }

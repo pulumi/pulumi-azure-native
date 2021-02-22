@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Organization resource.
+ * Latest API Version: 2020-03-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:confluent:getOrganization'. */
 export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
+    pulumi.log.warn("getOrganization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:confluent:getOrganization'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Machine Learning service object wrapped into ARM resource envelope.
+ */
 export function getMachineLearningService(args: GetMachineLearningServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningServiceResult> {
     if (!opts) {
         opts = {}

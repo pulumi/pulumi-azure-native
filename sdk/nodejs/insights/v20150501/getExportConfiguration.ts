@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Properties that define a Continuous Export configuration.
+ */
 export function getExportConfiguration(args: GetExportConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetExportConfigurationResult> {
     if (!opts) {
         opts = {}

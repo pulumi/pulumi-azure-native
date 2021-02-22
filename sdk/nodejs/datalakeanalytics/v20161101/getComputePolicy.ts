@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Data Lake Analytics compute policy information.
+ */
 export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetComputePolicyResult> {
     if (!opts) {
         opts = {}

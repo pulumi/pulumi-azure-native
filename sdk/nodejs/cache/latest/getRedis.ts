@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A single Redis item in List or Get Operation.
+ * Latest API Version: 2020-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getRedis'. */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
+    pulumi.log.warn("getRedis is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getRedis'.")
     if (!opts) {
         opts = {}
     }

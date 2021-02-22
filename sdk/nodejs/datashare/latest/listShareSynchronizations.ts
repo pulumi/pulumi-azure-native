@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * List response for get ShareSynchronization.
+ * Latest API Version: 2020-09-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSynchronizations'. */
 export function listShareSynchronizations(args: ListShareSynchronizationsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSynchronizationsResult> {
+    pulumi.log.warn("listShareSynchronizations is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSynchronizations'.")
     if (!opts) {
         opts = {}
     }

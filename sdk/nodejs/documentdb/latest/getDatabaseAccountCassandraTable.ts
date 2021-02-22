@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure Cosmos DB Cassandra table.
+ * Latest API Version: 2016-03-31.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountCassandraTable'. */
 export function getDatabaseAccountCassandraTable(args: GetDatabaseAccountCassandraTableArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountCassandraTableResult> {
+    pulumi.log.warn("getDatabaseAccountCassandraTable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountCassandraTable'.")
     if (!opts) {
         opts = {}
     }

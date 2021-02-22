@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * PrivateLink Policy configuration object.
+ */
 export function getprivateLinkForAzureAd(args: GetprivateLinkForAzureAdArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkForAzureAdResult> {
     if (!opts) {
         opts = {}

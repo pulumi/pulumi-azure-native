@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * HealthBot resource definition
+ * Latest API Version: 2020-12-08.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:healthbot:getBot'. */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
+    pulumi.log.warn("getBot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:healthbot:getBot'.")
     if (!opts) {
         opts = {}
     }

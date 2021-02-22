@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+ */
 export function getOrigin(args: GetOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginResult> {
     if (!opts) {
         opts = {}

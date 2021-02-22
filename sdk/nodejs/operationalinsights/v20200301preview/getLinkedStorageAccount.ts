@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Linked storage accounts top level resource container.
+ */
 export function getLinkedStorageAccount(args: GetLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedStorageAccountResult> {
     if (!opts) {
         opts = {}

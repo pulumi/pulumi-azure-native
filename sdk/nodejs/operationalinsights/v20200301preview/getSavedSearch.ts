@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Value object for saved search results.
+ */
 export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOptions): Promise<GetSavedSearchResult> {
     if (!opts) {
         opts = {}

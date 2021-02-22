@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * A class representing a CommunicationService resource.
+ * API Version: 2020-08-20-preview.
+ */
 export function getCommunicationService(args: GetCommunicationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationServiceResult> {
     if (!opts) {
         opts = {}

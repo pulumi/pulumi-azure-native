@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Values returned by the List operation.
+ * Latest API Version: 2018-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobRemoteLoginInformation'. */
 export function listJobRemoteLoginInformation(args: ListJobRemoteLoginInformationArgs, opts?: pulumi.InvokeOptions): Promise<ListJobRemoteLoginInformationResult> {
+    pulumi.log.warn("listJobRemoteLoginInformation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobRemoteLoginInformation'.")
     if (!opts) {
         opts = {}
     }

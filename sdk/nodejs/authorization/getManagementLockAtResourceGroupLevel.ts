@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The lock information.
+ * API Version: 2016-09-01.
+ */
 export function getManagementLockAtResourceGroupLevel(args: GetManagementLockAtResourceGroupLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceGroupLevelResult> {
     if (!opts) {
         opts = {}

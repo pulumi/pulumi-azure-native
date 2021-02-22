@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The view resource format.
+ * Latest API Version: 2017-04-26.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getView'. */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
+    pulumi.log.warn("getView is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getView'.")
     if (!opts) {
         opts = {}
     }

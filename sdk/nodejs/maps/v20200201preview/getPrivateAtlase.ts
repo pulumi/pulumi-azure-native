@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure resource which represents which will provision the ability to create private location data.
+ */
 export function getPrivateAtlase(args: GetPrivateAtlaseArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateAtlaseResult> {
     if (!opts) {
         opts = {}

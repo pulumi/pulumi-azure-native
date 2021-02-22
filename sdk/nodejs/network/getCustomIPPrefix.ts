@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Custom IP prefix resource.
+ * API Version: 2020-08-01.
+ */
 export function getCustomIPPrefix(args: GetCustomIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomIPPrefixResult> {
     if (!opts) {
         opts = {}

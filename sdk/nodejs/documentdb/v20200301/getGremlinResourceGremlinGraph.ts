@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure Cosmos DB Gremlin graph.
+ */
 export function getGremlinResourceGremlinGraph(args: GetGremlinResourceGremlinGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGremlinResourceGremlinGraphResult> {
     if (!opts) {
         opts = {}

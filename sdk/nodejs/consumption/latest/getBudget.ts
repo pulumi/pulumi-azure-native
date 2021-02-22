@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A budget resource.
+ * Latest API Version: 2019-10-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:consumption:getBudget'. */
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
+    pulumi.log.warn("getBudget is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:consumption:getBudget'.")
     if (!opts) {
         opts = {}
     }

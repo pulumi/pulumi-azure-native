@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A database geo backup policy.
+ * Latest API Version: 2014-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getGeoBackupPolicy'. */
 export function getGeoBackupPolicy(args: GetGeoBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGeoBackupPolicyResult> {
+    pulumi.log.warn("getGeoBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getGeoBackupPolicy'.")
     if (!opts) {
         opts = {}
     }

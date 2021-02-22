@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+ * Latest API Version: 2018-09-15.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listVirtualMachineApplicableSchedules'. */
 export function listVirtualMachineApplicableSchedules(args: ListVirtualMachineApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListVirtualMachineApplicableSchedulesResult> {
+    pulumi.log.warn("listVirtualMachineApplicableSchedules is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listVirtualMachineApplicableSchedules'.")
     if (!opts) {
         opts = {}
     }

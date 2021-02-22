@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents user credentials used for publishing activity
+ */
 export function getSiteDeployment(args: GetSiteDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteDeploymentResult> {
     if (!opts) {
         opts = {}

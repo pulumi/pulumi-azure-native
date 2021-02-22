@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Description of the shared access key.
+ * API Version: 2020-03-01.
+ */
 export function listIotDpsResourceKeysForKeyName(args: ListIotDpsResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotDpsResourceKeysForKeyNameResult> {
     if (!opts) {
         opts = {}

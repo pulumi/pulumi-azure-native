@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * API Version: 2019-01-01-preview.
+ */
 export function getB2CTenant(args: GetB2CTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetB2CTenantResult> {
     if (!opts) {
         opts = {}

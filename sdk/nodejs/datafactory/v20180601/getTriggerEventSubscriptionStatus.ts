@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Defines the response of a trigger subscription operation.
+ */
 export function getTriggerEventSubscriptionStatus(args: GetTriggerEventSubscriptionStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerEventSubscriptionStatusResult> {
     if (!opts) {
         opts = {}

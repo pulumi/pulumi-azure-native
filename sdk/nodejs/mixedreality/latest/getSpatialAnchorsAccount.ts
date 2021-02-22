@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * SpatialAnchorsAccount Response.
+ * Latest API Version: 2021-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:getSpatialAnchorsAccount'. */
 export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSpatialAnchorsAccountResult> {
+    pulumi.log.warn("getSpatialAnchorsAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:getSpatialAnchorsAccount'.")
     if (!opts) {
         opts = {}
     }

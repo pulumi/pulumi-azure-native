@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The secret access keys used for authenticating connections to redis
+ * Latest API Version: 2021-03-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listDatabaseKeys'. */
 export function listDatabaseKeys(args: ListDatabaseKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseKeysResult> {
+    pulumi.log.warn("listDatabaseKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:listDatabaseKeys'.")
     if (!opts) {
         opts = {}
     }

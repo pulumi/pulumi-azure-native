@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Represents an incident in Azure Security Insights.
+ * API Version: 2020-01-01.
+ */
 export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentResult> {
     if (!opts) {
         opts = {}

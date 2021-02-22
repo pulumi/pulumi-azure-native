@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * A formula for creating a VM, specifying an image base and other parameters
+ * API Version: 2018-09-15.
+ */
 export function getFormula(args: GetFormulaArgs, opts?: pulumi.InvokeOptions): Promise<GetFormulaResult> {
     if (!opts) {
         opts = {}

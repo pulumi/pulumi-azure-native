@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The volume container.
+ * Latest API Version: 2017-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getVolumeContainer'. */
 export function getVolumeContainer(args: GetVolumeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeContainerResult> {
+    pulumi.log.warn("getVolumeContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getVolumeContainer'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The storage domain.
+ * API Version: 2016-10-01.
+ */
 export function getStorageDomain(args: GetStorageDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageDomainResult> {
     if (!opts) {
         opts = {}

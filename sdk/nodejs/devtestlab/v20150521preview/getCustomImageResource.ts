@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A custom image.
+ */
 export function getCustomImageResource(args: GetCustomImageResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomImageResourceResult> {
     if (!opts) {
         opts = {}

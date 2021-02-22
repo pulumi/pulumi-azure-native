@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Base class for container with backup items. Containers with specific workloads are derived from this class.
+ * Latest API Version: 2021-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionContainer'. */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
+    pulumi.log.warn("getProtectionContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionContainer'.")
     if (!opts) {
         opts = {}
     }

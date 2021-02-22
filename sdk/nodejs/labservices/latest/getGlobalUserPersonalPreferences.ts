@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents the PersonalPreferences for the user
+ * Latest API Version: 2018-10-15.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserPersonalPreferences'. */
 export function getGlobalUserPersonalPreferences(args: GetGlobalUserPersonalPreferencesArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserPersonalPreferencesResult> {
+    pulumi.log.warn("getGlobalUserPersonalPreferences is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserPersonalPreferences'.")
     if (!opts) {
         opts = {}
     }

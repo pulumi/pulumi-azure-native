@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The list of all devices in a resource and their eligibility status as a failover target device.
+ * API Version: 2017-06-01.
+ */
 export function listDeviceFailoverTars(args: ListDeviceFailoverTarsArgs, opts?: pulumi.InvokeOptions): Promise<ListDeviceFailoverTarsResult> {
     if (!opts) {
         opts = {}

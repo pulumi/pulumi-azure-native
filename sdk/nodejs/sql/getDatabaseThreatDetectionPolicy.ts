@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Contains information about a database Threat Detection policy.
+ * API Version: 2014-04-01.
+ */
 export function getDatabaseThreatDetectionPolicy(args: GetDatabaseThreatDetectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseThreatDetectionPolicyResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * API Version: 2021-01-01.
+ */
 export function listNotebookKeys(args: ListNotebookKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNotebookKeysResult> {
     if (!opts) {
         opts = {}

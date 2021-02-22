@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Class representing an data connection.
+ */
 export function getDataConnection(args: GetDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDataConnectionResult> {
     if (!opts) {
         opts = {}

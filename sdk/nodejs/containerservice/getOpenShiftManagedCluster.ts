@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * OpenShift Managed cluster.
+ * API Version: 2019-04-30.
+ */
 export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftManagedClusterResult> {
     if (!opts) {
         opts = {}

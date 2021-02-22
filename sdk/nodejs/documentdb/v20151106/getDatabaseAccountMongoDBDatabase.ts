@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure Cosmos DB MongoDB database.
+ */
 export function getDatabaseAccountMongoDBDatabase(args: GetDatabaseAccountMongoDBDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountMongoDBDatabaseResult> {
     if (!opts) {
         opts = {}

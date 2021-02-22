@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * An Application Insights component linked storage accounts
+ * API Version: 2020-03-01-preview.
+ */
 export function getComponentLinkedStorageAccount(args: GetComponentLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentLinkedStorageAccountResult> {
     if (!opts) {
         opts = {}

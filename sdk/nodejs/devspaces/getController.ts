@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * API Version: 2019-04-01.
+ */
 export function getController(args: GetControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerResult> {
     if (!opts) {
         opts = {}

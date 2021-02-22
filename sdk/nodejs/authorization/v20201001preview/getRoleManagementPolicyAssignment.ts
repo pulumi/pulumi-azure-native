@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Role management policy
+ */
 export function getRoleManagementPolicyAssignment(args: GetRoleManagementPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleManagementPolicyAssignmentResult> {
     if (!opts) {
         opts = {}

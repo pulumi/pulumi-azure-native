@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents the properties of the Dns Resource Reference Result.
+ * Latest API Version: 2018-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDnsResourceReferenceByTarResources'. */
 export function getDnsResourceReferenceByTarResources(args?: GetDnsResourceReferenceByTarResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResourceReferenceByTarResourcesResult> {
+    pulumi.log.warn("getDnsResourceReferenceByTarResources is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDnsResourceReferenceByTarResources'.")
     args = args || {};
     if (!opts) {
         opts = {}

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Properties of the file share, including Id, resource name, resource type, Etag.
+ * Latest API Version: 2021-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getFileShare'. */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
+    pulumi.log.warn("getFileShare is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getFileShare'.")
     if (!opts) {
         opts = {}
     }

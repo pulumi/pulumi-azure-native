@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * An instance failover group.
+ * API Version: 2020-08-01-preview.
+ */
 export function getInstanceFailoverGroup(args: GetInstanceFailoverGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceFailoverGroupResult> {
     if (!opts) {
         opts = {}

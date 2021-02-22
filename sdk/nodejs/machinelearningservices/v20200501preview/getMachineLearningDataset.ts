@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Machine Learning dataset object wrapped into ARM resource envelope.
+ */
 export function getMachineLearningDataset(args: GetMachineLearningDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningDatasetResult> {
     if (!opts) {
         opts = {}

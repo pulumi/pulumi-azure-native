@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+ * API Version: 2016-10-01.
+ */
 export function getManagerEncryptionKey(args: GetManagerEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerEncryptionKeyResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * NSX DNS Service
+ */
 export function getWorkloadNetworkDnsService(args: GetWorkloadNetworkDnsServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDnsServiceResult> {
     if (!opts) {
         opts = {}

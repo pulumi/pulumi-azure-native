@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure Cosmos DB Cassandra keyspace.
+ */
 export function getDatabaseAccountCassandraKeyspace(args: GetDatabaseAccountCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountCassandraKeyspaceResult> {
     if (!opts) {
         opts = {}

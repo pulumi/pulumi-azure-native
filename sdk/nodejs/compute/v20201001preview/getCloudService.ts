@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Describes the cloud service.
+ */
 export function getCloudService(args: GetCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServiceResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A DataSet data transfer object.
+ */
 export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetResult> {
     if (!opts) {
         opts = {}

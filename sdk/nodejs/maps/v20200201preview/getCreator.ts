@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure resource which represents Maps Creator product and provides ability to manage private location data.
+ */
 export function getCreator(args: GetCreatorArgs, opts?: pulumi.InvokeOptions): Promise<GetCreatorResult> {
     if (!opts) {
         opts = {}

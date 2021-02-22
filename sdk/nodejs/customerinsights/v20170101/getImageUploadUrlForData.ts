@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The image definition.
+ */
 export function getImageUploadUrlForData(args: GetImageUploadUrlForDataArgs, opts?: pulumi.InvokeOptions): Promise<GetImageUploadUrlForDataResult> {
     if (!opts) {
         opts = {}

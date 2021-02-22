@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A container for a managed identity to execute DevTest lab services.
+ */
 export function getServiceRunner(args: GetServiceRunnerArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRunnerResult> {
     if (!opts) {
         opts = {}

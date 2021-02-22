@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Response to get user settings
+ * Latest API Version: 2018-10-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getUserSettings'. */
 export function getUserSettings(args: GetUserSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSettingsResult> {
+    pulumi.log.warn("getUserSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getUserSettings'.")
     if (!opts) {
         opts = {}
     }

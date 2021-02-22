@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * EventGrid Topic
+ * Latest API Version: 2020-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getTopic'. */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
+    pulumi.log.warn("getTopic is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getTopic'.")
     if (!opts) {
         opts = {}
     }

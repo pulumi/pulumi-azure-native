@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Workload classifier operations for a data warehouse
+ * Latest API Version: 2020-12-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolWorkloadClassifier'. */
 export function getSqlPoolWorkloadClassifier(args: GetSqlPoolWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadClassifierResult> {
+    pulumi.log.warn("getSqlPoolWorkloadClassifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolWorkloadClassifier'.")
     if (!opts) {
         opts = {}
     }

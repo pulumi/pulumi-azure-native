@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A SqlServerInstance.
+ */
 export function getSqlServerInstance(args: GetSqlServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerInstanceResult> {
     if (!opts) {
         opts = {}

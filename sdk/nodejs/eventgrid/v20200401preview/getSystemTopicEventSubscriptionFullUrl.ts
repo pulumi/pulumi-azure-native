@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Full endpoint url of an event subscription
+ */
 export function getSystemTopicEventSubscriptionFullUrl(args: GetSystemTopicEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionFullUrlResult> {
     if (!opts) {
         opts = {}

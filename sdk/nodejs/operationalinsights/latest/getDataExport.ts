@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The top level data export resource container.
+ * Latest API Version: 2020-08-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataExport'. */
 export function getDataExport(args: GetDataExportArgs, opts?: pulumi.InvokeOptions): Promise<GetDataExportResult> {
+    pulumi.log.warn("getDataExport is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataExport'.")
     if (!opts) {
         opts = {}
     }

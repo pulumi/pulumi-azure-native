@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * VirtualWAN Resource.
+ */
 export function getVirtualWAN(args: GetVirtualWANArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualWANResult> {
     if (!opts) {
         opts = {}

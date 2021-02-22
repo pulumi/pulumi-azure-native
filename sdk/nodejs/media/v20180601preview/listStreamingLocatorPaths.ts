@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Class of response for listPaths action
+ */
 export function listStreamingLocatorPaths(args: ListStreamingLocatorPathsArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorPathsResult> {
     if (!opts) {
         opts = {}

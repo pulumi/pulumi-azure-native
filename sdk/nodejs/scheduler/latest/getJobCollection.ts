@@ -5,7 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Latest API Version: 2016-03-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:scheduler:getJobCollection'. */
 export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {
+    pulumi.log.warn("getJobCollection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:scheduler:getJobCollection'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Build step resource properties
+ * API Version: 2018-02-01-preview.
+ */
 export function getBuildStep(args: GetBuildStepArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildStepResult> {
     if (!opts) {
         opts = {}

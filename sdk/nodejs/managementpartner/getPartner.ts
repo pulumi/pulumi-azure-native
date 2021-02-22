@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * this is the management partner operations response
+ * API Version: 2018-02-01.
+ */
 export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerResult> {
     if (!opts) {
         opts = {}

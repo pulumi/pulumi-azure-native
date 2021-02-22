@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure Cosmos DB userDefinedFunction.
+ * Latest API Version: 2021-01-15.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getSqlResourceSqlUserDefinedFunction'. */
 export function getSqlResourceSqlUserDefinedFunction(args: GetSqlResourceSqlUserDefinedFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlUserDefinedFunctionResult> {
+    pulumi.log.warn("getSqlResourceSqlUserDefinedFunction is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getSqlResourceSqlUserDefinedFunction'.")
     if (!opts) {
         opts = {}
     }

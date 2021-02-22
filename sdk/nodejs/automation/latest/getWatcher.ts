@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Definition of the watcher type.
+ * Latest API Version: 2019-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getWatcher'. */
 export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetWatcherResult> {
+    pulumi.log.warn("getWatcher is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getWatcher'.")
     if (!opts) {
         opts = {}
     }

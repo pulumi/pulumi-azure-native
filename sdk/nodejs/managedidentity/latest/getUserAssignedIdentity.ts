@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Describes an identity resource.
+ * Latest API Version: 2018-11-30.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedidentity:getUserAssignedIdentity'. */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
+    pulumi.log.warn("getUserAssignedIdentity is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedidentity:getUserAssignedIdentity'.")
     if (!opts) {
         opts = {}
     }

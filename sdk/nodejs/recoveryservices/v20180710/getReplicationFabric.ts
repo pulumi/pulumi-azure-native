@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Fabric definition.
+ */
 export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationFabricResult> {
     if (!opts) {
         opts = {}

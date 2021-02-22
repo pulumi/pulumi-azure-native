@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * EventGrid Partner Namespace.
+ * API Version: 2020-04-01-preview.
+ */
 export function getPartnerNamespace(args: GetPartnerNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerNamespaceResult> {
     if (!opts) {
         opts = {}

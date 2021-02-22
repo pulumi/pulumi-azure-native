@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure Cosmos DB Cassandra keyspace.
+ * Latest API Version: 2021-01-15.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getCassandraResourceCassandraKeyspace'. */
 export function getCassandraResourceCassandraKeyspace(args: GetCassandraResourceCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraKeyspaceResult> {
+    pulumi.log.warn("getCassandraResourceCassandraKeyspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getCassandraResourceCassandraKeyspace'.")
     if (!opts) {
         opts = {}
     }

@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The properties of a response to source upload request.
+ * Latest API Version: 2019-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryBuildSourceUploadUrl'. */
 export function listRegistryBuildSourceUploadUrl(args: ListRegistryBuildSourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListRegistryBuildSourceUploadUrlResult> {
+    pulumi.log.warn("listRegistryBuildSourceUploadUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryBuildSourceUploadUrl'.")
     if (!opts) {
         opts = {}
     }

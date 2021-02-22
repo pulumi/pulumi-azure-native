@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The key-value resource along with all resource properties.
+ * API Version: 2020-07-01-preview.
+ */
 export function getKeyValue(args: GetKeyValueArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyValueResult> {
     if (!opts) {
         opts = {}

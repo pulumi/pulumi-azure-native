@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The properties of an IoT hub shared access policy.
+ * Latest API Version: 2020-08-31.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotHubResourceKeysForKeyName'. */
 export function listIotHubResourceKeysForKeyName(args: ListIotHubResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotHubResourceKeysForKeyNameResult> {
+    pulumi.log.warn("listIotHubResourceKeysForKeyName is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotHubResourceKeysForKeyName'.")
     if (!opts) {
         opts = {}
     }

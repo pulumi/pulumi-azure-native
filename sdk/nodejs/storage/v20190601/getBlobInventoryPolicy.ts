@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The storage account blob inventory policy.
+ */
 export function getBlobInventoryPolicy(args: GetBlobInventoryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobInventoryPolicyResult> {
     if (!opts) {
         opts = {}

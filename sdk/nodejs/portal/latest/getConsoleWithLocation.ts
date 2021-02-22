@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Cloud shell console
+ * Latest API Version: 2018-10-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getConsoleWithLocation'. */
 export function getConsoleWithLocation(args: GetConsoleWithLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleWithLocationResult> {
+    pulumi.log.warn("getConsoleWithLocation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getConsoleWithLocation'.")
     if (!opts) {
         opts = {}
     }

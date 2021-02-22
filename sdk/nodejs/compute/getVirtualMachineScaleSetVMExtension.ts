@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Describes a VMSS VM Extension.
+ * API Version: 2020-12-01.
+ */
 export function getVirtualMachineScaleSetVMExtension(args: GetVirtualMachineScaleSetVMExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMExtensionResult> {
     if (!opts) {
         opts = {}

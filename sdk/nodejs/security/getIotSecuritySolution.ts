@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * IoT Security solution configuration and resource information.
+ * API Version: 2019-08-01.
+ */
 export function getIotSecuritySolution(args: GetIotSecuritySolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotSecuritySolutionResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An object that represents an import pipeline for a container registry.
+ */
 export function getImportPipeline(args: GetImportPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImportPipelineResult> {
     if (!opts) {
         opts = {}

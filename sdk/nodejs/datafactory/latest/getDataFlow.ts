@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Data flow resource type.
+ * Latest API Version: 2018-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataFlow'. */
 export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetDataFlowResult> {
+    pulumi.log.warn("getDataFlow is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataFlow'.")
     if (!opts) {
         opts = {}
     }

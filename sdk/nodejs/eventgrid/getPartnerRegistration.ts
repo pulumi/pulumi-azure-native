@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Information about a partner registration.
+ * API Version: 2020-04-01-preview.
+ */
 export function getPartnerRegistration(args: GetPartnerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerRegistrationResult> {
     if (!opts) {
         opts = {}

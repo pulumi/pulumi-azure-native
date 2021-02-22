@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The status of the Canonical support plan.
+ * Latest API Version: 2018-03-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:addons:getSupportPlanType'. */
 export function getSupportPlanType(args: GetSupportPlanTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportPlanTypeResult> {
+    pulumi.log.warn("getSupportPlanType is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:addons:getSupportPlanType'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Response on GET of a hybrid use benefit
+ * API Version: 2019-06-01-preview.
+ */
 export function getHybridUseBenefit(args: GetHybridUseBenefitArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridUseBenefitResult> {
     if (!opts) {
         opts = {}

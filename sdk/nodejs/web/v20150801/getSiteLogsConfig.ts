@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Configuration of Azure web site
+ */
 export function getSiteLogsConfig(args: GetSiteLogsConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteLogsConfigResult> {
     if (!opts) {
         opts = {}

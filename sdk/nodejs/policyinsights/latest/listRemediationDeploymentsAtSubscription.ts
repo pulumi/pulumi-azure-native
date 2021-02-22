@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * List of deployments for a remediation.
+ * Latest API Version: 2019-07-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:listRemediationDeploymentsAtSubscription'. */
 export function listRemediationDeploymentsAtSubscription(args: ListRemediationDeploymentsAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtSubscriptionResult> {
+    pulumi.log.warn("listRemediationDeploymentsAtSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:listRemediationDeploymentsAtSubscription'.")
     if (!opts) {
         opts = {}
     }

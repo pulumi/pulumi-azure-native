@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * P2SVpnServerConfiguration Resource.
+ * Latest API Version: 2019-07-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnServerConfiguration'. */
 export function getP2sVpnServerConfiguration(args: GetP2sVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnServerConfigurationResult> {
+    pulumi.log.warn("getP2sVpnServerConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnServerConfiguration'.")
     if (!opts) {
         opts = {}
     }

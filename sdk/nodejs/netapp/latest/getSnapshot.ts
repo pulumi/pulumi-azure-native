@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Snapshot of a Volume
+ * Latest API Version: 2020-11-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshot'. */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
+    pulumi.log.warn("getSnapshot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshot'.")
     if (!opts) {
         opts = {}
     }

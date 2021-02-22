@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The role assignment
+ */
 export function getBillingRoleAssignmentByDepartment(args: GetBillingRoleAssignmentByDepartmentArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingRoleAssignmentByDepartmentResult> {
     if (!opts) {
         opts = {}

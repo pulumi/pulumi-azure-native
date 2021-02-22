@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * A private endpoint connection to SignalR resource
+ * API Version: 2020-05-01.
+ */
 export function getSignalRPrivateEndpointConnection(args: GetSignalRPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRPrivateEndpointConnectionResult> {
     if (!opts) {
         opts = {}

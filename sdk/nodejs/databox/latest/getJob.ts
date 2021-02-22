@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Job Resource.
+ * Latest API Version: 2020-11-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databox:getJob'. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
+    pulumi.log.warn("getJob is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databox:getJob'.")
     if (!opts) {
         opts = {}
     }

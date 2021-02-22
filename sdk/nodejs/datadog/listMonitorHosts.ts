@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Response of a list operation.
+ * API Version: 2020-02-01-preview.
+ */
 export function listMonitorHosts(args: ListMonitorHostsArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorHostsResult> {
     if (!opts) {
         opts = {}

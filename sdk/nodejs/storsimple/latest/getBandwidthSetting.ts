@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The bandwidth setting.
+ * Latest API Version: 2017-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBandwidthSetting'. */
 export function getBandwidthSetting(args: GetBandwidthSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthSettingResult> {
+    pulumi.log.warn("getBandwidthSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBandwidthSetting'.")
     if (!opts) {
         opts = {}
     }

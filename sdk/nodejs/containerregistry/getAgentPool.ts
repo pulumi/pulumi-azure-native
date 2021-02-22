@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The agentpool that has the ARM resource and properties.
+ * The agentpool will have all information to create an agent pool.
+ * API Version: 2019-06-01-preview.
+ */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
     if (!opts) {
         opts = {}

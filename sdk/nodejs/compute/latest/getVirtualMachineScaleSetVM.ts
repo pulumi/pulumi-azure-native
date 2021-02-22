@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Describes a virtual machine scale set virtual machine.
+ * Latest API Version: 2020-12-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineScaleSetVM'. */
 export function getVirtualMachineScaleSetVM(args: GetVirtualMachineScaleSetVMArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMResult> {
+    pulumi.log.warn("getVirtualMachineScaleSetVM is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineScaleSetVM'.")
     if (!opts) {
         opts = {}
     }

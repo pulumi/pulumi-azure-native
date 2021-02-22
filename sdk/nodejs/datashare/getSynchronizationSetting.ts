@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * A Synchronization Setting data transfer object.
+ * API Version: 2020-09-01.
+ */
 export function getSynchronizationSetting(args: GetSynchronizationSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSynchronizationSettingResult> {
     if (!opts) {
         opts = {}

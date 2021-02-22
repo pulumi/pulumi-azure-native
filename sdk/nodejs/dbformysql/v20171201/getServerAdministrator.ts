@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents a and external administrator to be created.
+ */
 export function getServerAdministrator(args: GetServerAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAdministratorResult> {
     if (!opts) {
         opts = {}

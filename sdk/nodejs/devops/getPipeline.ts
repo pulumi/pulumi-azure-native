@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
+ * API Version: 2020-07-13-preview.
+ */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
     if (!opts) {
         opts = {}

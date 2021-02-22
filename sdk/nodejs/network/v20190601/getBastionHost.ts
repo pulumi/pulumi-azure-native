@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Bastion Host resource.
+ */
 export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionHostResult> {
     if (!opts) {
         opts = {}

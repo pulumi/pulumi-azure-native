@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents a lab account.
+ * Latest API Version: 2018-10-15.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getLabAccount'. */
 export function getLabAccount(args: GetLabAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLabAccountResult> {
+    pulumi.log.warn("getLabAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getLabAccount'.")
     if (!opts) {
         opts = {}
     }

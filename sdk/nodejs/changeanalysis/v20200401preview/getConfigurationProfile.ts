@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A profile object that contains change analysis configuration, such as notification settings, for this subscription
+ */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
     if (!opts) {
         opts = {}

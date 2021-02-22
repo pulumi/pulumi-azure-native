@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure SQL job agent.
+ */
 export function getJobAgent(args: GetJobAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetJobAgentResult> {
     if (!opts) {
         opts = {}

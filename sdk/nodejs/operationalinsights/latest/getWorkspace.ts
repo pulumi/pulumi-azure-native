@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The top level Workspace resource container.
+ * Latest API Version: 2020-10-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getWorkspace'. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
+    pulumi.log.warn("getWorkspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getWorkspace'.")
     if (!opts) {
         opts = {}
     }

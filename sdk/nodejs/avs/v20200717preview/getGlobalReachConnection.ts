@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A global reach connection resource
+ */
 export function getGlobalReachConnection(args: GetGlobalReachConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalReachConnectionResult> {
     if (!opts) {
         opts = {}

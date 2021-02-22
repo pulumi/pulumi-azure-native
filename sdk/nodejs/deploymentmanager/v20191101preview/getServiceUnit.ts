@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents the response of a service unit resource.
+ */
 export function getServiceUnit(args: GetServiceUnitArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceUnitResult> {
     if (!opts) {
         opts = {}

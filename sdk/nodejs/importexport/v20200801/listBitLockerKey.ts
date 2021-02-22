@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * GetBitLockerKeys response
+ */
 export function listBitLockerKey(args: ListBitLockerKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListBitLockerKeyResult> {
     if (!opts) {
         opts = {}

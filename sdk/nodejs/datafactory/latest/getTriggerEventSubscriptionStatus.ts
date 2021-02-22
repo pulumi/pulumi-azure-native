@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Defines the response of a trigger subscription operation.
+ * Latest API Version: 2018-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getTriggerEventSubscriptionStatus'. */
 export function getTriggerEventSubscriptionStatus(args: GetTriggerEventSubscriptionStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerEventSubscriptionStatusResult> {
+    pulumi.log.warn("getTriggerEventSubscriptionStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getTriggerEventSubscriptionStatus'.")
     if (!opts) {
         opts = {}
     }

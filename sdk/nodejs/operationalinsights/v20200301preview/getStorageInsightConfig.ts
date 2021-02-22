@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The top level storage insight resource container.
+ */
 export function getStorageInsightConfig(args: GetStorageInsightConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageInsightConfigResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Resource information with extended details.
+ */
 export function getManagedHsm(args: GetManagedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHsmResult> {
     if (!opts) {
         opts = {}

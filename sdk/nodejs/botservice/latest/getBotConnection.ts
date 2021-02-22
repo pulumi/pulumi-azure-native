@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Bot channel resource definition
+ * Latest API Version: 2020-06-02.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getBotConnection'. */
 export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotConnectionResult> {
+    pulumi.log.warn("getBotConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getBotConnection'.")
     if (!opts) {
         opts = {}
     }

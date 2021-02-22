@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A Log Analytics QueryPack-Query definition.
+ */
 export function getQuery(args: GetQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryResult> {
     if (!opts) {
         opts = {}

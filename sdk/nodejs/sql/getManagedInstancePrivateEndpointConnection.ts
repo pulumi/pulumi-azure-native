@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * A private endpoint connection
+ * API Version: 2020-08-01-preview.
+ */
 export function getManagedInstancePrivateEndpointConnection(args: GetManagedInstancePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstancePrivateEndpointConnectionResult> {
     if (!opts) {
         opts = {}

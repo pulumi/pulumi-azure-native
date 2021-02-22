@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Peerings in a VirtualNetwork resource
+ */
 export function getvNetPeering(args: GetvNetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetvNetPeeringResult> {
     if (!opts) {
         opts = {}

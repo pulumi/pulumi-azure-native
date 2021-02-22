@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Snapshot policy information
+ */
 export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
     if (!opts) {
         opts = {}

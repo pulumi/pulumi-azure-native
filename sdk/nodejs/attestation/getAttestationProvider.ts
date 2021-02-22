@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Attestation service response message.
+ * API Version: 2020-10-01.
+ */
 export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationProviderResult> {
     if (!opts) {
         opts = {}

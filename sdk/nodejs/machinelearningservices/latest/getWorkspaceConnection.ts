@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Workspace connection.
+ * Latest API Version: 2021-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getWorkspaceConnection'. */
 export function getWorkspaceConnection(args: GetWorkspaceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceConnectionResult> {
+    pulumi.log.warn("getWorkspaceConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getWorkspaceConnection'.")
     if (!opts) {
         opts = {}
     }

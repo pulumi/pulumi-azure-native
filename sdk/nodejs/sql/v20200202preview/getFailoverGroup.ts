@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * A failover group.
+ */
 export function getFailoverGroup(args: GetFailoverGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFailoverGroupResult> {
     if (!opts) {
         opts = {}

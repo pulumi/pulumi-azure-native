@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Security assessment on a resource
+ * Latest API Version: 2020-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessment'. */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
+    pulumi.log.warn("getAssessment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessment'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Describes the result of the request to view entities.
+ * API Version: 2020-05-01.
+ */
 export function getEntity(args?: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
     args = args || {};
     if (!opts) {

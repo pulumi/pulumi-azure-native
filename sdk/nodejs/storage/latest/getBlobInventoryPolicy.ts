@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The storage account blob inventory policy.
+ * Latest API Version: 2021-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobInventoryPolicy'. */
 export function getBlobInventoryPolicy(args: GetBlobInventoryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobInventoryPolicyResult> {
+    pulumi.log.warn("getBlobInventoryPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobInventoryPolicy'.")
     if (!opts) {
         opts = {}
     }

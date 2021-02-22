@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Access Review Schedule Definition.
+ */
 export function getAccessReviewScheduleDefinitionById(args: GetAccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewScheduleDefinitionByIdResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Definition of the credential.
+ */
 export function getCredential(args: GetCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialResult> {
     if (!opts) {
         opts = {}

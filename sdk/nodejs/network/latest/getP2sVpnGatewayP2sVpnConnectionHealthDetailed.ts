@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * P2S Vpn connection detailed health written to sas url.
+ * Latest API Version: 2020-08-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnGatewayP2sVpnConnectionHealthDetailed'. */
 export function getP2sVpnGatewayP2sVpnConnectionHealthDetailed(args: GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> {
+    pulumi.log.warn("getP2sVpnGatewayP2sVpnConnectionHealthDetailed is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnGatewayP2sVpnConnectionHealthDetailed'.")
     if (!opts) {
         opts = {}
     }

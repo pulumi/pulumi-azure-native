@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Configures where to store the OMS agent data for workspaces under a scope
+ * API Version: 2017-08-01-preview.
+ */
 export function getWorkspaceSetting(args: GetWorkspaceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSettingResult> {
     if (!opts) {
         opts = {}

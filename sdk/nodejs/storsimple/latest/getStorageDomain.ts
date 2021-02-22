@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The storage domain.
+ * Latest API Version: 2016-10-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getStorageDomain'. */
 export function getStorageDomain(args: GetStorageDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageDomainResult> {
+    pulumi.log.warn("getStorageDomain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getStorageDomain'.")
     if (!opts) {
         opts = {}
     }

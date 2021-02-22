@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * An Azure Cosmos DB SQL database.
+ * Latest API Version: 2021-01-15.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getSqlResourceSqlDatabase'. */
 export function getSqlResourceSqlDatabase(args: GetSqlResourceSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlDatabaseResult> {
+    pulumi.log.warn("getSqlResourceSqlDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getSqlResourceSqlDatabase'.")
     if (!opts) {
         opts = {}
     }

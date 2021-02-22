@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The batch configuration resource definition.
+ */
 export function getIntegrationAccountBatchConfiguration(args: GetIntegrationAccountBatchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountBatchConfigurationResult> {
     if (!opts) {
         opts = {}

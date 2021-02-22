@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+ */
 export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginGroupResult> {
     if (!opts) {
         opts = {}

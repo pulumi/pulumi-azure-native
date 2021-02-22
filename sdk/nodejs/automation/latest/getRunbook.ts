@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Definition of the runbook type.
+ * Latest API Version: 2019-06-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getRunbook'. */
 export function getRunbook(args: GetRunbookArgs, opts?: pulumi.InvokeOptions): Promise<GetRunbookResult> {
+    pulumi.log.warn("getRunbook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getRunbook'.")
     if (!opts) {
         opts = {}
     }

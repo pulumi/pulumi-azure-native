@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The policy definition.
+ * API Version: 2020-09-01.
+ */
 export function getPolicyDefinitionAtManagementGroup(args: GetPolicyDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionAtManagementGroupResult> {
     if (!opts) {
         opts = {}

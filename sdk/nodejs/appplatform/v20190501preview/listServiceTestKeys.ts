@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Test keys payload
+ */
 export function listServiceTestKeys(args: ListServiceTestKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceTestKeysResult> {
     if (!opts) {
         opts = {}

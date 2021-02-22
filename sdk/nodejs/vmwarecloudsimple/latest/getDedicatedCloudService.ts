@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Dedicated cloud service model
+ * Latest API Version: 2019-04-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getDedicatedCloudService'. */
 export function getDedicatedCloudService(args: GetDedicatedCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedCloudServiceResult> {
+    pulumi.log.warn("getDedicatedCloudService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getDedicatedCloudService'.")
     if (!opts) {
         opts = {}
     }

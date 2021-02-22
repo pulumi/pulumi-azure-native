@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Api details.
+ * Latest API Version: 2019-12-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApi'. */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
+    pulumi.log.warn("getApi is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApi'.")
     if (!opts) {
         opts = {}
     }

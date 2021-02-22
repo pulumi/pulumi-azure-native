@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The Get Insights result operation response.
+ * API Version: 2019-01-01-preview.
+ */
 export function getEntityInsights(args: GetEntityInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityInsightsResult> {
     if (!opts) {
         opts = {}

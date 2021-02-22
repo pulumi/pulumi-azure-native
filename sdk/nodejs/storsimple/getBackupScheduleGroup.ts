@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * The Backup Schedule Group
+ * API Version: 2016-10-01.
+ */
 export function getBackupScheduleGroup(args: GetBackupScheduleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupScheduleGroupResult> {
     if (!opts) {
         opts = {}

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * List of list of items that violate tenant's configuration.
+ * API Version: 2020-09-01-preview.
+ */
 export function listListTenantConfigurationViolation(args?: ListListTenantConfigurationViolationArgs, opts?: pulumi.InvokeOptions): Promise<ListListTenantConfigurationViolationResult> {
     args = args || {};
     if (!opts) {

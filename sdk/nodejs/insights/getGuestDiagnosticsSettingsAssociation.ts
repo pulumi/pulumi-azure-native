@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Virtual machine guest diagnostic settings resource.
+ * API Version: 2018-06-01-preview.
+ */
 export function getGuestDiagnosticsSettingsAssociation(args: GetGuestDiagnosticsSettingsAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestDiagnosticsSettingsAssociationResult> {
     if (!opts) {
         opts = {}

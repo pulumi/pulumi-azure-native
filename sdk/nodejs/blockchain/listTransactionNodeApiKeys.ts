@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Collection of the API key payload which is exposed in the response of the resource provider.
+ * API Version: 2018-06-01-preview.
+ */
 export function listTransactionNodeApiKeys(args: ListTransactionNodeApiKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTransactionNodeApiKeysResult> {
     if (!opts) {
         opts = {}

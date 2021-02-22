@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Represents an image from the Azure Marketplace
+ * Latest API Version: 2018-10-15.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGalleryImage'. */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
+    pulumi.log.warn("getGalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGalleryImage'.")
     if (!opts) {
         opts = {}
     }

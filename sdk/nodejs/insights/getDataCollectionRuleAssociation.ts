@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Definition of generic ARM proxy resource.
+ * API Version: 2019-11-01-preview.
+ */
 export function getDataCollectionRuleAssociation(args: GetDataCollectionRuleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleAssociationResult> {
     if (!opts) {
         opts = {}

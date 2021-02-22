@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * API Version: 2019-10-01.
+ */
 export function getVMwareCollector(args: GetVMwareCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetVMwareCollectorResult> {
     if (!opts) {
         opts = {}

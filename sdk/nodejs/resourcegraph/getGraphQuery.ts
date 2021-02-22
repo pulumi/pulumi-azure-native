@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Graph Query entity definition.
+ * API Version: 2020-04-01-preview.
+ */
 export function getGraphQuery(args: GetGraphQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQueryResult> {
     if (!opts) {
         opts = {}

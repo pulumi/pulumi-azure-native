@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
+ * Latest API Version: 2018-05-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:maps:listAccountKeys'. */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
+    pulumi.log.warn("listAccountKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:maps:listAccountKeys'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Represents a database transparent data encryption configuration.
+ * API Version: 2014-04-01.
+ */
 export function getTransparentDataEncryption(args: GetTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTransparentDataEncryptionResult> {
     if (!opts) {
         opts = {}

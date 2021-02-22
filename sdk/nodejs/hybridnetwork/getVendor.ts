@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Vendor resource.
+ * API Version: 2020-01-01-preview.
+ */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
     if (!opts) {
         opts = {}

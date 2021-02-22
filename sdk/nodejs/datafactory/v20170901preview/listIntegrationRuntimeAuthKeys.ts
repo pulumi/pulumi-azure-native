@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * The integration runtime authentication keys.
+ */
 export function listIntegrationRuntimeAuthKeys(args: ListIntegrationRuntimeAuthKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationRuntimeAuthKeysResult> {
     if (!opts) {
         opts = {}

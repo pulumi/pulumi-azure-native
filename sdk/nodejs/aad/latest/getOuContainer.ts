@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Resource for OuContainer.
+ * Latest API Version: 2020-01-01.
+ */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getOuContainer'. */
 export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetOuContainerResult> {
+    pulumi.log.warn("getOuContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getOuContainer'.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+ */
 export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginGroupResult> {
     if (!opts) {
         opts = {}

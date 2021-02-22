@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Subscription migrate date information properties
+ * API Version: 2017-10-01.
+ */
 export function listEASubscriptionListMigrationDatePost(args?: ListEASubscriptionListMigrationDatePostArgs, opts?: pulumi.InvokeOptions): Promise<ListEASubscriptionListMigrationDatePostResult> {
     args = args || {};
     if (!opts) {
