@@ -46,15 +46,6 @@ export const PublicNetworkAccessEnum = {
  */
 export type PublicNetworkAccessEnum = (typeof PublicNetworkAccessEnum)[keyof typeof PublicNetworkAccessEnum];
 
-export const ServerKeyType = {
-    AzureKeyVault: "AzureKeyVault",
-} as const;
-
-/**
- * The key type like  'AzureKeyVault'.
- */
-export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
-
 export const ServerVersion = {
     ServerVersion_5_6: "5.6",
     ServerVersion_5_7: "5.7",

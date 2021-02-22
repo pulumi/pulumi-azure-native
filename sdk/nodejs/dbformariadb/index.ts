@@ -13,11 +13,9 @@ export * from "./getDatabase";
 export * from "./getFirewallRule";
 export * from "./getPrivateEndpointConnection";
 export * from "./getServer";
-export * from "./getServerKey";
 export * from "./getVirtualNetworkRule";
 export * from "./privateEndpointConnection";
 export * from "./server";
-export * from "./serverKey";
 export * from "./virtualNetworkRule";
 
 // Export enums:
@@ -44,7 +42,6 @@ import { Database } from "./database";
 import { FirewallRule } from "./firewallRule";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Server } from "./server";
-import { ServerKey } from "./serverKey";
 import { VirtualNetworkRule } from "./virtualNetworkRule";
 
 const _module = {
@@ -61,8 +58,6 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-nextgen:dbformariadb:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformariadb:ServerKey":
-                return new ServerKey(name, <any>undefined, { urn })
             case "azure-nextgen:dbformariadb:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:

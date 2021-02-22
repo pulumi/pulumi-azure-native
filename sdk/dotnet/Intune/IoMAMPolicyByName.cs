@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Intune
 {
     /// <summary>
     /// iOS Policy entity for Intune MAM.
-    /// API Version: 2015-01-14-privatepreview.
+    /// API Version: 2015-01-14-preview.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:intune:IoMAMPolicyByName")]
     public partial class IoMAMPolicyByName : Pulumi.CustomResource

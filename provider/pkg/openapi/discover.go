@@ -267,7 +267,7 @@ func calculateLatestVersions(knownVersions codegen.StringSet, provider string, v
 	for version := range versionMap {
 		if !IsPreview(version) {
 			stables = append(stables, version)
-		} else if preview {
+		} else if preview && !strings.Contains(version, "private") {
 			previews = append(previews, version)
 		}
 	}

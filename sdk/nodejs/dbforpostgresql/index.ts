@@ -14,13 +14,11 @@ export * from "./getFirewallRule";
 export * from "./getPrivateEndpointConnection";
 export * from "./getServer";
 export * from "./getServerAdministrator";
-export * from "./getServerGroup";
 export * from "./getServerKey";
 export * from "./getVirtualNetworkRule";
 export * from "./privateEndpointConnection";
 export * from "./server";
 export * from "./serverAdministrator";
-export * from "./serverGroup";
 export * from "./serverKey";
 export * from "./virtualNetworkRule";
 
@@ -61,7 +59,6 @@ import { FirewallRule } from "./firewallRule";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Server } from "./server";
 import { ServerAdministrator } from "./serverAdministrator";
-import { ServerGroup } from "./serverGroup";
 import { ServerKey } from "./serverKey";
 import { VirtualNetworkRule } from "./virtualNetworkRule";
 
@@ -81,8 +78,6 @@ const _module = {
                 return new Server(name, <any>undefined, { urn })
             case "azure-nextgen:dbforpostgresql:ServerAdministrator":
                 return new ServerAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:dbforpostgresql:ServerGroup":
-                return new ServerGroup(name, <any>undefined, { urn })
             case "azure-nextgen:dbforpostgresql:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
             case "azure-nextgen:dbforpostgresql:VirtualNetworkRule":

@@ -31,28 +31,15 @@ export const AdministratorType = {
  */
 export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
 
-export const CitusVersion = {
-    CitusVersion_8_3: "8.3",
-    CitusVersion_9_0: "9.0",
-    CitusVersion_9_1: "9.1",
-    CitusVersion_9_2: "9.2",
-    CitusVersion_9_3: "9.3",
-    CitusVersion_9_4: "9.4",
-    CitusVersion_9_5: "9.5",
-} as const;
-
-/**
- * The Citus version of server group.
- */
-export type CitusVersion = (typeof CitusVersion)[keyof typeof CitusVersion];
-
 export const CreateMode = {
     Default: "Default",
     PointInTimeRestore: "PointInTimeRestore",
+    GeoRestore: "GeoRestore",
+    Replica: "Replica",
 } as const;
 
 /**
- * The mode to create a new server group.
+ * The mode to create a new server.
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
@@ -103,16 +90,6 @@ export const MinimalTlsVersionEnum = {
  */
 export type MinimalTlsVersionEnum = (typeof MinimalTlsVersionEnum)[keyof typeof MinimalTlsVersionEnum];
 
-export const PostgreSQLVersion = {
-    PostgreSQLVersion_11: "11",
-    PostgreSQLVersion_12: "12",
-} as const;
-
-/**
- * The PostgreSQL version of server group.
- */
-export type PostgreSQLVersion = (typeof PostgreSQLVersion)[keyof typeof PostgreSQLVersion];
-
 export const PublicNetworkAccessEnum = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -123,16 +100,6 @@ export const PublicNetworkAccessEnum = {
  */
 export type PublicNetworkAccessEnum = (typeof PublicNetworkAccessEnum)[keyof typeof PublicNetworkAccessEnum];
 
-export const ServerEdition = {
-    GeneralPurpose: "GeneralPurpose",
-    MemoryOptimized: "MemoryOptimized",
-} as const;
-
-/**
- * The edition of a server (default: GeneralPurpose).
- */
-export type ServerEdition = (typeof ServerEdition)[keyof typeof ServerEdition];
-
 export const ServerKeyType = {
     AzureKeyVault: "AzureKeyVault",
 } as const;
@@ -141,16 +108,6 @@ export const ServerKeyType = {
  * The key type like 'AzureKeyVault'.
  */
 export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
-
-export const ServerRole = {
-    Coordinator: "Coordinator",
-    Worker: "Worker",
-} as const;
-
-/**
- * The role of servers in the server role group.
- */
-export type ServerRole = (typeof ServerRole)[keyof typeof ServerRole];
 
 export const ServerVersion = {
     ServerVersion_9_5: "9.5",
